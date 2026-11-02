@@ -160,3 +160,48 @@ internals is confirmed.
 Next action: `DOC-002` (put the carried-over decisions to the user),
 `EMU-001` (Mednafen 1.32.1, reusing the XvSF archive after a hash check),
 `TXT-001` (offline census of the script blocks), finish `REF-001`.
+
+## 2026-11-02 — SESSION-0002: carried-over decisions confirmed
+
+Task: DOC-002
+
+Goal: confirm, change or defer each sibling user decision for Cyberbots.
+
+Action: three rounds of multiple-choice questions, each option describing the
+MSHvSF and XvSF precedent, with a "(Recommended)" option. Evidence-dependent
+decisions (pairing unit, capacity route, dialogue layout, roster and
+exceptions, ending layout, name-variant delivery, caption and UI style) were
+not asked; `docs/localization_policy.md` "Deferred To Evidence" names the
+task that will ask each.
+
+Result (the user's chosen options, verbatim):
+
+- English source: "Official; fixes opt-in (Recommended)".
+- Text with no official English: "Recorded new translation (Recommended)".
+- Pilot and VA mech names: "Both variants, US default".
+- Eventual scope: "Boss & hidden pilots", "Menus, UI art & warnings",
+  "Attract & opening demos", "Rare & region-gated text".
+- Release formats: "xdelta + SSP (Recommended)".
+- Release timing: "After open tasks (Recommended)".
+- Patched Mednafen reuse: "Yes, reuse it (Recommended)".
+- Workflow: "Play check closes tasks", "Silent unattended runs", "Ask before
+  downloads/installs", "Hardware check before push".
+- PlayStation reference: "No, arcade only (Recommended)".
+- XvSF standing rules: "No cold boots without me", "Time estimates on jobs",
+  "Rebuild only new references", "Delete finished build images".
+
+Note on names: the user chose two variants from the start, unlike the
+recommended "US names, variants only if the census finds differences". Both
+siblings ended with US names by default; MSHvSF shipped two images and XvSF
+an Options toggle only. How Cyberbots delivers its two variants waits for the
+`REF-007` name census (`docs/lessons_from_xvsf.md`, lesson 9).
+
+Conclusion: recorded in `docs/localization_policy.md`; `AGENTS.md` rules 16
+and 21 cite the answers; `local_agent_guidance.md` notes the confirmed rules;
+`DOC-002` is `DONE`; `REF-002` is `REJECTED` by the user's answer. Scope
+answers do not lift any gate: special surfaces still wait for M9 and their own
+tasks (rule 24).
+
+Next action: `EMU-001` (Mednafen 1.32.1; copy XvSF's archive after a hash
+check, so no download), `REF-001` (pin `cps2.cpp`, boot `cybotsu`),
+`TXT-001`, `DOC-003`, `ENV-007`.

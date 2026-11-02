@@ -4,8 +4,8 @@ This repository will build an English patch for the Japanese Sega Saturn
 release of **Cyberbots: Fullmetal Madness** (Capcom, 1997, T-1217G). Wherever
 an official English text exists, the patch is meant to use it: the arcade
 release's English. Where none exists, it will use a new translation, marked as
-such. The translation policy is not settled yet (`DOC-002` in
-[TASKS.md](TASKS.md)).
+such. The full policy, as the user decided it, is in
+[docs/localization_policy.md](docs/localization_policy.md).
 
 The repository holds the tools, the translation data, and the expected hashes.
 It holds no game data. How the work is done is recorded in
@@ -89,6 +89,8 @@ Game data stays under ignored paths:
 - [docs/discoveries.md](docs/discoveries.md): confirmed findings only.
 - [docs/known_unknowns.md](docs/known_unknowns.md): open questions and the
   experiment that would answer each.
+- [docs/localization_policy.md](docs/localization_policy.md): the user's
+  translation, naming, scope and release decisions.
 - [docs/research_protocol.md](docs/research_protocol.md) and
   [research/experiments/README.md](research/experiments/README.md): how an
   experiment is run and recorded.

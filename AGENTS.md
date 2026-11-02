@@ -82,9 +82,8 @@ is not confirmation. An MSHvSF or XvSF result is an analogous game.
     patch (`vendor/mednafen/patches/`) may be built once stock Mednafen boots
     Cyberbots (`EMU-003`) and `EMU-020` records why stock Mednafen is
     insufficient, citing the sibling evidence. Re-run the interface validations
-    V1-V4 on Cyberbots (`EMU-021`) before using it as evidence. (Carried over
-    from the user's XvSF decision of 2026-10-27; `DOC-002` confirms it for
-    Cyberbots.)
+    V1-V4 on Cyberbots (`EMU-021`) before using it as evidence. (User
+    decision, 2026-11-02, `DOC-002`: "Yes, reuse it (Recommended)".)
 17. Any Mednafen change beyond that patch is the smallest useful change, with the
     upstream URL, version/revision, patches, rationale, and build steps preserved.
 18. Python 3.12+ is the default implementation language. Avoid large dependencies
@@ -93,10 +92,10 @@ is not confirmation. An MSHvSF or XvSF result is an analogous game.
 20. Update `TASKS.md` and `research_log.md` before ending a substantial session.
 21. Never commit copyrighted game images, BIOS files, extracted game contents,
     save states, memory dumps, screenshots, or emulator binaries.
-    Exception (carried from MSHvSF, user decision 2026-10-26; `DOC-002`
-    confirms it for Cyberbots): the release patch files themselves (xdelta and
-    SSP, and zips of them) may be published as GitHub Release assets. They are
-    still never committed to git history.
+    Exception (carried from MSHvSF, user decision 2026-10-26; confirmed for
+    Cyberbots 2026-11-02, `DOC-002`): the release patch files themselves
+    (xdelta and SSP, and zips of them) may be published as GitHub Release
+    assets. They are still never committed to git history.
 22. Keep binary evidence locally under ignored paths. Commit hashes, addresses,
     scripts, schemas, small synthetic fixtures, and derived factual metadata.
 23. Do not work on endings before the dialogue pipeline (M1-M5) is proven and

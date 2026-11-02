@@ -20,10 +20,15 @@ names it for its method only.
   of it is **HYPOTHESIS** until a runtime experiment confirms it. The most
   important observation: about 23,000 characters of plain Shift-JIS story
   dialogue sit in three files, `END.BIN`, `VICTORY.BIN` and `STG0AS.BIN`.
+- **2026-11-02: user decisions recorded** (`DOC-002`, `SESSION-0002`,
+  `docs/localization_policy.md`): official arcade English with fixes opt-in;
+  recorded new translations where none exists; both name variants, US default;
+  all four extra scopes eventually; xdelta + SSP after open tasks; patched
+  Mednafen reuse approved; arcade-only references (`REF-002` `REJECTED`).
 - Reverse-engineering experiments in progress: none.
-- Next unblocked tasks: `DOC-002` (user decisions), `EMU-001` (pin and build
-  stock Mednafen), `REF-001` (finish: boot the US set), `TXT-001` (offline
-  census of the Shift-JIS script blocks), `DOC-003` (reference catalog).
+- Next unblocked tasks: `EMU-001` (pin and build stock Mednafen), `REF-001`
+  (finish: boot the US set), `TXT-001` (offline census of the Shift-JIS
+  script blocks), `DOC-003` (reference catalog), `ENV-007` (retry Redump).
 - Nothing about Cyberbots' internals is confirmed yet.
 
 ## Milestones
@@ -135,13 +140,13 @@ English text goes on disc).
 
 ### DOC-002 - Confirm the sibling user decisions for Cyberbots
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** GATE-TRANSLATION
 - **Dependencies:** DOC-001.
 - **Blockers:** None.
 - **Objective:** Ask the user to confirm, change, or defer each decision in the playbook's "The User's MSHvSF Localization Decisions" table and `docs/lessons_from_xvsf.md` "User Decisions Worth Re-asking".
 - **Acceptance criteria:** Each decision has a recorded Cyberbots answer (verbatim, dated) or an explicit deferral to the task that produces its evidence, in `research_log.md` and `docs/localization_policy.md` (created by this task, on the XvSF file's structure: answered / deferred / per-gate tables).
-- **Notes:** Multiple-choice questions with a "(Recommended)" option. Include: reuse of the patched Mednafen (`AGENTS.md` rule 16); release formats and timing (rule 21); official arcade English vs. new translation for the story dialogue; names policy (pilots and VA mech names); whether the PS1 release is wanted as a reference (`REF-002`).
+- **Notes:** Done 2026-11-02 (`SESSION-0002`): three rounds of multiple-choice questions, ten decisions answered, seven evidence-dependent decisions deferred to named tasks. All in `docs/localization_policy.md`; `AGENTS.md` rules 16 and 21 now cite the answers.
 
 ### DOC-003 - Build the reference catalog
 
@@ -241,6 +246,7 @@ English text goes on disc).
 - **Blockers:** EMU-007.
 - **Objective:** Satisfy `AGENTS.md` rule 16 before using the patched build.
 - **Acceptance criteria:** A short record cites MSHvSF `EMU-012`/`EMU-020` and XvSF `EMU-020` and confirms the same limits apply here; the user's `DOC-002` answer on reusing the patch is cited.
+- **Notes:** `DOC-002` answer (2026-11-02): "Yes, reuse it (Recommended)".
 
 ### EMU-021 - Build and validate the agent interface
 
@@ -275,12 +281,13 @@ English text goes on disc).
 
 ### REF-002 - Intake a PlayStation image (optional)
 
-- **Status:** `BACKLOG`
+- **Status:** `REJECTED`
 - **Milestone:** GATE-TRANSLATION
 - **Dependencies:** DOC-002.
-- **Blockers:** No PS1 image supplied. Ask the user (`DOC-002`); the Japanese-only PS1 release is probably a weaker oracle than the arcade.
+- **Blockers:** None.
 - **Objective:** Decide whether a PS1 release adds a reference.
 - **Acceptance criteria:** Either every component is hashed with an identity status, or the task is `REJECTED` with the user's reason.
+- **Notes:** Rejected 2026-11-02 by the user's `DOC-002` answer "No, arcade only (Recommended)": the PS1 release is Japanese-only and adds no official English.
 
 ### REF-003 - Locate and decode the arcade English text
 
@@ -392,7 +399,7 @@ English text goes on disc).
 
 - **Status:** `BLOCKED`
 - **Milestone:** M2
-- **Dependencies:** DOC-002, REF-001, REF-003 to REF-007.
+- **Dependencies:** DOC-002, REF-001, REF-003 to REF-007 (REF-002 rejected).
 - **Blockers:** Dependencies not done.
 - **Objective:** No English text goes on disc before the oracle, the pairing method, and the user's policy are settled.
 - **Acceptance criteria:** Every dependency is `DONE`; the user gives a recorded GO. Each later scope extension (new pilot, endings, names) is its own dated block under this gate.
@@ -424,6 +431,6 @@ and `docs/lessons_from_xvsf.md`.
 | UI-002 | after M8, user request | Attract and opening text (`OPDEMO*`, `STDEM*.PIR`, `VADEM*.MAC`, `STDEMO.*` are candidates): layer, container, codecs, oracles. |
 | UI-003 | after M8, user request | Other UI text (select, continue, ranking, options): find the arcade English by tracing the arcade code. |
 | TXT-002 | after M8, user request | Rare, random, or region-gated text: trace every reader of every text table. |
-| LOC-001 | after REF-007 | Names policy and variants; whether both conventions' art and voice are already on the disc; toggle decided early. |
+| LOC-001 | after REF-007 | Both variants, US default (`DOC-002`); whether both conventions' art and voice are already on the disc; two images or an Options toggle decided right after the census. |
 | SPECIAL-001 | M9, user approval | Boss and hidden pilots, alternate routes, unlocks. |
 | REL-001 | after M5 | Copy XvSF `make_patch`/`make_ssp` (with the RetroAchievements header guard) and parameterize the source folder, manifest and author; xdelta and SSP; release zips via promoted `make_zips`/`check_zips`. Patches are Release assets only, never committed. |
