@@ -110,6 +110,8 @@ and agree with an independent `shasum -a 256` of the CUE and track 01.
   (`ARI_END1`, `BAO_END`, `DE_END1`, `GA_END1`, `JIN_END1`, `MA_END1`,
   `SAN_END1`, `SYE_END1`, `TI_END1`, and their numbered siblings). For `01`,
   LSN 43,943 and 2,110 sectors equal track 02's start after its pregap and its
-  length less the pregap, so these entries are **HYPOTHESIS: ISO names for
-  CD-DA tracks**, the named ones probably ending music.
+  length less the pregap. **Confirmed** (`EXP-0001`, D-002): each of the 61
+  entries starts at one audio track's first sector, per Mednafen's table of
+  contents; the 21 named ones are tracks 42-62. Their content is not yet
+  known.
 - **Text.** First-look results are in `research_log.md` (SESSION-0001).

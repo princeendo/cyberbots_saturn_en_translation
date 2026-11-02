@@ -32,11 +32,17 @@ names it for its method only.
 - **2026-11-02: project-local Mednafen homes pinned** (`EMU-002`,
   `SESSION-0004`): interactive and silent homes, Japanese and US BIOS
   verified against Mednafen's documented hashes.
-- Next unblocked tasks: `EMU-003` (first cold boot; with the user present),
-  `REF-001`
+- **2026-11-02: Cyberbots boots** (`EMU-003`, `EXP-0001`, D-001): three
+  silent cold boots reach the title at about 57 s, identical frames;
+  Mednafen gives it the 1 MiB cart. D-002: each audio track has one ISO
+  entry. No Japanese text in the first two minutes of boot and attract.
+- Next unblocked tasks: `EMU-004` (cart controls), `EMU-005` (pad, needs the
+  user's controller), `EMU-006` (screenshots and states), all with the user
+  present; offline: `REF-001`
   (finish: boot the US set), `TXT-001` (offline census of the Shift-JIS
   script blocks), `DOC-003` (reference catalog), `ENV-007` (retry Redump).
-- Nothing about Cyberbots' internals is confirmed yet.
+- Confirmed so far: D-001 (boot), D-002 (audio-track layout). Nothing about
+  the text, font or renderer is confirmed.
 
 ## Milestones
 
@@ -198,40 +204,40 @@ English text goes on disc).
 
 ### EMU-003 - Boot Cyberbots
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** M0
 - **Dependencies:** EMU-002, ENV-006.
 - **Blockers:** Needs the user present (`local_agent_guidance.md`, "Emulator Consent").
 - **Objective:** Reach the title screen from a cold boot of the untouched image.
 - **Acceptance criteria:** Three cold boots reach a stable title screen; the boot log shows `T-1217G`; source hashes match before and after; screenshots kept locally.
-- **Notes:** Use `tools/mednafen/cold_boot.py` and the quiet home. With the user present (`local_agent_guidance.md`, "Emulator Consent").
+- **Notes:** Done 2026-11-02 (`EXP-0001`, D-001). Three 120 s boots, exit 0, 119 of 119 per-second frames identical; `SGID: T-1217G`, `Cart: 1MiB Extended RAM`; title logo from about 57 s, `PRESS START BUTTON` 61-66 s (frame 064 `e9f12474…ee24`); 63 source components unchanged. `tools/mednafen/cold_boot.py` re-validated here. Side result D-002: the 61 ISO entries past track 01 are the 61 audio tracks, one each.
 
 ### EMU-004 - Determine the cartridge requirement
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M0
 - **Dependencies:** EMU-003.
-- **Blockers:** EMU-003.
+- **Blockers:** Needs the user present (emulator consent).
 - **Objective:** Find which cartridge setting the game needs, with controls.
 - **Acceptance criteria:** Boots with `ss.cart` set to `none`, `extram1` and `extram4` are each recorded (log line, what the game shows, how far it gets); the project setting is chosen from that evidence.
 - **Notes:** Both siblings needed the 4 MiB cart. Cyberbots is **UNKNOWN**. Mednafen 1.32.1's database lists `T-1217G` as `CART_EXTRAM_1M` with no "Game requirement" note (`docs/mednafen.md`), so `ss.cart auto` should give it 1 MiB; the header's peripheral field reads `JW`, and the Redump name carries "(2M)", whose meaning is not yet known (`ENV-007`). The `WARNING0-4.PIX` files may be the cart or save warnings (`UI-004`).
 
 ### EMU-005 - Configure and document the pad
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M0
 - **Dependencies:** EMU-003.
-- **Blockers:** EMU-003.
+- **Blockers:** Needs the user and their controller.
 - **Objective:** The user's controller drives every button the game uses, and Start, in game.
 - **Acceptance criteria:** A mapping table is recorded and each button is observed in the game's button configuration or in play.
 - **Notes:** Start from the sibling 8BitDo M30 mapping. Cyberbots arcade uses four buttons (two weapons, a boost, and a jump/special), not six; check the Saturn layout.
 
 ### EMU-006 - Verify screenshots and save states
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M0
 - **Dependencies:** EMU-003.
-- **Blockers:** EMU-003.
+- **Blockers:** Needs the user present (emulator consent).
 - **Objective:** Screenshots and save/load states work and are stored under ignored paths.
 - **Acceptance criteria:** A state saved and reloaded reproduces the same screen; files are ignored by git.
 

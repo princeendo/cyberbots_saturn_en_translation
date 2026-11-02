@@ -274,3 +274,35 @@ to be present (standing rule "No cold boots without me").
 Next action: `EMU-003` with the user present (three silent cold boots of the
 untouched image to the title with `tools/mednafen/cold_boot.py`); meanwhile
 offline tasks `TXT-001`, `DOC-003`, `REF-001` (pin `cps2.cpp`).
+
+## 2026-11-02 — EXP-0001: unattended cold boots to the title
+
+Task: EMU-003
+
+Goal: show that stock Mednafen boots the untouched image, the same way each
+time, before any further emulator work.
+
+Observation: `EMU-002` homes and BIOS in place; the game had never run.
+
+Hypothesis: with the silent home and no input, three cold boots reach a stable
+title screen within 120 s, log `T-1217G`, and leave the source unchanged.
+
+Action: with the user present ("Yes, boot it now"), a 20 s pilot, then three
+120 s boots with `tools/mednafen/cold_boot.py`, emptying `sav/` before each;
+source hashed before and after (`research/experiments/EXP-0001/README.md`).
+Started 13:53:58 local time, finished 14:01:18 (2 min 15 s per boot).
+
+Result: all exit 0; `SGID: T-1217G`, `SGNAME: CYBER BOTS`, `SGAREA: J`,
+`Cart: 1MiB Extended RAM`; 119 of 119 frames byte-identical across boots;
+title logo from frame 058, `PRESS START BUTTON` on 062-067; source, binary
+and configs unchanged. No Japanese text in boot or attract apart from
+background signage in the demo stage. Mednafen's table of contents matches
+every out-of-track ISO entry to exactly one audio track (D-002).
+
+Conclusion: **CONFIRMED** (D-001, D-002). `cold_boot.py` is re-validated on
+Cyberbots. `EMU-003` `DONE`; `EMU-004`, `EMU-005`, `EMU-006` `READY`, all
+needing the user present.
+
+Next action: `EMU-004` cart controls (`ss.cart none`, `extram1`, `extram4`)
+with `cold_boot.py --setting`, then `tools.mednafen.home` to restore the
+config; `EMU-005` with the user's controller.
