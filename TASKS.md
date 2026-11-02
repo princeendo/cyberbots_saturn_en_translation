@@ -48,15 +48,17 @@ names it for its method only.
   `EXP-0004`, D-005): repeatable WRAM-L/WRAM-H dumps at a freeze, an exact
   write and restore, a write breakpoint that halts. The dumps and a state of
   the same instant are ready for `DBG-001`.
-- Next unblocked tasks: `EMU-020` (record why stock is insufficient; offline),
-  then `EMU-021` (build the agent interface, validate V1-V4 with the user
-  present); `DBG-001` (validate the state extractor; offline); offline:
-  `REF-001`
+- **2026-11-02: save-state extraction validated** (`DBG-001`, `EXP-0005`,
+  D-006) for WRAM-L, WRAM-H, VDP1 and VDP2 VRAM; cart RAM not validated.
+- Next unblocked tasks: `EMU-020` (record why stock is insufficient;
+  offline), then `EMU-021` (build the agent interface, validate V1-V4 with
+  the user present); offline: `REF-001`, `TXT-001`, `DOC-003`
   (finish: boot the US set), `TXT-001` (offline census of the Shift-JIS
   script blocks), `DOC-003` (reference catalog), `ENV-007` (retry Redump).
 - Confirmed so far: D-001 (boot), D-002 (audio-track layout), D-003 (no cart
   needed for boot and attract), D-004 (screenshots and states by hotkey),
-  D-005 (stock debugger dumps, writes, breakpoints). Nothing about
+  D-005 (stock debugger dumps, writes, breakpoints), D-006 (state extractor
+  valid for work RAM and VRAM). Nothing about
   the text, font or renderer is confirmed.
 
 ## Milestones
@@ -288,13 +290,13 @@ English text goes on disc).
 
 ### DBG-001 - Validate the save-state extractor on Cyberbots
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** M0
 - **Dependencies:** EMU-007.
-- **Blockers:** None. Inputs from `EXP-0004` run A2: state `local/emu007/run-a2-state/*.mc0` and the debugger dumps `research/memory_dumps/emu007/wram{l,h}-1.bin` of the same freeze (VDP1/VDP2 VRAM dumps still to take).
+- **Blockers:** None.
 - **Objective:** Extract WRAM-L, WRAM-H, VDP1 and VDP2 VRAM from states, validated byte for byte against debugger dumps of the same instant on Cyberbots.
 - **Acceptance criteria:** Each region matches a stock debugger dump exactly; the result goes to `docs/discoveries.md`; cart RAM stays `HYPOTHESIS`.
-- **Notes:** Both siblings found each stored 16-bit element byte-swapped. Re-test, do not assume.
+- **Notes:** Both siblings found each stored 16-bit element byte-swapped. Re-tested, not assumed. Done 2026-11-02 (`EXP-0005`, D-006): with the swap, WRAM-L and WRAM-H (instants A2 and H) and VDP1/VDP2 VRAM (instant H) equal the debugger dumps; without it, every region differs. Cart RAM: the state holds 1 MiB (`LO`/`HI` 512 KiB each); the tool's `cart_ram` entry expects XvSF's 4 MiB and refuses, so the no-`--region` default fails on Cyberbots. Run G failed silently first (`option+3` not taken); run H, keys one second apart, worked.
 
 ## Phase D: References And The Translation Oracle
 

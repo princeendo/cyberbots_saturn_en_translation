@@ -74,3 +74,15 @@ WRAM-H. One run lost its WRAM-L dumps without an error: check that every dump
 file exists.
 
 Reproduce: `research/experiments/EXP-0004/README.md`, "Procedure".
+
+## D-006: The save-state extractor is valid for work RAM and VRAM (`DBG-001`, `EXP-0005`)
+
+`tools/memory/mcs_extract.py` with its default `saturn` byte order (each
+stored 16-bit element swapped) reproduces stock debugger dumps of the same
+frozen instant byte for byte: WRAM-L and WRAM-H at two instants, VDP1 VRAM and
+VDP2 VRAM at one. Without the swap (`--byte-order state`) every region
+differs. These four regions extracted from Mednafen 1.32.1 states may be used
+as evidence. Cart RAM is not validated, and the tool's 4 MiB cart entry
+refuses Cyberbots' 1 MiB cart, so pass `--region` explicitly.
+
+Reproduce: `research/experiments/EXP-0005/README.md`, "Procedure".

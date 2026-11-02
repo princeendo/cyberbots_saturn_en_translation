@@ -1,0 +1,47 @@
+# DBG-001 run H: run G with the debugger keys one second apart and a capture after option+3
+63 option+a
+64 F5
+65 option+d
+66 option+3
+67 window=local/dbg001/win/h-editor.png
+67 period
+67 window=local/dbg001/win/h-space01.png
+67 d
+67 type=00000000 000fffff research/memory_dumps/dbg001/h-wraml.bin
+67 window=local/dbg001/win/h-prompt01.png
+67 return
+67 period
+67 window=local/dbg001/win/h-space02.png
+67 d
+67 type=00000000 000fffff research/memory_dumps/dbg001/h-wramh.bin
+67 window=local/dbg001/win/h-prompt02.png
+67 return
+67 period
+67 window=local/dbg001/win/h-space03.png
+67 period
+67 window=local/dbg001/win/h-space04.png
+67 period
+67 window=local/dbg001/win/h-space05.png
+67 period
+67 window=local/dbg001/win/h-space06.png
+67 period
+67 window=local/dbg001/win/h-space07.png
+67 period
+67 window=local/dbg001/win/h-space08.png
+67 period
+67 window=local/dbg001/win/h-space09.png
+67 d
+67 type=00000000 0007ffff research/memory_dumps/dbg001/h-vdp1.bin
+67 window=local/dbg001/win/h-prompt09.png
+67 return
+67 period
+67 window=local/dbg001/win/h-space10.png
+67 period
+67 window=local/dbg001/win/h-space11.png
+67 period
+67 window=local/dbg001/win/h-space12.png
+67 d
+67 type=00000000 0007ffff research/memory_dumps/dbg001/h-vdp2.bin
+67 window=local/dbg001/win/h-prompt12.png
+67 return
+67 window=local/dbg001/win/h-done.png

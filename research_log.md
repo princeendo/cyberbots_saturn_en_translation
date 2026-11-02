@@ -431,3 +431,34 @@ Next action: `EMU-020` (offline record citing the siblings' evidence), then
 `EMU-021` (apply the patch, build, validate V1-V4 with the user present);
 `DBG-001` (extract WRAM-L/WRAM-H from the run A2 state and compare with the
 dumps; add VDP1/VDP2 VRAM dumps).
+
+## 2026-11-02 — EXP-0005: save-state extractor validated
+
+Task: DBG-001
+
+Goal: show that `mcs_extract.py` reproduces same-instant debugger dumps on
+Cyberbots before any extracted region is used as evidence.
+
+Hypothesis: the default `saturn` byte order (16-bit swap) reproduces WRAM-L,
+WRAM-H, VDP1 VRAM and VDP2 VRAM exactly; the unswapped order does not.
+
+Action: offline comparison for `EXP-0004` instant A2 (work RAMs); then, with
+the user present ("DBG-001 first"), a new freeze dumping all four regions
+with a state saved at the same instant. Run G (14:44 local) failed: the
+memory editor never opened, the typed commands went to the CPU view, no dump
+was written (kept in `local/dbg001/run-g-failed/`). Run H (14:46), keys a
+second apart and a capture after `option+3`, wrote all four dumps; captures
+confirmed the four address-space names.
+
+Result: `saturn` output identical to every dump (six comparisons, two
+instants for WRAM-H); `state` order differs in every region (17,034 to
+712,044 bytes). The extractor refuses the cart section: 1 MiB present, 4 MiB
+expected. Also a shell slip: an unquoted `$R` holding several `--region`
+flags was passed as one argument under zsh; rerun with the flags written out.
+
+Conclusion: **CONFIRMED** (D-006). Work RAM and VRAM from states are usable
+evidence; cart RAM is not, and the default all-regions extraction fails on
+this game. Silent hotkey/debugger failures are now three; recorded in
+`docs/known_unknowns.md`, to be retired by the agent interface.
+
+Next action: `EMU-020` (offline), then `EMU-021` with the user present.

@@ -1,0 +1,46 @@
+# DBG-001 run G: one freeze; save a state; capture every address space; dump WRAM-L, WRAM-H, VDP1 VRAM, VDP2 VRAM
+63 option+a
+63 F5
+63 option+d
+63 option+3
+63 period
+63 window=local/dbg001/win/g-space01.png
+63 d
+63 type=00000000 000fffff research/memory_dumps/dbg001/g-wraml.bin
+63 window=local/dbg001/win/g-prompt01.png
+63 return
+63 period
+63 window=local/dbg001/win/g-space02.png
+63 d
+63 type=00000000 000fffff research/memory_dumps/dbg001/g-wramh.bin
+63 window=local/dbg001/win/g-prompt02.png
+63 return
+63 period
+63 window=local/dbg001/win/g-space03.png
+63 period
+63 window=local/dbg001/win/g-space04.png
+63 period
+63 window=local/dbg001/win/g-space05.png
+63 period
+63 window=local/dbg001/win/g-space06.png
+63 period
+63 window=local/dbg001/win/g-space07.png
+63 period
+63 window=local/dbg001/win/g-space08.png
+63 period
+63 window=local/dbg001/win/g-space09.png
+63 d
+63 type=00000000 0007ffff research/memory_dumps/dbg001/g-vdp1.bin
+63 window=local/dbg001/win/g-prompt09.png
+63 return
+63 period
+63 window=local/dbg001/win/g-space10.png
+63 period
+63 window=local/dbg001/win/g-space11.png
+63 period
+63 window=local/dbg001/win/g-space12.png
+63 d
+63 type=00000000 0007ffff research/memory_dumps/dbg001/g-vdp2.bin
+63 window=local/dbg001/win/g-prompt12.png
+63 return
+63 window=local/dbg001/win/g-done.png
