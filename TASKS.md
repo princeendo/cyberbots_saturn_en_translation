@@ -78,8 +78,12 @@ names it for its method only.
   names in both regions; only the pilot-select and VS-screen name art differs
   (katakana or Latin). User decision: an Options-screen toggle, Latin by
   default (`docs/localization_policy.md`).
-- Next unblocked task: `REF-008` (choose the first pilot and line from the
-  session's checkpoints).
+- **2026-11-02: M1 target chosen** (`REF-008`, `EXP-0013`): Jin's first
+  pre-fight box, Saturn lines 4-5 (arcade slot 2), checkpoint
+  `local/ref005/session/states/f00005386.mcs`, replayed exactly. Milestone
+  unit: the box.
+- Next unblocked task: `DBG-002` (does the box vary when replayed from one
+  checkpoint?), then `DBG-003`, `DBG-004`; then `GATE-M0`.
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -104,7 +108,7 @@ exact unit ("line", "box", "exchange") is fixed by `REF-008` from evidence.
 | ID | Required outcome |
 | --- | --- |
 | M0 | Mednafen runs; Cyberbots boots with the right cartridge setting; pad, screenshots, save states, debugger, agent interface, validated extraction, documentation, and Python tooling work. |
-| M1 | One ordinary pilot's story dialogue line is visibly modified in live Saturn RAM. |
+| M1 | One ordinary pilot's story dialogue box is visibly modified in live Saturn RAM (unit fixed by `REF-008`: a box, one or two Saturn lines). |
 | M2 | The same change is reproduced from an untouched source image. |
 | M3 | All of that pilot's story dialogue is handled programmatically. |
 | M4 | A second pilot works through the same generalized mechanism. |
@@ -407,12 +411,13 @@ English text goes on disc).
 
 ### REF-008 - Choose the first pilot and line
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** M1
 - **Dependencies:** REF-005, TXT-001.
 - **Blockers:** None.
 - **Objective:** Pick one ordinary pilot and one dialogue line as the M1 target, and fix the milestone unit (line, box, or exchange).
 - **Acceptance criteria:** The choice and reason are recorded; the Japanese is captured on screen, transcribed, and matched to its `TXT-001` record; a checkpoint shortly before the line exists.
+- **Notes:** Done 2026-11-02 (`EXP-0013`): Jin's first pre-fight box to Shade, Saturn lines 4-5 (exact pairs with arcade slot 2), chosen as the first ordinary-pilot box with official English. On screen at session frames 5386-5693; transcription in the ignored `local/ref008/transcription.txt`. Checkpoint `f00005386.mcs` (`1e8adce3…9b56`): replay matches the session's box byte for byte. Unit fixed: the box (one arcade record, one or two Saturn lines).
 
 ## Phase E: Text, Checkpoints And Memory Analysis
 
@@ -428,10 +433,10 @@ English text goes on disc).
 
 ### DBG-002 - Observe dialogue selection behaviour
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M1
 - **Dependencies:** EMU-021, REF-008.
-- **Blockers:** REF-008.
+- **Blockers:** None.
 - **Objective:** Learn whether the dialogue shown from one checkpoint is fixed or varies, before planning checkpoints.
 - **Acceptance criteria:** Several replays of one pre-dialogue state, with the lines shown recorded.
 

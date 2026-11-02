@@ -758,3 +758,23 @@ and a new `OPT-001` outline added (models: MSHvSF `OPT-003`-`OPT-005`,
 read-only).
 
 Next action: `REF-008` (pick the M1 pilot and line from the session).
+
+## 2026-11-02 — EXP-0013: M1 target line and checkpoint
+
+Task: REF-008
+
+Goal: pick the M1 target, fix the milestone unit, and prove a checkpoint.
+
+Action: listed the pairing of Saturn lines 0-13; located the session frames
+of Jin's first pre-fight box; replayed the session state at frame 5386 for
+300 frames in the silent home; compared box regions.
+
+Result (`research/experiments/EXP-0013/README.md`): target Saturn lines 4-5,
+exact pairs with arcade slot 2; box on screen at session frames 5386-5693;
+the replay's completed box equals the session's byte for byte (box-region
+hash `c10179ad2f7af072`). `replay_state.py` re-validated.
+
+Conclusion: **CONFIRMED**. Milestone unit is the box. `DBG-002` is `READY`.
+
+Next action: `DBG-002` (replay the checkpoint several times and check the
+same box appears each time), then `DBG-003` and `DBG-004`.
