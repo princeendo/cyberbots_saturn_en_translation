@@ -53,9 +53,14 @@ names it for its method only.
 - **2026-11-02: agent interface built and validated** (`EMU-020`,
   `EMU-021`, `EXP-0006`, D-007): reads, writes, halt control and
   breakpoints are scriptable; the M0 emulator work is complete.
+- **2026-11-02: offline references done** (`SESSION-0006`): the source image
+  equals Redump 58190 (`ENV-007`); the arcade sets are identified by SHA-1
+  and boot headless (`REF-001`); `docs/references.md` catalogs platform
+  references and Cyberbots prior art (`DOC-003`). Secondary sources say the
+  console ports add four pilots with no arcade English, and voiced story.
 - Next unblocked tasks: `REF-005` (Saturn text-surface inventory; needs the
   user to play while `session_recorder.py` runs, keeping every state);
-  offline: `REF-001` (pin `cps2.cpp`, boot `cybotsu`), `DOC-003`, `ENV-007`.
+  `REF-003` (locate the arcade English; offline, MAME).
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -156,13 +161,13 @@ English text goes on disc).
 
 ### ENV-007 - Verify the source image against a database
 
-- **Status:** `BLOCKED`
+- **Status:** `DONE`
 - **Milestone:** M0 (do early; XvSF did this the day before release)
 - **Dependencies:** ENV-006.
-- **Blockers:** `redump.org` refused the connection on 2026-11-02 (`ECONNREFUSED` from the web fetcher). Retry in the built-in browser, as XvSF did.
+- **Blockers:** None.
 - **Objective:** Raise the image identity from **SUPPORTED** to **CONFIRMED**, and learn what "(2M)" in the Redump name distinguishes.
 - **Acceptance criteria:** Track hashes match a named database entry (size, CRC-32, MD5, SHA-1 per track), or a mismatch is recorded with its consequence; any other Redump entries for this title are listed with how their track 01 differs.
-- **Notes:** The release patch must name the exact image it applies to either way.
+- **Notes:** The release patch must name the exact image it applies to either way. Done 2026-11-02 (`SESSION-0006`): all 62 tracks and the CUE equal Redump 58190 ("(2M)", T-1217G, Original, mastering `T-1217GP-01438 2MB1`) in SHA-1, MD5 and CRC-32. The other entry, 3669 ("(1M)", T-1216G, Limited Edition, mastering `…1M2`), has the same track 01 and different audio tracks. "(2M)"/"(1M)" mark the masterings. `references/saturn_jp/redump_*.json`. The earlier refusal came from the web-fetch tool; `curl` and the built-in browser worked.
 
 ## Phase B: Documentation And Decisions
 
@@ -188,13 +193,13 @@ English text goes on disc).
 
 ### DOC-003 - Build the reference catalog
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** M0 (do early)
 - **Dependencies:** DOC-001.
 - **Blockers:** None.
 - **Objective:** Reuse the sibling platform references and list Cyberbots-specific prior art.
 - **Acceptance criteria:** `docs/references.md` lists the platform references (Saturn, SH-2, CD/ISO 9660, Mednafen, CPS-II, MAME) with their sibling source, and separately any Cyberbots prior art: translation projects, text dumps, script comparisons, official English releases.
-- **Notes:** 2026-11-02 quick web search found no Saturn English patch for Cyberbots. Candidates to read: the Lost In Translation page on Cyberbots (exotica.org.uk) for regional text differences; Capcom Fighting Collection (2022) as a modern official English release of the arcade game (not supplied; reference only).
+- **Notes:** Done 2026-11-02: `docs/references.md`, platform sections copied unchanged from XvSF `9cb01ad` (identical to MSHvSF `abd3fa6`), plus "Cyberbots Prior Art". No Saturn translation found. TCRF's arcade page and Lost In Translation's page are behind bot checks and stay unread leads for `REF-003`; Hardcore Gaming 101 was in maintenance.
 
 ### DOC-004 - Start the README in its final layout
 
@@ -311,13 +316,13 @@ English text goes on disc).
 
 ### REF-001 - Intake the arcade sets
 
-- **Status:** `IN_PROGRESS`
+- **Status:** `DONE`
 - **Milestone:** GATE-TRANSLATION
 - **Dependencies:** ENV-002.
 - **Blockers:** None.
 - **Objective:** Identify every arcade zip and key against a pinned MAME, and boot the sets needed for capture.
 - **Acceptance criteria:** Each file is hashed and matched to a MAME set name; the pinned MAME version and driver source are recorded; the US set boots headless.
-- **Notes:** 2026-11-02 (`references/arcade/README.md`): all five supplied zips hashed; with `qsound.zip` added, all five verify in MAME 0.289 (`cybots` Europe 950424, `cybotsu` USA 950424, `cybotsj` Japan 950420, `cybotsud` and `cybotsjd` decrypted bootlegs). Remaining: pin the `capcom/cps2.cpp` source (as the siblings' `local/mame_src/`) and run `tools.reference.mame_audit` against it; boot `cybotsu` headless with the user present.
+- **Notes:** 2026-11-02 (`references/arcade/README.md`): all five supplied zips hashed; with `qsound.zip` added, all five verify in MAME 0.289 (`cybots` Europe 950424, `cybotsu` USA 950424, `cybotsj` Japan 950420, `cybotsud` and `cybotsjd` decrypted bootlegs). Done 2026-11-02 (`SESSION-0006`): every member matched by SHA-1 against `mame -listxml 'cybots*'` (`references/arcade/manifest.json`); `cps2.cpp` pinned (`a8c09ef8…1602`, as the siblings), `mame_audit` 21/21 on `cybots.zip`; `cybotsu` and `cybotsj` boot headless (exit 0) into attract mode with `INSERT COIN`.
 
 ### REF-002 - Intake a PlayStation image (optional)
 
@@ -331,10 +336,10 @@ English text goes on disc).
 
 ### REF-003 - Locate and decode the arcade English text
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** GATE-TRANSLATION
 - **Dependencies:** REF-001.
-- **Blockers:** REF-001.
+- **Blockers:** None.
 - **Objective:** Find where the arcade stores its English story dialogue, win quotes (if any) and ending text, and how it is encoded.
 - **Acceptance criteria:** A decoder reproduces known English strings from the local ROM; the table shape, pointer tables and regional differences are recorded; punctuation mappings are tested statistically.
 - **Notes:** The decrypted program image (`cybotsud`: `cybu_d.03` + `cybu_d.04`, word-swapped) holds only a few ASCII strings (region names, RAM test, `WON LOST CONTINUE ENDING`). The dialogue is therefore in another encoding or in another ROM; XvSF found its English with an offset histogram of common words, MSHvSF as 16-bit codes. Trace the arcade's readers (`mame_timeline.lua` `logreads`), do not stop at a data search.
@@ -472,5 +477,5 @@ and `docs/lessons_from_xvsf.md`.
 | UI-003 | after M8, user request | Other UI text (select, continue, ranking, options): find the arcade English by tracing the arcade code. |
 | TXT-002 | after M8, user request | Rare, random, or region-gated text: trace every reader of every text table. |
 | LOC-001 | after REF-007 | Both variants, US default (`DOC-002`); whether both conventions' art and voice are already on the disc; two images or an Options toggle decided right after the census. |
-| SPECIAL-001 | M9, user approval | Boss and hidden pilots, alternate routes, unlocks. |
+| SPECIAL-001 | M9, user approval | Boss and hidden pilots, alternate routes, unlocks. Secondary sources (`docs/references.md`) say the console ports add four pilots (Chiyomaru Kagura, Tessan Hagure, Princess Devilotte, SHADE) with no arcade English, and an Akuma-mech code; their lines need recorded new translations under the user's policy. |
 | REL-001 | after M5 | Copy XvSF `make_patch`/`make_ssp` (with the RetroAchievements header guard) and parameterize the source folder, manifest and author; xdelta and SSP; release zips via promoted `make_zips`/`check_zips`. Patches are Release assets only, never committed. |

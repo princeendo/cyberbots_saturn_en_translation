@@ -1,0 +1,397 @@
+{
+ "url": "http://redump.org/disc/3669/",
+ "title": "Cyberbots - Fullmetal Madness (Japan) (1M)",
+ "serial": "T-1216G",
+ "edition": "Limited Edition",
+ "barcode": "4 976219 154789",
+ "mastering_code": "T-1217GP-01438   1M2   C   73",
+ "mastering_sid": "IFPI L223",
+ "mould_sid": "IFPI 3912",
+ "system": "Sega Saturn",
+ "build_date": "1997-02-19",
+ "version": "1.002",
+ "tracks": 62,
+ "write_offset": 0,
+ "errors": 0,
+ "retrieved": "2026-11-02, built-in browser (page) and curl (sha1, md5, sfv, cue lists)",
+ "files": [
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 01).bin",
+   "sha1": "699b6be716ba29773b7503f4b815fc9b97cfa848",
+   "md5": "161db5cf79a46eed7c6aeb57acedcd8d",
+   "crc32": "86c3a4b3"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 02).bin",
+   "sha1": "bd6d8889cc0c2c21267db2ab6f1a7e1d7148b2e2",
+   "md5": "d55add0ca85ad465c4c228255b83d1f4",
+   "crc32": "f5f36840"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 03).bin",
+   "sha1": "77eaaf0468e1e3c729c26a87ba56d1b081ea8e3f",
+   "md5": "574fb0275670f49c0f242c9761b75892",
+   "crc32": "66c0824e"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 04).bin",
+   "sha1": "2cbb74e1b947b3c409df7fcec0911c5657df7624",
+   "md5": "6f5c4593cc0fc2ecdfc20699a9853c3a",
+   "crc32": "01ecbf9d"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 05).bin",
+   "sha1": "7753ccba4222bc72f1576dfd78ad5ae5449fe436",
+   "md5": "16f67813de1f1cbf652c2c37de7e87d8",
+   "crc32": "67bb5dd9"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 06).bin",
+   "sha1": "84d7dbe1e0b99d009f5c6ffb336fe0ed88726242",
+   "md5": "cb9bd80814469a3b82ca05fe51c3d89f",
+   "crc32": "1069856c"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 07).bin",
+   "sha1": "3b8ee2b4328fae5f604726607bf95764c35ad69f",
+   "md5": "9681f95153542f9693516961e651a8a2",
+   "crc32": "0cbe2a52"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 08).bin",
+   "sha1": "49f94f30f6ed81b6a56479ed3f1ce989039f1f2d",
+   "md5": "ed53b52036101149c75f2fba6eda0555",
+   "crc32": "28a7fc6f"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 09).bin",
+   "sha1": "be0bf5a901af827ff8df7d1e08fd7a084927cc82",
+   "md5": "549b690996a3015f0496c1dd37297a33",
+   "crc32": "38533103"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 10).bin",
+   "sha1": "51844b16bb03a9ac9cc99ac7b104a8dad0eda7fd",
+   "md5": "52fa19da9d590647f363dd9b482b89fc",
+   "crc32": "6b2b0a16"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 11).bin",
+   "sha1": "7ef86bf43a697300dd6eaa85421f6d09e9c2c25a",
+   "md5": "0559ec5c3230dba0daead836faf4c93e",
+   "crc32": "a981384d"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 12).bin",
+   "sha1": "680be5ebb4a162a0425dab14fc7cbe8789cc0fb3",
+   "md5": "ff531ca51ac4009a7d2ae1b5e4d1ecfb",
+   "crc32": "113291ff"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 13).bin",
+   "sha1": "f5063316dd8b102024a01a7a8a2458a152f2894e",
+   "md5": "00d65e21a56e3178fef1eba39ff726b5",
+   "crc32": "0854d766"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 14).bin",
+   "sha1": "88b4b21242b5be54b02faac9a2c1ad8a2b4f24b1",
+   "md5": "206aa0ef079ee0cdf5ed3f915fd2f792",
+   "crc32": "56507c8e"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 15).bin",
+   "sha1": "682eecc642b896f369b6cc794c54e375715ad3ed",
+   "md5": "73b8d97a63ab0c347bc4078e04c39915",
+   "crc32": "add1e370"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 16).bin",
+   "sha1": "0e525fe72ff4af62d17dfa64f992bf6822cfcebf",
+   "md5": "a1d381152492f1adf0304fb40479e13d",
+   "crc32": "7daa86b5"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 17).bin",
+   "sha1": "2123650e73f8b74703546d601f7a304da57d1172",
+   "md5": "10a0fbb3d2a1d03ade51a85009476812",
+   "crc32": "7e0d89be"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 18).bin",
+   "sha1": "00fe47c67ff93e95755b3633c384d8e8656a1061",
+   "md5": "31837d646e9d5a768d3f7c79e356be59",
+   "crc32": "d2cd394c"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 19).bin",
+   "sha1": "42d6810c57c1d767b66a78d98f4d6858006abc8b",
+   "md5": "c88655d07456598aaa4265101f881b67",
+   "crc32": "817fe5fd"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 20).bin",
+   "sha1": "bc1ae8bfd0065a4a9f32237345f8934d8fa2eb7e",
+   "md5": "dee1a78251826bf56ae7d9572185e6ee",
+   "crc32": "564591bc"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 21).bin",
+   "sha1": "a875a677a081f669746f722496a35f26635b22fb",
+   "md5": "d030408ceb5f6b07b23b8891b2988c68",
+   "crc32": "810e7d56"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 22).bin",
+   "sha1": "c2dd8dcf7f17a0f6e4e04dee577e97e358560daa",
+   "md5": "708e8e53cab3dc4f97b29113187b1053",
+   "crc32": "de902ab0"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 23).bin",
+   "sha1": "c6d8d007ef24dbbb56d0db2592e22659d25120eb",
+   "md5": "0b0209ad2c1553cc72e4d60ca58466bb",
+   "crc32": "8557631f"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 24).bin",
+   "sha1": "cf0edf416108cf40b9100ed31a03265b0c4885b7",
+   "md5": "517248a7aa06dc989df5487688648696",
+   "crc32": "e73f7817"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 25).bin",
+   "sha1": "9ee3d13b236c2b4058de3c81bae5b9a2bca669f2",
+   "md5": "19d03fe1d906fa4436937cb78e4bc566",
+   "crc32": "2f963aee"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 26).bin",
+   "sha1": "5cb7f7d456f52473d83240e488948b1f4d51168f",
+   "md5": "a82989810d44c842b65b6c81a0449ffc",
+   "crc32": "f2b74ce9"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 27).bin",
+   "sha1": "d997c71d5a6fa6084265a66834187e1ab37e8703",
+   "md5": "7625eefcec41c2cc8f0315d071458523",
+   "crc32": "1b6bce6d"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 28).bin",
+   "sha1": "3979bb5b680f10fc18946d1ea22366aa3ad5dd68",
+   "md5": "df7695970620edd99481c2b65821fb1e",
+   "crc32": "0dab29de"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 29).bin",
+   "sha1": "ff8393838cfe33dc4f2706fb557ddccf6ec7b6ba",
+   "md5": "ff6797bc71685631230f33778a778e6c",
+   "crc32": "31bfa5d0"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 30).bin",
+   "sha1": "905a26a9a43e6bdacf74961fd3e09e7c4c5f3834",
+   "md5": "ca9cde2eb476cdb623c9da1569e9128a",
+   "crc32": "b62b79de"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 31).bin",
+   "sha1": "845fc621ee00e49efb9d82a80dacd9105b25d3c0",
+   "md5": "f6372e43c7c8ba68673e04221a605a03",
+   "crc32": "7f117132"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 32).bin",
+   "sha1": "82641bdaae76cad9a685ec1176d96c0c5b4e1f2a",
+   "md5": "06ef7eb6ebfcab066e122e4b046b98f4",
+   "crc32": "1cfe2d1b"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 33).bin",
+   "sha1": "fdc65f78775795587880e47b93216bdc823d824d",
+   "md5": "2d6f82c5cd6c90a1cafceea2bd1acb58",
+   "crc32": "601686e7"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 34).bin",
+   "sha1": "26e261cbb706fe1ab5f9f487e692fccb04002072",
+   "md5": "fe8accc9d5e9376757b09527d01bccca",
+   "crc32": "64f07746"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 35).bin",
+   "sha1": "5a22ac163a94e7679b9e3367228b6801407a91d9",
+   "md5": "4eb03a4b9817188162c61a005b23a95e",
+   "crc32": "b212efe2"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 36).bin",
+   "sha1": "5787ade67b56ecca7ce0d08bf56a87f29cb9b978",
+   "md5": "d50ee8d49fd1d175c1627d9a51b1f4eb",
+   "crc32": "41a0cf81"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 37).bin",
+   "sha1": "ee7b91cf13868b29de007a0d201683957db9da9d",
+   "md5": "3230ad01e81629717b1ca867ca1d4174",
+   "crc32": "7bb7613e"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 38).bin",
+   "sha1": "7f9626af2a5ac22caa5e2e5d61bd7de9d1b95e12",
+   "md5": "266ac2cdb44b48ae7ca07682e506d21e",
+   "crc32": "5e940ee5"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 39).bin",
+   "sha1": "5036296a68b23890379f58ca4bdd251a0e957d99",
+   "md5": "ef009a72edf8223751db27863162eb18",
+   "crc32": "895f92f2"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 40).bin",
+   "sha1": "91d87dc1b3b6230a0b136f75dc78fb0d2a6e5fc9",
+   "md5": "68d8fd19491b645328307c8582215bc9",
+   "crc32": "e70cdf4f"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 41).bin",
+   "sha1": "9dd79caca018bf2547bfe54778c520edf39305a6",
+   "md5": "0e392ce1710c3ed0f81f4eba9704d36c",
+   "crc32": "e989394e"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 42).bin",
+   "sha1": "0148474ebd05b3d8f4ce73b9bfef71df3de24e14",
+   "md5": "83407b48ae90b2ce2cdbdf9274244890",
+   "crc32": "ef28b18b"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 43).bin",
+   "sha1": "bb5d0b8eebd3c7c95ade62a678e02b0da028000a",
+   "md5": "21db32ab13adc299bc4509becda788ec",
+   "crc32": "c9136f86"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 44).bin",
+   "sha1": "166aea0bf8a38b348a83ecd62a62f3b1ed95eff5",
+   "md5": "d632fd64c62699aa042377880c13ac64",
+   "crc32": "5fd16837"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 45).bin",
+   "sha1": "e6be99c0bb0d98c34d7e2730c93e30ece7b55184",
+   "md5": "44be393fbcae072378d84f2fac63f9a3",
+   "crc32": "6ebf4f2f"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 46).bin",
+   "sha1": "68139e80a8439ab83183d9f131b9246a1e5dfcab",
+   "md5": "47d3b074a974a009596cc6d41fe0e4e7",
+   "crc32": "749063c6"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 47).bin",
+   "sha1": "97a33d8bf0801ed3760eacc876316e4449f49ac9",
+   "md5": "1b8336469fc5c3df45b032b9228abc2d",
+   "crc32": "059e45fb"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 48).bin",
+   "sha1": "415ca48243327a9fedb549a12829010aa76289ad",
+   "md5": "2e0913cb1a6b1028325432a779d517f9",
+   "crc32": "6b0d3672"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 49).bin",
+   "sha1": "81da0ef7b9c534eb32682b33bed774f28ecbec20",
+   "md5": "5bd0df511106b22046467da49df0df4a",
+   "crc32": "2890b497"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 50).bin",
+   "sha1": "01b0586661b644c66d3bf128202cf777f3ae09b3",
+   "md5": "e5a54f20e19b8f3c116f7ba783f85b5e",
+   "crc32": "651d7c09"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 51).bin",
+   "sha1": "fdb382eb41eea5d79bd6b389548ce68055997161",
+   "md5": "5a4f30f7697499e1ccea07daef333c35",
+   "crc32": "d21b9281"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 52).bin",
+   "sha1": "4eb335aea28b2132b6d38531c6b86dbc5d10d349",
+   "md5": "cdce69ebcabac5c2bea05c4c56513ed6",
+   "crc32": "3e39079c"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 53).bin",
+   "sha1": "7109575a90aa3077d0627fd26d4fae2ca676f0cf",
+   "md5": "f684c937565e243ce24dfb0648d1992d",
+   "crc32": "5ea68179"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 54).bin",
+   "sha1": "446dc456bd5117dcdde342aefada9a4cbfb0848d",
+   "md5": "d3b9d915d069cb99cfc4c72e868474e8",
+   "crc32": "8937b300"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 55).bin",
+   "sha1": "6ccfe7ab03fa107a68072d92405b58f25a13c418",
+   "md5": "3d644c8aec61b62bda4b953c3cb30d37",
+   "crc32": "0e37e5af"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 56).bin",
+   "sha1": "8f9fdf293b34a9a966c2955b2e7618bff2578339",
+   "md5": "952514c8ec66850eae1b66fd3c0851d4",
+   "crc32": "6e7702ac"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 57).bin",
+   "sha1": "8764b5fd180bf53722a63820785fbbe7ff0828d2",
+   "md5": "e06f6b58dcd29e1ca50e395eab2a70ca",
+   "crc32": "a4649a00"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 58).bin",
+   "sha1": "86200f1ed81b3a6e4e8ba5636a3b32f765f0490d",
+   "md5": "a1b9e039fa2ce5196e229390b120b2ee",
+   "crc32": "8f8276e6"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 59).bin",
+   "sha1": "aa5d0eab2fb0fe2a56fbaf0065ac177330665fd2",
+   "md5": "7f19e416a92a3ed5999643605bb6605a",
+   "crc32": "e017f9b8"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 60).bin",
+   "sha1": "e8f4a33920edeca354463a2d2b787828be0530ab",
+   "md5": "3290ec5e663af11f489eeed1cc479ed7",
+   "crc32": "b85c9d47"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 61).bin",
+   "sha1": "9b0401fb495db57c84b5133b7f56c3de11e1a9f1",
+   "md5": "6edf0dc2d6332db4b15e37e0aaf2dc47",
+   "crc32": "4a3b2708"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M) (Track 62).bin",
+   "sha1": "69fed511f210643b244bbb010ae8f23dbe2500e5",
+   "md5": "279433e71c756de5cc303831066f6f25",
+   "crc32": "aef5e860"
+  },
+  {
+   "file": "Cyberbots - Fullmetal Madness (Japan) (1M).cue",
+   "sha1": "a9786c2ad4ec937205de4747de14e90820c62b53",
+   "md5": "2a71c0e33b3593bd70d943bf12cb73dd",
+   "crc32": "931af2c7"
+  }
+ ]
+}

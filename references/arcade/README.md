@@ -47,8 +47,28 @@ Notes:
   (`arcade.dat` lists the same five sets and CRCs as MAME). Zip SHA-256
   `e99f582fc78263663d4ff63e0e0b66ef947167cc0c326ab847ad83cc4904bfc9`. It is
   not copied; MAME is the pinned reference.
-- Still to do for `REF-001`: pin the `capcom/cps2.cpp` driver source and run
-  `tools.reference.mame_audit` against it; boot `cybotsu` headless.
+- Identity by SHA-1 (`REF-001`, 2026-11-02): `mame -listxml 'cybots*'`
+  (MAME 0.289) saved as the ignored `local/logs/ref001-listxml.xml`, SHA-256
+  `7a8c40be9058064ccedf2b14652fa2d8be8fa097febf97a976b154fd2b4bc669`;
+  `tools/reference/listxml_match.py` matches every member of every zip, none
+  unmatched, each zip to the set of its name ([`manifest.json`](manifest.json),
+  per-member SHA-1).
+- Driver source: `cps2.cpp` copied from MSHvSF's ignored `local/mame_src/`
+  into `local/mame_src/` (SHA-256 `a8c09ef83841d75b81a4b2ee8ac029ebf8eecb6a743b016abb33e3d46e861602`,
+  MAME commit `f34f02505e32c1993c6a782b6814232cbfc74e36`, as MSHvSF and XvSF
+  pinned it); `tools.reference.mame_audit` matches `cybots.zip` 21 of 21. It
+  matches by member name within one zip, so clone zips show the parent's
+  shared ROMs as "missing"; `-verifyroms` and the SHA-1 match cover those.
+- Headless boots (no input), `cybotsu` and `cybotsj`:
+  `SNAP_FRAMES="1800 3000" mame SET -rompath local/arcade -autoboot_script
+  tools/reference/mame_snap_frames.lua -snapshot_directory local/ref001/snap
+  -cfg_directory local/mame_arcade/cfg -nvram_directory local/mame_arcade/nvram
+  -skip_gameinfo -nothrottle -video none -sound none`. Both exit 0. Agent
+  review: `cybotsu` frame 1800 is the attract fight with `INSERT COIN`,
+  frame 3000 a white flash with `INSERT COIN`; `cybotsj` 1800 the attract
+  fight, 3000 the intro. PNG SHA-256: `cybotsu_f01800` `ecb879bc…220b`,
+  `cybotsu_f03000` `5a77a725…dc52`, `cybotsj_f01800` `668b04d7…8fab`,
+  `cybotsj_f03000` `d0d35d7a…e1e4`.
 
 ## First Look (2026-11-02, static)
 

@@ -1,0 +1,349 @@
+{
+ "source": "user-supplied ~/Downloads/cyberbots/*.zip (MAME split sets); copied unchanged (APFS clones) to local/arcade/ on 2026-11-02; qsound.zip from ~/Downloads/mshvsf/",
+ "catalog": "mame -listxml 'cybots*', MAME 0.289 (Homebrew), output SHA-256 7a8c40be9058064ccedf2b14652fa2d8be8fa097febf97a976b154fd2b4bc669",
+ "method": "tools/reference/listxml_match.py: members matched by SHA-1 only; complete_sets = the sets whose own (non-merged) ROMs are all held",
+ "files": [
+  {
+   "file": "cybots.zip",
+   "size": 20181433,
+   "sha256": "5820114c3824c38feaf04287ab36dbbc941929845a926dcbe82ffb8b0a33587c",
+   "complete_sets": [
+    "cybots"
+   ],
+   "titles": {
+    "cybots": "Cyberbots: Fullmetal Madness (Europe 950424)"
+   },
+   "members": {
+    "cyb.01": {
+     "sha1": "06d260875a76da08d56ea2b2ae277e8c2dbae6e3",
+     "matches": [
+      "cybots:cyb.01",
+      "cybotsj:cyb.01",
+      "cybotsjd:cyb.01",
+      "cybotsu:cyb.01",
+      "cybotsud:cyb.01"
+     ]
+    },
+    "cyb.02": {
+     "sha1": "c322957558d8d3e9dad090aebbe485978cbce8f5",
+     "matches": [
+      "cybots:cyb.02",
+      "cybotsj:cyb.02",
+      "cybotsjd:cyb.02",
+      "cybotsu:cyb.02",
+      "cybotsud:cyb.02"
+     ]
+    },
+    "cyb.05": {
+     "sha1": "dd611c1708e7ef86e4f7cac4b7b0dff7baaee5ed",
+     "matches": [
+      "cybots:cyb.05",
+      "cybotsj:cyb.05",
+      "cybotsjd:cyb.05",
+      "cybotsu:cyb.05",
+      "cybotsud:cyb.05"
+     ]
+    },
+    "cyb.06": {
+     "sha1": "2ea005f3e73b05f8f0ec006cd9e95f7731a73897",
+     "matches": [
+      "cybots:cyb.06",
+      "cybotsj:cyb.06",
+      "cybotsjd:cyb.06",
+      "cybotsu:cyb.06",
+      "cybotsud:cyb.06"
+     ]
+    },
+    "cyb.07": {
+     "sha1": "4f607e733e2dea80211497522be6d0f09571928d",
+     "matches": [
+      "cybots:cyb.07",
+      "cybotsj:cyb.07",
+      "cybotsjd:cyb.07",
+      "cybotsu:cyb.07",
+      "cybotsud:cyb.07"
+     ]
+    },
+    "cyb.08": {
+     "sha1": "9714579a7a78b9716e44bca6c18bf1a93aa4e482",
+     "matches": [
+      "cybots:cyb.08",
+      "cybotsj:cyb.08",
+      "cybotsjd:cyb.08",
+      "cybotsu:cyb.08",
+      "cybotsud:cyb.08"
+     ]
+    },
+    "cyb.09": {
+     "sha1": "16abd92ebed921a6a7e8eac4b098dc61f7e5485c",
+     "matches": [
+      "cybots:cyb.09",
+      "cybotsj:cyb.09",
+      "cybotsjd:cyb.09",
+      "cybotsu:cyb.09",
+      "cybotsud:cyb.09"
+     ]
+    },
+    "cyb.10": {
+     "sha1": "8a65026ae35247cda016ce85a34034c62b3aa1a6",
+     "matches": [
+      "cybots:cyb.10",
+      "cybotsj:cyb.10",
+      "cybotsjd:cyb.10",
+      "cybotsu:cyb.10",
+      "cybotsud:cyb.10"
+     ]
+    },
+    "cyb.11m": {
+     "sha1": "28e537067d4846f22657ee37166d18b8f05f4da1",
+     "matches": [
+      "cybots:cyb.11m",
+      "cybotsj:cyb.11m",
+      "cybotsjd:cyb.11m",
+      "cybotsu:cyb.11m",
+      "cybotsud:cyb.11m"
+     ]
+    },
+    "cyb.12m": {
+     "sha1": "eb6a9d4998b3311344d73bae88d661d81609c492",
+     "matches": [
+      "cybots:cyb.12m",
+      "cybotsj:cyb.12m",
+      "cybotsjd:cyb.12m",
+      "cybotsu:cyb.12m",
+      "cybotsud:cyb.12m"
+     ]
+    },
+    "cyb.13m": {
+     "sha1": "b743938dc8e772dc3f63ed88a4a54c34fffdba21",
+     "matches": [
+      "cybots:cyb.13m",
+      "cybotsj:cyb.13m",
+      "cybotsjd:cyb.13m",
+      "cybotsu:cyb.13m",
+      "cybotsud:cyb.13m"
+     ]
+    },
+    "cyb.14m": {
+     "sha1": "bfb1cc6786277b94ce28bfd464e2bbb6f6d3486e",
+     "matches": [
+      "cybots:cyb.14m",
+      "cybotsj:cyb.14m",
+      "cybotsjd:cyb.14m",
+      "cybotsu:cyb.14m",
+      "cybotsud:cyb.14m"
+     ]
+    },
+    "cyb.15m": {
+     "sha1": "80e3cf5c69f13343de667e1476bb716d45d3ff63",
+     "matches": [
+      "cybots:cyb.15m",
+      "cybotsj:cyb.15m",
+      "cybotsjd:cyb.15m",
+      "cybotsu:cyb.15m",
+      "cybotsud:cyb.15m"
+     ]
+    },
+    "cyb.16m": {
+     "sha1": "b0cde577d29a9f4e718b673c8645529ef0ababc9",
+     "matches": [
+      "cybots:cyb.16m",
+      "cybotsj:cyb.16m",
+      "cybotsjd:cyb.16m",
+      "cybotsu:cyb.16m",
+      "cybotsud:cyb.16m"
+     ]
+    },
+    "cyb.17m": {
+     "sha1": "40132f3cc79b0a74460ebd4e0d4ddbe240efc06f",
+     "matches": [
+      "cybots:cyb.17m",
+      "cybotsj:cyb.17m",
+      "cybotsjd:cyb.17m",
+      "cybotsu:cyb.17m",
+      "cybotsud:cyb.17m"
+     ]
+    },
+    "cyb.18m": {
+     "sha1": "e03f4a120c95a2f476ffc8492bca85e0c5cea068",
+     "matches": [
+      "cybots:cyb.18m",
+      "cybotsj:cyb.18m",
+      "cybotsjd:cyb.18m",
+      "cybotsu:cyb.18m",
+      "cybotsud:cyb.18m"
+     ]
+    },
+    "cyb.19m": {
+     "sha1": "154bbceb7d303a208abb1b2f3d507d5afacc71ed",
+     "matches": [
+      "cybots:cyb.19m",
+      "cybotsj:cyb.19m",
+      "cybotsjd:cyb.19m",
+      "cybotsu:cyb.19m",
+      "cybotsud:cyb.19m"
+     ]
+    },
+    "cyb.20m": {
+     "sha1": "94d0cc5f05de4bc2d43977d91f887005dc10310c",
+     "matches": [
+      "cybots:cyb.20m",
+      "cybotsj:cyb.20m",
+      "cybotsjd:cyb.20m",
+      "cybotsu:cyb.20m",
+      "cybotsud:cyb.20m"
+     ]
+    },
+    "cybe.03": {
+     "sha1": "6202a2a318feda525e16fd7b31c03af9ccc5d964",
+     "matches": [
+      "cybots:cybe.03"
+     ]
+    },
+    "cybe.04": {
+     "sha1": "4f3ef24fc76d3a5b369aa6192ad390d9c3c9b0e8",
+     "matches": [
+      "cybots:cybe.04"
+     ]
+    },
+    "cybots.key": {
+     "sha1": "ec7a322c8dceb16c98f7c2837679e91b738fdd0a",
+     "matches": [
+      "cybots:cybots.key"
+     ]
+    }
+   },
+   "unmatched": []
+  },
+  {
+   "file": "cybotsu.zip",
+   "size": 627065,
+   "sha256": "db4d252b0da88b4648b832912306ac137fa28f246316f74ab9b7b8ab0a612dd6",
+   "complete_sets": [
+    "cybotsu"
+   ],
+   "titles": {
+    "cybotsu": "Cyberbots: Fullmetal Madness (USA 950424)"
+   },
+   "members": {
+    "cybotsu.key": {
+     "sha1": "1a37f09028714d2b0f4543fab3cbfe5ba4b571ff",
+     "matches": [
+      "cybotsu:cybotsu.key"
+     ]
+    },
+    "cybu.03": {
+     "sha1": "de9f3f261003f4f70ae32114a15e498387c23f6d",
+     "matches": [
+      "cybotsu:cybu.03"
+     ]
+    },
+    "cybu.04": {
+     "sha1": "b2b9379c84b121048cb83a8c48756b48cdbc3ea1",
+     "matches": [
+      "cybotsu:cybu.04"
+     ]
+    }
+   },
+   "unmatched": []
+  },
+  {
+   "file": "cybotsj.zip",
+   "size": 627060,
+   "sha256": "08fd2473211e5fa9497c65a329b147247c1d0f26ca360bcacbfef1982d1165a5",
+   "complete_sets": [
+    "cybotsj"
+   ],
+   "titles": {
+    "cybotsj": "Cyberbots: Fullmetal Madness (Japan 950420)"
+   },
+   "members": {
+    "cybj.03": {
+     "sha1": "ea3fa2e6229d90cc3f69c59f447b6b373d64d2aa",
+     "matches": [
+      "cybotsj:cybj.03"
+     ]
+    },
+    "cybj.04": {
+     "sha1": "595c3e679ea02282bf8a5aa6c7c09e5c30e839c7",
+     "matches": [
+      "cybotsj:cybj.04"
+     ]
+    },
+    "cybotsj.key": {
+     "sha1": "66f2d85a25140ab9071a0e192ee40e750381bffc",
+     "matches": [
+      "cybotsj:cybotsj.key"
+     ]
+    }
+   },
+   "unmatched": []
+  },
+  {
+   "file": "cybotsud.zip",
+   "size": 324683,
+   "sha256": "97c4931a7a3d15447e1960d404a893c3fa303f77104a0328ff2bbf4d999e980a",
+   "complete_sets": [
+    "cybotsud"
+   ],
+   "titles": {
+    "cybotsud": "Cyberbots: Fullmetal Madness (USA 950424 Phoenix Edition) (bootleg)"
+   },
+   "members": {
+    "cybu_d.03": {
+     "sha1": "632e057a7b3a61127beee4ed833a39dcec4ccbd5",
+     "matches": [
+      "cybotsud:cybu_d.03"
+     ]
+    },
+    "cybu_d.04": {
+     "sha1": "6368cf5b04271e68b27abecd67d107bbf58976b4",
+     "matches": [
+      "cybotsud:cybu_d.04"
+     ]
+    },
+    "phoenix.key": {
+     "sha1": "eff33c65a4f3862c231f9e4d6fefa7b34398dbf2",
+     "matches": [
+      "cybotsjd:phoenix.key",
+      "cybotsud:phoenix.key"
+     ]
+    }
+   },
+   "unmatched": []
+  },
+  {
+   "file": "cybotsjd.zip",
+   "size": 322000,
+   "sha256": "c32eea487b6dc2c4cac496ff80de3363bd29ce65f475d89dea2ca88e8c006320",
+   "complete_sets": [
+    "cybotsjd"
+   ],
+   "titles": {
+    "cybotsjd": "Cyberbots: Fullmetal Madness (Japan 950424) (decrypted bootleg)"
+   },
+   "members": {
+    "cybj_d.03": {
+     "sha1": "b9ef1fa79f79bbb821862764c65a65357a79aa91",
+     "matches": [
+      "cybotsjd:cybj_d.03"
+     ]
+    },
+    "cybj_d.04": {
+     "sha1": "834833ae68c3f14f1e06c92273fadfe6918cf3c5",
+     "matches": [
+      "cybotsjd:cybj_d.04"
+     ]
+    },
+    "phoenix.key": {
+     "sha1": "eff33c65a4f3862c231f9e4d6fefa7b34398dbf2",
+     "matches": [
+      "cybotsjd:phoenix.key",
+      "cybotsud:phoenix.key"
+     ]
+    }
+   },
+   "unmatched": []
+  }
+ ]
+}

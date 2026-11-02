@@ -538,3 +538,50 @@ half-width ASCII in the script.
 
 Next action: `REF-005` (recorded play session with the user) to see these
 lines on screen; offline `REF-001`, `DOC-003`, `ENV-007`.
+
+## 2026-11-02 — SESSION-0006: offline references (REF-001, ENV-007, DOC-003)
+
+Task: REF-001, ENV-007, DOC-003
+
+REF-001:
+
+- `mame -listxml 'cybots*'` (MAME 0.289) saved to the ignored
+  `local/logs/ref001-listxml.xml` (`7a8c40be…c669`).
+  `tools.reference.listxml_match` matched every member of the five zips by
+  SHA-1, none unmatched; written to `references/arcade/manifest.json`.
+- `cps2.cpp` copied from MSHvSF's ignored `local/mame_src/` (`a8c09ef8…1602`,
+  the siblings' pin). `tools.reference.mame_audit`: `cybots.zip` 21/21.
+  Clone zips report the parent's shared ROMs as missing because that tool
+  matches by member name within one zip; not a defect of the sets.
+- Headless boots of `cybotsu` and `cybotsj` with `mame_snap_frames.lua`
+  (frames 1800 and 3000): both exit 0; attract fight and `INSERT COIN`
+  (agent-reviewed).
+
+ENV-007:
+
+- Built-in browser: redump.org search lists two Saturn entries, 58190
+  (Original, T-1217G) and 3669 (Limited Edition, T-1216G). `curl` fetched
+  their SHA-1, MD5, SFV and cue lists (the web-fetch tool's earlier
+  `ECONNREFUSED` was that tool's network, not the site).
+- Scripted comparison: all 62 tracks plus the CUE equal 58190 in SHA-1, MD5
+  and CRC-32; our CUE is byte-identical to Redump's. 3669 shares track 01
+  and differs in all 61 audio tracks. "(2M)"/"(1M)" are Redump's names for
+  the two masterings (`2MB1`, `1M2` in the ring code). Records:
+  `references/saturn_jp/redump_58190.json`, `redump_3669.json`.
+- Consequence: identity **CONFIRMED**; a track-01 patch applies to both
+  editions' data track.
+
+DOC-003:
+
+- `docs/references.md`: platform sections copied unchanged from XvSF
+  `9cb01ad` (verified identical by `diff`), plus "Cyberbots Prior Art".
+- Read: Wikipedia (console ports 1997, Japan only; four console-only pilots;
+  Akuma-mech code; "requires" the 1 MB cart; voiced story mode, citation
+  needed). Not read: TCRF's arcade page and Lost In Translation (bot checks,
+  not bypassed), Hardcore Gaming 101 (maintenance). No Saturn translation
+  found.
+- New scope hypotheses recorded: the four console-only pilots have no arcade
+  English; ending tracks 42-62 may be voiced.
+
+Next action: `REF-003` (locate the arcade English; offline with MAME) or
+`REF-005` (play session with the user).

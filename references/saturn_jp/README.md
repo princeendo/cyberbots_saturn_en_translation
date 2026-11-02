@@ -15,9 +15,22 @@ Release description: `Cyberbots: Fullmetal Madness (Japan) (2M), Sega Saturn
 T-1217G V1.002 19970219; Redump-style BIN/CUE supplied by the user 2026-11-02;
 release identity as named, not independently verified`.
 
-**Database match: not yet checked** (`ENV-007`; redump.org refused the
-connection on 2026-11-02). Identity is **SUPPORTED** by the header and names
-only.
+**Database match (`ENV-007`, 2026-11-02): CONFIRMED.** All 62 tracks and the
+CUE sheet equal Redump disc 58190 (<http://redump.org/disc/58190/>:
+`Cyberbots - Fullmetal Madness (Japan) (2M)`, T-1217G, version 1.002, build
+date 1997-02-19, edition "Original", 62 tracks, write offset 0, mastering
+code `T-1217GP-01438 2MB1`) in SHA-1, MD5 and CRC-32 (sizes follow); the CUE
+is byte-identical to Redump's. Redump's lists were fetched with `curl` and
+compared by script; the page was read in the built-in browser
+(`redump_58190.json`). The web-fetch tool had refused the connection earlier
+that day; `curl` and the browser did not.
+
+"(2M)" is Redump's name for this pressing: the other entry, disc 3669
+(`Cyberbots - Fullmetal Madness (Japan) (1M)`, T-1216G, "Limited Edition",
+mastering code `T-1217GP-01438 1M2`, `redump_3669.json`), has the **same
+track 01** (SHA-1 `699b6be7…a848`) and different audio tracks (61 of 61
+differ; several pregaps are `00:01:74`). The names mark the two masterings,
+not a RAM cart. A patch to track 01 therefore applies to both editions.
 
 Hashes were produced with
 `./invenv.sh python -m tools.disc.hash_source --json --description "..." local/disc_images/cyberbots_saturn_jp_2m/*`
