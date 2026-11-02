@@ -58,9 +58,13 @@ names it for its method only.
   and boot headless (`REF-001`); `docs/references.md` catalogs platform
   references and Cyberbots prior art (`DOC-003`). Secondary sources say the
   console ports add four pilots with no arcade English, and voiced story.
+- **2026-11-02: arcade English found and decoded** (`REF-003`, `EXP-0008`,
+  D-009): 530 English records behind a 624-slot table, one byte per
+  character; the same English (and Spanish and Japanese tables) in every
+  held set.
 - Next unblocked tasks: `REF-005` (Saturn text-surface inventory; needs the
   user to play while `session_recorder.py` runs, keeping every state);
-  `REF-003` (locate the arcade English; offline, MAME).
+  `REF-004` (show a predicted English record on screen in MAME; offline).
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -71,7 +75,7 @@ names it for its method only.
   needed for boot and attract), D-004 (screenshots and states by hotkey),
   D-005 (stock debugger dumps, writes, breakpoints), D-006 (state extractor
   valid for work RAM and VRAM), D-007 (agent interface), D-008 (shared
-  dialogue table, static). Nothing about
+  dialogue table, static), D-009 (arcade English dialogue table). Nothing about
   the text, font or renderer is confirmed.
 
 ## Milestones
@@ -336,22 +340,23 @@ English text goes on disc).
 
 ### REF-003 - Locate and decode the arcade English text
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** GATE-TRANSLATION
 - **Dependencies:** REF-001.
 - **Blockers:** None.
 - **Objective:** Find where the arcade stores its English story dialogue, win quotes (if any) and ending text, and how it is encoded.
 - **Acceptance criteria:** A decoder reproduces known English strings from the local ROM; the table shape, pointer tables and regional differences are recorded; punctuation mappings are tested statistically.
-- **Notes:** The decrypted program image (`cybotsud`: `cybu_d.03` + `cybu_d.04`, word-swapped) holds only a few ASCII strings (region names, RAM test, `WON LOST CONTINUE ENDING`). The dialogue is therefore in another encoding or in another ROM; XvSF found its English with an offset histogram of common words, MSHvSF as 16-bit codes. Trace the arcade's readers (`mame_timeline.lua` `logreads`), do not stop at a data search.
+- **Notes:** The decrypted program image (`cybotsud`: `cybu_d.03` + `cybu_d.04`, word-swapped) holds only a few ASCII strings (region names, RAM test, `WON LOST CONTINUE ENDING`). The dialogue is therefore in another encoding or in another ROM; XvSF found its English with an offset histogram of common words, MSHvSF as 16-bit codes. Trace the arcade's readers (`mame_timeline.lua` `logreads`), do not stop at a data search. Done 2026-11-02 (`EXP-0008`, D-009) by relative search: the English is one byte per character (ASCII + 9 for capitals, + 3 for lowercase) in the region ROMs, 530 records behind a 624-slot table at `0x0B33AA`, plus Spanish and Japanese tables of the same layout; identical in all five sets. Decoder `tools/reference/cybots_text.py`. Open: codes `09`/`0B`/`18`/`1C`, header meaning, whether endings are in the table; these and the reader trace move to `REF-004`.
 
 ### REF-004 - Confirm the decoded arcade text on screen
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** GATE-TRANSLATION
 - **Dependencies:** REF-003.
-- **Blockers:** REF-003.
+- **Blockers:** None.
 - **Objective:** Show that the decoded table is what the arcade draws.
 - **Acceptance criteria:** A scripted MAME route shows a predicted entry on screen, with the RAM pointer that selects it.
+- **Notes:** Also settle from the screen or the tiles: codes `09`, `0B`, `18`, `1C`; which of the three tables each region draws; whether endings come from the 624-slot table.
 
 ### REF-005 - Inventory the Saturn text surfaces
 

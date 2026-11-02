@@ -70,10 +70,21 @@ Notes:
   `cybotsu_f03000` `5a77a725…dc52`, `cybotsj_f01800` `668b04d7…8fab`,
   `cybotsj_f03000` `d0d35d7a…e1e4`.
 
+## Dialogue Text (`REF-003`, `EXP-0008`, D-009)
+
+The English dialogue is not ASCII but one byte per character in a tile-sheet
+map (capitals ASCII + 9, lowercase ASCII + 3), in records behind a 624-slot
+pointer table at `0x0B33AA` in the region-ROM part of the program
+(`0x0B3396` in `cybotsj`). Spanish and Japanese tables of the same layout
+precede it. All five sets carry identical dialogue. Metadata:
+`data/arcade/dialogue_tables.json`; decoder:
+`tools/reference/cybots_text.py`.
+
 ## First Look (2026-11-02, static)
 
 The program image `cybu_d.03` + `cybu_d.04`, concatenated and word-swapped
 (CPS-II `ROM_LOAD16_WORD_SWAP`), holds a few ASCII strings: RAM test
 messages, a region list (`CYBERBOTS JAPAN`, `USA`, `ASIA`, `HISPANIC`, `EURO`,
 `BRAZIL`), `VS DEMO STAGE`, and `WON LOST CONTINUE ENDING`. No English
-dialogue is stored as plain ASCII there; finding it is `REF-003`.
+dialogue is stored as plain ASCII there (`REF-003` found why: it is not
+ASCII).

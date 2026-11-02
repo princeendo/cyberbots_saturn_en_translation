@@ -116,3 +116,20 @@ characters (34 bytes); the script uses 909 distinct double-byte characters
 `data/text/script_census.json`.
 
 Reproduce: `research/experiments/EXP-0007/README.md`, "Procedure".
+
+## D-009: The arcade English dialogue table (`REF-003`, `EXP-0008`)
+
+In the US/EU arcade program region (68000 order), a table of 624 big-endian
+32-bit pointers at `0x0B33AA` (`0x0B3396` in `cybotsj`) addresses 530
+distinct English dialogue records (`0x0B3D6A`-`0x0BB9A6`). A record is four
+16-bit words (the fourth `0x000E`), one byte per character, and `0x00`. The
+map is one tile sheet: `0x40`-`0x49` `0`-`9`, `0x4A`-`0x63` `A`-`Z`,
+`0x64`-`0x7D` `a`-`z`, `0x7E` `?`, `0x7F` `!`, plus `0x14` `.`, `0x1B` `,`,
+`0xF8` `'`, `0xF0` space, `0xFF` line break. It decodes 99.87% of the code
+bytes; `09`, `0B`, `18` and `1C` remain (hypotheses in `EXP-0008`). Two more
+tables of the same layout hold Spanish (624 slots) and Japanese (494 slots).
+All five held sets carry identical record content in all three tables.
+Decoder: `tools/reference/cybots_text.py`; metadata:
+`data/arcade/dialogue_tables.json`.
+
+Reproduce: `research/experiments/EXP-0008/README.md`, "Procedure".

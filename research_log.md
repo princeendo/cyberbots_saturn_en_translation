@@ -585,3 +585,40 @@ DOC-003:
 
 Next action: `REF-003` (locate the arcade English; offline with MAME) or
 `REF-005` (play session with the user).
+
+## 2026-11-02 — EXP-0008: arcade English dialogue located and decoded
+
+Task: REF-003
+
+Goal: find where and how the arcade stores its English dialogue.
+
+Action: rebuilt the 4 MiB program region of each set from the pinned driver;
+listed long ASCII runs (system text only); relative search by value
+differences at 8 and 16 bits; built a character map from context; searched
+for pointer tables; wrote `tools/reference/cybots_text.py` (5 tests); ran it
+on all five sets (15:56, 3 s).
+
+Result (`research/experiments/EXP-0008/README.md`, D-009):
+
+- English: one byte per character, capitals ASCII + 9 and lowercase ASCII + 3
+  (two offsets in the relative search: names +9, words +35, i.e. uppercased
+  lowercase), digits `40`-`49`, `?`/`!` `7E`/`7F`, punctuation `14`, `1B`,
+  `F8`, space `F0`, line break `FF`.
+- Records: four 16-bit words (fourth `000E`), text, `00`. Table of 624
+  pointers at `0x0B33AA` → 530 records; up to 4 lines, 38 characters per line.
+- Two more tables, Spanish (624) and Japanese (494, 2-byte codes); all three
+  identical in content across the five sets.
+- Four rare English codes left (`09`, `0B`, `18`, `1C`), hypotheses only.
+
+Disproven: my SESSION-0001 reading that English might sit only in ROMs
+`03`/`04` as ASCII; it is in that area, but not ASCII. Also, a first
+table-finder ran past a table's end into its first record's header
+(caught by a synthetic test); a run now ends where a slot is itself a record.
+
+Conclusion: **CONFIRMED** location, layout and map. The arcade English is
+roughly 530 records against the Saturn's 1,851 lines, with up to 38
+characters per English line against 16 full-width cells per Saturn line:
+pairing (`REF-006`) and layout (`LAYOUT-001`) are the next hard parts.
+
+Next action: `REF-004` (MAME: show a predicted record on screen and settle
+the four codes) or `REF-005` (play session with the user).
