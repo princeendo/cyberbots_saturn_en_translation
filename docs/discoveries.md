@@ -258,3 +258,24 @@ boot to the title is frame-identical to the original image's. The tool's
 identity rebuild is byte-identical to the source.
 
 Reproduce: `research/experiments/EXP-0019/README.md`, "Procedure".
+
+## D-019: The dialogue font is `KANJI.BIN`; glyphs come from a code table (`FONT-001`, `EXP-0020`)
+
+As a box scene starts, `KANJI.BIN` (LSN 4,780, 80 sectors) is read raw into
+VDP2 VRAM `0x40000` by the same CD copy loop as the script (`0x06041FB4`).
+It holds 1,280 glyphs of 16×16 at 4 bpp, as 8×8 VDP2 tiles in a sheet 16
+tiles wide. Glyph `g` is tiles `t`, `t+1`, `t+16`, `t+17`, with
+`t = (g // 8) × 32 + (g % 8) × 2`. A re-encode of the decoded glyphs is
+byte-identical (`tools/font/kanji.py`).
+
+For each two-byte text code, `0x0606E9E8` searches the 1,222-entry table at
+`0x060AAD7C` (`STG0AS.BIN` offset `0x4AD7C`; also in `END.BIN` and
+`VICTORY.BIN`) and takes the code's position as `g`. `0x06011224` copies
+VDP2 tile `0x2000 + t` into the WRAM-H cell that VDP1 draws. The mapping
+predicts all 25 cells of the M1 box. A probe image with glyph 600 replaced
+shows that character, and only it, changed.
+
+The font has full-width digits and capitals A-Z, but no lower case, plus two
+half-width pair glyphs (`Dr`, `!?`).
+
+Reproduce: `research/experiments/EXP-0020/README.md`, "Procedure".

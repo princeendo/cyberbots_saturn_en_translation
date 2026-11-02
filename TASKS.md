@@ -104,7 +104,11 @@ names it for its method only.
   rebuilt from the untouched source, with one sector of `STG0AS.BIN`
   changed, shows the M1 box changed, in a replay and after a cold boot played
   by the agent with pad keys. User decision: the agent runs cold-boot play
-  checks itself. Next: `FONT-001` (`READY`).
+  checks itself.
+- **2026-11-02: dialogue font found** (`FONT-001`, `EXP-0020`, D-019):
+  `KANJI.BIN`, 1,280 16×16 4 bpp glyphs (byte-identical repack), selected
+  through a 1,222-code table in `STG0AS.BIN`; it has full-width A-Z and 0-9.
+  Next: write up `FONT-002` in full.
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -118,7 +122,8 @@ names it for its method only.
   pairing), D-012 (text surfaces in an ordinary run), D-013 (names), D-014
   (dialogue fixed from a checkpoint), D-015 (Shift-JIS RAM text, VDP1
   per-character sprites), D-016 (M1: the box changed in live RAM), D-017
-  (the M1 text's disc file), D-018 (M2: the change from a rebuilt image). The font's
+  (the M1 text's disc file), D-018 (M2: the change from a rebuilt image), D-019
+  (the dialogue font and its code table). The font's
   layout is not confirmed.
 
 ## Milestones
@@ -568,7 +573,7 @@ English text goes on disc in M2; the test string is the M1 hiragana.
 
 ### FONT-001 - Find the dialogue font and prove its format
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** M2
 - **Dependencies:** RE-001 (done), DISC-001 (done).
 - **Blockers:** None. Session state 4138 (EXP-0018) is a pre-load state to reuse.
@@ -582,6 +587,11 @@ English text goes on disc in M2; the test string is the M1 hiragana.
   - `KANJI.BIN` (163,840 bytes) has the cells' value palette but not the glyph in the layouts tried (EXP-0016). A recheck during this write-up found none of cell 0's non-blank 8-byte rows, raw, in any of the 264 data-track files. So the font is probably stored in another form (another bit depth, compressed, or rendered from an outline); a lead, not a fact.
   - Candidates by name: `KANJI.BIN`, `FIX.BIN`, `ST00`-`ST08_FNT.BIN` (per-stage, 318-418 KB).
   - The half-width and Latin questions are `FONT-002`'s, not this task's.
+- **Evidence:** `EXP-0020`, D-019, 2026-11-02.
+  - **Routine:** `0x06011224` copies four VDP2 tiles (from `0x25E00000` + index × 32) into the WRAM-H cell. Its caller `0x0606E7BC` maps each two-byte code through the 1,222-entry table at `0x060AAD7C` (`STG0AS.BIN` `0x4AD7C`).
+  - **Disc:** `KANJI.BIN`, read as each box scene starts (Play Disc FAD `0x1342`, 80 sectors) by the raw CD loader to VDP2 VRAM `0x40000`. A probe image with glyph 600 replaced shows that character as a block; the original image is the control.
+  - **Format:** 1,280 glyphs of 16×16 at 4 bpp, 2×2 VDP2 tiles each; byte-identical repack (`tools/font/kanji.py`).
+  - **Mapping:** 25/25 tile indices predicted, and 25/25 decoded glyphs equal the rendered cells (WRAM-H and VDP1).
 
 ### GATE-TRANSLATION - Confirm reference and translation prerequisites
 
@@ -601,7 +611,7 @@ and `docs/lessons_from_xvsf.md`.
 
 | ID | Milestone | Outline |
 | --- | --- | --- |
-| FONT-002 | M2 | **First**, probe the renderer for a leftover arcade English path (language/region branches, half-width or ASCII handling); then measure Latin glyphs, line length and box size. |
+| FONT-002 | M2 | **First**, probe the renderer for a leftover arcade English path (language/region branches, half-width or ASCII handling); then measure Latin glyphs, line length and box size. From D-019: text is two bytes per glyph (`0x0A` a line break, SUPPORTED); the font already has full-width A-Z and 0-9 but no lower case; there are 58 free glyph slots and 26 free table slots; pair glyphs (`Dr`, `!?`) show two half-width characters per cell. |
 | LAYOUT-001 | M3 | Choose a capacity route (native English path, half-width or variable-width glyphs, pair glyphs, longer strings with relocated pointers) from measured headroom; user decision. The arcade English record for a slot runs up to 4 lines of 38 characters, the Saturn's line up to 16 full-width cells (D-008, D-009). |
 | RE-002 | M3 | Selection: what picks each line (pilot, opponent, route, branch), and forcing it from a checkpoint. Start from the record structures that point at the lines (D-008). |
 | RE-003 | M3 | Script compiler for one pilot; every line verified live by forcing. |

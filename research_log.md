@@ -983,3 +983,31 @@ Asked whether to push the M2 commits, the user answered, verbatim: "Let's push n
 Image-changing commits now push after the agent's cold-boot play check, like
 doc-only commits. A real-Saturn check comes near the end, before a release.
 Recorded in `docs/localization_policy.md`.
+
+## 2026-11-02 — EXP-0020: the dialogue font (FONT-001)
+
+Goal: `FONT-001`; find the glyph data and routine, the font's disc source
+and its format.
+
+Action: a write trace on the WRAM-H glyph shadow from checkpoint A; a PC log
+of the cell routine; disassembly of it and its caller. A scan of VDP2 VRAM
+across the 166 session states; CD command and VDP2 write traces from state
+5208. The new `tools/font/kanji.py` (decode, encode, code table, sheet). A
+probe image with glyph 600 replaced, replayed with the original as control.
+17:47-17:52, the user present.
+
+Result: the routine `0x06011224` copies four VDP2 tiles per glyph. The caller
+maps each two-byte code through a 1,222-entry table in `STG0AS.BIN`
+(`0x060AAD7C`); 25/25 tile indices are predicted. `KANJI.BIN` is read (FAD
+`0x1342`, 80 sectors) into VDP2 VRAM `0x40000` as each box scene starts. The
+repack is byte-identical, and 25/25 decoded glyphs equal the rendered cells.
+The probe shows a block in place of the first character only. The earlier
+failed searches (EXP-0016, the 8-byte-row recheck) failed because each cell
+row is split across two 4-byte tile rows. Source hashes unchanged; the probe
+image was deleted.
+
+Conclusion: **CONFIRMED**, D-019. For `FONT-002`: the font already has
+full-width A-Z and 0-9, no lower case, 58 free glyphs, 26 free table slots,
+and two half-width pair glyphs.
+
+Next action: write up `FONT-002` in full (M2's last outline task).
