@@ -654,3 +654,40 @@ story dialogue. Endings were not reached.
 
 Next action: `REF-006` (decode the arcade Japanese table and pair it with
 the Saturn script; offline) or `REF-005` (play session with the user).
+
+## 2026-11-02 — EXP-0010: the Saturn script against the arcade script
+
+Task: REF-006
+
+Goal: decide whether the arcade English is a line-for-line oracle for the
+Saturn dialogue, and which Saturn lines have none.
+
+Action: read the arcade Japanese record layout; learned its code map from
+the Saturn script; aligned the two scripts; checked shared slot numbers with
+one MAME run of `cybotsj` (run 7, 16:12 local); wrote
+`tools/text/arcade_pairing.py` (6 tests) and ran it (16:14, 1 s).
+
+Result (`research/experiments/EXP-0010/README.md`, D-011):
+
+- Arcade Japanese: 16-bit codes, `FFFF` line break, same header as English.
+  Map learned with no conflicting votes: 573 of 579 codes.
+- 787 exact and 38 edited line pairs, in order, in 450 slots; slots' Saturn
+  lines consecutive in 449 of 450.
+- Saturn-only: 74 lines in 50 runs, and lines 899-1850 (952). Chiyomaru and
+  Tessan appear only in that block.
+- `cybotsj` shows slots 0-5 in the first scene, as `cybotsu` does; Japanese
+  and English slot 0 are the same scene in free translation.
+
+Disproven: a strict in-order walk of equal-length lines (it stopped at line
+13, where the Saturn splits a line differently). The final method aligns by
+content. My first scratch matcher was too loose (agreement on known codes
+only); the tool's pairs require identical decoded lines or a similarity
+threshold inside the gap between neighbours.
+
+Conclusion: **CONFIRMED** for the map and the pairs; the per-slot English
+is the arcade English by game logic, consistent with the user's policy
+("Official; fixes opt-in"). About half the Saturn script (952 lines) has no
+official English: under "Recorded new translation", that is new
+translation work, gated as special cases (rule 24).
+
+Next action: `REF-005` (play session with the user), or `REF-007` after it.

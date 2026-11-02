@@ -66,9 +66,12 @@ names it for its method only.
   `EXP-0009`, D-010): the slot variable `0xFF2F7A`, the region byte that
   picks the table, and the last four codes; the decoder now covers all
   English records. The Japanese arcade's first line opens like the Saturn's.
+- **2026-11-02: Saturn script paired with the arcade** (`REF-006`,
+  `EXP-0010`, D-011): 825 of Saturn lines 0-898 pair with arcade slots, and
+  so with official English; Saturn lines 899-1850 (952) have no arcade
+  counterpart (console-only stories, SUPPORTED) and so no official English.
 - Next unblocked tasks: `REF-005` (Saturn text-surface inventory; needs the
   user to play while `session_recorder.py` runs, keeping every state).
-  `REF-006` waits on `TXT-001` (done) and `REF-003` (done): it is `READY`.
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -80,7 +83,8 @@ names it for its method only.
   D-005 (stock debugger dumps, writes, breakpoints), D-006 (state extractor
   valid for work RAM and VRAM), D-007 (agent interface), D-008 (shared
   dialogue table, static), D-009 (arcade English dialogue table), D-010
-  (arcade dialogue on screen and its selection). Nothing about
+  (arcade dialogue on screen and its selection), D-011 (Saturn-arcade
+  pairing). Nothing about
   the text, font or renderer is confirmed.
 
 ## Milestones
@@ -375,13 +379,13 @@ English text goes on disc).
 
 ### REF-006 - Compare the Saturn script with the arcade script
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** GATE-TRANSLATION
 - **Dependencies:** TXT-001, REF-003.
 - **Blockers:** None.
 - **Objective:** Decide whether the Saturn dialogue is the arcade Japanese dialogue unchanged, and so whether the arcade English is a line-for-line oracle.
 - **Acceptance criteria:** Per pilot and route, the Saturn lines (from `TXT-001`) are compared with the arcade Japanese lines; Saturn-only and arcade-only lines are listed.
-- **Notes:** The arcade Japanese table (494 slots, 2-byte tile codes) is not decoded yet; decoding it is part of this task. Anchor: `cybotsj`'s first line opens like Saturn line 0 (`EXP-0009`). The arcade's script table at `0x12150` (D-010) links slots to pilots and scenes.
+- **Notes:** Done 2026-11-02 (`EXP-0010`, D-011) with `tools/text/arcade_pairing.py`: arcade Japanese map learned from the two scripts (573/579 codes, no conflicts); 787 exact and 38 edited line pairs in 450 slots; Saturn-only: 74 lines in 50 short runs, and lines 899-1850; arcade-only: 51 lines. `cybotsj` shows the same slot numbers as `cybotsu` in the first scene, so slot = English slot. Per-pilot and per-route breakdown needs the Saturn record structures (D-008) or play: left to `RE-002`.
 
 ### REF-007 - Inventory pilot and mech names across releases
 
@@ -474,7 +478,7 @@ and `docs/lessons_from_xvsf.md`.
 | DISC-002 | M2 | Reproduce the M1 change from a rebuilt image (same-size, in place, EDC/ECC regenerated with `tools/disc/patch_image.py`); cold boot. |
 | FONT-001 | M2 | Find the glyph routine and font (`KANJI.BIN` and `FIX.BIN` are candidates); prove the format by a byte-identical repack. |
 | FONT-002 | M2 | **First**, probe the renderer for a leftover arcade English path (language/region branches, half-width or ASCII handling); then measure Latin glyphs, line length and box size. |
-| LAYOUT-001 | M3 | Choose a capacity route (native English path, half-width or variable-width glyphs, pair glyphs, longer strings with relocated pointers) from measured headroom; user decision. |
+| LAYOUT-001 | M3 | Choose a capacity route (native English path, half-width or variable-width glyphs, pair glyphs, longer strings with relocated pointers) from measured headroom; user decision. The arcade English record for a slot runs up to 4 lines of 38 characters, the Saturn's line up to 16 full-width cells (D-008, D-009). |
 | RE-002 | M3 | Selection: what picks each line (pilot, opponent, route, branch), and forcing it from a checkpoint. Start from the record structures that point at the lines (D-008). |
 | RE-003 | M3 | Script compiler for one pilot; every line verified live by forcing. |
 | RE-004 | M4 | A second pilot through the same mechanism. |
@@ -488,5 +492,5 @@ and `docs/lessons_from_xvsf.md`.
 | UI-003 | after M8, user request | Other UI text (select, continue, ranking, options): find the arcade English by tracing the arcade code. |
 | TXT-002 | after M8, user request | Rare, random, or region-gated text: trace every reader of every text table. |
 | LOC-001 | after REF-007 | Both variants, US default (`DOC-002`); whether both conventions' art and voice are already on the disc; two images or an Options toggle decided right after the census. |
-| SPECIAL-001 | M9, user approval | Boss and hidden pilots, alternate routes, unlocks. Secondary sources (`docs/references.md`) say the console ports add four pilots (Chiyomaru Kagura, Tessan Hagure, Princess Devilotte, SHADE) with no arcade English, and an Akuma-mech code; their lines need recorded new translations under the user's policy. |
+| SPECIAL-001 | M9, user approval | Boss and hidden pilots, alternate routes, unlocks. Secondary sources (`docs/references.md`) say the console ports add four pilots (Chiyomaru Kagura, Tessan Hagure, Princess Devilotte, SHADE) with no arcade English, and an Akuma-mech code; their lines need recorded new translations under the user's policy. Size: Saturn lines 899-1850 (952 lines, about half the script) have no arcade counterpart (D-011), plus 74 shorter Saturn-only lines among the arcade pilots' stories. |
 | REL-001 | after M5 | Copy XvSF `make_patch`/`make_ssp` (with the RetroAchievements header guard) and parameterize the source folder, manifest and author; xdelta and SSP; release zips via promoted `make_zips`/`check_zips`. Patches are Release assets only, never committed. |

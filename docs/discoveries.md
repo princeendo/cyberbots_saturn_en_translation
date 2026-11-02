@@ -149,3 +149,19 @@ records). `cybotsj` reads only the Japanese table, and its first line opens
 like the Saturn script's first line.
 
 Reproduce: `research/experiments/EXP-0009/README.md`, "Procedure".
+
+## D-011: Saturn lines pair with arcade slots, and so with the arcade English (`REF-006`, `EXP-0010`)
+
+The arcade Japanese records use 16-bit codes (`0xFFFF` line break), and the
+code map can be learned from the two scripts with no conflicting votes (573
+of 579 codes; `data/text/arcade_jp_map.json`). 825 of Saturn lines 0-898
+pair, in order, with arcade record lines (787 identical, 38 edited), in 450
+arcade slots; each slot's Saturn lines are consecutive in 449 of 450 cases.
+The arcade passes one slot number to whichever language table is selected,
+and `cybotsj` shows the same slot sequence as `cybotsu` in the scene
+observed, so a paired Saturn record's English is the arcade English record
+with the same slot number. Saturn lines 899-1850 (952 lines) have no arcade
+counterpart, and so no official English. Pairs:
+`data/text/saturn_arcade_pairing.json`.
+
+Reproduce: `research/experiments/EXP-0010/README.md`, "Procedure".

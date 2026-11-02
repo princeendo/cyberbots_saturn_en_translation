@@ -1,0 +1,8 @@
+# REF-006 run 7: run 2's route in cybotsj to frame 3800; Japanese table reads and slot writes
+1 logreads 0x0A30F6 0x0AA9EB local/ref004/run7-cybotsj/reads-ja.txt
+1 logwrites 0xFF2F7A local/ref004/run7-cybotsj/writes-slot.txt
+600 press 8 Coin 1
+720 press 8 1 Player Start
+1020 press 8 P1 Button 1
+1320 press 8 P1 Button 1
+3800 exit
