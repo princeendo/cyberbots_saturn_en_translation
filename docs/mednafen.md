@@ -198,3 +198,45 @@ Unattended: the same with `MEDNAFEN_HOME="$PWD/local/mednafen_quiet"`, with
 stdout and stderr redirected to a file under the ignored `local/logs/`. Stock
 Mednafen has no log-directory setting. No disc has been loaded yet; the first
 boot is `EMU-003`, run with the user present.
+
+## Pad Mapping (`EMU-005`, 2026-11-02)
+
+The user's instruction (2026-11-02): "You should be able to use the same
+configuration for the pad you had in MSHvSF and XvSF." The 13 port 1 gamepad
+bindings are identical in both siblings' interactive configurations, so they
+were copied from XvSF's (the more recent, modified 2026-11-01; SHA-256
+`cb1c2d3b…a1e9`) into both homes:
+
+```bash
+./invenv.sh python -m tools.mednafen.home --bindings-from \
+  ../xmen_vs_sf_saturn_en_translation/local/mednafen/mednafen.cfg
+```
+
+The first run changed the 13 binding lines in each home; a second reported
+`no change`. Both homes then loaded `7904 valid settings and 0 unknown
+settings`.
+
+| Saturn control | Binding (joystick `0xecccd365fc40db2f0006000c00010000`) |
+| --- | --- |
+| Up / Down | `abs_1-` / `abs_1+` |
+| Left / Right | `abs_0-` / `abs_0+` |
+| A / B / C | `button_0` / `button_1` / `button_10` |
+| X / Y / Z | `button_2` / `button_3` / `button_9` |
+| L / R | keyboard `0x0 19` (Mednafen's default) |
+| Start | `button_6` |
+
+The configurations are now byte-identical to XvSF's current ones, so the
+hashes recorded under `EMU-002` above are superseded:
+
+| File | Size | SHA-256 |
+| --- | ---: | --- |
+| `local/mednafen/mednafen.cfg` | 653,154 | `cb1c2d3b8bf5bde19613fdd19d917350838114d9ce390df5db7e87872019a1e9` |
+| `local/mednafen_quiet/mednafen.cfg` | 653,152 | `aad9a7ef68d31d249fcb12383bf6e3323d04b0d3986d355ed8cf9faa303c57cf` |
+
+After any run that passes settings on the command line, rerun
+`./invenv.sh python -m tools.mednafen.home`; the quiet config should return
+to `aad9a7ef…57cf`.
+
+Which game action each Saturn button performs in Cyberbots (the arcade uses
+two weapon buttons, boost and jump) has not been observed yet; it is noted at
+the first play session (`REF-005`).

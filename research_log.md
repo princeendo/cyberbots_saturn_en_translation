@@ -334,3 +334,29 @@ Play with no cart was not tested; recorded in `docs/known_unknowns.md`.
 
 Next action: `EMU-005` (pad bindings; needs the user and their controller),
 `EMU-006` (screenshots and save/load states by hotkey).
+
+## 2026-11-02 — SESSION-0005: pad bindings copied
+
+Task: EMU-005
+
+User instruction (2026-11-02, verbatim): "You should be able to use the same
+configuration for the pad you had in MSHvSF and XvSF."
+
+Action: compared the `ss.input.port1.gamepad.*` lines of the MSHvSF
+(modified 2026-10-28) and XvSF (2026-11-01) interactive configurations:
+identical, 13 lines, one joystick ID. Copied them from XvSF with
+`./invenv.sh python -m tools.mednafen.home --bindings-from
+../xmen_vs_sf_saturn_en_translation/local/mednafen/mednafen.cfg` (13 lines
+changed per home; a second run: `no change`). `-help` with each home: 7,904
+valid, 0 unknown settings.
+
+Result: both configurations are byte-identical to XvSF's current ones
+(`cb1c2d3b…a1e9` interactive, `aad9a7ef…57cf` quiet), superseding the
+`EMU-002` hashes.
+
+Conclusion: `EMU-005` `DONE` on the user's instruction; no in-game button
+check was run. Which Saturn button does what in Cyberbots is noted at the
+first play session (`REF-005`).
+
+Next action: `EMU-006` (hotkey screenshot, save and load state), with the user
+present.

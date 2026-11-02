@@ -39,9 +39,10 @@ names it for its method only.
 - **2026-11-02: no cart needed for boot and attract** (`EMU-004`,
   `EXP-0002`, D-003): `none` and a save cart give the same screens with
   ~1 s shifts; 1 MiB and 4 MiB carts identical. `ss.cart auto` (1 MiB) kept.
-- Next unblocked tasks: `EMU-005` (pad, needs the user's controller),
-  `EMU-006` (screenshots and states), both with the user present; offline:
-  `REF-001`
+- **2026-11-02: pad bindings copied from the siblings** (`EMU-005`, the
+  user's instruction); both homes now equal XvSF's configurations.
+- Next unblocked tasks: `EMU-006` (screenshots and states, with the user
+  present); offline: `REF-001`
   (finish: boot the US set), `TXT-001` (offline census of the Shift-JIS
   script blocks), `DOC-003` (reference catalog), `ENV-007` (retry Redump).
 - Confirmed so far: D-001 (boot), D-002 (audio-track layout), D-003 (no cart
@@ -228,13 +229,13 @@ English text goes on disc).
 
 ### EMU-005 - Configure and document the pad
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** M0
 - **Dependencies:** EMU-003.
-- **Blockers:** Needs the user and their controller.
+- **Blockers:** None.
 - **Objective:** The user's controller drives every button the game uses, and Start, in game.
 - **Acceptance criteria:** A mapping table is recorded and each button is observed in the game's button configuration or in play.
-- **Notes:** Start from the sibling 8BitDo M30 mapping. Cyberbots arcade uses four buttons (two weapons, a boost, and a jump/special), not six; check the Saturn layout.
+- **Notes:** Done 2026-11-02 (`SESSION-0005`, `docs/mednafen.md` "Pad Mapping"). The user said: "You should be able to use the same configuration for the pad you had in MSHvSF and XvSF." The 13 port 1 bindings, identical in both siblings, were copied from XvSF's interactive configuration into both homes; both now equal XvSF's files (`cb1c2d3b…a1e9`, `aad9a7ef…57cf`). The in-game button check is replaced by the user's instruction and the mapping's use in both siblings (XvSF: "Everything worked as expected"); which game action each button performs in Cyberbots (the arcade has two weapons, boost and jump) is recorded at the first play session (`REF-005`).
 
 ### EMU-006 - Verify screenshots and save states
 
@@ -244,6 +245,7 @@ English text goes on disc).
 - **Blockers:** Needs the user present (emulator consent).
 - **Objective:** Screenshots and save/load states work and are stored under ignored paths.
 - **Acceptance criteria:** A state saved and reloaded reproduces the same screen; files are ignored by git.
+- **Notes:** XvSF did this by hotkey through `tools/mednafen/hotkeys.py` (F9 screenshot, F5 save, F7 load), which needs the Mednafen window in front.
 
 ### EMU-007 - Verify debugger access and memory dumps
 
