@@ -26,7 +26,10 @@ names it for its method only.
   all four extra scopes eventually; xdelta + SSP after open tasks; patched
   Mednafen reuse approved; arcade-only references (`REF-002` `REJECTED`).
 - Reverse-engineering experiments in progress: none.
-- Next unblocked tasks: `EMU-001` (pin and build stock Mednafen), `REF-001`
+- **2026-11-02: stock Mednafen 1.32.1 built** (`EMU-001`, `SESSION-0003`,
+  `docs/mednafen.md`), from XvSF's archive (hash checked, no download).
+  Mednafen's database gives `T-1217G` the 1 MiB cart (`EMU-004` tests it).
+- Next unblocked tasks: `EMU-002` (project-local homes and BIOS), `REF-001`
   (finish: boot the US set), `TXT-001` (offline census of the Shift-JIS
   script blocks), `DOC-003` (reference catalog), `ENV-007` (retry Redump).
 - Nothing about Cyberbots' internals is confirmed yet.
@@ -171,20 +174,20 @@ English text goes on disc).
 
 ### EMU-001 - Pin and build stock Mednafen
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** M0
 - **Dependencies:** ENV-002.
 - **Blockers:** Ask before downloading source or installing build dependencies.
 - **Objective:** Have a stock Mednafen build under ignored `vendor/` with its exact version, source URL, hash, and build commands recorded.
 - **Acceptance criteria:** `docs/mednafen.md` records the version, source hash, configure and build commands, and the binary's `-help` banner.
-- **Notes:** Both siblings used stock 1.32.1 (`de7eb94a…3832`), so the agent patch applies unchanged. The archive may be copied from XvSF `local/downloads/mednafen-1.32.1/` after checking its hash, instead of downloading again. Homebrew's `mednafen` is not the pinned build.
+- **Notes:** Done 2026-11-02 (`SESSION-0003`). Archive copied from XvSF `local/downloads/mednafen-1.32.1/`, SHA-256 `de7eb94a…3832` as both siblings recorded, so nothing was downloaded. Configure and `make -j12` exited 0 (2 min 46 s). Binary `vendor/mednafen/build/src/mednafen`, 21,327,272 bytes, SHA-256 `077ac658…669f`; `-help` shows 1.32.1 with the `ss` module. Homebrew's `mednafen` is not the pinned build.
 
 ### EMU-002 - Create the project-local Mednafen configuration
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M0
 - **Dependencies:** EMU-001.
-- **Blockers:** EMU-001.
+- **Blockers:** None.
 - **Objective:** Run Mednafen with a configuration and BIOS path local to this checkout, never the user's global configuration.
 - **Acceptance criteria:** The launch command, base directory, BIOS identity (filename, size, SHA-256), and forced settings are recorded; `tools/mednafen/home.py` pins the interactive and quiet homes.
 - **Notes:** The Japanese Saturn BIOS `sega_101.bin` (`dcfef4b9…`) is in the siblings' `local/mednafen/firmware/`; copy it and record its hash.
@@ -207,7 +210,7 @@ English text goes on disc).
 - **Blockers:** EMU-003.
 - **Objective:** Find which cartridge setting the game needs, with controls.
 - **Acceptance criteria:** Boots with `ss.cart` set to `none`, `extram1` and `extram4` are each recorded (log line, what the game shows, how far it gets); the project setting is chosen from that evidence.
-- **Notes:** Both siblings needed the 4 MiB cart. Cyberbots is **UNKNOWN**: the header's peripheral field reads `JW`, and the Redump name carries "(2M)", whose meaning is not yet known (`ENV-007`). The `WARNING0-4.PIX` files may be the cart or save warnings (`UI-004`).
+- **Notes:** Both siblings needed the 4 MiB cart. Cyberbots is **UNKNOWN**. Mednafen 1.32.1's database lists `T-1217G` as `CART_EXTRAM_1M` with no "Game requirement" note (`docs/mednafen.md`), so `ss.cart auto` should give it 1 MiB; the header's peripheral field reads `JW`, and the Redump name carries "(2M)", whose meaning is not yet known (`ENV-007`). The `WARNING0-4.PIX` files may be the cart or save warnings (`UI-004`).
 
 ### EMU-005 - Configure and document the pad
 

@@ -205,3 +205,40 @@ tasks (rule 24).
 Next action: `EMU-001` (Mednafen 1.32.1; copy XvSF's archive after a hash
 check, so no download), `REF-001` (pin `cps2.cpp`, boot `cybotsu`),
 `TXT-001`, `DOC-003`, `ENV-007`.
+
+## 2026-11-02 — SESSION-0003: stock Mednafen built
+
+Task: EMU-001
+
+Goal: a pinned stock Mednafen build under ignored `vendor/`, recorded well
+enough to reproduce.
+
+Action:
+
+- Copied XvSF's `local/downloads/mednafen-1.32.1/mednafen-1.32.1.tar.xz`
+  (`cp -c`) instead of downloading. Size 3,571,236 bytes and SHA-256
+  `de7eb94a…3832`, equal to both siblings' records.
+- `bsdtar -tf` (one top folder, `mednafen/`), extracted into an empty scratch
+  folder under `local/`, moved to `vendor/mednafen/src/`.
+- Configured and built in `vendor/mednafen/build/` with the siblings' exact
+  commands (`docs/mednafen.md`). Configure 30 s, `make -j12` 2 min 46 s, both
+  exit 0.
+- Ran `-help` with `MEDNAFEN_HOME=local/mednafen` (no disc loaded).
+
+Result:
+
+- Binary SHA-256 `077ac658c8e773bca58508cf7bacc4f180a6bf492419bfe0b8ddf3e7415d669f`,
+  21,327,272 bytes; differs from XvSF's (`892bb60a…29dd`), as expected across
+  host builds (macOS 26.7.2 here, 26.7.1 there).
+- `-help`: "Starting Mednafen 1.32.1", the `ss` module listed, exit 255 (same
+  as both siblings). A default `local/mednafen/mednafen.cfg` was created.
+- Static lead for `EMU-004`: `src/ss/db.cpp` line 102 lists `T-1217G`
+  "Cyberbots (Japan)" as `CART_EXTRAM_1M`, without the "Game requirement."
+  note that XvSF's 4 MiB entry carries. This is a **HYPOTHESIS** source for
+  the cart question, not evidence of what the game needs.
+
+Conclusion: `EMU-001` is `DONE`; `EMU-002` is `READY`.
+
+Next action: `EMU-002` (pin the interactive and quiet homes with
+`tools/mednafen/home.py`; copy the Japanese BIOS `sega_101.bin` from a
+sibling's `local/mednafen/firmware/` and record its hash).
