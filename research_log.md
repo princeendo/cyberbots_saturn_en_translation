@@ -976,3 +976,10 @@ Conclusion: **M2 CONFIRMED**, D-018; `DISC-002` is `DONE`.
 
 Next action: `FONT-001`. Pushing the image-changing commits waits for the
 user's OK (hardware check before push).
+
+## 2026-11-02 — Push rule for image changes
+
+Asked whether to push the M2 commits, the user answered, verbatim: "Let's push now. In general, I'm not going to want to burn a disc until we're much, much closer to finished. Mednafen does a fantastic job of replicating real hardware so I don't feel the need to constantly check."
+Image-changing commits now push after the agent's cold-boot play check, like
+doc-only commits. A real-Saturn check comes near the end, before a release.
+Recorded in `docs/localization_policy.md`.
