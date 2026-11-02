@@ -724,3 +724,37 @@ sub-screens, warnings and console-only pilots not reached.
 
 Next action: `REF-008` (pick the M1 pilot and line; Jin's introduction or
 pre-fight lines have checkpoints in this session) and `REF-007` (names).
+
+## 2026-11-02 — EXP-0012: names across the releases
+
+Task: REF-007
+
+Goal: list every pilot and mech name, where it is art, and how the arcade
+English differs; put the options to the user.
+
+Action: speaker labels and frequent names from the arcade English; katakana
+spellings counted in the Saturn script; MAME snapshots of the US and Japanese
+pilot select and VS screens; VDP1 sprites of the session's VS-screen state;
+the name sprites' bytes searched on the disc.
+
+Result (`research/experiments/EXP-0012/README.md`, D-013, `docs/names.md`):
+
+- No name differs between Japan and the US; only katakana versus Latin.
+- Name art: pilot select and VS screen (katakana on Saturn and arcade Japan,
+  Latin on the US arcade); HUD Latin everywhere.
+- The Japanese arcade's VS screen shows the same chapter caption as the
+  Saturn; the US arcade shows none. Correction to my play-session report,
+  where I called the captions a Saturn addition.
+- Saturn VS name art: raw VDP1 sprites in `SELECT.VAD`. Latin name art on the
+  disc: not found, not ruled out (`LOC-001`).
+
+Disproven: "some names differ between the releases" (the sibling pattern).
+
+User decision (2026-11-02, verbatim, to "How should the English build handle
+names?"): "I definitely want the toggle and I want it placed in the options
+screen. We may need an expanded options screen like I'm currently working on
+in the MSHvSF repo." Recorded in `docs/localization_policy.md`; `LOC-001`
+and a new `OPT-001` outline added (models: MSHvSF `OPT-003`-`OPT-005`,
+read-only).
+
+Next action: `REF-008` (pick the M1 pilot and line from the session).

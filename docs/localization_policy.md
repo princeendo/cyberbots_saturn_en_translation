@@ -20,6 +20,22 @@ facts: whether each one is achievable on Cyberbots is found by experiment.
 | PlayStation reference | "No, arcade only (Recommended)" | The arcade sets are the only oracle; `REF-002` is `REJECTED`. | XvSF `REF-006` (PS1 equal to the arcade) |
 | XvSF standing rules | "No cold boots without me", "Time estimates on jobs", "Rebuild only new references", "Delete finished build images" | All four stay in force, as written in `local_agent_guidance.md`. | XvSF agent memory, 2026-10-31 and 2026-11-01 |
 
+## Names, Refined (2026-11-02, `REF-007`)
+
+`EXP-0012` found that Cyberbots has one set of names: the Japanese and US
+releases differ only in the name art on the pilot select and VS screens
+(katakana or Latin). Asked how the English build should handle names (options:
+Latin art in one build; keep katakana art; both with a toggle), the user
+answered, verbatim: "I definitely want the toggle and I want it placed in the
+options screen. We may need an expanded options screen like I'm currently
+working on in the MSHvSF repo."
+
+| Topic | Decision | Evidence |
+| --- | --- | --- |
+| Names in text | The arcade English names (one set) | `docs/names.md` |
+| Name art | Both conventions, chosen by an in-game switch on the Options screen; US (Latin) by default, as in the `DOC-002` answer | `docs/names.md`, `LOC-001` |
+| Where the switch lives | The Options screen, expanded if needed, modelled on MSHvSF's EXTRA OPTIONS sub-menu (MSHvSF `OPT-003`-`OPT-005`, commits `08fe732`-`c6c9ae8`) and XvSF's names toggle (XvSF `LOC-009`/`LOC-010`) | `OPT-001` |
+
 ## Deferred To Evidence
 
 Not asked under `DOC-002`, because each depends on what an experiment finds.
@@ -32,7 +48,7 @@ Each is put to the user when its task has the evidence.
 | Dialogue box layout for English lines | `LAYOUT-001` |
 | Roster and exceptions for M5 | `RE-005` |
 | Ending layout and labels | `END-001`, `END-002` |
-| Name-variant delivery (two images or an Options toggle) | `REF-007`, `LOC-001` |
+| ~~Name-variant delivery~~ Decided 2026-11-02: an Options-screen toggle (above) | — |
 | Caption, UI-art and attract style | `UI-001`, `UI-002` |
 
 ## Translation Gates

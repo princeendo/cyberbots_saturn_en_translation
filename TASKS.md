@@ -74,9 +74,12 @@ names it for its method only.
   `EXP-0011`, D-012): Japanese appears in dialogue boxes, VS-screen chapter
   captions (Saturn-only lines 899-952) and katakana name art; everything
   else seen is English. 166 states kept as checkpoints.
-- Next unblocked tasks: `REF-008` (choose the first pilot and line from the
-  session's checkpoints), `REF-007` (names inventory), both offline from the
-  recording.
+- **2026-11-02: names inventoried** (`REF-007`, `EXP-0012`): one set of
+  names in both regions; only the pilot-select and VS-screen name art differs
+  (katakana or Latin). User decision: an Options-screen toggle, Latin by
+  default (`docs/localization_policy.md`).
+- Next unblocked task: `REF-008` (choose the first pilot and line from the
+  session's checkpoints).
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -89,7 +92,7 @@ names it for its method only.
   valid for work RAM and VRAM), D-007 (agent interface), D-008 (shared
   dialogue table, static), D-009 (arcade English dialogue table), D-010
   (arcade dialogue on screen and its selection), D-011 (Saturn-arcade
-  pairing), D-012 (text surfaces in an ordinary run). Nothing about
+  pairing), D-012 (text surfaces in an ordinary run), D-013 (names). Nothing about
   the text, font or renderer is confirmed.
 
 ## Milestones
@@ -394,12 +397,13 @@ English text goes on disc).
 
 ### REF-007 - Inventory pilot and mech names across releases
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** GATE-TRANSLATION
 - **Dependencies:** REF-004, REF-005.
 - **Blockers:** None.
 - **Objective:** List every pilot and VA (mech) name the Saturn shows as art or text or speaks, and where the arcade English differs.
 - **Acceptance criteria:** A name table with sources; whether both conventions' assets are already on the disc; options and costs presented to the user; the toggle question decided right after (`docs/lessons_from_xvsf.md`, lesson 9).
+- **Notes:** Done 2026-11-02 (`EXP-0012`, D-013, `docs/names.md`). Names are the same in both regions; only the name art differs. The Saturn's VS name art is raw sprite data in `SELECT.VAD`; whether Latin name art is on the disc is UNKNOWN and moved to `LOC-001` (a full answer needs the VS-screen draw code). Options and costs put to the user; decision: Options-screen toggle.
 
 ### REF-008 - Choose the first pilot and line
 
@@ -496,6 +500,7 @@ and `docs/lessons_from_xvsf.md`.
 | UI-002 | after M8, user request | Attract and opening text (`OPDEMO*`, `STDEM*.PIR`, `VADEM*.MAC`, `STDEMO.*` are candidates): layer, container, codecs, oracles. |
 | UI-003 | after M8, user request | Other UI text (select, continue, ranking, options): find the arcade English by tracing the arcade code. |
 | TXT-002 | after M8, user request | Rare, random, or region-gated text: trace every reader of every text table. |
-| LOC-001 | after REF-007 | Both variants, US default (`DOC-002`); whether both conventions' art and voice are already on the disc; two images or an Options toggle decided right after the census. |
+| LOC-001 | after REF-007 | Name art only (D-013): find the pilot-select and VS-screen name sprites' table (VS draw code, `SELECT.VAD`), check whether Latin name art is on the disc, otherwise model it on the US arcade's; census the difference between the two variants early (XvSF: 243 bytes; MSHvSF: 58 KB of font). Voices: check whether names are spoken. |
+| OPT-001 | after LOC-001, user decision 2026-11-02 | An Options-screen switch for the name art, Latin by default, in an expanded Options screen if needed. Model: MSHvSF `OPT-003` (a proven home for new code), `OPT-004` (EXTRA OPTIONS sub-menu), `OPT-005` (names switch); XvSF `LOC-009`/`LOC-010`. Prove free RAM by read/write logs before placing code (XvSF's first toggle hung the title). |
 | SPECIAL-001 | M9, user approval | Boss and hidden pilots, alternate routes, unlocks. Secondary sources (`docs/references.md`) say the console ports add four pilots (Chiyomaru Kagura, Tessan Hagure, Princess Devilotte, SHADE) with no arcade English, and an Akuma-mech code; their lines need recorded new translations under the user's policy. Size: Saturn lines 899-1850 (952 lines, about half the script) have no arcade counterpart (D-011), plus 74 shorter Saturn-only lines among the arcade pilots' stories. |
 | REL-001 | after M5 | Copy XvSF `make_patch`/`make_ssp` (with the RetroAchievements header guard) and parameterize the source folder, manifest and author; xdelta and SSP; release zips via promoted `make_zips`/`check_zips`. Patches are Release assets only, never committed. |

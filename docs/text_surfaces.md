@@ -19,11 +19,11 @@ surface.
 | Intro mech schematics | Boot, attract | English part labels | Arcade attract has the same screens | `emu003/boot1/frames/045.png` |
 | Title, `PRESS START BUTTON` | Boot, attract | English | — | `emu003/boot1/frames/064.png` (`e9f12474…ee24`) |
 | Title menu `ARCADE MODE` / `VERSUS MODE` / `OPTION MODE` | After Start | English | — | `f00002228.png` (`ac13dfe8…aa4f`) |
-| `PILOT SELECT` grid (10 portraits) | Mode start | English label; **pilot name as Japanese katakana art** under the portrait | Arcade has its own select (not compared) | `f00003026.png` (`41e1e675…a874`) |
+| `PILOT SELECT` grid (10 portraits) | Mode start | English label; **pilot name as Japanese katakana art** under the portrait | The US arcade shows the name in Latin art (D-013) | `f00003026.png` (`41e1e675…a874`) |
 | `MACHINE SELECT`, `BODY TYPE` | After pilot select | English (mech names `BLODIA`, `REPTOS`, `FORDY`, `GULDIN`) | — | `f00003264.png` (`f12cd48e…6eee`) |
 | **Story dialogue boxes** | Introduction, before and after each fight | **Japanese**, typed out; Saturn script lines (D-008) | Yes for paired lines (D-011) | intro `f00004959.png` (`fbdcff49…5603`); pre-fight `f00005632.png` (`f4ef1367…a27f`); post-fight `f00013887.png` (`1c56587b…bf91`) |
-| **VS screen chapter caption** | Before each fight | **Japanese** box, e.g. Saturn lines 899 and 900 | **No**: lines 899-952 have no arcade counterpart (D-011) | `f00006717.png` (`578caa24…565a`), `f00015684.png` (`f9868e50…cd04`) |
-| **VS screen names** | Before each fight | **Pilot and mech names as Japanese katakana art** (both sides) | Arcade VS screen not compared | as above |
+| **VS screen chapter caption** | Before each fight | **Japanese** box, e.g. Saturn lines 899 and 900 | **No**: the Japanese arcade shows the same caption, the US arcade none (`EXP-0012`); lines 899-952 are outside the arcade dialogue table (D-011) | `f00006717.png` (`578caa24…565a`), `f00015684.png` (`f9868e50…cd04`) |
+| **VS screen names** | Before each fight | **Pilot and mech names as Japanese katakana art** (both sides) | The US arcade shows them in Latin art (D-013) | as above |
 | Fight HUD | Fights | English (`BOOST`, `POWER`, mech names, score, timer) | — | `f00008156.png` (`15f29d0a…f689`) |
 | Fight banners | Fights | English (`PHASE 1`, `PROCEED`, `GO!`, `FIGHT!`, `N HIT COMBO!`) | — | many |
 | Round end | After a KO | English (`TARGET DAMAGED`/`DESTROYED`, `UNIT DAMAGED`, `MISSION TERMINATED`, `1P WIN`/`LOSE`) | — | `f00012822.png` (`84bd973d…b5d6`), `f00023412.png` (`221f7fd7…3645`) |

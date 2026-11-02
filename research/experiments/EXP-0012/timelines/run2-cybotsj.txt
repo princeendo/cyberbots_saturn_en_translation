@@ -1,0 +1,14 @@
+# REF-007 run 2: cybotsj VS screen
+600 press 8 Coin 1
+720 press 8 1 Player Start
+1020 press 8 P1 Button 1
+1320 press 8 P1 Button 1
+3560 snap
+3590 snap
+3620 snap
+3650 snap
+3680 snap
+3710 snap
+3740 snap
+3770 snap
+3781 exit

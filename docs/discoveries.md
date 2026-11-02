@@ -179,3 +179,16 @@ continue, game over, initials and options are already English. Inventory:
 `docs/text_surfaces.md`.
 
 Reproduce: `research/experiments/EXP-0011/README.md`, "Procedure".
+
+## D-013: One set of names; only the name art differs (`REF-007`, `EXP-0012`)
+
+Every pilot named in both the arcade English and the Saturn script has the
+same name in both (for example Jin Saotome, Gawaine, Mary, Santana, Arieta,
+Bao and Mao, SHADE, Devilotte, Chiyomaru); only the script differs. Tessan
+has no arcade English. The pilot select and VS screen show names as katakana
+art on the Saturn and the Japanese arcade, and as Latin art on the US
+arcade; the HUD is Latin everywhere. The Saturn's VS-screen name art is
+uncompressed VDP1 sprite data in `SELECT.VAD` (for example `0x1EE80`).
+Table: `docs/names.md`.
+
+Reproduce: `research/experiments/EXP-0012/README.md`, "Procedure".

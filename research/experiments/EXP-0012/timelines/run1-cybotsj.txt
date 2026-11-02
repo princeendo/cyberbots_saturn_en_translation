@@ -1,0 +1,33 @@
+# REF-007 run 1: cybotsj route; pilot select and VS screen snapshots
+600 press 8 Coin 1
+720 press 8 1 Player Start
+1020 press 8 P1 Button 1
+1320 press 8 P1 Button 1
+1000 snap
+3780 snap
+3820 snap
+3860 snap
+3900 snap
+3940 snap
+3980 snap
+4020 snap
+4060 snap
+4100 snap
+4140 snap
+4180 snap
+4220 snap
+4260 snap
+4300 snap
+4340 snap
+4380 snap
+4420 snap
+4460 snap
+4500 snap
+4540 snap
+4580 snap
+4620 snap
+4660 snap
+4700 snap
+4740 snap
+4780 snap
+4801 exit
