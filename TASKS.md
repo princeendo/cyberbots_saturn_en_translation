@@ -108,7 +108,9 @@ names it for its method only.
 - **2026-11-02: dialogue font found** (`FONT-001`, `EXP-0020`, D-019):
   `KANJI.BIN`, 1,280 16×16 4 bpp glyphs (byte-identical repack), selected
   through a 1,222-code table in `STG0AS.BIN`; it has full-width A-Z and 0-9.
-  Next: write up `FONT-002` in full.
+- **2026-11-02: `FONT-002` written up** (`READY`): Phase A looks for a
+  native English path first; Phase B measures Latin text and box capacity.
+  Next: `FONT-002`.
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -593,6 +595,40 @@ English text goes on disc in M2; the test string is the M1 hiragana.
   - **Format:** 1,280 glyphs of 16×16 at 4 bpp, 2×2 VDP2 tiles each; byte-identical repack (`tools/font/kanji.py`).
   - **Mapping:** 25/25 tile indices predicted, and 25/25 decoded glyphs equal the rendered cells (WRAM-H and VDP1).
 
+### FONT-002 - Look for a native English path, then measure Latin text and box capacity
+
+- **Status:** `READY`
+- **Milestone:** M2
+- **Dependencies:** FONT-001 (done).
+- **Blockers:** None.
+- **Objective:** Before any font work, learn whether the Saturn renderer still has a way to draw arcade-style English (`docs/lessons_from_xvsf.md`, lesson 1). Then measure what the existing font and box can show in Latin text, so that `LAYOUT-001` chooses a capacity route from facts.
+- **Acceptance criteria:**
+  - **Phase A: native path.**
+    - The text loop (`0x0606E7BC` and the code that calls it) is disassembled far enough to list every branch on a text byte, a flag, the region or a language variable. Each branch is recorded with what it does.
+    - A search of the program files for reads of the region or language bytes near the text code is recorded, with its result.
+    - Any candidate path that ordinary Japanese text does not take is tried live from checkpoint A (a RAM write of the flag or bytes, before the box types), with a no-write control. The result is recorded on screen, crash or not.
+    - If no path is found, that is stated with what was searched.
+  - **Phase B: Latin text in the existing font.** All live RAM tests run from checkpoint A, before the box types, each with a no-write control, as in `RE-001`:
+    - **Full-width capitals:** a line-4 write of full-width capitals and digits (codes `0x8260`-`0x8279`, `0x824F`-`0x8258`) shows the predicted glyphs (`tools/font/kanji.py` mapping), checked by agent-reviewed screenshot.
+    - **Codes not in the table:** a half-width ASCII pair that is not a table code (for example `AB`), and a full-width lower-case letter (not in the table), are written. What the box does is recorded: blank cell, skip, wrong glyph, or crash.
+    - **Line length:** the most cells one line shows (wrap, clip or overrun), measured with a line longer than the longest Saturn line (16 cells, D-008).
+    - **Lines per box:** the most lines one box shows, measured with `0x0A` line breaks inside one line's bytes.
+    - **Cell limit:** the VDP1 cell buffer's limit per box (cells from `0x1E200`), measured or bounded from the code.
+  - **Capacity statement.** From the measurements:
+    - the box's capacity in full-width cells;
+    - how many of the 450 paired arcade English slots (D-011) fit as written in capitals only, and how many after re-wrapping;
+    - the font's free room (58 glyphs, 26 table slots) against the extra glyphs each capacity route needs: lower case, pair glyphs, a half-width path.
+    These are inputs to `LAYOUT-001`; no route is chosen here.
+  - Original and written bytes, addresses, purpose, expected and observed results are recorded for every write (rule 12). The source image is unchanged; nothing goes on disc.
+- **Notes:**
+  - Facts from D-019:
+    - Text is read two bytes per glyph, with `0x0A` a line break (SUPPORTED, from the disassembly).
+    - The font has full-width 0-9 and A-Z but no lower case.
+    - The pair glyphs `Dr` and `!?` already draw two half-width characters in one cell, as MSHvSF's pair-glyph route did (playbook, "Capacity route: pair glyphs").
+  - The arcade English record for a slot runs up to 4 lines of 38 characters (D-009). The Saturn box shows 2 lines of up to 16 full-width cells in the scenes seen so far.
+  - In XvSF the leftover arcade language word crashed to the BIOS unless it was gated per slot (`docs/lessons_from_xvsf.md`). A crash in Phase A is a result, not a failure; record it and do not retry the same write.
+  - Overlong test strings overwrite the bytes after line 4 (its NUL, then line 5). That is part of the measurement: line 5's own pointer then reads from the middle of the test string, and the record says so.
+
 ### GATE-TRANSLATION - Confirm reference and translation prerequisites
 
 - **Status:** `BLOCKED`
@@ -611,7 +647,6 @@ and `docs/lessons_from_xvsf.md`.
 
 | ID | Milestone | Outline |
 | --- | --- | --- |
-| FONT-002 | M2 | **First**, probe the renderer for a leftover arcade English path (language/region branches, half-width or ASCII handling); then measure Latin glyphs, line length and box size. From D-019: text is two bytes per glyph (`0x0A` a line break, SUPPORTED); the font already has full-width A-Z and 0-9 but no lower case; there are 58 free glyph slots and 26 free table slots; pair glyphs (`Dr`, `!?`) show two half-width characters per cell. |
 | LAYOUT-001 | M3 | Choose a capacity route (native English path, half-width or variable-width glyphs, pair glyphs, longer strings with relocated pointers) from measured headroom; user decision. The arcade English record for a slot runs up to 4 lines of 38 characters, the Saturn's line up to 16 full-width cells (D-008, D-009). |
 | RE-002 | M3 | Selection: what picks each line (pilot, opponent, route, branch), and forcing it from a checkpoint. Start from the record structures that point at the lines (D-008). |
 | RE-003 | M3 | Script compiler for one pilot; every line verified live by forcing. |

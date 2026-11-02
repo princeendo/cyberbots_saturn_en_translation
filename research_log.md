@@ -1011,3 +1011,14 @@ full-width A-Z and 0-9, no lower case, 58 free glyphs, 26 free table slots,
 and two half-width pair glyphs.
 
 Next action: write up `FONT-002` in full (M2's last outline task).
+
+## 2026-11-02 — FONT-002 written up
+
+`FONT-002` is written out in full in `TASKS.md` (`READY`). Phase A comes
+first: look for a native English path in the text renderer (XvSF lesson 1).
+Phase B then measures, by live RAM tests from checkpoint A with controls,
+full-width Latin, unknown codes, line length, lines per box and the cell
+limit, and ends in a capacity statement for `LAYOUT-001`. Nothing goes on
+disc.
+
+Next action: `FONT-002`, Phase A.
