@@ -395,3 +395,39 @@ lost key's cause is open (recorded in `EXP-0003`). `EMU-006` `DONE`;
 Next action: `EMU-007`, kept minimal (stock debugger: WRAM-L and WRAM-H dumps
 at one paused instant, one memory write, one write breakpoint), then
 `EMU-020`/`EMU-021` to build the agent interface.
+
+## 2026-11-02 — EXP-0004: stock debugger dumps, a write, a breakpoint
+
+Task: EMU-007
+
+Goal: the minimum stock-debugger evidence before the agent interface:
+repeatable work-RAM dumps at a paused instant, one memory write, one write
+breakpoint.
+
+Hypothesis: `tools/mednafen/hotkeys.py` drives all three unattended, using
+XvSF's working step scripts with Cyberbots' title timing.
+
+Action: with the user present ("Run EMU-007"), runs A, A2 and F,
+14:34-14:40 local time (`research/experiments/EXP-0004/`).
+
+Result:
+
+- Run A: WRAM-H dumps and the write test worked; both WRAM-L dumps were
+  silently not written (no file, no log error), though the capture shows the
+  editor on Low Work RAM.
+- Run A2 (run A plus two captures around the first WRAM-L dump): every file
+  written. WRAM-L dumps identical (`bb0628a5…517c`), WRAM-H dumps identical
+  (`fc70d589…8b10`); write test reads back the pattern, then the original.
+  State `52ce80ae…b311` saved at the same freeze.
+- Run F: breakpoint on all WRAM-H; identical captures after it; CPU view at
+  PC `060008F0`, `mov.l r0,@-r15` (stack push, `[INT42]` in the trace).
+- Source and configs unchanged.
+
+Conclusion: **CONFIRMED** (D-005). The lost WRAM-L dumps are unexplained;
+recorded as "check every dump file exists". `EMU-007` `DONE`; `EMU-020` and
+`DBG-001` `READY`.
+
+Next action: `EMU-020` (offline record citing the siblings' evidence), then
+`EMU-021` (apply the patch, build, validate V1-V4 with the user present);
+`DBG-001` (extract WRAM-L/WRAM-H from the run A2 state and compare with the
+dumps; add VDP1/VDP2 VRAM dumps).

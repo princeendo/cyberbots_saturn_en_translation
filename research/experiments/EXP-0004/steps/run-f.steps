@@ -1,0 +1,13 @@
+# EMU-007 run F: write breakpoint over WRAM-H at the title; show the debugger after the halt
+63 window=local/emu007/win/f0a-running.png
+65 window=local/emu007/win/f0b-running.png
+65 option+d
+65 shift+w
+65 type=06000000-060fffff 26000000-260fffff
+65 return
+65 option+d
+73 window=local/emu007/win/f1-after.png
+77 window=local/emu007/win/f2-after.png
+77 option+d
+79 window=local/emu007/win/f3-debugger.png
+81 window=local/emu007/win/f4-debugger.png

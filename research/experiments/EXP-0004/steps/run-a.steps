@@ -1,0 +1,38 @@
+# EMU-007 run A: freeze at the title, save a state, dump both work RAMs twice, write test
+63 option+a
+63 F5
+63 option+d
+63 option+3
+63 period
+63 window=local/emu007/win/a1-wraml.png
+63 d
+63 type=00000000 000fffff research/memory_dumps/emu007/wraml-1.bin
+63 return
+63 d
+63 type=00000000 000fffff research/memory_dumps/emu007/wraml-2.bin
+63 return
+63 period
+63 window=local/emu007/win/a2-wramh.png
+63 d
+63 type=00000000 000fffff research/memory_dumps/emu007/wramh-1.bin
+63 return
+63 d
+63 type=00000000 000fffff research/memory_dumps/emu007/wramh-2.bin
+63 return
+63 d
+63 type=000f0000 000f000f research/memory_dumps/emu007/w-before.bin
+63 return
+63 l
+63 type=000f0000 000f000f research/memory_dumps/emu007/w-pattern.bin
+63 return
+63 d
+63 type=000f0000 000f000f research/memory_dumps/emu007/w-after.bin
+63 return
+63 window=local/emu007/win/a3-written.png
+63 l
+63 type=000f0000 000f000f research/memory_dumps/emu007/w-before.bin
+63 return
+63 d
+63 type=000f0000 000f000f research/memory_dumps/emu007/w-revert.bin
+63 return
+63 window=local/emu007/win/a4-reverted.png

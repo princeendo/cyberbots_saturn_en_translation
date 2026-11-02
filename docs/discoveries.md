@@ -60,3 +60,17 @@ unchanged by loading. Send hotkeys with `tools/mednafen/hotkeys.py
 --keep-focus`: one F9 was lost in a run that returned focus between keys.
 
 Reproduce: `research/experiments/EXP-0003/README.md`, "Procedure".
+
+## D-005: The stock debugger dumps, writes and breaks, unattended (`EMU-007`, `EXP-0004`)
+
+Driven by `tools/mednafen/hotkeys.py --keep-focus --script`, stock 1.32.1's
+debugger, frozen at the title, dumps WRAM-L and WRAM-H (1,048,576 bytes each)
+repeatably: two dumps of each at one freeze are byte-identical
+(`bb0628a5…517c`, `fc70d589…8b10`). Loading a 16-byte file into WRAM-H offset
+`0xF0000` and dumping it back reads the file; loading the saved original
+restores it. A write breakpoint on `06000000-060fffff 26000000-260fffff`
+halts the CPU (identical window captures seconds apart) at a store into
+WRAM-H. One run lost its WRAM-L dumps without an error: check that every dump
+file exists.
+
+Reproduce: `research/experiments/EXP-0004/README.md`, "Procedure".

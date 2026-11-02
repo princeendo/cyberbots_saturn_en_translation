@@ -44,13 +44,19 @@ names it for its method only.
 - **2026-11-02: screenshots and states work by hotkey** (`EMU-006`,
   `EXP-0003`, D-004): a title state reloads byte-identically in-session and
   in a fresh cold boot.
-- Next unblocked tasks: `EMU-007` (stock debugger dumps, a write and a
-  breakpoint; keep it minimal, then `EMU-020`/`EMU-021`), with the user
-  present; offline: `REF-001`
+- **2026-11-02: the stock debugger works unattended** (`EMU-007`,
+  `EXP-0004`, D-005): repeatable WRAM-L/WRAM-H dumps at a freeze, an exact
+  write and restore, a write breakpoint that halts. The dumps and a state of
+  the same instant are ready for `DBG-001`.
+- Next unblocked tasks: `EMU-020` (record why stock is insufficient; offline),
+  then `EMU-021` (build the agent interface, validate V1-V4 with the user
+  present); `DBG-001` (validate the state extractor; offline); offline:
+  `REF-001`
   (finish: boot the US set), `TXT-001` (offline census of the Shift-JIS
   script blocks), `DOC-003` (reference catalog), `ENV-007` (retry Redump).
 - Confirmed so far: D-001 (boot), D-002 (audio-track layout), D-003 (no cart
-  needed for boot and attract), D-004 (screenshots and states by hotkey). Nothing about
+  needed for boot and attract), D-004 (screenshots and states by hotkey),
+  D-005 (stock debugger dumps, writes, breakpoints). Nothing about
   the text, font or renderer is confirmed.
 
 ## Milestones
@@ -253,20 +259,20 @@ English text goes on disc).
 
 ### EMU-007 - Verify debugger access and memory dumps
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** M0
 - **Dependencies:** EMU-006.
-- **Blockers:** Needs the user present (emulator consent).
+- **Blockers:** None.
 - **Objective:** Dump WRAM-L and WRAM-H at a paused instant with the stock debugger.
 - **Acceptance criteria:** Dumps of `0x00200000-0x002FFFFF` and `0x06000000-0x060FFFFF` are saved with sizes and hashes recorded; a memory write and a write breakpoint are each observed once.
-- **Notes:** Keep this minimal and move to `EMU-020`/`EMU-021` straight after: both siblings lost time to stock-debugger GUI automation (`docs/lessons_from_xvsf.md`, lesson 10).
+- **Notes:** Done 2026-11-02 (`EXP-0004`, D-005), unattended, in three runs (about 6 minutes). Run A2: WRAM-L `bb0628a5…517c` and WRAM-H `fc70d589…8b10`, each dumped twice identically at the title freeze; write test at WRAM-H `0xF0000` exact; state `52ce80ae…b311` saved at the same freeze (for `DBG-001`). Run F: breakpoint on all WRAM-H halted at PC `060008F0`, `mov.l r0,@-r15`. Run A silently lost its WRAM-L dumps (cause unknown). Kept minimal, as planned: both siblings lost time to stock-debugger GUI automation.
 
 ### EMU-020 - Record why stock Mednafen is insufficient
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M0
 - **Dependencies:** EMU-007, DOC-002.
-- **Blockers:** EMU-007.
+- **Blockers:** None.
 - **Objective:** Satisfy `AGENTS.md` rule 16 before using the patched build.
 - **Acceptance criteria:** A short record cites MSHvSF `EMU-012`/`EMU-020` and XvSF `EMU-020` and confirms the same limits apply here; the user's `DOC-002` answer on reusing the patch is cited.
 - **Notes:** `DOC-002` answer (2026-11-02): "Yes, reuse it (Recommended)".
@@ -282,10 +288,10 @@ English text goes on disc).
 
 ### DBG-001 - Validate the save-state extractor on Cyberbots
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M0
 - **Dependencies:** EMU-007.
-- **Blockers:** EMU-007.
+- **Blockers:** None. Inputs from `EXP-0004` run A2: state `local/emu007/run-a2-state/*.mc0` and the debugger dumps `research/memory_dumps/emu007/wram{l,h}-1.bin` of the same freeze (VDP1/VDP2 VRAM dumps still to take).
 - **Objective:** Extract WRAM-L, WRAM-H, VDP1 and VDP2 VRAM from states, validated byte for byte against debugger dumps of the same instant on Cyberbots.
 - **Acceptance criteria:** Each region matches a stock debugger dump exactly; the result goes to `docs/discoveries.md`; cart RAM stays `HYPOTHESIS`.
 - **Notes:** Both siblings found each stored 16-bit element byte-swapped. Re-test, do not assume.
