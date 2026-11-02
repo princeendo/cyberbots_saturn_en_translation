@@ -29,7 +29,11 @@ names it for its method only.
 - **2026-11-02: stock Mednafen 1.32.1 built** (`EMU-001`, `SESSION-0003`,
   `docs/mednafen.md`), from XvSF's archive (hash checked, no download).
   Mednafen's database gives `T-1217G` the 1 MiB cart (`EMU-004` tests it).
-- Next unblocked tasks: `EMU-002` (project-local homes and BIOS), `REF-001`
+- **2026-11-02: project-local Mednafen homes pinned** (`EMU-002`,
+  `SESSION-0004`): interactive and silent homes, Japanese and US BIOS
+  verified against Mednafen's documented hashes.
+- Next unblocked tasks: `EMU-003` (first cold boot; with the user present),
+  `REF-001`
   (finish: boot the US set), `TXT-001` (offline census of the Shift-JIS
   script blocks), `DOC-003` (reference catalog), `ENV-007` (retry Redump).
 - Nothing about Cyberbots' internals is confirmed yet.
@@ -184,20 +188,20 @@ English text goes on disc).
 
 ### EMU-002 - Create the project-local Mednafen configuration
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** M0
 - **Dependencies:** EMU-001.
 - **Blockers:** None.
 - **Objective:** Run Mednafen with a configuration and BIOS path local to this checkout, never the user's global configuration.
 - **Acceptance criteria:** The launch command, base directory, BIOS identity (filename, size, SHA-256), and forced settings are recorded; `tools/mednafen/home.py` pins the interactive and quiet homes.
-- **Notes:** The Japanese Saturn BIOS `sega_101.bin` (`dcfef4b9…`) is in the siblings' `local/mednafen/firmware/`; copy it and record its hash.
+- **Notes:** Done 2026-11-02 (`SESSION-0004`, `docs/mednafen.md`). Homes `local/mednafen/` and `local/mednafen_quiet/` pinned by `tools/mednafen/home.py` (17 settings; quiet adds volume 0, no vsync, no blit timesync); config SHA-256 `48a7cf6b…28fc` and `ef897288…5019`, equal to XvSF's. Both load 7,904 valid settings, 0 unknown. BIOS `sega_101.bin` (`dcfef4b9…deac`) and `mpr-17933.bin` (`96e106f7…266f`) copied from XvSF, equal to the hashes in Mednafen's `Documentation/ss.html`.
 
 ### EMU-003 - Boot Cyberbots
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M0
 - **Dependencies:** EMU-002, ENV-006.
-- **Blockers:** EMU-002.
+- **Blockers:** Needs the user present (`local_agent_guidance.md`, "Emulator Consent").
 - **Objective:** Reach the title screen from a cold boot of the untouched image.
 - **Acceptance criteria:** Three cold boots reach a stable title screen; the boot log shows `T-1217G`; source hashes match before and after; screenshots kept locally.
 - **Notes:** Use `tools/mednafen/cold_boot.py` and the quiet home. With the user present (`local_agent_guidance.md`, "Emulator Consent").

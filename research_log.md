@@ -242,3 +242,35 @@ Conclusion: `EMU-001` is `DONE`; `EMU-002` is `READY`.
 Next action: `EMU-002` (pin the interactive and quiet homes with
 `tools/mednafen/home.py`; copy the Japanese BIOS `sega_101.bin` from a
 sibling's `local/mednafen/firmware/` and record its hash).
+
+## 2026-11-02 — SESSION-0004: project-local Mednafen homes
+
+Task: EMU-002
+
+Goal: run Mednafen only with configuration and BIOS local to this checkout.
+
+Action:
+
+- BIOS: `sega_101.bin` and `mpr-17933.bin` copied with `cp -p` from XvSF
+  `local/mednafen/firmware/` into `local/mednafen/firmware/`; `cmp` clean.
+  SHA-256 `dcfef4b9…deac` and `96e106f7…266f`, each equal to the hash
+  Mednafen 1.32.1's `Documentation/ss.html` lists for that filename.
+- `./invenv.sh python -m tools.mednafen.home`, twice. First run: interactive
+  `no change` (every pinned value is a default), quiet home created with three
+  settings changed. Second run: `no change` for both.
+- `-help` with each home (no disc loaded): each reports its own base
+  directory and `Loaded 7904 valid settings and 0 unknown settings`; both
+  config hashes unchanged afterwards.
+
+Result: config SHA-256 `48a7cf6b…28fc` (interactive, 652,752 bytes) and
+`ef897288…5019` (quiet, 652,750 bytes); `diff` shows only the three quiet
+settings. Both equal XvSF's pinned files, so the generated default holds no
+host- or game-specific content. `tools/mednafen/home.py` behaved as on XvSF;
+its role here is pinning, so this run is its re-validation on Cyberbots.
+
+Conclusion: `EMU-002` is `DONE`. `EMU-003` is `READY` but waits for the user
+to be present (standing rule "No cold boots without me").
+
+Next action: `EMU-003` with the user present (three silent cold boots of the
+untouched image to the title with `tools/mednafen/cold_boot.py`); meanwhile
+offline tasks `TXT-001`, `DOC-003`, `REF-001` (pin `cps2.cpp`).
