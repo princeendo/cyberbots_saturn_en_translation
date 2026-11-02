@@ -1,0 +1,29 @@
+# REF-004 run 5: run 3's route; slot 0 (blank screen) swapped for slot 561 (code 1C)
+1 logreads 0x0B33AA 0x0BB9B5 local/ref004/run5/reads-en.txt
+2 debug bpset 11f5c,(d0&ffff)==0,{d0=231;g}
+3 debug go
+600 press 8 Coin 1
+720 press 8 1 Player Start
+1020 press 8 P1 Button 1
+1320 press 8 P1 Button 1
+2740 snap
+2750 snap
+2760 snap
+2770 snap
+2780 snap
+2790 snap
+2800 snap
+2810 snap
+2820 snap
+2830 snap
+2840 snap
+2850 snap
+2860 snap
+2870 snap
+2880 snap
+2890 snap
+2900 snap
+2910 snap
+2920 snap
+2930 snap
+2931 exit

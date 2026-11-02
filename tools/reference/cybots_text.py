@@ -22,7 +22,10 @@ pointers whose targets are even and carry ``0x000E`` as the fourth word.
 Character map for the Latin tables (`EXP-0008`): ``0x40``-``0x49`` digits,
 ``0x4A``-``0x63`` ``A``-``Z``, ``0x64``-``0x7D`` ``a``-``z``, ``0x7E`` ``?``,
 ``0x7F`` ``!``, ``0x14`` ``.``, ``0x1B`` ``,``, ``0xF8`` ``'``, ``0xF0`` space,
-``0xFF`` line break. Other codes are shown as ``{xx}``, never guessed.
+``0xFF`` line break; and, read from the arcade's own rendering (`EXP-0009`),
+``0x09`` ``:``, ``0x0B`` ``-``, ``0x18`` ``"``, ``0x1C`` ``.`` (a second period
+code, used at the end of centered one-line records). Other codes are shown as
+``{xx}``, never guessed.
 
 ``find_member`` and ``build_program`` are copied from the XvSF repository,
 ``tools/reference/xvsf_text.py`` at commit ``a1c82ba``, unchanged.
@@ -48,6 +51,7 @@ DECODE = (
     | {code: chr(ord("A") + code - 0x4A) for code in range(0x4A, 0x64)}
     | {code: chr(ord("a") + code - 0x64) for code in range(0x64, 0x7E)}
     | {0x7E: "?", 0x7F: "!", 0x14: ".", 0x1B: ",", 0xF8: "'", 0xF0: " "}
+    | {0x09: ":", 0x0B: "-", 0x18: '"', 0x1C: "."}
 )
 
 

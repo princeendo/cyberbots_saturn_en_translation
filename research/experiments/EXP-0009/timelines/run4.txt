@@ -1,0 +1,104 @@
+# REF-004 run 4: run 3's route; breakpoint actions swap slots 2-5 for slots holding codes 09, 0B, 18, 1C
+1 logreads 0x0B33AA 0x0BB9B5 local/ref004/run4/reads-en.txt
+1 logwrites 0xFF2F7A local/ref004/run4/writes-slot.txt
+2 debug bpset 11f5c,(d0&ffff)==2,{d0=262;g}
+2 debug bpset 11f5c,(d0&ffff)==3,{d0=1db;g}
+2 debug bpset 11f5c,(d0&ffff)==4,{d0=9a;g}
+2 debug bpset 11f5c,(d0&ffff)==5,{d0=231;g}
+3 debug go
+600 press 8 Coin 1
+720 press 8 1 Player Start
+1020 press 8 P1 Button 1
+1320 press 8 P1 Button 1
+3200 snap
+3220 snap
+3240 snap
+3260 snap
+3280 snap
+3300 snap
+3320 snap
+3340 snap
+3360 snap
+3380 snap
+3400 snap
+3420 snap
+3440 snap
+3460 snap
+3480 snap
+3500 snap
+3520 snap
+3540 snap
+3560 snap
+3580 snap
+3600 snap
+3620 snap
+3640 snap
+3660 snap
+3680 snap
+3700 snap
+3720 snap
+3740 snap
+3760 snap
+3780 snap
+3800 snap
+3820 snap
+3840 snap
+3860 snap
+3880 snap
+3900 snap
+3920 snap
+3940 snap
+3960 snap
+3980 snap
+4000 snap
+4020 snap
+4040 snap
+4060 snap
+4080 snap
+4100 snap
+4120 snap
+4140 snap
+4160 snap
+4180 snap
+4200 snap
+4220 snap
+4240 snap
+4260 snap
+4280 snap
+4300 snap
+4320 snap
+4340 snap
+4360 snap
+4380 snap
+4400 snap
+4420 snap
+4440 snap
+4460 snap
+4480 snap
+4500 snap
+4520 snap
+4540 snap
+4560 snap
+4580 snap
+4600 snap
+4620 snap
+4640 snap
+4660 snap
+4680 snap
+4700 snap
+4720 snap
+4740 snap
+4760 snap
+4780 snap
+4800 snap
+4820 snap
+4840 snap
+4860 snap
+4880 snap
+4900 snap
+4920 snap
+4940 snap
+4960 snap
+4980 snap
+5000 snap
+5001 exit

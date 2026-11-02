@@ -1,0 +1,3 @@
+10 debug dasm local/ref004/dasm/dasm-011c80.txt,11c80,120
+10 debug dasm local/ref004/dasm/dasm-097200.txt,97200,80
+12 exit

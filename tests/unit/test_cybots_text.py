@@ -10,7 +10,7 @@ from tools.reference.cybots_text import (
     table_report,
 )
 
-ENCODE = {char: code for code, char in DECODE.items()}
+ENCODE = {char: code for code, char in DECODE.items() if code != 0x1C}
 
 
 def encode(text: str) -> bytes:
@@ -42,7 +42,11 @@ def test_map_is_one_tile_sheet() -> None:
 
 
 def test_decode_marks_unknown_codes_and_breaks_lines() -> None:
-    assert decode(encode("It's me!\nOk.") + b"\x09") == "It's me!\nOk.{09}"
+    assert decode(encode("It's me!\nOk.") + b"\x0a") == "It's me!\nOk.{0a}"
+
+
+def test_codes_read_from_the_arcade_screen() -> None:
+    assert decode(bytes([0x09, 0x0B, 0x18, 0x1C])) == ':-".'
 
 
 def test_find_and_read_table_with_shared_records() -> None:

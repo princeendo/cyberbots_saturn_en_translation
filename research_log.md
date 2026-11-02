@@ -622,3 +622,35 @@ pairing (`REF-006`) and layout (`LAYOUT-001`) are the next hard parts.
 
 Next action: `REF-004` (MAME: show a predicted record on screen and settle
 the four codes) or `REF-005` (play session with the user).
+
+## 2026-11-02 — EXP-0009: the arcade draws the decoded records
+
+Task: REF-004
+
+Goal: show that the arcade draws the records `EXP-0008` decoded, find what
+selects one, and settle the four context-only codes.
+
+Action: headless MAME runs with `mame_timeline.lua` (16:00-16:20 local):
+attract only; a 1-player start; slot-variable write log; breakpoint actions
+replacing slots; the same route in `cybotsj` and `cybots`. Disassembly with
+MAME's own debugger headless (`-debug -debugger none`, `dasm`) on the
+decrypted `cybotsud` image: no new tool installed.
+
+Result (`research/experiments/EXP-0009/README.md`, D-010):
+
+- Attract mode never reads dialogue. A 1-player start reads slots 0-5 at
+  known frames, and snapshots show exactly those records typed into boxes.
+- Slot variable `0xFF2F7A`, written by `0x011D48` with exactly those values
+  and frames; script table at `0x12150`; region byte `0xFF80A0` picks the
+  table (US `02`, EU `08` → English; Japan `00` → Japanese).
+- Forced slots render `09` `:`, `0B` `-`, `18` `"`, `1C` `.`; the decoder now
+  covers 100% of the English. A first forced run drew one record at its own
+  box position over leftover text (illegible); rerun on the blank intro
+  screen.
+- `cybotsj` draws its Japanese table; its first line opens like Saturn line 0.
+
+Conclusion: **CONFIRMED**. The arcade English is now a verified oracle for
+story dialogue. Endings were not reached.
+
+Next action: `REF-006` (decode the arcade Japanese table and pair it with
+the Saturn script; offline) or `REF-005` (play session with the user).

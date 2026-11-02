@@ -126,10 +126,26 @@ distinct English dialogue records (`0x0B3D6A`-`0x0BB9A6`). A record is four
 map is one tile sheet: `0x40`-`0x49` `0`-`9`, `0x4A`-`0x63` `A`-`Z`,
 `0x64`-`0x7D` `a`-`z`, `0x7E` `?`, `0x7F` `!`, plus `0x14` `.`, `0x1B` `,`,
 `0xF8` `'`, `0xF0` space, `0xFF` line break. It decodes 99.87% of the code
-bytes; `09`, `0B`, `18` and `1C` remain (hypotheses in `EXP-0008`). Two more
+bytes; `09`, `0B`, `18` and `1C` remained, and D-010 settles them. Two more
 tables of the same layout hold Spanish (624 slots) and Japanese (494 slots).
 All five held sets carry identical record content in all three tables.
 Decoder: `tools/reference/cybots_text.py`; metadata:
 `data/arcade/dialogue_tables.json`.
 
 Reproduce: `research/experiments/EXP-0008/README.md`, "Procedure".
+
+## D-010: What the arcade draws, and what selects it (`REF-004`, `EXP-0009`)
+
+In MAME 0.289, starting a 1-player game in `cybotsu` shows story dialogue
+drawn from the English table (D-009): the reader at PC `0x011F6A` fetches
+slot N and the box shows record N, typed out. The slot comes from a dialogue
+script (`0x12150`) and is written to `0xFF2F7A` by PC `0x011D48` immediately
+before; the region byte at `0xFF80A0` chooses the table (`0x00` Japanese;
+US `0x02` and EU `0x08` English; Spanish for 6, 10, or 8 with another flag
+set). The draw routine `0x11F5C` places the box from header words 1 and 2.
+Forcing slots through a breakpoint on `0x11F5C` showed the last four codes:
+`09` `:`, `0B` `-`, `18` `"`, `1C` `.` (D-009's map now decodes all English
+records). `cybotsj` reads only the Japanese table, and its first line opens
+like the Saturn script's first line.
+
+Reproduce: `research/experiments/EXP-0009/README.md`, "Procedure".

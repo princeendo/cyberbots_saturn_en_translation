@@ -62,9 +62,13 @@ names it for its method only.
   D-009): 530 English records behind a 624-slot table, one byte per
   character; the same English (and Spanish and Japanese tables) in every
   held set.
+- **2026-11-02: arcade English confirmed on screen** (`REF-004`,
+  `EXP-0009`, D-010): the slot variable `0xFF2F7A`, the region byte that
+  picks the table, and the last four codes; the decoder now covers all
+  English records. The Japanese arcade's first line opens like the Saturn's.
 - Next unblocked tasks: `REF-005` (Saturn text-surface inventory; needs the
-  user to play while `session_recorder.py` runs, keeping every state);
-  `REF-004` (show a predicted English record on screen in MAME; offline).
+  user to play while `session_recorder.py` runs, keeping every state).
+  `REF-006` waits on `TXT-001` (done) and `REF-003` (done): it is `READY`.
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -75,7 +79,8 @@ names it for its method only.
   needed for boot and attract), D-004 (screenshots and states by hotkey),
   D-005 (stock debugger dumps, writes, breakpoints), D-006 (state extractor
   valid for work RAM and VRAM), D-007 (agent interface), D-008 (shared
-  dialogue table, static), D-009 (arcade English dialogue table). Nothing about
+  dialogue table, static), D-009 (arcade English dialogue table), D-010
+  (arcade dialogue on screen and its selection). Nothing about
   the text, font or renderer is confirmed.
 
 ## Milestones
@@ -350,13 +355,13 @@ English text goes on disc).
 
 ### REF-004 - Confirm the decoded arcade text on screen
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** GATE-TRANSLATION
 - **Dependencies:** REF-003.
 - **Blockers:** None.
 - **Objective:** Show that the decoded table is what the arcade draws.
 - **Acceptance criteria:** A scripted MAME route shows a predicted entry on screen, with the RAM pointer that selects it.
-- **Notes:** Also settle from the screen or the tiles: codes `09`, `0B`, `18`, `1C`; which of the three tables each region draws; whether endings come from the 624-slot table.
+- **Notes:** Also settle from the screen or the tiles: codes `09`, `0B`, `18`, `1C`; which of the three tables each region draws; whether endings come from the 624-slot table. Done 2026-11-02 (`EXP-0009`, D-010): records 0-5 shown on screen as predicted; slot variable `0xFF2F7A` (written by `0x011D48`); region byte `0xFF80A0` picks the table; the four codes are `:`, `-`, `"`, `.`. Endings not reached: moved to `END-001`.
 
 ### REF-005 - Inventory the Saturn text surfaces
 
@@ -370,12 +375,13 @@ English text goes on disc).
 
 ### REF-006 - Compare the Saturn script with the arcade script
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** GATE-TRANSLATION
 - **Dependencies:** TXT-001, REF-003.
-- **Blockers:** REF-003.
+- **Blockers:** None.
 - **Objective:** Decide whether the Saturn dialogue is the arcade Japanese dialogue unchanged, and so whether the arcade English is a line-for-line oracle.
 - **Acceptance criteria:** Per pilot and route, the Saturn lines (from `TXT-001`) are compared with the arcade Japanese lines; Saturn-only and arcade-only lines are listed.
+- **Notes:** The arcade Japanese table (494 slots, 2-byte tile codes) is not decoded yet; decoding it is part of this task. Anchor: `cybotsj`'s first line opens like Saturn line 0 (`EXP-0009`). The arcade's script table at `0x12150` (D-010) links slots to pilots and scenes.
 
 ### REF-007 - Inventory pilot and mech names across releases
 
@@ -473,7 +479,7 @@ and `docs/lessons_from_xvsf.md`.
 | RE-003 | M3 | Script compiler for one pilot; every line verified live by forcing. |
 | RE-004 | M4 | A second pilot through the same mechanism. |
 | RE-005 | M5 | Census of every pilot's dialogue against the arcade; roster and exceptions (user decision); capacity; roster image; regression references. |
-| END-001 | M6 | Reach, renderer, RAM, disc source (the `*_END*` entries and `KEND*.BIN` are candidates), arcade English, and indexing of one ending. |
+| END-001 | M6 | Reach, renderer, RAM, disc source (the `*_END*` entries and `KEND*.BIN` are candidates), arcade English (not yet seen; the second table reader at `0x97222` is a candidate, D-010), and indexing of one ending. |
 | END-002 | M7 | One ending localized. |
 | END-003 | M8 | All roster endings; combined image; coverage register (`docs/coverage_exceptions.md`). |
 | UI-004 | after M5, early | Boot, cartridge and save warnings (`WARNING0-4.PIX` are candidates); in the first backlog this time (`docs/lessons_from_xvsf.md`, lesson 5). |

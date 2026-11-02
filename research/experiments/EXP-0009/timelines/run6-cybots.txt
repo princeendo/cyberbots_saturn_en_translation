@@ -1,0 +1,12 @@
+# REF-004 run 6: same route in cybots; which table is read
+1 logreads 0x0A310A 0x0AA9FF local/ref004/run6-cybots/reads-ja.txt
+1 logreads 0x0AB956 0x0B33A9 local/ref004/run6-cybots/reads-es.txt
+1 logreads 0x0B33AA 0x0BB9B5 local/ref004/run6-cybots/reads-en.txt
+600 press 8 Coin 1
+720 press 8 1 Player Start
+1020 press 8 P1 Button 1
+1320 press 8 P1 Button 1
+2800 dump 0xFF80A0 0xFF80A1 local/ref004/run6-cybots/region-f2800.bin
+2800 snap
+3000 snap
+3000 exit
