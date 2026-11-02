@@ -78,7 +78,9 @@ taps on the Japanese table, write log on the slot variable `0xFF2F7A`.
     0-898, and **one block of 952 lines, 899-1850**.
   - Arcade lines with no Saturn line: 51 (40 slots have no Saturn line at
     all, 2 of them empty).
-- **The 952-line block.** The names Chiyomaru (千代丸) and Tessan (鉄山)
+- **The 952-line block** (corrected by `EXP-0011`: its first lines,
+  899-952, are VS-screen chapter captions; Chiyomaru and Tessan appear only
+  from line 1141). The names Chiyomaru (千代丸) and Tessan (鉄山)
   occur only there (16 and 8 lines); Devilotte, Gawaine, Arieta and others
   occur in both parts. Secondary sources say the console ports add four
   pilots (`docs/references.md`), so the block is **SUPPORTED** as their

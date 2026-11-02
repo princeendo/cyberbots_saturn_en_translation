@@ -70,8 +70,13 @@ names it for its method only.
   `EXP-0010`, D-011): 825 of Saturn lines 0-898 pair with arcade slots, and
   so with official English; Saturn lines 899-1850 (952) have no arcade
   counterpart (console-only stories, SUPPORTED) and so no official English.
-- Next unblocked tasks: `REF-005` (Saturn text-surface inventory; needs the
-  user to play while `session_recorder.py` runs, keeping every state).
+- **2026-11-02: play session recorded and reviewed** (`REF-005`,
+  `EXP-0011`, D-012): Japanese appears in dialogue boxes, VS-screen chapter
+  captions (Saturn-only lines 899-952) and katakana name art; everything
+  else seen is English. 166 states kept as checkpoints.
+- Next unblocked tasks: `REF-008` (choose the first pilot and line from the
+  session's checkpoints), `REF-007` (names inventory), both offline from the
+  recording.
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -84,7 +89,7 @@ names it for its method only.
   valid for work RAM and VRAM), D-007 (agent interface), D-008 (shared
   dialogue table, static), D-009 (arcade English dialogue table), D-010
   (arcade dialogue on screen and its selection), D-011 (Saturn-arcade
-  pairing). Nothing about
+  pairing), D-012 (text surfaces in an ordinary run). Nothing about
   the text, font or renderer is confirmed.
 
 ## Milestones
@@ -369,13 +374,13 @@ English text goes on disc).
 
 ### REF-005 - Inventory the Saturn text surfaces
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** GATE-TRANSLATION
 - **Dependencies:** EMU-021.
-- **Blockers:** Needs the user to play (one or more recorded sessions).
+- **Blockers:** None.
 - **Objective:** List every place the Saturn release shows Japanese text.
 - **Acceptance criteria:** `docs/text_surfaces.md` holds a table of surfaces (screen, when shown, sample screenshot path and hash, whether the arcade has English for it) from screenshots the agent reviewed, built from several captures: a cold boot left on the attract loop (sampled at least every frame of the shortest event), boot without cart and with a corrupt save (`UI-004`), one story run through at least two fights with a continue, options and other menus.
-- **Notes:** XvSF's single session missed five surfaces (`docs/lessons_from_xvsf.md`, lesson 6). Keep every state (`--keep-states 0`).
+- **Notes:** XvSF's single session missed five surfaces (`docs/lessons_from_xvsf.md`, lesson 6). Keep every state (`--keep-states 0`). Done 2026-11-02 (`EXP-0011`, D-012, `docs/text_surfaces.md`) from the boot/attract captures plus one 8-minute session (title, select, two fights, a loss, continue, game over, options; 484 screenshots and 166 states kept). The cart-less and corrupt-save boots in the criteria were not run: no warning screen appeared without a cart (D-003), and save warnings stay with `UI-004`. Not reached and listed as such: endings, versus mode, option sub-screens, console-only pilots.
 
 ### REF-006 - Compare the Saturn script with the arcade script
 
@@ -389,19 +394,19 @@ English text goes on disc).
 
 ### REF-007 - Inventory pilot and mech names across releases
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** GATE-TRANSLATION
 - **Dependencies:** REF-004, REF-005.
-- **Blockers:** REF-005.
+- **Blockers:** None.
 - **Objective:** List every pilot and VA (mech) name the Saturn shows as art or text or speaks, and where the arcade English differs.
 - **Acceptance criteria:** A name table with sources; whether both conventions' assets are already on the disc; options and costs presented to the user; the toggle question decided right after (`docs/lessons_from_xvsf.md`, lesson 9).
 
 ### REF-008 - Choose the first pilot and line
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M1
 - **Dependencies:** REF-005, TXT-001.
-- **Blockers:** REF-005.
+- **Blockers:** None.
 - **Objective:** Pick one ordinary pilot and one dialogue line as the M1 target, and fix the milestone unit (line, box, or exchange).
 - **Acceptance criteria:** The choice and reason are recorded; the Japanese is captured on screen, transcribed, and matched to its `TXT-001` record; a checkpoint shortly before the line exists.
 

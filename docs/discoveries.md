@@ -161,7 +161,21 @@ The arcade passes one slot number to whichever language table is selected,
 and `cybotsj` shows the same slot sequence as `cybotsu` in the scene
 observed, so a paired Saturn record's English is the arcade English record
 with the same slot number. Saturn lines 899-1850 (952 lines) have no arcade
-counterpart, and so no official English. Pairs:
+counterpart, and so no official English; they begin with VS-screen chapter
+captions (D-012). Pairs:
 `data/text/saturn_arcade_pairing.json`.
 
 Reproduce: `research/experiments/EXP-0010/README.md`, "Procedure".
+
+## D-012: Where the Saturn shows Japanese in an ordinary run (`REF-005`, `EXP-0011`)
+
+In one recorded arcade-mode run (title to game over, plus options), Japanese
+appears on three surfaces: the story dialogue boxes; a caption box on the VS
+screen before each fight, whose text is a line of the dialogue table
+(Saturn lines 899 and 900 were shown, in the Saturn-only block of D-011);
+and pilot and mech names drawn as katakana art on the pilot select and VS
+screens. Menus, select labels, HUD, banners, round results, bonus,
+continue, game over, initials and options are already English. Inventory:
+`docs/text_surfaces.md`.
+
+Reproduce: `research/experiments/EXP-0011/README.md`, "Procedure".

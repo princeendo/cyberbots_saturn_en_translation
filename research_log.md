@@ -691,3 +691,36 @@ official English: under "Recorded new translation", that is new
 translation work, gated as special cases (rule 24).
 
 Next action: `REF-005` (play session with the user), or `REF-007` after it.
+
+## 2026-11-02 — EXP-0011: recorded play session and text surfaces
+
+Task: REF-005
+
+Goal: list every surface where the Saturn shows Japanese, from a real play
+session, and keep checkpoints for `REF-008`.
+
+Action: launched the patched build in the interactive home with
+`session_recorder.py --keep-states 0`; gave the user a ten-step route; the
+user played 16:22-16:31 and reported "done". Stopped the recorder, closed
+Mednafen with SIGTERM, reviewed 367 unique screenshots in 8 contact sheets,
+re-checked picks at full size.
+
+Result (`research/experiments/EXP-0011/README.md`, D-012,
+`docs/text_surfaces.md`):
+
+- 484 screenshots and 166 states kept (346 MB, ignored).
+- Japanese on three surfaces: dialogue boxes, a VS-screen chapter caption,
+  and katakana pilot and mech name art. The rest is English, including the
+  options screen.
+- The two VS captions are Saturn script lines 899 and 900, so the Saturn-only
+  block of D-011 begins with chapter captions; D-011 and `EXP-0010` amended.
+
+Disproven: "Japanese only in dialogue boxes" (the prediction). Also a review
+slip: my first screenshot picks assumed the contact sheets tiled in list
+order; three picks were wrong and were replaced after a full-size check.
+
+Conclusion: **CONFIRMED** for what was seen; endings, versus mode, option
+sub-screens, warnings and console-only pilots not reached.
+
+Next action: `REF-008` (pick the M1 pilot and line; Jin's introduction or
+pre-fight lines have checkpoints in this session) and `REF-007` (names).
