@@ -84,8 +84,11 @@ names it for its method only.
   unit: the box.
 - **2026-11-02: dialogue fixed from a checkpoint** (`DBG-002`, `EXP-0014`,
   D-014): six replays, same box and reply; timing varies by a few frames.
-- Next unblocked task: `DBG-003` (named checkpoints before, with and after
-  the target box), then `DBG-004`; then `GATE-M0`.
+- **2026-11-02: M1 checkpoints saved** (`DBG-003`, `EXP-0015`): box open,
+  box complete, after the box, in the ignored `local/checkpoints/m1/`; each
+  verified by replay.
+- Next unblocked task: `DBG-004` (find the box's renderer and its RAM text);
+  then `GATE-M0`.
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -446,19 +449,20 @@ English text goes on disc).
 
 ### DBG-003 - Capture dialogue checkpoints
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** M1
 - **Dependencies:** DBG-002.
 - **Blockers:** None.
 - **Objective:** States and screenshots before the dialogue starts, with the target line visible, and after it is gone.
 - **Acceptance criteria:** Each checkpoint is reproducible from its state and named in an experiment record.
+- **Notes:** Done 2026-11-02 (`EXP-0015`): `a-box-open` (`236c610e…`), `b-box-complete` (`b32db0c2…`), `c-after-box` (`e21021b1…`) in `local/checkpoints/m1/`, each replayed and checked by dialogue-strip hash. A first capture at 300 frames was too late (the box had closed by the save) and was discarded.
 
 ### DBG-004 - Find the dialogue renderer and its RAM text
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M1
 - **Dependencies:** DBG-001, DBG-003.
-- **Blockers:** DBG-003.
+- **Blockers:** None.
 - **Objective:** Determine whether the dialogue is VDP1 sprites or VDP2 tiles, and find the RAM text that drives it.
 - **Acceptance criteria:** The renderer is identified by a controlled change; the RAM text is located, first by a Shift-JIS search for the `TXT-001` line, then (if absent) by equality-pattern search; whether `KANJI.BIN` is the glyph source is recorded as tested or open.
 

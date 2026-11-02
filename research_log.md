@@ -798,3 +798,26 @@ quotes). Compare completed boxes, not aligned frames.
 
 Next action: `DBG-003` (named checkpoints before, with and after the box),
 then `DBG-004` (find the box's text in RAM).
+
+## 2026-11-02 — EXP-0015: named checkpoints around the M1 box
+
+Task: DBG-003
+
+Goal: states before, with and after the M1 box for memory comparison.
+
+Action: `research/experiments/EXP-0015/capture.py` loads the session state,
+runs to each offset, screenshots, resumes, saves; each saved state replayed
+for 300 frames.
+
+Result (`research/experiments/EXP-0015/README.md`): run 1's "box complete"
+state was saved just after the box closed (offset 300 too late) and its
+"box open" screenshots were blank; run 2 (offsets 10, 200, 420) gave A box
+open, B box complete, C after the box, each confirmed by replay. Copied to
+`local/checkpoints/m1/`.
+
+Conclusion: **CONFIRMED**. Screenshots taken within ten frames of a state
+load are blank; use replays as evidence for such states.
+
+Next action: `DBG-004`: in checkpoint B, search WRAM-L/WRAM-H for lines 4-5
+as Shift-JIS; then identify the renderer (VDP1 or VDP2) by a controlled
+change; check whether `KANJI.BIN` supplies the glyphs.
