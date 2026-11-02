@@ -895,3 +895,28 @@ writing them, with scratch commands only:
   `0x060FE200`) occurs raw in any of the 264 data-track files.
 
 Next action: `DISC-001`.
+
+## 2026-11-02 — EXP-0018: the M1 text's disc file (DISC-001)
+
+Goal: `DISC-001`; find which file the M1 box's text is loaded from, and how.
+
+Action: scanned WRAM-H of the 166 REF-005 states (`scan_states.py`); agent
+runs with a write breakpoint on lines 4-5 from state 4138 (machine select,
+twice), from 4493 (control), and once with the CD block command registers
+logged (`trace.py`), 17:14-17:17, the user present; disassembled the hit.
+
+Result: the load happens between 4138 and 4316, in file order. 14 hits at
+`0x06041FB4`, a raw longword copy from the CD data register; the values
+equal `STG0AS.BIN[0xF09C:0xF0D4]`, and the two runs are identical. The
+control has no hit. One Play Disc command, for FAD `0x58A0` and 157 sectors,
+which is `STG0AS.BIN`; the game's own file table agrees (file 292). After the
+load, 10 bytes outside the table differ from the file. Source hashes
+unchanged.
+
+Conclusion: **CONFIRMED**, D-017. Not seen: when `VICTORY.BIN` and `END.BIN`
+load (moved to `docs/known_unknowns.md`).
+
+Next action: `DISC-002`. Build an image with line 4 changed in `STG0AS.BIN`
+only (offset `0xF09C`, LSN 22,568). Check it from state 4138 with the
+rebuilt image mounted, against the original as control. Then a cold boot and
+the user's play check.

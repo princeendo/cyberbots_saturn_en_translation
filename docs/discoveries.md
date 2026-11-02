@@ -229,3 +229,18 @@ checkpoint shows the original box. The Saturn draws its dialogue from the
 resident Shift-JIS text.
 
 Reproduce: `research/experiments/EXP-0017/README.md`, "Procedure".
+
+## D-017: The M1 box's text is loaded raw from `STG0AS.BIN` (`DISC-001`, `EXP-0018`)
+
+When the first story stage starts (after machine select), the game issues one
+CD Play Disc for FAD `0x58A0`, 157 sectors: `STG0AS.BIN`, LSN 22,538,
+320,724 bytes, file 292 in the game's copy of the ISO directory (WRAM-H
+`0x060DCB98`, 24-byte entries). An SH-2 longword copy at `0x06041F8C`
+moves the data from the CD block's data register (`0x25818000`) to WRAM-H
+`0x06060000` in file order, with no decoding and no relocation. So file offset
+= address − `0x06060000`, and M1 line 4 is at `STG0AS.BIN` offset `0xF09C`.
+After the load, only 10 bytes outside the dialogue table differ from the
+file. A write breakpoint on lines 4-5 is hit 14 times from a pre-load state
+(twice, identically) and never from a post-load state.
+
+Reproduce: `research/experiments/EXP-0018/README.md`, "Procedure".

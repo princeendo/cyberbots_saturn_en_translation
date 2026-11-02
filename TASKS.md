@@ -96,8 +96,10 @@ names it for its method only.
   written to WRAM-H `0x0606F09C` before the box typed changed the box's first
   line on screen; the no-write control showed the original. Next: M2, with
   `DISC-001`, `DISC-002` and `FONT-001` written up in full before they start.
-- **2026-11-02: M2 tasks written up** (`DISC-001` `READY`; `DISC-002` and
-  `FONT-001` blocked on it). Next: `DISC-001`.
+- **2026-11-02: M2 tasks written up** (`DISC-001`, `DISC-002`, `FONT-001`).
+- **2026-11-02: M1 text traced to its disc file** (`DISC-001`, `EXP-0018`,
+  D-017): `STG0AS.BIN`, loaded raw to `0x06060000` when the first stage
+  starts; line 4 is at file offset `0xF09C`. Next: `DISC-002` (`READY`).
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -110,8 +112,9 @@ names it for its method only.
   (arcade dialogue on screen and its selection), D-011 (Saturn-arcade
   pairing), D-012 (text surfaces in an ordinary run), D-013 (names), D-014
   (dialogue fixed from a checkpoint), D-015 (Shift-JIS RAM text, VDP1
-  per-character sprites), D-016 (M1: the box changed in live RAM). The font's
-  layout and the disc-side load are not confirmed.
+  per-character sprites), D-016 (M1: the box changed in live RAM), D-017
+  (the M1 text's disc file). The font's
+  layout is not confirmed.
 
 ## Milestones
 
@@ -508,7 +511,7 @@ English text goes on disc in M2; the test string is the M1 hiragana.
 
 ### DISC-001 - Trace the M1 box's text to its disc file
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** M2
 - **Dependencies:** RE-001 (done).
 - **Blockers:** None.
@@ -524,13 +527,19 @@ English text goes on disc in M2; the test string is the M1 hiragana.
   - If the load is by DMA (SCU or CD block), an SH-2 write breakpoint may not fire. The fallback is a break on the code that starts the load (a read of the file's directory entry or the CD block's FAD), bracketed by the two session states.
   - When `VICTORY.BIN` and `END.BIN` load is not needed for M2. Note it if seen; otherwise it stays in `docs/known_unknowns.md` for `RE-002` and `END-001`.
   - Candidates by name from `references/saturn_jp/iso_listing.json`: `STG0AS.BIN` (LSN 22,538, 320,724 bytes); the per-stage `STG00`-`STG0F.BIN` and `ST00`-`ST08_FNT.BIN` load nearby and may come with it.
+- **Evidence:** `EXP-0018`, D-017, 2026-11-02.
+  - **Bracket:** session states 4138 (machine select) and 4316 (the load in progress, in file order); 10 bytes differ by 4493.
+  - **Trace:** 14 hits at `0x06041FB4`, a raw longword copy from the CD data register `0x25818000`; two runs identical; the control from 4493 has no hit.
+  - **Source:** one Play Disc for FAD `0x58A0`, 157 sectors, which is `STG0AS.BIN`. The game's file table entry 290 and request record (file `0x124`) agree.
+  - **Format:** raw, loaded at `0x06060000`, no relocation; line 4 at file offset `0xF09C`. The 10 bytes changed after the load are outside the table, and their meaning is UNKNOWN.
+  - **Copies:** `STG0AS.BIN` is resident at checkpoints A, B and C. `VICTORY.BIN` and `END.BIN` were never resident at `0x06060000` in the 166 session states.
 
 ### DISC-002 - Reproduce the M1 change from a rebuilt image
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M2
-- **Dependencies:** DISC-001.
-- **Blockers:** DISC-001 not done.
+- **Dependencies:** DISC-001 (done).
+- **Blockers:** None.
 - **Objective:** Make the same あいう… change on a disc image built from the untouched source, and see it in the game.
 - **Acceptance criteria:**
   - `tools/disc/patch_image.py` is re-validated on Cyberbots (rule 26): a rebuild with the original file is byte-identical to the source track.
@@ -540,17 +549,17 @@ English text goes on disc in M2; the test string is the M1 hiragana.
   - A cold boot of the rebuilt image reaches the title like the original's (run with the user present, per policy).
   - The user's cold-boot play check (Jin, story mode, first pre-fight box) shows the test string. The image-changing work stays local, with a burnable copy, until the user has tried it (hardware check before push).
 - **Notes:**
-  - If `DISC-001` confirms `STG0AS.BIN` raw at `0x06060000`, line 4 is at file offset `0xF09C`. That is sector 30 of the file (LSN 22,568), bytes `0x09C`-`0x0B5`, so one sector would change. The file does hold line 4's original 26 bytes at `0xF09C` (checked during this write-up); that the game reads them from there is `DISC-001`'s question.
+  - `DISC-001` confirmed `STG0AS.BIN` raw at `0x06060000` (D-017), so line 4 is at file offset `0xF09C`. That is sector 30 of the file (LSN 22,568), bytes `0x09C`-`0x0B5`, so one sector would change. The file does hold line 4's original 26 bytes at `0xF09C` (checked during this write-up); that the game reads them from there is `DISC-001`'s question.
   - Single variable: only the file `DISC-001` names is patched. The two other byte-identical copies stay untouched in M2; whether a translation patch keeps all three equal is decided in `LAYOUT-001` or `RE-002`, from evidence of when each loads.
   - Loading a state with a different image mounted worked in XvSF (its `DISC-002`); for Cyberbots that is a HYPOTHESIS, and the control run tests it.
   - Build images under `build/` may be deleted after the task (user rule).
 
 ### FONT-001 - Find the dialogue font and prove its format
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M2
-- **Dependencies:** RE-001 (done), DISC-001.
-- **Blockers:** DISC-001 not done (its load map and pre-load state are reused here).
+- **Dependencies:** RE-001 (done), DISC-001 (done).
+- **Blockers:** None. Session state 4138 (EXP-0018) is a pre-load state to reuse.
 - **Objective:** Find the glyph data behind the dialogue's Shift-JIS codes (in RAM and on disc) and the routine that renders it into the glyph cells, and prove the font's format.
 - **Acceptance criteria:**
   - From checkpoint A, an agent write breakpoint (log mode) on the WRAM-H glyph shadow (`0x060FE200`-`0x060FE27F`, cell 0, D-015) as the box types records the writing PC; the routine is disassembled far enough to name its inputs (the Shift-JIS code, the source pointer) and its output.
