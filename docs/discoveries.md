@@ -86,3 +86,18 @@ as evidence. Cart RAM is not validated, and the tool's 4 MiB cart entry
 refuses Cyberbots' 1 MiB cart, so pass `--region` explicitly.
 
 Reproduce: `research/experiments/EXP-0005/README.md`, "Procedure".
+
+## D-007: The agent interface works on Cyberbots (`EMU-021`, `EXP-0006`)
+
+The sibling patch (`c30146ef…5244`) applies unchanged to stock 1.32.1 and
+builds (`vendor/mednafen/build-agent/src/mednafen`, `2fc3d547…eaaf`). Without
+`MEDNAFEN_AGENT_DIR` it cold-boots frame-identically to stock (119 of 119
+frames equal D-001). With it, through `tools/mednafen/agent.py`: `read` of
+WRAM-L, WRAM-H, VDP1 and VDP2 VRAM equals validated extraction (D-006) of a
+state saved in the same poll; a write round-trips exactly; `pause`, `step`,
+`run` and `frames N` work; `savestate` is refused while halted; log-mode
+write breakpoints record hits (with all registers) while frames advance; a
+halt-mode breakpoint stops with registers as text. Agent output may be used
+as evidence.
+
+Reproduce: `research/experiments/EXP-0006/README.md`, "Procedure".

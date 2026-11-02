@@ -50,15 +50,19 @@ names it for its method only.
   the same instant are ready for `DBG-001`.
 - **2026-11-02: save-state extraction validated** (`DBG-001`, `EXP-0005`,
   D-006) for WRAM-L, WRAM-H, VDP1 and VDP2 VRAM; cart RAM not validated.
-- Next unblocked tasks: `EMU-020` (record why stock is insufficient;
-  offline), then `EMU-021` (build the agent interface, validate V1-V4 with
-  the user present); offline: `REF-001`, `TXT-001`, `DOC-003`
+- **2026-11-02: agent interface built and validated** (`EMU-020`,
+  `EMU-021`, `EXP-0006`, D-007): reads, writes, halt control and
+  breakpoints are scriptable; the M0 emulator work is complete.
+- Next unblocked tasks: `REF-005` (Saturn text-surface inventory; needs the
+  user to play while `session_recorder.py` runs, keeping every state);
+  offline: `TXT-001` (Shift-JIS script census), `REF-001` (pin `cps2.cpp`,
+  boot `cybotsu`), `DOC-003`, `ENV-007`
   (finish: boot the US set), `TXT-001` (offline census of the Shift-JIS
   script blocks), `DOC-003` (reference catalog), `ENV-007` (retry Redump).
 - Confirmed so far: D-001 (boot), D-002 (audio-track layout), D-003 (no cart
   needed for boot and attract), D-004 (screenshots and states by hotkey),
   D-005 (stock debugger dumps, writes, breakpoints), D-006 (state extractor
-  valid for work RAM and VRAM). Nothing about
+  valid for work RAM and VRAM), D-007 (agent interface). Nothing about
   the text, font or renderer is confirmed.
 
 ## Milestones
@@ -271,22 +275,23 @@ English text goes on disc).
 
 ### EMU-020 - Record why stock Mednafen is insufficient
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** M0
 - **Dependencies:** EMU-007, DOC-002.
 - **Blockers:** None.
 - **Objective:** Satisfy `AGENTS.md` rule 16 before using the patched build.
 - **Acceptance criteria:** A short record cites MSHvSF `EMU-012`/`EMU-020` and XvSF `EMU-020` and confirms the same limits apply here; the user's `DOC-002` answer on reusing the patch is cited.
-- **Notes:** `DOC-002` answer (2026-11-02): "Yes, reuse it (Recommended)".
+- **Notes:** `DOC-002` answer (2026-11-02): "Yes, reuse it (Recommended)". Done 2026-11-02: `docs/mednafen_agent_interface.md`, "Why Stock Is Not Enough": the sibling limits apply, plus three silent key-driven failures here (`EXP-0003` run 1, `EXP-0004` run A, `EXP-0005` run G).
 
 ### EMU-021 - Build and validate the agent interface
 
-- **Status:** `BLOCKED`
+- **Status:** `DONE`
 - **Milestone:** M0
 - **Dependencies:** EMU-020.
-- **Blockers:** EMU-020.
+- **Blockers:** None.
 - **Objective:** Drive Mednafen from Python so the user only plays.
 - **Acceptance criteria:** `vendor/mednafen/patches/0001-agent-interface.patch` (`c30146ef…5244`) applies to the pinned version and builds; validations V1-V4 (`docs/mednafen_agent_interface.md`) pass on Cyberbots states; `tools/mednafen/agent.py` tests pass.
+- **Notes:** Done 2026-11-02 (`EXP-0006`, D-007). Patch applied cleanly; build 3 min 10 s; binary `2fc3d547…eaaf`. V1 119/119 frames equal D-001 without the agent directory; V2 four reads equal same-poll extraction; V3 exact round trip and halt control; V4 10,822 log-mode hits on game-variable ranges with frames advancing; V4b halt with registers (PC `060008F0`, confirming `EXP-0004`'s by-eye reading). Agent tests pass (119 total).
 
 ### DBG-001 - Validate the save-state extractor on Cyberbots
 
@@ -341,10 +346,10 @@ English text goes on disc).
 
 ### REF-005 - Inventory the Saturn text surfaces
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** GATE-TRANSLATION
 - **Dependencies:** EMU-021.
-- **Blockers:** EMU-021.
+- **Blockers:** Needs the user to play (one or more recorded sessions).
 - **Objective:** List every place the Saturn release shows Japanese text.
 - **Acceptance criteria:** `docs/text_surfaces.md` holds a table of surfaces (screen, when shown, sample screenshot path and hash, whether the arcade has English for it) from screenshots the agent reviewed, built from several captures: a cold boot left on the attract loop (sampled at least every frame of the shortest event), boot without cart and with a corrupt save (`UI-004`), one story run through at least two fights with a continue, options and other menus.
 - **Notes:** XvSF's single session missed five surfaces (`docs/lessons_from_xvsf.md`, lesson 6). Keep every state (`--keep-states 0`).
@@ -393,7 +398,7 @@ English text goes on disc).
 - **Status:** `BLOCKED`
 - **Milestone:** M1
 - **Dependencies:** EMU-021, REF-008.
-- **Blockers:** EMU-021.
+- **Blockers:** REF-008.
 - **Objective:** Learn whether the dialogue shown from one checkpoint is fixed or varies, before planning checkpoints.
 - **Acceptance criteria:** Several replays of one pre-dialogue state, with the lines shown recorded.
 

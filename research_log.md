@@ -462,3 +462,42 @@ this game. Silent hotkey/debugger failures are now three; recorded in
 `docs/known_unknowns.md`, to be retired by the agent interface.
 
 Next action: `EMU-020` (offline), then `EMU-021` with the user present.
+
+## 2026-11-02 — EMU-020 and EXP-0006: agent interface built and validated
+
+Task: EMU-020, EMU-021
+
+EMU-020: the record is the "Why Stock Is Not Enough" section at the top of
+`docs/mednafen_agent_interface.md` (the MSHvSF protocol copy kept below it).
+It cites MSHvSF `EMU-012`/`EMU-020`, XvSF `EMU-020`, the user's `DOC-002`
+reuse answer, and Cyberbots' own evidence: three silent key-driven failures.
+
+EXP-0006 (user present: "Yes, build it"):
+
+- Copied `vendor/mednafen/src` to `src-agent`, applied the patch (four files,
+  clean), built in `build-agent` (14:54:46-14:57:56): binary `2fc3d547…eaaf`;
+  stock binary unchanged.
+- V1: patched binary with no agent directory, 120 s cold boot: 119 of 119
+  frames equal D-001 (14:58-15:00). Smoke: `status`, 13 `spaces`, 50 `regs`.
+- `research/experiments/EXP-0006/validate.py` (XvSF's script; image, title
+  frame 3700 and V4 ranges changed), 15:00:40-15:02:14:
+  - V2: four reads equal `mcs_extract` of the same-poll state.
+  - V3: exact write round trip; pause/step/run/frames behave; savestate
+    refused while halted.
+  - V4: log mode on three game-variable ranges (bytes that changed between
+    the `EXP-0004` and `EXP-0005` title freezes): 10,822 hits over 1,800
+    frames, 48 PCs, frames advancing.
+  - V4b: halt mode on all WRAM-H stopped at PC `060008F0`, R15 `06008000`,
+    which confirms `EXP-0004`'s by-eye reading of the stock CPU view.
+- Source, stock binary and configs unchanged.
+
+Conclusion: **CONFIRMED** (D-007). M0's emulator work is complete; the agent
+replaces hotkey-driven debugger runs. Observation (HYPOTHESIS): `status`
+shows `pc=00000000` while halted at a frame boundary, which may also explain
+the stock CPU view's PC `00000000` in `EXP-0005` run G.
+
+Next action: `REF-005`, a recorded play session with the user (boot, attract,
+story mode through at least two fights with dialogue, a continue, options),
+with `session_recorder.py --keep-states 0`. Offline meanwhile: `TXT-001`,
+`REF-001`, `DOC-003`, `ENV-007`. `GATE-M0` still needs `DBG-002` to
+`DBG-004` and `REF-008`.

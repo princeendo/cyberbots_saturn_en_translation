@@ -1,10 +1,76 @@
-# Mednafen Agent Interface (copy)
+# Mednafen Agent Interface
+
+## Why Stock Is Not Enough (`EMU-020`, 2026-11-02)
+
+`AGENTS.md` rule 16 allows building the sibling projects' frontend-only
+agent-interface patch once stock Mednafen boots Cyberbots (`EMU-003`, D-001)
+and this record says why stock is insufficient, citing the sibling evidence.
+The user chose reuse on 2026-11-02 (`DOC-002`, "Yes, reuse it
+(Recommended)").
+
+### Sibling evidence
+
+- MSHvSF `EMU-012` (2026-10-17): stock 1.32.1 was sufficient for manual work
+  and insufficient for agent-driven experiments. MSHvSF `EMU-020`: every
+  memory and debugger action needed hand-typed prompts, relayed screenshots,
+  and beating the game's timing; `-remote` changes settings only. The user
+  authorized the patch then because the manual work was unsustainable.
+- XvSF `EMU-020` (its `docs/mednafen_agent_interface.md`, 2026-10-28): stock
+  can be scripted through GUI automation (`tools/mednafen/hotkeys.py`), but
+  with about 1 s per key, focus taken from the user, two macOS grants, and
+  registers read by eye from a small font; a left/right Option detail sent
+  keys to the wrong view for six runs.
+
+### Cyberbots evidence
+
+This project drove stock 1.32.1 the same way for every M0 check
+(`EXP-0003`, `EXP-0004`, `EXP-0005`). It worked, and the same limits
+appeared, plus one more: **key-driven runs fail silently.**
+
+| Experiment | Silent failure |
+| --- | --- |
+| `EXP-0003` run 1 | An F9 screenshot was never written; no log line says why. |
+| `EXP-0004` run A | Both WRAM-L dump files were never written; the capture shows the editor ready; no error. |
+| `EXP-0005` run G | `option+3` never opened the memory editor; every typed command went to the CPU view; no dump was written. |
+
+Each was caught only by checking for files or by reading a window capture,
+and each needed a rerun with the user present (emulator consent). Registers
+at a breakpoint were again read by eye (`EXP-0004`: "a digit may be
+misread"), and a breakpoint halts until a key is pressed, so nothing can act
+within a frame of a hit. Agent-driven M1 work (forcing a dialogue line,
+logging writes to the text, acting after a hit) needs machine-readable reads,
+writes, breakpoints and registers.
+
+### Conclusion
+
+The limits MSHvSF and XvSF found apply to Cyberbots, and stock's GUI route is
+also unreliable here. Proceed with `EMU-021`: apply the sibling patch
+unchanged to a separate copy of the stock source, build it, keep the stock
+tree and binary unchanged, and re-run validations V1-V4 on Cyberbots before
+using it as evidence.
+
+### Result (`EMU-021`, `EXP-0006`)
+
+Built in `vendor/mednafen/build-agent/` (binary `2fc3d547…eaaf`); the stock
+binary is unchanged. V1-V4 pass on Cyberbots (`docs/discoveries.md` D-007).
+Use `tools/mednafen/agent.py`; build and run commands are in
+`vendor/mednafen/README.md`.
+
+Patch: `vendor/mednafen/patches/0001-agent-interface.patch`, SHA-256
+`c30146efab0cb60bfb7a4465bc95d9935c63c0d7bf172b02f886b4ae2cff5244` (MSHvSF
+commit `b9a6593`; identical in XvSF). Frontend only (`src/drivers/agent.inc`,
+`debugger.cpp`, `debugger.h`, `main.cpp`); active only when
+`MEDNAFEN_AGENT_DIR` is set; GPL-2.0, like Mednafen.
+
+---
+
+## MSHvSF Protocol Reference (copy)
 
 > Copied from the MSHvSF repository, `docs/mednafen_agent_interface.md` at
 > commit `be1e18e`, for its full protocol table. MSHvSF validation results
 > below are MSHvSF facts; Cyberbots re-runs V1-V4 in `EMU-021`.
 
-# Mednafen Agent Interface (EMU-020)
+### MSHvSF record: Mednafen Agent Interface (EMU-020)
 
 Status: **modification proposed and authorized by the user on 2026-10-17** ("I
 authorize that Mednafen modification"), after `EMU-012` found stock Mednafen

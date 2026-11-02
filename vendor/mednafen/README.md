@@ -39,5 +39,7 @@ MEDNAFEN_HOME="$PWD/local/mednafen_quiet" MEDNAFEN_AGENT_DIR="$PWD/local/RUN/age
   "local/disc_images/cyberbots_saturn_jp_2m/Cyberbots - Fullmetal Madness (Japan) (2M).cue"
 ```
 
-The client is `tools/mednafen/agent.py`. Validation on Cyberbots: not yet run (`EMU-021`). For the method, see the
-XvSF record `research/experiments/EXP-0006/README.md` in that repository.
+The client is `tools/mednafen/agent.py`. Validation on Cyberbots: V1-V4 pass (`EMU-021`,
+`research/experiments/EXP-0006/README.md`, D-007). Patched binary SHA-256
+`2fc3d547354b4506c59da282d0aeedda63ac02b515d9c5150648ed738b0aeaaf` (21,378,040
+bytes, macOS 26.7.2 arm64).
