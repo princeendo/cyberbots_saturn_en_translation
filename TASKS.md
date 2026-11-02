@@ -82,8 +82,10 @@ names it for its method only.
   pre-fight box, Saturn lines 4-5 (arcade slot 2), checkpoint
   `local/ref005/session/states/f00005386.mcs`, replayed exactly. Milestone
   unit: the box.
-- Next unblocked task: `DBG-002` (does the box vary when replayed from one
-  checkpoint?), then `DBG-003`, `DBG-004`; then `GATE-M0`.
+- **2026-11-02: dialogue fixed from a checkpoint** (`DBG-002`, `EXP-0014`,
+  D-014): six replays, same box and reply; timing varies by a few frames.
+- Next unblocked task: `DBG-003` (named checkpoints before, with and after
+  the target box), then `DBG-004`; then `GATE-M0`.
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -96,7 +98,8 @@ names it for its method only.
   valid for work RAM and VRAM), D-007 (agent interface), D-008 (shared
   dialogue table, static), D-009 (arcade English dialogue table), D-010
   (arcade dialogue on screen and its selection), D-011 (Saturn-arcade
-  pairing), D-012 (text surfaces in an ordinary run), D-013 (names). Nothing about
+  pairing), D-012 (text surfaces in an ordinary run), D-013 (names), D-014
+  (dialogue fixed from a checkpoint). Nothing about
   the text, font or renderer is confirmed.
 
 ## Milestones
@@ -433,19 +436,20 @@ English text goes on disc).
 
 ### DBG-002 - Observe dialogue selection behaviour
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** M1
 - **Dependencies:** EMU-021, REF-008.
 - **Blockers:** None.
 - **Objective:** Learn whether the dialogue shown from one checkpoint is fixed or varies, before planning checkpoints.
 - **Acceptance criteria:** Several replays of one pre-dialogue state, with the lines shown recorded.
+- **Notes:** Done 2026-11-02 (`EXP-0014`, D-014): 4 replays of `f00005386` and 2 of `f00005208`; all show Saturn lines 4-5 then Shade's reply; two timing variants a few frames apart.
 
 ### DBG-003 - Capture dialogue checkpoints
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M1
 - **Dependencies:** DBG-002.
-- **Blockers:** DBG-002.
+- **Blockers:** None.
 - **Objective:** States and screenshots before the dialogue starts, with the target line visible, and after it is gone.
 - **Acceptance criteria:** Each checkpoint is reproducible from its state and named in an experiment record.
 

@@ -192,3 +192,14 @@ uncompressed VDP1 sprite data in `SELECT.VAD` (for example `0x1EE80`).
 Table: `docs/names.md`.
 
 Reproduce: `research/experiments/EXP-0012/README.md`, "Procedure".
+
+## D-014: Story dialogue is fixed from a checkpoint (`DBG-002`, `EXP-0014`)
+
+Six replays of two session states before and during Jin's first pre-fight
+box all show the same completed box (Saturn lines 4-5) and the same reply
+from Shade, by dialogue-strip hash. Runs from one state fall into two timing
+variants a few frames apart (typing progress, portrait mouth frames), so
+comparisons use completed boxes or the box region at a settled moment, not
+frame-aligned whole screens.
+
+Reproduce: `research/experiments/EXP-0014/README.md`, "Procedure".

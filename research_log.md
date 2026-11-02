@@ -778,3 +778,23 @@ Conclusion: **CONFIRMED**. Milestone unit is the box. `DBG-002` is `READY`.
 
 Next action: `DBG-002` (replay the checkpoint several times and check the
 same box appears each time), then `DBG-003` and `DBG-004`.
+
+## 2026-11-02 — EXP-0014: dialogue selection from one checkpoint
+
+Task: DBG-002
+
+Goal: learn whether the target box varies when one checkpoint is replayed.
+
+Action: three more replays of `f00005386` (8 × 50 frames) and two of
+`f00005208` (12 × 50 frames), 16:49-16:51 local; dialogue-strip hashes per
+step; differing frames reviewed.
+
+Result (`research/experiments/EXP-0014/README.md`, D-014): every run shows
+the same completed Jin box and the same Shade reply; two timing variants a
+few frames apart, differing only in typing progress and mouth frames.
+
+Conclusion: **CONFIRMED**: script-driven, not random (unlike the siblings'
+quotes). Compare completed boxes, not aligned frames.
+
+Next action: `DBG-003` (named checkpoints before, with and after the box),
+then `DBG-004` (find the box's text in RAM).
