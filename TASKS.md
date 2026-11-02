@@ -96,6 +96,8 @@ names it for its method only.
   written to WRAM-H `0x0606F09C` before the box typed changed the box's first
   line on screen; the no-write control showed the original. Next: M2, with
   `DISC-001`, `DISC-002` and `FONT-001` written up in full before they start.
+- **2026-11-02: M2 tasks written up** (`DISC-001` `READY`; `DISC-002` and
+  `FONT-001` blocked on it). Next: `DISC-001`.
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -497,6 +499,69 @@ English text goes on disc).
 - **Acceptance criteria:** From checkpoint A (`local/checkpoints/m1/a-box-open.mcs`), before the box types, line 4's bytes at WRAM-H `0x0606F09C` are replaced by a same-length test string (original and new bytes recorded, written bytes read back); the completed box shows the test string and an unchanged second line, by screenshot reviewed by the agent; a no-write control replay from the same checkpoint shows the original box; source image hashes unchanged.
 - **Notes:** Test string: 13 full-width hiragana (あいうえおかきくけこさしす), 26 bytes like the original, so line length and layout cannot change. Glyphs are rendered as the box types (D-015), so the write must precede the typing. Done 2026-11-02 (`EXP-0017`, D-016): read-back exact; completed box `1d501a` with the write against `ead786` in the control (as in every earlier replay); the next box (`3a956a`) the same in both; source manifests unchanged. **M1 is CONFIRMED.**
 
+## Phase G: M2
+
+M2: the M1 change is reproduced from an image built from the untouched
+source. The order is `DISC-001`, then `DISC-002` (the M2 outcome), then
+`FONT-001` and `FONT-002` (font facts that M3's layout choice needs). No
+English text goes on disc in M2; the test string is the M1 hiragana.
+
+### DISC-001 - Trace the M1 box's text to its disc file
+
+- **Status:** `READY`
+- **Milestone:** M2
+- **Dependencies:** RE-001 (done).
+- **Blockers:** None.
+- **Objective:** Find which disc file, and which offset in it, the M1 box's text (WRAM-H `0x0606F09C`, D-016) is loaded from, and how it is stored.
+- **Acceptance criteria:**
+  - The latest REF-005 session state before the text is in RAM, and the first one after, are found by extracting WRAM-H from the session states (validated extractor, D-006); the scene between them is described from the session screenshots.
+  - From the pre-load state, a controlled trace links the bytes at `0x0606F09C` to one file: an agent write breakpoint (log mode) on `0x0606F09C`-`0x0606F0D3` records the PC, registers and frame of each write, and the loader's source (file entry, LSN or CD-buffer address) is read from those registers or the code around the PC. A no-input control replay from the same state is recorded.
+  - The storage format is tested: raw or compressed; load address; whether any pointer is relocated (file offset = address − `0x06060000` predicts `0xF09C` for line 4); what the bytes that differ between the file and RAM are.
+  - All three script copies (`STG0AS.BIN`, `VICTORY.BIN`, `END.BIN`) are compared with WRAM-H at the M1 checkpoints, and which one is resident there is stated with its confidence.
+  - Facts, uncertainty and any copy not yet seen loaded are recorded; the source image is unchanged.
+- **Notes:**
+  - Already SUPPORTED, not CONFIRMED: `STG0AS.BIN` equals WRAM-H from `0x06060000` in all but about 30 bytes (EXP-0016; 29 at checkpoint B in a recheck during this write-up), while `VICTORY.BIN` and `END.BIN` differ in most bytes there. So the file is probably loaded raw, without relocation. The trace is the discriminating test.
+  - If the load is by DMA (SCU or CD block), an SH-2 write breakpoint may not fire. The fallback is a break on the code that starts the load (a read of the file's directory entry or the CD block's FAD), bracketed by the two session states.
+  - When `VICTORY.BIN` and `END.BIN` load is not needed for M2. Note it if seen; otherwise it stays in `docs/known_unknowns.md` for `RE-002` and `END-001`.
+  - Candidates by name from `references/saturn_jp/iso_listing.json`: `STG0AS.BIN` (LSN 22,538, 320,724 bytes); the per-stage `STG00`-`STG0F.BIN` and `ST00`-`ST08_FNT.BIN` load nearby and may come with it.
+
+### DISC-002 - Reproduce the M1 change from a rebuilt image
+
+- **Status:** `BLOCKED`
+- **Milestone:** M2
+- **Dependencies:** DISC-001.
+- **Blockers:** DISC-001 not done.
+- **Objective:** Make the same あいう… change on a disc image built from the untouched source, and see it in the game.
+- **Acceptance criteria:**
+  - `tools/disc/patch_image.py` is re-validated on Cyberbots (rule 26): a rebuild with the original file is byte-identical to the source track.
+  - A scripted build writes, into a new image under `build/`, the file `DISC-001` found with line 4's 26 bytes replaced by the M1 test string (same size, in place, Mode 1 EDC/ECC regenerated). Original bytes, new bytes, file offset, LSN and sector offset are recorded (rule 12).
+  - Only the predicted sector(s) differ from the source, and each passes EDC/ECC. Two builds are identical; the source hashes are unchanged.
+  - Unattended (agent): from the `DISC-001` pre-load session state with the rebuilt image mounted, the M1 box completes with the test string on line 1 and Saturn line 5 on line 2 (dialogue-strip hash as `EXP-0017`'s write run, `1d501a`, or an agent-reviewed screenshot). The same run with the original image is the control (`ead786`).
+  - A cold boot of the rebuilt image reaches the title like the original's (run with the user present, per policy).
+  - The user's cold-boot play check (Jin, story mode, first pre-fight box) shows the test string. The image-changing work stays local, with a burnable copy, until the user has tried it (hardware check before push).
+- **Notes:**
+  - If `DISC-001` confirms `STG0AS.BIN` raw at `0x06060000`, line 4 is at file offset `0xF09C`. That is sector 30 of the file (LSN 22,568), bytes `0x09C`-`0x0B5`, so one sector would change. The file does hold line 4's original 26 bytes at `0xF09C` (checked during this write-up); that the game reads them from there is `DISC-001`'s question.
+  - Single variable: only the file `DISC-001` names is patched. The two other byte-identical copies stay untouched in M2; whether a translation patch keeps all three equal is decided in `LAYOUT-001` or `RE-002`, from evidence of when each loads.
+  - Loading a state with a different image mounted worked in XvSF (its `DISC-002`); for Cyberbots that is a HYPOTHESIS, and the control run tests it.
+  - Build images under `build/` may be deleted after the task (user rule).
+
+### FONT-001 - Find the dialogue font and prove its format
+
+- **Status:** `BLOCKED`
+- **Milestone:** M2
+- **Dependencies:** RE-001 (done), DISC-001.
+- **Blockers:** DISC-001 not done (its load map and pre-load state are reused here).
+- **Objective:** Find the glyph data behind the dialogue's Shift-JIS codes (in RAM and on disc) and the routine that renders it into the glyph cells, and prove the font's format.
+- **Acceptance criteria:**
+  - From checkpoint A, an agent write breakpoint (log mode) on the WRAM-H glyph shadow (`0x060FE200`-`0x060FE27F`, cell 0, D-015) as the box types records the writing PC; the routine is disassembled far enough to name its inputs (the Shift-JIS code, the source pointer) and its output.
+  - The font's RAM location is found from that routine, and its disc source by a controlled test: a read correlation with a file, then a probe image that changes one glyph's bytes, with the original image as control.
+  - The format is stated (bit depth, cell size, any compression or rendering step that makes the anti-aliased 4 bpp cells, and the code-to-index mapping). It is proven by a byte-identical repack of the original data, and by decoding the 25 glyphs of the M1 box and matching them to the rendered cells (25/25).
+  - Facts and uncertainty are recorded; the source image is unchanged.
+- **Notes:**
+  - `KANJI.BIN` (163,840 bytes) has the cells' value palette but not the glyph in the layouts tried (EXP-0016). A recheck during this write-up found none of cell 0's non-blank 8-byte rows, raw, in any of the 264 data-track files. So the font is probably stored in another form (another bit depth, compressed, or rendered from an outline); a lead, not a fact.
+  - Candidates by name: `KANJI.BIN`, `FIX.BIN`, `ST00`-`ST08_FNT.BIN` (per-stage, 318-418 KB).
+  - The half-width and Latin questions are `FONT-002`'s, not this task's.
+
 ### GATE-TRANSLATION - Confirm reference and translation prerequisites
 
 - **Status:** `BLOCKED`
@@ -515,9 +580,6 @@ and `docs/lessons_from_xvsf.md`.
 
 | ID | Milestone | Outline |
 | --- | --- | --- |
-| DISC-001 | M2 | Trace the RAM text to its disc file by a write breakpoint from a pre-load checkpoint; identify the format; learn when each of `END.BIN`, `VICTORY.BIN`, `STG0AS.BIN` is loaded (all three point at `0x06060000`, D-008, so probably one at a time). The three dialogue tables are byte-identical today; a patch keeps them so unless evidence says otherwise. |
-| DISC-002 | M2 | Reproduce the M1 change from a rebuilt image (same-size, in place, EDC/ECC regenerated with `tools/disc/patch_image.py`); cold boot. |
-| FONT-001 | M2 | Find the glyph routine and font (`KANJI.BIN` and `FIX.BIN` are candidates); prove the format by a byte-identical repack. |
 | FONT-002 | M2 | **First**, probe the renderer for a leftover arcade English path (language/region branches, half-width or ASCII handling); then measure Latin glyphs, line length and box size. |
 | LAYOUT-001 | M3 | Choose a capacity route (native English path, half-width or variable-width glyphs, pair glyphs, longer strings with relocated pointers) from measured headroom; user decision. The arcade English record for a slot runs up to 4 lines of 38 characters, the Saturn's line up to 16 full-width cells (D-008, D-009). |
 | RE-002 | M3 | Selection: what picks each line (pilot, opponent, route, branch), and forcing it from a checkpoint. Start from the record structures that point at the lines (D-008). |

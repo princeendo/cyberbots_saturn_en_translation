@@ -879,3 +879,19 @@ Conclusion: **CONFIRMED (M1)**, D-016.
 
 Next action: write up the M2 tasks (`DISC-001`, `DISC-002`, `FONT-001`) in
 full in `TASKS.md` before starting them.
+
+## 2026-11-02 — M2 tasks written up
+
+`DISC-001` (`READY`), `DISC-002` and `FONT-001` (blocked on `DISC-001`) are
+written out in full in `TASKS.md`, Phase G. Three offline checks made while
+writing them, with scratch commands only:
+
+- WRAM-H from `0x06060000` at checkpoint B differs from `STG0AS.BIN` in 29
+  bytes (EXP-0016 recorded 30), from `VICTORY.BIN` in 121,327 and from
+  `END.BIN` in 285,494. `STG0AS.BIN` stays the SUPPORTED source.
+- `STG0AS.BIN` holds line 4's original 26 bytes at file offset `0xF09C`
+  (sector 30, LSN 22,568, bytes `0x09C`-`0x0B5`): the `DISC-002` prediction.
+- None of glyph cell 0's non-blank 8-byte rows (checkpoint B, WRAM-H
+  `0x060FE200`) occurs raw in any of the 264 data-track files.
+
+Next action: `DISC-001`.
