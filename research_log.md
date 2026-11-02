@@ -821,3 +821,34 @@ load are blank; use replays as evidence for such states.
 Next action: `DBG-004`: in checkpoint B, search WRAM-L/WRAM-H for lines 4-5
 as Shift-JIS; then identify the renderer (VDP1 or VDP2) by a controlled
 change; check whether `KANJI.BIN` supplies the glyphs.
+
+## 2026-11-02 — EXP-0016: the M1 box's renderer and RAM text
+
+Task: DBG-004
+
+Goal: find the RAM text behind the M1 box and identify the renderer by a
+controlled change.
+
+Action: extracted the three checkpoints' regions; Shift-JIS search of WRAM;
+compared `STG0AS.BIN` with WRAM-H; listed VDP1 sprites; zeroed one glyph cell
+through the agent and screenshotted; searched for the glyph in RAM and in
+`KANJI.BIN`.
+
+Result (`research/experiments/EXP-0016/README.md`, D-015):
+
+- Lines 4-5 once in WRAM-H as Shift-JIS, inside resident `STG0AS.BIN` at
+  `0x06060000`.
+- VDP1: 25 per-character 16×16 4 bpp sprites from cells at VRAM `0x1E200`;
+  zeroing cell 0 blanked `次` on screen; cells are refilled within frames,
+  apparently from a WRAM-H shadow at `0x060FE200`.
+- `KANJI.BIN` shares the glyph palette but not in any simple layout tried.
+
+Disproven: "the font is 16×16 1-bit" (my SESSION-0001 arithmetic guess for
+`KANJI.BIN`).
+
+Conclusion: **CONFIRMED** text and renderer; font source open. Every
+`GATE-M0` dependency is `DONE`.
+
+Next action: ask the user for `GATE-M0`; on GO, `RE-001`: from checkpoint A,
+write different Shift-JIS into line 4 in WRAM-H before the box types, with a
+no-write control replay.

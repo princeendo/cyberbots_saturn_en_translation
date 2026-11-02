@@ -87,8 +87,12 @@ names it for its method only.
 - **2026-11-02: M1 checkpoints saved** (`DBG-003`, `EXP-0015`): box open,
   box complete, after the box, in the ignored `local/checkpoints/m1/`; each
   verified by replay.
-- Next unblocked task: `DBG-004` (find the box's renderer and its RAM text);
-  then `GATE-M0`.
+- **2026-11-02: renderer and RAM text found** (`DBG-004`, `EXP-0016`,
+  D-015): lines 4-5 are plain Shift-JIS in WRAM-H inside the resident
+  `STG0AS.BIN`; VDP1 draws one sprite per character from refilled glyph
+  cells.
+- **Next: `GATE-M0`**: every technical prerequisite for the first live RAM
+  write is `DONE`; the gate needs the user's recorded GO.
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -102,7 +106,8 @@ names it for its method only.
   dialogue table, static), D-009 (arcade English dialogue table), D-010
   (arcade dialogue on screen and its selection), D-011 (Saturn-arcade
   pairing), D-012 (text surfaces in an ordinary run), D-013 (names), D-014
-  (dialogue fixed from a checkpoint). Nothing about
+  (dialogue fixed from a checkpoint), D-015 (Shift-JIS RAM text, VDP1
+  per-character sprites). Nothing about
   the text, font or renderer is confirmed.
 
 ## Milestones
@@ -459,21 +464,22 @@ English text goes on disc).
 
 ### DBG-004 - Find the dialogue renderer and its RAM text
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** M1
 - **Dependencies:** DBG-001, DBG-003.
 - **Blockers:** None.
 - **Objective:** Determine whether the dialogue is VDP1 sprites or VDP2 tiles, and find the RAM text that drives it.
 - **Acceptance criteria:** The renderer is identified by a controlled change; the RAM text is located, first by a Shift-JIS search for the `TXT-001` line, then (if absent) by equality-pattern search; whether `KANJI.BIN` is the glyph source is recorded as tested or open.
+- **Notes:** Done 2026-11-02 (`EXP-0016`, D-015). Shift-JIS search found lines 4-5 once (WRAM-H `0x0606F09C`, `0x0606F0B8`, in resident `STG0AS.BIN`); no equality-pattern search needed. VDP1: 25 per-character sprites from cells at VRAM `0x1E200`; zeroing a cell blanked its character. `KANJI.BIN`: tested, layout open (`FONT-001`). For `RE-001`: write the Shift-JIS before the box types (checkpoint A).
 
 ## Gates
 
 ### GATE-M0 - Confirm environment and checkpoint prerequisites
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M0
-- **Dependencies:** ENV-001 to ENV-006, EMU-001 to EMU-007, EMU-020, EMU-021, DBG-001 to DBG-004, REF-008.
-- **Blockers:** Dependencies not done.
+- **Dependencies:** ENV-001 to ENV-006, EMU-001 to EMU-007, EMU-020, EMU-021, DBG-001 to DBG-004, REF-008 (all `DONE` 2026-11-02).
+- **Blockers:** The user's GO.
 - **Objective:** Make an explicit go/no-go decision before the first live RAM mutation.
 - **Acceptance criteria:** Every dependency is `DONE`; no unresolved workflow blocker can invalidate M1 evidence; the user's GO is recorded verbatim.
 

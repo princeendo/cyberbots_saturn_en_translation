@@ -203,3 +203,18 @@ comparisons use completed boxes or the box region at a settled moment, not
 frame-aligned whole screens.
 
 Reproduce: `research/experiments/EXP-0014/README.md`, "Procedure".
+
+## D-015: Dialogue is Shift-JIS in RAM and drawn as VDP1 sprites per character (`DBG-004`, `EXP-0016`)
+
+At the M1 checkpoints, Saturn lines 4-5 occur once in work RAM, as plain
+Shift-JIS, at WRAM-H `0x0606F09C`/`0x0606F0B8`, inside `STG0AS.BIN` resident
+at `0x06060000` (all but 30 bytes equal to the file; dialogue table at
+`0x0606F01C`). VDP1 draws the box as one normal sprite per character (color
+word `0x70E0`, 16×16, 4 bpp, 14 px apart), from glyph cells at VDP1 VRAM
+`0x1E200` + `0x80` × n. Zeroing the first cell blanked the first character
+on screen; the cells are refilled continually, apparently from a WRAM-H
+shadow at `0x060E0000` + offset. The glyphs are anti-aliased (values 0 and
+9-14); `KANJI.BIN` shares that palette, but its glyph layout is not yet
+known.
+
+Reproduce: `research/experiments/EXP-0016/README.md`, "Procedure".
