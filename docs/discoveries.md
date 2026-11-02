@@ -47,3 +47,16 @@ attract were tested, not play. The project setting stays `ss.cart auto`
 (1 MiB).
 
 Reproduce: `research/experiments/EXP-0002/README.md`, "Procedure".
+
+## D-004: Screenshots and save/load states work by hotkey (`EMU-006`, `EXP-0003`)
+
+In stock 1.32.1, F9 writes a 352x240 PNG (330x240 during the BIOS phase) to
+the home's `snaps/`, and F5 writes `mcs/<image>.<md5>.mc0` (1,099,526 bytes
+at the title). F7 restores the saved title later in the same session and in a
+fresh cold boot, about 35 s before a normal boot reaches the title. The
+reloaded title is byte-identical to a screenshot taken near save time, and the
+attract sequence continues from it in its normal order. The state file is
+unchanged by loading. Send hotkeys with `tools/mednafen/hotkeys.py
+--keep-focus`: one F9 was lost in a run that returned focus between keys.
+
+Reproduce: `research/experiments/EXP-0003/README.md`, "Procedure".

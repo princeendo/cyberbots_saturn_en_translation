@@ -240,3 +240,27 @@ to `aad9a7ef…57cf`.
 Which game action each Saturn button performs in Cyberbots (the arcade uses
 two weapon buttons, boost and jump) has not been observed yet; it is noted at
 the first play session (`REF-005`).
+
+## Hotkeys: Screenshots and States (`EMU-006`, `EXP-0003`)
+
+`tools/mednafen/hotkeys.py` launches stock Mednafen and presses its hotkeys
+at fixed times through macOS System Events (Accessibility permission, already
+granted for the sibling projects). Use `--keep-focus`:
+
+```bash
+./invenv.sh python -m tools.mednafen.hotkeys \
+  "local/disc_images/cyberbots_saturn_jp_2m/Cyberbots - Fullmetal Madness (Japan) (2M).cue" \
+  local/RUN/run.log --keep-focus --at 62:F9 --at 64:F5
+```
+
+| Key | Effect (1.32.1 default) | Output |
+| --- | --- | --- |
+| F9 | Screenshot | `snaps/<image>-NNNN.png`, numbered by `snaps/<image>-counter.txt` across runs |
+| F5 | Save state, slot 0 | `mcs/<image>.ee043c21f235a796453c19a841e691e2.mc0` (about 1.1 MB) |
+| F7 | Load state, slot 0 | — |
+| F12 | Exit (sent by the tool after the last step) | — |
+
+Without `--keep-focus` the tool hands focus back after each key, and one F9
+was lost that way (`EXP-0003`, run 1). Check the snapshot counter after each
+run. Key times slip about 1-1.9 s behind the schedule while the window is
+brought forward.

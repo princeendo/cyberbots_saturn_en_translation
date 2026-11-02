@@ -41,12 +41,16 @@ names it for its method only.
   ~1 s shifts; 1 MiB and 4 MiB carts identical. `ss.cart auto` (1 MiB) kept.
 - **2026-11-02: pad bindings copied from the siblings** (`EMU-005`, the
   user's instruction); both homes now equal XvSF's configurations.
-- Next unblocked tasks: `EMU-006` (screenshots and states, with the user
-  present); offline: `REF-001`
+- **2026-11-02: screenshots and states work by hotkey** (`EMU-006`,
+  `EXP-0003`, D-004): a title state reloads byte-identically in-session and
+  in a fresh cold boot.
+- Next unblocked tasks: `EMU-007` (stock debugger dumps, a write and a
+  breakpoint; keep it minimal, then `EMU-020`/`EMU-021`), with the user
+  present; offline: `REF-001`
   (finish: boot the US set), `TXT-001` (offline census of the Shift-JIS
   script blocks), `DOC-003` (reference catalog), `ENV-007` (retry Redump).
 - Confirmed so far: D-001 (boot), D-002 (audio-track layout), D-003 (no cart
-  needed for boot and attract). Nothing about
+  needed for boot and attract), D-004 (screenshots and states by hotkey). Nothing about
   the text, font or renderer is confirmed.
 
 ## Milestones
@@ -239,20 +243,20 @@ English text goes on disc).
 
 ### EMU-006 - Verify screenshots and save states
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** M0
 - **Dependencies:** EMU-003.
-- **Blockers:** Needs the user present (emulator consent).
+- **Blockers:** None.
 - **Objective:** Screenshots and save/load states work and are stored under ignored paths.
 - **Acceptance criteria:** A state saved and reloaded reproduces the same screen; files are ignored by git.
-- **Notes:** XvSF did this by hotkey through `tools/mednafen/hotkeys.py` (F9 screenshot, F5 save, F7 load), which needs the Mednafen window in front.
+- **Notes:** Done 2026-11-02 (`EXP-0003`, D-004). With `tools/mednafen/hotkeys.py --keep-focus`: F9 screenshots, F5 state (1,099,526 bytes, `a904685f…1a69`), F7 load in-session and into a fresh cold boot; the reloaded title equals a screenshot taken at save time byte for byte; state unchanged by loading; files under ignored `local/`. One F9 was lost in a run without `--keep-focus` (cause unknown). `hotkeys.py` re-validated here.
 
 ### EMU-007 - Verify debugger access and memory dumps
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M0
 - **Dependencies:** EMU-006.
-- **Blockers:** EMU-006.
+- **Blockers:** Needs the user present (emulator consent).
 - **Objective:** Dump WRAM-L and WRAM-H at a paused instant with the stock debugger.
 - **Acceptance criteria:** Dumps of `0x00200000-0x002FFFFF` and `0x06000000-0x060FFFFF` are saved with sizes and hashes recorded; a memory write and a write breakpoint are each observed once.
 - **Notes:** Keep this minimal and move to `EMU-020`/`EMU-021` straight after: both siblings lost time to stock-debugger GUI automation (`docs/lessons_from_xvsf.md`, lesson 10).

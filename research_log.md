@@ -360,3 +360,38 @@ first play session (`REF-005`).
 
 Next action: `EMU-006` (hotkey screenshot, save and load state), with the user
 present.
+
+## 2026-11-02 — EXP-0003: screenshots and states by hotkey
+
+Task: EMU-006
+
+Goal: show that screenshots and save/load states work and stay under ignored
+paths.
+
+Hypothesis: F9, F5 and F7 work in stock 1.32.1; a reloaded title state shows
+the screen it was saved on, in-session and after a fresh cold boot.
+
+Action: with the user present ("Run EMU-006"), three runs of
+`tools/mednafen/hotkeys.py` (14:27-14:32 local time): run 1 as XvSF did it
+(focus returned after each key), run 1b with `--keep-focus` and wider gaps,
+run 2 a cold boot loading run 1b's state at about 22 s.
+
+Result:
+
+- Run 1: two of three screenshots; the F9 1.85 s after F7 wrote nothing, and
+  the log cannot show whether F7 loaded. Kept as evidence, not explained.
+- Run 1b: all four screenshots. 1.3 s after F7 the screen is byte-identical
+  to run 1's title shot (`b7286b3c…a1a9`); 4.4 s after, black, as in the
+  normal attract order.
+- Run 2: black at 21 s; 2.0 s after F7 the title, byte-identical to run 1b's
+  save-time shot (`e39d8e2e…70c7`); 5 s after, the next attract screen. State
+  `a904685f…1a69` unchanged by loading.
+- Source, binary and configs unchanged; states and screenshots ignored.
+
+Conclusion: **CONFIRMED** (D-004). Use `--keep-focus` for hotkey runs; the
+lost key's cause is open (recorded in `EXP-0003`). `EMU-006` `DONE`;
+`EMU-007` `READY`.
+
+Next action: `EMU-007`, kept minimal (stock debugger: WRAM-L and WRAM-H dumps
+at one paused instant, one memory write, one write breakpoint), then
+`EMU-020`/`EMU-021` to build the agent interface.
