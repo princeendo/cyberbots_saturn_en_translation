@@ -101,3 +101,18 @@ halt-mode breakpoint stops with registers as text. Agent output may be used
 as evidence.
 
 Reproduce: `research/experiments/EXP-0006/README.md`, "Procedure".
+
+## D-008: One shared dialogue table in three program files (`TXT-001`, `EXP-0007`)
+
+Static file facts (not yet runtime facts). `VICTORY.BIN`, `END.BIN` and
+`STG0AS.BIN` each contain the same 50,112 bytes (SHA-256 prefix
+`f69902f8d27f98d2`): 1,851 Shift-JIS dialogue lines, each 4-byte aligned,
+NUL-terminated and zero-padded, followed by the ASCII literal `SsCB`. At
+load base `0x06060000`, every dialogue line is pointed to by a 32-bit word in
+each file, inside record-like structures after the table. No other file on
+the data track holds such a table. Lines are at most 16 full-width
+characters (34 bytes); the script uses 909 distinct double-byte characters
+(729 kanji) and a few ASCII characters. Offsets, lengths and hashes per line:
+`data/text/script_census.json`.
+
+Reproduce: `research/experiments/EXP-0007/README.md`, "Procedure".

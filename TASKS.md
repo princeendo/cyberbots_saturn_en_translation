@@ -55,14 +55,18 @@ names it for its method only.
   breakpoints are scriptable; the M0 emulator work is complete.
 - Next unblocked tasks: `REF-005` (Saturn text-surface inventory; needs the
   user to play while `session_recorder.py` runs, keeping every state);
-  offline: `TXT-001` (Shift-JIS script census), `REF-001` (pin `cps2.cpp`,
-  boot `cybotsu`), `DOC-003`, `ENV-007`
+  offline: `REF-001` (pin `cps2.cpp`, boot `cybotsu`), `DOC-003`, `ENV-007`.
+- **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
+  byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
+  `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
+  `0x06060000`; lines at most 16 full-width characters. Static facts only.
   (finish: boot the US set), `TXT-001` (offline census of the Shift-JIS
   script blocks), `DOC-003` (reference catalog), `ENV-007` (retry Redump).
 - Confirmed so far: D-001 (boot), D-002 (audio-track layout), D-003 (no cart
   needed for boot and attract), D-004 (screenshots and states by hotkey),
   D-005 (stock debugger dumps, writes, breakpoints), D-006 (state extractor
-  valid for work RAM and VRAM), D-007 (agent interface). Nothing about
+  valid for work RAM and VRAM), D-007 (agent interface), D-008 (shared
+  dialogue table, static). Nothing about
   the text, font or renderer is confirmed.
 
 ## Milestones
@@ -385,13 +389,13 @@ English text goes on disc).
 
 ### TXT-001 - Offline census of the plain Shift-JIS script blocks
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** M1 (static analysis only; no image change)
 - **Dependencies:** ENV-003.
 - **Blockers:** None.
 - **Objective:** Describe the Shift-JIS dialogue found in `END.BIN`, `VICTORY.BIN` and `STG0AS.BIN` (SESSION-0001) without assuming it is what the game draws.
 - **Acceptance criteria:** A script (`tools/text/`) lists every string in each file with its offset, byte length, terminator and the bytes around it; the three copies are compared (identical or not, and where each block starts and ends, e.g. the `SsCB` marker seen before it); any pointer or index table that addresses the strings is located; control bytes (line breaks, speaker, waits, name placeholders) are tabulated with counts; every other data-track file is scanned the same way and the results recorded. Committed output: offsets, lengths, hashes and counts only, no game text (`AGENTS.md` rule 21).
-- **Notes:** Use `tools/text/search.py` for the scan. Whether the game reads these bytes as Shift-JIS at runtime, and which copy it reads when, are **runtime questions** for `DBG-004` and `DISC-001`.
+- **Notes:** Whether the game reads these bytes as Shift-JIS at runtime, and which copy it reads when, are **runtime questions** for `DBG-004` and `DISC-001`. Done 2026-11-02 (`EXP-0007`, D-008) with the new `tools/text/script_census.py` (9 tests) instead of `search.py`; output `data/text/script_census.json`. The three copies' 50,112-byte dialogue regions are byte-identical (1,851 lines plus `SsCB`); no control bytes inside lines (one string = one line); pointers at base `0x06060000` in records after the table (gaps of 8/16/24/32 bytes); all 264 files scanned, no other block.
 
 ### DBG-002 - Observe dialogue selection behaviour
 
@@ -450,12 +454,12 @@ and `docs/lessons_from_xvsf.md`.
 | ID | Milestone | Outline |
 | --- | --- | --- |
 | RE-001 | M1 | Change the chosen line in live RAM, with a no-write control. |
-| DISC-001 | M2 | Trace the RAM text to its disc file by a write breakpoint from a pre-load checkpoint; identify the format; learn when each of `END.BIN`, `VICTORY.BIN`, `STG0AS.BIN` is loaded and whether the copies must stay identical. |
+| DISC-001 | M2 | Trace the RAM text to its disc file by a write breakpoint from a pre-load checkpoint; identify the format; learn when each of `END.BIN`, `VICTORY.BIN`, `STG0AS.BIN` is loaded (all three point at `0x06060000`, D-008, so probably one at a time). The three dialogue tables are byte-identical today; a patch keeps them so unless evidence says otherwise. |
 | DISC-002 | M2 | Reproduce the M1 change from a rebuilt image (same-size, in place, EDC/ECC regenerated with `tools/disc/patch_image.py`); cold boot. |
 | FONT-001 | M2 | Find the glyph routine and font (`KANJI.BIN` and `FIX.BIN` are candidates); prove the format by a byte-identical repack. |
 | FONT-002 | M2 | **First**, probe the renderer for a leftover arcade English path (language/region branches, half-width or ASCII handling); then measure Latin glyphs, line length and box size. |
 | LAYOUT-001 | M3 | Choose a capacity route (native English path, half-width or variable-width glyphs, pair glyphs, longer strings with relocated pointers) from measured headroom; user decision. |
-| RE-002 | M3 | Selection: what picks each line (pilot, opponent, route, branch), and forcing it from a checkpoint. |
+| RE-002 | M3 | Selection: what picks each line (pilot, opponent, route, branch), and forcing it from a checkpoint. Start from the record structures that point at the lines (D-008). |
 | RE-003 | M3 | Script compiler for one pilot; every line verified live by forcing. |
 | RE-004 | M4 | A second pilot through the same mechanism. |
 | RE-005 | M5 | Census of every pilot's dialogue against the arcade; roster and exceptions (user decision); capacity; roster image; regression references. |

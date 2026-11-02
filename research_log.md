@@ -501,3 +501,40 @@ story mode through at least two fights with dialogue, a continue, options),
 with `session_recorder.py --keep-states 0`. Offline meanwhile: `TXT-001`,
 `REF-001`, `DOC-003`, `ENV-007`. `GATE-M0` still needs `DBG-002` to
 `DBG-004` and `REF-008`.
+
+## 2026-11-02 — EXP-0007: static census of the script blocks
+
+Task: TXT-001
+
+Goal: describe the Shift-JIS dialogue in `END.BIN`, `VICTORY.BIN` and
+`STG0AS.BIN` without assuming it is what the game draws.
+
+Action: hand exploration with scratch scripts (layout, load base, pointer
+spacing, copy comparison, character inventory), then a reusable tool,
+`tools/text/script_census.py` (9 tests), run over all 264 extracted files into
+`data/text/script_census.json` (offsets, lengths, hash prefixes, counts).
+
+Result (`research/experiments/EXP-0007/README.md`, D-008):
+
+- One block per file; the dialogue part (1,851 lines plus the literal
+  `SsCB`, 50,112 bytes) is byte-identical in all three.
+- Lines: 4-byte aligned, NUL-terminated, zero-padded, no control bytes, at
+  most 16 full-width characters (34 bytes).
+- Load base `0x06060000` for all three (found by maximizing pointers to line
+  starts). Every dialogue line is pointed to in each file, from record-like
+  structures after the table.
+- 909 distinct double-byte characters (729 kanji); some half-width ASCII.
+- Disproven along the way: SESSION-0001's "slightly different character
+  counts" meant different trailing ASCII literals, not different dialogue.
+  My first base histogram (sampled offsets, all candidate words) gave junk
+  bases for `END.BIN` and `STG0AS.BIN`; restricting to WRAM-H and testing
+  every aligned base found `0x06060000` for all three. A first tool run also
+  matched graphics data in `SELECT.VAD` and `ST08_FNT.BIN`; a
+  longest-line rule removed them.
+
+Conclusion: **CONFIRMED** as file facts. Runtime use stays **HYPOTHESIS**.
+For later layout work: 16 full-width cells per line, and the presence of
+half-width ASCII in the script.
+
+Next action: `REF-005` (recorded play session with the user) to see these
+lines on screen; offline `REF-001`, `DOC-003`, `ENV-007`.
