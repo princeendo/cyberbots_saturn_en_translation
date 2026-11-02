@@ -99,7 +99,12 @@ names it for its method only.
 - **2026-11-02: M2 tasks written up** (`DISC-001`, `DISC-002`, `FONT-001`).
 - **2026-11-02: M1 text traced to its disc file** (`DISC-001`, `EXP-0018`,
   D-017): `STG0AS.BIN`, loaded raw to `0x06060000` when the first stage
-  starts; line 4 is at file offset `0xF09C`. Next: `DISC-002` (`READY`).
+  starts; line 4 is at file offset `0xF09C`.
+- **2026-11-02: M2 image built and checked by the agent** (`DISC-002`,
+  `EXP-0019`): one sector of `STG0AS.BIN` changed; a replay on the rebuilt
+  image shows the M1 box changed, and the original does not; the cold boot
+  is identical. Waiting on the user's cold-boot play check
+  (`build/disc/cyberbots_m2_disc002/`); the commit is local only.
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -536,7 +541,7 @@ English text goes on disc in M2; the test string is the M1 hiragana.
 
 ### DISC-002 - Reproduce the M1 change from a rebuilt image
 
-- **Status:** `READY`
+- **Status:** `IN_PROGRESS`
 - **Milestone:** M2
 - **Dependencies:** DISC-001 (done).
 - **Blockers:** None.
@@ -553,6 +558,12 @@ English text goes on disc in M2; the test string is the M1 hiragana.
   - Single variable: only the file `DISC-001` names is patched. The two other byte-identical copies stay untouched in M2; whether a translation patch keeps all three equal is decided in `LAYOUT-001` or `RE-002`, from evidence of when each loads.
   - Loading a state with a different image mounted worked in XvSF (its `DISC-002`); for Cyberbots that is a HYPOTHESIS, and the control run tests it.
   - Build images under `build/` may be deleted after the task (user rule).
+- **Evidence so far:** `EXP-0019`, 2026-11-02.
+  - **Tool:** the identity rebuild is byte-identical to the source.
+  - **Build:** only LSN 22,568 changed (24 user-data bytes, 130 EDC/ECC bytes); all 43,793 sectors pass; two builds identical (Track 01 `739a58e2…`); source hashes unchanged.
+  - **Replay** from state 4138: the load carries the test string. The completed box is `1d501a` on the rebuilt image and `ead786` on the original, as in EXP-0017, and the screenshots match the prediction.
+  - **Cold boot:** all 119 per-second frames are identical to the original's (EXP-0001).
+  - **Remaining:** the user's cold-boot play check of `build/disc/cyberbots_m2_disc002/`. The commit stays local until then (hardware check before push).
 
 ### FONT-001 - Find the dialogue font and prove its format
 

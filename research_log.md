@@ -920,3 +920,34 @@ Next action: `DISC-002`. Build an image with line 4 changed in `STG0AS.BIN`
 only (offset `0xF09C`, LSN 22,568). Check it from state 4138 with the
 rebuilt image mounted, against the original as control. Then a cold boot and
 the user's play check.
+
+## 2026-11-02 — EXP-0019: the M2 image (DISC-002)
+
+Goal: `DISC-002`; reproduce the M1 change from an image rebuilt from the
+untouched source.
+
+Action: `research/experiments/EXP-0019/build.py`: an identity build, then two
+builds with line 4 of `STG0AS.BIN` (offset `0xF09C`) replaced by the M1
+string. Then the EDC/ECC check and a track diff; replays from state 4138 on
+the rebuilt and the original image (36 × 50 frames, line 4 write log); a
+stock cold boot of the rebuilt image (120 s, fresh home). 17:20-17:25, the
+user present.
+
+Result: the identity build is byte-identical. The M2 builds are identical,
+with only LSN 22,568 changed, and every sector passes. The load carries the
+test string; the completed box is `1d501a` (rebuilt) against `ead786`
+(original), and every step outside the box is identical. The cold boot is
+frame-identical to EXP-0001's. Source hashes unchanged.
+
+Failed attempt: clearing `local/mednafen_quiet/sav/` before the cold boot was
+refused by a safety check (a glob removal). Nothing was deleted. A fresh home,
+`local/mednafen_disc002`, gave the empty backup RAM instead. The spare builds
+`build/disc002/identity` and `build/disc002/m2b` were deleted (user rule;
+`build.py` regenerates them).
+
+Conclusion: **CONFIRMED** by the agent runs. `DISC-002` stays `IN_PROGRESS`
+until the user's cold-boot play check of `build/disc/cyberbots_m2_disc002/`.
+The commit stays local until then.
+
+Next action: the user's play check; on a pass, record M2 (D-018), push, and
+start `FONT-001`.
