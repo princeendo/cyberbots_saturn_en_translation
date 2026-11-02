@@ -306,3 +306,31 @@ needing the user present.
 Next action: `EMU-004` cart controls (`ss.cart none`, `extram1`, `extram4`)
 with `cold_boot.py --setting`, then `tools.mednafen.home` to restore the
 config; `EMU-005` with the user's controller.
+
+## 2026-11-02 — EXP-0002: cartridge controls
+
+Task: EMU-004
+
+Goal: find which cart setting the game needs, with controls.
+
+Hypothesis: the cart changes nothing the game shows in a no-input boot and
+attract run; `extram1` reproduces D-001 exactly.
+
+Action: with the user present ("Yes, run EMU-004"), one 120 s cold boot each
+with `ss.cart` `extram1`, `none`, `backup` and `extram4` (`backup`, a 512 KiB
+save cart, added as a common real-hardware setup), restoring the config with
+`tools.mednafen.home` after each. 14:04:32-14:13:32 local time.
+
+Result: all exit 0, no warning screen in any. `extram1` and `extram4`: 119 of
+119 frames equal to D-001. `none`: equal up to frame 087, then the attract
+fight about 1 s earlier. `backup`: same sequence with ~1 s shifts in the intro
+and title text (title frames 058 and 064 still equal). Config restored to
+`ef897288…5019` every time; source unchanged.
+
+Conclusion: **CONFIRMED for boot and attract** (D-003). Unlike both siblings,
+Cyberbots does not stop without a cart. The shifts suggest the game uses the
+cart during loading, but that is not shown. `ss.cart auto` (1 MiB) stays.
+Play with no cart was not tested; recorded in `docs/known_unknowns.md`.
+
+Next action: `EMU-005` (pad bindings; needs the user and their controller),
+`EMU-006` (screenshots and save/load states by hotkey).

@@ -34,3 +34,16 @@ contain is not established.
 Reproduce: compare `references/saturn_jp/iso_listing.json` (`lsn` of each
 entry with `unreadable`) with the `Track N, ... LBA:` lines of any
 `local/emu003/boot*/mednafen.log`.
+
+## D-003: No cartridge is needed to boot and run attract mode (`EMU-004`, `EXP-0002`)
+
+With `ss.cart` set to `none`, `backup`, `extram1` or `extram4`, the untouched
+image boots with no input to the title and the attract fight without any
+warning. `extram1` and `extram4` give frames byte-identical to D-001 (119 of
+119 each). `none` and `backup` show the same screens, including identical
+title frames 058 and 064, shifted by about one second in places (attract
+fight earlier with no cart; intro later with a save cart). Only boot and
+attract were tested, not play. The project setting stays `ss.cart auto`
+(1 MiB).
+
+Reproduce: `research/experiments/EXP-0002/README.md`, "Procedure".

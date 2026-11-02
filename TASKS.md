@@ -36,12 +36,16 @@ names it for its method only.
   silent cold boots reach the title at about 57 s, identical frames;
   Mednafen gives it the 1 MiB cart. D-002: each audio track has one ISO
   entry. No Japanese text in the first two minutes of boot and attract.
-- Next unblocked tasks: `EMU-004` (cart controls), `EMU-005` (pad, needs the
-  user's controller), `EMU-006` (screenshots and states), all with the user
-  present; offline: `REF-001`
+- **2026-11-02: no cart needed for boot and attract** (`EMU-004`,
+  `EXP-0002`, D-003): `none` and a save cart give the same screens with
+  ~1 s shifts; 1 MiB and 4 MiB carts identical. `ss.cart auto` (1 MiB) kept.
+- Next unblocked tasks: `EMU-005` (pad, needs the user's controller),
+  `EMU-006` (screenshots and states), both with the user present; offline:
+  `REF-001`
   (finish: boot the US set), `TXT-001` (offline census of the Shift-JIS
   script blocks), `DOC-003` (reference catalog), `ENV-007` (retry Redump).
-- Confirmed so far: D-001 (boot), D-002 (audio-track layout). Nothing about
+- Confirmed so far: D-001 (boot), D-002 (audio-track layout), D-003 (no cart
+  needed for boot and attract). Nothing about
   the text, font or renderer is confirmed.
 
 ## Milestones
@@ -214,13 +218,13 @@ English text goes on disc).
 
 ### EMU-004 - Determine the cartridge requirement
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** M0
 - **Dependencies:** EMU-003.
 - **Blockers:** Needs the user present (emulator consent).
 - **Objective:** Find which cartridge setting the game needs, with controls.
 - **Acceptance criteria:** Boots with `ss.cart` set to `none`, `extram1` and `extram4` are each recorded (log line, what the game shows, how far it gets); the project setting is chosen from that evidence.
-- **Notes:** Both siblings needed the 4 MiB cart. Cyberbots is **UNKNOWN**. Mednafen 1.32.1's database lists `T-1217G` as `CART_EXTRAM_1M` with no "Game requirement" note (`docs/mednafen.md`), so `ss.cart auto` should give it 1 MiB; the header's peripheral field reads `JW`, and the Redump name carries "(2M)", whose meaning is not yet known (`ENV-007`). The `WARNING0-4.PIX` files may be the cart or save warnings (`UI-004`).
+- **Notes:** Done 2026-11-02 (`EXP-0002`, D-003): `none`, `backup`, `extram1`, `extram4`, one 120 s boot each. No warning with any; `extram1`/`extram4` byte-identical to D-001; `none`/`backup` same screens with ~1 s timing shifts. Only boot and attract tested; a check at Start or in play is not excluded. Project setting stays `ss.cart auto`. Before the test: both siblings needed the 4 MiB cart; Cyberbots was **UNKNOWN**. Mednafen 1.32.1's database lists `T-1217G` as `CART_EXTRAM_1M` with no "Game requirement" note (`docs/mednafen.md`), so `ss.cart auto` should give it 1 MiB; the header's peripheral field reads `JW`, and the Redump name carries "(2M)", whose meaning is not yet known (`ENV-007`). The `WARNING0-4.PIX` files may be the cart or save warnings (`UI-004`).
 
 ### EMU-005 - Configure and document the pad
 
