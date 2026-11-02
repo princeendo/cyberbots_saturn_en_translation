@@ -91,14 +91,15 @@ names it for its method only.
   D-015): lines 4-5 are plain Shift-JIS in WRAM-H inside the resident
   `STG0AS.BIN`; VDP1 draws one sprite per character from refilled glyph
   cells.
-- **Next: `GATE-M0`**: every technical prerequisite for the first live RAM
-  write is `DONE`; the gate needs the user's recorded GO.
+- **2026-11-02: `GATE-M0` passed.** The user's words: "GO for M1".
+- **2026-11-02: M1 CONFIRMED** (`RE-001`, `EXP-0017`, D-016): Shift-JIS
+  written to WRAM-H `0x0606F09C` before the box typed changed the box's first
+  line on screen; the no-write control showed the original. Next: M2, with
+  `DISC-001`, `DISC-002` and `FONT-001` written up in full before they start.
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
   `0x06060000`; lines at most 16 full-width characters. Static facts only.
-  (finish: boot the US set), `TXT-001` (offline census of the Shift-JIS
-  script blocks), `DOC-003` (reference catalog), `ENV-007` (retry Redump).
 - Confirmed so far: D-001 (boot), D-002 (audio-track layout), D-003 (no cart
   needed for boot and attract), D-004 (screenshots and states by hotkey),
   D-005 (stock debugger dumps, writes, breakpoints), D-006 (state extractor
@@ -107,8 +108,8 @@ names it for its method only.
   (arcade dialogue on screen and its selection), D-011 (Saturn-arcade
   pairing), D-012 (text surfaces in an ordinary run), D-013 (names), D-014
   (dialogue fixed from a checkpoint), D-015 (Shift-JIS RAM text, VDP1
-  per-character sprites). Nothing about
-  the text, font or renderer is confirmed.
+  per-character sprites), D-016 (M1: the box changed in live RAM). The font's
+  layout and the disc-side load are not confirmed.
 
 ## Milestones
 
@@ -476,12 +477,25 @@ English text goes on disc).
 
 ### GATE-M0 - Confirm environment and checkpoint prerequisites
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** M0
 - **Dependencies:** ENV-001 to ENV-006, EMU-001 to EMU-007, EMU-020, EMU-021, DBG-001 to DBG-004, REF-008 (all `DONE` 2026-11-02).
-- **Blockers:** The user's GO.
+- **Blockers:** None.
 - **Objective:** Make an explicit go/no-go decision before the first live RAM mutation.
 - **Acceptance criteria:** Every dependency is `DONE`; no unresolved workflow blocker can invalidate M1 evidence; the user's GO is recorded verbatim.
+- **Notes:** Passed 2026-11-02. Asked "GATE-M0: go for the first live RAM change (RE-001)?", the user answered: "GO for M1". Open items that cannot invalidate M1 evidence: `KANJI.BIN`'s layout (`FONT-001`), cart RAM extraction (not used).
+
+## Phase F: M1
+
+### RE-001 - Change the target box in live RAM
+
+- **Status:** `DONE`
+- **Milestone:** M1
+- **Dependencies:** GATE-M0.
+- **Blockers:** None.
+- **Objective:** Show that the Saturn draws the M1 box (Saturn lines 4-5, D-015) from its Shift-JIS bytes in WRAM-H, by changing them in a live session.
+- **Acceptance criteria:** From checkpoint A (`local/checkpoints/m1/a-box-open.mcs`), before the box types, line 4's bytes at WRAM-H `0x0606F09C` are replaced by a same-length test string (original and new bytes recorded, written bytes read back); the completed box shows the test string and an unchanged second line, by screenshot reviewed by the agent; a no-write control replay from the same checkpoint shows the original box; source image hashes unchanged.
+- **Notes:** Test string: 13 full-width hiragana (あいうえおかきくけこさしす), 26 bytes like the original, so line length and layout cannot change. Glyphs are rendered as the box types (D-015), so the write must precede the typing. Done 2026-11-02 (`EXP-0017`, D-016): read-back exact; completed box `1d501a` with the write against `ead786` in the control (as in every earlier replay); the next box (`3a956a`) the same in both; source manifests unchanged. **M1 is CONFIRMED.**
 
 ### GATE-TRANSLATION - Confirm reference and translation prerequisites
 
@@ -501,7 +515,6 @@ and `docs/lessons_from_xvsf.md`.
 
 | ID | Milestone | Outline |
 | --- | --- | --- |
-| RE-001 | M1 | Change the chosen line in live RAM, with a no-write control. |
 | DISC-001 | M2 | Trace the RAM text to its disc file by a write breakpoint from a pre-load checkpoint; identify the format; learn when each of `END.BIN`, `VICTORY.BIN`, `STG0AS.BIN` is loaded (all three point at `0x06060000`, D-008, so probably one at a time). The three dialogue tables are byte-identical today; a patch keeps them so unless evidence says otherwise. |
 | DISC-002 | M2 | Reproduce the M1 change from a rebuilt image (same-size, in place, EDC/ECC regenerated with `tools/disc/patch_image.py`); cold boot. |
 | FONT-001 | M2 | Find the glyph routine and font (`KANJI.BIN` and `FIX.BIN` are candidates); prove the format by a byte-identical repack. |

@@ -852,3 +852,30 @@ Conclusion: **CONFIRMED** text and renderer; font source open. Every
 Next action: ask the user for `GATE-M0`; on GO, `RE-001`: from checkpoint A,
 write different Shift-JIS into line 4 in WRAM-H before the box types, with a
 no-write control replay.
+
+## 2026-11-02 — GATE-M0 passed
+
+Question (2026-11-02): "GATE-M0: go for the first live RAM change
+(RE-001)?" The user's answer, verbatim: "GO for M1". `GATE-M0` is `DONE`;
+`RE-001` is written out in `TASKS.md` and `IN_PROGRESS`.
+
+## 2026-11-02 — EXP-0017: M1, the target box changed in live RAM
+
+Goal: `RE-001`; show the M1 box (Saturn lines 4-5) is drawn from its
+Shift-JIS bytes in WRAM-H.
+
+Action: `research/experiments/EXP-0017/ram_write.py` from checkpoint A, once
+with a 26-byte write of 13 hiragana to WRAM-H `0x0606F09C` while paused, once
+as a no-write control; 6 × 50 frames with screenshots each
+(17:03:52-17:04:11, the user present).
+
+Result: read-back equals the written bytes, and they still hold at the end of
+the run. Completed box: `1d501a` with the write, `ead786` in the control (as
+in every earlier replay); at step 6 both show the same next box (`3a956a`).
+The agent reviewed the screenshots: the write run's first line is the test
+string, its second line unchanged. Source manifests unchanged.
+
+Conclusion: **CONFIRMED (M1)**, D-016.
+
+Next action: write up the M2 tasks (`DISC-001`, `DISC-002`, `FONT-001`) in
+full in `TASKS.md` before starting them.

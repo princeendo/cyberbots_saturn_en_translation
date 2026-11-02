@@ -218,3 +218,14 @@ shadow at `0x060E0000` + offset. The glyphs are anti-aliased (values 0 and
 known.
 
 Reproduce: `research/experiments/EXP-0016/README.md`, "Procedure".
+
+## D-016: M1, the box changes when its Shift-JIS changes in RAM (`RE-001`, `EXP-0017`)
+
+From checkpoint A, writing 26 bytes of Shift-JIS (あいうえおかきくけこさしす)
+over Saturn line 4 at WRAM-H `0x0606F09C`, before the box types, makes Jin's
+first pre-fight box show those characters on its first line, with its second
+line and the following box unchanged; a no-write control from the same
+checkpoint shows the original box. The Saturn draws its dialogue from the
+resident Shift-JIS text.
+
+Reproduce: `research/experiments/EXP-0017/README.md`, "Procedure".
