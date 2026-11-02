@@ -1,0 +1,94 @@
+# Python and uv
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+dist/
+
+# Secrets and machine-local configuration
+.env
+.env.*
+!.env.example
+.DS_Store
+.idea/
+.vscode/
+local/
+
+# Original and derived optical-disc media
+build/
+*.bin
+*.cue
+*.ccd
+*.chd
+*.cdi
+*.gdi
+*.img
+*.iso
+*.mdf
+*.mds
+*.nrg
+*.raw
+*.sub
+
+# BIOS, ROM, patch outputs, archives, and emulator binaries
+*.bios
+*.rom
+*.7z
+*.rar
+*.tar
+*.tar.*
+*.zip
+*.dylib
+*.dll
+*.exe
+*.so
+vendor/mednafen/src/
+vendor/mednafen/build/
+vendor/mednafen/src-agent/
+vendor/mednafen/build-agent/
+
+# Copyrighted or machine-local research evidence
+research/screenshots/*
+!research/screenshots/README.md
+research/savestates/*
+!research/savestates/README.md
+research/memory_dumps/*
+!research/memory_dumps/README.md
+research/traces/*
+!research/traces/README.md
+research/extracted_files/*
+!research/extracted_files/README.md
+research/notes/local/
+research/experiments/**/*.bin
+research/experiments/**/*.raw
+research/experiments/**/*.png
+research/experiments/**/*.bmp
+research/experiments/**/*.jpg
+research/experiments/**/*.jpeg
+research/experiments/**/*.mcs
+research/experiments/**/*.mc*
+research/experiments/**/*.state*
+references/**/local/
+
+# Common screenshot, save-state, dump, and trace formats outside research paths
+*.bmp
+*.dmp
+*.dump
+*.mcs
+*.sav
+*.state
+*.state.*
+*.trace
+
+# Synthetic fixtures are allowed only under tests/fixtures. Their formats should be
+# explicitly allowlisted here if a future global rule would otherwise exclude them.
+!tests/fixtures/**/*.json
+!tests/fixtures/**/*.txt
+
+# Per-machine agent guidance (user preferences, identity); never committed
+local_agent_guidance.md
