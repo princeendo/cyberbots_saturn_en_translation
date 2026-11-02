@@ -1,8 +1,8 @@
 # EXP-0019: M2, the M1 Change From a Rebuilt Image
 
 Task: DISC-002
-Status: IN_PROGRESS (the user's cold-boot play check is pending)
-Confidence: CONFIRMED by the agent runs; the play check closes the task
+Status: DONE
+Confidence: CONFIRMED (M2)
 
 ## Observation
 
@@ -56,6 +56,7 @@ The original image gives `ead786`. A cold boot is unchanged.
 | `tools/disc/sector.py` | EDC/ECC check of every sector |
 | `tools/mednafen/replay_state.py` | State replay on a chosen image, with a write-breakpoint log |
 | `tools/mednafen/cold_boot.py` | Stock cold boot, one frame per second |
+| [`drive.py`](drive.py) | Cold boot of the agent build on a chosen image, pad keys through System Events (scratch home `local/mednafen_route`: A on K, Start on N), agent screenshots on demand |
 
 A dialogue-strip crop `352x72+0+168` is hashed as raw RGB:
 `ffmpeg -i X.png -vf crop=352:72:0:168 -f rawvideo -pix_fmt rgb24 - | shasum -a 256`.
@@ -81,9 +82,16 @@ BP=write:0606F09C-0606F0D3,2606F09C-2606F0D3
 ./invenv.sh python -m tools.mednafen.cold_boot \
   "build/disc002/m2a/image/Cyberbots - Fullmetal Madness (Japan) (2M).cue" \
   local/disc002/boot1 --seconds 120 --home local/mednafen_disc002
+# cold-boot play check, driven by the agent (screens checked between keys)
+D=research/experiments/EXP-0019/drive.py; O=local/disc002/play1
+./invenv.sh python $D launch "build/disc/cyberbots_m2_disc002/Cyberbots - Fullmetal Madness (Japan) (2M).cue" $O
+./invenv.sh python $D key $O start      # at the title or attract, until the menu shows
+./invenv.sh python $D key $O a          # ARCADE MODE; then Jin; then Blodia
+./invenv.sh python $D shot $O NAME      # as often as needed
+./invenv.sh python $D stop $O
 ```
 
-17:20-17:25 local, 2026-11-02, the user present.
+17:20-17:25 (build, replays, boot) and 17:33-17:37 (play check) local, 2026-11-02, the user present.
 
 ## Actual Result
 
@@ -115,6 +123,22 @@ BP=write:0606F09C-0606F0D3,2606F09C-2606F0D3
 - **Cold boot** (stock, 120 s, empty backup RAM). `SGID: T-1217G`, 1 MiB
   cart. All 119 per-second frames are byte-identical to the original image's
   boot (`local/emu003/boot1`, EXP-0001).
+- **Cold-boot play check (agent-driven).** The user's first manual check
+  (17:28-17:30) stopped on the narration box before Jin's box. That box ends
+  in dots on every disc, so nothing could be concluded. The user then
+  declined manual play checks: "Yeah, I don't want to do that at all. Why can't you just boot the machine and take regular screenshots like I did with the XvSF and MSHvSF translations?"
+  So the agent drove one itself on `build/disc/cyberbots_m2_disc002/`. It
+  launched at 17:33:26 (frame 4) and sent 8 keys, all logged with their
+  frames in `local/disc002/play1/log.jsonl`:
+  - Start ×4, needed because the attract loop ran through a demo fight;
+  - A on ARCADE MODE (frame 7939), A on Jin (8896), and A on Blodia (9709,
+    not taken; again at 12420).
+
+  NOW LOADING followed, then the narration and the stage scene. At frame
+  13982 (`t13_11.png`, SHA-256 `f02658a0…`) Jin's box reads
+  あいうえおかきくけこさしす on line 1 and Saturn line 5 on line 2 (agent-reviewed).
+  It is followed by Shade's reply (`570885`, as on the original). Source
+  hashes are unchanged after the run.
 - **Burnable copy** for the user's check: `build/disc/cyberbots_m2_disc002/`
   (ignored, a copy of `build/disc002/m2a/image/`).
 - Source manifests are unchanged, and so are both home configs. A scratch home
@@ -125,14 +149,19 @@ BP=write:0606F09C-0606F0D3,2606F09C-2606F0D3
 **CONFIRMED (agent):** an image rebuilt from the untouched source, with 26
 bytes of `STG0AS.BIN` changed in one sector, shows the M1 change in Jin's first
 pre-fight box with no RAM write, and matches the original everywhere else that
-was observed. The user's cold-boot play check is pending. M2 is recorded once
-it passes.
+was observed. A cold boot of that image, played through arcade mode with Jin,
+shows the change. **M2 is CONFIRMED.**
 
 ## Uncertainty and Alternatives
 
-- The replays start from a state saved on the original image. Every disc read
-  after it comes from the rebuilt image, which the logged load confirms. The
-  cold-boot route through story mode is the user's play check.
+- The replays start from a state saved on the original image; the
+  agent-driven cold boot closes that gap. It used the agent build
+  (frontend-only patch), not stock Mednafen; the stock cold boot covered boot
+  and attract only.
+- The play-check screenshot's strip hash (`b481c7`) is not `1d501a`. It equals
+  the rebuilt replay's step 29, and real-time screenshots land on arbitrary
+  frames (portrait animation or the last character typing). The check is
+  the agent's reading of the screenshot.
 - Only one of the three byte-identical script copies is patched. The scenes
   that load `VICTORY.BIN` or `END.BIN` (not yet observed) would still show the
   original text.

@@ -244,3 +244,17 @@ file. A write breakpoint on lines 4-5 is hit 14 times from a pre-load state
 (twice, identically) and never from a post-load state.
 
 Reproduce: `research/experiments/EXP-0018/README.md`, "Procedure".
+
+## D-018: M2, the M1 change works from a rebuilt image (`DISC-002`, `EXP-0019`)
+
+An image built from the untouched source by `tools/disc/patch_image.py` has
+26 bytes of `STG0AS.BIN` changed at file offset `0xF09C`, the M1 hiragana
+over Saturn line 4. Only LSN 22,568 changes, and EDC/ECC is regenerated
+(Track 01 SHA-256 `739a58e2…`). On that image Jin's first pre-fight box
+shows the change, with no RAM write. This holds in a replay from the
+pre-load state 4138 (strip hash `1d501a`; the original image gives
+`ead786`) and after a cold boot played through arcade mode with Jin. The cold
+boot to the title is frame-identical to the original image's. The tool's
+identity rebuild is byte-identical to the source.
+
+Reproduce: `research/experiments/EXP-0019/README.md`, "Procedure".

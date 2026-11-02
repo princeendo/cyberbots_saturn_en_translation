@@ -951,3 +951,28 @@ The commit stays local until then.
 
 Next action: the user's play check; on a pass, record M2 (D-018), push, and
 start `FONT-001`.
+
+## 2026-11-02 — DISC-002 play check and M2
+
+The user's first manual check (17:28-17:30, the patched image, confirmed in
+the terminal) stopped at the narration box before Jin's box. It ends in
+"・・・。" on every disc, so the result was inconclusive. Asked to repeat it
+with an F9 screenshot, the user declined, verbatim: "Yeah, I don't want to do that at all. Why can't you just boot the machine and take regular screenshots like I did with the XvSF and MSHvSF translations?"
+
+Decision recorded in `docs/localization_policy.md` and in the ignored local
+guidance: the agent runs cold-boot play checks itself, with pad keys through
+System Events and agent-reviewed screenshots.
+
+Action: `research/experiments/EXP-0019/drive.py`, a cold boot of
+`build/disc/cyberbots_m2_disc002/` under the agent build. Eight keys were sent:
+Start ×4 through the attract loop, A on ARCADE MODE, A on Jin, and A on
+Blodia twice (the first press was not taken). 17:33-17:37, the user present.
+
+Result: Jin's box shows あいうえおかきくけこさしす on line 1 and the original
+line 2 (frame 13982, agent-reviewed). The narration before it and Shade's
+reply after it are unchanged. Source hashes unchanged.
+
+Conclusion: **M2 CONFIRMED**, D-018; `DISC-002` is `DONE`.
+
+Next action: `FONT-001`. Pushing the image-changing commits waits for the
+user's OK (hardware check before push).
