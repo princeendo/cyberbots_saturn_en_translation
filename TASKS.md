@@ -159,6 +159,11 @@ names it for its method only.
   Santana in official English from one image built from the untouched
   source; 127/127 boxes forced; cold boots of both; Mary's Japanese as
   recorded. Next: write up M5 (`RE-005`, outline only so far).
+- **2026-11-03: M5 tasks written up** (Phase J): `RE-005` (census and
+  roster, with the user) and `WIN-001` (is there a win-quote surface?) are
+  `READY`; `PAIR-003`, `CAP-001`, the gate extension and `RE-008` follow.
+  The estimate: 404 boxes and 551 pairs for lists 0-5, about 216 sacrificed
+  codes under the current rule.
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -1004,6 +1009,121 @@ rarest-glyph rule, and Jin's image is unchanged when built alone.
   - **Provenance:** `data/translations/jin_story.json`, `santana_story.json`; `data/regression/re007_jin_santana.json`.
   - **M4 is CONFIRMED.**
 
+## Phase J: M5 (All Ordinary Story Dialogue)
+
+M5: every ordinary pilot's story dialogue is localized by the same mechanism,
+from one roster file, in one image built from the untouched source. Win
+quotes are included only if they turn out to be a separate surface. The
+order is:
+
+1. `RE-005` (census and roster, with the user) and `WIN-001` (is there a
+   win-quote surface?), which are independent;
+2. `PAIR-003` and `CAP-001`, which are independent;
+3. the user's gate extension for the roster;
+4. `RE-008` (the roster image).
+
+Endings (M6-M8), VS captions, name art and the Saturn-only pilots (rule 24,
+`SPECIAL-001`) stay out of scope.
+
+Survey (2026-11-03, an estimate, not evidence): `EXP-0027/candidates.py`'s
+counting, extended in scratch to lists 0-5 with their story blocks.
+
+| | Jin + Santana (built) | Lists 0-5 |
+| --- | --- | --- |
+| Story boxes | 127 | 404 (63, 64, 69, 66, 70, 72) |
+| Distinct pairs, one pool | 408 | 551 |
+| Codes to sacrifice (335 free) | 73 | about 216 |
+| Line bytes needed / room in own unshared lines | 7,316 / 6,584 (8,088 with dead ending lines) | 23,812 / 20,720, before dead ending lines |
+| Boxes over 3 rows | 0 | 0 |
+
+### RE-005 - Census of every pilot list; choose the roster
+
+- **Status:** `READY`
+- **Milestone:** M5
+- **Dependencies:** RE-007 (done).
+- **Blockers:** None.
+- **Objective:** Describe every Saturn pilot list from the game's own tables and runs, and put the M5 roster to the user as a decision, as MSHvSF's `RE-043` did.
+- **Acceptance criteria:**
+  - **Census:** a generated table (`data/text/pilot_census.json`, no text) of all 11 lists, with for each:
+    - story scenes (the list's block of `STG0AS.BIN`'s scene posts), ending scenes (posted by `END.BIN`), and scenes posted by neither;
+    - story boxes, lines, lines paired with the arcade slot of the same number, Saturn-only lines (line 258 is one, D-011), and lines shared with other lists' boxes;
+    - the pilot select route (moves from Jin) and the first stage group.
+  - **Blocks:** that block k is list k is seen in play for each arcade pilot not yet seen (lists 3-5; SUPPORTED so far, EXP-0027): an agent cold boot (`EXP-0027/play_route.py`) with that pilot posts its block's first scenes.
+  - **Lists 9 and 10:** what they are (their scripts match the arcade's pilots 6 and 7, EXP-0027), from forced scenes with agent-reviewed screenshots and from where their scenes are posted.
+  - **Decision:** the user chooses the roster (expected: lists 0-5) and any exceptions, asked as a multiple-choice question with a "(Recommended)" option and recorded verbatim in `research_log.md`, `docs/localization_policy.md` and a new `docs/coverage_exceptions.md` (MSHvSF's method: every excluded list or box with its evidence).
+  - **Outputs:** `data/text/m5_roster.json` (lists, box-list files, story scenes, routes) and `data/text/<pilot>_boxes.json` for each roster pilot, with `story_scenes` and `story_scenes_posted`.
+- **Notes:** `data/text/mary_boxes.json` exists (`EXP-0030`) without `story_scenes`.
+
+### WIN-001 - Is there a win-quote surface?
+
+- **Status:** `READY`
+- **Milestone:** M5
+- **Dependencies:** None open.
+- **Blockers:** None.
+- **Objective:** Decide from evidence whether Cyberbots has win quotes (or other per-fight dialogue) outside the story scenes, and what shows `VICTORY.BIN`'s copy of the dialogue table, so M5's scope is known.
+- **Acceptance criteria:**
+  - **When it loads:** the CD-command log (`EXP-0018/trace.py --log`) from a state before a fight's end, through the win and the next scene, shows whether `VICTORY.BIN` loads and where (open since `EXP-0018`, `docs/known_unknowns.md`).
+  - **What it shows:** if it loads, the screen that uses it, with an agent-reviewed screenshot and the glyph routine's caller; if it never loads in story play, the modes tried (arcade win, loss and continue, versus) are listed.
+  - **Arcade:** the arcade's text readers (`0x11CC6` for story scripts; the second reader at `0x97222`, D-010) are checked for a win-quote table.
+  - **Result:** "no separate surface" closes the question for M5. A separate surface becomes its own task, which the user adds to M5 or defers (a decision, recorded verbatim).
+- **Notes:** `docs/text_surfaces.md` lists the round-end and bonus screens as already English.
+
+### PAIR-003 - Pair the roster pilots' boxes with the arcade English
+
+- **Status:** `BLOCKED`
+- **Milestone:** M5
+- **Dependencies:** RE-005.
+- **Blockers:** Dependencies not done.
+- **Objective:** Pair every story box of every roster pilot not yet paired, as `PAIR-002` did for Santana.
+- **Acceptance criteria:**
+  - **Scripts:** for each pilot, the arcade's scripts (`0x12150`) are compared scene by scene with the Saturn's; differing scenes are listed.
+  - **Pairing:** `data/translations/<pilot>_pairing.json` from `EXP-0028/pair_pilot.py`, each line `exact` or `edited`, with shared-record slots and boxes with no counterpart labelled and explained by the arcade script. The candidates had 0-4 boxes per pilot that are not slot for slot (Mary 1, Arieta 0, Gawaine 4, Bao and Mao 4; `EXP-0027`).
+  - **On screen:** at least 2 pairs per pilot shown in both games from forced scenes (MAME at `0x11CDA`/`0x11CEA`, the Saturn by `EXP-0029/force_check.py`).
+  - **New translations:** every line with no official English is listed with its box and context (no text committed), for the gate, where the user names the translator.
+- **Notes:** no text is committed (rule 21).
+
+### CAP-001 - Capacity for the roster, and the user's choice of trade-off
+
+- **Status:** `BLOCKED`
+- **Milestone:** M5
+- **Dependencies:** RE-005.
+- **Blockers:** Dependencies not done.
+- **Objective:** Measure what the roster needs in codes, glyphs and line bytes, test the options for the gap, and put them to the user.
+- **Acceptance criteria:**
+  - **Budget:** `dialogue.py --budget` over all roster pairings (after `PAIR-003`, or the census's slot-for-slot pairing for the estimate, labelled as such): pairs, sacrifices needed, line bytes against room (own lines plus dead ending lines, proved dead as in `EXP-0029`), and the Japanese lines touched, grouped by whose they are (Saturn-only pilots, endings, `VICTORY.BIN`, other).
+  - **Options,** each measured, not assumed:
+    - (a) the current rule (fewest lines, then table order);
+    - (b) ranking by the uses that stay Japanese (184 against 198 lines for Jin + Santana, `EXP-0029`);
+    - (c) reaching the 33 glyphs no table code can reach: the table is followed by data at `0x060AB73C` and read through one literal at `0x0606EA40`. Whether it can move, and where, is an experiment (`HYPOTHESIS` until then);
+    - (d) any other route the evidence offers, such as a second glyph set for story scenes (`KANJI.BIN` loads per box scene, D-019). Proposed only with evidence.
+  - **Room:** if the rows do not fit the room, the shortfall and the options for it are measured as well.
+  - **Decision:** the user chooses, asked as a multiple-choice question with a "(Recommended)" option and recorded verbatim. The chosen option is implemented in `tools/text/dialogue.py` with synthetic tests. Jin + Santana either reproduce `re007_jin_santana.json` or get a new reference with the reason recorded.
+- **Notes:** the user's earlier decisions accepted broken Japanese "until they are English (by M5)". After M5 the Japanese that stays is the Saturn-only pilots', the endings' and `VICTORY.BIN`'s, so the trade-off now lasts longer; the question says so.
+
+### GATE-TRANSLATION extension for the roster
+
+A dated block under `GATE-TRANSLATION`, once `PAIR-003` and `CAP-001` are
+done. The user's GO covers, per roster pilot:
+- the official English as paired;
+- any new translations, each listed with its translator;
+- the code budget and the chosen trade-off, with the lines it touches.
+
+### RE-008 - Build the roster's story in English from the source image (M5)
+
+- **Status:** `BLOCKED`
+- **Milestone:** M5
+- **Dependencies:** RE-005, PAIR-003, CAP-001, the gate extension; WIN-001 (its scope answer).
+- **Blockers:** Dependencies not done.
+- **Objective:** One image with every roster pilot's story dialogue in English, built from the roster file, verified box by box and in play.
+- **Acceptance criteria:**
+  - **Systematic:** `tools/text/dialogue.py --roster data/text/m5_roster.json` builds it; a new pilot needs only its pairing and roster entry.
+  - **Build:** from the untouched source; two builds identical; all sectors valid; source hashes unchanged. Every changed byte range in `STG0AS.BIN` and `KANJI.BIN` is accounted for by a roster box's row or record, a table code or a glyph; all other bytes are checked equal to the source (MSHvSF's untouched-block check).
+  - **Live:** every story box of every roster pilot is forced from a pre-load state and draws its predicted cells (about 114 scenes, about 3 hours unattended); the original image is the control.
+  - **Play:** an agent cold boot of each roster pilot reaches at least stage 2 with forced fights (D-025) and shows its English boxes.
+  - **Japanese left:** a Saturn-only pilot's box and, if reachable, a `VICTORY.BIN` screen draw as the recorded trade-off says.
+  - **Provenance:** `data/translations/<pilot>_story.json` per pilot and `data/regression/re008_roster.json`.
+- **Notes:** the image commit pushes after the agent's cold-boot checks pass (user rule, 2026-11-02). Cold boots only with the user present.
+
 ## Later Milestones (outline only)
 
 Placeholders so the order is visible. Each becomes a full task, with its own
@@ -1013,7 +1133,6 @@ and `docs/lessons_from_xvsf.md`.
 
 | ID | Milestone | Outline |
 | --- | --- | --- |
-| RE-005 | M5 | Census of every pilot's dialogue against the arcade; roster and exceptions (user decision); capacity; roster image; regression references. |
 | END-001 | M6 | Reach, renderer, RAM, disc source (the `*_END*` entries and `KEND*.BIN` are candidates), arcade English (not yet seen; the second table reader at `0x97222` is a candidate, D-010), and indexing of one ending. |
 | END-002 | M7 | One ending localized. |
 | END-003 | M8 | All roster endings; combined image; coverage register (`docs/coverage_exceptions.md`). |

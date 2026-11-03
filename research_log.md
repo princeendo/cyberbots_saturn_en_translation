@@ -1429,3 +1429,20 @@ Conclusion: **CONFIRMED (M4)**, D-028.
 Next action: write up M5 (`RE-005`); it is outline-only, so it needs "Write
 up M5" first.
 
+## 2026-11-03 — M5 tasks written up
+
+Action: wrote Phase J in `TASKS.md` from the playbook's Phase 3 (MSHvSF
+`RE-041`-`RE-047`: census, roster, pairing, capacity, build, regression),
+re-anchored on story dialogue. Tasks: `RE-005` (census and roster),
+`WIN-001` (is there a win-quote surface?), `PAIR-003`, `CAP-001` (capacity
+and the trade-off decision), the gate extension, `RE-008` (roster image).
+`RE-005`'s outline row is replaced.
+
+Survey (an estimate, scratch extension of `EXP-0027/candidates.py` to lists
+0-5): 404 story boxes; 551 distinct pairs (Jin + Santana 408), so about 216
+sacrificed codes under the current rule; 23,812 line bytes needed against
+20,720 in the pilots' own unshared lines, before dead ending lines; no box
+over 3 rows. Not evidence; `RE-005` and `CAP-001` measure it.
+
+Next action: `RE-005` or `WIN-001` (both `READY`).
+
