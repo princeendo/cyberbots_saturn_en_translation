@@ -114,7 +114,11 @@ names it for its method only.
   done.
 - **2026-11-02: M3 tasks written up** (Phase H): `RE-002` and
   `LAYOUT-001` Phases A-B are `READY`. `PAIR-001`, `GATE-TRANSLATION` and
-  `RE-003` are blocked in that order. Next: `RE-002`.
+  `RE-003` are blocked in that order.
+- **2026-11-02: Jin's boxes listed and forcible** (`RE-002`, `EXP-0022`,
+  D-021): 17 story scenes, boxes 0-62, Saturn lines 0-120, from
+  `STG0AS.BIN`; any scene can be forced from state 5208. Next: `PAIR-001`
+  (now unblocked) or `LAYOUT-001` Phases A-B.
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -130,7 +134,7 @@ names it for its method only.
   per-character sprites), D-016 (M1: the box changed in live RAM), D-017
   (the M1 text's disc file), D-018 (M2: the change from a rebuilt image), D-019
   (the dialogue font and its code table), D-020 (no native English path;
-  box capacity). The font's
+  box capacity), D-021 (box selection; Jin's scenes). The font's
   layout is not confirmed.
 
 ## Milestones
@@ -662,7 +666,7 @@ new-translation policy.
 
 ### RE-002 - Find what selects each box, list Jin's boxes, and force any box
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** M3
 - **Dependencies:** RE-001, DISC-001, FONT-002 (done).
 - **Blockers:** None.
@@ -684,6 +688,12 @@ new-translation policy.
     - the typing routine walks a record at `r13` (`0x0606E5C0`).
   - The arcade picks a slot through `0xFF2F7A`, written by `0x011D48`, and the script table `0x12150` (D-010). A Saturn twin of that logic would be a HYPOTHESIS to test, as XvSF's quote selector was.
   - Dialogue is fixed from a checkpoint (D-014), so forcing should not need RNG work, but any branch found must be tested.
+- **Evidence:** `EXP-0022`, D-021, `data/text/jin_boxes.json`, the `docs/mednafen.md` runbook; 2026-11-02.
+  - **Selector:** stage-code constants are posted as scenes (`0x0606DBEA`). The scene byte at task + `0x23` and the pilot byte at task + `0x1F` pick a script from `0x060AAD24` (Jin `0x060AA840`). Script words name boxes, and the record table is `0x060A5684`.
+  - **Jin's boxes:** scenes 21 and 0-15, in fixed order over stages 0-8 (no branch in that code). They are boxes 0-62 and lines 0-120 (line 34 is dead data), all in `STG0AS.BIN`. Scenes 16-20 are the ending, posted from `END.BIN`, and excluded.
+  - **Forcing:** scenes 4, 9 and 15 drew their predicted first boxes, 5/5, 20/20 and 14/14 cells; the control drew scene 0 (25/25).
+  - **Records:** the header is (0, x, y, attribute), with x = 140 for dialogue and 80 for narration, and y = 172 and attribute 14 on all 63 boxes. 7 boxes have 3 lines. The side switch (`0xFF80`) comes from a script byte, not the header.
+  - Not traced: losing a fight, continues and the 2P side.
 
 ### LAYOUT-001 - Choose how English fits the dialogue box
 
@@ -715,10 +725,10 @@ new-translation policy.
 
 ### PAIR-001 - Pair Jin's boxes with the arcade English by the games' own logic
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M3
-- **Dependencies:** REF-003, REF-004, REF-006 (done), RE-002.
-- **Blockers:** RE-002 not done (Jin's box list).
+- **Dependencies:** REF-003, REF-004, REF-006, RE-002 (done).
+- **Blockers:** None.
 - **Objective:** For each line of each of Jin's boxes, find the arcade English record the arcade shows in the same scene, or show from the arcade code that none exists.
 - **Why:** The policy pairs official English to each Saturn line by the game's own logic. Absence of official English must be shown by tracing the arcade code, not by a data search alone (`docs/localization_policy.md`). `REF-006` paired by text alignment (D-011), which is evidence, not the games' logic.
 - **Acceptance criteria:**

@@ -308,3 +308,25 @@ Of the 450 paired arcade slots, 31 fit in full-width capitals as written and
 which needs 571 distinct pair glyphs.
 
 Reproduce: `research/experiments/EXP-0021/README.md`, "Procedure".
+
+## D-021: What selects a story box; Jin's 17 story scenes (`RE-002`, `EXP-0022`)
+
+The chain:
+1. The stage code (stage byte `0x060CFF88`, step byte `0x060CFF89`, table
+   `0x0609353C`) posts constant scene numbers through `0x0606DBEA`, as message
+   `0x14000000` in the queue `0x060DAF78`.
+2. The scene task (`0x0606E1E8`) takes the pilot from the byte at task +
+   `0x1F` and the scene from the byte at task + `0x23`. The pilot picks a
+   scene list from `0x060AAD24` (Jin's is `0x060AA840`, 22 scripts).
+3. The bytecode interpreter (`0x0606E230`) shows box N for a word N below
+   `0x8000`, and closes it for `0x8000 | N`; `0xE000` ends the scene.
+4. Box N's record is `@(0x060A5684 + 4N)`: an 8-byte header, then 8-byte
+   (line pointer, word) entries, where `0xFFFF` continues.
+
+Jin's stage code posts scenes 21 and 0-15 in a fixed order over stages 0-8.
+They show boxes 0-62: Saturn lines 0-120, except the dead line 34, all in
+`STG0AS.BIN`. Jin's scenes 16-20 are posted from `END.BIN` (his ending).
+Writing the scene byte right after it is set shows any chosen scene: three
+forced scenes drew exactly their predicted cells.
+
+Reproduce: `research/experiments/EXP-0022/README.md`, "Procedure".

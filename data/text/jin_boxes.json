@@ -1,0 +1,1072 @@
+{
+ "file": "STG0AS.BIN",
+ "sha256": "3fabb4dbb9d08b2de570467414d653c9e6f0d72cf8ee4f72ecbb1683df77ac45",
+ "pilot": 0,
+ "scene_list": "0x060AA840",
+ "scenes": [
+  {
+   "scene": 0,
+   "script": "0x060A676C",
+   "boxes": [
+    {
+     "box": 2,
+     "record": "0x0609D184",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      4,
+      5
+     ]
+    },
+    {
+     "box": 3,
+     "record": "0x0609D1A4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      6,
+      7
+     ]
+    },
+    {
+     "box": 4,
+     "record": "0x0609D1C4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      8,
+      9
+     ]
+    },
+    {
+     "box": 5,
+     "record": "0x0609D1E4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      10
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 1,
+   "script": "0x060A67B2",
+   "boxes": [
+    {
+     "box": 6,
+     "record": "0x0609D204",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      11,
+      12
+     ]
+    },
+    {
+     "box": 7,
+     "record": "0x0609D224",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      13,
+      14
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 2,
+   "script": "0x060A67D8",
+   "boxes": [
+    {
+     "box": 8,
+     "record": "0x0609D244",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      15,
+      16
+     ]
+    },
+    {
+     "box": 9,
+     "record": "0x0609D264",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      17,
+      18
+     ]
+    },
+    {
+     "box": 10,
+     "record": "0x0609D284",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      19,
+      20
+     ]
+    },
+    {
+     "box": 11,
+     "record": "0x0609D2A4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      21,
+      22
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 3,
+   "script": "0x060A681E",
+   "boxes": [
+    {
+     "box": 12,
+     "record": "0x0609D2C4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      23
+     ]
+    },
+    {
+     "box": 13,
+     "record": "0x0609D2E4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      24,
+      25
+     ]
+    },
+    {
+     "box": 14,
+     "record": "0x0609D304",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      26,
+      27
+     ]
+    },
+    {
+     "box": 15,
+     "record": "0x0609D324",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      28
+     ]
+    },
+    {
+     "box": 16,
+     "record": "0x0609D344",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      29,
+      30
+     ]
+    },
+    {
+     "box": 17,
+     "record": "0x0609D364",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      31,
+      32
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 4,
+   "script": "0x060A6884",
+   "boxes": [
+    {
+     "box": 18,
+     "record": "0x0609D384",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      33
+     ]
+    },
+    {
+     "box": 19,
+     "record": "0x0609D3A4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      35,
+      36
+     ]
+    },
+    {
+     "box": 20,
+     "record": "0x0609D3C4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      37,
+      38
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 5,
+   "script": "0x060A68B8",
+   "boxes": [
+    {
+     "box": 21,
+     "record": "0x0609D3E4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      39
+     ]
+    },
+    {
+     "box": 22,
+     "record": "0x0609D404",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      40,
+      41
+     ]
+    },
+    {
+     "box": 23,
+     "record": "0x0609D424",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      42,
+      43,
+      44
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 6,
+   "script": "0x060A68EE",
+   "boxes": [
+    {
+     "box": 24,
+     "record": "0x0609D444",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      45,
+      46
+     ]
+    },
+    {
+     "box": 25,
+     "record": "0x0609D464",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      47
+     ]
+    },
+    {
+     "box": 26,
+     "record": "0x0609D484",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      48,
+      49
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 7,
+   "script": "0x060A6920",
+   "boxes": [
+    {
+     "box": 27,
+     "record": "0x0609D4A4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      50,
+      51
+     ]
+    },
+    {
+     "box": 28,
+     "record": "0x0609D4C4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      52,
+      53
+     ]
+    },
+    {
+     "box": 29,
+     "record": "0x0609D4E4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      54
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 8,
+   "script": "0x060A6952",
+   "boxes": [
+    {
+     "box": 30,
+     "record": "0x0609D504",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      55,
+      56,
+      57
+     ]
+    },
+    {
+     "box": 31,
+     "record": "0x0609D524",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      58,
+      59
+     ]
+    },
+    {
+     "box": 32,
+     "record": "0x0609D544",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      60,
+      61
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 9,
+   "script": "0x060A698A",
+   "boxes": [
+    {
+     "box": 33,
+     "record": "0x0609D564",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      62,
+      63
+     ]
+    },
+    {
+     "box": 34,
+     "record": "0x0609D584",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      64,
+      65,
+      66
+     ]
+    },
+    {
+     "box": 35,
+     "record": "0x0609D5A4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      67,
+      68
+     ]
+    },
+    {
+     "box": 36,
+     "record": "0x0609D5C4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      69,
+      70
+     ]
+    },
+    {
+     "box": 37,
+     "record": "0x0609D5E4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      71,
+      72,
+      73
+     ]
+    },
+    {
+     "box": 38,
+     "record": "0x0609D604",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      74,
+      75,
+      76
+     ]
+    },
+    {
+     "box": 39,
+     "record": "0x0609D624",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      77
+     ]
+    },
+    {
+     "box": 40,
+     "record": "0x0609D644",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      78,
+      79
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 10,
+   "script": "0x060A6A22",
+   "boxes": [
+    {
+     "box": 41,
+     "record": "0x0609D664",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      80,
+      81
+     ]
+    },
+    {
+     "box": 42,
+     "record": "0x0609D684",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      82
+     ]
+    },
+    {
+     "box": 43,
+     "record": "0x0609D6A4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      83,
+      84,
+      85
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 11,
+   "script": "0x060A6A5C",
+   "boxes": [
+    {
+     "box": 44,
+     "record": "0x0609D6C4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      86,
+      87
+     ]
+    },
+    {
+     "box": 45,
+     "record": "0x0609D6E4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      88,
+      89
+     ]
+    },
+    {
+     "box": 46,
+     "record": "0x0609D704",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      90
+     ]
+    },
+    {
+     "box": 47,
+     "record": "0x0609D724",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      91,
+      92
+     ]
+    },
+    {
+     "box": 48,
+     "record": "0x0609D744",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      93,
+      94
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 12,
+   "script": "0x060A6AB2",
+   "boxes": [
+    {
+     "box": 49,
+     "record": "0x0609D764",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      95,
+      96
+     ]
+    },
+    {
+     "box": 50,
+     "record": "0x0609D784",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      97,
+      98
+     ]
+    },
+    {
+     "box": 51,
+     "record": "0x0609D7A4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      99,
+      100
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 13,
+   "script": "0x060A6AE8",
+   "boxes": [
+    {
+     "box": 52,
+     "record": "0x0609D7C4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      101
+     ]
+    },
+    {
+     "box": 53,
+     "record": "0x0609D7E4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      102,
+      103
+     ]
+    },
+    {
+     "box": 54,
+     "record": "0x0609D804",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      104,
+      105
+     ]
+    },
+    {
+     "box": 55,
+     "record": "0x0609D824",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      106,
+      107
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 14,
+   "script": "0x060A6B30",
+   "boxes": [
+    {
+     "box": 56,
+     "record": "0x0609D844",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      108,
+      109
+     ]
+    },
+    {
+     "box": 57,
+     "record": "0x0609D864",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      110,
+      111,
+      112
+     ]
+    },
+    {
+     "box": 58,
+     "record": "0x0609D884",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      113,
+      114
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 15,
+   "script": "0x060A6B64",
+   "boxes": [
+    {
+     "box": 59,
+     "record": "0x0609D8A4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      115
+     ]
+    },
+    {
+     "box": 60,
+     "record": "0x0609D8C4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      116,
+      117
+     ]
+    },
+    {
+     "box": 61,
+     "record": "0x0609D8E4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      118
+     ]
+    },
+    {
+     "box": 62,
+     "record": "0x0609D904",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      119,
+      120
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 16,
+   "script": "0x060A6BA8",
+   "boxes": [
+    {
+     "box": 1072,
+     "record": "0x060A5644",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      1849
+     ]
+    },
+    {
+     "box": 408,
+     "record": "0x060A03C4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      752
+     ]
+    },
+    {
+     "box": 409,
+     "record": "0x060A03E4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      753,
+      754
+     ]
+    },
+    {
+     "box": 493,
+     "record": "0x060A0E64",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      897,
+      898
+     ]
+    },
+    {
+     "box": 410,
+     "record": "0x060A0404",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      755
+     ]
+    },
+    {
+     "box": 411,
+     "record": "0x060A0424",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      756,
+      757
+     ]
+    },
+    {
+     "box": 412,
+     "record": "0x060A0444",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      758,
+      759
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 17,
+   "script": "0x060A6C02",
+   "boxes": [
+    {
+     "box": 1072,
+     "record": "0x060A5644",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      1849
+     ]
+    },
+    {
+     "box": 412,
+     "record": "0x060A0444",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      758,
+      759
+     ]
+    },
+    {
+     "box": 413,
+     "record": "0x060A0464",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      760
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 18,
+   "script": "0x060A6C1E",
+   "boxes": [
+    {
+     "box": 414,
+     "record": "0x060A0484",
+     "x": 80,
+     "y": 80,
+     "attribute": 14,
+     "lines": [
+      761,
+      762,
+      763
+     ]
+    },
+    {
+     "box": 415,
+     "record": "0x060A04A4",
+     "x": 112,
+     "y": 80,
+     "attribute": 14,
+     "lines": [
+      764
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 19,
+   "script": "0x060A6C30",
+   "boxes": [
+    {
+     "box": 414,
+     "record": "0x060A0484",
+     "x": 80,
+     "y": 80,
+     "attribute": 14,
+     "lines": [
+      761,
+      762,
+      763
+     ]
+    },
+    {
+     "box": 605,
+     "record": "0x060A1BE4",
+     "x": 40,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      1010
+     ]
+    },
+    {
+     "box": 416,
+     "record": "0x060A04C4",
+     "x": 136,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      765
+     ]
+    },
+    {
+     "box": 417,
+     "record": "0x060A04E4",
+     "x": 136,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      766,
+      767,
+      768
+     ]
+    },
+    {
+     "box": 418,
+     "record": "0x060A0504",
+     "x": 136,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      769,
+      770
+     ]
+    },
+    {
+     "box": 601,
+     "record": "0x060A1B64",
+     "x": 76,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      1006
+     ]
+    },
+    {
+     "box": 419,
+     "record": "0x060A0524",
+     "x": 136,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      771
+     ]
+    },
+    {
+     "box": 420,
+     "record": "0x060A0544",
+     "x": 136,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      772,
+      773
+     ]
+    },
+    {
+     "box": 421,
+     "record": "0x060A0564",
+     "x": 136,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      774
+     ]
+    },
+    {
+     "box": 422,
+     "record": "0x060A0584",
+     "x": 136,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      775,
+      776,
+      777
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 20,
+   "script": "0x060A6C94",
+   "boxes": [
+    {
+     "box": 550,
+     "record": "0x060A1544",
+     "x": 80,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      953
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 21,
+   "script": "0x060A674C",
+   "boxes": [
+    {
+     "box": 0,
+     "record": "0x0609D144",
+     "x": 80,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      0,
+      1
+     ]
+    },
+    {
+     "box": 1,
+     "record": "0x0609D164",
+     "x": 80,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      2,
+      3
+     ]
+    }
+   ]
+  }
+ ]
+}

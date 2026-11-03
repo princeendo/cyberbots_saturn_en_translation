@@ -1068,3 +1068,35 @@ routes to the user as a decision.
 VS captions, name art and endings stay out of M3.
 
 Next action: `RE-002`.
+
+## 2026-11-02 — EXP-0022: box selection and Jin's boxes (RE-002)
+
+Goal: `RE-002`; find what selects each box, list Jin's boxes, and force any
+box.
+
+Action: breakpoint logs from REF-005 states 4138, 4493 and 5208 (box
+function, scene lists, task fields, message queue); disassembly of the stage
+handlers, the scene start and the bytecode interpreter; a scan of the scene
+posts in `STG0AS.BIN` and `END.BIN`; `box_list.py` to
+`data/text/jin_boxes.json`; `force_scene.py` for the control and scenes 4, 9
+and 15, checked by `check_cells.py`. 18:05-18:28, the user present.
+
+Result:
+- **Chain:** stage constants, then the scene task (pilot byte task + `0x1F`,
+  scene byte task + `0x23`), the pilot's scene list, the script, the box
+  index, the record table `0x060A5684`, and the lines.
+- **Jin:** 17 story scenes in fixed order; boxes 0-62; lines 0-120, with line
+  34 dead. Scenes 16-20 are the ending, from `END.BIN`.
+- **Forcing:** 5/5, 20/20 and 14/14 cells; the control 25/25.
+- First misreading, corrected in the same session: the box-list filter at
+  first took `0x8000 | N` as the box and skipped the word after `0xE205`. The
+  halt at `0x0606E504` (R6 = 2, no flag) showed that the plain word shows the
+  box and the flagged one closes it.
+- The per-pilot table at `0x060AB870`, first taken for box lists, holds
+  frame-like values (multiples of 30): not boxes, and not used here.
+
+Source hashes unchanged.
+
+Conclusion: **CONFIRMED**, D-021. `PAIR-001` is unblocked.
+
+Next action: `PAIR-001` or `LAYOUT-001` Phases A-B (the user's choice).

@@ -264,3 +264,26 @@ Without `--keep-focus` the tool hands focus back after each key, and one F9
 was lost that way (`EXP-0003`, run 1). Check the snapshot counter after each
 run. Key times slip about 1-1.9 s behind the schedule while the window is
 brought forward.
+
+## Runbook: Show Any Story Scene From a Checkpoint (`RE-002`, `EXP-0022`)
+
+A debug harness only; it never ships.
+- A story scene starts when the stage code posts its number. The scene task
+  then reads the pilot from the byte at task + `0x1F` and the scene from the
+  byte at task + `0x23`.
+- From REF-005 state 5208 (Jin's opening narration), the next scene task is
+  at `0x06008268`, so its scene byte is `0x0600828B`.
+- A log-mode write breakpoint on that byte, plus a one-shot `onhit` write of
+  the wanted scene, replaces the game's value just after it is written.
+
+```bash
+./invenv.sh python research/experiments/EXP-0022/force_scene.py local/re002/force-N N
+./invenv.sh python research/experiments/EXP-0022/check_cells.py local/re002/force-N N
+```
+
+- `check_cells.py` predicts the first box's cells from
+  `data/text/jin_boxes.json` and the font, and reports the best match per
+  step.
+- Check that the run's `result.json` has the breakpoint events. From another
+  state the task may be elsewhere; trace it first (EXP-0022, "Uncertainty").
+
