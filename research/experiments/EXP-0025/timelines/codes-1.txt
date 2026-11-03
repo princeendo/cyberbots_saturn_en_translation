@@ -1,0 +1,146 @@
+# LAYOUT-001 Phase C: cybotsu; slot 2 drawn from a test record in work RAM 0xFFF000 (codes 2E-5A, each followed by a space, 3 lines of 15), for a font capture.
+1 logwrites 0xFF2F7A local/layout001/fontcodes/1/writes-slot.txt
+2 debug bpset 11f6e,(a0==b3e20),{a0=fff000;g}
+3 debug go
+600 press 8 Coin 1
+720 press 8 1 Player Start
+1020 press 8 P1 Button 1
+1320 press 8 P1 Button 1
+3190 dump 0xFFF000 0xFFF061 local/layout001/fontcodes/1/ram-before.bin
+3200 debug b@fff000=0
+3200 debug b@fff001=0
+3200 debug b@fff002=0
+3200 debug b@fff003=7c
+3200 debug b@fff004=0
+3200 debug b@fff005=a8
+3200 debug b@fff006=0
+3200 debug b@fff007=e
+3200 debug b@fff008=2e
+3200 debug b@fff009=f0
+3200 debug b@fff00a=2f
+3200 debug b@fff00b=f0
+3200 debug b@fff00c=30
+3200 debug b@fff00d=f0
+3200 debug b@fff00e=31
+3200 debug b@fff00f=f0
+3200 debug b@fff010=32
+3200 debug b@fff011=f0
+3200 debug b@fff012=33
+3200 debug b@fff013=f0
+3200 debug b@fff014=34
+3200 debug b@fff015=f0
+3200 debug b@fff016=35
+3200 debug b@fff017=f0
+3200 debug b@fff018=36
+3200 debug b@fff019=f0
+3200 debug b@fff01a=37
+3200 debug b@fff01b=f0
+3200 debug b@fff01c=38
+3200 debug b@fff01d=f0
+3200 debug b@fff01e=39
+3200 debug b@fff01f=f0
+3200 debug b@fff020=3a
+3200 debug b@fff021=f0
+3200 debug b@fff022=3b
+3200 debug b@fff023=f0
+3200 debug b@fff024=3c
+3200 debug b@fff025=ff
+3200 debug b@fff026=3d
+3200 debug b@fff027=f0
+3200 debug b@fff028=3e
+3200 debug b@fff029=f0
+3200 debug b@fff02a=3f
+3200 debug b@fff02b=f0
+3200 debug b@fff02c=40
+3200 debug b@fff02d=f0
+3200 debug b@fff02e=41
+3200 debug b@fff02f=f0
+3200 debug b@fff030=42
+3200 debug b@fff031=f0
+3200 debug b@fff032=43
+3200 debug b@fff033=f0
+3200 debug b@fff034=44
+3200 debug b@fff035=f0
+3200 debug b@fff036=45
+3200 debug b@fff037=f0
+3200 debug b@fff038=46
+3200 debug b@fff039=f0
+3200 debug b@fff03a=47
+3200 debug b@fff03b=f0
+3200 debug b@fff03c=48
+3200 debug b@fff03d=f0
+3200 debug b@fff03e=49
+3200 debug b@fff03f=f0
+3200 debug b@fff040=4a
+3200 debug b@fff041=f0
+3200 debug b@fff042=4b
+3200 debug b@fff043=ff
+3200 debug b@fff044=4c
+3200 debug b@fff045=f0
+3200 debug b@fff046=4d
+3200 debug b@fff047=f0
+3200 debug b@fff048=4e
+3200 debug b@fff049=f0
+3200 debug b@fff04a=4f
+3200 debug b@fff04b=f0
+3200 debug b@fff04c=50
+3200 debug b@fff04d=f0
+3200 debug b@fff04e=51
+3200 debug b@fff04f=f0
+3200 debug b@fff050=52
+3200 debug b@fff051=f0
+3200 debug b@fff052=53
+3200 debug b@fff053=f0
+3200 debug b@fff054=54
+3200 debug b@fff055=f0
+3200 debug b@fff056=55
+3200 debug b@fff057=f0
+3200 debug b@fff058=56
+3200 debug b@fff059=f0
+3200 debug b@fff05a=57
+3200 debug b@fff05b=f0
+3200 debug b@fff05c=58
+3200 debug b@fff05d=f0
+3200 debug b@fff05e=59
+3200 debug b@fff05f=f0
+3200 debug b@fff060=5a
+3200 debug b@fff061=0
+3240 snap
+3246 snap
+3252 snap
+3258 snap
+3264 snap
+3270 snap
+3276 snap
+3282 snap
+3288 snap
+3294 snap
+3300 snap
+3306 snap
+3312 snap
+3318 snap
+3324 snap
+3330 snap
+3336 snap
+3342 snap
+3348 snap
+3354 snap
+3360 snap
+3366 snap
+3372 snap
+3378 snap
+3384 snap
+3390 snap
+3396 snap
+3402 snap
+3408 snap
+3414 snap
+3420 snap
+3426 snap
+3432 snap
+3438 snap
+3444 snap
+3450 snap
+3456 snap
+3462 snap
+3467 exit

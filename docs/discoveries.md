@@ -379,3 +379,23 @@ Reproduce: `research/experiments/EXP-0023/README.md`, "Procedure".
   stage, game over and the ranking screen (12,000 frames).
 
 Reproduce: `research/experiments/EXP-0024/README.md`, "Procedure".
+
+## D-024: Pair glyphs from the arcade's letters work after a cold boot (`LAYOUT-001`, `EXP-0025`)
+
+The arcade's English dialogue font is monospace (8-pixel advance; a space
+advances 5), with a 1-pixel shadow. It can be captured whole by drawing a test
+record from work RAM (a breakpoint at `0x11F6E` redirects slot 2's record
+pointer).
+
+Its shades `#FFFFFF`, `#DDDDDD`, `#AAAAAA`, `#555555` and `#111111` map one to
+one onto the Saturn font's values 9-13 (drawn `#F0F0F0`-`#101010`). Glyph
+sprites are drawn 8 pixels lower on screen than their VDP1 y.
+
+Two letters per Saturn cell at a 7-pixel advance, each narrowed by one column
+(`tools/font/pairs.py`), placed in unused code slots, draw exactly as
+predicted (48/48 cells). That held in a replay and after an agent-driven cold
+boot of an image rebuilt from the untouched source. Three test rows of 32
+characters came from dead lines through an extended record, and the
+following Japanese box is unchanged (25/25).
+
+Reproduce: `research/experiments/EXP-0025/README.md`, "Procedure".

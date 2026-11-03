@@ -127,8 +127,12 @@ names it for its method only.
   corrected).
 - **2026-11-02: layout route chosen: pair glyphs** (`LAYOUT-001` Phases A-B,
   `EXP-0024`, D-023): every Jin and roster box fits; Jin's text fits in place;
-  353 glyphs for Jin against 336 free codes. Next: `LAYOUT-001` Phase C (proof
-  on a rebuilt image) or `GATE-TRANSLATION` (the user's GO).
+  353 glyphs for Jin against 336 free codes.
+- **2026-11-02: pair glyphs proven after a cold boot** (`LAYOUT-001`
+  Phase C, `EXP-0025`, D-024): the arcade's own letters, two per cell,
+  draw exactly as predicted in the M1 box; Japanese elsewhere is unchanged.
+  `LAYOUT-001` is `DONE`. Next: `GATE-TRANSLATION` (the user's GO), then
+  `RE-003`.
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -146,7 +150,7 @@ names it for its method only.
   (the dialogue font and its code table), D-020 (no native English path;
   box capacity), D-021 (box selection; Jin's scenes),
   D-022 (Jin's pairing), D-023 (font codes in
-  use, font users, record size, free RAM). The font's
+  use, font users, record size, free RAM), D-024 (pair glyphs work). The font's
   layout is not confirmed.
 
 ## Milestones
@@ -709,7 +713,7 @@ new-translation policy.
 
 ### LAYOUT-001 - Choose how English fits the dialogue box
 
-- **Status:** `IN_PROGRESS` (Phases A-B); Phase C waits on the user's choice.
+- **Status:** `DONE`
 - **Milestone:** M3
 - **Dependencies:** FONT-001, FONT-002, DISC-002 (done).
 - **Blockers:** None for Phases A-B.
@@ -742,7 +746,11 @@ new-translation policy.
   - **Free RAM:** WRAM-H `0x06002F00` (19,968 bytes) and `0x060E3300` (19,712), with no CPU writes over a full stage. VDP1 VRAM `0x16400`-`0x1E1FF` is free in dialogue (SUPPORTED).
   - **Route fits** (Jin / 488 roster boxes): (a) 35 / 298; (b) 63 / 488; (c) 43 / 372, or 63 / 488 with (d).
   - **Decision:** asked as one multiple-choice question, 2026-11-02. The user's answer, verbatim: "Pair glyphs (Recommended)". Recorded in `docs/localization_policy.md`.
-  - **Next, Phase C:** pair glyphs with synthetic text in the M1 box, from a rebuilt image, with an agent cold boot.
+- **Evidence (Phase C):** `EXP-0025`, D-024, 2026-11-02.
+  - **Letters:** the arcade's English font was captured in MAME from test records drawn from work RAM: all 60 characters, plus `Q`, `Z` and the ten digits.
+  - **Shades and width:** the shades map onto Saturn values 9-13; letters are narrowed to 7 pixels (`tools/font/pairs.py`).
+  - **Image:** 48 test pairs in unused code slots, and 3 rows of 32 characters in dead lines 752-777 through an extended record. 15 sectors changed, all valid; two builds identical.
+  - **Checks:** the replay drew 48/48 cells, and the following Japanese box 25/25. An agent cold boot played to the box, and its screen was pixel-identical to the replay's.
 
 ### PAIR-001 - Pair Jin's boxes with the arcade English by the games' own logic
 
@@ -811,6 +819,10 @@ new-translation policy.
 - **Notes:**
   - Endings, VS captions and name art are untouched.
   - The image commit pushes after the agent's cold-boot check passes (user rule, 2026-11-02).
+  - From `LAYOUT-001` (EXP-0025):
+    - `tools/font/pairs.py` renders the cells; the arcade capture is rebuilt with `EXP-0025/capture_font.py` (code-sheet timelines).
+    - `EXP-0025/build.py` shows how codes, lines and records are written; `replay_cells.py`, `check_cells.py` and `cold_route.py` are the checks to reuse.
+    - Jin needs 353 pairs against 336 codes free of Japanese: choose pair boundaries to reduce them, or record the trade-off.
 
 ## Later Milestones (outline only)
 

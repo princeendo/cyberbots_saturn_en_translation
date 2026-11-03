@@ -1168,3 +1168,38 @@ dead-line room and the dialogue-time VDP1 room are SUPPORTED.
 
 Next action: `LAYOUT-001` Phase C (a rebuilt image with synthetic pair
 glyphs in the M1 box, agent cold boot), or `GATE-TRANSLATION`.
+
+## 2026-11-02 — EXP-0025: pair glyphs proven (LAYOUT-001 Phase C)
+
+Goal: prove the chosen route on a rebuilt image with synthetic text.
+
+Action:
+- captured the arcade's English font in MAME;
+- added `tools/font/pairs.py` with tests;
+- built an image with 48 test pairs and 3 rows in Jin's dead ending lines;
+- replayed from state 4138 on it and on the original;
+- cold-booted it and drove the route with pad keys.
+
+18:58-19:30, the user present.
+
+Failed attempts:
+- **Cutting letters from running text:** outlines touch, so run
+  segmentation failed. An 8-pixel grid failed too, because spaces are 5
+  pixels.
+- **Debugger writes to ROM:** no effect. Replaced by a RAM record and a
+  pointer redirect at `0x11F6E`.
+- **A 4-line sheet:** its fourth line overlapped the box border.
+- **Capture window:** too wide for code `0x14`.
+- **Unnarrowed 8-pixel letters at a 7-pixel advance:** they touched.
+- **The first cold boot:** keys went missing while another Mednafen (MSHvSF)
+  was open. The user closed it ("It's closed, retry"), and the rerun sent
+  every key.
+
+Result: 15 sectors changed, all valid; two builds identical. The replay drew
+48/48 test cells and 25/25 cells of the following Japanese box. The
+cold-boot box is pixel-identical to the replay's. Source hashes unchanged.
+
+Conclusion: **CONFIRMED**, D-024. `LAYOUT-001` is `DONE`.
+
+Next action: `GATE-TRANSLATION`: ask the user for the GO on Jin's official
+English, with pair glyphs. Then `RE-003`.

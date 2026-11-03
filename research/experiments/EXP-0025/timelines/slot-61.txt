@@ -1,0 +1,47 @@
+# LAYOUT-001 Phase C: cybotsu; slot 2 replaced by slot 61 at the draw routine, for a font capture.
+1 logwrites 0xFF2F7A local/layout001/font/61/writes-slot.txt
+2 debug bpset 11f5c,(d0&ffff)==2,{d0=3d;g}
+3 debug go
+600 press 8 Coin 1
+720 press 8 1 Player Start
+1020 press 8 P1 Button 1
+1320 press 8 P1 Button 1
+3240 snap
+3246 snap
+3252 snap
+3258 snap
+3264 snap
+3270 snap
+3276 snap
+3282 snap
+3288 snap
+3294 snap
+3300 snap
+3306 snap
+3312 snap
+3318 snap
+3324 snap
+3330 snap
+3336 snap
+3342 snap
+3348 snap
+3354 snap
+3360 snap
+3366 snap
+3372 snap
+3378 snap
+3384 snap
+3390 snap
+3396 snap
+3402 snap
+3408 snap
+3414 snap
+3420 snap
+3426 snap
+3432 snap
+3438 snap
+3444 snap
+3450 snap
+3456 snap
+3462 snap
+3463 exit
