@@ -1371,3 +1371,28 @@ Conclusion: **CONFIRMED** for the tooling. Santana's ending lines are dead in
 
 Next action: the `GATE-TRANSLATION` extension for Santana: the user decides
 the 73-code budget (or an alternative) before `RE-007`.
+
+## 2026-11-03 — GATE-TRANSLATION extended to Santana
+
+Shown to the user: Santana's pairing (EXP-0028: 64 boxes, 117 lines, 114
+exact and 3 edited, no new translations) and the budget (EXP-0029: 408
+pairs, 73 sacrificed codes against 18 approved). The 62 touched lines in
+`STG0AS.BIN`, by whose scenes show them: lists 6-8 (Saturn-only) 44, Mary 6,
+no scene 5, Bao and Mao 3, Gawaine 1, list 9 1, and one line each of Jin's
+and Santana's dead ending copies; 198 with the other files' copies. The
+alternatives: ranking by the uses that stay Japanese (184 lines; changes
+Jin's image), and moving the code table to reach the font's 33 unreachable
+glyphs (the table is followed by data at `0x060AB73C`; one pointer at
+`0x0606EA40`; at best about 41 sacrifices; unknown result).
+
+Question 1, verbatim: "GATE-TRANSLATION extension: may Santana's official arcade English go on the disc, as paired, with pair glyphs?"
+Answer, verbatim: "GO (Recommended)"
+
+Question 2, verbatim: "Jin + Santana need 73 sacrificed Japanese glyphs (18 approved so far). What should give?"
+Answer, verbatim: "Approve 73, same rule (Recommended)"
+
+Recorded in `TASKS.md` (a dated block under the extension) and in
+`docs/localization_policy.md`. The compiler's default limit is now 73.
+`RE-007` is `READY`.
+
+Next action: `RE-007`.

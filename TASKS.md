@@ -152,6 +152,9 @@ names it for its method only.
   `EXP-0029`): Jin's M3 image reproduced byte for byte; Jin + Santana need
   73 sacrificed codes against 18 approved, so the build stops. Next: the
   `GATE-TRANSLATION` extension for Santana (the user's GO and budget).
+- **2026-11-03: `GATE-TRANSLATION` extended to Santana.** The user's words:
+  "GO (Recommended)" and, for the 73-code budget, "Approve 73, same rule
+  (Recommended)". `RE-007` is `READY`.
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -965,12 +968,22 @@ done. The user's GO covers:
 - the code budget, that is, how many more Japanese glyphs may be sacrificed
   and which lines that touches.
 
+**2026-11-03: GO for Santana.** Shown: his pairing (EXP-0028: 64 boxes, 117
+lines, 114 exact and 3 edited, no new translations) and the budget
+(EXP-0029: 73 sacrificed codes; 62 touched lines in `STG0AS.BIN`, 44 of them
+the Saturn-only pilots', 198 with the copies), with two alternatives.
+- "GATE-TRANSLATION extension: may Santana's official arcade English go on the disc, as paired, with pair glyphs?" → "GO (Recommended)"
+- "Jin + Santana need 73 sacrificed Japanese glyphs (18 approved so far). What should give?" → "Approve 73, same rule (Recommended)"
+
+So `RE-007` builds Jin + Santana with `--max-sacrifice 73`, by the same
+rarest-glyph rule, and Jin's image is unchanged when built alone.
+
 ### RE-007 - Build Jin and the second pilot in English from the source image
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M4
-- **Dependencies:** RE-006, PAIR-002, the gate extension.
-- **Blockers:** Dependencies not done.
+- **Dependencies:** RE-006, PAIR-002, the gate extension (all done).
+- **Blockers:** None.
 - **Objective:** One image with both pilots' story dialogue in English, verified box by box and in play, with Jin's English unchanged in effect.
 - **Acceptance criteria:**
   - **Build:** from the untouched source; only the intended sectors change, all valid; two builds identical; the source hashes unchanged; rule 12 records kept.

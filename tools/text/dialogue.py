@@ -32,8 +32,8 @@ English, as paired (D-022, D-027), unchanged, drawn as pair glyphs (D-024).
      Japanese characters (fewest lines, then table order), never one used by
      a line that stays.
 
-   At most ``--max-sacrifice`` codes (default 18, the number approved for
-   Jin) are sacrificed. Beyond that the build stops and prints the budget, for
+   At most ``--max-sacrifice`` codes (default 73, the number approved for
+   Jin + Santana) are sacrificed. Beyond that the build stops and prints the budget, for
    the user's decision. ``--budget`` prints the budget and builds nothing.
 5. **Text room** in `STG0AS.BIN`: the pilots' own lines and their dead ending
    lines, in line order. A box counts as a user of a line only if some
@@ -94,7 +94,7 @@ SCENE_SCRIPTS = 0x060AA840  # 335 scene scripts (D-021)
 SCENE_COUNT = 335
 PILOT_LISTS = 0x060AAD24
 PILOTS = 11
-APPROVED_SACRIFICE = 18  # the user's decision for Jin, 2026-11-02
+APPROVED_SACRIFICE = 73  # GATE-TRANSLATION, Jin + Santana (2026-11-03)
 
 
 class BudgetExceeded(SystemExit):

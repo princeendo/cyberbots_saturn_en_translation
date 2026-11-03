@@ -24,6 +24,8 @@ facts: whether each one is achievable on Cyberbots is found by experiment.
 | Gate for Jin's story (2026-11-02, `GATE-TRANSLATION`) | "GATE-TRANSLATION: may Jin's official arcade English go on the disc, as paired, with pair glyphs?" → "GO (Recommended)" | The official US arcade English goes on disc for Jin's 63 story boxes, as paired (D-022), unchanged; fixes stay opt-in. |  |
 | Glyph gap (2026-11-02, `GATE-TRANSLATION`) | "If Jin's English still needs more glyphs than the 336 unused slots after optimising pair splits, what should give?" → "Rarest Japanese glyphs (Recommended)" | After pair splits are optimised, any pairs beyond the codes no Japanese uses take the glyph slots of the least-used Japanese characters (by line count). Each sacrificed glyph is recorded in the build's record, and those characters break in other pilots' Japanese until they are English (by M5). |  |
 | Second pilot (2026-11-03, `RE-004`) | "Which pilot should be the second one in English (M4)?" → "Santana (Recommended)" | M4 builds Santana (Saturn pilot list 1, arcade pilot 1) with Jin. |  |
+| Gate for Santana's story (2026-11-03, `GATE-TRANSLATION` extension) | "GATE-TRANSLATION extension: may Santana's official arcade English go on the disc, as paired, with pair glyphs?" → "GO (Recommended)" | The official US arcade English goes on disc for Santana's 64 story boxes, as paired (D-027), unchanged, in pair glyphs. |  |
+| Glyph budget for Jin + Santana (2026-11-03, `GATE-TRANSLATION` extension) | "Jin + Santana need 73 sacrificed Japanese glyphs (18 approved so far). What should give?" → "Approve 73, same rule (Recommended)" | Up to 73 Japanese glyphs are sacrificed, chosen by the same rule (fewest lines, then table order), so Jin's image built alone is unchanged. 62 lines of `STG0AS.BIN` (198 with the `END.BIN` and `VICTORY.BIN` copies) show a pair glyph until English; 44 are the Saturn-only pilots'. Rejected: ranking by the uses that stay Japanese (184 lines; changes Jin's image) and researching the 33 unreachable glyphs first. |  |
 | XvSF standing rules | "No cold boots without me", "Time estimates on jobs", "Rebuild only new references", "Delete finished build images" | All four stay in force, as written in `local_agent_guidance.md`. | XvSF agent memory, 2026-10-31 and 2026-11-01 |
 
 ## Names, Refined (2026-11-02, `REF-007`)
@@ -59,6 +61,11 @@ Each is put to the user when its task has the evidence.
 
 ## Translation Gates
 
-None yet. Each `GATE-TRANSLATION` GO and each later scope extension is
-recorded here, verbatim and dated, with a scope / pairing / wording / names
-table.
+Each `GATE-TRANSLATION` GO and each later scope extension is recorded
+here, verbatim and dated (the questions and answers are in the decisions
+table above and in `research_log.md`).
+
+| Date | Answer | Scope | Pairing | Wording | Names | Glyph budget |
+| --- | --- | --- | --- | --- | --- | --- |
+| 2026-11-02 | "GO (Recommended)" | Jin's 17 story scenes, 63 boxes | D-022, slot for slot | Official US arcade English, unchanged | As the arcade English | 18 sacrificed ("Rarest Japanese glyphs (Recommended)") |
+| 2026-11-03 | "GO (Recommended)" | Santana's 20 story scenes, 64 boxes, with Jin's | D-027, slot for slot (boxes 63 and 64 share a record) | Official US arcade English, unchanged | As the arcade English | 73 in all ("Approve 73, same rule (Recommended)") |
