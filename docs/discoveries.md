@@ -279,3 +279,32 @@ The font has full-width digits and capitals A-Z, but no lower case, plus two
 half-width pair glyphs (`Dr`, `!?`).
 
 Reproduce: `research/experiments/EXP-0020/README.md`, "Procedure".
+
+## D-020: No native English path; the box holds 4 rows of 16 cells and 60 glyphs (`FONT-002`, `EXP-0021`)
+
+The typing routine (`0x0606E5C0`) places each two-byte character itself, at
+x = base + 14 × column and y = base + 16 × row. It never wraps. A line ends at
+its 0 byte. The next row comes from the box record, a header of 8 bytes and
+then 8-byte entries `(line pointer, word)`, where `0xFFFF` continues and
+anything else ends the box. The M1 box's record is at `0x0609D184`.
+
+Neither the typing routine nor the layout loop (`0x0606E734`) branches on a
+region or language. No English dialogue is on the disc (ASCII, arcade code or
+full-width).
+
+Live RAM tests from checkpoint A, each with a control, show:
+- full-width capitals and digits draw from the existing font;
+- codes outside the table draw blank cells;
+- a 17th cell runs off the screen edge, and `0x0A` is not a line break while
+  typing;
+- a record with five entries shows four rows inside the box.
+
+`0x0601118E` reserves 60 glyph cells per box (`0x060FE200`-`0x060FFFFF`)
+and the allocator has no bounds check. A box past 60 cells hangs the game
+(SUPPORTED).
+
+Of the 450 paired arcade slots, 31 fit in full-width capitals as written and
+272 after re-wrapping to 16 cells. All 450 fit with two characters per cell,
+which needs 571 distinct pair glyphs.
+
+Reproduce: `research/experiments/EXP-0021/README.md`, "Procedure".

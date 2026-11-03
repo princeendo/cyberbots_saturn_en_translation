@@ -108,9 +108,11 @@ names it for its method only.
 - **2026-11-02: dialogue font found** (`FONT-001`, `EXP-0020`, D-019):
   `KANJI.BIN`, 1,280 16×16 4 bpp glyphs (byte-identical repack), selected
   through a 1,222-code table in `STG0AS.BIN`; it has full-width A-Z and 0-9.
-- **2026-11-02: `FONT-002` written up** (`READY`): Phase A looks for a
-  native English path first; Phase B measures Latin text and box capacity.
-  Next: `FONT-002`.
+- **2026-11-02: no native English path; box capacity measured** (`FONT-002`,
+  `EXP-0021`, D-020): 4 rows × 16 cells, 60 glyph cells per box; 31, 272 or
+  450 of the 450 paired slots fit, depending on the route. All M2 tasks are
+  done. Next: write up the M3 tasks (`LAYOUT-001`, `RE-002`, `RE-003`) in
+  full; `LAYOUT-001` needs the user's choice of route.
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -125,7 +127,8 @@ names it for its method only.
   (dialogue fixed from a checkpoint), D-015 (Shift-JIS RAM text, VDP1
   per-character sprites), D-016 (M1: the box changed in live RAM), D-017
   (the M1 text's disc file), D-018 (M2: the change from a rebuilt image), D-019
-  (the dialogue font and its code table). The font's
+  (the dialogue font and its code table), D-020 (no native English path;
+  box capacity). The font's
   layout is not confirmed.
 
 ## Milestones
@@ -597,7 +600,7 @@ English text goes on disc in M2; the test string is the M1 hiragana.
 
 ### FONT-002 - Look for a native English path, then measure Latin text and box capacity
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** M2
 - **Dependencies:** FONT-001 (done).
 - **Blockers:** None.
@@ -628,6 +631,16 @@ English text goes on disc in M2; the test string is the M1 hiragana.
   - The arcade English record for a slot runs up to 4 lines of 38 characters (D-009). The Saturn box shows 2 lines of up to 16 full-width cells in the scenes seen so far.
   - In XvSF the leftover arcade language word crashed to the BIOS unless it was gated per slot (`docs/lessons_from_xvsf.md`). A crash in Phase A is a result, not a failure; record it and do not retry the same write.
   - Overlong test strings overwrite the bytes after line 4 (its NUL, then line 5). That is part of the measurement: line 5's own pointer then reads from the middle of the test string, and the record says so.
+- **Evidence:** `EXP-0021`, D-020, 2026-11-02.
+  - **Phase A:** no branch on region or language in the typing routine (`0x0606E5C0`) or the layout loop (`0x0606E734`). No English dialogue in any of the 264 files (ASCII, arcade code, full-width). There is no native path.
+  - **Phase B** (live, checkpoint A, each with the control `ead786`):
+    - full-width capitals and digits draw as mapped;
+    - `AB` and `ａ` draw blank cells, and `Dr` and `!?` draw as pairs;
+    - a 17th cell runs off-screen, with no wrap;
+    - `0x0A` is not a break while typing;
+    - a 5-entry record shows 4 rows in the box.
+  - **Cell limit:** 60 cells reserved per box (`0x0601118E`), with no check; past it the game hangs (SUPPORTED).
+  - **Capacity:** of 450 paired slots, 31 fit as written in capitals, 272 re-wrapped, and 450 with pair glyphs (571 distinct pairs). The font has 58 free glyphs and the table 26 free slots.
 
 ### GATE-TRANSLATION - Confirm reference and translation prerequisites
 

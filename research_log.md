@@ -1022,3 +1022,34 @@ limit, and ends in a capacity statement for `LAYOUT-001`. Nothing goes on
 disc.
 
 Next action: `FONT-002`, Phase A.
+
+## 2026-11-02 — EXP-0021: no native English path; box capacity (FONT-002)
+
+Goal: `FONT-002`. Phase A looks for a native English path; Phase B measures
+Latin text and the box.
+
+Action: disassembled the typing routine, the layout loop, the cell allocator
+and `0x0603963E` (a shift by 8). Logged the layout loop's entries while the
+box types. Searched the 264 files for the arcade's English. Ran six live RAM
+tests from checkpoint A (control, capitals, unknown, long, breaks, rows), plus
+rows for 24 steps. `capacity.py` over the 450 paired slots. 17:55-18:04, the
+user present.
+
+Result:
+- **No native path:** no region or language branch, and no English dialogue
+  on the disc.
+- **Text:** full-width capitals draw; unknown codes leave blanks; there is no
+  wrap. `0x0A` does nothing while typing, so the hypothesis that it is a line
+  break there is DISPROVEN for typed boxes.
+- **Box:** rows come from the record; 4 rows are visible; 60 cells are
+  reserved, and going past them hangs the game.
+- **Capacity:** 31, 272 and 450 of 450 slots fit for the three routes
+  (single as written, single re-wrapped, pairs).
+
+Source hashes unchanged.
+
+Conclusion: **CONFIRMED**, D-020 (the hang SUPPORTED). M2's tasks are all
+`DONE`.
+
+Next action: write up the M3 tasks in full. `LAYOUT-001` puts the capacity
+routes to the user as a decision.
