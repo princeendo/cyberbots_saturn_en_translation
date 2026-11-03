@@ -131,8 +131,10 @@ names it for its method only.
 - **2026-11-02: pair glyphs proven after a cold boot** (`LAYOUT-001`
   Phase C, `EXP-0025`, D-024): the arcade's own letters, two per cell,
   draw exactly as predicted in the M1 box; Japanese elsewhere is unchanged.
-  `LAYOUT-001` is `DONE`. Next: `GATE-TRANSLATION` (the user's GO), then
-  `RE-003`.
+  `LAYOUT-001` is `DONE`.
+- **2026-11-02: `GATE-TRANSLATION` passed for Jin's story.** The user's
+  words: "GO (Recommended)". If the glyph gap remains: "Rarest Japanese
+  glyphs (Recommended)". Next: `RE-003` (`READY`).
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -779,7 +781,7 @@ new-translation policy.
 
 ### GATE-TRANSLATION - Confirm reference and translation prerequisites
 
-- **Status:** `READY`
+- **Status:** `DONE` (Jin's story)
 - **Milestone:** M3
 - **Dependencies:** DOC-002, REF-001, REF-003 to REF-007 (done; REF-002 rejected), PAIR-001 (done).
 - **Blockers:** The user's GO.
@@ -791,13 +793,19 @@ new-translation policy.
     - the recorded new translations for Jin's Saturn-only lines (translator named, each line listed);
     - the layout route, if it has been chosen by then.
   - Each later scope extension (a new pilot, endings, names, captions) is its own dated block under this gate.
+- **2026-11-02: Jin's story.** Every dependency is `DONE`.
+  - **Asked:** "GATE-TRANSLATION: may Jin's official arcade English go on the disc, as paired, with pair glyphs?"
+  - **Answer, verbatim:** "GO (Recommended)"
+  - **Covers:** the official US arcade English (`cybotsu`, table `0x0B33AA`) for Jin's 63 story boxes, paired slot for slot (D-022), unchanged, arcade slips included. No new translations are needed. Drawn with pair glyphs (D-024). Grammar fixes stay opt-in.
+  - **Also asked:** "If Jin's English still needs more glyphs than the 336 unused slots after optimising pair splits, what should give?"
+  - **Answer, verbatim:** "Rarest Japanese glyphs (Recommended)"
 
 ### RE-003 - Build all of Jin's story dialogue in English from the source image
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M3
-- **Dependencies:** GATE-TRANSLATION, LAYOUT-001, RE-002, PAIR-001, DISC-002.
-- **Blockers:** Dependencies not done.
+- **Dependencies:** GATE-TRANSLATION, LAYOUT-001, RE-002, PAIR-001, DISC-002 (all done).
+- **Blockers:** None.
 - **Objective:** Compile every line of Jin's boxes from its paired official English, or its approved new translation, through the chosen layout route. Build the image from the untouched source, and verify every box live and in a cold-boot play check.
 - **Acceptance criteria:**
   - **Compiler:** a dialogue compiler turns the pairing table and the English into Shift-JIS lines, box records and glyphs (as the route needs) deterministically.

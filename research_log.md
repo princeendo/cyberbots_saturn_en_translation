@@ -1203,3 +1203,21 @@ Conclusion: **CONFIRMED**, D-024. `LAYOUT-001` is `DONE`.
 
 Next action: `GATE-TRANSLATION`: ask the user for the GO on Jin's official
 English, with pair glyphs. Then `RE-003`.
+
+## 2026-11-02 — GATE-TRANSLATION passed for Jin's story
+
+Shown to the user: the oracle, the pairing method (D-022), Jin's coverage (63
+boxes, 120 lines, all with official English, none needing a new
+translation), the policy, the layout (D-024) and the exclusions, plus the
+glyph gap (353 pairs against 336 codes free of Japanese).
+
+Question 1, verbatim: "GATE-TRANSLATION: may Jin's official arcade English go on the disc, as paired, with pair glyphs?"
+Answer, verbatim: "GO (Recommended)"
+
+Question 2, verbatim: "If Jin's English still needs more glyphs than the 336 unused slots after optimising pair splits, what should give?"
+Answer, verbatim: "Rarest Japanese glyphs (Recommended)"
+
+Recorded in `TASKS.md` (a dated block under the gate) and in
+`docs/localization_policy.md`. `RE-003` is `READY`.
+
+Next action: `RE-003`.
