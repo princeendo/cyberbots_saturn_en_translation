@@ -1261,3 +1261,21 @@ Source hashes unchanged.
 Conclusion: **CONFIRMED (M3)**, D-025.
 
 Next action: write up the M4 tasks (a second pilot).
+
+## 2026-11-02 — M4 tasks written up
+
+`TASKS.md` Phase I (a second pilot) is written out in full:
+- `RE-004`: name the 11 pilot lists, the user chooses the pilot, list its
+  boxes;
+- `PAIR-002`;
+- `RE-006`: a multi-pilot compiler with a shared code pool and a budget stop,
+  plus pilot-aware checks;
+- the gate extension;
+- `RE-007`: build both pilots, verify every box, and a cold-boot play.
+
+A survey of `STG0AS.BIN`'s pilot lists is in `RE-004`'s notes:
+- lists 0-5 are the arcade pilots, 141-164 paired lines each;
+- lists 6-9 are the Saturn-only pilots, almost none paired;
+- list 10 has 7 scenes.
+
+Next action: `RE-004`.
