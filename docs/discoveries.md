@@ -454,3 +454,26 @@ Slots can share a record. Arcade slots 63 and 64 point to one record in both
 languages, and Saturn boxes 63 and 64 to one record; box 63 is in no scene.
 
 Reproduce: `research/experiments/EXP-0028/README.md`, "Procedure".
+
+## D-028: M4, Jin and Santana in English from one source-built image (`RE-007`, `EXP-0030`)
+
+`tools/text/dialogue.py` builds several pilots from one pair-code pool, with
+kept and dead lines derived from the scene scripts (EXP-0029). Jin and
+Santana together need 408 pairs: 310 unused codes, 25 new and 73 sacrificed
+Japanese glyphs (the user's approved budget). Jin's codes and predicted cells
+are those of his Jin-only build.
+
+The image built from the untouched source (85 sectors, all valid, Track 01
+`a63ba806…`):
+- **Forced:** every story box of both pilots draws exactly its predicted
+  cells (63/63 and 64/64); the original image draws none.
+- **Cold boots:** Santana, chosen two moves right, plays through two forced
+  fights into his third stage with his English boxes; Jin's first two scenes
+  show as before.
+- **Other pilots:** Mary's scene 0 draws her original Japanese, except the
+  sacrificed `0x8BC1` in box 131, which shows its pair glyph.
+
+The typing routine draws no cell for the full-width space `0x8140`.
+
+Reproduce: `research/experiments/EXP-0030/README.md`, "Procedure".
+

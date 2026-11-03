@@ -155,6 +155,10 @@ names it for its method only.
 - **2026-11-03: `GATE-TRANSLATION` extended to Santana.** The user's words:
   "GO (Recommended)" and, for the 73-code budget, "Approve 73, same rule
   (Recommended)". `RE-007` is `READY`.
+- **2026-11-03: M4 CONFIRMED** (`RE-007`, `EXP-0030`, D-028): Jin and
+  Santana in official English from one image built from the untouched
+  source; 127/127 boxes forced; cold boots of both; Mary's Japanese as
+  recorded. Next: write up M5 (`RE-005`, outline only so far).
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -980,7 +984,7 @@ rarest-glyph rule, and Jin's image is unchanged when built alone.
 
 ### RE-007 - Build Jin and the second pilot in English from the source image
 
-- **Status:** `READY`
+- **Status:** `DONE` (2026-11-03, `EXP-0030`)
 - **Milestone:** M4
 - **Dependencies:** RE-006, PAIR-002, the gate extension (all done).
 - **Blockers:** None.
@@ -992,6 +996,13 @@ rarest-glyph rule, and Jin's image is unchanged when built alone.
   - **Other pilots:** a third pilot's box still draws its Japanese, or as the recorded trade-off says.
   - **Provenance:** `data/translations/<pilot>_story.json`, and an updated regression reference.
 - **Notes:** The image commit pushes after the agent's cold-boot check passes (user rule, 2026-11-02).
+- **Results** (`EXP-0030`):
+  - **Build:** 85 sectors (76 `KANJI.BIN`, 9 `STG0AS.BIN`), all valid; two builds identical (Track 01 `a63ba806…`); source unchanged; 73 sacrificed codes, the first 18 Jin's.
+  - **Forced:** Jin 63/63, Santana 64/64 boxes; controls 0 cells.
+  - **Play:** Santana's cold boot into stage 11 (his third), scenes 23 and 0-4 shown (box 67 caught mid-typing); Jin's cold boot shows scenes 21 and 0 as before; Jin's predicted cells equal his Jin-only build's.
+  - **Other pilots:** Mary's scene 0 Japanese unchanged except box 131's sacrificed `0x8BC1`, as recorded.
+  - **Provenance:** `data/translations/jin_story.json`, `santana_story.json`; `data/regression/re007_jin_santana.json`.
+  - **M4 is CONFIRMED.**
 
 ## Later Milestones (outline only)
 

@@ -1,0 +1,28 @@
+{
+ "task": "RE-007",
+ "experiment": "EXP-0030",
+ "rebuild": "./invenv.sh python -m tools.text.dialogue --pairing data/translations/jin_pairing.json --pairing data/translations/santana_pairing.json --font local/layout001/font/arcade_font.json --driver local/mame_src/cps2.cpp --rompath local/arcade --out build/re007/js --record-dir data/translations --task RE-007",
+ "replacements": {
+  "STG0AS.BIN;1": "cfe0945a3ba422713cd05e3b4a5ae9af21320497fdfbdadd0ebbbe7b411b0588",
+  "KANJI.BIN;1": "bc414e4a0fa95418457a961f300b898b09abdff00b7ca15b524b315a67565c2c"
+ },
+ "changed_sectors": 85,
+ "output_sha256": {
+  "Cyberbots - Fullmetal Madness (Japan) (2M) (Track 01).bin": "a63ba806637a5c874bb03782b7d6f0cd5a8606f8360b114e96d991841f42fb51",
+  "Cyberbots - Fullmetal Madness (Japan) (2M).cue": "9f1248adc58b225fa55aa2960df36113212ff200c26917a8c40f22f2cb9c5f14"
+ },
+ "prediction_sha256": "dd4b1235b3b992404c7ffeea392b279a6dff9523430657076ccf4a4262424bc3",
+ "record_sha256": {
+  "jin_story.json": "59fda139bf97f6484df7a826525c2b1d984948c1969b60e53586654a927f6b44",
+  "santana_story.json": "ca1d93c95a216f06743746077ba393d401b96c6ee108d6f1ea61915916de5f68"
+ },
+ "sacrificed_codes": 73,
+ "checks": {
+  "forced_boxes": "Jin 63/63, Santana 64/64 (EXP-0030)",
+  "controls_scene_9": "Jin 0 of 233 cells, Santana 0 of 178",
+  "third_pilot": "Mary scene 0: boxes 130 and 132 unchanged; box 131 shows the sacrificed 0x8BC1 as its pair glyph",
+  "cold_boot_santana": "stages 9-11 played; scenes 23, 0-4: 21 of 22 boxes complete, box 67 caught mid-typing",
+  "cold_boot_jin": "scenes 21 and 0: 6 of 6 boxes complete",
+  "jin_unchanged": "Jin's 63 boxes predict the same cells as a Jin-only build (394f745c...)"
+ }
+}

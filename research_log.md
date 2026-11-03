@@ -1396,3 +1396,36 @@ Recorded in `TASKS.md` (a dated block under the extension) and in
 `RE-007` is `READY`.
 
 Next action: `RE-007`.
+
+## 2026-11-03 — EXP-0030: Jin and Santana in English (RE-007, M4)
+
+Action: built Jin + Santana from the untouched source (twice), forced every
+story box of both pilots, checked Mary's scene 0 on both images, and
+cold-booted Santana into stage 2 and Jin into his first scene. 13:00-14:12;
+the user present for the cold boots ("Yes, go ahead (Recommended)").
+
+Result:
+- **Build:** 85 sectors, all 43,793 valid; two builds identical (Track 01
+  `a63ba806…`); the source's 63 components unchanged.
+- **Forced:** Jin 63/63, Santana 64/64 boxes; original-image controls 0 of
+  233 and 0 of 178 cells.
+- **Mary:** boxes 130 and 132 unchanged; box 131's `0x8BC1` (sacrificed)
+  shows its pair glyph. A first predictor counted the full-width space
+  `0x8140` as a cell (EXP-0027's `check_first_box.py` did; its boxes had no
+  space) and matched only 3 and 2 cells on both images; the typing routine
+  draws no cell for it. Fixed in `japanese_check.py`.
+- **Santana's cold boot:** stage 9 → 10 → 11; posts 23, 0-4; 21 of 22 boxes
+  complete, box 67 caught mid-typing (complete when forced).
+- **Jin's cold boot:** posts 21, 0; 6 of 6 boxes complete. His predicted
+  cells equal his Jin-only build's (`394f745c…`).
+- A draft claim that the first 18 sacrificed codes differed from Jin-alone's
+  was checked and is false: they are the same 18, in order.
+- Commands: `./invenv.sh ruff check tools tests research/experiments`
+  (clean), `mypy` on the new scripts (clean), `./invenv.sh pytest -q tests`
+  (161 passed).
+
+Conclusion: **CONFIRMED (M4)**, D-028.
+
+Next action: write up M5 (`RE-005`); it is outline-only, so it needs "Write
+up M5" first.
+

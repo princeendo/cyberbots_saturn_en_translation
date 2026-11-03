@@ -7,3 +7,4 @@ change to the tools that alters a hash needs a new reference and the reason
 | File | Build |
 | --- | --- |
 | `re003_jin.json` | Jin's story in English (`RE-003`, `EXP-0026`): the replacement files' and Track 01's SHA-256, the changed-sector count, the prediction and record hashes, and the checks that passed. Reproduced unchanged by the multi-pilot compiler (`RE-006`, `EXP-0029`). |
+| `re007_jin_santana.json` | Jin + Santana in English (`RE-007`, `EXP-0030`): the same fields, both pilots' record hashes, and the checks that passed. From this build on, `data/translations/jin_story.json` is this build's record; `re003_jin.json`'s record hash is the record of a Jin-only build (`--record`). |

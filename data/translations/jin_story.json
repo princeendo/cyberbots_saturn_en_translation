@@ -1,5 +1,5 @@
 {
- "task": "RE-003",
+ "task": "RE-007",
  "policy": "official US arcade English, as paired (D-022), unchanged; pair glyphs (D-024)",
  "sources": {
   "program_sha256": "18e8827dc742f4fef577aac8c06ae05dfb54ddad60a589238ac610f07b4152fd",
@@ -363,9 +363,9 @@
   "352": "0x89D2"
  },
  "summary": {
-  "boxes": 63,
-  "rows": 137,
-  "pairs": 353,
+  "boxes": 127,
+  "rows": 260,
+  "pairs": 408,
   "unused_codes_used": 310,
   "new_codes": 25,
   "sacrificed": [
@@ -458,14 +458,290 @@
     "code": "0x89D2",
     "glyph": 291,
     "lines": 3
+   },
+   {
+    "code": "0x89E8",
+    "glyph": 297,
+    "lines": 3
+   },
+   {
+    "code": "0x89EE",
+    "glyph": 299,
+    "lines": 3
+   },
+   {
+    "code": "0x89F6",
+    "glyph": 305,
+    "lines": 3
+   },
+   {
+    "code": "0x89F7",
+    "glyph": 306,
+    "lines": 3
+   },
+   {
+    "code": "0x89FA",
+    "glyph": 308,
+    "lines": 3
+   },
+   {
+    "code": "0x89FB",
+    "glyph": 309,
+    "lines": 3
+   },
+   {
+    "code": "0x8A47",
+    "glyph": 315,
+    "lines": 3
+   },
+   {
+    "code": "0x8A51",
+    "glyph": 318,
+    "lines": 3
+   },
+   {
+    "code": "0x8A55",
+    "glyph": 319,
+    "lines": 3
+   },
+   {
+    "code": "0x8A65",
+    "glyph": 322,
+    "lines": 3
+   },
+   {
+    "code": "0x8A69",
+    "glyph": 323,
+    "lines": 3
+   },
+   {
+    "code": "0x8A79",
+    "glyph": 328,
+    "lines": 3
+   },
+   {
+    "code": "0x8A7A",
+    "glyph": 329,
+    "lines": 3
+   },
+   {
+    "code": "0x8A88",
+    "glyph": 331,
+    "lines": 3
+   },
+   {
+    "code": "0x8AA5",
+    "glyph": 334,
+    "lines": 3
+   },
+   {
+    "code": "0x8AB7",
+    "glyph": 340,
+    "lines": 3
+   },
+   {
+    "code": "0x8AD2",
+    "glyph": 346,
+    "lines": 3
+   },
+   {
+    "code": "0x8AE1",
+    "glyph": 352,
+    "lines": 3
+   },
+   {
+    "code": "0x8AEC",
+    "glyph": 359,
+    "lines": 3
+   },
+   {
+    "code": "0x8AF7",
+    "glyph": 366,
+    "lines": 3
+   },
+   {
+    "code": "0x8AFC",
+    "glyph": 368,
+    "lines": 3
+   },
+   {
+    "code": "0x8B5B",
+    "glyph": 381,
+    "lines": 3
+   },
+   {
+    "code": "0x8B78",
+    "glyph": 391,
+    "lines": 3
+   },
+   {
+    "code": "0x8B7A",
+    "glyph": 392,
+    "lines": 3
+   },
+   {
+    "code": "0x8B81",
+    "glyph": 396,
+    "lines": 3
+   },
+   {
+    "code": "0x8B8F",
+    "glyph": 403,
+    "lines": 3
+   },
+   {
+    "code": "0x8B90",
+    "glyph": 404,
+    "lines": 3
+   },
+   {
+    "code": "0x8BB6",
+    "glyph": 415,
+    "lines": 3
+   },
+   {
+    "code": "0x8BB9",
+    "glyph": 416,
+    "lines": 3
+   },
+   {
+    "code": "0x8BBB",
+    "glyph": 417,
+    "lines": 3
+   },
+   {
+    "code": "0x8BBE",
+    "glyph": 419,
+    "lines": 3
+   },
+   {
+    "code": "0x8BC1",
+    "glyph": 420,
+    "lines": 3
+   },
+   {
+    "code": "0x8BC7",
+    "glyph": 422,
+    "lines": 3
+   },
+   {
+    "code": "0x8BC8",
+    "glyph": 423,
+    "lines": 3
+   },
+   {
+    "code": "0x8BC9",
+    "glyph": 424,
+    "lines": 3
+   },
+   {
+    "code": "0x8BCA",
+    "glyph": 425,
+    "lines": 3
+   },
+   {
+    "code": "0x8BD8",
+    "glyph": 427,
+    "lines": 3
+   },
+   {
+    "code": "0x8BD9",
+    "glyph": 428,
+    "lines": 3
+   },
+   {
+    "code": "0x8BF6",
+    "glyph": 436,
+    "lines": 3
+   },
+   {
+    "code": "0x8C51",
+    "glyph": 441,
+    "lines": 3
+   },
+   {
+    "code": "0x8C60",
+    "glyph": 448,
+    "lines": 3
+   },
+   {
+    "code": "0x8C6E",
+    "glyph": 451,
+    "lines": 3
+   },
+   {
+    "code": "0x8C78",
+    "glyph": 455,
+    "lines": 3
+   },
+   {
+    "code": "0x8C80",
+    "glyph": 458,
+    "lines": 3
+   },
+   {
+    "code": "0x8C8A",
+    "glyph": 462,
+    "lines": 3
+   },
+   {
+    "code": "0x8C93",
+    "glyph": 466,
+    "lines": 3
+   },
+   {
+    "code": "0x8C9A",
+    "glyph": 469,
+    "lines": 3
+   },
+   {
+    "code": "0x8CA0",
+    "glyph": 473,
+    "lines": 3
+   },
+   {
+    "code": "0x8CA3",
+    "glyph": 475,
+    "lines": 3
+   },
+   {
+    "code": "0x8CC0",
+    "glyph": 486,
+    "lines": 3
+   },
+   {
+    "code": "0x8CC2",
+    "glyph": 487,
+    "lines": 3
+   },
+   {
+    "code": "0x8CDD",
+    "glyph": 496,
+    "lines": 3
+   },
+   {
+    "code": "0x8CEA",
+    "glyph": 501,
+    "lines": 3
+   },
+   {
+    "code": "0x8CF3",
+    "glyph": 504,
+    "lines": 3
+   },
+   {
+    "code": "0x8CF7",
+    "glyph": 506,
+    "lines": 3
    }
   ],
   "kept_lines": [
    57,
-   75
+   75,
+   144
   ],
-  "text_bytes": 3992,
-  "room_bytes": 4196
+  "text_bytes": 7316,
+  "room_bytes": 8088
  },
  "boxes": [
   {
@@ -1332,7 +1608,7 @@
    "row_addresses": [
     "0x0606FD30",
     "0x0606FD50",
-    "0x060742CC"
+    "0x0606FD74"
    ]
   },
   {
@@ -1347,9 +1623,9 @@
    "rows": 3,
    "cells": 46,
    "row_addresses": [
-    "0x060742F0",
-    "0x06074314",
-    "0x0606FD74"
+    "0x0606FD98",
+    "0x0606FDBC",
+    "0x0606FDE0"
    ]
   },
   {
@@ -1364,9 +1640,9 @@
    "rows": 3,
    "cells": 38,
    "row_addresses": [
-    "0x06074338",
-    "0x06074358",
-    "0x06074378"
+    "0x0606FE00",
+    "0x0606FE20",
+    "0x0606FE40"
    ]
   },
   {
@@ -1381,8 +1657,8 @@
    "rows": 2,
    "cells": 20,
    "row_addresses": [
-    "0x0607438C",
-    "0x060743AC"
+    "0x0606FE54",
+    "0x0606FE74"
    ]
   },
   {
@@ -1398,9 +1674,9 @@
    "rows": 3,
    "cells": 34,
    "row_addresses": [
-    "0x060743BC",
-    "0x060743E0",
-    "0x06074400"
+    "0x0606FE84",
+    "0x0606FEA8",
+    "0x0606FEC8"
    ]
   },
   {
@@ -1415,8 +1691,8 @@
    "rows": 2,
    "cells": 28,
    "row_addresses": [
-    "0x0607440C",
-    "0x06074428"
+    "0x0606FED4",
+    "0x0606FEF0"
    ]
   },
   {
@@ -1430,7 +1706,7 @@
    "rows": 1,
    "cells": 15,
    "row_addresses": [
-    "0x0607444C"
+    "0x0606FF14"
    ]
   },
   {
@@ -1445,9 +1721,9 @@
    "rows": 3,
    "cells": 40,
    "row_addresses": [
-    "0x06074470",
-    "0x06074494",
-    "0x060744B4"
+    "0x0606FF38",
+    "0x0606FF5C",
+    "0x0606FF7C"
    ]
   },
   {
@@ -1461,7 +1737,7 @@
    "rows": 1,
    "cells": 10,
    "row_addresses": [
-    "0x060744CC"
+    "0x0606FF94"
    ]
   },
   {
@@ -1476,9 +1752,9 @@
    "rows": 3,
    "cells": 37,
    "row_addresses": [
-    "0x060744E4",
-    "0x06074508",
-    "0x0607452C"
+    "0x0606FFAC",
+    "0x0606FFD0",
+    "0x0606FFF4"
    ]
   }
  ]
