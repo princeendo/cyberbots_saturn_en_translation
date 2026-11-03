@@ -111,8 +111,10 @@ names it for its method only.
 - **2026-11-02: no native English path; box capacity measured** (`FONT-002`,
   `EXP-0021`, D-020): 4 rows × 16 cells, 60 glyph cells per box; 31, 272 or
   450 of the 450 paired slots fit, depending on the route. All M2 tasks are
-  done. Next: write up the M3 tasks (`LAYOUT-001`, `RE-002`, `RE-003`) in
-  full; `LAYOUT-001` needs the user's choice of route.
+  done.
+- **2026-11-02: M3 tasks written up** (Phase H): `RE-002` and
+  `LAYOUT-001` Phases A-B are `READY`. `PAIR-001`, `GATE-TRANSLATION` and
+  `RE-003` are blocked in that order. Next: `RE-002`.
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -642,14 +644,136 @@ English text goes on disc in M2; the test string is the M1 hiragana.
   - **Cell limit:** 60 cells reserved per box (`0x0601118E`), with no check; past it the game hangs (SUPPORTED).
   - **Capacity:** of 450 paired slots, 31 fit as written in capitals, 272 re-wrapped, and 450 with pair glyphs (571 distinct pairs). The font has 58 free glyphs and the table 26 free slots.
 
+## Phase H: M3 (Jin's Story Dialogue)
+
+M3: all of Jin's story dialogue boxes are handled programmatically, from the
+untouched source image. Jin is the M1 pilot (`REF-008`). The order is:
+
+1. `RE-002` and `LAYOUT-001` Phases A-B (no English needed);
+2. `PAIR-001`;
+3. `GATE-TRANSLATION`;
+4. `LAYOUT-001` Phase C;
+5. `RE-003`.
+
+Out of scope: endings (rule 23); VS-screen chapter captions and pilot name art
+(other surfaces: `SPECIAL-001`, `LOC-001`); and other pilots' stories (M4,
+M5). The Saturn-only lines inside Jin's own story are in scope, under the
+new-translation policy.
+
+### RE-002 - Find what selects each box, list Jin's boxes, and force any box
+
+- **Status:** `READY`
+- **Milestone:** M3
+- **Dependencies:** RE-001, DISC-001, FONT-002 (done).
+- **Blockers:** None.
+- **Objective:** Learn which box record each story scene shows and what chooses it, list every box of Jin's story, and show any of them from one checkpoint, so that every box can be verified live without gameplay.
+- **Acceptance criteria:**
+  - **Selector:** the value that picks the M1 box's record (`0x0609D184`, D-020) is found by a controlled trace from checkpoint A or an earlier state: its address, its writer, and the table it indexes. When it is chosen (scene start, per box, per stage) is stated.
+  - **Jin's boxes:** every story box Jin can reach is listed with evidence:
+    - its record address and lines (Saturn line numbers, D-008);
+    - its scene (stage, before or after the fight, any branch on win, loss or opponent);
+    - the file it comes from: `STG0AS.BIN`, `VICTORY.BIN` or `END.BIN`, each loaded at `0x06060000` but with its own layout (D-017).
+
+    The list comes from the code's own scene or record tables, not from reading the text. Endings are listed only as excluded.
+  - **Forcing:** writing the selector shows a chosen record, for at least 3 distinct Jin boxes from one checkpoint. The cells are checked as in `EXP-0020`, against a no-write control. The method is written up as a runbook entry in `docs/mednafen.md` (a debug harness; it never ships).
+  - **Rows and records:** the record format is confirmed on more than one box: the header (x, y, the attribute byte, and the 4/5 values that move x), and the entries (line pointer and word). Whether any record of Jin's has more than two lines is recorded.
+- **Outputs:** an experiment, a forcing script, a box list (`data/text/jin_boxes.json`: record addresses, line numbers, scenes and files; no text), and the runbook entry.
+- **Notes:**
+  - Leads, at most HYPOTHESIS:
+    - the layout entry `0x0606E6E0` reads a 16-bit index into a table of record pointers at `0x060A5684` (`STG0AS.BIN` `0x45684`), whose records hold x, y, an attribute and a text pointer;
+    - the typing routine walks a record at `r13` (`0x0606E5C0`).
+  - The arcade picks a slot through `0xFF2F7A`, written by `0x011D48`, and the script table `0x12150` (D-010). A Saturn twin of that logic would be a HYPOTHESIS to test, as XvSF's quote selector was.
+  - Dialogue is fixed from a checkpoint (D-014), so forcing should not need RNG work, but any branch found must be tested.
+
+### LAYOUT-001 - Choose how English fits the dialogue box
+
+- **Status:** `READY` (Phases A-B); Phase C waits on the user's choice.
+- **Milestone:** M3
+- **Dependencies:** FONT-001, FONT-002, DISC-002 (done).
+- **Blockers:** None for Phases A-B.
+- **Objective:** Measure each way of fitting English in the box, put the routes to the user as a decision, and prove the chosen route on a rebuilt image.
+- **Why:** The box holds 4 rows of 16 full-width cells and at most 60 glyph cells (D-020). The font has full-width capitals but no lower case, comma or apostrophe. Of the 450 paired arcade slots, 31 fit in capitals as written, 272 after re-wrapping, and all 450 with two characters per cell.
+- **Candidate routes** (each a HYPOTHESIS until tested):
+  - **(a) Full-width capitals, re-wrapped:** the existing font, plus a comma and an apostrophe. Up to 4 rows per box, which needs more record entries, so records must be relocated.
+  - **(b) Pair glyphs:** two characters per 16×16 cell, mixed case, as the font's `Dr` already does. It needs new glyphs and table codes (571 for the paired roster). They come from free slots, or from kanji and kana that the remaining Japanese text does not use.
+  - **(c) Narrower drawing:** a code patch to the typing routine, for example half-width cells at an 8-pixel advance. It needs new glyph data, a change to the cell layout, and room for more sprites.
+  - **(d) More cells per box:** a code patch raising the 60-cell reservation (`0x0601118E`). It needs proven free RAM below `0x060FE200` and room in VDP1 VRAM after `0x20000`. It can combine with (a)-(c).
+- **Acceptance criteria:**
+  - **Phase A: limits**, measured for each route:
+    - a census of the 1,222 table codes: which ones the 1,851 Saturn lines use, and which are unused;
+    - glyphs and codes needed, for Jin alone and for the paired roster;
+    - room for longer records and lines in `STG0AS.BIN`, `VICTORY.BIN` and `END.BIN` (file slack, sector slack, and what follows each file in RAM: `0x060AE4F8` is used after `STG0AS.BIN`, D-020);
+    - free RAM for (c)/(d), by write logs over a full stage, not by assumption (XvSF's first toggle hung the title);
+    - whether other screens draw with `KANJI.BIN`, which would break if its glyphs are replaced.
+  - **Phase B: decision.** A capacity model is recorded for each route: characters per row and per box, and the Jin and roster fit counts. The user chooses a route as a multiple-choice question with a "(Recommended)" option. The answer is recorded verbatim in `docs/localization_policy.md` and `research_log.md`.
+  - **Phase C: proof.** On an image rebuilt from the untouched source, the chosen route shows synthetic test text in the M1 box, after an agent-driven cold boot. The text uses each new glyph or code path at least once, and fills a box to the route's limit. The original image is the control. Text drawn with the original glyphs (another pilot's box) still draws correctly. Every sector is valid, and the source hashes are unchanged.
+- **Outputs:** an experiment; font-build tooling (glyph rendering and a repack with `tools/font/kanji.py`); the census; and the policy entry.
+- **Notes:**
+  - MSHvSF chose pair glyphs and repacked its font at the same size; XvSF used its native English mode, which Cyberbots does not have (D-020).
+  - `KANJI.BIN` is reloaded from disc for each box scene (D-019), so a rebuilt image's font shows in a replay from a state before that load. The cold boot is still required (playbook: forced trials can show stale data).
+  - Any route that removes Japanese glyphs breaks other pilots' Japanese until M5, unless only unused glyphs are reused. That trade-off is part of the user's decision.
+
+### PAIR-001 - Pair Jin's boxes with the arcade English by the games' own logic
+
+- **Status:** `BLOCKED`
+- **Milestone:** M3
+- **Dependencies:** REF-003, REF-004, REF-006 (done), RE-002.
+- **Blockers:** RE-002 not done (Jin's box list).
+- **Objective:** For each line of each of Jin's boxes, find the arcade English record the arcade shows in the same scene, or show from the arcade code that none exists.
+- **Why:** The policy pairs official English to each Saturn line by the game's own logic. Absence of official English must be shown by tracing the arcade code, not by a data search alone (`docs/localization_policy.md`). `REF-006` paired by text alignment (D-011), which is evidence, not the games' logic.
+- **Acceptance criteria:**
+  - **Arcade scenes:** the arcade's scene-to-slot choice for Jin's story is traced in MAME from the code: the script table `0x12150` and the slot variable `0xFF2F7A` (D-010). The result is Jin's slots in scene order.
+  - **Pairing table:** it is compared with `RE-002`'s Saturn box list, and every Saturn line of Jin's boxes is paired with an arcade slot and line. Each pair is labelled with its evidence (scene order, code, `REF-006` alignment) and its confidence.
+  - **On-screen check:** at least 3 pairs are confirmed by showing the same scene in both games: the arcade from a MAME state (US set for English), the Saturn by forcing (`RE-002`). Otherwise the experiment records why that is not possible.
+  - **Saturn-only lines:** every Saturn line with no arcade counterpart is listed. Its absence is shown from the arcade's script for that scene. It is marked for a recorded new translation.
+- **Outputs:** an experiment and `data/translations/jin_pairing.json`: Saturn line numbers, arcade slots and lines, labels, and source hashes. It holds no game text.
+- **Notes:**
+  - This reads English but writes none to disc, so it runs before the gate.
+  - The arcade English slot can have up to 4 lines for a Saturn box of 2 (D-009). The pairing is per box, and the line split is `LAYOUT-001`'s.
+  - The arcade's English and Japanese share slot numbers in the first scene (D-011). A second scene's check is in `docs/known_unknowns.md`.
+
 ### GATE-TRANSLATION - Confirm reference and translation prerequisites
 
 - **Status:** `BLOCKED`
-- **Milestone:** M2
-- **Dependencies:** DOC-002, REF-001, REF-003 to REF-007 (REF-002 rejected).
+- **Milestone:** M3
+- **Dependencies:** DOC-002, REF-001, REF-003 to REF-007 (done; REF-002 rejected), PAIR-001.
+- **Blockers:** PAIR-001 not done.
+- **Objective:** No English text goes on disc before the oracle, the pairing method and the user's policy are settled.
+- **Acceptance criteria:**
+  - Every dependency is `DONE`.
+  - The user gives a recorded GO for Jin's story, covering:
+    - the official English as paired;
+    - the recorded new translations for Jin's Saturn-only lines (translator named, each line listed);
+    - the layout route, if it has been chosen by then.
+  - Each later scope extension (a new pilot, endings, names, captions) is its own dated block under this gate.
+
+### RE-003 - Build all of Jin's story dialogue in English from the source image
+
+- **Status:** `BLOCKED`
+- **Milestone:** M3
+- **Dependencies:** GATE-TRANSLATION, LAYOUT-001, RE-002, PAIR-001, DISC-002.
 - **Blockers:** Dependencies not done.
-- **Objective:** No English text goes on disc before the oracle, the pairing method, and the user's policy are settled.
-- **Acceptance criteria:** Every dependency is `DONE`; the user gives a recorded GO. Each later scope extension (new pilot, endings, names) is its own dated block under this gate.
+- **Objective:** Compile every line of Jin's boxes from its paired official English, or its approved new translation, through the chosen layout route. Build the image from the untouched source, and verify every box live and in a cold-boot play check.
+- **Acceptance criteria:**
+  - **Compiler:** a dialogue compiler turns the pairing table and the English into Shift-JIS lines, box records and glyphs (as the route needs) deterministically.
+    - It rejects text that does not fit: rows, cells (≤ 60 per box) or codes.
+    - It writes every copy that Jin's scenes load (`RE-002`), keeping their pointers valid.
+    - It has synthetic tests.
+  - **Build:** the image is built with `tools/disc/patch_image.py` from the untouched source.
+    - Only the intended files' sectors change, with valid EDC/ECC.
+    - Two builds are identical, and the source hashes are unchanged.
+    - Rule 12 records are kept for every changed record and line.
+  - **Live check:** every one of Jin's boxes is forced (`RE-002`) from a checkpoint. Each drawn cell equals the compiler's prediction. The original image is the control.
+  - **Play check:** an agent-driven cold boot plays Jin's story through at least the first two stages, with pad keys and the fights won by forcing or play. The screenshots show the English boxes as compiled.
+  - **Other pilots:** another pilot's first box is checked. It is still Japanese and draws correctly, or it is as the route's recorded trade-off says.
+  - **Provenance:** `data/translations/jin_story.json` records, for each line:
+    - the arcade source address and hash for official English (read from the ROM at build time, never committed, rule 21);
+    - the text and translator for new translations;
+    - the pairing and any opt-in grammar fix.
+- **Outputs:** an experiment, the compiler and its tests, the translation record, and a regression reference.
+- **Notes:**
+  - Endings, VS captions and name art are untouched.
+  - The image commit pushes after the agent's cold-boot check passes (user rule, 2026-11-02).
 
 ## Later Milestones (outline only)
 
@@ -660,9 +784,6 @@ and `docs/lessons_from_xvsf.md`.
 
 | ID | Milestone | Outline |
 | --- | --- | --- |
-| LAYOUT-001 | M3 | Choose a capacity route (native English path, half-width or variable-width glyphs, pair glyphs, longer strings with relocated pointers) from measured headroom; user decision. The arcade English record for a slot runs up to 4 lines of 38 characters, the Saturn's line up to 16 full-width cells (D-008, D-009). |
-| RE-002 | M3 | Selection: what picks each line (pilot, opponent, route, branch), and forcing it from a checkpoint. Start from the record structures that point at the lines (D-008). |
-| RE-003 | M3 | Script compiler for one pilot; every line verified live by forcing. |
 | RE-004 | M4 | A second pilot through the same mechanism. |
 | RE-005 | M5 | Census of every pilot's dialogue against the arcade; roster and exceptions (user decision); capacity; roster image; regression references. |
 | END-001 | M6 | Reach, renderer, RAM, disc source (the `*_END*` entries and `KEND*.BIN` are candidates), arcade English (not yet seen; the second table reader at `0x97222` is a candidate, D-010), and indexing of one ending. |

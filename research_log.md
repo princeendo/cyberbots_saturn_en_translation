@@ -1053,3 +1053,18 @@ Conclusion: **CONFIRMED**, D-020 (the hang SUPPORTED). M2's tasks are all
 
 Next action: write up the M3 tasks in full. `LAYOUT-001` puts the capacity
 routes to the user as a decision.
+
+## 2026-11-02 — M3 tasks written up
+
+`TASKS.md` Phase H (Jin's story dialogue) is written out in full:
+- `RE-002` (selector, Jin's box list, forcing), `READY`;
+- `LAYOUT-001` (four routes; limits, the user's decision, then a proof on a
+  rebuilt image), Phases A-B `READY`;
+- `PAIR-001` (pairing by both games' logic; Saturn-only lines shown from the
+  arcade code), blocked on `RE-002`;
+- `GATE-TRANSLATION`, moved to M3, which now also depends on `PAIR-001`;
+- `RE-003` (compiler, build, every box forced, agent cold-boot play check).
+
+VS captions, name art and endings stay out of M3.
+
+Next action: `RE-002`.
