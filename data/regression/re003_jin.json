@@ -1,0 +1,20 @@
+{
+ "task": "RE-003",
+ "experiment": "EXP-0026",
+ "rebuild": "./invenv.sh python -m tools.text.dialogue --pairing data/translations/jin_pairing.json --font local/layout001/font/arcade_font.json --driver local/mame_src/cps2.cpp --rompath local/arcade --out build/re003/jin",
+ "replacements": {
+  "STG0AS.BIN;1": "4121130185c32b66bf179030ae97f743d7a2c7a2236f19ca6ce6ecd719d61931",
+  "KANJI.BIN;1": "8fe3622789bd3366b0af375ecda5f13fed56a70f146a3c3f9fcb3865201b0650"
+ },
+ "changed_sectors": 82,
+ "output_sha256": {
+  "Cyberbots - Fullmetal Madness (Japan) (2M) (Track 01).bin": "904402b6acb965113d3327030983464c4bb76483d717c709487492c091263f01"
+ },
+ "prediction_sha256": "394f745c4f8d30bb24ef092887ba3ec54195aa493e6fbefea8ba9ab0d9b5ff0c",
+ "record_sha256": "9ae48278810e380ac23fc3359bc2ad8f3614e5a7372efc2d8a7bca151beb7b29",
+ "checks": {
+  "forced_boxes": "63/63 (EXP-0026)",
+  "control_scene_9": "0 of 8 boxes",
+  "cold_boot": "stages 0-2 played; 20 of 21 boxes seen complete"
+ }
+}

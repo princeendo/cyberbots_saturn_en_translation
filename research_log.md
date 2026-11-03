@@ -1221,3 +1221,43 @@ Recorded in `TASKS.md` (a dated block under the gate) and in
 `docs/localization_policy.md`. `RE-003` is `READY`.
 
 Next action: `RE-003`.
+
+## 2026-11-02 — EXP-0026: Jin's story in English (RE-003, M3)
+
+Goal: `RE-003`; compile, build and verify all of Jin's story dialogue in
+official English.
+
+Action:
+- wrote `tools/text/dialogue.py` with tests, and built twice;
+- forced all 17 scenes and checked every box's cells, with a control on the
+  original;
+- found the fighters' vitality;
+- cold-booted and played into stage 2 with forced fight wins;
+- checked pilot 1's Japanese on both images.
+
+20:20-20:50, the user present.
+
+Result:
+- **Build:** 63 boxes, 137 rows, 353 pairs (310 unused codes, 25 new, 18
+  sacrificed per the user); 82 sectors, all valid; identical builds.
+- **Forced:** 63/63 boxes exact; control 0/8.
+- **Play:** stages 0-2 played; 20 boxes complete and exact, 1 mid-typing.
+- **Pilot 1:** Japanese unchanged.
+
+Failed attempts:
+- Forcing from state 5208 showed Japanese: the state holds the old script in
+  RAM. Fixed by starting from 4138, before the load.
+- Vitality guesses: x positions at `+0x14`, and the words `0x060D45D8`/`46D4`/`47D0`
+  and `0x060E1492`. The bar pair at `+0x44` is vitality.
+- A Mednafen lockfile clash between two runs in one home. Fixed with a
+  scratch home.
+
+Decision note: the pair count could have been cut to 299 by indenting 43
+rows one space, which would have sacrificed no Japanese. That was not done
+(it would look ragged); the user's fallback was used instead.
+
+Source hashes unchanged.
+
+Conclusion: **CONFIRMED (M3)**, D-025.
+
+Next action: write up the M4 tasks (a second pilot).

@@ -399,3 +399,27 @@ characters came from dead lines through an extended record, and the
 following Japanese box is unchanged (25/25).
 
 Reproduce: `research/experiments/EXP-0025/README.md`, "Procedure".
+
+## D-025: M3, Jin's story in English from the source image; fighter vitality (`RE-003`, `EXP-0026`)
+
+`tools/text/dialogue.py` compiles the official arcade English for Jin's 63
+story boxes, read from the `cybotsu` ROM at build time, into pair-glyph rows
+of up to 32 characters and 3 rows per box, with rewritten box records:
+- pairs take codes no Japanese uses first, then new codes in the table's last
+  row (keeping its 0 terminator), then, by the user's decision, the 18
+  least-used Japanese characters;
+- rows go into Jin's own lines and his dead ending lines, leaving lines shared
+  with other boxes.
+
+The image built from the untouched source (82 sectors, all valid, Track 01
+`904402b6…`):
+- **Forced:** every box of all 17 scenes draws exactly its predicted cells
+  (63/63); the original image draws none.
+- **Cold boot:** played through two fights, it shows the English boxes.
+- **Other pilots:** pilot 1's Japanese draws its original cells.
+
+Fighter records sit at `0x060CFFE0` (player 1) and `0x060D02D4` (player 2):
+x position at `+0x14`, vitality in bar units (152 full) at `+0x44`. A fight ends
+only on a hit or at time-out.
+
+Reproduce: `research/experiments/EXP-0026/README.md`, "Procedure".

@@ -134,7 +134,12 @@ names it for its method only.
   `LAYOUT-001` is `DONE`.
 - **2026-11-02: `GATE-TRANSLATION` passed for Jin's story.** The user's
   words: "GO (Recommended)". If the glyph gap remains: "Rarest Japanese
-  glyphs (Recommended)". Next: `RE-003` (`READY`).
+  glyphs (Recommended)". Next: `RE-003`.
+- **2026-11-02: M3 CONFIRMED** (`RE-003`, `EXP-0026`, D-025): all of Jin's
+  story dialogue in official English, from an image built from the
+  untouched source; 63/63 boxes exact; a cold boot played two fights; other
+  pilots' Japanese unchanged except 16 recorded lines. Next: write up the M4
+  tasks (a second pilot through the same compiler).
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -152,7 +157,8 @@ names it for its method only.
   (the dialogue font and its code table), D-020 (no native English path;
   box capacity), D-021 (box selection; Jin's scenes),
   D-022 (Jin's pairing), D-023 (font codes in
-  use, font users, record size, free RAM), D-024 (pair glyphs work). The font's
+  use, font users, record size, free RAM), D-024 (pair glyphs work), D-025 (M3: Jin's story in
+  English; fighter vitality). The font's
   layout is not confirmed.
 
 ## Milestones
@@ -802,7 +808,7 @@ new-translation policy.
 
 ### RE-003 - Build all of Jin's story dialogue in English from the source image
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** M3
 - **Dependencies:** GATE-TRANSLATION, LAYOUT-001, RE-002, PAIR-001, DISC-002 (all done).
 - **Blockers:** None.
@@ -831,6 +837,13 @@ new-translation policy.
     - `tools/font/pairs.py` renders the cells; the arcade capture is rebuilt with `EXP-0025/capture_font.py` (code-sheet timelines).
     - `EXP-0025/build.py` shows how codes, lines and records are written; `replay_cells.py`, `check_cells.py` and `cold_route.py` are the checks to reuse.
     - Jin needs 353 pairs against 336 codes free of Japanese: choose pair boundaries to reduce them, or record the trade-off.
+- **Evidence:** `EXP-0026`, D-025, `data/translations/jin_story.json`, `data/regression/re003_jin.json`; 2026-11-02.
+  - **Compiler:** `tools/text/dialogue.py`, with tests. It reads the English from the ROM at build time, re-wraps it to 32 characters and 3 rows, and assigns codes: 310 unused, 25 new, and 18 sacrificed Japanese glyphs (user's decision). Lines 57 and 75, which other pilots share, are kept.
+  - **Build:** 82 sectors, all valid; two builds identical (Track 01 `904402b6…`); source unchanged.
+  - **Live:** every box of all 17 scenes forced from state 4138 matches its predicted cells (63/63); the original image matches none (scene 9, 0/8).
+  - **Play check:** an agent cold boot played Jin's story into stage 2, with fights won by forcing the opponent's vitality (`0x060D0318`) and a time-out. Every English box seen matched its prediction (20 complete, 1 caught mid-typing).
+  - **Other pilots:** pilot 1's scene 0 Japanese draws its original cells. The 16 lines that use a sacrificed glyph are listed in EXP-0026.
+  - **M3 is CONFIRMED.**
 
 ## Later Milestones (outline only)
 
