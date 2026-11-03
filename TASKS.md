@@ -148,6 +148,10 @@ names it for its method only.
 - **2026-11-03: Santana's boxes paired** (`PAIR-002`, `EXP-0028`, D-027):
   same scripts as the arcade; all 64 boxes and 117 lines have official
   English, and none needs a new translation. Next: `RE-006`.
+- **2026-11-03: the compiler and checks handle a set of pilots** (`RE-006`,
+  `EXP-0029`): Jin's M3 image reproduced byte for byte; Jin + Santana need
+  73 sacrificed codes against 18 approved, so the build stops. Next: the
+  `GATE-TRANSLATION` extension for Santana (the user's GO and budget).
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -928,7 +932,7 @@ roster stay out of scope (rules 23 and 24; `RE-005` is M5).
 
 ### RE-006 - Let the compiler and checks handle a set of pilots
 
-- **Status:** `READY`
+- **Status:** `DONE` (2026-11-03, `EXP-0029`)
 - **Milestone:** M4
 - **Dependencies:** RE-003, RE-004 (done).
 - **Blockers:** None.
@@ -944,6 +948,13 @@ roster stay out of scope (rules 23 and 24; `RE-005` is M5).
 - **Notes:**
   - With two pilots, the distinct pairs will exceed the 335 free codes by more than Jin's 18. The extra sacrificed glyphs, or an alternative, are a decision for the gate extension.
   - Indenting rows to save pairs was rejected for looks (`EXP-0026`).
+- **Results** (`EXP-0029`):
+  - **Compiler:** repeatable `--pairing`, one pool; users are the boxes some scene shows; kept lines (57, 75, 144) and dead ending lines are derived. Jin alone reproduces `re003_jin.json` byte for byte, so its reference stands.
+  - **Budget:** Jin + Santana need **73** sacrificed codes (18 approved), touching 62 Japanese lines in `STG0AS.BIN` (198 with the `END.BIN` and `VICTORY.BIN` copies). The build stops and writes nothing; `--budget` reports.
+  - **Room:** 7,316 of 8,088 bytes; Santana's ending adds dead lines 778-800 and 1016 (SUPPORTED, as Jin's).
+  - **Determinism:** two builds of each set identical.
+  - **Checks:** `EXP-0029/force_check.py --boxes` (Jin scene 9: 8/8; Santana scene 4 on the original: 29/29 Japanese cells), naming state 4138. `EXP-0027/play_route.py` picks the pilot from a cold boot.
+  - **Option for the gate:** ranking sacrifices by the uses that stay Japanese would touch 184 lines instead of 198, but changes Jin's image.
 
 ### GATE-TRANSLATION extension for the second pilot
 

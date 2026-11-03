@@ -1340,3 +1340,34 @@ Conclusion: **CONFIRMED**, D-027. No new translations are needed for
 Santana.
 
 Next action: `RE-006`.
+
+## 2026-11-03 — EXP-0029: the compiler and checks for a set of pilots (RE-006)
+
+Action: generalized `tools/text/dialogue.py` (several `--pairing` files, one
+code pool, kept and dead lines from the scene scripts, `--max-sacrifice`,
+`--budget`, `--record-dir`, `--task`); added tests; added
+`EXP-0029/force_check.py` (any pilot, by the redirect). 12:07-12:10 forced
+runs.
+
+Result:
+- **Jin alone:** derived kept lines 57, 75 and dead lines 752-777, 897, 898,
+  953, EXP-0024's list. Image, files, prediction and record identical to
+  `re003_jin.json` (Track 01 `904402b6…3f01`).
+- **Jin + Santana:** 408 pairs; **73** sacrificed codes needed, 18 approved;
+  the build stopped with exit 1 and wrote nothing. Touched: 62 lines in
+  `STG0AS.BIN`, 198 with the other copies. Room 8,088 bytes for 7,316.
+- **Determinism:** two builds each, identical (pair at `--max-sacrifice 73`,
+  comparison only).
+- **Checks:** Jin scene 9 8/8 boxes; Santana scene 4 on the original 29/29
+  Japanese cells; both from state 4138, named in the output.
+- **Measured, not adopted:** ranking sacrifices by uses that stay Japanese
+  touches 184 lines instead of 198 but changes Jin's image.
+- Commands: `./invenv.sh ruff check tools/ tests/ research/experiments/`
+  (clean), `./invenv.sh mypy` on the changed files (clean), `./invenv.sh
+  pytest -q tests/unit` (161 passed).
+
+Conclusion: **CONFIRMED** for the tooling. Santana's ending lines are dead in
+`STG0AS.BIN` as Jin's are (SUPPORTED).
+
+Next action: the `GATE-TRANSLATION` extension for Santana: the user decides
+the 73-code budget (or an alternative) before `RE-007`.

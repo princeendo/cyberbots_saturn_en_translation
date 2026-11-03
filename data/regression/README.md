@@ -6,4 +6,4 @@ change to the tools that alters a hash needs a new reference and the reason
 
 | File | Build |
 | --- | --- |
-| `re003_jin.json` | Jin's story in English (`RE-003`, `EXP-0026`): the replacement files' and Track 01's SHA-256, the changed-sector count, the prediction and record hashes, and the checks that passed |
+| `re003_jin.json` | Jin's story in English (`RE-003`, `EXP-0026`): the replacement files' and Track 01's SHA-256, the changed-sector count, the prediction and record hashes, and the checks that passed. Reproduced unchanged by the multi-pilot compiler (`RE-006`, `EXP-0029`). |
