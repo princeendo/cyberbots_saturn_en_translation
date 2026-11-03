@@ -1,0 +1,52 @@
+# PAIR-001: cybotsu, REF-004 run 2's route (coin, start, two button presses).
+# Forced: when the script interpreter reads scene 0 at 0x11CE6, set D0 to 9 at 0x11CEA.
+1 logwrites 0xFF2F7A local/pair001/9/writes-slot.txt
+1 logreads 0x012150 0x0127FF local/pair001/9/reads-script.txt
+2 debug bpset 11cea,(d0&ff)==0,{d0=9;g}
+3 debug go
+600 press 8 Coin 1
+720 press 8 1 Player Start
+1020 press 8 P1 Button 1
+1320 press 8 P1 Button 1
+3200 snap
+3240 snap
+3280 snap
+3320 snap
+3360 snap
+3400 snap
+3440 snap
+3480 snap
+3520 snap
+3560 snap
+3600 snap
+3640 snap
+3680 snap
+3720 snap
+3760 snap
+3800 snap
+3840 snap
+3880 snap
+3920 snap
+3960 snap
+4000 snap
+4040 snap
+4080 snap
+4120 snap
+4160 snap
+4200 snap
+4240 snap
+4280 snap
+4320 snap
+4360 snap
+4400 snap
+4440 snap
+4480 snap
+4520 snap
+4560 snap
+4600 snap
+4640 snap
+4680 snap
+4720 snap
+4760 snap
+4800 snap
+4801 exit

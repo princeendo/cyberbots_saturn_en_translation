@@ -94,6 +94,12 @@ taps on the Japanese table, write log on the slot variable `0xFF2F7A`.
 - **Slot ranges.** Paired slots run up to 493; English slots 494-623 (130)
   have no Japanese record.
 
+**Corrected 2026-11-02 (`EXP-0023`).** `read_jp_record` stopped at the space
+code `0x0020`, which occurs inside 60 arcade records. Rerun with the fix (the
+same command): 897 of lines 0-898 pair (852 exact, 45 edited) in 488 slots,
+and the map has 590/596 codes. The figures below and above are the first
+run's.
+
 ## Conclusion
 
 **CONFIRMED:** the Saturn reuses the arcade Japanese script: 825 of its first

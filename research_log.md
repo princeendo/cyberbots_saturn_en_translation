@@ -1100,3 +1100,37 @@ Source hashes unchanged.
 Conclusion: **CONFIRMED**, D-021. `PAIR-001` is unblocked.
 
 Next action: `PAIR-001` or `LAYOUT-001` Phases A-B (the user's choice).
+
+## 2026-11-02 — EXP-0023: Jin's pairing; REF-006 reader corrected (PAIR-001)
+
+Goal: `PAIR-001`; pair each line of Jin's boxes with the arcade English by
+both games' own logic.
+
+Action: decoded the arcade's script table `0x12150` (the interpreter at
+`0x11CC6`, saved disassembly from EXP-0009) for pilot 0. Ran MAME
+`cybotsu`: one unforced run, and scenes 4, 9 and 15 forced at `0x11CEA`,
+with slot logs and snapshots. Generated the pairing table with
+`pair_jin.py`. 18:30-18:45, the user present.
+
+Result: the arcade's Jin scenes 21 and 0-15 equal the Saturn's box lists.
+Forced arcade scenes show slots 18, 33 and 59 in English, matching the
+Saturn's forced boxes.
+
+The first pairing run labelled 13 lines in 9 boxes "expanded". Checking that
+against the English record lengths exposed a REF-006 bug: `read_jp_record`
+stopped at the space code `0x0020`, which occurs 60 times inside arcade
+Japanese records. The bug is fixed, with a test, and REF-006 was rerun:
+- 897 of lines 0-898 now pair (852 exact, 45 edited), in 488 slots;
+- all 120 of Jin's lines align (115 exact, 5 edited);
+- there are no Saturn-only lines in Jin's story;
+- capacity rerun: 33, 298 and 488 of 488 slots fit (579 pairs).
+
+D-011 and D-020 carry dated corrections, and EXP-0010 and EXP-0021 have
+notes. SPECIAL-001's "74 Saturn-only lines" is replaced: only line 258 is
+Saturn-only, and line 34 is dead data. Source hashes unchanged.
+
+Conclusion: **CONFIRMED**, D-022. `GATE-TRANSLATION` is now `READY`; it waits
+on the user's GO.
+
+Next action: `GATE-TRANSLATION` (the user's GO for Jin's official English) or
+`LAYOUT-001` Phases A-B.

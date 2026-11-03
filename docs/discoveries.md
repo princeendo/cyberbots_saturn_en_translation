@@ -165,6 +165,14 @@ counterpart, and so no official English; they begin with VS-screen chapter
 captions (D-012). Pairs:
 `data/text/saturn_arcade_pairing.json`.
 
+**Corrected 2026-11-02 (`PAIR-001`, `EXP-0023`).** The record reader stopped
+at the space code `0x0020`, which occurs 60 times inside arcade Japanese
+records, so 60 records were cut short. With the fix, 897 of Saturn lines
+0-898 pair (852 identical, 45 edited), in 488 slots. The map learned 590 of
+596 codes, still with no conflicts. Only lines 34 (dead data, D-021) and 258
+are unpaired in 0-898. Lines 899-1850 still have no counterpart. The counts
+above are the first run's.
+
 Reproduce: `research/experiments/EXP-0010/README.md`, "Procedure".
 
 ## D-012: Where the Saturn shows Japanese in an ordinary run (`REF-005`, `EXP-0011`)
@@ -306,6 +314,9 @@ and the allocator has no bounds check. A box past 60 cells hangs the game
 Of the 450 paired arcade slots, 31 fit in full-width capitals as written and
 272 after re-wrapping to 16 cells. All 450 fit with two characters per cell,
 which needs 571 distinct pair glyphs.
+**Corrected 2026-11-02 (`EXP-0023`)** for the 488 paired slots of the
+revised D-011: 33 as written, 298 re-wrapped, and 488 with pairs (579
+distinct pairs).
 
 Reproduce: `research/experiments/EXP-0021/README.md`, "Procedure".
 
@@ -330,3 +341,25 @@ Writing the scene byte right after it is set shows any chosen scene: three
 forced scenes drew exactly their predicted cells.
 
 Reproduce: `research/experiments/EXP-0022/README.md`, "Procedure".
+
+## D-022: Jin's story pairs box for slot with the arcade English (`PAIR-001`, `EXP-0023`)
+
+The arcade's dialogue scripts (`0x12150`: per-pilot, then per-scene 16-bit
+offsets, read at `0x11CC6`) and the Saturn's (D-021) are the same bytecode.
+For Jin (pilot 0), the arcade's scenes 21 and 0-15 name exactly the Saturn's
+boxes, number for number, so each Saturn box N is shown where the arcade shows
+slot N. The arcade stores that slot (`0xFF2F7A`) and only then picks the
+language table, so slot N's English record is the official English for Saturn
+box N.
+
+In MAME (`cybotsu`), the unforced run shows scene 21 then scene 0 (slots 0-5),
+as on the Saturn. Scenes 4, 9 and 15, forced at `0x11CEA`, show slots 18, 33
+and 59 in English, the same first boxes that the Saturn shows when forced
+(EXP-0022), with the same portraits.
+
+All 63 of Jin's boxes (120 lines) have an English record. With REF-006's
+reader fixed (D-011, corrected), all 120 lines also align with their slot's
+Japanese: 115 identical and 5 edited. Jin's story has no Saturn-only line.
+Pairing: `data/translations/jin_pairing.json`.
+
+Reproduce: `research/experiments/EXP-0023/README.md`, "Procedure".

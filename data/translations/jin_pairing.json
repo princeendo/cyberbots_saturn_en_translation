@@ -1,0 +1,1567 @@
+{
+ "sources": {
+  "cybotsu_program_sha256": "18e8827dc742f4fef577aac8c06ae05dfb54ddad60a589238ac610f07b4152fd",
+  "cybotsj_program_sha256": "2d1e6b255184bd75a0b8b8af7b3fe25eed1f0086065c3bcc1f01d7e65806928e",
+  "jin_boxes": "data/text/jin_boxes.json",
+  "ref006": "data/text/saturn_arcade_pairing.json"
+ },
+ "arcade_jin_scenes": {
+  "0": [
+   2,
+   3,
+   4,
+   5
+  ],
+  "1": [
+   6,
+   7
+  ],
+  "2": [
+   8,
+   9,
+   10,
+   11
+  ],
+  "3": [
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "4": [
+   18,
+   19,
+   20
+  ],
+  "5": [
+   21,
+   22,
+   23
+  ],
+  "6": [
+   24,
+   25,
+   26
+  ],
+  "7": [
+   27,
+   28,
+   29
+  ],
+  "8": [
+   30,
+   31,
+   32
+  ],
+  "9": [
+   33,
+   34,
+   35,
+   36,
+   37,
+   38,
+   39,
+   40
+  ],
+  "10": [
+   41,
+   42,
+   43
+  ],
+  "11": [
+   44,
+   45,
+   46,
+   47,
+   48
+  ],
+  "12": [
+   49,
+   50,
+   51
+  ],
+  "13": [
+   52,
+   53,
+   54,
+   55
+  ],
+  "14": [
+   56,
+   57,
+   58
+  ],
+  "15": [
+   59,
+   60,
+   61,
+   62
+  ],
+  "16": [
+   408,
+   409,
+   493,
+   410,
+   411,
+   412
+  ],
+  "17": [
+   413
+  ],
+  "18": [
+   414,
+   415
+  ],
+  "19": [
+   614,
+   416,
+   417,
+   418,
+   610,
+   419,
+   420,
+   421,
+   422
+  ],
+  "20": [
+   550
+  ],
+  "21": [
+   0,
+   1
+  ]
+ },
+ "scenes_with_different_scripts": [],
+ "pairs": [
+  {
+   "scene": 21,
+   "box": 0,
+   "arcade_slot": 0,
+   "saturn_lines": [
+    0,
+    1
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B3D6A",
+   "arcade_japanese_line_lengths": [
+    16,
+    14
+   ],
+   "saturn_line_bytes": [
+    32,
+    28
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 21,
+   "box": 1,
+   "arcade_slot": 1,
+   "saturn_lines": [
+    2,
+    3
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B3DB6",
+   "arcade_japanese_line_lengths": [
+    15,
+    12
+   ],
+   "saturn_line_bytes": [
+    30,
+    24
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 0,
+   "box": 2,
+   "arcade_slot": 2,
+   "saturn_lines": [
+    4,
+    5
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B3E20",
+   "arcade_japanese_line_lengths": [
+    13,
+    12
+   ],
+   "saturn_line_bytes": [
+    26,
+    24
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 0,
+   "box": 3,
+   "arcade_slot": 3,
+   "saturn_lines": [
+    6,
+    7
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B3E7E",
+   "arcade_japanese_line_lengths": [
+    12,
+    13
+   ],
+   "saturn_line_bytes": [
+    24,
+    26
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 0,
+   "box": 4,
+   "arcade_slot": 4,
+   "saturn_lines": [
+    8,
+    9
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B3EAE",
+   "arcade_japanese_line_lengths": [
+    14,
+    8
+   ],
+   "saturn_line_bytes": [
+    28,
+    16
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 0,
+   "box": 5,
+   "arcade_slot": 5,
+   "saturn_lines": [
+    10
+   ],
+   "labels": [
+    "exact"
+   ],
+   "arcade_english_record": "0x0B3ED6",
+   "arcade_japanese_line_lengths": [
+    14
+   ],
+   "saturn_line_bytes": [
+    28
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 1,
+   "box": 6,
+   "arcade_slot": 6,
+   "saturn_lines": [
+    11,
+    12
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B3EF2",
+   "arcade_japanese_line_lengths": [
+    16,
+    16
+   ],
+   "saturn_line_bytes": [
+    32,
+    32
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 1,
+   "box": 7,
+   "arcade_slot": 7,
+   "saturn_lines": [
+    13,
+    14
+   ],
+   "labels": [
+    "edited",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B3F28",
+   "arcade_japanese_line_lengths": [
+    3
+   ],
+   "saturn_line_bytes": [
+    28,
+    14
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 2,
+   "box": 8,
+   "arcade_slot": 8,
+   "saturn_lines": [
+    15,
+    16
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B3F62",
+   "arcade_japanese_line_lengths": [
+    9,
+    15
+   ],
+   "saturn_line_bytes": [
+    18,
+    30
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 2,
+   "box": 9,
+   "arcade_slot": 9,
+   "saturn_lines": [
+    17,
+    18
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B3FAC",
+   "arcade_japanese_line_lengths": [
+    16,
+    13
+   ],
+   "saturn_line_bytes": [
+    32,
+    26
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 2,
+   "box": 10,
+   "arcade_slot": 10,
+   "saturn_lines": [
+    19,
+    20
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B3FE4",
+   "arcade_japanese_line_lengths": [
+    15,
+    12
+   ],
+   "saturn_line_bytes": [
+    30,
+    24
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 2,
+   "box": 11,
+   "arcade_slot": 11,
+   "saturn_lines": [
+    21,
+    22
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B402C",
+   "arcade_japanese_line_lengths": [
+    14,
+    13
+   ],
+   "saturn_line_bytes": [
+    28,
+    26
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 3,
+   "box": 12,
+   "arcade_slot": 12,
+   "saturn_lines": [
+    23
+   ],
+   "labels": [
+    "exact"
+   ],
+   "arcade_english_record": "0x0B4064",
+   "arcade_japanese_line_lengths": [
+    14
+   ],
+   "saturn_line_bytes": [
+    28
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 3,
+   "box": 13,
+   "arcade_slot": 13,
+   "saturn_lines": [
+    24,
+    25
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B40CA",
+   "arcade_japanese_line_lengths": [
+    15,
+    14
+   ],
+   "saturn_line_bytes": [
+    30,
+    28
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 3,
+   "box": 14,
+   "arcade_slot": 14,
+   "saturn_lines": [
+    26,
+    27
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B4130",
+   "arcade_japanese_line_lengths": [
+    16,
+    14
+   ],
+   "saturn_line_bytes": [
+    32,
+    28
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 3,
+   "box": 15,
+   "arcade_slot": 15,
+   "saturn_lines": [
+    28
+   ],
+   "labels": [
+    "exact"
+   ],
+   "arcade_english_record": "0x0B418A",
+   "arcade_japanese_line_lengths": [
+    12
+   ],
+   "saturn_line_bytes": [
+    24
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 3,
+   "box": 16,
+   "arcade_slot": 16,
+   "saturn_lines": [
+    29,
+    30
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B41A4",
+   "arcade_japanese_line_lengths": [
+    15,
+    12
+   ],
+   "saturn_line_bytes": [
+    30,
+    24
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 3,
+   "box": 17,
+   "arcade_slot": 17,
+   "saturn_lines": [
+    31,
+    32
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B4200",
+   "arcade_japanese_line_lengths": [
+    16,
+    12
+   ],
+   "saturn_line_bytes": [
+    32,
+    24
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 4,
+   "box": 18,
+   "arcade_slot": 18,
+   "saturn_lines": [
+    33
+   ],
+   "labels": [
+    "exact"
+   ],
+   "arcade_english_record": "0x0B4246",
+   "arcade_japanese_line_lengths": [
+    5
+   ],
+   "saturn_line_bytes": [
+    10
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 4,
+   "box": 19,
+   "arcade_slot": 19,
+   "saturn_lines": [
+    35,
+    36
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B4270",
+   "arcade_japanese_line_lengths": [
+    15,
+    14
+   ],
+   "saturn_line_bytes": [
+    30,
+    28
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 4,
+   "box": 20,
+   "arcade_slot": 20,
+   "saturn_lines": [
+    37,
+    38
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B42B0",
+   "arcade_japanese_line_lengths": [
+    15,
+    8
+   ],
+   "saturn_line_bytes": [
+    30,
+    16
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 5,
+   "box": 21,
+   "arcade_slot": 21,
+   "saturn_lines": [
+    39
+   ],
+   "labels": [
+    "exact"
+   ],
+   "arcade_english_record": "0x0B42FA",
+   "arcade_japanese_line_lengths": [
+    13
+   ],
+   "saturn_line_bytes": [
+    26
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 5,
+   "box": 22,
+   "arcade_slot": 22,
+   "saturn_lines": [
+    40,
+    41
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B4360",
+   "arcade_japanese_line_lengths": [
+    16,
+    12
+   ],
+   "saturn_line_bytes": [
+    32,
+    24
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 5,
+   "box": 23,
+   "arcade_slot": 23,
+   "saturn_lines": [
+    42,
+    43,
+    44
+   ],
+   "labels": [
+    "exact",
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B43A6",
+   "arcade_japanese_line_lengths": [
+    15,
+    15,
+    11
+   ],
+   "saturn_line_bytes": [
+    30,
+    30,
+    22
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 6,
+   "box": 24,
+   "arcade_slot": 24,
+   "saturn_lines": [
+    45,
+    46
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B4402",
+   "arcade_japanese_line_lengths": [
+    16,
+    12
+   ],
+   "saturn_line_bytes": [
+    32,
+    24
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 6,
+   "box": 25,
+   "arcade_slot": 25,
+   "saturn_lines": [
+    47
+   ],
+   "labels": [
+    "exact"
+   ],
+   "arcade_english_record": "0x0B4468",
+   "arcade_japanese_line_lengths": [
+    3
+   ],
+   "saturn_line_bytes": [
+    32
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 6,
+   "box": 26,
+   "arcade_slot": 26,
+   "saturn_lines": [
+    48,
+    49
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B44CE",
+   "arcade_japanese_line_lengths": [
+    15,
+    10
+   ],
+   "saturn_line_bytes": [
+    30,
+    20
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 7,
+   "box": 27,
+   "arcade_slot": 27,
+   "saturn_lines": [
+    50,
+    51
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B4500",
+   "arcade_japanese_line_lengths": [
+    13,
+    12
+   ],
+   "saturn_line_bytes": [
+    26,
+    24
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 7,
+   "box": 28,
+   "arcade_slot": 28,
+   "saturn_lines": [
+    52,
+    53
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B453E",
+   "arcade_japanese_line_lengths": [
+    16,
+    16
+   ],
+   "saturn_line_bytes": [
+    32,
+    32
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 7,
+   "box": 29,
+   "arcade_slot": 29,
+   "saturn_lines": [
+    54
+   ],
+   "labels": [
+    "exact"
+   ],
+   "arcade_english_record": "0x0B45A2",
+   "arcade_japanese_line_lengths": [
+    6
+   ],
+   "saturn_line_bytes": [
+    12
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 8,
+   "box": 30,
+   "arcade_slot": 30,
+   "saturn_lines": [
+    55,
+    56,
+    57
+   ],
+   "labels": [
+    "exact",
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B45BC",
+   "arcade_japanese_line_lengths": [
+    3,
+    15,
+    8
+   ],
+   "saturn_line_bytes": [
+    6,
+    30,
+    16
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 8,
+   "box": 31,
+   "arcade_slot": 31,
+   "saturn_lines": [
+    58,
+    59
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B45EA",
+   "arcade_japanese_line_lengths": [
+    11,
+    12
+   ],
+   "saturn_line_bytes": [
+    22,
+    24
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 8,
+   "box": 32,
+   "arcade_slot": 32,
+   "saturn_lines": [
+    60,
+    61
+   ],
+   "labels": [
+    "edited",
+    "edited"
+   ],
+   "arcade_english_record": "0x0B4612",
+   "arcade_japanese_line_lengths": [
+    6
+   ],
+   "saturn_line_bytes": [
+    28,
+    14
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 9,
+   "box": 33,
+   "arcade_slot": 33,
+   "saturn_lines": [
+    62,
+    63
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B465C",
+   "arcade_japanese_line_lengths": [
+    14,
+    6
+   ],
+   "saturn_line_bytes": [
+    28,
+    12
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 9,
+   "box": 34,
+   "arcade_slot": 34,
+   "saturn_lines": [
+    64,
+    65,
+    66
+   ],
+   "labels": [
+    "exact",
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B46A0",
+   "arcade_japanese_line_lengths": [
+    15,
+    13,
+    12
+   ],
+   "saturn_line_bytes": [
+    30,
+    26,
+    24
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 9,
+   "box": 35,
+   "arcade_slot": 35,
+   "saturn_lines": [
+    67,
+    68
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B470A",
+   "arcade_japanese_line_lengths": [
+    12,
+    16
+   ],
+   "saturn_line_bytes": [
+    24,
+    32
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 9,
+   "box": 36,
+   "arcade_slot": 36,
+   "saturn_lines": [
+    69,
+    70
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B4768",
+   "arcade_japanese_line_lengths": [
+    14,
+    4
+   ],
+   "saturn_line_bytes": [
+    28,
+    26
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 9,
+   "box": 37,
+   "arcade_slot": 37,
+   "saturn_lines": [
+    71,
+    72,
+    73
+   ],
+   "labels": [
+    "exact",
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B47AA",
+   "arcade_japanese_line_lengths": [
+    10,
+    12,
+    16
+   ],
+   "saturn_line_bytes": [
+    20,
+    24,
+    32
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 9,
+   "box": 38,
+   "arcade_slot": 38,
+   "saturn_lines": [
+    74,
+    75,
+    76
+   ],
+   "labels": [
+    "exact",
+    "edited",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B47EA",
+   "arcade_japanese_line_lengths": [
+    12,
+    5
+   ],
+   "saturn_line_bytes": [
+    24,
+    26,
+    30
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 9,
+   "box": 39,
+   "arcade_slot": 39,
+   "saturn_lines": [
+    77
+   ],
+   "labels": [
+    "exact"
+   ],
+   "arcade_english_record": "0x0B4826",
+   "arcade_japanese_line_lengths": [
+    9
+   ],
+   "saturn_line_bytes": [
+    18
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 9,
+   "box": 40,
+   "arcade_slot": 40,
+   "saturn_lines": [
+    78,
+    79
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B483E",
+   "arcade_japanese_line_lengths": [
+    15,
+    6
+   ],
+   "saturn_line_bytes": [
+    30,
+    12
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 10,
+   "box": 41,
+   "arcade_slot": 41,
+   "saturn_lines": [
+    80,
+    81
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B488E",
+   "arcade_japanese_line_lengths": [
+    11,
+    15
+   ],
+   "saturn_line_bytes": [
+    22,
+    30
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 10,
+   "box": 42,
+   "arcade_slot": 42,
+   "saturn_lines": [
+    82
+   ],
+   "labels": [
+    "exact"
+   ],
+   "arcade_english_record": "0x0B48C2",
+   "arcade_japanese_line_lengths": [
+    3
+   ],
+   "saturn_line_bytes": [
+    30
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 10,
+   "box": 43,
+   "arcade_slot": 43,
+   "saturn_lines": [
+    83,
+    84,
+    85
+   ],
+   "labels": [
+    "exact",
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B48E0",
+   "arcade_japanese_line_lengths": [
+    16,
+    10,
+    12
+   ],
+   "saturn_line_bytes": [
+    32,
+    20,
+    24
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 11,
+   "box": 44,
+   "arcade_slot": 44,
+   "saturn_lines": [
+    86,
+    87
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B4922",
+   "arcade_japanese_line_lengths": [
+    16,
+    6
+   ],
+   "saturn_line_bytes": [
+    32,
+    12
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 11,
+   "box": 45,
+   "arcade_slot": 45,
+   "saturn_lines": [
+    88,
+    89
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B497E",
+   "arcade_japanese_line_lengths": [
+    14,
+    12
+   ],
+   "saturn_line_bytes": [
+    28,
+    24
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 11,
+   "box": 46,
+   "arcade_slot": 46,
+   "saturn_lines": [
+    90
+   ],
+   "labels": [
+    "exact"
+   ],
+   "arcade_english_record": "0x0B49DE",
+   "arcade_japanese_line_lengths": [
+    14
+   ],
+   "saturn_line_bytes": [
+    28
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 11,
+   "box": 47,
+   "arcade_slot": 47,
+   "saturn_lines": [
+    91,
+    92
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B4A0C",
+   "arcade_japanese_line_lengths": [
+    9,
+    10
+   ],
+   "saturn_line_bytes": [
+    18,
+    20
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 11,
+   "box": 48,
+   "arcade_slot": 48,
+   "saturn_lines": [
+    93,
+    94
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B4A1C",
+   "arcade_japanese_line_lengths": [
+    15,
+    13
+   ],
+   "saturn_line_bytes": [
+    30,
+    26
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 12,
+   "box": 49,
+   "arcade_slot": 49,
+   "saturn_lines": [
+    95,
+    96
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B4A40",
+   "arcade_japanese_line_lengths": [
+    11,
+    14
+   ],
+   "saturn_line_bytes": [
+    22,
+    28
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 12,
+   "box": 50,
+   "arcade_slot": 50,
+   "saturn_lines": [
+    97,
+    98
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B4A84",
+   "arcade_japanese_line_lengths": [
+    8,
+    9
+   ],
+   "saturn_line_bytes": [
+    16,
+    18
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 12,
+   "box": 51,
+   "arcade_slot": 51,
+   "saturn_lines": [
+    99,
+    100
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B4AA0",
+   "arcade_japanese_line_lengths": [
+    16,
+    13
+   ],
+   "saturn_line_bytes": [
+    32,
+    26
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 13,
+   "box": 52,
+   "arcade_slot": 52,
+   "saturn_lines": [
+    101
+   ],
+   "labels": [
+    "exact"
+   ],
+   "arcade_english_record": "0x0B4ADE",
+   "arcade_japanese_line_lengths": [
+    14
+   ],
+   "saturn_line_bytes": [
+    28
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 13,
+   "box": 53,
+   "arcade_slot": 53,
+   "saturn_lines": [
+    102,
+    103
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B4B0C",
+   "arcade_japanese_line_lengths": [
+    10,
+    14
+   ],
+   "saturn_line_bytes": [
+    20,
+    28
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 13,
+   "box": 54,
+   "arcade_slot": 54,
+   "saturn_lines": [
+    104,
+    105
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B4B72",
+   "arcade_japanese_line_lengths": [
+    16,
+    7
+   ],
+   "saturn_line_bytes": [
+    32,
+    14
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 13,
+   "box": 55,
+   "arcade_slot": 55,
+   "saturn_lines": [
+    106,
+    107
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B4BD8",
+   "arcade_japanese_line_lengths": [
+    6
+   ],
+   "saturn_line_bytes": [
+    32,
+    16
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 14,
+   "box": 56,
+   "arcade_slot": 56,
+   "saturn_lines": [
+    108,
+    109
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B4C30",
+   "arcade_japanese_line_lengths": [
+    13,
+    11
+   ],
+   "saturn_line_bytes": [
+    26,
+    22
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 14,
+   "box": 57,
+   "arcade_slot": 57,
+   "saturn_lines": [
+    110,
+    111,
+    112
+   ],
+   "labels": [
+    "exact",
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B4C64",
+   "arcade_japanese_line_lengths": [
+    15,
+    4
+   ],
+   "saturn_line_bytes": [
+    30,
+    32,
+    12
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 14,
+   "box": 58,
+   "arcade_slot": 58,
+   "saturn_lines": [
+    113,
+    114
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B4CB4",
+   "arcade_japanese_line_lengths": [
+    15,
+    14
+   ],
+   "saturn_line_bytes": [
+    30,
+    28
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 15,
+   "box": 59,
+   "arcade_slot": 59,
+   "saturn_lines": [
+    115
+   ],
+   "labels": [
+    "exact"
+   ],
+   "arcade_english_record": "0x0B4CF8",
+   "arcade_japanese_line_lengths": [
+    14
+   ],
+   "saturn_line_bytes": [
+    28
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 15,
+   "box": 60,
+   "arcade_slot": 60,
+   "saturn_lines": [
+    116,
+    117
+   ],
+   "labels": [
+    "exact",
+    "exact"
+   ],
+   "arcade_english_record": "0x0B4D22",
+   "arcade_japanese_line_lengths": [
+    15,
+    8
+   ],
+   "saturn_line_bytes": [
+    30,
+    16
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 15,
+   "box": 61,
+   "arcade_slot": 61,
+   "saturn_lines": [
+    118
+   ],
+   "labels": [
+    "exact"
+   ],
+   "arcade_english_record": "0x0B4D82",
+   "arcade_japanese_line_lengths": [
+    1
+   ],
+   "saturn_line_bytes": [
+    26
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  },
+  {
+   "scene": 15,
+   "box": 62,
+   "arcade_slot": 62,
+   "saturn_lines": [
+    119,
+    120
+   ],
+   "labels": [
+    "exact",
+    "edited"
+   ],
+   "arcade_english_record": "0x0B4D9E",
+   "arcade_japanese_line_lengths": [
+    15,
+    15
+   ],
+   "saturn_line_bytes": [
+    30,
+    30
+   ],
+   "evidence": "same scene script in both games (EXP-0023)"
+  }
+ ],
+ "counts": {
+  "boxes": 63,
+  "lines": 120,
+  "exact": 115,
+  "edited": 5,
+  "expanded": 0,
+  "boxes_with_expanded_lines": 0
+ }
+}

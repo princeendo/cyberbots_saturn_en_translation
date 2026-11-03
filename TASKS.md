@@ -109,8 +109,9 @@ names it for its method only.
   `KANJI.BIN`, 1,280 16×16 4 bpp glyphs (byte-identical repack), selected
   through a 1,222-code table in `STG0AS.BIN`; it has full-width A-Z and 0-9.
 - **2026-11-02: no native English path; box capacity measured** (`FONT-002`,
-  `EXP-0021`, D-020): 4 rows × 16 cells, 60 glyph cells per box; 31, 272 or
-  450 of the 450 paired slots fit, depending on the route. All M2 tasks are
+  `EXP-0021`, D-020): 4 rows × 16 cells, 60 glyph cells per box; 33, 298 or
+  488 of the 488 paired slots fit, depending on the route (revised in
+  `EXP-0023`). All M2 tasks are
   done.
 - **2026-11-02: M3 tasks written up** (Phase H): `RE-002` and
   `LAYOUT-001` Phases A-B are `READY`. `PAIR-001`, `GATE-TRANSLATION` and
@@ -119,6 +120,12 @@ names it for its method only.
   D-021): 17 story scenes, boxes 0-62, Saturn lines 0-120, from
   `STG0AS.BIN`; any scene can be forced from state 5208. Next: `PAIR-001`
   (now unblocked) or `LAYOUT-001` Phases A-B.
+- **2026-11-02: Jin's boxes paired with the arcade English** (`PAIR-001`,
+  `EXP-0023`, D-022): both games run the same scene scripts, so box N is
+  slot N. All 120 lines have official English, and none is Saturn-only.
+  REF-006's reader was fixed: 897 of lines 0-898 now pair (D-011,
+  corrected). Next: `GATE-TRANSLATION` (the user's GO) or `LAYOUT-001`
+  Phases A-B.
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -134,7 +141,8 @@ names it for its method only.
   per-character sprites), D-016 (M1: the box changed in live RAM), D-017
   (the M1 text's disc file), D-018 (M2: the change from a rebuilt image), D-019
   (the dialogue font and its code table), D-020 (no native English path;
-  box capacity), D-021 (box selection; Jin's scenes). The font's
+  box capacity), D-021 (box selection; Jin's scenes),
+  D-022 (Jin's pairing). The font's
   layout is not confirmed.
 
 ## Milestones
@@ -646,7 +654,7 @@ English text goes on disc in M2; the test string is the M1 hiragana.
     - `0x0A` is not a break while typing;
     - a 5-entry record shows 4 rows in the box.
   - **Cell limit:** 60 cells reserved per box (`0x0601118E`), with no check; past it the game hangs (SUPPORTED).
-  - **Capacity:** of 450 paired slots, 31 fit as written in capitals, 272 re-wrapped, and 450 with pair glyphs (571 distinct pairs). The font has 58 free glyphs and the table 26 free slots.
+  - **Capacity:** of 450 paired slots, 31 fit as written in capitals, 272 re-wrapped, and 450 with pair glyphs (571 distinct pairs). Revised in `EXP-0023` for 488 slots: 33, 298 and 488 (579 pairs). The font has 58 free glyphs and the table 26 free slots.
 
 ## Phase H: M3 (Jin's Story Dialogue)
 
@@ -702,10 +710,10 @@ new-translation policy.
 - **Dependencies:** FONT-001, FONT-002, DISC-002 (done).
 - **Blockers:** None for Phases A-B.
 - **Objective:** Measure each way of fitting English in the box, put the routes to the user as a decision, and prove the chosen route on a rebuilt image.
-- **Why:** The box holds 4 rows of 16 full-width cells and at most 60 glyph cells (D-020). The font has full-width capitals but no lower case, comma or apostrophe. Of the 450 paired arcade slots, 31 fit in capitals as written, 272 after re-wrapping, and all 450 with two characters per cell.
+- **Why:** The box holds 4 rows of 16 full-width cells and at most 60 glyph cells (D-020). The font has full-width capitals but no lower case, comma or apostrophe. Of the 488 paired arcade slots, 33 fit in capitals as written, 298 after re-wrapping, and all 488 with two characters per cell (revised in `EXP-0023`).
 - **Candidate routes** (each a HYPOTHESIS until tested):
   - **(a) Full-width capitals, re-wrapped:** the existing font, plus a comma and an apostrophe. Up to 4 rows per box, which needs more record entries, so records must be relocated.
-  - **(b) Pair glyphs:** two characters per 16×16 cell, mixed case, as the font's `Dr` already does. It needs new glyphs and table codes (571 for the paired roster). They come from free slots, or from kanji and kana that the remaining Japanese text does not use.
+  - **(b) Pair glyphs:** two characters per 16×16 cell, mixed case, as the font's `Dr` already does. It needs new glyphs and table codes (579 for the paired roster, `EXP-0023`). They come from free slots, or from kanji and kana that the remaining Japanese text does not use.
   - **(c) Narrower drawing:** a code patch to the typing routine, for example half-width cells at an 8-pixel advance. It needs new glyph data, a change to the cell layout, and room for more sprites.
   - **(d) More cells per box:** a code patch raising the 60-cell reservation (`0x0601118E`). It needs proven free RAM below `0x060FE200` and room in VDP1 VRAM after `0x20000`. It can combine with (a)-(c).
 - **Acceptance criteria:**
@@ -725,7 +733,7 @@ new-translation policy.
 
 ### PAIR-001 - Pair Jin's boxes with the arcade English by the games' own logic
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** M3
 - **Dependencies:** REF-003, REF-004, REF-006, RE-002 (done).
 - **Blockers:** None.
@@ -741,13 +749,19 @@ new-translation policy.
   - This reads English but writes none to disc, so it runs before the gate.
   - The arcade English slot can have up to 4 lines for a Saturn box of 2 (D-009). The pairing is per box, and the line split is `LAYOUT-001`'s.
   - The arcade's English and Japanese share slot numbers in the first scene (D-011). A second scene's check is in `docs/known_unknowns.md`.
+- **Evidence:** `EXP-0023`, D-022, `data/translations/jin_pairing.json`; 2026-11-02.
+  - **Arcade scenes:** the script table `0x12150` (read at `0x11CC6`) holds the same bytecode as the Saturn's. Jin's arcade scenes 21 and 0-15 name the Saturn's boxes number for number, so box N is slot N. The slot is stored at `0xFF2F7A` before the language table is chosen.
+  - **On screen:** in MAME (`cybotsu`) the unforced run shows scenes 21 then 0 (slots 0-5); scenes 4, 9 and 15 forced at `0x11CEA` show slots 18, 33 and 59 in English. These are the Saturn's forced first boxes (EXP-0022), with the same portraits.
+  - **Pairing table:** 63 boxes and 120 lines, each with an English record; 115 lines exact and 5 edited against the slot's Japanese.
+  - **Saturn-only lines:** none in Jin's story.
+  - **Correction:** REF-006's reader stopped at the space code `0x0020`. Fixed in `tools/text/arcade_pairing.py`, with a test, and rerun: 897 of lines 0-898 pair, in 488 slots (D-011, corrected). The 13 lines that first looked "expanded" were this bug.
 
 ### GATE-TRANSLATION - Confirm reference and translation prerequisites
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M3
-- **Dependencies:** DOC-002, REF-001, REF-003 to REF-007 (done; REF-002 rejected), PAIR-001.
-- **Blockers:** PAIR-001 not done.
+- **Dependencies:** DOC-002, REF-001, REF-003 to REF-007 (done; REF-002 rejected), PAIR-001 (done).
+- **Blockers:** The user's GO.
 - **Objective:** No English text goes on disc before the oracle, the pairing method and the user's policy are settled.
 - **Acceptance criteria:**
   - Every dependency is `DONE`.
@@ -806,5 +820,5 @@ and `docs/lessons_from_xvsf.md`.
 | TXT-002 | after M8, user request | Rare, random, or region-gated text: trace every reader of every text table. |
 | LOC-001 | after REF-007 | Name art only (D-013): find the pilot-select and VS-screen name sprites' table (VS draw code, `SELECT.VAD`), check whether Latin name art is on the disc, otherwise model it on the US arcade's; census the difference between the two variants early (XvSF: 243 bytes; MSHvSF: 58 KB of font). Voices: check whether names are spoken. |
 | OPT-001 | after LOC-001, user decision 2026-11-02 | An Options-screen switch for the name art, Latin by default, in an expanded Options screen if needed. Model: MSHvSF `OPT-003` (a proven home for new code), `OPT-004` (EXTRA OPTIONS sub-menu), `OPT-005` (names switch); XvSF `LOC-009`/`LOC-010`. Prove free RAM by read/write logs before placing code (XvSF's first toggle hung the title). |
-| SPECIAL-001 | M9, user approval | Boss and hidden pilots, alternate routes, unlocks. Secondary sources (`docs/references.md`) say the console ports add four pilots (Chiyomaru Kagura, Tessan Hagure, Princess Devilotte, SHADE) with no arcade English, and an Akuma-mech code; their lines need recorded new translations under the user's policy. Size: Saturn lines 899-1850 (952 lines, about half the script) have no arcade counterpart (D-011), plus 74 shorter Saturn-only lines among the arcade pilots' stories. |
+| SPECIAL-001 | M9, user approval | Boss and hidden pilots, alternate routes, unlocks. Secondary sources (`docs/references.md`) say the console ports add four pilots (Chiyomaru Kagura, Tessan Hagure, Princess Devilotte, SHADE) with no arcade English, and an Akuma-mech code; their lines need recorded new translations under the user's policy. Size: Saturn lines 899-1850 (952 lines, about half the script) have no arcade counterpart (D-011). Among the arcade pilots' stories only line 258 is Saturn-only (line 34 is dead data); the earlier count of 74 came from REF-006's reader bug (`EXP-0023`). |
 | REL-001 | after M5 | Copy XvSF `make_patch`/`make_ssp` (with the RetroAchievements header guard) and parameterize the source folder, manifest and author; xdelta and SSP; release zips via promoted `make_zips`/`check_zips`. Patches are Release assets only, never committed. |

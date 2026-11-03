@@ -46,18 +46,23 @@ from tools.reference.mame_audit import parse_driver
 from tools.text.script_census import find_blocks, units
 
 LINE_BREAK = 0xFFFF
+SPACE = 0x0020  # the only code below 0x0100 inside records (EXP-0023)
 Line = tuple[bytes, ...]
 CodeLine = tuple[int, ...]
 
 
 def read_jp_record(image: bytes, address: int) -> list[CodeLine]:
-    """The lines of one 16-bit record: codes after the 8-byte header."""
+    """The lines of one 16-bit record: codes after the 8-byte header.
+
+    A word below ``0x0100`` ends the record, except ``0x0020``, a space
+    (EXP-0023: REF-006 first stopped there and cut 60 records short).
+    """
     lines: list[CodeLine] = []
     current: list[int] = []
     offset = address + 8
     while True:
         code = int.from_bytes(image[offset : offset + 2], "big")
-        if code >> 8 == 0:
+        if code >> 8 == 0 and code != SPACE:
             break
         if code == LINE_BREAK:
             lines.append(tuple(current))

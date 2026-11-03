@@ -186,6 +186,10 @@ The box reserves 60 glyph cells with no bounds check, and exceeding them hangs
 the game (SUPPORTED). Two characters per cell fits every paired arcade record;
 single full-width capitals fit 272 after re-wrapping.
 
+**Revised 2026-11-02 (`EXP-0023`).** With REF-006's reader fixed, there
+are 488 paired slots, not 450. `capacity.py` now prints 33 as written, 298
+re-wrapped, 488 with pairs, and 579 distinct pairs.
+
 ## Uncertainty and Alternatives
 
 - The `rows` test overwrote the next record's header, so its later behaviour

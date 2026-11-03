@@ -29,6 +29,11 @@ def test_read_jp_record_splits_lines_and_stops() -> None:
     assert read_jp_record(body, 0) == [(0x1001, 0x1002), (0x1003,)]
 
 
+def test_read_jp_record_keeps_spaces() -> None:
+    body = bytes(8) + b"\x10\x01\x00\x20\x10\x02\x00\x00"
+    assert read_jp_record(body, 0) == [(0x1001, 0x0020, 0x1002)]
+
+
 def test_learn_map_from_scripts() -> None:
     arcade = [codes(t) for t in ["あいう", "いうえお", "おかき", "くけこ"]]
     mapping, conflicts = learn_map(arcade, SATURN)
