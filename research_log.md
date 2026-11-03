@@ -1321,3 +1321,22 @@ Failed attempts:
 Source hashes unchanged.
 
 Conclusion: **CONFIRMED**, D-026. `PAIR-002` and `RE-006` are `READY`.
+
+## 2026-11-03 — EXP-0028: Santana's pairing (PAIR-002)
+
+Action: generalized the pairing script (`pair_pilot.py`; it reproduces
+Jin's), paired Santana's boxes, examined the exception, and forced three of
+his scenes in MAME with the pilot set to 1. 11:20-11:30.
+
+Result:
+- **Scripts:** the same in both games for all 20 story scenes.
+- **Lines:** 114 exact and 3 edited of 117; all 64 boxes have English.
+- **Exception:** box 64's lines aligned to slot 63, and slots 63 and 64 share
+  one record. The script now recognizes shared records.
+- **MAME:** scenes 4, 9 and 24 played slots 81-84, 99-105 and 87-88, with
+  Santana's English on screen.
+
+Conclusion: **CONFIRMED**, D-027. No new translations are needed for
+Santana.
+
+Next action: `RE-006`.

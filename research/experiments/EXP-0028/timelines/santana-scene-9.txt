@@ -1,0 +1,81 @@
+# PAIR-002: cybotsu; the script interpreter's pilot byte forced to 1 (Santana) at 0x11CDA, and scene 0 forced to 9 at 0x11CEA.
+1 logwrites 0xFF2F7A local/pair002/9/writes-slot.txt
+2 debug bpset 11cda,1,{d0=1;g}
+2 debug bpset 11cea,(d0&ff)==0,{d0=9;g}
+3 debug go
+600 press 8 Coin 1
+720 press 8 1 Player Start
+1020 press 8 P1 Button 1
+1320 press 8 P1 Button 1
+2700 snap
+2730 snap
+2760 snap
+2790 snap
+2820 snap
+2850 snap
+2880 snap
+2910 snap
+2940 snap
+2970 snap
+3000 snap
+3030 snap
+3060 snap
+3090 snap
+3120 snap
+3150 snap
+3180 snap
+3210 snap
+3240 snap
+3270 snap
+3300 snap
+3330 snap
+3360 snap
+3390 snap
+3420 snap
+3450 snap
+3480 snap
+3510 snap
+3540 snap
+3570 snap
+3600 snap
+3630 snap
+3660 snap
+3690 snap
+3720 snap
+3750 snap
+3780 snap
+3810 snap
+3840 snap
+3870 snap
+3900 snap
+3930 snap
+3960 snap
+3990 snap
+4020 snap
+4050 snap
+4080 snap
+4110 snap
+4140 snap
+4170 snap
+4200 snap
+4230 snap
+4260 snap
+4290 snap
+4320 snap
+4350 snap
+4380 snap
+4410 snap
+4440 snap
+4470 snap
+4500 snap
+4530 snap
+4560 snap
+4590 snap
+4620 snap
+4650 snap
+4680 snap
+4710 snap
+4740 snap
+4770 snap
+4800 snap
+4801 exit

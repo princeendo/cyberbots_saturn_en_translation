@@ -439,3 +439,18 @@ table: Jin 0, Santana 9, Mary 18. A cold boot with Santana posted 23, 0, 1,
 64-127, lines 121-237), and his ending is 16-22.
 
 Reproduce: `research/experiments/EXP-0027/README.md`, "Procedure".
+
+## D-027: Santana's story pairs box for slot too; slots can share a record (`PAIR-002`, `EXP-0028`)
+
+Santana's 20 story scenes run the same scene scripts in both games, so each
+of his 64 Saturn boxes N pairs with arcade slot N. All have an English record,
+and all 117 lines align with their slot's Japanese (114 exact, 3 edited).
+
+Forced in MAME (the interpreter's pilot set to 1 at `0x11CDA` and the scene at
+`0x11CEA`), scenes 4, 9 and 24 play slots 81-84, 99-105 and 87-88: the
+Saturn's boxes for those scenes.
+
+Slots can share a record. Arcade slots 63 and 64 point to one record in both
+languages, and Saturn boxes 63 and 64 to one record; box 63 is in no scene.
+
+Reproduce: `research/experiments/EXP-0028/README.md`, "Procedure".
