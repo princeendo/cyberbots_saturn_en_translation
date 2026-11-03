@@ -423,3 +423,19 @@ x position at `+0x14`, vitality in bar units (152 full) at `+0x44`. A fight ends
 only on a hit or at time-out.
 
 Reproduce: `research/experiments/EXP-0026/README.md`, "Procedure".
+
+## D-026: The pilot lists are the arcade's pilots; per-pilot stage groups (`RE-004`, `EXP-0027`)
+
+Saturn per-pilot scene lists 0-5 (`0x060AAD24`) are the arcade's pilots 0-5,
+with identical scene scripts outside the endings: Jin, Santana, Mary, Arieta,
+Gawaine, and Bao and Mao. Lists 6-8 match no arcade pilot (the Saturn's own
+pilots). On the pilot select screen Jin is first, Mary is one move right and
+Santana two.
+
+Each pilot's story is one block of constant scene posts in `STG0AS.BIN`, and
+the stage byte `0x060CFF88` starts at that pilot's group of the shared stage
+table: Jin 0, Santana 9, Mary 18. A cold boot with Santana posted 23, 0, 1,
+2, 3 and 4, block 1's order. His story is scenes 0-15 and 23-26 (boxes
+64-127, lines 121-237), and his ending is 16-22.
+
+Reproduce: `research/experiments/EXP-0027/README.md`, "Procedure".

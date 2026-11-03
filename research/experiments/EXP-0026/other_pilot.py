@@ -2,7 +2,8 @@
 
 Run from the repository root:
 
-    ./invenv.sh python research/experiments/EXP-0026/other_pilot.py CUE OUT PILOT SCENE
+    ./invenv.sh python research/experiments/EXP-0026/other_pilot.py \\
+        CUE OUT PILOT SCENE [STEPS]
 
 A debug harness; it never ships. It loads REF-005 state 4138 (machine select,
 before `STG0AS.BIN` loads) with ``CUE`` mounted, in the scratch home
@@ -10,8 +11,8 @@ before `STG0AS.BIN` loads) with ``CUE`` mounted, in the scratch home
 is not posted until about frame 600 after the load), it points pilot 0's
 entry in the per-pilot scene-list table (``0x060AAD24``, D-021) at
 ``PILOT``'s list. It forces the next scene to ``SCENE`` as
-``force_check.py`` does, then runs 150 x 25 frames, saving a screenshot and
-the 60 glyph cells (WRAM-H ``0x060FE200``) after each step.
+``force_check.py`` does, then runs STEPS (default 150) x 25 frames, saving a
+screenshot and the 60 glyph cells (WRAM-H ``0x060FE200``) after each step.
 """
 
 from __future__ import annotations
@@ -34,7 +35,7 @@ PILOT_LISTS = 0x060AAD24
 SCENE_BYTE = 0x0600828B
 
 
-def main(cue: Path, out: Path, pilot: int, scene: int) -> int:
+def main(cue: Path, out: Path, pilot: int, scene: int, steps: int = 150) -> int:
     out.mkdir(parents=True, exist_ok=False)
     configure()
     agent_dir = (out / "agent").resolve()
@@ -70,7 +71,7 @@ def main(cue: Path, out: Path, pilot: int, scene: int) -> int:
             agent.breakpoints("write", ["0600828B-0600828B", "2600828B-2600828B"])
             agent.onhit_write(None, SCENE_BYTE, bytes([scene]))
             agent.run()
-            for step in range(1, 151):
+            for step in range(1, steps + 1):
                 agent.frames(25)
                 agent.wait_halted(30.0)
                 agent.screenshot(out / f"step{step:03d}.png")
@@ -88,4 +89,5 @@ def main(cue: Path, out: Path, pilot: int, scene: int) -> int:
 
 if __name__ == "__main__":
     a = sys.argv[1:]
-    raise SystemExit(main(Path(a[0]), Path(a[1]), int(a[2]), int(a[3])))
+    steps = int(a[4]) if len(a) > 4 else 150
+    raise SystemExit(main(Path(a[0]), Path(a[1]), int(a[2]), int(a[3]), steps))

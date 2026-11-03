@@ -141,7 +141,11 @@ names it for its method only.
   pilots' Japanese unchanged except 16 recorded lines.
 - **2026-11-02: M4 tasks written up** (Phase I): `RE-004` (choose the second
   pilot with the user; list the boxes) is `READY`; `PAIR-002`, `RE-006`, the
-  gate extension and `RE-007` follow. Next: `RE-004`.
+  gate extension and `RE-007` follow.
+- **2026-11-03: second pilot chosen: Santana** (`RE-004`, `EXP-0027`, D-026):
+  the user's words: "Santana (Recommended)". His story is 20 scenes, boxes
+  64-127; two moves right on the pilot select screen; forcing works. Next:
+  `PAIR-002` and `RE-006` (both `READY`).
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -160,7 +164,7 @@ names it for its method only.
   box capacity), D-021 (box selection; Jin's scenes),
   D-022 (Jin's pairing), D-023 (font codes in
   use, font users, record size, free RAM), D-024 (pair glyphs work), D-025 (M3: Jin's story in
-  English; fighter vitality). The font's
+  English; fighter vitality), D-026 (pilot lists; stage groups). The font's
   layout is not confirmed.
 
 ## Milestones
@@ -863,7 +867,7 @@ roster stay out of scope (rules 23 and 24; `RE-005` is M5).
 
 ### RE-004 - Choose the second pilot and list their boxes
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** M4
 - **Dependencies:** RE-002, RE-003 (done).
 - **Blockers:** None.
@@ -894,13 +898,19 @@ roster stay out of scope (rules 23 and 24; `RE-005` is M5).
 
     Lists 4 and 5 include lines 57 and 75: Jin's lines that `RE-003` kept, because boxes 315 and 388 share them.
   - The stage code posts scenes in blocks of about 17. In `STG0AS.BIN`, Jin's block holds stage groups 0-8. Whether the other blocks are other pilots' or other routes is open (`EXP-0022`), and this task settles it for the chosen pilot.
+- **Evidence:** `EXP-0027`, D-026, `data/text/santana_boxes.json`; 2026-11-03.
+  - **Names:** lists 0-5 are Jin, Santana, Mary, Arieta, Gawaine, and Bao and Mao, from scene scripts identical to the arcade's pilots 0-5 and from forced scene-0 dialogue. Lists 6-8 are Saturn-only.
+  - **Decision:** the user answered "Santana (Recommended)" (verbatim, recorded).
+  - **Route:** Santana is two moves right of Jin. A cold boot posted block 1's scenes in order, starting at stage group 9.
+  - **Story:** 20 scenes (0-15, 23-26), boxes 64-127, lines 121-237. His ending is 16-22.
+  - **Forcing:** his scenes 4, 9 and 24 drew their first boxes exactly (29, 29, 30 cells).
 
 ### PAIR-002 - Pair the second pilot's boxes with the arcade English
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M4
 - **Dependencies:** RE-004, PAIR-001 (done).
-- **Blockers:** RE-004 not done.
+- **Blockers:** None.
 - **Objective:** Pair each line of the chosen pilot's story boxes with the arcade English the arcade shows in the same scene, or show from the arcade code that none exists, as `PAIR-001` did for Jin.
 - **Acceptance criteria:**
   - **Scripts:** the arcade's scripts for that pilot (`0x12150`) are compared scene by scene with the Saturn's, and any scene whose scripts differ is listed.
@@ -911,10 +921,10 @@ roster stay out of scope (rules 23 and 24; `RE-005` is M5).
 
 ### RE-006 - Let the compiler and checks handle a set of pilots
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M4
-- **Dependencies:** RE-003 (done), RE-004.
-- **Blockers:** RE-004 not done.
+- **Dependencies:** RE-003, RE-004 (done).
+- **Blockers:** None.
 - **Objective:** Make `tools/text/dialogue.py` build several pilots' boxes into one image deterministically, and make the live checks work for any pilot.
 - **Acceptance criteria:**
   - **Compiler:** it takes one or more pairing files and shares one pair-code pool across them, so a pair used by both pilots gets one code.

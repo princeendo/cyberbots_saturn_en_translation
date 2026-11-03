@@ -1279,3 +1279,45 @@ A survey of `STG0AS.BIN`'s pilot lists is in `RE-004`'s notes:
 - list 10 has 7 scenes.
 
 Next action: `RE-004`.
+
+## 2026-11-03 — RE-004: the second pilot is Santana
+
+Shown to the user: a table of the five arcade pilots (lists 1-5), with story
+boxes, slot-for-slot pairing, new pairs beyond Jin's, the total sacrifice
+with Jin, bytes against their own lines' room, and shared lines. The lists
+were named from their scene-0 dialogue (forced on the original image) and
+from the counts of pilot names in their English records:
+1 Santana, 2 Mary, 3 Arieta, 4 Gawaine, 5 Bao and Mao.
+
+Question, verbatim: "Which pilot should be the second one in English (M4)?"
+Answer, verbatim: "Santana (Recommended)"
+
+## 2026-11-03 — EXP-0027: lists named; Santana's route and boxes (RE-004)
+
+Action:
+- forced scene 0 of all 11 lists;
+- compared the lists with the arcade's scripts;
+- wrote `scene_posts.py`, `candidates.py` and `play_route.py`;
+- made two cold boots (one move right, then two);
+- wrote Santana's box list, and forced three of his scenes.
+
+Result:
+- **Lists:** 0-5 are Jin, Santana, Mary, Arieta, Gawaine, and Bao and Mao
+  (arcade pilots 0-5); 6-8 are Saturn-only.
+- **Choice:** the user chose Santana (recorded above).
+- **Route:** Santana is two moves right on the pilot select screen; the
+  cold boot posted 23, 0-4 from stage group 9 (Mary's run started at 18).
+- **Story:** scenes 0-15 and 23-26, boxes 64-127.
+- **Forcing:** 29/29, 29/29 and 30/30.
+
+Failed attempts:
+- The first select run lost the ARCADE MODE press (pressed right as the menu
+  appeared). The route now checks that the menu is gone and retries.
+- The tiling scratch commands hit zsh word-splitting and the `$f[...]`
+  subscript. They are now built in Python.
+- The scratchpad was cleared between sessions, which lost RE-002's scratch
+  post scan. It is now `EXP-0027/scene_posts.py`.
+
+Source hashes unchanged.
+
+Conclusion: **CONFIRMED**, D-026. `PAIR-002` and `RE-006` are `READY`.
