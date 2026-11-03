@@ -124,8 +124,11 @@ names it for its method only.
   `EXP-0023`, D-022): both games run the same scene scripts, so box N is
   slot N. All 120 lines have official English, and none is Saturn-only.
   REF-006's reader was fixed: 897 of lines 0-898 now pair (D-011,
-  corrected). Next: `GATE-TRANSLATION` (the user's GO) or `LAYOUT-001`
-  Phases A-B.
+  corrected).
+- **2026-11-02: layout route chosen: pair glyphs** (`LAYOUT-001` Phases A-B,
+  `EXP-0024`, D-023): every Jin and roster box fits; Jin's text fits in place;
+  353 glyphs for Jin against 336 free codes. Next: `LAYOUT-001` Phase C (proof
+  on a rebuilt image) or `GATE-TRANSLATION` (the user's GO).
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -142,7 +145,8 @@ names it for its method only.
   (the M1 text's disc file), D-018 (M2: the change from a rebuilt image), D-019
   (the dialogue font and its code table), D-020 (no native English path;
   box capacity), D-021 (box selection; Jin's scenes),
-  D-022 (Jin's pairing). The font's
+  D-022 (Jin's pairing), D-023 (font codes in
+  use, font users, record size, free RAM). The font's
   layout is not confirmed.
 
 ## Milestones
@@ -705,7 +709,7 @@ new-translation policy.
 
 ### LAYOUT-001 - Choose how English fits the dialogue box
 
-- **Status:** `READY` (Phases A-B); Phase C waits on the user's choice.
+- **Status:** `IN_PROGRESS` (Phases A-B); Phase C waits on the user's choice.
 - **Milestone:** M3
 - **Dependencies:** FONT-001, FONT-002, DISC-002 (done).
 - **Blockers:** None for Phases A-B.
@@ -730,6 +734,15 @@ new-translation policy.
   - MSHvSF chose pair glyphs and repacked its font at the same size; XvSF used its native English mode, which Cyberbots does not have (D-020).
   - `KANJI.BIN` is reloaded from disc for each box scene (D-019), so a rebuilt image's font shows in a replay from a state before that load. The cold boot is still required (playbook: forced trials can show stale data).
   - Any route that removes Japanese glyphs breaks other pilots' Japanese until M5, unless only unused glyphs are reused. That trade-off is part of the user's decision.
+- **Evidence (Phases A-B):** `EXP-0024`, D-023, 2026-11-02.
+  - **Census:** 912 of 1,222 codes are in use; 336 codes and 368 glyphs are free without breaking Japanese.
+  - **Font users:** story, endings and `VICTORY.BIN` share the font.
+  - **Records:** 3 lines in place.
+  - **Room:** Jin's Japanese takes 3,448 bytes, plus 820 bytes of dead ending lines in `STG0AS.BIN`'s copy (SUPPORTED).
+  - **Free RAM:** WRAM-H `0x06002F00` (19,968 bytes) and `0x060E3300` (19,712), with no CPU writes over a full stage. VDP1 VRAM `0x16400`-`0x1E1FF` is free in dialogue (SUPPORTED).
+  - **Route fits** (Jin / 488 roster boxes): (a) 35 / 298; (b) 63 / 488; (c) 43 / 372, or 63 / 488 with (d).
+  - **Decision:** asked as one multiple-choice question, 2026-11-02. The user's answer, verbatim: "Pair glyphs (Recommended)". Recorded in `docs/localization_policy.md`.
+  - **Next, Phase C:** pair glyphs with synthetic text in the M1 box, from a rebuilt image, with an agent cold boot.
 
 ### PAIR-001 - Pair Jin's boxes with the arcade English by the games' own logic
 

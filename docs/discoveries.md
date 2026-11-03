@@ -363,3 +363,19 @@ Japanese: 115 identical and 5 edited. Jin's story has no Saturn-only line.
 Pairing: `data/translations/jin_pairing.json`.
 
 Reproduce: `research/experiments/EXP-0023/README.md`, "Procedure".
+
+## D-023: Font codes in use, the font's users, record size, and free RAM (`LAYOUT-001`, `EXP-0024`)
+
+- **Codes in use.** The Japanese text of `STG0AS.BIN`, `VICTORY.BIN` and
+  `END.BIN` uses 912 of the 1,222 table codes. 310 codes, plus 26 empty table
+  slots and 58 empty glyph slots, are used by no line.
+- **The font's users.** Only those three files call the glyph routine
+  `0x06011224`, so a glyph change reaches story, endings and `VICTORY.BIN`
+  alike.
+- **Record size.** Box records are 32 bytes apart, which allows 3 lines in
+  place.
+- **Free RAM.** WRAM-H `0x06002F00`-`0x06007CFF` and `0x060E3300`-`0x060E7FFF`
+  were zero in all 166 REF-005 states. They took no CPU write over a full
+  stage, game over and the ranking screen (12,000 frames).
+
+Reproduce: `research/experiments/EXP-0024/README.md`, "Procedure".

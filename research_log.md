@@ -1134,3 +1134,37 @@ on the user's GO.
 
 Next action: `GATE-TRANSLATION` (the user's GO for Jin's official English) or
 `LAYOUT-001` Phases A-B.
+
+## 2026-11-02 — EXP-0024: layout limits and the route decision (LAYOUT-001 A-B)
+
+Goal: `LAYOUT-001` Phases A-B; measure each route and put the choice to the
+user.
+
+Action: a code census of all three script copies; a search of all files for
+the glyph routines; the record size; the text room, including dead ending
+lines in `STG0AS.BIN`; `room.py` route counts; never-nonzero scans of WRAM
+and VDP1 VRAM over the 166 states; a 12,000-frame write log over two
+candidate regions. 18:44-18:55, the user present.
+
+Result:
+- **Codes:** 912 of 1,222 in use.
+- **Font users:** story, endings and `VICTORY.BIN` share the font.
+- **Records:** 3 lines in place.
+- **Room:** 3,448 + 820 bytes.
+- **Route fits:**
+  - (a): 35 of Jin's boxes, 298 roster;
+  - (b): 63, 488;
+  - (c): 43, 372, or with (d) 63, 488.
+- **Free RAM:** two 19.5 KB WRAM-H regions with no CPU writes.
+- **Correction:** route (c) was first counted at 1 byte per character; the
+  renderer reads 2 bytes per glyph, so it costs 7,448 bytes for Jin.
+
+Question (multiple choice; pair glyphs marked "(Recommended)"). The user's
+answer, verbatim (2026-11-02): "Pair glyphs (Recommended)". Recorded in
+`docs/localization_policy.md`.
+
+Conclusion: route (b), pair glyphs. Measurements CONFIRMED (D-023); the
+dead-line room and the dialogue-time VDP1 room are SUPPORTED.
+
+Next action: `LAYOUT-001` Phase C (a rebuilt image with synthetic pair
+glyphs in the M1 box, agent cold boot), or `GATE-TRANSLATION`.
