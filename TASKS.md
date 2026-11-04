@@ -169,6 +169,11 @@ names it for its method only.
   winner's quote; the arcade tables have 624 slots, with US English for
   slots 494-623. The user: "Add to M5 (Recommended)". `WIN-002` is `READY`;
   so is `RE-005`.
+- **2026-11-04: win quotes paired** (`WIN-002`, `EXP-0032`, D-030): both
+  games pick from a per-pilot table of 8 entries and show box N = slot N;
+  pilots 0-5 reach 46 boxes (lines 955-1005) with 24 US English records,
+  one per pilot and level. The VS captions are boxes 494-549 (code). Next:
+  `RE-005` (`READY`).
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -187,8 +192,9 @@ names it for its method only.
   box capacity), D-021 (box selection; Jin's scenes),
   D-022 (Jin's pairing), D-023 (font codes in
   use, font users, record size, free RAM), D-024 (pair glyphs work), D-025 (M3: Jin's story in
-  English; fighter vitality), D-026 (pilot lists; stage groups), D-027 (Santana's pairing). The font's
-  layout is not confirmed.
+  English; fighter vitality), D-026 (pilot lists; stage groups), D-027 (Santana's pairing), D-028 (M4),
+  D-029 (versus win quotes), D-030 (how a win quote is picked; box for
+  slot; US English per level). The font's layout is not confirmed.
 
 ## Milestones
 
@@ -1075,12 +1081,12 @@ counting, extended in scratch to lists 0-5 with their story blocks.
 - **Results** (`EXP-0031`, D-029):
   - **Loads:** arcade-mode win, loss and the attract mode never load `VICTORY.BIN`. A versus-mode win loads it, then `KANJI.BIN`.
   - **Screen:** `VICTORY!` with the winner's portrait and one dialogue line (Saturn line 959 after Jin's win), then an English `RESULT` tally.
-  - **Arcade:** the dialogue tables have 624 slots; slots 494-623 follow Saturn lines from 899 (slot k = line k + 405); the US set has English in all 130. The reader of those slots is not traced (`WIN-002`).
+  - **Arcade:** the dialogue tables have 624 slots; slots 494-623 follow Saturn lines from 899 (slot k = line k + 405; corrected by `WIN-002`: the offset varies, and slot N is Saturn box N, D-030); the US set has English in all 130. The reader of those slots is not traced (`WIN-002`).
   - **Decision:** asked whether versus win quotes join M5; the user's answer, verbatim: "Add to M5 (Recommended)".
 
 ### WIN-002 - Pair the versus win quotes with the arcade English
 
-- **Status:** `READY`
+- **Status:** `DONE` (2026-11-04, `EXP-0032`)
 - **Milestone:** M5
 - **Dependencies:** WIN-001 (done).
 - **Blockers:** None.
@@ -1091,6 +1097,11 @@ counting, extended in scratch to lists 0-5 with their story blocks.
   - **Pairing:** `data/translations/win_quotes_pairing.json` (no text): each quote line with its arcade slot and the US English record shown in the same situation; any line with no official English is listed for the gate. A US line worded differently from the Japanese is expected (slot 558, `EXP-0031`); pairing follows the game logic, as MSHvSF's did.
   - **On screen:** at least 3 quotes forced in both games (MAME and the Saturn), with agent-reviewed screenshots. The Saturn route is a state on the versus `VICTORY!` screen or a forced selection, with no key loops (user, 2026-11-03).
 - **Notes:** the VS captions (`docs/text_surfaces.md`) are a separate question; the US arcade showed none (`EXP-0012`), though its table has English in their slots.
+- **Results** (`EXP-0032`, D-030; `data/translations/win_quotes_pairing.json`):
+  - **Selection:** the Saturn (`VICTORY.BIN` `0x06060B46`) reads table `0x0606FAA0`[winner][random & 7] and posts list 9; the arcade (`0x6301C`) reads `0x630CE`[winner][2 x level + bit] and posts list 6. Same scenes for pilots 0-5; the arcade's scripts are the Saturn's list 9 scenes 0-47, box for slot. Arcade readers: the script interpreter `0x11CC6` (slot written by `0x11D48`) for quotes, and `0x116F2` from `0x62D4C` for VS captions.
+  - **Lines:** quotes are boxes 554 and 556-600 (lines 955, 957-1005) for pilots 0-5, and 1023-1044 (lines 1790-1821) for pilots 6-8; box 555 (line 956) is in no table entry. VS captions are boxes 494-549 (lines 899-952) from `0x0609CC22`[pilot x 10 + stage] (code; boxes 1045-1071 for pilots 6-8).
+  - **Pairing:** every box of pilots 0-5 has its slot's US record: 46 boxes, 24 records, one per pilot and level. So the two Japanese quotes of a level share one official English line (22 pairs of boxes; Jin's level 0 and Bao and Mao's level 1 each have one box). 37 boxes match their slot's Japanese exactly, 7 hold codes the map lacks (same lengths), and 2 (579, 580) add Saturn line 982. No quote of pilots 0-5 lacks official English. Which line each shared pair shows is for the gate.
+  - **On screen:** MAME, Jin's entries 2, 5 and 7 forced, giving slots 599, 558 and 560 with three English lines. Saturn, one versus cold boot with 14 menu presses and none during the fight: the natural pick (R0 & 7 = 7, box 560, line 961), then boxes 599, 558 and 556 forced in the script (lines 1004, 959, 957). All agent-reviewed.
 
 ### PAIR-003 - Pair the roster pilots' boxes with the arcade English
 
@@ -1130,7 +1141,10 @@ A dated block under `GATE-TRANSLATION`, once `PAIR-003`, `WIN-002` and
 `CAP-001` are done. The user's GO covers, per roster pilot:
 - the official English as paired, story and win quotes;
 - any new translations, each listed with its translator;
-- the code budget and the chosen trade-off, with the lines it touches.
+- the code budget and the chosen trade-off, with the lines it touches;
+- for win quotes, what the two Japanese quotes of a level show, since the
+  US set has one English line per pilot and level (22 pairs of boxes, D-030):
+  the shared official line for both, or a new translation for one.
 
 ### RE-008 - Build the roster's story in English from the source image (M5)
 

@@ -497,5 +497,35 @@ The arcade Japanese and US dialogue tables (`0x0A30F6`, `0x0B33AA`) have 624
 pointers. Slots 494-623 follow the Saturn lines from 899 (slot k = line k +
 405); line 959 is slot 558. The US set has English in all 130 slots.
 
+**Corrected 2026-11-04 (`EXP-0032`):** the offset is not constant: slot 494
+is line 899 (+405), slot 558 line 959 (+401), slot 600 line 1005 (+405).
+Boxes that share a line or hold two lines move it. What holds is box for
+slot: slot N's Japanese record is Saturn box N's lines (`VICTORY.BIN` box
+table `0x0607849C`), D-030.
+
 Reproduce: `research/experiments/EXP-0031/README.md`, "Procedure".
+
+## D-030: Both games pick a win quote from a per-pilot table; box N is slot N; the US set has one English quote per level (`WIN-002`, `EXP-0032`)
+
+- **Saturn** (`VICTORY.BIN` at `0x06060000`): the selector `0x06060B46`
+  reads (scene, byte) from `0x0606FAA0` + 16 x winner's pilot + 2 x entry,
+  where the entry is a random value & 7, and posts `0x14000009`: list 9 of
+  the scene lists `0x0607DB3C` (the same 11 lists as `STG0AS.BIN`), 72
+  scripts of one box each. In a versus run the halt at `0x06060BCE` gave
+  R0 & 7 = 7 for Jin; the screen then showed box 560, as the table predicts.
+- **Arcade** (`cybotsu`): `0x6301C` reads (scene, byte) from `0x630CE`
+  (decrypted program space) for pilots 0-5 and posts `0x14000006`: list 6,
+  48 scripts. Its scenes equal the Saturn table's for pilots 0-5, and its 48
+  scripts equal the Saturn's list 9 scenes 0-47, box for slot. Forcing the
+  table offset (`0x630B8`) for Jin's entries 2, 5 and 7 showed slots 599,
+  558 and 560.
+- **Saturn box N, arcade slot N:** boxes 554 and 556-600 (lines 955 and
+  957-1005) are pilots 0-5's quotes; 37 of the 46 have the slot's Japanese
+  exactly. Forcing boxes 599, 558 and 556 into the Saturn's script showed
+  lines 1004, 959 and 957. Box 555 is in no table entry; boxes 1023-1044
+  (lines 1790-1821) are pilots 6-8's.
+- **US English:** one record per pilot and level (entries 2k and 2k+1):
+  24 records for the 46 boxes. The Saturn's two quotes of a level share it.
+
+Reproduce: `research/experiments/EXP-0032/README.md`, "Procedure".
 

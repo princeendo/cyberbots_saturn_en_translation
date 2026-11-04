@@ -1,0 +1,21 @@
+# WIN-002 forced quote: Jin wins (v5 match); entry 5 forced at 0x630B8 (D0 = entry * 2)
+1 logwrites 0xFF2F7A local/win002/mame/forced-jin-5/writes-slot.txt
+2 debug bpset 630b8,1,{d0=a;g}
+3 debug go
+600 press 8 Coin 1
+640 press 8 Coin 1
+720 press 8 1 Player Start
+780 press 8 2 Players Start
+1020 press 8 P1 Button 1
+1030 press 8 P2 Button 1
+1320 press 8 P1 Button 1
+1330 press 8 P2 Button 1
+1620 press 8 P1 Button 1
+1630 press 8 P2 Button 1
+2400 press 17000 P1 Right
+2400 repeat 850 20 6 P1 Button 1
+5300 snap
+5340 snap
+5380 snap
+5420 snap
+5421 exit

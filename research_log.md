@@ -1498,3 +1498,56 @@ Answer, verbatim: "Add to M5 (Recommended)"
 
 Next action: `RE-005` (`READY`); `WIN-002` is added to Phase J.
 
+
+## 2026-11-04 — EXP-0032: how a win quote is picked, and the pairing (WIN-002)
+
+Action: read `VICTORY.BIN`'s code and tables, and the arcade's
+(`cybotsu`, MAME `dasm`); traced the arcade's quote in a 2-player match
+with write taps (`create_tap.lua`, `post_tap.lua`, `logwrites`); forced
+three table entries in MAME; one Saturn versus cold boot (09:52-10:07, the
+user present; asked first, answer verbatim: "Yes, go ahead (Recommended)")
+with menu presses only, the win held in RAM, a halt at the selector, and
+three boxes forced from the saved state. Paired with `pair_quotes.py`.
+
+Result:
+- Saturn: `0x06060B46` picks (scene, byte) from `0x0606FAA0`[winner][random
+  & 7] and posts list 9 (72 one-box scripts). The two player bytes it loads
+  go to `0x06026F5E`, which does not read them (code only).
+- Arcade: `0x6301C` picks from `0x630CE`[winner][2 x level + bit] (read
+  through the decrypted program space; the raw ROM bytes there differ) and
+  posts list 6 (48 scripts, the Saturn's scenes 0-47 box for slot).
+- Halt: R0 & 7 = 7 for Jin; the replay showed box 560 (line 961). Forced
+  boxes 599, 558, 556 showed lines 1004, 959, 957. MAME entries 2, 5, 7 gave
+  slots 599, 558, 560.
+- The US set has one English record per pilot and level: 46 boxes, 24
+  records (22 pairs of boxes share one).
+- VS captions: `STG0AS.BIN` `0x0606CAE8` shows box `0x0609CC22`[pilot x 10
+  + stage]; the arcade's `0x62D4C` uses the same table (code only).
+- D-029's "slot k = line k + 405" is wrong past slot 494 (558 is line 959);
+  corrected. Box for slot holds.
+
+Failed or corrected along the way (do not retry):
+- The arcade queue is at A5 - `0x6DCC` = `0xFF1234`, not `0xFF9234`; a tap
+  there logged nothing.
+- MAME's Lua state names the stack pointer `SP` (and `USP`), not `A7`; a
+  tap that read `A7` failed without an error message.
+- MAME's debugger reads `d0=10` as hex `0x10`; the first forced runs showed
+  Santana's slots 569 and 571.
+- Runs sharing one MAME NVRAM folder are not repeatable (the quote moved
+  from frame 5521 to 5260); each run now copies a fixed base.
+- The agent refuses `savestate` while halted at a breakpoint; resume, then
+  save. That state is after the selection, so the Saturn forcing rewrites
+  the script's box word, not the table entry.
+- The scene-task byte cannot be forced from that state: the task had read
+  it and was waiting.
+- The first Start press came late (frame 4418), in the attract demo; a
+  press on the title's fade-in was ignored. Three extra presses in all.
+
+Commands: `ruff format`, `ruff check`, `mypy` on `EXP-0032/*.py` (clean);
+`pytest -q`: 161 passed.
+
+Conclusion: **CONFIRMED** (D-030) except the arcade's level meaning, the 7
+`unmapped` boxes and the caption boxes (SUPPORTED). `WIN-002` is `DONE`.
+
+Next action: `RE-005` (`READY`). The gate extension gains one question: what
+the two Japanese quotes of a level show.

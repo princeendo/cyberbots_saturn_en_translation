@@ -1,0 +1,2564 @@
+{
+ "sources": {
+  "VICTORY.BIN": "11ecc97d976bd7f684aa2d9cfd2f150da8ca013be8040ba24de629f171483ca1",
+  "STG0AS.BIN": "3fabb4dbb9d08b2de570467414d653c9e6f0d72cf8ee4f72ecbb1683df77ac45",
+  "cybotsu": "18e8827dc742f4fef577aac8c06ae05dfb54ddad60a589238ac610f07b4152fd",
+  "cybotsj": "2d1e6b255184bd75a0b8b8af7b3fe25eed1f0086065c3bcc1f01d7e65806928e",
+  "arcade_listing": "3aa6ad8e2d18231e38c5de8d478d2bb969958268571bd86b777a6d9f16545346"
+ },
+ "selection": {
+  "saturn": "VICTORY.BIN 0x06060B46-0x06060BF8: scene = table 0x0606FAA0[winner pilot][random & 7]; posts list 9 (0x14000009)",
+  "arcade": "cybotsu 0x6301C-0x630C8: scene = table 0x630CE[winner pilot][2 * level + (A5+0x1D & 1)]; posts list 6 (0x14000006)"
+ },
+ "scripts": {
+  "saturn_list_9_scenes": 72,
+  "arcade_list_6_scenes": 48,
+  "first_48_identical": true,
+  "cybotsj_list_6_equals_cybotsu": true
+ },
+ "tables": {
+  "saturn_equals_arcade_scenes_pilots_0_5": true
+ },
+ "entries": [
+  {
+   "pilot": 0,
+   "entry": 0,
+   "saturn_scene": 0,
+   "saturn_byte": 0,
+   "saturn_boxes": [
+    554
+   ],
+   "arcade_scene": 0,
+   "arcade_byte": 1,
+   "arcade_slots": [
+    554
+   ],
+   "arcade_level": 0,
+   "arcade_random_bit": 0
+  },
+  {
+   "pilot": 0,
+   "entry": 1,
+   "saturn_scene": 0,
+   "saturn_byte": 0,
+   "saturn_boxes": [
+    554
+   ],
+   "arcade_scene": 0,
+   "arcade_byte": 1,
+   "arcade_slots": [
+    554
+   ],
+   "arcade_level": 0,
+   "arcade_random_bit": 1
+  },
+  {
+   "pilot": 0,
+   "entry": 2,
+   "saturn_scene": 2,
+   "saturn_byte": 2,
+   "saturn_boxes": [
+    599
+   ],
+   "arcade_scene": 2,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    599
+   ],
+   "arcade_level": 1,
+   "arcade_random_bit": 0
+  },
+  {
+   "pilot": 0,
+   "entry": 3,
+   "saturn_scene": 3,
+   "saturn_byte": 5,
+   "saturn_boxes": [
+    556
+   ],
+   "arcade_scene": 3,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    556
+   ],
+   "arcade_level": 1,
+   "arcade_random_bit": 1
+  },
+  {
+   "pilot": 0,
+   "entry": 4,
+   "saturn_scene": 4,
+   "saturn_byte": 1,
+   "saturn_boxes": [
+    557
+   ],
+   "arcade_scene": 4,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    557
+   ],
+   "arcade_level": 2,
+   "arcade_random_bit": 0
+  },
+  {
+   "pilot": 0,
+   "entry": 5,
+   "saturn_scene": 5,
+   "saturn_byte": 4,
+   "saturn_boxes": [
+    558
+   ],
+   "arcade_scene": 5,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    558
+   ],
+   "arcade_level": 2,
+   "arcade_random_bit": 1
+  },
+  {
+   "pilot": 0,
+   "entry": 6,
+   "saturn_scene": 6,
+   "saturn_byte": 3,
+   "saturn_boxes": [
+    559
+   ],
+   "arcade_scene": 6,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    559
+   ],
+   "arcade_level": 3,
+   "arcade_random_bit": 0
+  },
+  {
+   "pilot": 0,
+   "entry": 7,
+   "saturn_scene": 7,
+   "saturn_byte": 6,
+   "saturn_boxes": [
+    560
+   ],
+   "arcade_scene": 7,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    560
+   ],
+   "arcade_level": 3,
+   "arcade_random_bit": 1
+  },
+  {
+   "pilot": 1,
+   "entry": 0,
+   "saturn_scene": 16,
+   "saturn_byte": 0,
+   "saturn_boxes": [
+    569
+   ],
+   "arcade_scene": 16,
+   "arcade_byte": 3,
+   "arcade_slots": [
+    569
+   ],
+   "arcade_level": 0,
+   "arcade_random_bit": 0
+  },
+  {
+   "pilot": 1,
+   "entry": 1,
+   "saturn_scene": 17,
+   "saturn_byte": 1,
+   "saturn_boxes": [
+    570
+   ],
+   "arcade_scene": 17,
+   "arcade_byte": 4,
+   "arcade_slots": [
+    570
+   ],
+   "arcade_level": 0,
+   "arcade_random_bit": 1
+  },
+  {
+   "pilot": 1,
+   "entry": 2,
+   "saturn_scene": 18,
+   "saturn_byte": 2,
+   "saturn_boxes": [
+    571
+   ],
+   "arcade_scene": 18,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    571
+   ],
+   "arcade_level": 1,
+   "arcade_random_bit": 0
+  },
+  {
+   "pilot": 1,
+   "entry": 3,
+   "saturn_scene": 19,
+   "saturn_byte": 7,
+   "saturn_boxes": [
+    572
+   ],
+   "arcade_scene": 19,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    572
+   ],
+   "arcade_level": 1,
+   "arcade_random_bit": 1
+  },
+  {
+   "pilot": 1,
+   "entry": 4,
+   "saturn_scene": 20,
+   "saturn_byte": 3,
+   "saturn_boxes": [
+    573
+   ],
+   "arcade_scene": 20,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    573
+   ],
+   "arcade_level": 2,
+   "arcade_random_bit": 0
+  },
+  {
+   "pilot": 1,
+   "entry": 5,
+   "saturn_scene": 21,
+   "saturn_byte": 4,
+   "saturn_boxes": [
+    574
+   ],
+   "arcade_scene": 21,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    574
+   ],
+   "arcade_level": 2,
+   "arcade_random_bit": 1
+  },
+  {
+   "pilot": 1,
+   "entry": 6,
+   "saturn_scene": 22,
+   "saturn_byte": 5,
+   "saturn_boxes": [
+    575
+   ],
+   "arcade_scene": 22,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    575
+   ],
+   "arcade_level": 3,
+   "arcade_random_bit": 0
+  },
+  {
+   "pilot": 1,
+   "entry": 7,
+   "saturn_scene": 23,
+   "saturn_byte": 6,
+   "saturn_boxes": [
+    576
+   ],
+   "arcade_scene": 23,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    576
+   ],
+   "arcade_level": 3,
+   "arcade_random_bit": 1
+  },
+  {
+   "pilot": 2,
+   "entry": 0,
+   "saturn_scene": 8,
+   "saturn_byte": 0,
+   "saturn_boxes": [
+    561
+   ],
+   "arcade_scene": 8,
+   "arcade_byte": 5,
+   "arcade_slots": [
+    561
+   ],
+   "arcade_level": 0,
+   "arcade_random_bit": 0
+  },
+  {
+   "pilot": 2,
+   "entry": 1,
+   "saturn_scene": 9,
+   "saturn_byte": 1,
+   "saturn_boxes": [
+    562
+   ],
+   "arcade_scene": 9,
+   "arcade_byte": 6,
+   "arcade_slots": [
+    562
+   ],
+   "arcade_level": 0,
+   "arcade_random_bit": 1
+  },
+  {
+   "pilot": 2,
+   "entry": 2,
+   "saturn_scene": 10,
+   "saturn_byte": 7,
+   "saturn_boxes": [
+    563
+   ],
+   "arcade_scene": 10,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    563
+   ],
+   "arcade_level": 1,
+   "arcade_random_bit": 0
+  },
+  {
+   "pilot": 2,
+   "entry": 3,
+   "saturn_scene": 11,
+   "saturn_byte": 2,
+   "saturn_boxes": [
+    564
+   ],
+   "arcade_scene": 11,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    564
+   ],
+   "arcade_level": 1,
+   "arcade_random_bit": 1
+  },
+  {
+   "pilot": 2,
+   "entry": 4,
+   "saturn_scene": 12,
+   "saturn_byte": 5,
+   "saturn_boxes": [
+    565
+   ],
+   "arcade_scene": 12,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    565
+   ],
+   "arcade_level": 2,
+   "arcade_random_bit": 0
+  },
+  {
+   "pilot": 2,
+   "entry": 5,
+   "saturn_scene": 13,
+   "saturn_byte": 3,
+   "saturn_boxes": [
+    566
+   ],
+   "arcade_scene": 13,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    566
+   ],
+   "arcade_level": 2,
+   "arcade_random_bit": 1
+  },
+  {
+   "pilot": 2,
+   "entry": 6,
+   "saturn_scene": 14,
+   "saturn_byte": 6,
+   "saturn_boxes": [
+    567
+   ],
+   "arcade_scene": 14,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    567
+   ],
+   "arcade_level": 3,
+   "arcade_random_bit": 0
+  },
+  {
+   "pilot": 2,
+   "entry": 7,
+   "saturn_scene": 15,
+   "saturn_byte": 4,
+   "saturn_boxes": [
+    568
+   ],
+   "arcade_scene": 15,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    568
+   ],
+   "arcade_level": 3,
+   "arcade_random_bit": 1
+  },
+  {
+   "pilot": 3,
+   "entry": 0,
+   "saturn_scene": 24,
+   "saturn_byte": 0,
+   "saturn_boxes": [
+    577
+   ],
+   "arcade_scene": 24,
+   "arcade_byte": 7,
+   "arcade_slots": [
+    577
+   ],
+   "arcade_level": 0,
+   "arcade_random_bit": 0
+  },
+  {
+   "pilot": 3,
+   "entry": 1,
+   "saturn_scene": 26,
+   "saturn_byte": 1,
+   "saturn_boxes": [
+    579
+   ],
+   "arcade_scene": 26,
+   "arcade_byte": 9,
+   "arcade_slots": [
+    579
+   ],
+   "arcade_level": 0,
+   "arcade_random_bit": 1
+  },
+  {
+   "pilot": 3,
+   "entry": 2,
+   "saturn_scene": 25,
+   "saturn_byte": 2,
+   "saturn_boxes": [
+    578
+   ],
+   "arcade_scene": 25,
+   "arcade_byte": 8,
+   "arcade_slots": [
+    578
+   ],
+   "arcade_level": 1,
+   "arcade_random_bit": 0
+  },
+  {
+   "pilot": 3,
+   "entry": 3,
+   "saturn_scene": 27,
+   "saturn_byte": 3,
+   "saturn_boxes": [
+    580
+   ],
+   "arcade_scene": 27,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    580
+   ],
+   "arcade_level": 1,
+   "arcade_random_bit": 1
+  },
+  {
+   "pilot": 3,
+   "entry": 4,
+   "saturn_scene": 28,
+   "saturn_byte": 4,
+   "saturn_boxes": [
+    581
+   ],
+   "arcade_scene": 28,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    581
+   ],
+   "arcade_level": 2,
+   "arcade_random_bit": 0
+  },
+  {
+   "pilot": 3,
+   "entry": 5,
+   "saturn_scene": 29,
+   "saturn_byte": 5,
+   "saturn_boxes": [
+    582
+   ],
+   "arcade_scene": 29,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    582
+   ],
+   "arcade_level": 2,
+   "arcade_random_bit": 1
+  },
+  {
+   "pilot": 3,
+   "entry": 6,
+   "saturn_scene": 30,
+   "saturn_byte": 6,
+   "saturn_boxes": [
+    583
+   ],
+   "arcade_scene": 30,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    583
+   ],
+   "arcade_level": 3,
+   "arcade_random_bit": 0
+  },
+  {
+   "pilot": 3,
+   "entry": 7,
+   "saturn_scene": 31,
+   "saturn_byte": 7,
+   "saturn_boxes": [
+    584
+   ],
+   "arcade_scene": 31,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    584
+   ],
+   "arcade_level": 3,
+   "arcade_random_bit": 1
+  },
+  {
+   "pilot": 4,
+   "entry": 0,
+   "saturn_scene": 32,
+   "saturn_byte": 0,
+   "saturn_boxes": [
+    585
+   ],
+   "arcade_scene": 32,
+   "arcade_byte": 10,
+   "arcade_slots": [
+    585
+   ],
+   "arcade_level": 0,
+   "arcade_random_bit": 0
+  },
+  {
+   "pilot": 4,
+   "entry": 1,
+   "saturn_scene": 33,
+   "saturn_byte": 1,
+   "saturn_boxes": [
+    586
+   ],
+   "arcade_scene": 33,
+   "arcade_byte": 12,
+   "arcade_slots": [
+    586
+   ],
+   "arcade_level": 0,
+   "arcade_random_bit": 1
+  },
+  {
+   "pilot": 4,
+   "entry": 2,
+   "saturn_scene": 34,
+   "saturn_byte": 2,
+   "saturn_boxes": [
+    587
+   ],
+   "arcade_scene": 34,
+   "arcade_byte": 11,
+   "arcade_slots": [
+    587
+   ],
+   "arcade_level": 1,
+   "arcade_random_bit": 0
+  },
+  {
+   "pilot": 4,
+   "entry": 3,
+   "saturn_scene": 35,
+   "saturn_byte": 4,
+   "saturn_boxes": [
+    588
+   ],
+   "arcade_scene": 35,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    588
+   ],
+   "arcade_level": 1,
+   "arcade_random_bit": 1
+  },
+  {
+   "pilot": 4,
+   "entry": 4,
+   "saturn_scene": 36,
+   "saturn_byte": 5,
+   "saturn_boxes": [
+    589
+   ],
+   "arcade_scene": 36,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    589
+   ],
+   "arcade_level": 2,
+   "arcade_random_bit": 0
+  },
+  {
+   "pilot": 4,
+   "entry": 5,
+   "saturn_scene": 37,
+   "saturn_byte": 3,
+   "saturn_boxes": [
+    590
+   ],
+   "arcade_scene": 37,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    590
+   ],
+   "arcade_level": 2,
+   "arcade_random_bit": 1
+  },
+  {
+   "pilot": 4,
+   "entry": 6,
+   "saturn_scene": 38,
+   "saturn_byte": 6,
+   "saturn_boxes": [
+    591
+   ],
+   "arcade_scene": 38,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    591
+   ],
+   "arcade_level": 3,
+   "arcade_random_bit": 0
+  },
+  {
+   "pilot": 4,
+   "entry": 7,
+   "saturn_scene": 39,
+   "saturn_byte": 7,
+   "saturn_boxes": [
+    592
+   ],
+   "arcade_scene": 39,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    592
+   ],
+   "arcade_level": 3,
+   "arcade_random_bit": 1
+  },
+  {
+   "pilot": 5,
+   "entry": 0,
+   "saturn_scene": 40,
+   "saturn_byte": 0,
+   "saturn_boxes": [
+    593
+   ],
+   "arcade_scene": 40,
+   "arcade_byte": 14,
+   "arcade_slots": [
+    593
+   ],
+   "arcade_level": 0,
+   "arcade_random_bit": 0
+  },
+  {
+   "pilot": 5,
+   "entry": 1,
+   "saturn_scene": 41,
+   "saturn_byte": 1,
+   "saturn_boxes": [
+    594
+   ],
+   "arcade_scene": 41,
+   "arcade_byte": 17,
+   "arcade_slots": [
+    594
+   ],
+   "arcade_level": 0,
+   "arcade_random_bit": 1
+  },
+  {
+   "pilot": 5,
+   "entry": 2,
+   "saturn_scene": 42,
+   "saturn_byte": 2,
+   "saturn_boxes": [
+    595
+   ],
+   "arcade_scene": 42,
+   "arcade_byte": 13,
+   "arcade_slots": [
+    595
+   ],
+   "arcade_level": 1,
+   "arcade_random_bit": 0
+  },
+  {
+   "pilot": 5,
+   "entry": 3,
+   "saturn_scene": 43,
+   "saturn_byte": 2,
+   "saturn_boxes": [
+    595
+   ],
+   "arcade_scene": 43,
+   "arcade_byte": 13,
+   "arcade_slots": [
+    595
+   ],
+   "arcade_level": 1,
+   "arcade_random_bit": 1
+  },
+  {
+   "pilot": 5,
+   "entry": 4,
+   "saturn_scene": 44,
+   "saturn_byte": 4,
+   "saturn_boxes": [
+    596
+   ],
+   "arcade_scene": 44,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    596
+   ],
+   "arcade_level": 2,
+   "arcade_random_bit": 0
+  },
+  {
+   "pilot": 5,
+   "entry": 5,
+   "saturn_scene": 45,
+   "saturn_byte": 6,
+   "saturn_boxes": [
+    597
+   ],
+   "arcade_scene": 45,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    597
+   ],
+   "arcade_level": 2,
+   "arcade_random_bit": 1
+  },
+  {
+   "pilot": 5,
+   "entry": 6,
+   "saturn_scene": 46,
+   "saturn_byte": 5,
+   "saturn_boxes": [
+    598
+   ],
+   "arcade_scene": 46,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    598
+   ],
+   "arcade_level": 3,
+   "arcade_random_bit": 0
+  },
+  {
+   "pilot": 5,
+   "entry": 7,
+   "saturn_scene": 47,
+   "saturn_byte": 3,
+   "saturn_boxes": [
+    600
+   ],
+   "arcade_scene": 47,
+   "arcade_byte": 0,
+   "arcade_slots": [
+    600
+   ],
+   "arcade_level": 3,
+   "arcade_random_bit": 1
+  },
+  {
+   "pilot": 6,
+   "entry": 0,
+   "saturn_scene": 48,
+   "saturn_byte": 0,
+   "saturn_boxes": [
+    1038
+   ]
+  },
+  {
+   "pilot": 6,
+   "entry": 1,
+   "saturn_scene": 49,
+   "saturn_byte": 1,
+   "saturn_boxes": [
+    1039
+   ]
+  },
+  {
+   "pilot": 6,
+   "entry": 2,
+   "saturn_scene": 50,
+   "saturn_byte": 2,
+   "saturn_boxes": [
+    1040
+   ]
+  },
+  {
+   "pilot": 6,
+   "entry": 3,
+   "saturn_scene": 51,
+   "saturn_byte": 3,
+   "saturn_boxes": [
+    1041
+   ]
+  },
+  {
+   "pilot": 6,
+   "entry": 4,
+   "saturn_scene": 52,
+   "saturn_byte": 4,
+   "saturn_boxes": [
+    1042
+   ]
+  },
+  {
+   "pilot": 6,
+   "entry": 5,
+   "saturn_scene": 53,
+   "saturn_byte": 5,
+   "saturn_boxes": [
+    1043
+   ]
+  },
+  {
+   "pilot": 6,
+   "entry": 6,
+   "saturn_scene": 54,
+   "saturn_byte": 6,
+   "saturn_boxes": [
+    1044
+   ]
+  },
+  {
+   "pilot": 6,
+   "entry": 7,
+   "saturn_scene": 55,
+   "saturn_byte": 6,
+   "saturn_boxes": [
+    1044
+   ]
+  },
+  {
+   "pilot": 7,
+   "entry": 0,
+   "saturn_scene": 56,
+   "saturn_byte": 0,
+   "saturn_boxes": [
+    1030
+   ]
+  },
+  {
+   "pilot": 7,
+   "entry": 1,
+   "saturn_scene": 57,
+   "saturn_byte": 1,
+   "saturn_boxes": [
+    1031
+   ]
+  },
+  {
+   "pilot": 7,
+   "entry": 2,
+   "saturn_scene": 58,
+   "saturn_byte": 2,
+   "saturn_boxes": [
+    1032
+   ]
+  },
+  {
+   "pilot": 7,
+   "entry": 3,
+   "saturn_scene": 59,
+   "saturn_byte": 3,
+   "saturn_boxes": [
+    1033
+   ]
+  },
+  {
+   "pilot": 7,
+   "entry": 4,
+   "saturn_scene": 60,
+   "saturn_byte": 4,
+   "saturn_boxes": [
+    1034
+   ]
+  },
+  {
+   "pilot": 7,
+   "entry": 5,
+   "saturn_scene": 61,
+   "saturn_byte": 5,
+   "saturn_boxes": [
+    1035
+   ]
+  },
+  {
+   "pilot": 7,
+   "entry": 6,
+   "saturn_scene": 62,
+   "saturn_byte": 6,
+   "saturn_boxes": [
+    1036
+   ]
+  },
+  {
+   "pilot": 7,
+   "entry": 7,
+   "saturn_scene": 63,
+   "saturn_byte": 7,
+   "saturn_boxes": [
+    1037
+   ]
+  },
+  {
+   "pilot": 8,
+   "entry": 0,
+   "saturn_scene": 64,
+   "saturn_byte": 0,
+   "saturn_boxes": [
+    1023
+   ]
+  },
+  {
+   "pilot": 8,
+   "entry": 1,
+   "saturn_scene": 65,
+   "saturn_byte": 1,
+   "saturn_boxes": [
+    1024
+   ]
+  },
+  {
+   "pilot": 8,
+   "entry": 2,
+   "saturn_scene": 66,
+   "saturn_byte": 255,
+   "saturn_boxes": [
+    1025
+   ]
+  },
+  {
+   "pilot": 8,
+   "entry": 3,
+   "saturn_scene": 67,
+   "saturn_byte": 2,
+   "saturn_boxes": [
+    1026
+   ]
+  },
+  {
+   "pilot": 8,
+   "entry": 4,
+   "saturn_scene": 68,
+   "saturn_byte": 3,
+   "saturn_boxes": [
+    1027
+   ]
+  },
+  {
+   "pilot": 8,
+   "entry": 5,
+   "saturn_scene": 69,
+   "saturn_byte": 4,
+   "saturn_boxes": [
+    1028
+   ]
+  },
+  {
+   "pilot": 8,
+   "entry": 6,
+   "saturn_scene": 70,
+   "saturn_byte": 5,
+   "saturn_boxes": [
+    1029
+   ]
+  },
+  {
+   "pilot": 8,
+   "entry": 7,
+   "saturn_scene": 71,
+   "saturn_byte": 5,
+   "saturn_boxes": [
+    1029
+   ]
+  }
+ ],
+ "roster_quote_boxes": [
+  {
+   "box": 554,
+   "saturn_lines": [
+    955
+   ],
+   "saturn_line_bytes": [
+    26
+   ],
+   "arcade_slot": 554,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    13
+   ],
+   "us_record": "0x0BB52E",
+   "us_record_slots": [
+    552,
+    553,
+    554,
+    555
+   ]
+  },
+  {
+   "box": 556,
+   "saturn_lines": [
+    957
+   ],
+   "saturn_line_bytes": [
+    30
+   ],
+   "arcade_slot": 556,
+   "arcade_japanese": "unmapped",
+   "arcade_japanese_line_lengths": [
+    15
+   ],
+   "us_record": "0x0BB54E",
+   "us_record_slots": [
+    556,
+    599
+   ]
+  },
+  {
+   "box": 557,
+   "saturn_lines": [
+    958
+   ],
+   "saturn_line_bytes": [
+    28
+   ],
+   "arcade_slot": 557,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    14
+   ],
+   "us_record": "0x0BB570",
+   "us_record_slots": [
+    557,
+    558
+   ]
+  },
+  {
+   "box": 558,
+   "saturn_lines": [
+    959
+   ],
+   "saturn_line_bytes": [
+    28
+   ],
+   "arcade_slot": 558,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    14
+   ],
+   "us_record": "0x0BB570",
+   "us_record_slots": [
+    557,
+    558
+   ]
+  },
+  {
+   "box": 559,
+   "saturn_lines": [
+    960
+   ],
+   "saturn_line_bytes": [
+    22
+   ],
+   "arcade_slot": 559,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    11
+   ],
+   "us_record": "0x0BB590",
+   "us_record_slots": [
+    559,
+    560
+   ]
+  },
+  {
+   "box": 560,
+   "saturn_lines": [
+    961
+   ],
+   "saturn_line_bytes": [
+    24
+   ],
+   "arcade_slot": 560,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    12
+   ],
+   "us_record": "0x0BB590",
+   "us_record_slots": [
+    559,
+    560
+   ]
+  },
+  {
+   "box": 561,
+   "saturn_lines": [
+    962
+   ],
+   "saturn_line_bytes": [
+    26
+   ],
+   "arcade_slot": 561,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    13
+   ],
+   "us_record": "0x0BB5B0",
+   "us_record_slots": [
+    561,
+    562
+   ]
+  },
+  {
+   "box": 562,
+   "saturn_lines": [
+    963
+   ],
+   "saturn_line_bytes": [
+    20
+   ],
+   "arcade_slot": 562,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    10
+   ],
+   "us_record": "0x0BB5B0",
+   "us_record_slots": [
+    561,
+    562
+   ]
+  },
+  {
+   "box": 563,
+   "saturn_lines": [
+    964
+   ],
+   "saturn_line_bytes": [
+    30
+   ],
+   "arcade_slot": 563,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    15
+   ],
+   "us_record": "0x0BB5CE",
+   "us_record_slots": [
+    563,
+    564
+   ]
+  },
+  {
+   "box": 564,
+   "saturn_lines": [
+    965
+   ],
+   "saturn_line_bytes": [
+    20
+   ],
+   "arcade_slot": 564,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    10
+   ],
+   "us_record": "0x0BB5CE",
+   "us_record_slots": [
+    563,
+    564
+   ]
+  },
+  {
+   "box": 565,
+   "saturn_lines": [
+    966
+   ],
+   "saturn_line_bytes": [
+    20
+   ],
+   "arcade_slot": 565,
+   "arcade_japanese": "unmapped",
+   "arcade_japanese_line_lengths": [
+    10
+   ],
+   "us_record": "0x0BB5F4",
+   "us_record_slots": [
+    565,
+    566
+   ]
+  },
+  {
+   "box": 566,
+   "saturn_lines": [
+    967
+   ],
+   "saturn_line_bytes": [
+    20
+   ],
+   "arcade_slot": 566,
+   "arcade_japanese": "unmapped",
+   "arcade_japanese_line_lengths": [
+    10
+   ],
+   "us_record": "0x0BB5F4",
+   "us_record_slots": [
+    565,
+    566
+   ]
+  },
+  {
+   "box": 567,
+   "saturn_lines": [
+    968
+   ],
+   "saturn_line_bytes": [
+    28
+   ],
+   "arcade_slot": 567,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    14
+   ],
+   "us_record": "0x0BB61C",
+   "us_record_slots": [
+    567,
+    568
+   ]
+  },
+  {
+   "box": 568,
+   "saturn_lines": [
+    969
+   ],
+   "saturn_line_bytes": [
+    18
+   ],
+   "arcade_slot": 568,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    9
+   ],
+   "us_record": "0x0BB61C",
+   "us_record_slots": [
+    567,
+    568
+   ]
+  },
+  {
+   "box": 569,
+   "saturn_lines": [
+    970
+   ],
+   "saturn_line_bytes": [
+    24
+   ],
+   "arcade_slot": 569,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    12
+   ],
+   "us_record": "0x0BB63A",
+   "us_record_slots": [
+    569,
+    570
+   ]
+  },
+  {
+   "box": 570,
+   "saturn_lines": [
+    971,
+    972
+   ],
+   "saturn_line_bytes": [
+    16,
+    22
+   ],
+   "arcade_slot": 570,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    8,
+    11
+   ],
+   "us_record": "0x0BB63A",
+   "us_record_slots": [
+    569,
+    570
+   ]
+  },
+  {
+   "box": 571,
+   "saturn_lines": [
+    973
+   ],
+   "saturn_line_bytes": [
+    26
+   ],
+   "arcade_slot": 571,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    13
+   ],
+   "us_record": "0x0BB660",
+   "us_record_slots": [
+    571,
+    572
+   ]
+  },
+  {
+   "box": 572,
+   "saturn_lines": [
+    974
+   ],
+   "saturn_line_bytes": [
+    24
+   ],
+   "arcade_slot": 572,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    12
+   ],
+   "us_record": "0x0BB660",
+   "us_record_slots": [
+    571,
+    572
+   ]
+  },
+  {
+   "box": 573,
+   "saturn_lines": [
+    975
+   ],
+   "saturn_line_bytes": [
+    12
+   ],
+   "arcade_slot": 573,
+   "arcade_japanese": "unmapped",
+   "arcade_japanese_line_lengths": [
+    6
+   ],
+   "us_record": "0x0BB688",
+   "us_record_slots": [
+    573,
+    574
+   ]
+  },
+  {
+   "box": 574,
+   "saturn_lines": [
+    976
+   ],
+   "saturn_line_bytes": [
+    26
+   ],
+   "arcade_slot": 574,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    13
+   ],
+   "us_record": "0x0BB688",
+   "us_record_slots": [
+    573,
+    574
+   ]
+  },
+  {
+   "box": 575,
+   "saturn_lines": [
+    977
+   ],
+   "saturn_line_bytes": [
+    32
+   ],
+   "arcade_slot": 575,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    16
+   ],
+   "us_record": "0x0BB6AC",
+   "us_record_slots": [
+    575,
+    576
+   ]
+  },
+  {
+   "box": 576,
+   "saturn_lines": [
+    978
+   ],
+   "saturn_line_bytes": [
+    30
+   ],
+   "arcade_slot": 576,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    15
+   ],
+   "us_record": "0x0BB6AC",
+   "us_record_slots": [
+    575,
+    576
+   ]
+  },
+  {
+   "box": 577,
+   "saturn_lines": [
+    979
+   ],
+   "saturn_line_bytes": [
+    22
+   ],
+   "arcade_slot": 577,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    11
+   ],
+   "us_record": "0x0BB6D2",
+   "us_record_slots": [
+    577,
+    579
+   ]
+  },
+  {
+   "box": 578,
+   "saturn_lines": [
+    980
+   ],
+   "saturn_line_bytes": [
+    24
+   ],
+   "arcade_slot": 578,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    12
+   ],
+   "us_record": "0x0BB6F2",
+   "us_record_slots": [
+    578,
+    580
+   ]
+  },
+  {
+   "box": 579,
+   "saturn_lines": [
+    981,
+    982
+   ],
+   "saturn_line_bytes": [
+    20,
+    20
+   ],
+   "arcade_slot": 579,
+   "arcade_japanese": "differs",
+   "arcade_japanese_line_lengths": [
+    8
+   ],
+   "us_record": "0x0BB6D2",
+   "us_record_slots": [
+    577,
+    579
+   ]
+  },
+  {
+   "box": 580,
+   "saturn_lines": [
+    983,
+    982
+   ],
+   "saturn_line_bytes": [
+    20,
+    20
+   ],
+   "arcade_slot": 580,
+   "arcade_japanese": "differs",
+   "arcade_japanese_line_lengths": [
+    8
+   ],
+   "us_record": "0x0BB6F2",
+   "us_record_slots": [
+    578,
+    580
+   ]
+  },
+  {
+   "box": 581,
+   "saturn_lines": [
+    984
+   ],
+   "saturn_line_bytes": [
+    26
+   ],
+   "arcade_slot": 581,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    13
+   ],
+   "us_record": "0x0BB718",
+   "us_record_slots": [
+    581,
+    582
+   ]
+  },
+  {
+   "box": 582,
+   "saturn_lines": [
+    985
+   ],
+   "saturn_line_bytes": [
+    32
+   ],
+   "arcade_slot": 582,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    16
+   ],
+   "us_record": "0x0BB718",
+   "us_record_slots": [
+    581,
+    582
+   ]
+  },
+  {
+   "box": 583,
+   "saturn_lines": [
+    986
+   ],
+   "saturn_line_bytes": [
+    24
+   ],
+   "arcade_slot": 583,
+   "arcade_japanese": "unmapped",
+   "arcade_japanese_line_lengths": [
+    12
+   ],
+   "us_record": "0x0BB73A",
+   "us_record_slots": [
+    583,
+    584
+   ]
+  },
+  {
+   "box": 584,
+   "saturn_lines": [
+    987
+   ],
+   "saturn_line_bytes": [
+    30
+   ],
+   "arcade_slot": 584,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    15
+   ],
+   "us_record": "0x0BB73A",
+   "us_record_slots": [
+    583,
+    584
+   ]
+  },
+  {
+   "box": 585,
+   "saturn_lines": [
+    988,
+    982
+   ],
+   "saturn_line_bytes": [
+    20,
+    20
+   ],
+   "arcade_slot": 585,
+   "arcade_japanese": "unmapped",
+   "arcade_japanese_line_lengths": [
+    8
+   ],
+   "us_record": "0x0BB760",
+   "us_record_slots": [
+    585,
+    586
+   ]
+  },
+  {
+   "box": 586,
+   "saturn_lines": [
+    989
+   ],
+   "saturn_line_bytes": [
+    28
+   ],
+   "arcade_slot": 586,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    14
+   ],
+   "us_record": "0x0BB760",
+   "us_record_slots": [
+    585,
+    586
+   ]
+  },
+  {
+   "box": 587,
+   "saturn_lines": [
+    990
+   ],
+   "saturn_line_bytes": [
+    26
+   ],
+   "arcade_slot": 587,
+   "arcade_japanese": "unmapped",
+   "arcade_japanese_line_lengths": [
+    13
+   ],
+   "us_record": "0x0BB782",
+   "us_record_slots": [
+    587,
+    588
+   ]
+  },
+  {
+   "box": 588,
+   "saturn_lines": [
+    991
+   ],
+   "saturn_line_bytes": [
+    20
+   ],
+   "arcade_slot": 588,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    10
+   ],
+   "us_record": "0x0BB782",
+   "us_record_slots": [
+    587,
+    588
+   ]
+  },
+  {
+   "box": 589,
+   "saturn_lines": [
+    992
+   ],
+   "saturn_line_bytes": [
+    28
+   ],
+   "arcade_slot": 589,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    14
+   ],
+   "us_record": "0x0BB7A8",
+   "us_record_slots": [
+    589,
+    590
+   ]
+  },
+  {
+   "box": 590,
+   "saturn_lines": [
+    993
+   ],
+   "saturn_line_bytes": [
+    18
+   ],
+   "arcade_slot": 590,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    9
+   ],
+   "us_record": "0x0BB7A8",
+   "us_record_slots": [
+    589,
+    590
+   ]
+  },
+  {
+   "box": 591,
+   "saturn_lines": [
+    994,
+    995
+   ],
+   "saturn_line_bytes": [
+    16,
+    20
+   ],
+   "arcade_slot": 591,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    8,
+    10
+   ],
+   "us_record": "0x0BB7CE",
+   "us_record_slots": [
+    591,
+    592
+   ]
+  },
+  {
+   "box": 592,
+   "saturn_lines": [
+    996
+   ],
+   "saturn_line_bytes": [
+    30
+   ],
+   "arcade_slot": 592,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    15
+   ],
+   "us_record": "0x0BB7CE",
+   "us_record_slots": [
+    591,
+    592
+   ]
+  },
+  {
+   "box": 593,
+   "saturn_lines": [
+    997
+   ],
+   "saturn_line_bytes": [
+    28
+   ],
+   "arcade_slot": 593,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    14
+   ],
+   "us_record": "0x0BB7F4",
+   "us_record_slots": [
+    593,
+    594
+   ]
+  },
+  {
+   "box": 594,
+   "saturn_lines": [
+    998
+   ],
+   "saturn_line_bytes": [
+    26
+   ],
+   "arcade_slot": 594,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    13
+   ],
+   "us_record": "0x0BB7F4",
+   "us_record_slots": [
+    593,
+    594
+   ]
+  },
+  {
+   "box": 595,
+   "saturn_lines": [
+    999,
+    1000
+   ],
+   "saturn_line_bytes": [
+    16,
+    10
+   ],
+   "arcade_slot": 595,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    8,
+    5
+   ],
+   "us_record": "0x0BB816",
+   "us_record_slots": [
+    595
+   ]
+  },
+  {
+   "box": 596,
+   "saturn_lines": [
+    1001
+   ],
+   "saturn_line_bytes": [
+    18
+   ],
+   "arcade_slot": 596,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    9
+   ],
+   "us_record": "0x0BB838",
+   "us_record_slots": [
+    596,
+    597
+   ]
+  },
+  {
+   "box": 597,
+   "saturn_lines": [
+    1002
+   ],
+   "saturn_line_bytes": [
+    24
+   ],
+   "arcade_slot": 597,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    12
+   ],
+   "us_record": "0x0BB838",
+   "us_record_slots": [
+    596,
+    597
+   ]
+  },
+  {
+   "box": 598,
+   "saturn_lines": [
+    1003
+   ],
+   "saturn_line_bytes": [
+    22
+   ],
+   "arcade_slot": 598,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    11
+   ],
+   "us_record": "0x0BB85C",
+   "us_record_slots": [
+    598,
+    600
+   ]
+  },
+  {
+   "box": 599,
+   "saturn_lines": [
+    1004
+   ],
+   "saturn_line_bytes": [
+    24
+   ],
+   "arcade_slot": 599,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    12
+   ],
+   "us_record": "0x0BB54E",
+   "us_record_slots": [
+    556,
+    599
+   ]
+  },
+  {
+   "box": 600,
+   "saturn_lines": [
+    1005
+   ],
+   "saturn_line_bytes": [
+    16
+   ],
+   "arcade_slot": 600,
+   "arcade_japanese": "exact",
+   "arcade_japanese_line_lengths": [
+    8
+   ],
+   "us_record": "0x0BB85C",
+   "us_record_slots": [
+    598,
+    600
+   ]
+  }
+ ],
+ "quote_boxes_no_entry_reaches": [
+  555
+ ],
+ "saturn_only_quote_boxes": [
+  {
+   "box": 1023,
+   "saturn_lines": [
+    1790
+   ]
+  },
+  {
+   "box": 1024,
+   "saturn_lines": [
+    1791,
+    1792
+   ]
+  },
+  {
+   "box": 1025,
+   "saturn_lines": [
+    1793
+   ]
+  },
+  {
+   "box": 1026,
+   "saturn_lines": [
+    1794,
+    1795
+   ]
+  },
+  {
+   "box": 1027,
+   "saturn_lines": [
+    1796,
+    1797
+   ]
+  },
+  {
+   "box": 1028,
+   "saturn_lines": [
+    1798,
+    1799
+   ]
+  },
+  {
+   "box": 1029,
+   "saturn_lines": [
+    1800,
+    1801
+   ]
+  },
+  {
+   "box": 1030,
+   "saturn_lines": [
+    1802
+   ]
+  },
+  {
+   "box": 1031,
+   "saturn_lines": [
+    1803
+   ]
+  },
+  {
+   "box": 1032,
+   "saturn_lines": [
+    1804
+   ]
+  },
+  {
+   "box": 1033,
+   "saturn_lines": [
+    1805
+   ]
+  },
+  {
+   "box": 1034,
+   "saturn_lines": [
+    1806,
+    1807
+   ]
+  },
+  {
+   "box": 1035,
+   "saturn_lines": [
+    1808
+   ]
+  },
+  {
+   "box": 1036,
+   "saturn_lines": [
+    1809,
+    1810
+   ]
+  },
+  {
+   "box": 1037,
+   "saturn_lines": [
+    1811,
+    1812
+   ]
+  },
+  {
+   "box": 1038,
+   "saturn_lines": [
+    1813
+   ]
+  },
+  {
+   "box": 1039,
+   "saturn_lines": [
+    1814
+   ]
+  },
+  {
+   "box": 1040,
+   "saturn_lines": [
+    1815
+   ]
+  },
+  {
+   "box": 1041,
+   "saturn_lines": [
+    1816,
+    1817
+   ]
+  },
+  {
+   "box": 1042,
+   "saturn_lines": [
+    1818
+   ]
+  },
+  {
+   "box": 1043,
+   "saturn_lines": [
+    1819,
+    1820
+   ]
+  },
+  {
+   "box": 1044,
+   "saturn_lines": [
+    1821
+   ]
+  }
+ ],
+ "caption_boxes": {
+  "0": [
+   {
+    "box": 496,
+    "saturn_lines": [
+     899
+    ]
+   },
+   {
+    "box": 497,
+    "saturn_lines": [
+     900
+    ]
+   },
+   {
+    "box": 498,
+    "saturn_lines": [
+     901
+    ]
+   },
+   {
+    "box": 499,
+    "saturn_lines": [
+     902
+    ]
+   },
+   {
+    "box": 500,
+    "saturn_lines": [
+     903
+    ]
+   },
+   {
+    "box": 501,
+    "saturn_lines": [
+     904
+    ]
+   },
+   {
+    "box": 502,
+    "saturn_lines": [
+     905
+    ]
+   },
+   {
+    "box": 503,
+    "saturn_lines": [
+     906
+    ]
+   },
+   {
+    "box": 504,
+    "saturn_lines": [
+     907
+    ]
+   }
+  ],
+  "1": [
+   {
+    "box": 514,
+    "saturn_lines": [
+     917
+    ]
+   },
+   {
+    "box": 515,
+    "saturn_lines": [
+     918
+    ]
+   },
+   {
+    "box": 516,
+    "saturn_lines": [
+     919
+    ]
+   },
+   {
+    "box": 517,
+    "saturn_lines": [
+     920
+    ]
+   },
+   {
+    "box": 518,
+    "saturn_lines": [
+     921
+    ]
+   },
+   {
+    "box": 519,
+    "saturn_lines": [
+     922
+    ]
+   },
+   {
+    "box": 520,
+    "saturn_lines": [
+     923
+    ]
+   },
+   {
+    "box": 521,
+    "saturn_lines": [
+     924
+    ]
+   },
+   {
+    "box": 522,
+    "saturn_lines": [
+     925
+    ]
+   }
+  ],
+  "2": [
+   {
+    "box": 505,
+    "saturn_lines": [
+     908
+    ]
+   },
+   {
+    "box": 506,
+    "saturn_lines": [
+     909
+    ]
+   },
+   {
+    "box": 507,
+    "saturn_lines": [
+     910
+    ]
+   },
+   {
+    "box": 508,
+    "saturn_lines": [
+     911
+    ]
+   },
+   {
+    "box": 509,
+    "saturn_lines": [
+     912
+    ]
+   },
+   {
+    "box": 510,
+    "saturn_lines": [
+     913
+    ]
+   },
+   {
+    "box": 511,
+    "saturn_lines": [
+     914
+    ]
+   },
+   {
+    "box": 512,
+    "saturn_lines": [
+     915
+    ]
+   },
+   {
+    "box": 513,
+    "saturn_lines": [
+     916
+    ]
+   }
+  ],
+  "3": [
+   {
+    "box": 523,
+    "saturn_lines": [
+     926
+    ]
+   },
+   {
+    "box": 524,
+    "saturn_lines": [
+     927
+    ]
+   },
+   {
+    "box": 525,
+    "saturn_lines": [
+     928
+    ]
+   },
+   {
+    "box": 526,
+    "saturn_lines": [
+     929
+    ]
+   },
+   {
+    "box": 527,
+    "saturn_lines": [
+     930
+    ]
+   },
+   {
+    "box": 528,
+    "saturn_lines": [
+     931
+    ]
+   },
+   {
+    "box": 529,
+    "saturn_lines": [
+     932
+    ]
+   },
+   {
+    "box": 530,
+    "saturn_lines": [
+     933
+    ]
+   },
+   {
+    "box": 531,
+    "saturn_lines": [
+     934
+    ]
+   }
+  ],
+  "4": [
+   {
+    "box": 532,
+    "saturn_lines": [
+     935
+    ]
+   },
+   {
+    "box": 533,
+    "saturn_lines": [
+     936
+    ]
+   },
+   {
+    "box": 534,
+    "saturn_lines": [
+     937
+    ]
+   },
+   {
+    "box": 535,
+    "saturn_lines": [
+     938
+    ]
+   },
+   {
+    "box": 536,
+    "saturn_lines": [
+     939
+    ]
+   },
+   {
+    "box": 537,
+    "saturn_lines": [
+     940
+    ]
+   },
+   {
+    "box": 538,
+    "saturn_lines": [
+     941
+    ]
+   },
+   {
+    "box": 539,
+    "saturn_lines": [
+     942
+    ]
+   },
+   {
+    "box": 540,
+    "saturn_lines": [
+     943
+    ]
+   }
+  ],
+  "5": [
+   {
+    "box": 541,
+    "saturn_lines": [
+     944
+    ]
+   },
+   {
+    "box": 542,
+    "saturn_lines": [
+     945
+    ]
+   },
+   {
+    "box": 543,
+    "saturn_lines": [
+     946
+    ]
+   },
+   {
+    "box": 544,
+    "saturn_lines": [
+     947
+    ]
+   },
+   {
+    "box": 545,
+    "saturn_lines": [
+     948
+    ]
+   },
+   {
+    "box": 546,
+    "saturn_lines": [
+     949
+    ]
+   },
+   {
+    "box": 547,
+    "saturn_lines": [
+     950
+    ]
+   },
+   {
+    "box": 548,
+    "saturn_lines": [
+     951
+    ]
+   },
+   {
+    "box": 549,
+    "saturn_lines": [
+     952
+    ]
+   }
+  ],
+  "6": [
+   {
+    "box": 1063,
+    "saturn_lines": [
+     1840
+    ]
+   },
+   {
+    "box": 1064,
+    "saturn_lines": [
+     1841
+    ]
+   },
+   {
+    "box": 1065,
+    "saturn_lines": [
+     1842
+    ]
+   },
+   {
+    "box": 1066,
+    "saturn_lines": [
+     1843
+    ]
+   },
+   {
+    "box": 1067,
+    "saturn_lines": [
+     1844
+    ]
+   },
+   {
+    "box": 1068,
+    "saturn_lines": [
+     1845
+    ]
+   },
+   {
+    "box": 1069,
+    "saturn_lines": [
+     1846
+    ]
+   },
+   {
+    "box": 1070,
+    "saturn_lines": [
+     1847
+    ]
+   },
+   {
+    "box": 1071,
+    "saturn_lines": [
+     1848
+    ]
+   }
+  ],
+  "7": [
+   {
+    "box": 1054,
+    "saturn_lines": [
+     1831
+    ]
+   },
+   {
+    "box": 1055,
+    "saturn_lines": [
+     1832
+    ]
+   },
+   {
+    "box": 1056,
+    "saturn_lines": [
+     1833
+    ]
+   },
+   {
+    "box": 1057,
+    "saturn_lines": [
+     1834
+    ]
+   },
+   {
+    "box": 1058,
+    "saturn_lines": [
+     1835
+    ]
+   },
+   {
+    "box": 1059,
+    "saturn_lines": [
+     1836
+    ]
+   },
+   {
+    "box": 1060,
+    "saturn_lines": [
+     1837
+    ]
+   },
+   {
+    "box": 1061,
+    "saturn_lines": [
+     1838
+    ]
+   },
+   {
+    "box": 1062,
+    "saturn_lines": [
+     1839
+    ]
+   }
+  ],
+  "8": [
+   {
+    "box": 1045,
+    "saturn_lines": [
+     1822
+    ]
+   },
+   {
+    "box": 1046,
+    "saturn_lines": [
+     1823
+    ]
+   },
+   {
+    "box": 1047,
+    "saturn_lines": [
+     1824
+    ]
+   },
+   {
+    "box": 1048,
+    "saturn_lines": [
+     1825
+    ]
+   },
+   {
+    "box": 1049,
+    "saturn_lines": [
+     1826
+    ]
+   },
+   {
+    "box": 1050,
+    "saturn_lines": [
+     1827
+    ]
+   },
+   {
+    "box": 1051,
+    "saturn_lines": [
+     1828
+    ]
+   },
+   {
+    "box": 1052,
+    "saturn_lines": [
+     1829
+    ]
+   },
+   {
+    "box": 1053,
+    "saturn_lines": [
+     1830
+    ]
+   }
+  ]
+ },
+ "counts": {
+  "roster_quote_boxes": 46,
+  "roster_quote_lines": 50,
+  "arcade_japanese": {
+   "differs": 2,
+   "exact": 37,
+   "unmapped": 7
+  },
+  "us_records_for_roster_boxes": 24,
+  "saturn_only_quote_boxes": 22
+ }
+}

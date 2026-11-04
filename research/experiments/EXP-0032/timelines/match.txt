@@ -1,0 +1,17 @@
+# WIN-002 (EXP-0032): cybotsu 2-player match won by player 1 (Jin vs Arieta, Blodia vs Blodia); slot writes
+1 logwrites 0xFF2F7A local/win002/mame/match/writes-slot.txt
+600 press 8 Coin 1
+640 press 8 Coin 1
+720 press 8 1 Player Start
+780 press 8 2 Players Start
+1020 press 8 P1 Button 1
+1030 press 8 P2 Button 1
+1320 press 8 P1 Button 1
+1330 press 8 P2 Button 1
+1620 press 8 P1 Button 1
+1630 press 8 P2 Button 1
+2400 press 17000 P1 Right
+2400 repeat 850 20 6 P1 Button 1
+5300 snap
+5420 snap
+5700 exit
