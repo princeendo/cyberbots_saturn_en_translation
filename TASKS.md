@@ -188,6 +188,8 @@ names it for its method only.
   have official English, so no new translation is needed. `PAIR-003`,
   `WIN-002` and `CAP-001` are done: the gate extension for the roster is
   next (the user's GO).
+- **2026-11-04: `GATE-TRANSLATION` extended to the roster.** The user's
+  words: "GO, cap 160 (Recommended)" and, for win quotes, "Shared official line (Recommended)". `RE-008` is `READY`.
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -1181,12 +1183,19 @@ A dated block under `GATE-TRANSLATION`, once `PAIR-003`, `WIN-002` and
   US set has one English line per pilot and level (22 pairs of boxes, D-030):
   the shared official line for both, or a new translation for one.
 
+**2026-11-04: GO for the roster.** Asked: "Roster GO: put the official US arcade English, as paired and unchanged, on all six pilots' story (404 boxes) and win quotes (46 boxes), drawn as pair glyphs with the indent + rank rule? The estimate is 152 borrowed font codes, touching 51 Japanese lines that stay (43 Saturn-only, 3 roster endings, 5 VS captions). The build stops and asks again if it needs more than the cap." The user's answer,
+verbatim: "GO, cap 160 (Recommended)". Asked: "The US arcade has one English win quote per pilot and level, so 22 pairs of different Japanese quotes share one English line. On the Saturn, which shows when either quote of a pair is picked?" The user's answer, verbatim: "Shared official line (Recommended)".
+Covered: lists 0-5's story scenes (404 boxes, pairings D-022, D-027, D-032)
+and win quotes (46 boxes, D-030), official US arcade English, unchanged;
+no new translations; up to 160 sacrificed codes under `--indent --rank
+staying`; each pair of win quotes sharing a US record shows that record.
+
 ### RE-008 - Build the roster's story in English from the source image (M5)
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M5
-- **Dependencies:** RE-005, PAIR-003, WIN-002, CAP-001, the gate extension.
-- **Blockers:** Dependencies not done.
+- **Dependencies:** RE-005, PAIR-003, WIN-002, CAP-001, the gate extension (all done).
+- **Blockers:** None.
 - **Objective:** One image with every roster pilot's story dialogue in English, built from the roster file, verified box by box and in play.
 - **Acceptance criteria:**
   - **Systematic:** `tools/text/dialogue.py --roster data/text/m5_roster.json` builds it; a new pilot needs only its pairing and roster entry.
@@ -1196,7 +1205,7 @@ A dated block under `GATE-TRANSLATION`, once `PAIR-003`, `WIN-002` and
   - **Win quotes:** every roster pilot's versus win quotes draw their predicted cells (forced), and one versus win from a cold boot shows an English quote.
   - **Japanese left:** a Saturn-only pilot's box and, if reachable, a `VICTORY.BIN` screen draw as the recorded trade-off says.
   - **Provenance:** `data/translations/<pilot>_story.json` per pilot and `data/regression/re008_roster.json`.
-- **Notes:** the image commit pushes after the agent's cold-boot checks pass (user rule, 2026-11-02). Cold boots only with the user present.
+- **Notes:** the gate allows up to 160 sacrificed codes (`--max-sacrifice 160`) with `--indent --rank staying`; more stops the build for the user. Win quotes go into `VICTORY.BIN` (its own line table, box records and code-table copy, D-030). The image commit pushes after the agent's cold-boot checks pass (user rule, 2026-11-02). Cold boots only with the user present.
 
 ## Later Milestones (outline only)
 

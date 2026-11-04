@@ -1650,3 +1650,23 @@ Conclusion: **CONFIRMED**, D-032. `PAIR-003` is `DONE`.
 
 Next action: the `GATE-TRANSLATION` extension for the roster (the user's
 GO), then `RE-008`.
+
+## 2026-11-04 — GATE-TRANSLATION extended to the M5 roster
+
+Action: put the roster's gate to the user after `PAIR-003`, `WIN-002` and
+`CAP-001`.
+
+Question, verbatim: "Roster GO: put the official US arcade English, as paired and unchanged, on all six pilots' story (404 boxes) and win quotes (46 boxes), drawn as pair glyphs with the indent + rank rule? The estimate is 152 borrowed font codes, touching 51 Japanese lines that stay (43 Saturn-only, 3 roster endings, 5 VS captions). The build stops and asks again if it needs more than the cap."
+Answer, verbatim: "GO, cap 160 (Recommended)"
+
+Question, verbatim: "The US arcade has one English win quote per pilot and level, so 22 pairs of different Japanese quotes share one English line. On the Saturn, which shows when either quote of a pair is picked?"
+Answer, verbatim: "Shared official line (Recommended)"
+
+Result: the gate covers lists 0-5's story and win quotes in official US
+arcade English, no new translations, up to 160 sacrificed codes with
+`--indent --rank staying`. Recorded in `TASKS.md` (gate block) and
+`docs/localization_policy.md`. `RE-008` is `READY`.
+
+Next action: `RE-008` (the roster image), which needs cold boots with the
+user present.
+
