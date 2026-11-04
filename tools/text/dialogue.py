@@ -30,7 +30,12 @@ English, as paired (D-022, D-027), unchanged, drawn as pair glyphs (D-024).
      the lookup scans to a 0 word (``0x0606E9E8``);
    - last, by the user's decision (2026-11-02), the codes of the least-used
      Japanese characters (fewest lines, then table order), never one used by
-     a line that stays.
+     a line that stays. With ``--rank staying`` (CAP-001, 2026-11-04) the
+     order is fewest lines that stay Japanese and are shown (a scene's box
+     or a VS caption), then the same.
+
+   With ``--indent`` (CAP-001) some rows start with a space, half a cell in,
+   where that lets rows share pairs (``shift_rows``); the words are unchanged.
 
    At most ``--max-sacrifice`` codes (default 73, the number approved for
    Jin + Santana) are sacrificed. Beyond that the build stops and prints the budget, for
@@ -95,6 +100,7 @@ SCENE_COUNT = 335
 PILOT_LISTS = 0x060AAD24
 PILOTS = 11
 APPROVED_SACRIFICE = 73  # GATE-TRANSLATION, Jin + Santana (2026-11-03)
+CAPTIONS = 0x0609CC22  # VS caption boxes, 9 pilots x 10 stages (EXP-0032)
 
 
 class BudgetExceeded(SystemExit):
@@ -234,6 +240,54 @@ def wanted_pairs(boxes: Sequence[Box]) -> list[str]:
     )
 
 
+def shift_rows(rows: Sequence[str]) -> list[str]:
+    """Indent some rows by one space (half a cell) so the rows share pairs.
+
+    CAP-001 (2026-11-04, the user: "Indent + rank (Recommended)"). Greedy
+    passes in row order: each row shorter than ``ROW_CHARS`` takes the
+    variant (as is, or with a leading space) that adds fewer pairs no other
+    row uses; ties keep the row as is. Stops when no row changes. The words
+    are unchanged.
+    """
+    variants = [[r, " " + r if len(r) < ROW_CHARS else r] for r in rows]
+
+    def ps(row: str) -> set[str]:
+        return {p for p in pairs.split_pairs(row) if p != "  "}
+
+    choice = [0] * len(rows)
+    count: Counter[str] = Counter()
+    for v in variants:
+        count.update(ps(v[0]))
+    while True:
+        changed = 0
+        for i, v in enumerate(variants):
+            count.subtract(ps(v[choice[i]]))
+            cost = [sum(1 for p in ps(x) if count[p] <= 0) for x in v]
+            new = 0 if cost[0] <= cost[1] else 1
+            changed += new != choice[i]
+            choice[i] = new
+            count.update(ps(v[new]))
+        if not changed:
+            return [v[c] for v, c in zip(variants, choice, strict=True)]
+
+
+def rank_codes(
+    candidates: Sequence[int],
+    table: Sequence[int],
+    line_counts: Mapping[int, int],
+    staying_counts: Mapping[int, int] | None = None,
+) -> list[int]:
+    """Sacrifice order: rule ``lines`` (fewest lines, then table order), or,
+    with ``staying_counts``, rule ``staying``: fewest lines that stay Japanese
+    and are shown, then rule ``lines`` (CAP-001)."""
+    if staying_counts is None:
+        return sorted(candidates, key=lambda c: (line_counts.get(c, 0), table.index(c)))
+    return sorted(
+        candidates,
+        key=lambda c: (staying_counts.get(c, 0), line_counts.get(c, 0), table.index(c)),
+    )
+
+
 def kept_lines(
     own: Sequence[int], users: dict[int, set[int]], ours: set[int]
 ) -> list[int]:
@@ -299,6 +353,15 @@ def build(args: argparse.Namespace) -> int:
                 f"box {p['box']}: {len(rows)} rows, {cells_of(rows)} cells"
             )
         boxes.append(Box(p["box"], slot, tuple(p["saturn_lines"]), tuple(rows)))
+    if args.indent:
+        shifted = iter(shift_rows([r for b in boxes for r in b.rows]))
+        boxes = [
+            Box(b.box, b.slot, b.lines, tuple(next(shifted) for _ in b.rows))
+            for b in boxes
+        ]
+        for b in boxes:
+            if cells_of(b.rows) > MAX_CELLS:
+                raise SystemExit(f"box {b.box}: {cells_of(b.rows)} cells after indent")
 
     # Which boxes each scene shows, for every pilot.
     starts = sorted({u32(SCENE_SCRIPTS + 4 * k) for k in range(SCENE_COUNT)})
@@ -379,13 +442,24 @@ def build(args: argparse.Namespace) -> int:
     line_counts: Counter[int] = Counter()
     for text in texts:
         line_counts.update(codes_in(text) & set(table))
-    rare = sorted(
-        (
+    replaced = set(own_lines) - set(kept)
+    staying_counts: Counter[int] | None = None
+    if args.rank == "staying":
+        captions = {u16(CAPTIONS + 2 * k) for k in range(PILOTS * 10)} - {0}
+        shown = {n for b in active | captions for n in box_lines.get(b, [])}
+        staying_counts = Counter()
+        for n in shown - replaced:
+            off, length = lines[n]
+            staying_counts.update(codes_in(bytes(stg[off : off + length])))
+    rare = rank_codes(
+        [
             c
             for c in table
             if c not in unused and c not in kept_codes and c != SPACE_CODE
-        ),
-        key=lambda c: (line_counts[c], table.index(c)),
+        ],
+        table,
+        line_counts,
+        staying_counts,
     )
     wanted = wanted_pairs(boxes)
     last_row = kanji.TABLE_ROWS - 1
@@ -394,7 +468,6 @@ def build(args: argparse.Namespace) -> int:
     needed = max(0, len(wanted) - len(unused) - new_slots)
     # Lines (STG0AS.BIN's numbering; END.BIN and VICTORY.BIN hold copies) that
     # would show a pair glyph: users of a sacrificed code that stay Japanese.
-    replaced = set(own_lines) - set(kept)
     touched = sorted(
         {
             n
@@ -405,6 +478,8 @@ def build(args: argparse.Namespace) -> int:
     )
     budget = {
         "pilots": [str(p) for p in args.pairing],
+        "rank": args.rank,
+        "indent": args.indent,
         "boxes": len(boxes),
         "pairs": len(wanted),
         "unused_codes": len(unused),
@@ -574,6 +649,17 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument("--task", default="RE-003", help="the record's task")
     parser.add_argument("--max-sacrifice", type=int, default=APPROVED_SACRIFICE)
     parser.add_argument("--budget", action="store_true", help="print the budget only")
+    parser.add_argument(
+        "--rank",
+        choices=["lines", "staying"],
+        default="lines",
+        help="sacrifice order (CAP-001: staying, for the M5 roster)",
+    )
+    parser.add_argument(
+        "--indent",
+        action="store_true",
+        help="indent rows by half a cell where it saves pairs (CAP-001)",
+    )
     return build(parser.parse_args(argv))
 
 

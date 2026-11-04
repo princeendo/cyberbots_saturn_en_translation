@@ -1591,3 +1591,34 @@ Conclusion: **CONFIRMED**, D-031. `RE-005` is `DONE`; `PAIR-003` and
 
 Next action: `PAIR-003` (pair Mary, Arieta, Gawaine, Bao and Mao) or
 `CAP-001`; the user picks.
+
+## 2026-11-04 — EXP-0034: the roster's code budget; the user's trade-off (CAP-001)
+
+Action: estimate pairings for pilots 2-5 (`pair_pilot.py`, slot for slot);
+the compiler's budget; `capacity.py` over the story and win quotes for
+options (a) the current rule, (b) ranking by shown lines that stay
+Japanese, (c) 33 more codes, (d) a half-cell indent or capitals; the
+question; then `--indent` and `--rank staying` in `dialogue.py`.
+
+Result:
+- 556 pairs, 335 free codes. (a) 221 codes, 133 lines touched; (b) 221,
+  106; indent + (b) 152, 51; capitals + (b) 115, 16; (c) an untested upper
+  bound (with indent and (b): 119, 20).
+- The English fits `STG0AS.BIN`'s room (23,812 of 25,272 bytes). The quotes
+  need 4 bytes more than their own `VICTORY.BIN` lines; that file's story
+  copy is unshown there (code only).
+- Option (c) needs the data after the table moved (2 literals, 9 pointers)
+  in three files; not tried.
+
+Question, verbatim: "M5 needs 556 pair glyphs for the six pilots' stories and win quotes (an estimate until PAIR-003), but only 335 codes are free. The rest must take over codes of rare Japanese characters, and Japanese lines that stay after M5 (mostly the Saturn-only pilots', plus a few roster endings and VS captions) will show a wrong glyph wherever one is used. This lasts, since that Japanese stays Japanese. Which trade-off?"
+Answer, verbatim: "Indent + rank (Recommended)"
+
+Regression: defaults rebuilt Jin + Santana and Jin to `re007` and `re003`
+byte for byte (builds deleted). With the new options the compiler's story
+budget is 480 pairs, 145 codes, 52 lines.
+
+Commands: `ruff format`, `ruff check`, `mypy tools/ tests/` and the new script (clean); `pytest -q`: 164 passed.
+
+Conclusion: `CAP-001` is `DONE`. Numbers are estimates until `PAIR-003`.
+
+Next action: `PAIR-003` (`READY`).

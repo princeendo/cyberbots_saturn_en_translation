@@ -78,3 +78,31 @@ def test_row_bytes_and_record_entries() -> None:
 
 def test_codes_in_skips_line_breaks() -> None:
     assert dialogue.codes_in(bytes.fromhex("82a00a82a2")) == {0x82A0, 0x82A2}
+
+
+def test_shift_rows_shares_pairs_and_keeps_words() -> None:
+    from tools.font import pairs
+
+    rows = ["ab cd", "xab", "xcd", "y" * dialogue.ROW_CHARS]
+    shifted = dialogue.shift_rows(rows)
+
+    def count(rs: list[str]) -> int:
+        return len({p for r in rs for p in pairs.split_pairs(r) if p != "  "})
+
+    assert count(shifted) <= count(rows)
+    assert shifted[1] == " xab" or shifted[0] != rows[0]
+    assert [r.lstrip() for r in shifted] == [r.lstrip() for r in rows]
+    assert all(len(r) <= dialogue.ROW_CHARS for r in shifted)
+    assert shifted[3] == rows[3]  # a full row is never indented
+
+
+def test_shift_rows_keeps_rows_that_gain_nothing() -> None:
+    assert dialogue.shift_rows(["ab", "ab"]) == ["ab", "ab"]
+
+
+def test_rank_codes_lines_then_staying() -> None:
+    table = [10, 11, 12, 13]
+    counts = {10: 1, 11: 1, 12: 5, 13: 2}
+    assert dialogue.rank_codes(table, table, counts) == [10, 11, 13, 12]
+    staying = {10: 3, 11: 0, 12: 0, 13: 1}
+    assert dialogue.rank_codes(table, table, counts, staying) == [11, 12, 13, 10]

@@ -178,6 +178,11 @@ names it for its method only.
   chose the six arcade pilots ("Six arcade pilots (Recommended)"): lists
   0-5, 404 story boxes and 46 win-quote boxes. Every pilot's block was seen
   in play. `PAIR-003` and `CAP-001` are `READY`.
+- **2026-11-04: code budget chosen** (`CAP-001`, `EXP-0034`): about 152
+  sacrificed codes for the roster's story and win quotes, touching about
+  51 shown Japanese lines, with half-cell indents and ranking by the lines
+  that stay ("Indent + rank (Recommended)"). `dialogue.py --indent --rank
+  staying`. Next: `PAIR-003` (`READY`).
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -1130,7 +1135,7 @@ counting, extended in scratch to lists 0-5 with their story blocks.
 
 ### CAP-001 - Capacity for the roster, and the user's choice of trade-off
 
-- **Status:** `READY`
+- **Status:** `DONE` (2026-11-04, `EXP-0034`)
 - **Milestone:** M5
 - **Dependencies:** RE-005 (done).
 - **Blockers:** None.
@@ -1145,6 +1150,12 @@ counting, extended in scratch to lists 0-5 with their story blocks.
   - **Room:** if the rows do not fit the room, the shortfall and the options for it are measured as well.
   - **Decision:** the user chooses, asked as a multiple-choice question with a "(Recommended)" option and recorded verbatim. The chosen option is implemented in `tools/text/dialogue.py` with synthetic tests. Jin + Santana either reproduce `re007_jin_santana.json` or get a new reference with the reason recorded.
 - **Notes:** the user's earlier decisions accepted broken Japanese "until they are English (by M5)". After M5 the Japanese that stays is the Saturn-only pilots', the endings' and `VICTORY.BIN`'s, so the trade-off now lasts longer; the question says so.
+- **Results** (`EXP-0034`; pilots 2-5 paired slot for slot, an estimate until `PAIR-003`):
+  - **Budget:** 404 story boxes and 46 quote boxes, 556 pairs; 335 free codes; the current rule needs 221 sacrificed codes and touches 133 shown lines that stay Japanese. Text 23,812 bytes against 25,272 of room in `STG0AS.BIN`; the quotes need 1,324 bytes against 1,320 in their own `VICTORY.BIN` lines, with that file's unshown story copy as further room (code only).
+  - **Options:** (b) ranking by staying lines: 221 codes, 106 lines. (c) 33 more codes: an upper bound, not tested (the data after the table is read by 2 literals and a 9-entry pointer table; three copies of the table). (d) a half-cell indent on 64 of 897 rows: 487 pairs; with (b) 152 codes, 51 lines. (d) capitals: 450 pairs; with (b) 115 codes, 16 lines.
+  - **Decision:** the user's answer, verbatim: "Indent + rank (Recommended)".
+  - **Implementation:** `dialogue.py --indent --rank staying`, with synthetic tests; the defaults still reproduce `re003_jin.json` and `re007_jin_santana.json` byte for byte. For the six story pairings the compiler gives 480 pairs, 145 codes, 52 lines touched, 23,904 bytes against 25,272.
+
 
 ### GATE-TRANSLATION extension for the roster
 
@@ -1152,7 +1163,9 @@ A dated block under `GATE-TRANSLATION`, once `PAIR-003`, `WIN-002` and
 `CAP-001` are done. The user's GO covers, per roster pilot:
 - the official English as paired, story and win quotes;
 - any new translations, each listed with its translator;
-- the code budget and the chosen trade-off, with the lines it touches;
+- the code budget and the chosen trade-off (`CAP-001`: indent + rank by
+  staying lines, about 152 codes and 51 shown lines touched, to be fixed by
+  `RE-008`'s build), with the lines it touches;
 - for win quotes, what the two Japanese quotes of a level show, since the
   US set has one English line per pilot and level (22 pairs of boxes, D-030):
   the shared official line for both, or a new translation for one.
