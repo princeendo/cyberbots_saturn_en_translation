@@ -10,7 +10,8 @@ Run from the repository root, one subcommand per call:
 ``launch`` makes a scratch home, ``local/mednafen_route``. It is a copy of the
 silent home's configuration with pad 1 on keyboard keys (A on K, B on H,
 Start on N, directions on I, M, J and L, as XvSF's ``tools/mednafen/route.py``
-did), and its backup RAM starts empty. The user's homes are not changed.
+did; pad 2's keys are ``KEYS_2``, named ``p2a`` and so on, EXP-0031), and its
+backup RAM starts empty. The user's homes are not changed.
 ``launch`` then starts the patched build (agent interface, D-007) on CUE with
 no state, a cold boot, and records the PID in ``OUT/run.json``. ``key`` holds
 one of those keys for SECONDS (default 0.2) through System Events, only while
@@ -47,6 +48,16 @@ KEYS = {
     "left": ("j", 13),
     "right": ("l", 15),
 }
+# Pad 2 (EXP-0031): U 24, Y 28, R 21, X 27, G 10, F 9, V 25. T is a hotkey.
+KEYS_2 = {
+    "p2a": ("y", 28),
+    "p2b": ("r", 21),
+    "p2start": ("u", 24),
+    "p2up": ("x", 27),
+    "p2down": ("g", 10),
+    "p2left": ("f", 9),
+    "p2right": ("v", 25),
+}
 
 
 def make_home() -> Path:
@@ -59,8 +70,14 @@ def make_home() -> Path:
     apply_settings(
         HOME / "mednafen.cfg",
         {
-            f"ss.input.port1.gamepad.{button}": f"keyboard 0x0 {code}"
-            for button, (_key, code) in KEYS.items()
+            **{
+                f"ss.input.port1.gamepad.{button}": f"keyboard 0x0 {code}"
+                for button, (_key, code) in KEYS.items()
+            },
+            **{
+                f"ss.input.port2.gamepad.{button[2:]}": f"keyboard 0x0 {code}"
+                for button, (_key, code) in KEYS_2.items()
+            },
         },
     )
     return HOME
@@ -114,7 +131,7 @@ def pid_of(out: Path) -> int:
 
 def key(out: Path, button: str, seconds: float) -> None:
     pid = pid_of(out)
-    letter = KEYS[button][0]
+    letter = {**KEYS, **KEYS_2}[button][0]
     previous = frontmost_pid()
     activate(pid)
     time.sleep(0.4)

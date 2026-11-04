@@ -1446,3 +1446,55 @@ over 3 rows. Not evidence; `RE-005` and `CAP-001` measure it.
 
 Next action: `RE-005` or `WIN-001` (both `READY`).
 
+## 2026-11-03 — WIN-001 in progress (EXP-0031, paused)
+
+Action: `EXP-0031/loads.py` logs CD Play Disc commands (CR1 `0x10xx`; FAD
+when bit `0x80` is set, else track and index) and scene posts from a state.
+Validated from 4138: `STG0AS.BIN` at FAD `0x58A0`, `KANJI.BIN` at `0x1342`
+(EXP-0018). Runs from REF-005 states, no input:
+- **Win** (12788, 3,000 frames): `STG0AS.BIN` reloads, demo files, scenes 1
+  and 2 posted (post-fight and next pre-fight dialogue), next stage. Screens:
+  bonus tally, loading, story boxes, VS screen. No `VICTORY.BIN`.
+- **Loss** (23142, 3,000): `CONTI_0.BIN`, continue countdown, game over,
+  `OPDEMO.BIN`. No `VICTORY.BIN`.
+- **Attract** (25772, 12,000): intro, ranking, Capcom logo, title, two demo
+  fights (stages 00 and 01). No `VICTORY.BIN`.
+- **Static:** in the game's file table (`0x060DCB98`) `VICTORY.BIN` is entry
+  318, request `0x140` (`STG0AS.BIN` `0x124`). A load script of (handler,
+  argument) pairs at `0x0604C1A0`-`0x0604C3A0` has a sequence at `0x0604C320`:
+  `VICTORY.BIN`, `VRAM00.DAT`, `VADEMC`-`VADEME.MAC`. Nothing refers to the
+  sequence's address directly.
+- **Versus mode** (cold boot, the user present; pad 2 bound in the scratch
+  home: `drive.py` `KEYS_2`): Jin against Arieta, set-up screen, then
+  `STG0AS.BIN` and stage `STG07.BIN` load. Stopped during the fight's load at
+  the user's request: the watcher's A press every 1.5 s kept taking focus.
+  User's words: "Please take a break as soon as possible. It's becoming
+  impossible to use this computer because you keep switching focus".
+
+Next action: when the user says, finish versus mode with RAM-only forcing (no
+repeated key presses), then the arcade's readers. Nothing committed yet.
+
+## 2026-11-03 — EXP-0031: versus win quotes (WIN-001)
+
+Action: resumed with a watcher that forces the win by memory only (no key
+presses during the fight). Cold boot into versus mode (18:19-18:35, the user
+present): Jin against Arieta, both Blodia; fight to time-out. Then matched
+the arcade table's slots past 493 to Saturn lines (`extra_slots.py`).
+
+Result:
+- After the versus win: `VICTORY.BIN`, then `KANJI.BIN`; a `VICTORY!` screen
+  with Jin's portrait and Saturn line 959; then an English `RESULT` tally.
+- The arcade tables have 624 pointers; slots 494-623 follow Saturn lines
+  from 899 (slot k = line k + 405; 79 exact matches); line 959 is slot 558;
+  the US set has English in all 130 slots. D-011 corrected.
+- Not traced: the arcade reader of slots 494-623 and how a quote is chosen.
+  The US slot 558 is worded differently from the Japanese.
+- Commands: `ruff check`, `mypy` on the new scripts (clean).
+
+Conclusion: **CONFIRMED**, D-029. A separate surface exists.
+
+Question, verbatim: "Versus mode has a separate win-quote screen (VICTORY.BIN: the winner's portrait and a one-line Japanese quote, e.g. Saturn line 959). The arcade tables hold them in slots 494-623 (slot k = Saturn line k+405), with US English in all 130 slots. Should versus win quotes join M5?"
+Answer, verbatim: "Add to M5 (Recommended)"
+
+Next action: `RE-005` (`READY`); `WIN-002` is added to Phase J.
+

@@ -173,6 +173,13 @@ records, so 60 records were cut short. With the fix, 897 of Saturn lines
 are unpaired in 0-898. Lines 899-1850 still have no counterpart. The counts
 above are the first run's.
 
+**Corrected 2026-11-03 (`WIN-001`, `EXP-0031`).** The arcade table has 624
+slots, not 494: `find_tables` stops at 494. Slots 494-623 follow Saturn
+lines from 899 at a fixed offset (slot k = line k + 405; 79 exact matches in
+slots 494-600), and the US table has English in all 130. So part of the
+range 899-1850 does have arcade counterparts: VS captions and versus win
+quotes (D-029). Lines from 1029 on are not matched.
+
 Reproduce: `research/experiments/EXP-0010/README.md`, "Procedure".
 
 ## D-012: Where the Saturn shows Japanese in an ordinary run (`REF-005`, `EXP-0011`)
@@ -476,4 +483,19 @@ The image built from the untouched source (85 sectors, all valid, Track 01
 The typing routine draws no cell for the full-width space `0x8140`.
 
 Reproduce: `research/experiments/EXP-0030/README.md`, "Procedure".
+
+## D-029: Versus mode shows win quotes from `VICTORY.BIN`; the arcade table has 624 slots (`WIN-001`, `EXP-0031`)
+
+After a versus-mode win the game loads `VICTORY.BIN` (file-table entry 318,
+request `0x140`) and `KANJI.BIN`, and shows a `VICTORY!` screen: the winner's
+portrait and mech and one dialogue-table line (Saturn line 959 after Jin's
+win), then an English `RESULT` tally. Arcade-mode wins and losses and the
+attract mode never load `VICTORY.BIN` (CD Play Disc logs from REF-005
+states). The load script that names it is at `0x0604C320`.
+
+The arcade Japanese and US dialogue tables (`0x0A30F6`, `0x0B33AA`) have 624
+pointers. Slots 494-623 follow the Saturn lines from 899 (slot k = line k +
+405); line 959 is slot 558. The US set has English in all 130 slots.
+
+Reproduce: `research/experiments/EXP-0031/README.md`, "Procedure".
 

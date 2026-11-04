@@ -164,6 +164,11 @@ names it for its method only.
   `READY`; `PAIR-003`, `CAP-001`, the gate extension and `RE-008` follow.
   The estimate: 404 boxes and 551 pairs for lists 0-5, about 216 sacrificed
   codes under the current rule.
+- **2026-11-03: versus win quotes found and added to M5** (`WIN-001`,
+  `EXP-0031`, D-029): a versus win loads `VICTORY.BIN` and shows the
+  winner's quote; the arcade tables have 624 slots, with US English for
+  slots 494-623. The user: "Add to M5 (Recommended)". `WIN-002` is `READY`;
+  so is `RE-005`.
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -1012,13 +1017,13 @@ rarest-glyph rule, and Jin's image is unchanged when built alone.
 ## Phase J: M5 (All Ordinary Story Dialogue)
 
 M5: every ordinary pilot's story dialogue is localized by the same mechanism,
-from one roster file, in one image built from the untouched source. Win
-quotes are included only if they turn out to be a separate surface. The
-order is:
+from one roster file, in one image built from the untouched source. Versus
+win quotes are a separate surface (`WIN-001`, D-029) and are in M5 (the
+user's decision, 2026-11-03). The order is:
 
 1. `RE-005` (census and roster, with the user) and `WIN-001` (is there a
    win-quote surface?), which are independent;
-2. `PAIR-003` and `CAP-001`, which are independent;
+2. `PAIR-003`, `WIN-002` and `CAP-001`, which are independent;
 3. the user's gate extension for the roster;
 4. `RE-008` (the roster image).
 
@@ -1056,7 +1061,7 @@ counting, extended in scratch to lists 0-5 with their story blocks.
 
 ### WIN-001 - Is there a win-quote surface?
 
-- **Status:** `READY`
+- **Status:** `DONE` (2026-11-03, `EXP-0031`)
 - **Milestone:** M5
 - **Dependencies:** None open.
 - **Blockers:** None.
@@ -1067,6 +1072,25 @@ counting, extended in scratch to lists 0-5 with their story blocks.
   - **Arcade:** the arcade's text readers (`0x11CC6` for story scripts; the second reader at `0x97222`, D-010) are checked for a win-quote table.
   - **Result:** "no separate surface" closes the question for M5. A separate surface becomes its own task, which the user adds to M5 or defers (a decision, recorded verbatim).
 - **Notes:** `docs/text_surfaces.md` lists the round-end and bonus screens as already English.
+- **Results** (`EXP-0031`, D-029):
+  - **Loads:** arcade-mode win, loss and the attract mode never load `VICTORY.BIN`. A versus-mode win loads it, then `KANJI.BIN`.
+  - **Screen:** `VICTORY!` with the winner's portrait and one dialogue line (Saturn line 959 after Jin's win), then an English `RESULT` tally.
+  - **Arcade:** the dialogue tables have 624 slots; slots 494-623 follow Saturn lines from 899 (slot k = line k + 405); the US set has English in all 130. The reader of those slots is not traced (`WIN-002`).
+  - **Decision:** asked whether versus win quotes join M5; the user's answer, verbatim: "Add to M5 (Recommended)".
+
+### WIN-002 - Pair the versus win quotes with the arcade English
+
+- **Status:** `READY`
+- **Milestone:** M5
+- **Dependencies:** WIN-001 (done).
+- **Blockers:** None.
+- **Objective:** Pair every Saturn win-quote line with the arcade English the US arcade shows in the same situation, by game logic, and make the quote screen reachable for checks.
+- **Acceptance criteria:**
+  - **Selection:** how the Saturn (`VICTORY.BIN`) and the arcade choose a quote (winner, loser, random, round) is traced; the arcade reader of slots 494-623 is named.
+  - **Lines:** the Saturn lines that are win quotes, and those that are VS captions, are listed from the code, not by meaning (lines 899-1028 are candidates).
+  - **Pairing:** `data/translations/win_quotes_pairing.json` (no text): each quote line with its arcade slot and the US English record shown in the same situation; any line with no official English is listed for the gate. A US line worded differently from the Japanese is expected (slot 558, `EXP-0031`); pairing follows the game logic, as MSHvSF's did.
+  - **On screen:** at least 3 quotes forced in both games (MAME and the Saturn), with agent-reviewed screenshots. The Saturn route is a state on the versus `VICTORY!` screen or a forced selection, with no key loops (user, 2026-11-03).
+- **Notes:** the VS captions (`docs/text_surfaces.md`) are a separate question; the US arcade showed none (`EXP-0012`), though its table has English in their slots.
 
 ### PAIR-003 - Pair the roster pilots' boxes with the arcade English
 
@@ -1088,7 +1112,7 @@ counting, extended in scratch to lists 0-5 with their story blocks.
 - **Milestone:** M5
 - **Dependencies:** RE-005.
 - **Blockers:** Dependencies not done.
-- **Objective:** Measure what the roster needs in codes, glyphs and line bytes, test the options for the gap, and put them to the user.
+- **Objective:** Measure what the roster needs in codes, glyphs and line bytes, story and win quotes together, test the options for the gap, and put them to the user.
 - **Acceptance criteria:**
   - **Budget:** `dialogue.py --budget` over all roster pairings (after `PAIR-003`, or the census's slot-for-slot pairing for the estimate, labelled as such): pairs, sacrifices needed, line bytes against room (own lines plus dead ending lines, proved dead as in `EXP-0029`), and the Japanese lines touched, grouped by whose they are (Saturn-only pilots, endings, `VICTORY.BIN`, other).
   - **Options,** each measured, not assumed:
@@ -1102,9 +1126,9 @@ counting, extended in scratch to lists 0-5 with their story blocks.
 
 ### GATE-TRANSLATION extension for the roster
 
-A dated block under `GATE-TRANSLATION`, once `PAIR-003` and `CAP-001` are
-done. The user's GO covers, per roster pilot:
-- the official English as paired;
+A dated block under `GATE-TRANSLATION`, once `PAIR-003`, `WIN-002` and
+`CAP-001` are done. The user's GO covers, per roster pilot:
+- the official English as paired, story and win quotes;
 - any new translations, each listed with its translator;
 - the code budget and the chosen trade-off, with the lines it touches.
 
@@ -1112,7 +1136,7 @@ done. The user's GO covers, per roster pilot:
 
 - **Status:** `BLOCKED`
 - **Milestone:** M5
-- **Dependencies:** RE-005, PAIR-003, CAP-001, the gate extension; WIN-001 (its scope answer).
+- **Dependencies:** RE-005, PAIR-003, WIN-002, CAP-001, the gate extension.
 - **Blockers:** Dependencies not done.
 - **Objective:** One image with every roster pilot's story dialogue in English, built from the roster file, verified box by box and in play.
 - **Acceptance criteria:**
@@ -1120,6 +1144,7 @@ done. The user's GO covers, per roster pilot:
   - **Build:** from the untouched source; two builds identical; all sectors valid; source hashes unchanged. Every changed byte range in `STG0AS.BIN` and `KANJI.BIN` is accounted for by a roster box's row or record, a table code or a glyph; all other bytes are checked equal to the source (MSHvSF's untouched-block check).
   - **Live:** every story box of every roster pilot is forced from a pre-load state and draws its predicted cells (about 114 scenes, about 3 hours unattended); the original image is the control.
   - **Play:** an agent cold boot of each roster pilot reaches at least stage 2 with forced fights (D-025) and shows its English boxes.
+  - **Win quotes:** every roster pilot's versus win quotes draw their predicted cells (forced), and one versus win from a cold boot shows an English quote.
   - **Japanese left:** a Saturn-only pilot's box and, if reachable, a `VICTORY.BIN` screen draw as the recorded trade-off says.
   - **Provenance:** `data/translations/<pilot>_story.json` per pilot and `data/regression/re008_roster.json`.
 - **Notes:** the image commit pushes after the agent's cold-boot checks pass (user rule, 2026-11-02). Cold boots only with the user present.

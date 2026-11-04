@@ -29,6 +29,7 @@ surface.
 | Round end | After a KO | English (`TARGET DAMAGED`/`DESTROYED`, `UNIT DAMAGED`, `MISSION TERMINATED`, `1P WIN`/`LOSE`) | — | `f00012822.png` (`84bd973d…b5d6`), `f00023412.png` (`221f7fd7…3645`) |
 | Bonus tally | After a win | English (`BONUS`, `ENERGY`, `TIME`, `TOTAL`, `Rank`) | — | `f00012943.png` (`f5e5b747…0057`) |
 | Continue | After a loss | English (`CONTINUE?`, countdown) | — | `f00023887.png` (`3dcbfc35…4508`) |
+| **Versus win quote** (`VICTORY!`) | After a versus-mode win (`VICTORY.BIN`) | **Japanese**, one dialogue-table line beside the winner's portrait; then an English `RESULT` tally | Yes: arcade slots 494-623 (D-029) | `local/win001/versus2/w1793751840-0070.png` (`754723dd…017f`, EXP-0031) |
 | Game over, initials | After the countdown | English | — | `f00025276.png` (`88577c3e…9c4e`), `f00025813.png` (`299f26f9…db6c`) |
 | `OPTION MODE` | Title menu | English (`DIFFICULTY`, `TIME LIMIT`, `SHORT CUT`, `SOUND`, `SOUND TEST`, `DATA RESET`, `KEY CONFIG`, `3M RAM MODE`, `PRESS START TO EXIT`) | — | `f00027081.png` (`02f4218a…270f`) |
 | `RANKING` | Attract | English | — | `emu003/boot1/frames/118.png` |
@@ -42,7 +43,6 @@ Each needs its own capture before it can be ruled in or out.
 | --- | --- | --- |
 | Endings | Every pilot has one | `END.BIN`; audio tracks 42-62 (D-002) |
 | Console-only pilots' stories | Four pilots added on consoles | Saturn lines from 1141 on name Chiyomaru and Tessan (D-011) |
-| Versus mode screens | Title menu item | — |
 | `KEY CONFIG`, `SOUND TEST`, `DATA RESET` sub-screens | Option rows | — |
 | Boot, cart and save warnings | `WARNING0`-`4.PIX` on the disc | `UI-004` |
 | Attract or opening text not in the first two minutes | `OPDEMO*`, `STDEM*`, `VADEM*` files | `UI-002` |
@@ -51,6 +51,7 @@ Each needs its own capture before it can be ruled in or out.
 ## Summary
 
 So far the Japanese on screen is (1) story dialogue boxes, (2) the VS
-screen's chapter caption, and (3) pilot and mech names drawn as katakana art
-on the pilot select and VS screens. Menus, HUD, banners, scores, continue,
+screen's chapter caption, (3) pilot and mech names drawn as katakana art
+on the pilot select and VS screens, and (4) the versus-mode win quote
+(D-029). Menus, HUD, banners, scores, continue,
 game over and options are already English.
