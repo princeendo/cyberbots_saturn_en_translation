@@ -1622,3 +1622,31 @@ Commands: `ruff format`, `ruff check`, `mypy tools/ tests/` and the new script (
 Conclusion: `CAP-001` is `DONE`. Numbers are estimates until `PAIR-003`.
 
 Next action: `PAIR-003` (`READY`).
+
+## 2026-11-04 — EXP-0035: Mary, Arieta, Gawaine, and Bao and Mao paired (PAIR-003)
+
+Action: `pair_pilot.py` for lists 2-5; `check_lines.py` (each line against
+its own slot's Japanese line); MAME forced scenes (2 per pilot, headless,
+fixed NVRAM); Saturn forced scenes on the untouched image from state 4138
+(`force_check.py --control`, `japanese_check.py`). No cold boots, no keys.
+
+Result:
+- Story scripts match the arcade's for all four pilots; only ending scenes
+  differ.
+- 519 lines: 489 exact and 30 edited against their own slot. The
+  irregular REF-006 labels were lines shared with earlier boxes and Mary's
+  short line 258 (punctuation edit). No new translation is needed.
+- MAME slots equal the Saturn boxes in all eight scenes; Saturn cells
+  757/757.
+- The pairs equal `CAP-001`'s estimate.
+
+Corrected: D-011 and RE-005's coverage register listed line 258 as
+Saturn-only; it is slot 140's edited line (D-032).
+
+Commands: `ruff format`, `ruff check`, `mypy` on `check_lines.py` (clean);
+`pytest -q`: 164 passed.
+
+Conclusion: **CONFIRMED**, D-032. `PAIR-003` is `DONE`.
+
+Next action: the `GATE-TRANSLATION` extension for the roster (the user's
+GO), then `RE-008`.

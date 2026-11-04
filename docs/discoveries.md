@@ -180,6 +180,10 @@ slots 494-600), and the US table has English in all 130. So part of the
 range 899-1850 does have arcade counterparts: VS captions and versus win
 quotes (D-029). Lines from 1029 on are not matched.
 
+**Corrected 2026-11-04 (`EXP-0035`):** line 258 is not Saturn-only. It is
+slot 140's second line with its punctuation changed, too short for the
+alignment; slot 140's English covers it.
+
 Reproduce: `research/experiments/EXP-0010/README.md`, "Procedure".
 
 ## D-012: Where the Saturn shows Japanese in an ordinary run (`REF-005`, `EXP-0011`)
@@ -542,4 +546,19 @@ two moves left list 8 (stage 72). Moves pressed while a portrait is still
 loading are lost.
 
 Reproduce: `research/experiments/EXP-0033/README.md`, "Procedure".
+
+## D-032: Mary, Arieta, Gawaine, and Bao and Mao pair box for slot (`PAIR-003`, `EXP-0035`)
+
+The story scenes of lists 2-5 run the same scene scripts in both games
+(only ending scenes differ), so each Saturn box N pairs with arcade slot N.
+Each of their 519 lines matches the same line of its own slot's Japanese
+record, exactly (489) or with small edits (30), and every slot has a US
+English record. Forced in MAME (pilot byte at `0x11CDA`, scene at
+`0x11CEA`), scenes Mary 2 and 7, Arieta 1 and 9, Gawaine 5 and 10, and Bao
+and Mao 2 and 11 played slots equal to the Saturn's boxes; forced on the
+Saturn, every box of those scenes drew its predicted Japanese cells (757
+of 757). Slots 283/284, 290/291 and 335/336 share a record; boxes 283, 290
+and 335 are in no scene.
+
+Reproduce: `research/experiments/EXP-0035/README.md`, "Procedure".
 

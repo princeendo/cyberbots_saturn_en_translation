@@ -44,8 +44,10 @@ Win quotes: the 46 boxes that the quote table's rows 0-5 reach
 
 ### For the Gate
 
-- Mary's line 258 (box 140) has no arcade counterpart (D-011): a new
-  translation, with its translator named at the gate (`PAIR-003`).
+- ~~Mary's line 258 (box 140) has no arcade counterpart (D-011): a new
+  translation.~~ Corrected 2026-11-04 (`PAIR-003`, D-032): line 258 is slot
+  140's second line, edited; slot 140's English covers it. No roster line
+  needs a new translation.
 - Win quotes: the two Japanese quotes of a level share one US line (22 pairs
   of boxes, D-030).
 - Lines a roster box shares with another list's box (the census's

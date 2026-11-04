@@ -183,6 +183,11 @@ names it for its method only.
   51 shown Japanese lines, with half-cell indents and ranking by the lines
   that stay ("Indent + rank (Recommended)"). `dialogue.py --indent --rank
   staying`. Next: `PAIR-003` (`READY`).
+- **2026-11-04: the roster is paired** (`PAIR-003`, `EXP-0035`, D-032):
+  Mary, Arieta, Gawaine, and Bao and Mao pair box for slot; all 519 lines
+  have official English, so no new translation is needed. `PAIR-003`,
+  `WIN-002` and `CAP-001` are done: the gate extension for the roster is
+  next (the user's GO).
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -203,7 +208,7 @@ names it for its method only.
   use, font users, record size, free RAM), D-024 (pair glyphs work), D-025 (M3: Jin's story in
   English; fighter vitality), D-026 (pilot lists; stage groups), D-027 (Santana's pairing), D-028 (M4),
   D-029 (versus win quotes), D-030 (how a win quote is picked; box for
-  slot; US English per level), D-031 (block k is list k; routes). The font's layout is not confirmed.
+  slot; US English per level), D-031 (block k is list k; routes), D-032 (lists 2-5 paired). The font's layout is not confirmed.
 
 ## Milestones
 
@@ -1121,7 +1126,7 @@ counting, extended in scratch to lists 0-5 with their story blocks.
 
 ### PAIR-003 - Pair the roster pilots' boxes with the arcade English
 
-- **Status:** `READY`
+- **Status:** `DONE` (2026-11-04, `EXP-0035`)
 - **Milestone:** M5
 - **Dependencies:** RE-005 (done).
 - **Blockers:** None.
@@ -1132,6 +1137,12 @@ counting, extended in scratch to lists 0-5 with their story blocks.
   - **On screen:** at least 2 pairs per pilot shown in both games from forced scenes (MAME at `0x11CDA`/`0x11CEA`, the Saturn by `EXP-0029/force_check.py`).
   - **New translations:** every line with no official English is listed with its box and context (no text committed), for the gate, where the user names the translator.
 - **Notes:** no text is committed (rule 21).
+- **Results** (`EXP-0035`, D-032):
+  - **Scripts:** every story scene of lists 2-5 matches the arcade's; only ending scenes differ (Mary 16-18; Arieta 16, 20, 27, 28; Gawaine 16-19; Bao and Mao 16-22, 28).
+  - **Pairing:** `data/translations/{mary,arieta,gawaine,baomao}_pairing.json`. Against each box's own slot, all 519 lines are exact (489) or edited (30). The candidates' irregular boxes hold lines other boxes share (REF-006 aligned them to the first box), or, for Mary's line 258, the slot's own line with its punctuation edited. Shared-record slots: 283/284, 290/291, 335/336, unused boxes 283, 290, 335.
+  - **On screen:** two forced scenes per pilot: MAME played the slots of the Saturn's boxes (agent-reviewed English screenshots); the Saturn drew every box's Japanese cells, 757/757.
+  - **New translations:** none; every roster line has official English (D-011's line 258 corrected). The pairs equal `CAP-001`'s estimate, so its budget stands.
+
 
 ### CAP-001 - Capacity for the roster, and the user's choice of trade-off
 
