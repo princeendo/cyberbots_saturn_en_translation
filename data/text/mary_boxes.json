@@ -1119,5 +1119,46 @@
     }
    ]
   }
- ]
+ ],
+ "story_scenes_posted": [
+  19,
+  0,
+  1,
+  20,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  21,
+  12,
+  13,
+  14
+ ],
+ "story_scenes": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  19,
+  20,
+  21
+ ],
+ "note": "story_scenes: the scene numbers in pilot 2's block of STG0AS.BIN's scene posts (EXP-0027 scene_posts.py), in post order in story_scenes_posted (EXP-0033 census.py)."
 }

@@ -54,10 +54,13 @@ def main(path: Path, pilot: int, out: Path | None) -> int:
         end = data.index(b"\0", a - BASE) + BASE
         a = (end + 1 + 3) & ~3
     scene_list = u32(PILOT_SCENES + 4 * pilot)
-    next_list = min(
-        u32(PILOT_SCENES + 4 * k)
-        for k in range(22)
-        if u32(PILOT_SCENES + 4 * k) > scene_list
+    next_list = min(  # the last list ends at the list table (EXP-0033)
+        [PILOT_SCENES]
+        + [
+            u32(PILOT_SCENES + 4 * k)
+            for k in range(22)
+            if u32(PILOT_SCENES + 4 * k) > scene_list
+        ]
     )
     scripts = [u32(scene_list + 4 * k) for k in range((next_list - scene_list) // 4)]
     all_starts = sorted({u32(0x060AA840 + 4 * k) for k in range(335)})

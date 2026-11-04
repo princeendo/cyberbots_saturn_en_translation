@@ -1551,3 +1551,43 @@ Conclusion: **CONFIRMED** (D-030) except the arcade's level meaning, the 7
 
 Next action: `RE-005` (`READY`). The gate extension gains one question: what
 the two Japanese quotes of a level show.
+
+## 2026-11-04 — EXP-0033: census of the pilot lists; the M5 roster (RE-005)
+
+Action: wrote `census.py` (all 11 lists from the game's tables and posts)
+and `roster.py`; ran 8 cold boots of the untouched image to the first scene
+posts with different pilot select moves (10:17-10:54, the user present;
+answers, verbatim: "Yes, go ahead (Recommended)", then "Yes, 2 more
+(Recommended)" twice); asked the roster question.
+
+Result:
+- Blocks 3, 4, 5 and 6 open as predicted when their pilot is chosen; the
+  stage byte starts at 9 x list (D-031). Routes: right x1-x5 Mary, Santana,
+  Gawaine, Bao and Mao, Arieta; left x1 list 6 (Devilot by the name art),
+  left x2 list 8 (Shade).
+- Lists 0-5: 404 story boxes, 756 lines, all paired except Mary's line 258.
+- List 10 is speaker-name boxes only; its arcade twin is posted at
+  `0x6319C`; no Saturn post found (literal search).
+
+Failed or corrected along the way (do not retry):
+- `play_route.py` pressed the first move before the select cursor appeared
+  (run `right3` chose Santana with 3 moves); now `--select-wait 10`.
+- Moves 1 s apart after the third were lost while a portrait loaded (runs
+  `right4`, `right5` stayed on Gawaine); 3 s apart they work
+  (`--move-wait 3`).
+- `box_list.py` raised an error on list 10 (no later list bounds it); it now
+  ends at the list table. Its scan past a script's `0xE000` put box 0 into
+  list 10; `census.py` reads scripts to `0xE000` for sharing.
+- `left2` (list 8) logged 0 and 1 first, not block 8's 21. Not followed.
+
+Question, verbatim: "Which pilots make up the M5 roster? The six arcade pilots (Jin, Santana, Mary, Arieta, Gawaine, Bao and Mao) have 404 story boxes plus 46 win-quote boxes, all with official arcade English except Mary's line 258. The three Saturn-only pilots (lists 6-8, e.g. Devilot and Shade) add 339 story boxes with no official English and are special cases under rule 24."
+Answer, verbatim: "Six arcade pilots (Recommended)"
+
+Commands: `ruff format`, `ruff check`, `mypy` on the changed scripts
+(clean); `pytest -q` (see below).
+
+Conclusion: **CONFIRMED**, D-031. `RE-005` is `DONE`; `PAIR-003` and
+`CAP-001` are `READY`.
+
+Next action: `PAIR-003` (pair Mary, Arieta, Gawaine, Bao and Mao) or
+`CAP-001`; the user picks.

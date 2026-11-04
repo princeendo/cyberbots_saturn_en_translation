@@ -21,7 +21,9 @@ A debug harness; it never ships. It generalizes
   60 glyph cells.
 - **End:** 60 s after the stage byte reaches the pilot's first stage group
   plus ``--until-stage``, or after 20
-  minutes.
+  minutes. With ``--stop-after-posts N`` (EXP-0033) it ends once N scene
+  posts are logged, before any fight, so it presses no keys after the
+  machine select.
 """
 
 from __future__ import annotations
@@ -50,6 +52,9 @@ def main() -> int:
     parser.add_argument("out", type=Path)
     parser.add_argument("--moves", default="")
     parser.add_argument("--until-stage", type=int, default=2)
+    parser.add_argument("--stop-after-posts", type=int, default=0)
+    parser.add_argument("--select-wait", type=float, default=6.0)
+    parser.add_argument("--move-wait", type=float, default=1.0)
     args = parser.parse_args()
     out: Path = args.out
     if run("launch", str(args.cue), str(out)):
@@ -83,11 +88,11 @@ def main() -> int:
             break
     else:
         raise SystemExit("ARCADE MODE not taken")
-    time.sleep(6)
+    time.sleep(args.select_wait)  # moves before the cursor appears are lost
     shot(out, "select-0")
     for i, move in enumerate(m for m in args.moves.split(",") if m):
         key(out, move, "0.2")
-        time.sleep(1.0)
+        time.sleep(args.move_wait)  # a portrait loads from CD after each move
         shot(out, f"select-{i + 1}")
     key(out, "a")  # the pilot under the cursor
     time.sleep(6)
@@ -138,6 +143,11 @@ def main() -> int:
             ):
                 reached = time.time()
             if reached is not None and time.time() - reached > 60:
+                break
+            if args.stop_after_posts and (
+                sum("PC=0606DBEA" in e.upper() for e in agent.events())
+                >= args.stop_after_posts
+            ):
                 break
             time.sleep(1.5)
     (out / "events.txt").write_text("\n".join(agent.events()) + "\n")

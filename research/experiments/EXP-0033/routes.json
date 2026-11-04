@@ -1,0 +1,13 @@
+{
+ "note": "Pilot select moves from Jin (the cursor's first pilot) and the stage byte (0x060CFF88) at the pilot's first story stage, from cold boots of the untouched image (EXP-0027 play_route.py; EXP-0033 runs use --select-wait 10, and --move-wait 3 for 4 or more moves: presses during a portrait's load are dropped). first_posts are the first two STG0AS.BIN scene posts logged. List 7 was not played.",
+ "lists": {
+  "0": {"select_moves": [], "first_stage_group": 0, "first_posts": [21, 0], "route_evidence": "D-021, EXP-0022"},
+  "1": {"select_moves": ["right", "right"], "first_stage_group": 9, "first_posts": [23, 0], "route_evidence": "EXP-0027 santana1; EXP-0033 right3 (one move lost)"},
+  "2": {"select_moves": ["right"], "first_stage_group": 18, "first_posts": [19, 0], "route_evidence": "EXP-0027 select1"},
+  "3": {"select_moves": ["right", "right", "right", "right", "right"], "first_stage_group": 27, "first_posts": [22, 0], "route_evidence": "EXP-0033 right5b"},
+  "4": {"select_moves": ["right", "right", "right"], "first_stage_group": 36, "first_posts": [20, 0], "route_evidence": "EXP-0033 right3b"},
+  "5": {"select_moves": ["right", "right", "right", "right"], "first_stage_group": 45, "first_posts": [27, 0], "route_evidence": "EXP-0033 right4b"},
+  "6": {"select_moves": ["left"], "first_stage_group": 54, "first_posts": [18, 0], "route_evidence": "EXP-0033 left1"},
+  "8": {"select_moves": ["left", "left"], "first_stage_group": 72, "first_posts": [0, 1], "route_evidence": "EXP-0033 left2 (block 8 opens with 21 in the code; 0 and 1 were the first posts logged)"}
+ }
+}

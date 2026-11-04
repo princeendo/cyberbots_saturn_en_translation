@@ -1,0 +1,1373 @@
+{
+ "file": "STG0AS.BIN",
+ "sha256": "3fabb4dbb9d08b2de570467414d653c9e6f0d72cf8ee4f72ecbb1683df77ac45",
+ "pilot": 5,
+ "scene_list": "0x060AAA28",
+ "scenes": [
+  {
+   "scene": 0,
+   "script": "0x060A82F8",
+   "boxes": [
+    {
+     "box": 338,
+     "record": "0x0609FB04",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      625,
+      626
+     ]
+    },
+    {
+     "box": 339,
+     "record": "0x0609FB24",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      627
+     ]
+    },
+    {
+     "box": 340,
+     "record": "0x0609FB44",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      628,
+      629
+     ]
+    },
+    {
+     "box": 341,
+     "record": "0x0609FB64",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      630,
+      631
+     ]
+    },
+    {
+     "box": 342,
+     "record": "0x0609FB84",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      632
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 1,
+   "script": "0x060A8350",
+   "boxes": [
+    {
+     "box": 343,
+     "record": "0x0609FBA4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      633,
+      634
+     ]
+    },
+    {
+     "box": 344,
+     "record": "0x0609FBC4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      635
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 2,
+   "script": "0x060A8372",
+   "boxes": [
+    {
+     "box": 345,
+     "record": "0x0609FBE4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      636,
+      637,
+      638
+     ]
+    },
+    {
+     "box": 346,
+     "record": "0x0609FC04",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      639
+     ]
+    },
+    {
+     "box": 347,
+     "record": "0x0609FC24",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      640,
+      386
+     ]
+    },
+    {
+     "box": 348,
+     "record": "0x0609FC44",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      641
+     ]
+    },
+    {
+     "box": 349,
+     "record": "0x0609FC64",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      642
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 3,
+   "script": "0x060A83C8",
+   "boxes": [
+    {
+     "box": 350,
+     "record": "0x0609FC84",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      643,
+      644
+     ]
+    },
+    {
+     "box": 351,
+     "record": "0x0609FCA4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      645,
+      646
+     ]
+    },
+    {
+     "box": 352,
+     "record": "0x0609FCC4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      647
+     ]
+    },
+    {
+     "box": 353,
+     "record": "0x0609FCE4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      648
+     ]
+    },
+    {
+     "box": 354,
+     "record": "0x0609FD04",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      649,
+      650
+     ]
+    },
+    {
+     "box": 355,
+     "record": "0x0609FD24",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      651,
+      652
+     ]
+    },
+    {
+     "box": 356,
+     "record": "0x0609FD44",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      653,
+      654,
+      655
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 4,
+   "script": "0x060A844E",
+   "boxes": [
+    {
+     "box": 357,
+     "record": "0x0609FD64",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      656,
+      657
+     ]
+    },
+    {
+     "box": 358,
+     "record": "0x0609FD84",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      658,
+      659,
+      660
+     ]
+    },
+    {
+     "box": 359,
+     "record": "0x0609FDA4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      661
+     ]
+    },
+    {
+     "box": 360,
+     "record": "0x0609FDC4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      662
+     ]
+    },
+    {
+     "box": 361,
+     "record": "0x0609FDE4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      663
+     ]
+    },
+    {
+     "box": 362,
+     "record": "0x0609FE04",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      664
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 5,
+   "script": "0x060A84B6",
+   "boxes": [
+    {
+     "box": 363,
+     "record": "0x0609FE24",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      665
+     ]
+    },
+    {
+     "box": 364,
+     "record": "0x0609FE44",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      666,
+      667
+     ]
+    },
+    {
+     "box": 365,
+     "record": "0x0609FE64",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      668
+     ]
+    },
+    {
+     "box": 366,
+     "record": "0x0609FE84",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      669,
+      670
+     ]
+    },
+    {
+     "box": 367,
+     "record": "0x0609FEA4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      671
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 6,
+   "script": "0x060A850A",
+   "boxes": [
+    {
+     "box": 368,
+     "record": "0x0609FEC4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      672,
+      673
+     ]
+    },
+    {
+     "box": 369,
+     "record": "0x0609FEE4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      674,
+      675
+     ]
+    },
+    {
+     "box": 370,
+     "record": "0x0609FF04",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      538,
+      676,
+      677
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 7,
+   "script": "0x060A853C",
+   "boxes": [
+    {
+     "box": 371,
+     "record": "0x0609FF24",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      678,
+      679
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 8,
+   "script": "0x060A8580",
+   "boxes": [
+    {
+     "box": 375,
+     "record": "0x0609FFA4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      686,
+      687
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 9,
+   "script": "0x060A85A0",
+   "boxes": [
+    {
+     "box": 377,
+     "record": "0x0609FFE4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      690,
+      691,
+      692
+     ]
+    },
+    {
+     "box": 378,
+     "record": "0x060A0004",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      693
+     ]
+    },
+    {
+     "box": 379,
+     "record": "0x060A0024",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      694
+     ]
+    },
+    {
+     "box": 380,
+     "record": "0x060A0044",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      695,
+      696
+     ]
+    },
+    {
+     "box": 381,
+     "record": "0x060A0064",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      697
+     ]
+    },
+    {
+     "box": 382,
+     "record": "0x060A0084",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      698,
+      699,
+      700
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 10,
+   "script": "0x060A860C",
+   "boxes": [
+    {
+     "box": 383,
+     "record": "0x060A00A4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      701,
+      702,
+      703
+     ]
+    },
+    {
+     "box": 384,
+     "record": "0x060A00C4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      704,
+      705
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 11,
+   "script": "0x060A862C",
+   "boxes": [
+    {
+     "box": 385,
+     "record": "0x060A00E4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      706
+     ]
+    },
+    {
+     "box": 386,
+     "record": "0x060A0104",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      707,
+      708
+     ]
+    },
+    {
+     "box": 387,
+     "record": "0x060A0124",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      709,
+      710
+     ]
+    },
+    {
+     "box": 388,
+     "record": "0x060A0144",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      711,
+      75,
+      712
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 12,
+   "script": "0x060A8672",
+   "boxes": [
+    {
+     "box": 389,
+     "record": "0x060A0164",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      713,
+      714
+     ]
+    },
+    {
+     "box": 390,
+     "record": "0x060A0184",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      715,
+      716,
+      717
+     ]
+    },
+    {
+     "box": 391,
+     "record": "0x060A01A4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      718,
+      719
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 13,
+   "script": "0x060A86A6",
+   "boxes": [
+    {
+     "box": 392,
+     "record": "0x060A01C4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      720,
+      721,
+      722
+     ]
+    },
+    {
+     "box": 393,
+     "record": "0x060A01E4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      723
+     ]
+    },
+    {
+     "box": 394,
+     "record": "0x060A0204",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      724,
+      725
+     ]
+    },
+    {
+     "box": 395,
+     "record": "0x060A0224",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      726,
+      727
+     ]
+    },
+    {
+     "box": 396,
+     "record": "0x060A0244",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      728,
+      729
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 14,
+   "script": "0x060A86FE",
+   "boxes": [
+    {
+     "box": 397,
+     "record": "0x060A0264",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      730,
+      731
+     ]
+    },
+    {
+     "box": 398,
+     "record": "0x060A0284",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      732,
+      733,
+      734
+     ]
+    },
+    {
+     "box": 399,
+     "record": "0x060A02A4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      735,
+      736
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 15,
+   "script": "0x060A8740",
+   "boxes": [
+    {
+     "box": 401,
+     "record": "0x060A02E4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      740,
+      741
+     ]
+    },
+    {
+     "box": 402,
+     "record": "0x060A0304",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      742
+     ]
+    },
+    {
+     "box": 403,
+     "record": "0x060A0324",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      743,
+      744
+     ]
+    },
+    {
+     "box": 404,
+     "record": "0x060A0344",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      745,
+      746
+     ]
+    },
+    {
+     "box": 405,
+     "record": "0x060A0364",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      747,
+      748
+     ]
+    },
+    {
+     "box": 406,
+     "record": "0x060A0384",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      749
+     ]
+    },
+    {
+     "box": 407,
+     "record": "0x060A03A4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      750,
+      751
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 16,
+   "script": "0x060A87B2",
+   "boxes": [
+    {
+     "box": 1072,
+     "record": "0x060A5644",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      1849
+     ]
+    },
+    {
+     "box": 479,
+     "record": "0x060A0CA4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      877
+     ]
+    },
+    {
+     "box": 480,
+     "record": "0x060A0CC4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      878,
+      879
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 17,
+   "script": "0x060A87D8",
+   "boxes": [
+    {
+     "box": 480,
+     "record": "0x060A0CC4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      878,
+      879
+     ]
+    },
+    {
+     "box": 607,
+     "record": "0x060A1C24",
+     "x": 76,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      1012
+     ]
+    },
+    {
+     "box": 481,
+     "record": "0x060A0CE4",
+     "x": 136,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      880
+     ]
+    },
+    {
+     "box": 606,
+     "record": "0x060A1C04",
+     "x": 76,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      1011
+     ]
+    },
+    {
+     "box": 551,
+     "record": "0x060A1564",
+     "x": 136,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      954
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 18,
+   "script": "0x060A880E",
+   "boxes": [
+    {
+     "box": 608,
+     "record": "0x060A1C44",
+     "x": 40,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      1013
+     ]
+    },
+    {
+     "box": 483,
+     "record": "0x060A0D24",
+     "x": 136,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      882
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 19,
+   "script": "0x060A881E",
+   "boxes": [
+    {
+     "box": 483,
+     "record": "0x060A0D24",
+     "x": 136,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      882
+     ]
+    },
+    {
+     "box": 613,
+     "record": "0x060A1CE4",
+     "x": 52,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      1018
+     ]
+    },
+    {
+     "box": 484,
+     "record": "0x060A0D44",
+     "x": 136,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      883,
+      884
+     ]
+    },
+    {
+     "box": 612,
+     "record": "0x060A1CC4",
+     "x": 40,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      1017
+     ]
+    },
+    {
+     "box": 485,
+     "record": "0x060A0D64",
+     "x": 136,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      885,
+      886,
+      887
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 20,
+   "script": "0x060A8842",
+   "boxes": [
+    {
+     "box": 485,
+     "record": "0x060A0D64",
+     "x": 136,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      885,
+      886,
+      887
+     ]
+    },
+    {
+     "box": 612,
+     "record": "0x060A1CC4",
+     "x": 40,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      1017
+     ]
+    },
+    {
+     "box": 608,
+     "record": "0x060A1C44",
+     "x": 40,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      1013
+     ]
+    },
+    {
+     "box": 486,
+     "record": "0x060A0D84",
+     "x": 136,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      888
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 21,
+   "script": "0x060A8858",
+   "boxes": [
+    {
+     "box": 608,
+     "record": "0x060A1C44",
+     "x": 40,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      1013
+     ]
+    },
+    {
+     "box": 487,
+     "record": "0x060A0DA4",
+     "x": 136,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      889
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 22,
+   "script": "0x060A8864",
+   "boxes": [
+    {
+     "box": 487,
+     "record": "0x060A0DA4",
+     "x": 136,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      889
+     ]
+    },
+    {
+     "box": 606,
+     "record": "0x060A1C04",
+     "x": 76,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      1011
+     ]
+    },
+    {
+     "box": 488,
+     "record": "0x060A0DC4",
+     "x": 136,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      890,
+      891
+     ]
+    },
+    {
+     "box": 612,
+     "record": "0x060A1CC4",
+     "x": 40,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      1017
+     ]
+    },
+    {
+     "box": 489,
+     "record": "0x060A0DE4",
+     "x": 136,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      892,
+      893
+     ]
+    },
+    {
+     "box": 613,
+     "record": "0x060A1CE4",
+     "x": 52,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      1018
+     ]
+    },
+    {
+     "box": 490,
+     "record": "0x060A0E04",
+     "x": 136,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      894,
+      895
+     ]
+    },
+    {
+     "box": 607,
+     "record": "0x060A1C24",
+     "x": 76,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      1012
+     ]
+    },
+    {
+     "box": 491,
+     "record": "0x060A0E24",
+     "x": 136,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      896
+     ]
+    },
+    {
+     "box": 614,
+     "record": "0x060A1D04",
+     "x": 40,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      1019
+     ]
+    },
+    {
+     "box": 492,
+     "record": "0x060A0E44",
+     "x": 136,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      584
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 23,
+   "script": "0x060A854C",
+   "boxes": [
+    {
+     "box": 372,
+     "record": "0x0609FF44",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      680,
+      681,
+      682
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 24,
+   "script": "0x060A855E",
+   "boxes": [
+    {
+     "box": 373,
+     "record": "0x0609FF64",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      683
+     ]
+    },
+    {
+     "box": 374,
+     "record": "0x0609FF84",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      684,
+      685
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 25,
+   "script": "0x060A8590",
+   "boxes": [
+    {
+     "box": 376,
+     "record": "0x0609FFC4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      688,
+      689
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 26,
+   "script": "0x060A8730",
+   "boxes": [
+    {
+     "box": 400,
+     "record": "0x060A02C4",
+     "x": 140,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      737,
+      738,
+      739
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 27,
+   "script": "0x060A82D4",
+   "boxes": [
+    {
+     "box": 336,
+     "record": "0x0609FAC4",
+     "x": 80,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      619,
+      620,
+      621
+     ]
+    },
+    {
+     "box": 337,
+     "record": "0x0609FAE4",
+     "x": 80,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      622,
+      623,
+      624
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 28,
+   "script": "0x060A87FC",
+   "boxes": [
+    {
+     "box": 606,
+     "record": "0x060A1C04",
+     "x": 76,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      1011
+     ]
+    },
+    {
+     "box": 608,
+     "record": "0x060A1C44",
+     "x": 40,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      1013
+     ]
+    },
+    {
+     "box": 482,
+     "record": "0x060A0D04",
+     "x": 136,
+     "y": 172,
+     "attribute": 14,
+     "lines": [
+      881
+     ]
+    }
+   ]
+  }
+ ],
+ "story_scenes_posted": [
+  27,
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  23,
+  24,
+  8,
+  25,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  26,
+  15
+ ],
+ "story_scenes": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  23,
+  24,
+  25,
+  26,
+  27
+ ],
+ "note": "story_scenes: the scene numbers in pilot 5's block of STG0AS.BIN's scene posts (EXP-0027 scene_posts.py), in post order in story_scenes_posted (EXP-0033 census.py)."
+}

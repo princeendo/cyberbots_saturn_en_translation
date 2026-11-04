@@ -529,3 +529,17 @@ Reproduce: `research/experiments/EXP-0031/README.md`, "Procedure".
 
 Reproduce: `research/experiments/EXP-0032/README.md`, "Procedure".
 
+## D-031: Block k is pilot list k; pilot select routes; stage groups of 9 (`RE-005`, `EXP-0033`)
+
+Choosing a pilot posts the opening scene of that pilot's block of
+`STG0AS.BIN`'s scene posts, then scene 0, and the stage byte `0x060CFF88`
+starts at 9 x the list number. Cold boots of the untouched image showed it
+for lists 3 (Arieta: 22, 0; stage 27), 4 (Gawaine: 20, 0; 36), 5 (Bao and
+Mao: 27, 0; 45) and 6 (18, 0; 54), as D-026 did for lists 0-2. On the
+pilot select screen, from Jin: Mary is one move right, Santana two,
+Gawaine three, Bao and Mao four, Arieta five; one move left is list 6 and
+two moves left list 8 (stage 72). Moves pressed while a portrait is still
+loading are lost.
+
+Reproduce: `research/experiments/EXP-0033/README.md`, "Procedure".
+

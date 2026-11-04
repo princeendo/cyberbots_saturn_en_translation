@@ -174,6 +174,10 @@ names it for its method only.
   pilots 0-5 reach 46 boxes (lines 955-1005) with 24 US English records,
   one per pilot and level. The VS captions are boxes 494-549 (code). Next:
   `RE-005` (`READY`).
+- **2026-11-04: M5 roster chosen** (`RE-005`, `EXP-0033`, D-031): the user
+  chose the six arcade pilots ("Six arcade pilots (Recommended)"): lists
+  0-5, 404 story boxes and 46 win-quote boxes. Every pilot's block was seen
+  in play. `PAIR-003` and `CAP-001` are `READY`.
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -194,7 +198,7 @@ names it for its method only.
   use, font users, record size, free RAM), D-024 (pair glyphs work), D-025 (M3: Jin's story in
   English; fighter vitality), D-026 (pilot lists; stage groups), D-027 (Santana's pairing), D-028 (M4),
   D-029 (versus win quotes), D-030 (how a win quote is picked; box for
-  slot; US English per level). The font's layout is not confirmed.
+  slot; US English per level), D-031 (block k is list k; routes). The font's layout is not confirmed.
 
 ## Milestones
 
@@ -1049,7 +1053,7 @@ counting, extended in scratch to lists 0-5 with their story blocks.
 
 ### RE-005 - Census of every pilot list; choose the roster
 
-- **Status:** `READY`
+- **Status:** `DONE` (2026-11-04, `EXP-0033`)
 - **Milestone:** M5
 - **Dependencies:** RE-007 (done).
 - **Blockers:** None.
@@ -1064,6 +1068,13 @@ counting, extended in scratch to lists 0-5 with their story blocks.
   - **Decision:** the user chooses the roster (expected: lists 0-5) and any exceptions, asked as a multiple-choice question with a "(Recommended)" option and recorded verbatim in `research_log.md`, `docs/localization_policy.md` and a new `docs/coverage_exceptions.md` (MSHvSF's method: every excluded list or box with its evidence).
   - **Outputs:** `data/text/m5_roster.json` (lists, box-list files, story scenes, routes) and `data/text/<pilot>_boxes.json` for each roster pilot, with `story_scenes` and `story_scenes_posted`.
 - **Notes:** `data/text/mary_boxes.json` exists (`EXP-0030`) without `story_scenes`.
+- **Results** (`EXP-0033`, D-031):
+  - **Census:** `data/text/pilot_census.json`. Lists 0-5 have 404 story boxes and 756 lines; all but Mary's line 258 pair with an arcade slot (14 lines pair with a slot other than their box's number, for `PAIR-003`). Lists 6-8 have 339 boxes, none paired. Mary's and Gawaine's scene 15 repeat scene 14 and are in no block. Ending scenes are matched to `END.BIN`'s posts by number only.
+  - **Blocks:** cold boots posted 22, 0 (Arieta, stage 27), 20, 0 (Gawaine, 36), 27, 0 (Bao and Mao, 45) and 18, 0 (list 6, 54): block k is list k, the stage group 9 x k. Routes from Jin: right x1-x5 are Mary, Santana, Gawaine, Bao and Mao, Arieta (moves 3 s apart); left x1 and x2 are lists 6 and 8. 8 runs, 67 menu presses, none during a fight.
+  - **Lists 9 and 10:** list 9 is the versus win quotes (D-030). List 10 shows only the speaker-name boxes 602-605 and 609; the arcade posts its twin (list 7) at `0x6319C`; no Saturn post found.
+  - **Decision:** the user's answer, verbatim: "Six arcade pilots (Recommended)". Exceptions: `docs/coverage_exceptions.md`.
+  - **Outputs:** `data/text/m5_roster.json`; `mary_boxes.json` (story scenes added), `arieta_boxes.json`, `gawaine_boxes.json`, `baomao_boxes.json`. `jin_boxes.json` is unchanged: it feeds the regression references, and Jin's story scenes are D-021's (the compiler's `JIN_STORY`).
+
 
 ### WIN-001 - Is there a win-quote surface?
 
@@ -1105,10 +1116,10 @@ counting, extended in scratch to lists 0-5 with their story blocks.
 
 ### PAIR-003 - Pair the roster pilots' boxes with the arcade English
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M5
-- **Dependencies:** RE-005.
-- **Blockers:** Dependencies not done.
+- **Dependencies:** RE-005 (done).
+- **Blockers:** None.
 - **Objective:** Pair every story box of every roster pilot not yet paired, as `PAIR-002` did for Santana.
 - **Acceptance criteria:**
   - **Scripts:** for each pilot, the arcade's scripts (`0x12150`) are compared scene by scene with the Saturn's; differing scenes are listed.
@@ -1119,10 +1130,10 @@ counting, extended in scratch to lists 0-5 with their story blocks.
 
 ### CAP-001 - Capacity for the roster, and the user's choice of trade-off
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M5
-- **Dependencies:** RE-005.
-- **Blockers:** Dependencies not done.
+- **Dependencies:** RE-005 (done).
+- **Blockers:** None.
 - **Objective:** Measure what the roster needs in codes, glyphs and line bytes, story and win quotes together, test the options for the gap, and put them to the user.
 - **Acceptance criteria:**
   - **Budget:** `dialogue.py --budget` over all roster pairings (after `PAIR-003`, or the census's slot-for-slot pairing for the estimate, labelled as such): pairs, sacrifices needed, line bytes against room (own lines plus dead ending lines, proved dead as in `EXP-0029`), and the Japanese lines touched, grouped by whose they are (Saturn-only pilots, endings, `VICTORY.BIN`, other).
