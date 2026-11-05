@@ -1708,3 +1708,14 @@ Conclusion: **CONFIRMED**, D-033. M5 is reached.
 Next action: write up M6 (endings) when the user asks; nothing past M5
 starts before that.
 
+
+## 2026-11-04 — M6 tasks written up (Phase K)
+
+Action: the user asked "Write up M6". Wrote `END-001`-`END-005` in
+`TASKS.md` (Phase K): reach Jin's ending and list its surfaces; renderers
+and fonts; text in RAM and on disc and what selects the ending; the
+arcade's ending English; pairing Jin's ending (closes M6). The outline rows
+became `END-010` (M7) and `END-020` (M8). No experiment was run.
+
+Next action: `END-001` (`READY`), when the user starts it; it needs cold
+boots with the user present.

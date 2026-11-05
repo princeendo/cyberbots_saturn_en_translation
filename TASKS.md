@@ -196,6 +196,9 @@ names it for its method only.
   stage 2 (Mary's stage 1, a cockpit stage, accepted by the user). Next: M6
   (endings) needs its tasks written up first; `UI-004` (warnings) is in the
   outline.
+- **2026-11-04: M6 tasks written up** (Phase K): `END-001` (reach Jin's
+  ending, list its surfaces) is `READY`; `END-002`-`END-005` follow.
+  Nothing started.
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -1222,6 +1225,115 @@ staying`; each pair of win quotes sharing a US record shows that record.
   - **Provenance:** `data/translations/<pilot>_story.json` for all six; `data/regression/re008_roster.json`.
 
 
+## Phase K: M6 (Ending Investigation)
+
+M6: one ending, from the start of the pilot's last scene to the end of its
+credits, is understood well enough to localize it: how it is reached, what
+it shows, how each surface is drawn and stored, what selects it, and what
+English the arcade shows in the same place. Nothing is changed in M6; M7
+(`END-010`) localizes one ending and M8 (`END-020`) all roster endings.
+
+Assume nothing from the story or the win quotes; re-derive each fact
+(`docs/playbook_from_mshvsf.md`, Phase 4). The roster is lists 0-5
+(`RE-005`); Saturn-only pilots' endings stay out (rule 24). The order is:
+
+1. `END-001` (reach Jin's ending and list its surfaces);
+2. `END-002` (renderers and fonts), `END-003` (text in RAM, on disc, and
+   what selects it) and `END-004` (the arcade's ending English), which are
+   independent once `END-001` gives a route;
+3. `END-005` (pair Jin's ending with the arcade English), which closes M6.
+
+Known so far (facts and their confidence):
+- `END.BIN` holds a copy of the dialogue table (D-008) and its own scene
+  post routine `0x06066852` (EXP-0022); it posts scene numbers 16-34 with
+  no list number (EXP-0033), so which ending scenes belong to which pilot
+  is by number only (`data/text/pilot_census.json`, `ending_scenes_by_number`:
+  Jin 16-20, Santana 16-22, Mary 16-18, Arieta 16-21, 27, 28, Gawaine
+  16-19, Bao and Mao 16-22, 28).
+- When `END.BIN` loads is open (`docs/known_unknowns.md`).
+- `KEND.BIN`, `KEND_0.BIN` and `KEND_1.BIN`, and the 21 `*_END*` audio
+  tracks (D-002), are candidates, not facts.
+- The story's ending scenes differ from the arcade's scripts (`EXP-0035`).
+- The M5 image's sacrificed codes reach `END.BIN`'s Japanese: Jin's ending
+  is the first place to see them in play.
+
+Rules for every run: cold boots only with the user present and asked first;
+menu key presses only; fights and routes forced by RAM writes (the user,
+2026-11-03); MAME runs headless with a fresh copy of the NVRAM base
+(`EXP-0032`).
+
+### END-001 - Reach Jin's ending and list what it shows
+
+- **Status:** `READY`
+- **Milestone:** M6
+- **Dependencies:** RE-008 (done).
+- **Blockers:** None.
+- **Objective:** A repeatable, no-key-loop route to Jin's ending on the Saturn, a checkpoint before it, and a list of every surface the ending shows.
+- **Acceptance criteria:**
+  - **Route:** from a cold boot of the untouched image (menu keys only) or a saved state, the stage byte (`0x060CFF88`) and the fights are forced to Jin's last stage and through it by RAM writes, with each write logged. The same route reaches the ending twice. The route is a script under `research/experiments/` (pattern: `EXP-0027/play_route.py`, `EXP-0036/versus_route.py`).
+  - **Checkpoint:** a save state just before the ending starts (named, with its SHA-256), from which every later M6 run starts.
+  - **Loads:** the CD Play Disc log (`EXP-0031/loads.py`) from the checkpoint to the end of the credits: every file and audio track read, in order (answers when `END.BIN` loads; shows whether `KEND*.BIN` or a `*_END*` track is used).
+  - **Surfaces:** screenshots every 50 frames to the end, agent-reviewed; a table of every text surface the ending shows (dialogue boxes, narration, pages, credits, captions), each with its frames, language, and whether it looks like the story's box. Added to `docs/text_surfaces.md`.
+  - **Scenes:** the scene posts (`0x06066852`, R5) with frames, matched to the boxes shown.
+  - **M5 image:** the same route on the M5 image (`build/re008/roster`), to record which ending lines show the sacrificed codes' pair glyphs (the recorded trade-off).
+- **Notes:** the user does not read Japanese; review every screenshot yourself. If Jin's last stage cannot be forced (a cockpit stage, as Mary's stage 19, `EXP-0036`), record it and ask before any other route.
+
+### END-002 - How each ending surface is drawn, and with which font
+
+- **Status:** `BLOCKED`
+- **Milestone:** M6
+- **Dependencies:** END-001.
+- **Blockers:** Dependencies not done.
+- **Objective:** For each surface of `END-001`'s table, the routine that draws it and the font or image data it uses, proven by a controlled change.
+- **Acceptance criteria:**
+  - **Dialogue boxes:** whether `END.BIN`'s boxes go through the same glyph cells (`0x060FE200`, D-020) and code table (`END.BIN`'s copy, D-019) with `KANJI.BIN`, shown by matching captured cells to the decoded font, and by one RAM write to a line that changes exactly the predicted cell.
+  - **Other surfaces:** for each, the layer (VDP1 sprites or VDP2), the source of its pixels (a font file such as `KEND*.BIN`, an image file, or text drawn from codes), and one controlled change (zero one cell, sprite or tile) that removes exactly the predicted glyph.
+  - **Font capacity:** for each font found, its glyph count and code table, and whether it is the story's font, so `END-020` can plan codes.
+- **Notes:** `docs/playbook_from_mshvsf.md` step 2 (MSHvSF's ending text used the quote font; that is not a Cyberbots fact).
+
+### END-003 - Ending text in RAM and on disc; what selects it
+
+- **Status:** `BLOCKED`
+- **Milestone:** M6
+- **Dependencies:** END-001.
+- **Blockers:** Dependencies not done.
+- **Objective:** Where each ending surface's text lives in RAM and on the disc, how it gets there, and what selects which ending is shown.
+- **Acceptance criteria:**
+  - **Dialogue:** `END.BIN`'s scene lists and box records for Jin's ending scenes (16-20 by number), read from the code (as `EXP-0022/box_list.py` did for `STG0AS.BIN`), and checked against the boxes `END-001` saw.
+  - **Other text:** for each other surface, the RAM range and the disc file and offset, found by a write breakpoint from a state before it loads, and confirmed by a marker edit in RAM that shows on screen.
+  - **Selection:** the code that picks the ending (the pilot byte; whether the machine, the route or the result also matter), traced and checked by forcing one other value and seeing the ending change (no key loops).
+  - **Per-pilot scenes:** which of `END.BIN`'s posts run for each roster pilot, from the code, so `ending_scenes_by_number` becomes a per-pilot list from evidence.
+- **Notes:** an ending's dialogue copy in `END.BIN` is separate from `STG0AS.BIN`'s (EXP-0024: endings are shown from `END.BIN`'s own copy); `RE-008` left it unchanged except through shared glyphs.
+
+### END-004 - The arcade's English for the endings
+
+- **Status:** `BLOCKED`
+- **Milestone:** M6
+- **Dependencies:** END-001 (for the surface list; the MAME work can start alongside `END-002`/`END-003`).
+- **Blockers:** Dependencies not done.
+- **Objective:** What English the US arcade shows for each ending surface, reached with no play.
+- **Acceptance criteria:**
+  - **Route:** a headless MAME timeline that reaches Jin's ending in `cybotsu` and `cybotsj` by forcing the stage and the fights (debugger breakpoints or write taps, as `EXP-0032`), repeatable from a fixed NVRAM copy.
+  - **Readers:** every reader of English or Japanese text during the ending (read taps on the dialogue tables `0x0A30F6`/`0x0B33AA` and any other table found), with the slots or records read. The reader at `0x97222` reads the three tables by a slot and a language word (seen in `WIN-002`'s listing, not traced); whether it runs in an ending is part of this.
+  - **Scripts:** the arcade's ending scene scripts for Jin (list 0, scenes 16 and up, `0x12150`) against the Saturn's, scene by scene, with each difference listed.
+  - **Snapshots:** agent-reviewed MAME snapshots of each English surface, matched to the Saturn's surfaces of `END-001`.
+- **Notes:** headless MAME needs no focus; no new tool is installed or downloaded.
+
+### END-005 - Pair Jin's ending with the arcade English (closes M6)
+
+- **Status:** `BLOCKED`
+- **Milestone:** M6
+- **Dependencies:** END-002, END-003, END-004.
+- **Blockers:** Dependencies not done.
+- **Objective:** For every text unit of Jin's ending, the official English shown in the same place, by game logic, and what has none.
+- **Acceptance criteria:**
+  - **Pairing:** `data/translations/jin_ending_pairing.json` (no text): each Saturn unit (box or other surface) with its arcade counterpart, labelled `exact`, `edited` or `no-counterpart`, explained by both games' scripts or readers.
+  - **On screen:** at least 3 pairs shown in both games, forced (MAME and the Saturn from the `END-001` checkpoint), agent-reviewed.
+  - **Capacity:** the ending's rows, cells and glyph needs measured as `CAP-001` did, against the font and room `END-002`/`END-003` found; any limit stated with its evidence.
+  - **New translations:** every unit with no official English listed with its context (no text committed), for the gate; the user decides how it is handled (MSHvSF's lesson: some ending dialogue has no arcade English).
+  - **Plan for M7:** `END-010`'s acceptance criteria written from these results (not started).
+- **Notes:** the M7 build also needs a `GATE-TRANSLATION` extension for endings (the user's GO).
+
 ## Later Milestones (outline only)
 
 Placeholders so the order is visible. Each becomes a full task, with its own
@@ -1231,9 +1343,8 @@ and `docs/lessons_from_xvsf.md`.
 
 | ID | Milestone | Outline |
 | --- | --- | --- |
-| END-001 | M6 | Reach, renderer, RAM, disc source (the `*_END*` entries and `KEND*.BIN` are candidates), arcade English (not yet seen; the second table reader at `0x97222` is a candidate, D-010), and indexing of one ending. |
-| END-002 | M7 | One ending localized. |
-| END-003 | M8 | All roster endings; combined image; coverage register (`docs/coverage_exceptions.md`). |
+| END-010 | M7 | One ending localized (Jin's), its acceptance criteria written by `END-005`; a `GATE-TRANSLATION` extension for endings first. |
+| END-020 | M8 | All roster endings; one image with story, win quotes and endings; coverage register (`docs/coverage_exceptions.md`). |
 | UI-004 | after M5, early | Boot, cartridge and save warnings (`WARNING0-4.PIX` are candidates); in the first backlog this time (`docs/lessons_from_xvsf.md`, lesson 5). |
 | UI-001 | after M8, user request | UI art: inventory English art already in every font before drawing anything. |
 | UI-002 | after M8, user request | Attract and opening text (`OPDEMO*`, `STDEM*.PIR`, `VADEM*.MAC`, `STDEMO.*` are candidates): layer, container, codecs, oracles. |
