@@ -1,0 +1,839 @@
+{
+ "sources": {
+  "cybotsu_program_sha256": "18e8827dc742f4fef577aac8c06ae05dfb54ddad60a589238ac610f07b4152fd",
+  "cybotsj_program_sha256": "2d1e6b255184bd75a0b8b8af7b3fe25eed1f0086065c3bcc1f01d7e65806928e",
+  "END.BIN": "a4868d8d39f657cb2e924c5e3d0467cc4f7fe83b9375e2a2ffbd7dd21281f3fa",
+  "ending_posts": "data/text/ending_posts.json",
+  "ending_scripts": "data/arcade/ending_scripts.json"
+ },
+ "list": 0,
+ "units": [
+  {
+   "unit": "scene 16 box 1072",
+   "surface": "dialogue box",
+   "scene": 16,
+   "box": 1072,
+   "saturn_lines": [
+    1849
+   ],
+   "saturn_line_bytes": [
+    2
+   ],
+   "blank": true,
+   "arcade_slot": null,
+   "label": "no-counterpart",
+   "no_official_english": false,
+   "handling": {
+    "meaning": "blank; nothing to show"
+   },
+   "evidence": "a full-width space; the arcade scene opens no slot for it (D-037)"
+  },
+  {
+   "unit": "scene 16 box 408",
+   "surface": "dialogue box",
+   "scene": 16,
+   "position": 0,
+   "box": 408,
+   "saturn_lines": [
+    752
+   ],
+   "saturn_line_bytes": [
+    30
+   ],
+   "arcade_slot": 408,
+   "slot_is_box_number": true,
+   "line_labels": [
+    "edited"
+   ],
+   "line_similarity": [
+    0.812
+   ],
+   "arcade_japanese_line_count": 1,
+   "arcade_unmapped_codes": [],
+   "label": "edited",
+   "arcade_english_record": "0x0BA116",
+   "english_characters": 26,
+   "english_lines": 1,
+   "english_sha256": "9309feaea234abbc3a73a4d245ac96d2c0a3bb7c10ad919020bd69d2991f5ef8",
+   "no_official_english": false,
+   "evidence": "same position in the scene script of both games (D-036, D-037); the arcade's story reader reads this slot while the box is shown (EXP-0040)"
+  },
+  {
+   "unit": "scene 16 box 409",
+   "surface": "dialogue box",
+   "scene": 16,
+   "position": 1,
+   "box": 409,
+   "saturn_lines": [
+    753,
+    754
+   ],
+   "saturn_line_bytes": [
+    32,
+    28
+   ],
+   "arcade_slot": 409,
+   "slot_is_box_number": true,
+   "line_labels": [
+    "exact",
+    "exact"
+   ],
+   "line_similarity": [
+    1.0,
+    1.0
+   ],
+   "arcade_japanese_line_count": 2,
+   "arcade_unmapped_codes": [],
+   "label": "exact",
+   "arcade_english_record": "0x0BA13A",
+   "english_characters": 92,
+   "english_lines": 3,
+   "english_sha256": "fc46e5a190a304eee5a187fb5d4e4db8ad3a74845333b27bcad124c55969bef8",
+   "no_official_english": false,
+   "evidence": "same position in the scene script of both games (D-036, D-037); the arcade's story reader reads this slot while the box is shown (EXP-0040)"
+  },
+  {
+   "unit": "scene 16 box 493",
+   "surface": "dialogue box",
+   "scene": 16,
+   "position": 2,
+   "box": 493,
+   "saturn_lines": [
+    897,
+    898
+   ],
+   "saturn_line_bytes": [
+    32,
+    28
+   ],
+   "arcade_slot": 493,
+   "slot_is_box_number": true,
+   "line_labels": [
+    "exact",
+    "exact"
+   ],
+   "line_similarity": [
+    1.0,
+    1.0
+   ],
+   "arcade_japanese_line_count": 2,
+   "arcade_unmapped_codes": [],
+   "label": "exact",
+   "arcade_english_record": "0x0BB494",
+   "english_characters": 89,
+   "english_lines": 3,
+   "english_sha256": "415613920c8e55c3e1c316844f078d266ad49b71e07750574c8906a6078feaea",
+   "no_official_english": false,
+   "evidence": "same position in the scene script of both games (D-036, D-037); the arcade's story reader reads this slot while the box is shown (EXP-0040)"
+  },
+  {
+   "unit": "scene 16 box 410",
+   "surface": "dialogue box",
+   "scene": 16,
+   "position": 3,
+   "box": 410,
+   "saturn_lines": [
+    755
+   ],
+   "saturn_line_bytes": [
+    14
+   ],
+   "arcade_slot": 410,
+   "slot_is_box_number": true,
+   "line_labels": [
+    "exact"
+   ],
+   "line_similarity": [
+    1.0
+   ],
+   "arcade_japanese_line_count": 1,
+   "arcade_unmapped_codes": [],
+   "label": "exact",
+   "arcade_english_record": "0x0BA1A0",
+   "english_characters": 8,
+   "english_lines": 1,
+   "english_sha256": "0658d59bbc13d2404d7f74a0d0a7768f0a0c11bc191ca3dcd68b435f3594f314",
+   "no_official_english": false,
+   "evidence": "same position in the scene script of both games (D-036, D-037); the arcade's story reader reads this slot while the box is shown (EXP-0040)"
+  },
+  {
+   "unit": "scene 16 box 411",
+   "surface": "dialogue box",
+   "scene": 16,
+   "position": 4,
+   "box": 411,
+   "saturn_lines": [
+    756,
+    757
+   ],
+   "saturn_line_bytes": [
+    30,
+    14
+   ],
+   "arcade_slot": 411,
+   "slot_is_box_number": true,
+   "line_labels": [
+    "exact",
+    "exact"
+   ],
+   "line_similarity": [
+    1.0,
+    1.0
+   ],
+   "arcade_japanese_line_count": 2,
+   "arcade_unmapped_codes": [],
+   "label": "exact",
+   "arcade_english_record": "0x0BA1B2",
+   "english_characters": 35,
+   "english_lines": 2,
+   "english_sha256": "b125e791507a6c67cabad1eca401014109c5c8f0c77b773cdb4263b5fee86bf5",
+   "no_official_english": false,
+   "evidence": "same position in the scene script of both games (D-036, D-037); the arcade's story reader reads this slot while the box is shown (EXP-0040)"
+  },
+  {
+   "unit": "scene 16 box 412",
+   "surface": "dialogue box",
+   "scene": 16,
+   "position": 5,
+   "box": 412,
+   "saturn_lines": [
+    758,
+    759
+   ],
+   "saturn_line_bytes": [
+    32,
+    16
+   ],
+   "arcade_slot": 412,
+   "slot_is_box_number": true,
+   "line_labels": [
+    "exact",
+    "exact"
+   ],
+   "line_similarity": [
+    1.0,
+    1.0
+   ],
+   "arcade_japanese_line_count": 2,
+   "arcade_unmapped_codes": [],
+   "label": "exact",
+   "arcade_english_record": "0x0BA1DE",
+   "english_characters": 81,
+   "english_lines": 3,
+   "english_sha256": "faf8bc62f30c7739b3b536831993488b3a40cf9e36095717fcc81ab10042b141",
+   "no_official_english": false,
+   "evidence": "same position in the scene script of both games (D-036, D-037); the arcade's story reader reads this slot while the box is shown (EXP-0040)"
+  },
+  {
+   "unit": "scene 17 box 1072",
+   "surface": "dialogue box",
+   "scene": 17,
+   "box": 1072,
+   "saturn_lines": [
+    1849
+   ],
+   "saturn_line_bytes": [
+    2
+   ],
+   "blank": true,
+   "arcade_slot": null,
+   "label": "no-counterpart",
+   "no_official_english": false,
+   "handling": {
+    "meaning": "blank; nothing to show"
+   },
+   "evidence": "a full-width space; the arcade scene opens no slot for it (D-037)"
+  },
+  {
+   "unit": "scene 17 box 413",
+   "surface": "dialogue box",
+   "scene": 17,
+   "position": 0,
+   "box": 413,
+   "saturn_lines": [
+    760
+   ],
+   "saturn_line_bytes": [
+    22
+   ],
+   "arcade_slot": 413,
+   "slot_is_box_number": true,
+   "line_labels": [
+    "exact"
+   ],
+   "line_similarity": [
+    1.0
+   ],
+   "arcade_japanese_line_count": 1,
+   "arcade_unmapped_codes": [],
+   "label": "exact",
+   "arcade_english_record": "0x0BA238",
+   "english_characters": 8,
+   "english_lines": 1,
+   "english_sha256": "4c6f93de6d292e4bec0241ac1514b6a618fde7bcb435b975ed135d6ef3c8e0f9",
+   "no_official_english": false,
+   "evidence": "same position in the scene script of both games (D-036, D-037); the arcade's story reader reads this slot while the box is shown (EXP-0040)"
+  },
+  {
+   "unit": "scene 18 box 414",
+   "surface": "narration",
+   "scene": 18,
+   "position": 0,
+   "box": 414,
+   "saturn_lines": [
+    761,
+    762,
+    763
+   ],
+   "saturn_line_bytes": [
+    30,
+    32,
+    22
+   ],
+   "arcade_slot": 414,
+   "slot_is_box_number": true,
+   "line_labels": [
+    "exact",
+    "exact",
+    "exact"
+   ],
+   "line_similarity": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "arcade_japanese_line_count": 3,
+   "arcade_unmapped_codes": [],
+   "label": "exact",
+   "arcade_english_record": "0x0BA24A",
+   "english_characters": 77,
+   "english_lines": 3,
+   "english_sha256": "c216eb78f069fb6004dc72e9865b77dd02b39a30f3826f12169e84039936d4a3",
+   "no_official_english": false,
+   "evidence": "same position in the scene script of both games (D-036, D-037); the arcade's story reader reads this slot while the box is shown (EXP-0040)"
+  },
+  {
+   "unit": "scene 18 box 415",
+   "surface": "narration",
+   "scene": 18,
+   "position": 1,
+   "box": 415,
+   "saturn_lines": [
+    764
+   ],
+   "saturn_line_bytes": [
+    26
+   ],
+   "arcade_slot": 415,
+   "slot_is_box_number": true,
+   "line_labels": [
+    "exact"
+   ],
+   "line_similarity": [
+    1.0
+   ],
+   "arcade_japanese_line_count": 1,
+   "arcade_unmapped_codes": [],
+   "label": "exact",
+   "arcade_english_record": "0x0BA2A0",
+   "english_characters": 86,
+   "english_lines": 3,
+   "english_sha256": "6c72d09c29b356ff63446534499c943fd68a0add969fd428cf00977d8eade809",
+   "no_official_english": false,
+   "evidence": "same position in the scene script of both games (D-036, D-037); the arcade's story reader reads this slot while the box is shown (EXP-0040)"
+  },
+  {
+   "unit": "scene 19 box 605",
+   "surface": "speaker name",
+   "scene": 19,
+   "position": 0,
+   "box": 605,
+   "saturn_lines": [
+    1010
+   ],
+   "saturn_line_bytes": [
+    12
+   ],
+   "arcade_slot": 614,
+   "slot_is_box_number": false,
+   "line_labels": [
+    "edited"
+   ],
+   "line_similarity": [
+    0.833
+   ],
+   "arcade_japanese_line_count": 1,
+   "arcade_unmapped_codes": [
+    "0x549"
+   ],
+   "label": "edited",
+   "arcade_english_record": "0x0BB90C",
+   "english_characters": 8,
+   "english_lines": 1,
+   "english_sha256": "a2cfdc554a5279e057a848c993854b4581d742c4291653435dcfb5986da9dd23",
+   "no_official_english": false,
+   "evidence": "same position in the scene script of both games (D-036, D-037); the arcade's story reader reads this slot while the box is shown (EXP-0040)",
+   "own_number_slot": {
+    "slot": 605,
+    "line_labels": [
+     "edited"
+    ],
+    "line_similarity": [
+     0.0
+    ]
+   }
+  },
+  {
+   "unit": "scene 19 box 416",
+   "surface": "caption",
+   "scene": 19,
+   "position": 1,
+   "box": 416,
+   "saturn_lines": [
+    765
+   ],
+   "saturn_line_bytes": [
+    32
+   ],
+   "arcade_slot": 416,
+   "slot_is_box_number": true,
+   "line_labels": [
+    "exact"
+   ],
+   "line_similarity": [
+    1.0
+   ],
+   "arcade_japanese_line_count": 1,
+   "arcade_unmapped_codes": [],
+   "label": "exact",
+   "arcade_english_record": "0x0BA300",
+   "english_characters": 41,
+   "english_lines": 2,
+   "english_sha256": "d0a339cd45ad8eeb07296cdbeab092290a0ed56dc306645ae7459cc56e5c3f78",
+   "no_official_english": false,
+   "evidence": "same position in the scene script of both games (D-036, D-037); the arcade's story reader reads this slot while the box is shown (EXP-0040)"
+  },
+  {
+   "unit": "scene 19 box 417",
+   "surface": "caption",
+   "scene": 19,
+   "position": 2,
+   "box": 417,
+   "saturn_lines": [
+    766,
+    767,
+    768
+   ],
+   "saturn_line_bytes": [
+    28,
+    30,
+    18
+   ],
+   "arcade_slot": 417,
+   "slot_is_box_number": true,
+   "line_labels": [
+    "exact",
+    "exact",
+    "exact"
+   ],
+   "line_similarity": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "arcade_japanese_line_count": 3,
+   "arcade_unmapped_codes": [],
+   "label": "exact",
+   "arcade_english_record": "0x0BA332",
+   "english_characters": 42,
+   "english_lines": 2,
+   "english_sha256": "84b0f5a7c724d8051064b3b4e60ad81f7e957b1cdb27ebfaf41fe0cceb811774",
+   "no_official_english": false,
+   "evidence": "same position in the scene script of both games (D-036, D-037); the arcade's story reader reads this slot while the box is shown (EXP-0040)"
+  },
+  {
+   "unit": "scene 19 box 418",
+   "surface": "caption",
+   "scene": 19,
+   "position": 3,
+   "box": 418,
+   "saturn_lines": [
+    769,
+    770
+   ],
+   "saturn_line_bytes": [
+    30,
+    22
+   ],
+   "arcade_slot": 418,
+   "slot_is_box_number": true,
+   "line_labels": [
+    "exact",
+    "exact"
+   ],
+   "line_similarity": [
+    1.0,
+    1.0
+   ],
+   "arcade_japanese_line_count": 2,
+   "arcade_unmapped_codes": [],
+   "label": "exact",
+   "arcade_english_record": "0x0BA366",
+   "english_characters": 60,
+   "english_lines": 2,
+   "english_sha256": "da28ea60e900c24a45625306054ff42970da945a6e8760b595aee2bba507b858",
+   "no_official_english": false,
+   "evidence": "same position in the scene script of both games (D-036, D-037); the arcade's story reader reads this slot while the box is shown (EXP-0040)"
+  },
+  {
+   "unit": "scene 19 box 601",
+   "surface": "speaker name",
+   "scene": 19,
+   "position": 4,
+   "box": 601,
+   "saturn_lines": [
+    1006
+   ],
+   "saturn_line_bytes": [
+    6
+   ],
+   "arcade_slot": 610,
+   "slot_is_box_number": false,
+   "line_labels": [
+    "edited"
+   ],
+   "line_similarity": [
+    0.667
+   ],
+   "arcade_japanese_line_count": 1,
+   "arcade_unmapped_codes": [
+    "0x549"
+   ],
+   "label": "edited",
+   "arcade_english_record": "0x0BB8CE",
+   "english_characters": 4,
+   "english_lines": 1,
+   "english_sha256": "95125fe806d042d00f4a3393a7d511d76053826e01175d26f8e4cbe45e523882",
+   "no_official_english": false,
+   "evidence": "same position in the scene script of both games (D-036, D-037); the arcade's story reader reads this slot while the box is shown (EXP-0040)",
+   "own_number_slot": {
+    "slot": 601,
+    "line_labels": [
+     "edited"
+    ],
+    "line_similarity": [
+     0.083
+    ]
+   }
+  },
+  {
+   "unit": "scene 19 box 419",
+   "surface": "caption",
+   "scene": 19,
+   "position": 5,
+   "box": 419,
+   "saturn_lines": [
+    771
+   ],
+   "saturn_line_bytes": [
+    24
+   ],
+   "arcade_slot": 419,
+   "slot_is_box_number": true,
+   "line_labels": [
+    "exact"
+   ],
+   "line_similarity": [
+    1.0
+   ],
+   "arcade_japanese_line_count": 1,
+   "arcade_unmapped_codes": [],
+   "label": "exact",
+   "arcade_english_record": "0x0BA3AC",
+   "english_characters": 5,
+   "english_lines": 1,
+   "english_sha256": "2d5e8b40a728cdea272c2e372deb61ef6cc2f7e0a747bdf45a68acf8939969cd",
+   "no_official_english": false,
+   "evidence": "same position in the scene script of both games (D-036, D-037); the arcade's story reader reads this slot while the box is shown (EXP-0040)"
+  },
+  {
+   "unit": "scene 19 box 420",
+   "surface": "caption",
+   "scene": 19,
+   "position": 6,
+   "box": 420,
+   "saturn_lines": [
+    772,
+    773
+   ],
+   "saturn_line_bytes": [
+    32,
+    18
+   ],
+   "arcade_slot": 420,
+   "slot_is_box_number": true,
+   "line_labels": [
+    "exact",
+    "exact"
+   ],
+   "line_similarity": [
+    1.0,
+    1.0
+   ],
+   "arcade_japanese_line_count": 2,
+   "arcade_unmapped_codes": [],
+   "label": "exact",
+   "arcade_english_record": "0x0BA3BA",
+   "english_characters": 66,
+   "english_lines": 3,
+   "english_sha256": "66d866d1db08947d79426a76cbbfac78d86b9bb1c16018fa6c4d1660a4747844",
+   "no_official_english": false,
+   "evidence": "same position in the scene script of both games (D-036, D-037); the arcade's story reader reads this slot while the box is shown (EXP-0040)"
+  },
+  {
+   "unit": "scene 19 box 421",
+   "surface": "caption",
+   "scene": 19,
+   "position": 7,
+   "box": 421,
+   "saturn_lines": [
+    774
+   ],
+   "saturn_line_bytes": [
+    32
+   ],
+   "arcade_slot": 421,
+   "slot_is_box_number": true,
+   "line_labels": [
+    "exact"
+   ],
+   "line_similarity": [
+    1.0
+   ],
+   "arcade_japanese_line_count": 1,
+   "arcade_unmapped_codes": [],
+   "label": "exact",
+   "arcade_english_record": "0x0BA406",
+   "english_characters": 31,
+   "english_lines": 1,
+   "english_sha256": "06a9b15a5dc308fafd3c96d42c737ba51e1443f81b5f55c698e3793e495eba95",
+   "no_official_english": false,
+   "evidence": "same position in the scene script of both games (D-036, D-037); the arcade's story reader reads this slot while the box is shown (EXP-0040)"
+  },
+  {
+   "unit": "scene 19 box 422",
+   "surface": "caption",
+   "scene": 19,
+   "position": 8,
+   "box": 422,
+   "saturn_lines": [
+    775,
+    776,
+    777
+   ],
+   "saturn_line_bytes": [
+    12,
+    28,
+    24
+   ],
+   "arcade_slot": 422,
+   "slot_is_box_number": true,
+   "line_labels": [
+    "exact",
+    "exact",
+    "exact"
+   ],
+   "line_similarity": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "arcade_japanese_line_count": 3,
+   "arcade_unmapped_codes": [],
+   "label": "exact",
+   "arcade_english_record": "0x0BA42E",
+   "english_characters": 14,
+   "english_lines": 1,
+   "english_sha256": "b5ef34557894f1c6c978047a7dbd85b34fd657cfacb04e57f6e038c9b330bfb9",
+   "no_official_english": false,
+   "evidence": "same position in the scene script of both games (D-036, D-037); the arcade's story reader reads this slot while the box is shown (EXP-0040)"
+  },
+  {
+   "unit": "cast roll name 0",
+   "surface": "cast roll name (image)",
+   "entry": "Santana",
+   "latin_line": "the same on the Saturn, cybotsu and cybotsj",
+   "arcade_slot": null,
+   "label": "no-counterpart",
+   "no_official_english": true,
+   "handling": {
+    "decision": "Hide, as US arcade (Recommended)",
+    "date": "2026-11-05",
+    "meaning": "remove the Japanese name image; the Latin name stays"
+   },
+   "evidence": "a whole-name sprite decoded from KEND_1.BIN (D-035); cybotsu shows only the Latin name, cybotsj shows a Japanese line as the Saturn (D-037)"
+  },
+  {
+   "unit": "cast roll name 1",
+   "surface": "cast roll name (image)",
+   "entry": "Mary",
+   "latin_line": "the same on the Saturn, cybotsu and cybotsj",
+   "arcade_slot": null,
+   "label": "no-counterpart",
+   "no_official_english": true,
+   "handling": {
+    "decision": "Hide, as US arcade (Recommended)",
+    "date": "2026-11-05",
+    "meaning": "remove the Japanese name image; the Latin name stays"
+   },
+   "evidence": "a whole-name sprite decoded from KEND_1.BIN (D-035); cybotsu shows only the Latin name, cybotsj shows a Japanese line as the Saturn (D-037)"
+  },
+  {
+   "unit": "cast roll name 2",
+   "surface": "cast roll name (image)",
+   "entry": "Arieta",
+   "latin_line": "the same on the Saturn, cybotsu and cybotsj",
+   "arcade_slot": null,
+   "label": "no-counterpart",
+   "no_official_english": true,
+   "handling": {
+    "decision": "Hide, as US arcade (Recommended)",
+    "date": "2026-11-05",
+    "meaning": "remove the Japanese name image; the Latin name stays"
+   },
+   "evidence": "a whole-name sprite decoded from KEND_1.BIN (D-035); cybotsu shows only the Latin name, cybotsj shows a Japanese line as the Saturn (D-037)"
+  },
+  {
+   "unit": "cast roll name 3",
+   "surface": "cast roll name (image)",
+   "entry": "Gawaine",
+   "latin_line": "the same on the Saturn, cybotsu and cybotsj",
+   "arcade_slot": null,
+   "label": "no-counterpart",
+   "no_official_english": true,
+   "handling": {
+    "decision": "Hide, as US arcade (Recommended)",
+    "date": "2026-11-05",
+    "meaning": "remove the Japanese name image; the Latin name stays"
+   },
+   "evidence": "a whole-name sprite decoded from KEND_1.BIN (D-035); cybotsu shows only the Latin name, cybotsj shows a Japanese line as the Saturn (D-037)"
+  },
+  {
+   "unit": "cast roll name 4",
+   "surface": "cast roll name (image)",
+   "entry": "Bao and Mao",
+   "latin_line": "the same on the Saturn, cybotsu and cybotsj",
+   "arcade_slot": null,
+   "label": "no-counterpart",
+   "no_official_english": true,
+   "handling": {
+    "decision": "Hide, as US arcade (Recommended)",
+    "date": "2026-11-05",
+    "meaning": "remove the Japanese name image; the Latin name stays"
+   },
+   "evidence": "a whole-name sprite decoded from KEND_1.BIN (D-035); cybotsu shows only the Latin name, cybotsj shows a Japanese line as the Saturn (D-037)"
+  },
+  {
+   "unit": "cast roll name 5",
+   "surface": "cast roll name (image)",
+   "entry": "Devilotte and her two followers",
+   "latin_line": "the same on the Saturn, cybotsu and cybotsj",
+   "arcade_slot": null,
+   "label": "no-counterpart",
+   "no_official_english": true,
+   "handling": {
+    "decision": "Hide, as US arcade (Recommended)",
+    "date": "2026-11-05",
+    "meaning": "remove the Japanese name image; the Latin name stays"
+   },
+   "evidence": "a whole-name sprite decoded from KEND_1.BIN (D-035); cybotsu shows only the Latin name, cybotsj shows a Japanese line as the Saturn (D-037)"
+  },
+  {
+   "unit": "cast roll name 6",
+   "surface": "cast roll name (image)",
+   "entry": "Chiyomaru and Tessan",
+   "latin_line": "the same on the Saturn, cybotsu and cybotsj",
+   "arcade_slot": null,
+   "label": "no-counterpart",
+   "no_official_english": true,
+   "handling": {
+    "decision": "Hide, as US arcade (Recommended)",
+    "date": "2026-11-05",
+    "meaning": "remove the Japanese name image; the Latin name stays"
+   },
+   "evidence": "a whole-name sprite decoded from KEND_1.BIN (D-035); cybotsu shows only the Latin name, cybotsj shows a Japanese line as the Saturn (D-037)"
+  },
+  {
+   "unit": "cast roll name 7",
+   "surface": "cast roll name (image)",
+   "entry": "Shade",
+   "latin_line": "the same on the Saturn, cybotsu and cybotsj",
+   "arcade_slot": null,
+   "label": "no-counterpart",
+   "no_official_english": true,
+   "handling": {
+    "decision": "Hide, as US arcade (Recommended)",
+    "date": "2026-11-05",
+    "meaning": "remove the Japanese name image; the Latin name stays"
+   },
+   "evidence": "a whole-name sprite decoded from KEND_1.BIN (D-035); cybotsu shows only the Latin name, cybotsj shows a Japanese line as the Saturn (D-037)"
+  },
+  {
+   "unit": "cast roll name 8",
+   "surface": "cast roll name (image)",
+   "entry": "G.O.D. (the last boss)",
+   "latin_line": "the same on the Saturn, cybotsu and cybotsj",
+   "arcade_slot": null,
+   "label": "no-counterpart",
+   "no_official_english": true,
+   "handling": {
+    "decision": "Hide, as US arcade (Recommended)",
+    "date": "2026-11-05",
+    "meaning": "remove the Japanese name image; the Latin name stays"
+   },
+   "evidence": "a whole-name sprite decoded from KEND_1.BIN (D-035); cybotsu shows only the Latin name, cybotsj shows a Japanese line as the Saturn (D-037)"
+  },
+  {
+   "unit": "cast roll name 9",
+   "surface": "cast roll name (image)",
+   "entry": "Jin",
+   "latin_line": "the same on the Saturn, cybotsu and cybotsj",
+   "arcade_slot": null,
+   "label": "no-counterpart",
+   "no_official_english": true,
+   "handling": {
+    "decision": "Hide, as US arcade (Recommended)",
+    "date": "2026-11-05",
+    "meaning": "remove the Japanese name image; the Latin name stays"
+   },
+   "evidence": "a whole-name sprite decoded from KEND_1.BIN (D-035); cybotsu shows only the Latin name, cybotsj shows a Japanese line as the Saturn (D-037)"
+  },
+  {
+   "unit": "QSound notice, Japanese line",
+   "surface": "QSound notice (image)",
+   "arcade_slot": null,
+   "label": "no-counterpart",
+   "no_official_english": true,
+   "handling": {
+    "decision": "Erase the line (Recommended)",
+    "date": "2026-11-05",
+    "meaning": "blank the line's pixels; the English lines above stay"
+   },
+   "evidence": "pixels of QSD.PIX, bitmap rows 180-189 (D-035); the arcade ending has no QSound notice (D-037)"
+  }
+ ],
+ "counts": {
+  "units": 31,
+  "by_label": {
+   "no-counterpart": 13,
+   "edited": 3,
+   "exact": 15
+  },
+  "dialogue_lines": {
+   "edited": 3,
+   "exact": 27
+  },
+  "no_official_english": 11,
+  "new_text_needed": 0
+ }
+}

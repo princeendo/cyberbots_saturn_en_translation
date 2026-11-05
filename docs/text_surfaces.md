@@ -53,6 +53,11 @@ the box routine from its record table `0x060817B4`.
 | QSound notice (`QSD.PIX`) | After the credits | English, plus **one Japanese trademark line** (an image) | **None** in the ending; a different, all-English QSound screen in the attract loop | `f13102.png` (`d46c3202…2746`) |
 | Game over, initials, ranking | Then the attract loop | English | — | `f13779.png` (`9e00cf92…cf96`), `f14829.png` (`3acbdd4b…864e`) |
 
+Paired with the arcade (`END-005`, `EXP-0041`, D-038): every dialogue,
+narration, caption and speaker-name box has official English
+(`data/translations/jin_ending_pairing.json`). The cast-roll names and the
+QSound line have none; the user chose to hide the names and erase the line.
+
 How each is drawn (`EXP-0038`, D-035):
 
 | Surface | Layer | Pixels from | To change it |

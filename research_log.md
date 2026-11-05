@@ -1912,3 +1912,49 @@ Commands: `ruff check .` and `ruff format --check .` (clean, 184 files),
 `mypy tools tests` and the EXP-0040 script (clean, 63 files), `pytest -q`:
 164 passed; `compare_scripts.py` reproduces `data/arcade/ending_scripts.json`
 byte for byte.
+
+## 2026-11-05 — END-005: Jin's ending paired with the arcade English (EXP-0041)
+
+Hypothesis: each Saturn box of Jin's ending, less the blank 1072, has the
+arcade slot at the same position of the same scene script. The arcade
+shows that slot's English while the Saturn shows the box. Only the image
+surfaces lack English, and the English fits the ending's own table and
+box limits.
+
+Method:
+- `pair_ending.py` reads `ending_posts.json` (D-036) and
+  `ending_scripts.json` (D-037), and labels each line against `cybotsj`.
+- `capacity.py` measures rows, cells, pairs, codes and room as CAP-001 did.
+- On screen: frames of the recorded forced runs (`local/end002/control`,
+  `local/end004/mame/route-u`), picked by box open frames and slot reads,
+  reviewed side by side.
+- No emulator run, no key.
+
+Result:
+- 31 units: 18 paired (15 exact, 3 edited with the same wording) and 13
+  without a counterpart (box 1072 twice, 10 cast-name images, the QSound
+  line).
+- Five pairs reviewed on screen. Some US English is a free localization
+  (493, 416, 419).
+- Capacity: 3 rows and 46 cells at most; 179 pairs, or 160 with the indent,
+  against 335 free codes; rows need 872-880 bytes against 828 in Jin's own
+  lines.
+- The speaker-name boxes 605 and 601 are also posted by lists 3, 4 and 8.
+- The user decided the two image units: "Hide, as US arcade (Recommended)"
+  and "Erase the line (Recommended)".
+
+Corrected along the way (do not retry):
+- The first pairing file carried the cast roll's on-screen Latin names
+  (game text). They were replaced by the project's own labels for each
+  entry.
+- The name and caption cell count was first summed as name + longest
+  caption (35). A name stays open over its captions (605 over 416-418,
+  601 over 419-420), so the real maximum is 33.
+
+Conclusion: **CONFIRMED**, D-038. `END-005` is done and M6 is closed.
+`END-010` is written up and `BLOCKED` on the gate extension (the user's GO).
+
+Commands: `ruff check .` and `ruff format --check .` (clean, 187 files),
+`mypy tools tests` and the EXP-0041 scripts (clean, 64 files), `pytest -q`:
+164 passed. Both data files reproduce byte for byte (`6e9f2988…`,
+`985946d5…`).

@@ -721,3 +721,38 @@ Reproduce: `research/experiments/EXP-0039/README.md`, "Procedure".
   ending has no QSound notice. Its staff credits are the arcade staff only.
 
 Reproduce: `research/experiments/EXP-0040/README.md`, "Procedure".
+
+## D-038: Jin's ending pairs box for slot; what has no English; what it needs (`END-005`, `EXP-0041`)
+
+- **Pairing.** In each of scenes 16-19, the Saturn's boxes, less the blank
+  box 1072, and the arcade's slots match in count and order
+  (`data/translations/jin_ending_pairing.json`). Box N is slot N, except
+  the speaker names 605 and 601, which are slots 614 and 610. The arcade
+  reads each slot while the Saturn shows the box: five pairs were reviewed
+  side by side (408, 493, 414, 605 + 416, 601 + 419).
+- **Labels.** Of 30 dialogue lines, 27 are exactly the `cybotsj` slot's
+  Japanese. Three have the same wording: box 408's ellipses are middle
+  dots in the arcade, and the arcade names use an unmapped code `0x549`
+  where the Saturn has a colon. Some of the US English is a free
+  localization (for example 493, 416, 419).
+- **No official English:**
+  - box 1072 (blank);
+  - the cast roll's 10 Japanese name images (`cybotsu` shows the Latin
+    names only);
+  - the QSound notice's Japanese line (no notice in the arcade ending).
+
+  The user, 2026-11-05: "Hide, as US arcade (Recommended)" and "Erase the
+  line (Recommended)". No unit needs new text.
+- **Capacity.** The English fits:
+  - 3 rows and 46 cells a box at most (limits 3 and 60), 16 cells a row
+    (the widest Saturn line of each surface);
+  - 179 pairs, or 160 with the half-cell indent, against 335 codes free in
+    `END.BIN`'s code table by the story's rule. That table equals
+    `STG0AS.BIN`'s, but it and `SE.DAT`'s font copy are the ending's own,
+    so no Japanese code is sacrificed.
+  - Rows need 872-880 bytes. Jin's own ending lines hold 828, so more room
+    is needed: lines no ending box shows hold 44,124 (SUPPORTED, code only).
+- **Shared.** Boxes 605 and 601 are also posted by lists 3, 4 and 8, and
+  box 1072 by lists 1-5 and 7.
+
+Reproduce: `research/experiments/EXP-0041/README.md`, "Procedure".

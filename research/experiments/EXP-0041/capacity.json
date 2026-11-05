@@ -1,0 +1,473 @@
+{
+ "sources": {
+  "cybotsu_program_sha256": "18e8827dc742f4fef577aac8c06ae05dfb54ddad60a589238ac610f07b4152fd",
+  "END.BIN": "a4868d8d39f657cb2e924c5e3d0467cc4f7fe83b9375e2a2ffbd7dd21281f3fa",
+  "SE.DAT": "0430d5e75976adc5c26ad96e96ce00ad66dae994a8bbddb81ba725c18e042a71",
+  "pairing": "data/translations/jin_ending_pairing.json"
+ },
+ "font": {
+  "se_dat_copy_equals_kanji_bin": true,
+  "end_table_codes": 1222,
+  "end_table_equals_stg0as_table": true,
+  "free_by_story_rule": 310,
+  "free_not_used_by_any_ending_line": 801,
+  "free_if_only_other_endings_stay_japanese": 816,
+  "new_codes_in_last_row": 25,
+  "ending_lines_shown": 259,
+  "jin_ending_lines": 31
+ },
+ "as_is": {
+  "boxes": [
+   {
+    "box": 408,
+    "surface": "dialogue box",
+    "rows": 1,
+    "row_cells": [
+     13
+    ],
+    "glyph_cells": 13,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 409,
+    "surface": "dialogue box",
+    "rows": 3,
+    "row_cells": [
+     16,
+     16,
+     13
+    ],
+    "glyph_cells": 45,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 493,
+    "surface": "dialogue box",
+    "rows": 3,
+    "row_cells": [
+     16,
+     15,
+     13
+    ],
+    "glyph_cells": 43,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 410,
+    "surface": "dialogue box",
+    "rows": 1,
+    "row_cells": [
+     4
+    ],
+    "glyph_cells": 4,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 411,
+    "surface": "dialogue box",
+    "rows": 2,
+    "row_cells": [
+     15,
+     2
+    ],
+    "glyph_cells": 17,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 412,
+    "surface": "dialogue box",
+    "rows": 3,
+    "row_cells": [
+     16,
+     14,
+     11
+    ],
+    "glyph_cells": 41,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 413,
+    "surface": "dialogue box",
+    "rows": 1,
+    "row_cells": [
+     4
+    ],
+    "glyph_cells": 4,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 414,
+    "surface": "narration",
+    "rows": 3,
+    "row_cells": [
+     15,
+     16,
+     7
+    ],
+    "glyph_cells": 38,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 415,
+    "surface": "narration",
+    "rows": 3,
+    "row_cells": [
+     12,
+     14,
+     16
+    ],
+    "glyph_cells": 42,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 605,
+    "surface": "speaker name",
+    "rows": 1,
+    "row_cells": [
+     4
+    ],
+    "glyph_cells": 4,
+    "widest_saturn_line_cells": 6,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 416,
+    "surface": "caption",
+    "rows": 2,
+    "row_cells": [
+     15,
+     5
+    ],
+    "glyph_cells": 20,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 417,
+    "surface": "caption",
+    "rows": 2,
+    "row_cells": [
+     14,
+     6
+    ],
+    "glyph_cells": 20,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 418,
+    "surface": "caption",
+    "rows": 2,
+    "row_cells": [
+     16,
+     14
+    ],
+    "glyph_cells": 29,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 601,
+    "surface": "speaker name",
+    "rows": 1,
+    "row_cells": [
+     2
+    ],
+    "glyph_cells": 2,
+    "widest_saturn_line_cells": 6,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 419,
+    "surface": "caption",
+    "rows": 1,
+    "row_cells": [
+     3
+    ],
+    "glyph_cells": 3,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 420,
+    "surface": "caption",
+    "rows": 3,
+    "row_cells": [
+     14,
+     13,
+     4
+    ],
+    "glyph_cells": 31,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 421,
+    "surface": "caption",
+    "rows": 1,
+    "row_cells": [
+     16
+    ],
+    "glyph_cells": 16,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 422,
+    "surface": "caption",
+    "rows": 1,
+    "row_cells": [
+     7
+    ],
+    "glyph_cells": 7,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   }
+  ],
+  "max_rows": 3,
+  "max_glyph_cells": 45,
+  "over_limits": [],
+  "rows_wider_than_saturn": [],
+  "pairs": 179,
+  "row_bytes": 872
+ },
+ "indent": {
+  "boxes": [
+   {
+    "box": 408,
+    "surface": "dialogue box",
+    "rows": 1,
+    "row_cells": [
+     13
+    ],
+    "glyph_cells": 13,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 409,
+    "surface": "dialogue box",
+    "rows": 3,
+    "row_cells": [
+     16,
+     16,
+     14
+    ],
+    "glyph_cells": 46,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 493,
+    "surface": "dialogue box",
+    "rows": 3,
+    "row_cells": [
+     16,
+     15,
+     13
+    ],
+    "glyph_cells": 43,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 410,
+    "surface": "dialogue box",
+    "rows": 1,
+    "row_cells": [
+     5
+    ],
+    "glyph_cells": 5,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 411,
+    "surface": "dialogue box",
+    "rows": 2,
+    "row_cells": [
+     15,
+     2
+    ],
+    "glyph_cells": 17,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 412,
+    "surface": "dialogue box",
+    "rows": 3,
+    "row_cells": [
+     16,
+     14,
+     11
+    ],
+    "glyph_cells": 41,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 413,
+    "surface": "dialogue box",
+    "rows": 1,
+    "row_cells": [
+     4
+    ],
+    "glyph_cells": 4,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 414,
+    "surface": "narration",
+    "rows": 3,
+    "row_cells": [
+     15,
+     16,
+     7
+    ],
+    "glyph_cells": 38,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 415,
+    "surface": "narration",
+    "rows": 3,
+    "row_cells": [
+     12,
+     14,
+     16
+    ],
+    "glyph_cells": 42,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 605,
+    "surface": "speaker name",
+    "rows": 1,
+    "row_cells": [
+     4
+    ],
+    "glyph_cells": 4,
+    "widest_saturn_line_cells": 6,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 416,
+    "surface": "caption",
+    "rows": 2,
+    "row_cells": [
+     15,
+     5
+    ],
+    "glyph_cells": 20,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 417,
+    "surface": "caption",
+    "rows": 2,
+    "row_cells": [
+     15,
+     7
+    ],
+    "glyph_cells": 22,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 418,
+    "surface": "caption",
+    "rows": 2,
+    "row_cells": [
+     16,
+     15
+    ],
+    "glyph_cells": 30,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 601,
+    "surface": "speaker name",
+    "rows": 1,
+    "row_cells": [
+     2
+    ],
+    "glyph_cells": 2,
+    "widest_saturn_line_cells": 6,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 419,
+    "surface": "caption",
+    "rows": 1,
+    "row_cells": [
+     3
+    ],
+    "glyph_cells": 3,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 420,
+    "surface": "caption",
+    "rows": 3,
+    "row_cells": [
+     15,
+     13,
+     4
+    ],
+    "glyph_cells": 32,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 421,
+    "surface": "caption",
+    "rows": 1,
+    "row_cells": [
+     16
+    ],
+    "glyph_cells": 15,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   },
+   {
+    "box": 422,
+    "surface": "caption",
+    "rows": 1,
+    "row_cells": [
+     8
+    ],
+    "glyph_cells": 8,
+    "widest_saturn_line_cells": 16,
+    "rows_wider_than_saturn": 0
+   }
+  ],
+  "max_rows": 3,
+  "max_glyph_cells": 46,
+  "over_limits": [],
+  "rows_wider_than_saturn": [],
+  "pairs": 160,
+  "row_bytes": 880
+ },
+ "room": {
+  "bytes_of_lines_no_ending_box_shows": 44124,
+  "bytes_of_jin_ending_lines_no_other_ending_shows": 828,
+  "needed_as_is": 872,
+  "needed_indent": 880
+ }
+}

@@ -223,6 +223,14 @@ names it for its method only.
   with one round-end breakpoint. The arcade has English for every dialogue
   box of it; the US cast roll drops the katakana line; there is no QSound
   notice in the arcade ending. Next: `END-005` (closes M6) is `READY`.
+- **2026-11-05: Jin's ending paired; M6 closed** (`END-005`, `EXP-0041`,
+  D-038): 18 dialogue units pair box for slot (15 exact, 3 same wording);
+  `data/translations/jin_ending_pairing.json`. The cast roll's 10 Japanese
+  name images and the QSound line have no English. The user chose "Hide,
+  as US arcade (Recommended)" and "Erase the line (Recommended)", so no new
+  text is needed. The English fits, with no sacrificed code; room needs
+  lines beyond Jin's own (SUPPORTED). Next: M7's gate extension (the user's
+  GO), then `END-010`, written up in Phase L.
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -1351,7 +1359,7 @@ menu key presses only; fights and routes forced by RAM writes (the user,
 
 ### END-005 - Pair Jin's ending with the arcade English (closes M6)
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** M6
 - **Dependencies:** END-002, END-003, END-004.
 - **Blockers:** None.
@@ -1363,6 +1371,65 @@ menu key presses only; fights and routes forced by RAM writes (the user,
   - **New translations:** every unit with no official English listed with its context (no text committed), for the gate; the user decides how it is handled (MSHvSF's lesson: some ending dialogue has no arcade English).
   - **Plan for M7:** `END-010`'s acceptance criteria written from these results (not started).
 - **Notes:** the M7 build also needs a `GATE-TRANSLATION` extension for endings (the user's GO).
+- **Done:** 2026-11-05 (`EXP-0041`, D-038), static readings and recorded forced runs; no emulator run.
+  - **Pairing:** `data/translations/jin_ending_pairing.json`, 31 units. 18 dialogue units are paired by position in both games' scene scripts: 15 `exact`, 3 `edited` with the same wording (box 408's ellipses; the names' unmapped arcade code `0x549`). Box N = slot N; names 605/601 = slots 614/610.
+  - **No counterpart (13):** box 1072 (blank, twice), the cast roll's 10 Japanese name images, and the QSound notice's Japanese line.
+  - **On screen:** five pairs reviewed side by side (408, 493, 414, 605 + 416, 601 + 419), each Saturn frame while the box is open and each arcade frame between the slot's two reads.
+  - **Capacity:** at most 3 rows and 46 of 60 cells a box; 16 cells a row (the widest Saturn line of each surface). 179 pairs, or 160 with the indent, against 335 free codes in `END.BIN`'s own table: no sacrifice. Rows need 872-880 bytes, Jin's own lines hold 828, and lines no ending box shows hold 44,124 (SUPPORTED).
+  - **New translations:** none needed. Asked: "Jin's ending cast roll shows 10 Japanese name images (katakana, one in kanji), each above a yellow Latin name such as "Santana=Laurence". The US arcade drops the Japanese line and shows only the Latin name. The Japanese arcade keeps it. There is no official English for these images. How should the translation handle them?" The user's answer, verbatim: "Hide, as US arcade (Recommended)". Asked: "After the credits, the Saturn's QSound notice has five English lines and one Japanese line, "QSound® is a registered trademark of QSound Labs." The English lines above it already say that QSound is a trademark of QSound Labs. The arcade ending shows no QSound notice. How should the translation handle the Japanese line?" The user's answer, verbatim: "Erase the line (Recommended)".
+  - **Plan for M7:** `END-010` below.
+
+## Phase L: M7 (One Ending Localized)
+
+M7 puts Jin's ending in English on the disc: the official US arcade English
+as paired by `END-005`, drawn as pair glyphs through the ending's own code
+table and font copy, with the cast roll's Japanese names hidden and the
+QSound line erased. It begins with the user's GO for the gate extension
+below. Nothing in it is started.
+
+### GATE-TRANSLATION extension for Jin's ending
+
+A dated block under `GATE-TRANSLATION`, asked before `END-010` starts. The
+user's GO covers:
+- the official English as paired (`jin_ending_pairing.json`): 18 units, 30
+  lines, unchanged;
+- the two handling decisions already given (cast names hidden, QSound line
+  erased; `END-005`);
+- the speaker-name boxes 605 and 601: lists 3, 4 and 8 post them too, so
+  their names turn English while the rest of those endings stays Japanese
+  until M8. The other option is a new pair of name boxes for Jin's ending
+  alone;
+- the budget: no sacrificed code expected (179 pairs, or 160 with the
+  indent, against 335 free codes in `END.BIN`'s table). The build stops and
+  asks if it needs any.
+
+### END-010 - Build Jin's ending in English from the source image (M7)
+
+- **Status:** `BLOCKED`
+- **Milestone:** M7
+- **Dependencies:** END-005 (done), the gate extension above.
+- **Blockers:** the user's GO for the gate extension.
+- **Objective:** One image, built from the untouched source, that shows Jin's ending in English: every dialogue unit in its official English, the cast-roll names hidden and the QSound line erased, verified box by box from the `END-001` checkpoint.
+- **Acceptance criteria:**
+  - **Systematic:** the compiler (`tools/text/dialogue.py`, or a module beside it) takes `data/translations/jin_ending_pairing.json` and writes:
+    - `END.BIN`'s rows, records (table `0x060817B4`, file `0x217B4`) and code table (file `0x26EAC`);
+    - the pair glyphs into `SE.DAT`'s font copy (`0x40000`-`0x67FFF`, D-035).
+
+    The M5 roster changes stay in the same image: `STG0AS.BIN`, `VICTORY.BIN` and `KANJI.BIN` are other files. A second ending later needs only its pairing.
+  - **Room:** before the rows use lines beyond Jin's own, a test shows `END.BIN` never reads them. Fill them with a marker, and run Jin's ending and one other ending from their checkpoints: nothing may change (`docs/known_unknowns.md`). Otherwise, find other room.
+  - **Cast names:** one controlled experiment finds how to hide a Japanese name image and keep its Latin name (`docs/known_unknowns.md`). The build hides all 10, and screenshots show each Latin name unchanged.
+  - **QSound line:** `QSD.PIX` bitmap rows 180-189, over the line's columns only, are set to the background. A pixel diff shows that only the line changed, and a screenshot shows the English lines intact.
+  - **Build:** from the untouched source; two builds identical; all sectors valid; source hashes unchanged. Every changed byte range in `END.BIN`, `SE.DAT`, `KEND*.BIN` (if changed) and `QSD.PIX` is accounted for; all other bytes are equal to the source.
+  - **Live:** from the `END-001` checkpoint with the built image mounted (`END.BIN`, `SE.DAT`, `KEND*.BIN` and `QSD.PIX` all load after it: `local/end002/control/route.json`):
+    - every one of the 18 units draws its predicted cells (`EXP-0039/check_cells.py`'s method);
+    - the original image is the control;
+    - agent-reviewed screenshots of each scene, the cast roll and the QSound notice;
+    - the caption rows 2-3 start where they read correctly (`docs/known_unknowns.md`).
+  - **Shared boxes:** per the gate's choice for 605 and 601, one other list's ending (3, 4 or 8) is forced and shows its names as recorded.
+  - **Regression:** the M5 roster's predictions are unchanged (`data/regression/re008_roster.json`).
+  - **Play:** a cold boot of the built image reaches play and shows English story boxes. Cold boots only with the user present, asked first.
+  - **Provenance:** `data/translations/jin_ending.json` (no text) and `data/regression/end010_jin_ending.json`.
+- **Notes:** endings draw through `END.BIN`'s own copies of the box path, code table and the `SE.DAT` font (D-035), so the story's sacrificed codes do not reach them. The image commit pushes after the agent's checks pass (user rule, 2026-11-02).
 
 ## Later Milestones (outline only)
 
@@ -1373,7 +1440,7 @@ and `docs/lessons_from_xvsf.md`.
 
 | ID | Milestone | Outline |
 | --- | --- | --- |
-| END-010 | M7 | One ending localized (Jin's), its acceptance criteria written by `END-005`; a `GATE-TRANSLATION` extension for endings first. |
+| END-010 | M7 | Written up: Phase L. |
 | END-020 | M8 | All roster endings; one image with story, win quotes and endings; coverage register (`docs/coverage_exceptions.md`). |
 | UI-004 | after M5, early | Boot, cartridge and save warnings (`WARNING0-4.PIX` are candidates); in the first backlog this time (`docs/lessons_from_xvsf.md`, lesson 5). |
 | UI-001 | after M8, user request | UI art: inventory English art already in every font before drawing anything. |
