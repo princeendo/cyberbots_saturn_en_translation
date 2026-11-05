@@ -158,7 +158,7 @@ def main() -> int:
             )
 
         def layout(group: list[dialogue.Box]) -> dict[str, Any]:
-            per_box = []
+            per_box: list[dict[str, Any]] = []
             for b in group:
                 kind = surface_of(header(b.box))
                 cells = [len(pairs.split_pairs(r)) for r in b.rows]
