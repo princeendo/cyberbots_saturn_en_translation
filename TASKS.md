@@ -207,6 +207,12 @@ names it for its method only.
   M5 image no ending line shows a pair glyph: the ending probably draws
   from `SE.DAT`'s copy of `KANJI.BIN` (SUPPORTED). Next: `END-002`,
   `END-003`, `END-004` are `READY`.
+- **2026-11-05: how the ending draws** (`END-002`, `EXP-0038`, D-035):
+  the ending's dialogue font is `SE.DAT`'s copy of `KANJI.BIN` (CONFIRMED
+  by a one-glyph probe image), so a translated ending must change both.
+  Cast-roll names are images in `KEND_1.BIN`, credits use `FIX.BIN`, the
+  QSound line is pixels in `QSD.PIX`. Next: `END-003`, `END-004` are
+  `READY`.
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -1289,7 +1295,7 @@ menu key presses only; fights and routes forced by RAM writes (the user,
 
 ### END-002 - How each ending surface is drawn, and with which font
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** M6
 - **Dependencies:** END-001.
 - **Blockers:** None.
@@ -1299,6 +1305,7 @@ menu key presses only; fights and routes forced by RAM writes (the user,
   - **Other surfaces:** for each, the layer (VDP1 sprites or VDP2), the source of its pixels (a font file such as `KEND*.BIN`, an image file, or text drawn from codes), and one controlled change (zero one cell, sprite or tile) that removes exactly the predicted glyph.
   - **Font capacity:** for each font found, its glyph count and code table, and whether it is the story's font, so `END-020` can plan codes.
 - **Notes:** `docs/playbook_from_mshvsf.md` step 2 (MSHvSF's ending text used the quote font; that is not a Cyberbots fact).
+- **Done:** 2026-11-05 (`EXP-0038`, D-035), from saved states, no cold boot, no keys, each change against a no-change control. Dialogue boxes: the story's path (`END.BIN`'s lines and code table, cells at `0x060FE200`), glyphs from `SE.DAT`'s copy of `KANJI.BIN` (`SE.DAT` is the whole VDP2 VRAM image); a probe image with one `SE.DAT` glyph changed and a one-code RAM write each changed exactly box 408's first cell. Cast-roll names: VDP1 sprites from shadows decoded by `0x0601446C` from `KEND_1.BIN`. Credits and thank-you: VDP2 NBG0, `FIX.BIN` (ASCII-indexed). QSound line: pixels of `QSD.PIX` (NBG1 bitmap). One zeroed sprite, character or bitmap rows removed exactly the predicted item. Capacity: `SE.DAT` is the story's font (1,280 glyphs, 1,222 codes); `FIX.BIN` ASCII; names and QSound are images. Win tally, game over and ranking are shared English UI, not traced (`UI-003`).
 
 ### END-003 - Ending text in RAM and on disc; what selects it
 

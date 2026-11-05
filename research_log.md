@@ -1774,3 +1774,51 @@ Result:
 
 Conclusion: **CONFIRMED**, D-034. `END-001` is done; `END-002`, `END-003`,
 `END-004` are `READY`.
+
+## 2026-11-05 — END-002: how Jin's ending draws each surface (EXP-0038)
+
+Action: the user said "Start END-002". Every run starts from a saved state
+(the END-001 checkpoint, or states the control run saved at the cast roll,
+credits, thank-you and QSound screens); no cold boot, no key. One change per
+run, each against a no-change control. Runs under `local/end002/`.
+
+- Probe image `build/end002/sedat_probe/`: glyph 535 (line 752's first
+  character) replaced by a solid block in `SE.DAT`'s font copy only; one
+  sector changed.
+- `font` run: only box 408's cell 0 differs from the control (glyph 535 to
+  the probe block, while the box is open); the screen differs only in that
+  16×16 character. VDP2 VRAM equals `SE.DAT` in full (control) and the
+  edited `SE.DAT` (probe) during the ending scenes.
+- `line` run: line 752's first code written in RAM a frame before box 408
+  opens (`8DA1` to `8E9F`): only that cell changes, to glyph 600.
+- Cast roll, credits, thank-you, QSound: layers and sources found from VDP2
+  registers, VRAM dumps and work-RAM dumps. One VRAM or RAM change each
+  removed exactly the predicted item.
+
+Failed or corrected along the way (do not retry):
+- Same-frame comparison of cell dumps between runs: poll frames drift by a
+  few frames between runs even though game events do not, so only some
+  polls align. Boxes are also compared by their last dump while open.
+- The name sprites' pixels are not in any file as raw bytes; they are
+  decoded each frame by `0x0601446C` from `KEND_1.BIN` in RAM.
+- Zeroing 16 command bytes where the decoder was writing Arieta's name slot
+  changed nothing on screen at 2 frames. At 30 frames her katakana, and
+  everything decoded after it in the same call (Gawaine's names, two
+  portraits), had changed. The write breakpoint shows where the stream was
+  when it reached the slot, not where the call began; one call decodes
+  several sprites.
+- In zsh a `$Q` holding several `--fill` arguments is passed as one word;
+  use `${=Q}`.
+
+Result: **CONFIRMED**, D-035.
+- The ending's dialogue font is `SE.DAT`'s copy of `KANJI.BIN`.
+- The cast-roll names are images from `KEND_1.BIN` (SUPPORTED: whole-name
+  images; format not decoded).
+- The credits use `FIX.BIN`.
+- The QSound line is `QSD.PIX` pixels.
+
+The win tally, game over and ranking are not ending surfaces (shared UI,
+English) and were not traced. `END-002` is done; `END-003`, `END-004` are
+`READY`; `END-005` waits on them.
+
+Commands: `ruff check .` and `ruff format --check .` (clean, 178 files), `mypy tools tests` and the EXP-0038 scripts (clean, 66 files), `pytest -q`: 164 passed.

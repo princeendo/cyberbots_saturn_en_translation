@@ -614,3 +614,40 @@ before the win (`7e314718…64f2`) reproduces the ending exactly.
   line. The credits and everything after them are English.
 
 Reproduce: `research/experiments/EXP-0037/README.md`, "Procedure".
+
+## D-035: How Jin's ending draws each surface, and with which font (`END-002`, `EXP-0038`)
+
+- **Dialogue boxes (scenes 16-19).** They follow the story's text path:
+  `END.BIN`'s Shift-JIS lines in RAM, `END.BIN`'s 1,222-code table, one
+  glyph cell per character at `0x060FE200` (D-019, D-020).
+  - Their glyphs come from VDP2 VRAM `0x40000`. `SE.DAT` fills it: `SE.DAT`
+    is read raw as a whole VDP2 VRAM image, and all 512 KiB equal the file
+    through scenes 16-19. `KANJI.BIN` is not used.
+  - From the END-001 checkpoint, against a no-change control:
+    - an image with one glyph of `SE.DAT`'s font copy replaced changes only
+      box 408's first cell, and only that character on screen;
+    - writing one character code in `END.BIN`'s line in RAM changes only
+      that cell, to the new code's glyph.
+- **Cast-roll names.** VDP1 sprites, one per name line. Each is refreshed
+  from a work-RAM shadow (WRAM-H `0x060E0000` + its VDP1 offset). The
+  decoder `0x0601446C` writes that shadow from command and longword streams
+  in `KEND_1.BIN`, which is loaded raw at WRAM-L `0x00280000`.
+- **Staff credits and the thank-you screen.** VDP2 NBG0, drawn with
+  `FIX.BIN`'s characters (loaded raw at VDP2 VRAM `0x0`). The small font is
+  ASCII-indexed.
+- **QSound notice.** `QSD.PIX`, a 512×256 256-colour bitmap loaded raw at
+  VDP2 VRAM `0x20000` (NBG1). Its Japanese trademark line is pixels in that
+  file.
+- **Controlled changes from saved states.** Each removed exactly the
+  predicted item:
+  - zeroing one name sprite removed that name;
+  - zeroing `FIX.BIN` character `0x41` removed every small `A`;
+  - zeroing ten bitmap rows removed only the Japanese line.
+
+  Zeroing 16 bytes of `KEND_1.BIN`'s command stream in RAM changed the
+  names decoded after them.
+- **Translation consequence.** `SE.DAT`'s font copy must change along with
+  `KANJI.BIN`. The cast-roll names (SUPPORTED: whole-name images) and the
+  QSound line are images, not text.
+
+Reproduce: `research/experiments/EXP-0038/README.md`, "Procedure".

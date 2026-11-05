@@ -53,6 +53,15 @@ the box routine from its record table `0x060817B4`.
 | QSound notice (`QSD.PIX`) | After the credits | English, plus **one Japanese trademark line** (an image) | — | `f13102.png` (`d46c3202…2746`) |
 | Game over, initials, ranking | Then the attract loop | English | — | `f13779.png` (`9e00cf92…cf96`), `f14829.png` (`3acbdd4b…864e`) |
 
+How each is drawn (`EXP-0038`, D-035):
+
+| Surface | Layer | Pixels from | To change it |
+| --- | --- | --- | --- |
+| Dialogue, narration, captions | VDP1 glyph cells (the story's path) | `END.BIN`'s lines and code table; glyphs from `SE.DAT`'s copy of `KANJI.BIN` (VDP2 VRAM `0x40000`) | `END.BIN`'s lines, and `SE.DAT`'s font copy as well as `KANJI.BIN` |
+| Cast-roll names | VDP1, one sprite per name line | Images decoded by `0x0601446C` from `KEND_1.BIN` | New images in `KEND_1.BIN`'s format (not decoded yet) |
+| Credits, thank-you | VDP2 NBG0 | `FIX.BIN`, ASCII-indexed characters | Already English |
+| QSound Japanese line | VDP2 NBG1 bitmap | `QSD.PIX` (raw 512×256, 256 colours) | Edit the bitmap |
+
 ## Not Seen Yet
 
 Each needs its own capture before it can be ruled in or out.
