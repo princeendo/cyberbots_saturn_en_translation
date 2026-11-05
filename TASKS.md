@@ -235,6 +235,7 @@ names it for its method only.
   words: "GO (Recommended)" and, for the shared name boxes 605 and 601,
   "Share, English everywhere (Recommended)". `END-010` is `READY`.
 - **2026-11-05: M7 CONFIRMED** (`END-010`, `EXP-0042`-`EXP-0045`, D-039-D-042): one image from the untouched source with the M5 roster unchanged and Jin's ending in official English. All 18 units are drawn as predicted; the cast roll's Japanese names are hidden in every ending (the user: "Hide in every ending (Recommended)"); the QSound line is erased. The shared names show English in lists 3, 4 and 8. A cold boot plays in English. Three long boxes finish typing just before they close: the user chose "Accept now, follow-up task (Recommended)" (`END-011`, `BACKLOG`). Next: M8 (`END-020`) needs its tasks written up first.
+- **2026-11-05: the roster endings surveyed** (`END-020`, `EXP-0046`, D-043): lists 1-5 forced on the Saturn and in both arcade sets. All their Japanese is `END.BIN` boxes, and the post-dialogue screens are shared and already done. Correction: posted scripts run on into the next scenes, so Mary's and Bao and Mao's endings show the arcade's scenes 17-18 and 20. `END-021` (pairing) is `READY`.
 - **2026-11-05: M8 tasks written up** (Phase M, the user: "Write up M8"):
   `END-020` (survey the roster endings) and `END-011` (box timing) are
   `READY`; `END-021` (pairing), `END-022` (capacity), the gate extension
@@ -1520,10 +1521,14 @@ Known so far (facts and their confidence):
 
   Cases a pairing must resolve (HYPOTHESIS until `END-021`):
   - list 5, scenes 18 and 28: Saturn 608 where the arcade opens 615
-    (− 9 would be 617);
-  - list 1, scene 22: Saturn 603 with no arcade slot left over;
-  - arcade-only scenes: Mary's 17-18 and Bao and Mao's 20 are never posted
-    by the Saturn.
+    (− 9 would be 617), and 606 also stands for 615 elsewhere;
+  - list 1, scene 22: Saturn 603 with no arcade slot left over.
+
+  Corrected by `END-020` (D-043): the "arcade-only" scenes are shown. A
+  posted script runs on into the next scenes, so Mary's ending shows the
+  arcade's scenes 17-18 (boxes 440-447) and Bao and Mao's its scene 20
+  (box 486). The observed box sequences are in
+  `data/text/ending_surfaces.json`.
 - **Shared surfaces (D-040, D-041):** the cast roll and the QSound notice
   are already done for every ending. Whether any ending shows other
   Japanese images is UNKNOWN (only Jin's was surveyed, `END-001`).
@@ -1537,7 +1542,7 @@ Known so far (facts and their confidence):
 
 ### END-020 - Survey every roster ending's surfaces
 
-- **Status:** `READY`
+- **Status:** `DONE` (2026-11-05)
 - **Milestone:** M8
 - **Dependencies:** END-010 (done).
 - **Blockers:** None.
@@ -1549,18 +1554,25 @@ Known so far (facts and their confidence):
   - **Boxes:** each list's box openings and closes, and each box's open time (for `END-011`'s rule).
   - **Records:** `docs/text_surfaces.md` (per list) and `data/text/ending_surfaces.json` (numbers and labels only).
 - **Notes:** headless MAME and forced Mednafen runs need no focus.
+- **Done:** 2026-11-05 (`EXP-0046`, D-043). No cold boot, no key.
+  - **Reach:** lists 1-5 forced from the END-001 checkpoint (`0x060CFF7E`), each to past its QSound notice; every list posted D-036's scenes.
+  - **Surfaces:** every second screenshot reviewed (178). All Japanese before the cast roll is `END.BIN` boxes (dialogue with portraits, captions with or without a name, narration); short standalone lines fall in open boxes' windows. After the dialogue every list loads the same `FIX.BIN`, `KEND*.BIN` and `QSD.PIX` and shows the same roll, credits, thank-you screen and QSound notice, which are already handled. No new surface, so no drawing path to find.
+  - **Correction (D-043):** D-036's box lists are incomplete. A posted script runs on past `0xE000` into the next scenes, so Mary's ending shows boxes 440-447, 602, 604 and 610 (the arcade's scenes 17-18), and Bao and Mao's shows box 486 (the arcade's scene 20).
+  - **Arcade:** EXP-0040's route with the ending number set after the round end's copy (`0xDBBC`/`0xDC12`) plays each list's ending. All 10 routes (both sets) read exactly their scripts' slots; one `cybotsu` run stayed in attract mode and was rerun. The US snapshots show the same kinds in English.
+  - **Boxes:** every opening's open and close frames and its last screenshot's hash are in `data/text/ending_surfaces.json`.
+  - **Records:** `docs/text_surfaces.md` (a section for lists 1-5) and `data/text/ending_surfaces.json`.
 
 ### END-021 - Pair lists 1-5 with the arcade English
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M8
-- **Dependencies:** END-020.
-- **Blockers:** END-020 (image surfaces and new screens).
+- **Dependencies:** END-020 (done).
+- **Blockers:** None.
 - **Objective:** Every text unit of every roster ending with its official English, or recorded as having none, by both games' scripts.
 - **Acceptance criteria:**
   - **Tool:** `EXP-0041/pair_ending.py` generalized into `tools/text/ending_pairing.py` (lists as an argument). For list 0 it reproduces `data/translations/jin_ending_pairing.json`'s units byte for byte, or every difference is explained.
-  - **Pairing:** `data/translations/<pilot>_ending_pairing.json` for lists 1-5 (no text), with the same labels (`exact`, `edited`, `no-counterpart`).
-  - **Cases:** each case listed in the phase introduction resolved by evidence (the Japanese of both sides, the readers, or a forced run): 608 ↔ 615, 603 in list 1's scene 22, and the arcade-only scenes (recorded in `docs/coverage_exceptions.md` if never shown).
+  - **Pairing:** `data/translations/<pilot>_ending_pairing.json` for lists 1-5 (no text), with the same labels (`exact`, `edited`, `no-counterpart`). The units are the boxes each ending is seen to open (`data/text/ending_surfaces.json`, D-043), not only the posted scripts' boxes; the arcade order is the slots each route read (`EXP-0046`).
+  - **Cases:** each case listed in the phase introduction resolved by evidence (the Japanese of both sides, the readers, or a forced run): 608 and 606 ↔ 615, and 603 in list 1's scene 22. Mary's and Bao and Mao's run-on scenes are paired like any other.
   - **On screen:** at least one pair per list shown in both games and agent-reviewed.
   - **New translations:** every unit with no official English listed with its context (no text committed), for the gate.
 

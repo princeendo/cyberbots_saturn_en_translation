@@ -72,13 +72,31 @@ How each is drawn (`EXP-0038`, D-035):
 | Credits, thank-you | VDP2 NBG0 | `FIX.BIN`, ASCII-indexed characters | Already English |
 | QSound Japanese line | VDP2 NBG1 bitmap | `QSD.PIX` (raw 512×256, 256 colours) | Edit the bitmap |
 
+## The Other Roster Endings (`END-020`, `EXP-0046`)
+
+Lists 1-5, forced from the END-001 checkpoint on the untouched image
+(D-043, `data/text/ending_surfaces.json`). All their Japanese before the
+cast roll is `END.BIN` boxes, as in Jin's ending. After the dialogue every
+ending shows the same cast roll, credits, thank-you screen and QSound
+notice (D-035, D-040, D-041).
+
+| List | Pilot | Scenes posted | Distinct boxes shown | Kinds of box | Pictures from |
+| --- | --- | --- | --- | --- | --- |
+| 1 | Santana | 16-22 | 18 | dialogue box with portraits, captions with names, narration | `STDEM1.PIR`, `STDEM7.PIR` |
+| 2 | Mary | 16 (runs on through the arcade's 17-18) | 15 | dialogue box with portraits, captions with names | `STDEM2.PIR`, `STDEM7.PIR` |
+| 3 | Arieta | 16-21, 27, 28 | 23 | dialogue box with portraits, captions with names, narration | `STDEM4.PIR`, `STDEM7.PIR` |
+| 4 | Gawaine | 16-19 | 16 | captions with and without a name, narration | none of its own |
+| 5 | Bao and Mao | 16, 17, 28, 18, 19, 21, 22 (runs on through the arcade's 20) | 22 | dialogue box with portraits, captions with names | `STDEM5.PIR` |
+
+The arcade (`cybotsu`) shows the same kinds in English, with the Latin-only
+cast roll and no QSound notice in the ending.
+
 ## Not Seen Yet
 
 Each needs its own capture before it can be ruled in or out.
 
 | Surface | Why expected | Lead |
 | --- | --- | --- |
-| Other pilots' endings | Every pilot has one, selected by the winner's pilot byte; Santana's was forced and shown (D-036). Jin's scene 20 is never posted | `data/text/ending_posts.json`; `END-020` |
 | Console-only pilots' stories | Four pilots added on consoles | Saturn lines from 1141 on name Chiyomaru and Tessan (D-011) |
 | `KEY CONFIG`, `SOUND TEST`, `DATA RESET` sub-screens | Option rows | — |
 | Boot, cart and save warnings | `WARNING0`-`4.PIX` on the disc | `UI-004` |

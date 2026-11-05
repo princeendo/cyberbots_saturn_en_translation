@@ -2109,3 +2109,31 @@ User request (verbatim): "Write up M8". Documentation only; no run.
     (list 1, scene 22), and the arcade-only scenes (Mary 17-18, Bao and
     Mao 20).
 - `END-020` and `END-011` are `READY`; nothing started.
+
+## 2026-11-05 — END-020: the roster endings surveyed (EXP-0046)
+
+User request (verbatim): "Start END-020". Forced Mednafen runs from the
+END-001 checkpoint (five in parallel, silent home, no key), and headless
+MAME; no cold boot.
+
+- Saturn, lists 1-5: every list posts D-036's scenes. All Japanese before
+  the cast roll is `END.BIN` boxes, and the post-dialogue screens are
+  shared (roll, credits, thank-you screen, QSound notice).
+- Arcade: the ending number set at `0xDBBC`/`0xDC12` (after the round end's
+  copy) plays each list's ending. All 10 routes read their scripts' slots.
+- `data/text/ending_surfaces.json`: observed box sequences, open and close
+  frames, screenshot hashes, arcade slot reads.
+
+Corrected (do not retry):
+- **D-036's box lists are incomplete** (now D-043). EXP-0039's reader
+  stopped each script at `0xE000`, but a posted script runs on into the
+  next scenes. Mary's ending (one post) shows the arcade's scenes 17-18
+  (440-447, names 602, 604, 610), and Bao and Mao's shows scene 20's 486.
+  The Phase M introduction and `END-021` were corrected; the "Saturn never
+  posts these scenes" row of `docs/known_unknowns.md` is answered.
+- **A first "no box open" check** treated boxes with no logged close as
+  open until the end, so it proved nothing. The standalone lines were
+  matched to box windows by frame instead.
+- **The first `cybotsu` list-3 MAME run** stayed in attract mode and its
+  taps logged nothing; the rerun was normal. The cause is unknown (one in
+  ten runs).

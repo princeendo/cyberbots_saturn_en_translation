@@ -677,6 +677,10 @@ Reproduce: `research/experiments/EXP-0038/README.md`, "Procedure".
   - Bao and Mao: 16, 17, 28, 18, 19, 21, 22.
 
   Jin's scene 20 (box 550) is never posted.
+
+  Corrected by D-043: a posted script runs on into the next scenes'
+  words, so the boxes shown are more than these lists (Mary's ending shows
+  the arcade's scenes 17-18, Bao and Mao's its scene 20).
 - **Forced.** From the END-001 checkpoint, writing 1 into `0x060CFF7E`
   after the copy, or into player 1's pilot byte before it, plays Santana's
   ending (list 1's posts 16-22, its graphics, tracks 45-47). Every box
@@ -836,3 +840,30 @@ Reproduce: `research/experiments/EXP-0043/README.md`, "Procedure".
   frames.
 
 Reproduce: `research/experiments/EXP-0045/README.md`, "Procedure".
+
+## D-043: What each roster ending shows; scripts run on into the next scenes (`END-020`, `EXP-0046`)
+
+- **Forced runs.** Each of lists 1-5, forced from the END-001 checkpoint,
+  posts exactly D-036's scenes. But the boxes it opens are not only the
+  posted scripts' boxes: a posted scene's script runs on past `0xE000` into
+  the next scenes' words until the next post. So:
+  - Mary's ending (one post, scene 16) shows boxes 437-447 with names 602,
+    604 and 610, which are the arcade's scenes 16-18;
+  - Bao and Mao's shows box 486, the arcade's scene 20, between posts 19
+    and 21;
+  - the other lists open their posted boxes, with speaker names reopened
+    for each caption.
+
+  `data/text/ending_surfaces.json` records the observed sequence of every
+  list 0-5 and supersedes D-036's box lists for these lists.
+- **Surfaces.** Every Japanese text in lists 1-5 before the cast roll is an
+  `END.BIN` box: dialogue boxes with portraits, captions with or without a
+  speaker name, and narration. No picture carries text. After the dialogue,
+  every list loads the same `FIX.BIN`, `KEND*.BIN` and `QSD.PIX`, and shows
+  the same cast roll, credits, thank-you screen and QSound notice.
+- **Arcade.** Setting the ending number `0xFFEB2C` after the round end's
+  copy (`0xDBB6`/`0xDC0C`) plays that list's ending. Each of lists 1-5, in
+  both sets, reads exactly the slots its script opens, including Mary's
+  scenes 17-18 and Bao and Mao's 20.
+
+Reproduce: `research/experiments/EXP-0046/README.md`, "Procedure".
