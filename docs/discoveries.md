@@ -651,3 +651,38 @@ Reproduce: `research/experiments/EXP-0037/README.md`, "Procedure".
   QSound line are images, not text.
 
 Reproduce: `research/experiments/EXP-0038/README.md`, "Procedure".
+
+## D-036: The winner's pilot selects the ending; each list posts fixed scenes (`END-003`, `EXP-0039`)
+
+- **Selection.** The last-fight round end (`0x06018DE8`) copies the
+  winner's pilot byte (record + `0x2D2`) to `0x060CFF7E`. In mode 5,
+  `END.BIN` (`0x06060446`) runs the dispatcher at `@(0x060775B4 + 4 ×
+  [0x060CFF7E])`, one per list 0-8. Each dispatcher steps through its own
+  table of routines (step word `0x060CFEE8`).
+- **Posts.** Each routine posts fixed scenes through `0x06066852` with R4 =
+  its list number and R5 = the scene; 41 calls, all constants. The scene's
+  boxes come from that list's script in `END.BIN`'s copy of `STG0AS.BIN`'s
+  scene data. The copy is shifted by `0x23ED0`, and all 234 scripts match.
+  `data/text/ending_posts.json` lists each list's scenes and boxes:
+  - Jin: 16-19;
+  - Santana: 16-22;
+  - Mary: 16;
+  - Arieta: 16-21, 27, 28;
+  - Gawaine: 16-19;
+  - Bao and Mao: 16, 17, 28, 18, 19, 21, 22.
+
+  Jin's scene 20 (box 550) is never posted.
+- **Forced.** From the END-001 checkpoint, writing 1 into `0x060CFF7E`
+  after the copy, or into player 1's pilot byte before it, plays Santana's
+  ending (list 1's posts 16-22, its graphics, tracks 45-47). Every box
+  draws its predicted cells (22 of 22).
+- **Other text.** The CD copy loop (`0x06041FB4`) loads three files raw:
+  - `KEND.BIN` at `0x06060000`, which holds the credits and thank-you text
+    as ASCII strings (from offset `0x2F1E`);
+  - `KEND_1.BIN` at WRAM-L `0x00280000`, the cast-roll name images;
+  - `QSD.PIX` at VDP2 VRAM `0x20000`.
+
+  One-letter RAM markers in `KEND.BIN`'s strings showed on screen
+  (`XRCADE STAFF`, `SPECIAL THINKS`, `THINK YOU FOR PLAYING!`).
+
+Reproduce: `research/experiments/EXP-0039/README.md`, "Procedure".

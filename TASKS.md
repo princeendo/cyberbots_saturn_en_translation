@@ -213,6 +213,11 @@ names it for its method only.
   Cast-roll names are images in `KEND_1.BIN`, credits use `FIX.BIN`, the
   QSound line is pixels in `QSD.PIX`. Next: `END-003`, `END-004` are
   `READY`.
+- **2026-11-05: what selects the ending** (`END-003`, `EXP-0039`, D-036):
+  the winner's pilot byte, copied to `0x060CFF7E`; each list posts fixed
+  scenes (`data/text/ending_posts.json`). Santana's ending was forced and
+  matched its prediction. Jin's scene 20 is never shown. Credits text is
+  ASCII in `KEND.BIN`. Next: `END-004` is `READY`.
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -1263,7 +1268,9 @@ Known so far (facts and their confidence):
   no list number (EXP-0033), so which ending scenes belong to which pilot
   is by number only (`data/text/pilot_census.json`, `ending_scenes_by_number`:
   Jin 16-20, Santana 16-22, Mary 16-18, Arieta 16-21, 27, 28, Gawaine
-  16-19, Bao and Mao 16-22, 28).
+  16-19, Bao and Mao 16-22, 28). **Superseded** by D-036 (`END-003`): R4
+  is the list number, and `data/text/ending_posts.json` lists each list's
+  posts from the code.
 - When `END.BIN` loads is open (`docs/known_unknowns.md`).
 - `KEND.BIN`, `KEND_0.BIN` and `KEND_1.BIN`, and the 21 `*_END*` audio
   tracks (D-002), are candidates, not facts.
@@ -1309,7 +1316,7 @@ menu key presses only; fights and routes forced by RAM writes (the user,
 
 ### END-003 - Ending text in RAM and on disc; what selects it
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** M6
 - **Dependencies:** END-001.
 - **Blockers:** None.
@@ -1320,6 +1327,7 @@ menu key presses only; fights and routes forced by RAM writes (the user,
   - **Selection:** the code that picks the ending (the pilot byte; whether the machine, the route or the result also matter), traced and checked by forcing one other value and seeing the ending change (no key loops).
   - **Per-pilot scenes:** which of `END.BIN`'s posts run for each roster pilot, from the code, so `ending_scenes_by_number` becomes a per-pilot list from evidence.
 - **Notes:** an ending's dialogue copy in `END.BIN` is separate from `STG0AS.BIN`'s (EXP-0024: endings are shown from `END.BIN`'s own copy); `RE-008` left it unchanged except through shared glyphs.
+- **Done:** 2026-11-05 (`EXP-0039`, D-036), from the END-001 checkpoint, no cold boot, no keys. Selection: the last-fight round end copies the winner's pilot byte to `0x060CFF7E`; `END.BIN` dispatches on it (`0x060775B4`, lists 0-8). Writing 1 there, or into player 1's pilot byte before the copy, plays Santana's ending (posts 16-22, 22 of 22 boxes as predicted). Dialogue: every list's posts (R4 = list, R5 = scene, 41 constant calls) and opened boxes in `data/text/ending_posts.json`; `END.BIN`'s scene data is `STG0AS.BIN`'s shifted by `0x23ED0` (234 scripts match); Jin's static boxes equal END-001's. Jin's scene 20 is never posted. Other text: `KEND.BIN` (credits and thank-you strings, ASCII, at `0x06060000`), `KEND_1.BIN` (WRAM-L `0x00280000`) and `QSD.PIX` (VDP2 `0x20000`), each loaded raw by `0x06041FB4` (write breakpoints); RAM markers in the strings showed on screen. Per-pilot scenes from code replace `ending_scenes_by_number` (lists 2-8 SUPPORTED, not run).
 
 ### END-004 - The arcade's English for the endings
 

@@ -68,7 +68,7 @@ Each needs its own capture before it can be ruled in or out.
 
 | Surface | Why expected | Lead |
 | --- | --- | --- |
-| Other pilots' endings, Jin's scene 20 | Every pilot has one; Jin's route posted scenes 16-19 only | `END.BIN`; audio tracks 45-62 (D-002); `END-003` |
+| Other pilots' endings | Every pilot has one, selected by the winner's pilot byte; Santana's was forced and shown (D-036). Jin's scene 20 is never posted | `data/text/ending_posts.json`; `END-020` |
 | Console-only pilots' stories | Four pilots added on consoles | Saturn lines from 1141 on name Chiyomaru and Tessan (D-011) |
 | `KEY CONFIG`, `SOUND TEST`, `DATA RESET` sub-screens | Option rows | — |
 | Boot, cart and save warnings | `WARNING0`-`4.PIX` on the disc | `UI-004` |

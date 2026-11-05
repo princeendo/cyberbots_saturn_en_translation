@@ -1822,3 +1822,49 @@ English) and were not traced. `END-002` is done; `END-003`, `END-004` are
 `READY`; `END-005` waits on them.
 
 Commands: `ruff check .` and `ruff format --check .` (clean, 178 files), `mypy tools tests` and the EXP-0038 scripts (clean, 66 files), `pytest -q`: 164 passed.
+
+## 2026-11-05 — END-003: ending text in RAM and on disc; what selects it (EXP-0039)
+
+Action: the user said "Start END-003". Static reading of `END.BIN` and the
+resident round-end code; five runs from the END-001 checkpoint (no cold
+boot, no key). Runs under `local/end003/`.
+
+Result:
+- The last-fight round end copies the winner's pilot byte to `0x060CFF7E`.
+  `END.BIN` dispatches on it (`0x060775B4`, 9 lists), and each list's step
+  routines post fixed scenes with R4 = the list.
+- Forcing 1 into that byte, or into player 1's pilot byte before the copy,
+  played Santana's ending (posts 16-22, R4 = 1, 22 of 22 boxes as
+  predicted).
+- `data/text/ending_posts.json` replaces `ending_scenes_by_number`, which
+  listed scenes never posted:
+  - Jin's 20;
+  - Mary's 17 and 18;
+  - Bao and Mao's 20;
+  - list 6's 17.
+- `KEND.BIN` (credits text, ASCII), `KEND_1.BIN` and `QSD.PIX` are loaded
+  raw by the CD copy loop. RAM markers in `KEND.BIN`'s strings showed on
+  screen.
+
+Failed or corrected along the way (do not retry):
+- EXP-0033 read the post's R5 only and concluded the posts name no list;
+  R4 is the list number.
+- `scene_boxes` first listed boxes a script only closes. These are carried
+  over from the previous scene, so they do not belong to it. Only opened
+  boxes are listed now (Jin's then match END-001 exactly).
+- The first `santana` and `pilot` runs crashed: an on-hit action is logged
+  as an event line without `PC`. Action lines are now filtered and logged
+  apart.
+- The first thank-you marker (`0x06063240`) was in `SPECIAL THANKS`, not in
+  `THANK YOU FOR PLAYING!` (`KEND.BIN` holds both; the latter at `0x34EC`).
+  It showed as `SPECIAL THINKS`; a second run marked the right string.
+- In zsh, a failed `&&` chain left two runs unstarted once; start
+  background runs with `;`.
+
+Conclusion: **CONFIRMED**, D-036. `END-003` is done; `END-004` is `READY`;
+`END-005` waits on it.
+
+Commands: `ruff check .` and `ruff format --check .` (clean, 182 files),
+`mypy tools tests` and the EXP-0039 scripts (clean, 65 files), `pytest -q`:
+164 passed; `end_scenes.py` reproduces `data/text/ending_posts.json` byte
+for byte.
