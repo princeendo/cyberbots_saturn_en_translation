@@ -867,3 +867,27 @@ Reproduce: `research/experiments/EXP-0045/README.md`, "Procedure".
   scenes 17-18 and Bao and Mao's 20.
 
 Reproduce: `research/experiments/EXP-0046/README.md`, "Procedure".
+
+## D-044: Every roster ending's text has official English at the same place (`END-021`, `EXP-0047`)
+
+- In each of lists 0-5, the boxes the Saturn opens (less the blank 1072)
+  and the slots the arcade's story reader reads, in forced runs of the same
+  ending, are the same sequence. Dialogue box N is slot N; each speaker
+  name stands where the arcade reads a name slot; each box pairs with one
+  slot everywhere. `cybotsj` reads the same slots as `cybotsu`.
+- Lists 1-5 have 102 text units, all with official English, 63 exact and
+  39 with the same wording (punctuation, the colon code `0x549`, unmapped
+  kanji codes). No new translation is needed
+  (`data/translations/<pilot>_ending_pairing.json`).
+- **Box kinds.** The box record's first 4 words in `END.BIN` give the kind:
+  - `0000 008C 00AC 000E`: dialogue box;
+  - `0000 0050`/`0070 0050 000E`: narration;
+  - `0030 0088 00AC 000E`: caption (`0x30` is the caption column);
+  - `0000 0028`-`004C 00AC 000E`: speaker name.
+- **Names.** Saturn name box N shows arcade name slot N + 9 (D-038) except
+  box 608 (both twins). At its places the arcade shows slot 615 (Bao
+  alone); the same two names, with their own English, are slot 617. Box
+  603's one extra opening (list 1, before caption 435) shows a name the
+  arcade does not open there.
+
+Reproduce: `research/experiments/EXP-0047/README.md`, "Procedure".

@@ -1,0 +1,1142 @@
+{
+ "sources": {
+  "cybotsu_program_sha256": "18e8827dc742f4fef577aac8c06ae05dfb54ddad60a589238ac610f07b4152fd",
+  "cybotsj_program_sha256": "2d1e6b255184bd75a0b8b8af7b3fe25eed1f0086065c3bcc1f01d7e65806928e",
+  "END.BIN": "a4868d8d39f657cb2e924c5e3d0467cc4f7fe83b9375e2a2ffbd7dd21281f3fa",
+  "ending_surfaces": "data/text/ending_surfaces.json",
+  "ending_surfaces_sha256": "772653c4e8317a967f2fabf776b78deeed01f1f67cc15584a61176a6f6046424"
+ },
+ "list": 5,
+ "pilot": "Bao and Mao",
+ "units": [
+  {
+   "unit": "scene 16 box 1072",
+   "surface": "dialogue box",
+   "scene": 16,
+   "box": 1072,
+   "saturn_lines": [
+    1849
+   ],
+   "saturn_line_bytes": [
+    2
+   ],
+   "blank": true,
+   "arcade_slot": null,
+   "label": "no-counterpart",
+   "no_official_english": false,
+   "handling": {
+    "meaning": "blank; nothing to show"
+   },
+   "evidence": "a full-width space; the arcade scene opens no slot for it (D-037)"
+  },
+  {
+   "unit": "scene 16 box 479",
+   "surface": "dialogue box",
+   "scene": 16,
+   "position": 0,
+   "box": 479,
+   "saturn_lines": [
+    877
+   ],
+   "saturn_line_bytes": [
+    24
+   ],
+   "arcade_slot": 479,
+   "slot_is_box_number": true,
+   "line_labels": [
+    "exact"
+   ],
+   "line_similarity": [
+    1.0
+   ],
+   "arcade_japanese_line_count": 1,
+   "arcade_unmapped_codes": [],
+   "label": "exact",
+   "arcade_english_record": "0x0BB25E",
+   "english_characters": 10,
+   "english_lines": 1,
+   "english_sha256": "b50c62f1ff59a9bdb833efbbed1e4d79ab73b13ab378fba7cefc5618db747120",
+   "no_official_english": false,
+   "evidence": "same place in the boxes the Saturn opens and the slots the arcade's story reader reads, in forced runs of this ending (D-043, EXP-0046, EXP-0047)"
+  },
+  {
+   "unit": "scene 16 box 480",
+   "surface": "dialogue box",
+   "scene": 16,
+   "position": 1,
+   "box": 480,
+   "saturn_lines": [
+    878,
+    879
+   ],
+   "saturn_line_bytes": [
+    18,
+    24
+   ],
+   "arcade_slot": 480,
+   "slot_is_box_number": true,
+   "line_labels": [
+    "exact",
+    "exact"
+   ],
+   "line_similarity": [
+    1.0,
+    1.0
+   ],
+   "arcade_japanese_line_count": 2,
+   "arcade_unmapped_codes": [],
+   "label": "exact",
+   "arcade_english_record": "0x0BB272",
+   "english_characters": 43,
+   "english_lines": 2,
+   "english_sha256": "52132d17fa0c5895c1ca7322641fc2cad64e5c4f32723c2d31c10fdfee7137d3",
+   "no_official_english": false,
+   "evidence": "same place in the boxes the Saturn opens and the slots the arcade's story reader reads, in forced runs of this ending (D-043, EXP-0046, EXP-0047)"
+  },
+  {
+   "unit": "scene 17 box 607",
+   "surface": "speaker name",
+   "scene": 17,
+   "position": 0,
+   "box": 607,
+   "saturn_lines": [
+    1012
+   ],
+   "saturn_line_bytes": [
+    6
+   ],
+   "arcade_slot": 616,
+   "slot_is_box_number": false,
+   "line_labels": [
+    "edited"
+   ],
+   "line_similarity": [
+    0.667
+   ],
+   "arcade_japanese_line_count": 1,
+   "arcade_unmapped_codes": [
+    "0x549"
+   ],
+   "label": "edited",
+   "arcade_english_record": "0x0BB92C",
+   "english_characters": 4,
+   "english_lines": 1,
+   "english_sha256": "504b7965adab2a6323858437bf6aaf40fd0e1623c51a29eb07a804786cfe36c7",
+   "no_official_english": false,
+   "evidence": "same place in the boxes the Saturn opens and the slots the arcade's story reader reads, in forced runs of this ending (D-043, EXP-0046, EXP-0047)",
+   "own_number_slot": {
+    "slot": 607,
+    "line_labels": [
+     "edited"
+    ],
+    "line_similarity": [
+     0.059
+    ]
+   },
+   "name_rule_slot": {
+    "slot": 616,
+    "line_labels": [
+     "edited"
+    ],
+    "line_similarity": [
+     0.667
+    ],
+    "same_as_placed_slot": true
+   }
+  },
+  {
+   "unit": "scene 17 box 481",
+   "surface": "caption",
+   "scene": 17,
+   "position": 1,
+   "box": 481,
+   "saturn_lines": [
+    880
+   ],
+   "saturn_line_bytes": [
+    30
+   ],
+   "arcade_slot": 481,
+   "slot_is_box_number": true,
+   "line_labels": [
+    "exact"
+   ],
+   "line_similarity": [
+    1.0
+   ],
+   "arcade_japanese_line_count": 1,
+   "arcade_unmapped_codes": [],
+   "label": "exact",
+   "arcade_english_record": "0x0BB2A6",
+   "english_characters": 9,
+   "english_lines": 1,
+   "english_sha256": "b9b5368b831688e00234d41c9307f1d93fb22efec15ab44b3d4c4460455c0e1d",
+   "no_official_english": false,
+   "evidence": "same place in the boxes the Saturn opens and the slots the arcade's story reader reads, in forced runs of this ending (D-043, EXP-0046, EXP-0047)"
+  },
+  {
+   "unit": "scene 17 box 606",
+   "surface": "speaker name",
+   "scene": 17,
+   "position": 2,
+   "box": 606,
+   "saturn_lines": [
+    1011
+   ],
+   "saturn_line_bytes": [
+    6
+   ],
+   "arcade_slot": 615,
+   "slot_is_box_number": false,
+   "line_labels": [
+    "edited"
+   ],
+   "line_similarity": [
+    0.667
+   ],
+   "arcade_japanese_line_count": 1,
+   "arcade_unmapped_codes": [
+    "0x549"
+   ],
+   "label": "edited",
+   "arcade_english_record": "0x0BB91E",
+   "english_characters": 4,
+   "english_lines": 1,
+   "english_sha256": "f6025d1eaa2bf90df60e7bcb0952b8a4f797a521267c026018a1f3f62d1078c3",
+   "no_official_english": false,
+   "evidence": "same place in the boxes the Saturn opens and the slots the arcade's story reader reads, in forced runs of this ending (D-043, EXP-0046, EXP-0047)",
+   "own_number_slot": {
+    "slot": 606,
+    "line_labels": [
+     "edited"
+    ],
+    "line_similarity": [
+     0.056
+    ]
+   },
+   "name_rule_slot": {
+    "slot": 615,
+    "line_labels": [
+     "edited"
+    ],
+    "line_similarity": [
+     0.667
+    ],
+    "same_as_placed_slot": true
+   }
+  },
+  {
+   "unit": "scene 17 box 551",
+   "surface": "caption",
+   "scene": 17,
+   "position": 3,
+   "box": 551,
+   "saturn_lines": [
+    954
+   ],
+   "saturn_line_bytes": [
+    26
+   ],
+   "arcade_slot": 551,
+   "slot_is_box_number": true,
+   "line_labels": [
+    "exact"
+   ],
+   "line_similarity": [
+    1.0
+   ],
+   "arcade_japanese_line_count": 1,
+   "arcade_unmapped_codes": [],
+   "label": "exact",
+   "arcade_english_record": "0x0BB4F6",
+   "english_characters": 46,
+   "english_lines": 2,
+   "english_sha256": "9b820ddf23b943d5e067f3e248badc00bb781719f8821382822d3a534a01aea8",
+   "no_official_english": false,
+   "evidence": "same place in the boxes the Saturn opens and the slots the arcade's story reader reads, in forced runs of this ending (D-043, EXP-0046, EXP-0047)"
+  },
+  {
+   "unit": "scene 28 box 608",
+   "surface": "speaker name",
+   "scene": 28,
+   "position": 0,
+   "box": 608,
+   "saturn_lines": [
+    1013
+   ],
+   "saturn_line_bytes": [
+    12
+   ],
+   "arcade_slot": 615,
+   "slot_is_box_number": false,
+   "line_labels": [
+    "edited"
+   ],
+   "line_similarity": [
+    0.444
+   ],
+   "arcade_japanese_line_count": 1,
+   "arcade_unmapped_codes": [
+    "0x549"
+   ],
+   "label": "edited",
+   "arcade_english_record": "0x0BB91E",
+   "english_characters": 4,
+   "english_lines": 1,
+   "english_sha256": "f6025d1eaa2bf90df60e7bcb0952b8a4f797a521267c026018a1f3f62d1078c3",
+   "no_official_english": false,
+   "evidence": "same place in the boxes the Saturn opens and the slots the arcade's story reader reads, in forced runs of this ending (D-043, EXP-0046, EXP-0047)",
+   "own_number_slot": {
+    "slot": 608,
+    "line_labels": [
+     "edited"
+    ],
+    "line_similarity": [
+     0.25
+    ]
+   },
+   "name_rule_slot": {
+    "slot": 617,
+    "line_labels": [
+     "edited"
+    ],
+    "line_similarity": [
+     0.833
+    ],
+    "same_as_placed_slot": false
+   }
+  },
+  {
+   "unit": "scene 28 box 482",
+   "surface": "caption",
+   "scene": 28,
+   "position": 1,
+   "box": 482,
+   "saturn_lines": [
+    881
+   ],
+   "saturn_line_bytes": [
+    18
+   ],
+   "arcade_slot": 482,
+   "slot_is_box_number": true,
+   "line_labels": [
+    "exact"
+   ],
+   "line_similarity": [
+    1.0
+   ],
+   "arcade_japanese_line_count": 1,
+   "arcade_unmapped_codes": [],
+   "label": "exact",
+   "arcade_english_record": "0x0BB2B8",
+   "english_characters": 13,
+   "english_lines": 1,
+   "english_sha256": "58884099a2441ba0e7c342c7452e16d5ccc3f0eb0dca3b58573bf1306f9292de",
+   "no_official_english": false,
+   "evidence": "same place in the boxes the Saturn opens and the slots the arcade's story reader reads, in forced runs of this ending (D-043, EXP-0046, EXP-0047)"
+  },
+  {
+   "unit": "scene 18 box 608",
+   "surface": "speaker name",
+   "scene": 18,
+   "position": 0,
+   "box": 608,
+   "saturn_lines": [
+    1013
+   ],
+   "saturn_line_bytes": [
+    12
+   ],
+   "arcade_slot": 615,
+   "slot_is_box_number": false,
+   "line_labels": [
+    "edited"
+   ],
+   "line_similarity": [
+    0.444
+   ],
+   "arcade_japanese_line_count": 1,
+   "arcade_unmapped_codes": [
+    "0x549"
+   ],
+   "label": "edited",
+   "arcade_english_record": "0x0BB91E",
+   "english_characters": 4,
+   "english_lines": 1,
+   "english_sha256": "f6025d1eaa2bf90df60e7bcb0952b8a4f797a521267c026018a1f3f62d1078c3",
+   "no_official_english": false,
+   "evidence": "same place in the boxes the Saturn opens and the slots the arcade's story reader reads, in forced runs of this ending (D-043, EXP-0046, EXP-0047)",
+   "own_number_slot": {
+    "slot": 608,
+    "line_labels": [
+     "edited"
+    ],
+    "line_similarity": [
+     0.25
+    ]
+   },
+   "name_rule_slot": {
+    "slot": 617,
+    "line_labels": [
+     "edited"
+    ],
+    "line_similarity": [
+     0.833
+    ],
+    "same_as_placed_slot": false
+   }
+  },
+  {
+   "unit": "scene 18 box 483",
+   "surface": "caption",
+   "scene": 18,
+   "position": 1,
+   "box": 483,
+   "saturn_lines": [
+    882
+   ],
+   "saturn_line_bytes": [
+    26
+   ],
+   "arcade_slot": 483,
+   "slot_is_box_number": true,
+   "line_labels": [
+    "exact"
+   ],
+   "line_similarity": [
+    1.0
+   ],
+   "arcade_japanese_line_count": 1,
+   "arcade_unmapped_codes": [],
+   "label": "exact",
+   "arcade_english_record": "0x0BB2CE",
+   "english_characters": 13,
+   "english_lines": 1,
+   "english_sha256": "58884099a2441ba0e7c342c7452e16d5ccc3f0eb0dca3b58573bf1306f9292de",
+   "no_official_english": false,
+   "evidence": "same place in the boxes the Saturn opens and the slots the arcade's story reader reads, in forced runs of this ending (D-043, EXP-0046, EXP-0047)"
+  },
+  {
+   "unit": "scene 19 box 613",
+   "surface": "speaker name",
+   "scene": 19,
+   "position": 0,
+   "box": 613,
+   "saturn_lines": [
+    1018
+   ],
+   "saturn_line_bytes": [
+    10
+   ],
+   "arcade_slot": 622,
+   "slot_is_box_number": false,
+   "line_labels": [
+    "edited"
+   ],
+   "line_similarity": [
+    0.4
+   ],
+   "arcade_japanese_line_count": 1,
+   "arcade_unmapped_codes": [
+    "0x1383",
+    "0x13C6",
+    "0x549"
+   ],
+   "label": "edited",
+   "arcade_english_record": "0x0BB996",
+   "english_characters": 7,
+   "english_lines": 1,
+   "english_sha256": "8983ed181cc360d9c131655d1c6fd0731997897ae57644a7702350ac435c086c",
+   "no_official_english": false,
+   "evidence": "same place in the boxes the Saturn opens and the slots the arcade's story reader reads, in forced runs of this ending (D-043, EXP-0046, EXP-0047)",
+   "own_number_slot": {
+    "slot": 613,
+    "line_labels": [
+     "edited"
+    ],
+    "line_similarity": [
+     0.091
+    ]
+   },
+   "name_rule_slot": {
+    "slot": 622,
+    "line_labels": [
+     "edited"
+    ],
+    "line_similarity": [
+     0.4
+    ],
+    "same_as_placed_slot": true
+   }
+  },
+  {
+   "unit": "scene 19 box 484",
+   "surface": "caption",
+   "scene": 19,
+   "position": 1,
+   "box": 484,
+   "saturn_lines": [
+    883,
+    884
+   ],
+   "saturn_line_bytes": [
+    32,
+    32
+   ],
+   "arcade_slot": 484,
+   "slot_is_box_number": true,
+   "line_labels": [
+    "exact",
+    "exact"
+   ],
+   "line_similarity": [
+    1.0,
+    1.0
+   ],
+   "arcade_japanese_line_count": 2,
+   "arcade_unmapped_codes": [],
+   "label": "exact",
+   "arcade_english_record": "0x0BB2E4",
+   "english_characters": 61,
+   "english_lines": 2,
+   "english_sha256": "485e15b3ce11601674b75d1ae0575df458d9cf333e416293d7b4e23cbf77d7f8",
+   "no_official_english": false,
+   "evidence": "same place in the boxes the Saturn opens and the slots the arcade's story reader reads, in forced runs of this ending (D-043, EXP-0046, EXP-0047)"
+  },
+  {
+   "unit": "scene 19 box 612",
+   "surface": "speaker name",
+   "scene": 19,
+   "position": 2,
+   "box": 612,
+   "saturn_lines": [
+    1017
+   ],
+   "saturn_line_bytes": [
+    12
+   ],
+   "arcade_slot": 621,
+   "slot_is_box_number": false,
+   "line_labels": [
+    "edited"
+   ],
+   "line_similarity": [
+    0.833
+   ],
+   "arcade_japanese_line_count": 1,
+   "arcade_unmapped_codes": [
+    "0x549"
+   ],
+   "label": "edited",
+   "arcade_english_record": "0x0BB982",
+   "english_characters": 10,
+   "english_lines": 1,
+   "english_sha256": "8af58e5adcd06029408bde53293710a9169b70773c94307c41496aefa981e60e",
+   "no_official_english": false,
+   "evidence": "same place in the boxes the Saturn opens and the slots the arcade's story reader reads, in forced runs of this ending (D-043, EXP-0046, EXP-0047)",
+   "own_number_slot": {
+    "slot": 612,
+    "line_labels": [
+     "edited"
+    ],
+    "line_similarity": [
+     0.364
+    ]
+   },
+   "name_rule_slot": {
+    "slot": 621,
+    "line_labels": [
+     "edited"
+    ],
+    "line_similarity": [
+     0.833
+    ],
+    "same_as_placed_slot": true
+   }
+  },
+  {
+   "unit": "scene 19 box 485",
+   "surface": "caption",
+   "scene": 19,
+   "position": 3,
+   "box": 485,
+   "saturn_lines": [
+    885,
+    886,
+    887
+   ],
+   "saturn_line_bytes": [
+    16,
+    26,
+    8
+   ],
+   "arcade_slot": 485,
+   "slot_is_box_number": true,
+   "line_labels": [
+    "exact",
+    "exact",
+    "edited"
+   ],
+   "line_similarity": [
+    1.0,
+    1.0,
+    0.75
+   ],
+   "arcade_japanese_line_count": 3,
+   "arcade_unmapped_codes": [],
+   "label": "edited",
+   "arcade_english_record": "0x0BB32A",
+   "english_characters": 59,
+   "english_lines": 2,
+   "english_sha256": "7f5d9f70b0071ec35d249ed7492059c62f1ccc0b1b93ddfcaa4986f962c4df42",
+   "no_official_english": false,
+   "evidence": "same place in the boxes the Saturn opens and the slots the arcade's story reader reads, in forced runs of this ending (D-043, EXP-0046, EXP-0047)"
+  },
+  {
+   "unit": "scene 19 box 608",
+   "surface": "speaker name",
+   "scene": 19,
+   "position": 4,
+   "box": 608,
+   "saturn_lines": [
+    1013
+   ],
+   "saturn_line_bytes": [
+    12
+   ],
+   "arcade_slot": 615,
+   "slot_is_box_number": false,
+   "line_labels": [
+    "edited"
+   ],
+   "line_similarity": [
+    0.444
+   ],
+   "arcade_japanese_line_count": 1,
+   "arcade_unmapped_codes": [
+    "0x549"
+   ],
+   "label": "edited",
+   "arcade_english_record": "0x0BB91E",
+   "english_characters": 4,
+   "english_lines": 1,
+   "english_sha256": "f6025d1eaa2bf90df60e7bcb0952b8a4f797a521267c026018a1f3f62d1078c3",
+   "no_official_english": false,
+   "evidence": "same place in the boxes the Saturn opens and the slots the arcade's story reader reads, in forced runs of this ending (D-043, EXP-0046, EXP-0047)",
+   "own_number_slot": {
+    "slot": 608,
+    "line_labels": [
+     "edited"
+    ],
+    "line_similarity": [
+     0.25
+    ]
+   },
+   "name_rule_slot": {
+    "slot": 617,
+    "line_labels": [
+     "edited"
+    ],
+    "line_similarity": [
+     0.833
+    ],
+    "same_as_placed_slot": false
+   }
+  },
+  {
+   "unit": "scene 19 box 486",
+   "surface": "caption",
+   "scene": 19,
+   "position": 5,
+   "box": 486,
+   "saturn_lines": [
+    888
+   ],
+   "saturn_line_bytes": [
+    24
+   ],
+   "arcade_slot": 486,
+   "slot_is_box_number": true,
+   "line_labels": [
+    "exact"
+   ],
+   "line_similarity": [
+    1.0
+   ],
+   "arcade_japanese_line_count": 1,
+   "arcade_unmapped_codes": [],
+   "label": "exact",
+   "arcade_english_record": "0x0BB36E",
+   "english_characters": 17,
+   "english_lines": 1,
+   "english_sha256": "3d2e07c187801aac213680715f3ff23b38ba91e9613dbda2ffe6de7374a8fe58",
+   "no_official_english": false,
+   "evidence": "same place in the boxes the Saturn opens and the slots the arcade's story reader reads, in forced runs of this ending (D-043, EXP-0046, EXP-0047)"
+  },
+  {
+   "unit": "scene 21 box 487",
+   "surface": "caption",
+   "scene": 21,
+   "position": 0,
+   "box": 487,
+   "saturn_lines": [
+    889
+   ],
+   "saturn_line_bytes": [
+    16
+   ],
+   "arcade_slot": 487,
+   "slot_is_box_number": true,
+   "line_labels": [
+    "exact"
+   ],
+   "line_similarity": [
+    1.0
+   ],
+   "arcade_japanese_line_count": 1,
+   "arcade_unmapped_codes": [],
+   "label": "exact",
+   "arcade_english_record": "0x0BB388",
+   "english_characters": 7,
+   "english_lines": 1,
+   "english_sha256": "62415f87c05fbb36dea5bd6bfd9df844fb035bf457f76161ec07c6d4c8c8596f",
+   "no_official_english": false,
+   "evidence": "same place in the boxes the Saturn opens and the slots the arcade's story reader reads, in forced runs of this ending (D-043, EXP-0046, EXP-0047)"
+  },
+  {
+   "unit": "scene 22 box 606",
+   "surface": "speaker name",
+   "scene": 22,
+   "position": 0,
+   "box": 606,
+   "saturn_lines": [
+    1011
+   ],
+   "saturn_line_bytes": [
+    6
+   ],
+   "arcade_slot": 615,
+   "slot_is_box_number": false,
+   "line_labels": [
+    "edited"
+   ],
+   "line_similarity": [
+    0.667
+   ],
+   "arcade_japanese_line_count": 1,
+   "arcade_unmapped_codes": [
+    "0x549"
+   ],
+   "label": "edited",
+   "arcade_english_record": "0x0BB91E",
+   "english_characters": 4,
+   "english_lines": 1,
+   "english_sha256": "f6025d1eaa2bf90df60e7bcb0952b8a4f797a521267c026018a1f3f62d1078c3",
+   "no_official_english": false,
+   "evidence": "same place in the boxes the Saturn opens and the slots the arcade's story reader reads, in forced runs of this ending (D-043, EXP-0046, EXP-0047)",
+   "own_number_slot": {
+    "slot": 606,
+    "line_labels": [
+     "edited"
+    ],
+    "line_similarity": [
+     0.056
+    ]
+   },
+   "name_rule_slot": {
+    "slot": 615,
+    "line_labels": [
+     "edited"
+    ],
+    "line_similarity": [
+     0.667
+    ],
+    "same_as_placed_slot": true
+   }
+  },
+  {
+   "unit": "scene 22 box 488",
+   "surface": "caption",
+   "scene": 22,
+   "position": 1,
+   "box": 488,
+   "saturn_lines": [
+    890,
+    891
+   ],
+   "saturn_line_bytes": [
+    8,
+    22
+   ],
+   "arcade_slot": 488,
+   "slot_is_box_number": true,
+   "line_labels": [
+    "edited",
+    "exact"
+   ],
+   "line_similarity": [
+    0.75,
+    1.0
+   ],
+   "arcade_japanese_line_count": 2,
+   "arcade_unmapped_codes": [],
+   "label": "edited",
+   "arcade_english_record": "0x0BB398",
+   "english_characters": 18,
+   "english_lines": 1,
+   "english_sha256": "cdefd00f5ed7f311cbc40f9aae5ef100c5ff4f5651b9b85eaf8b3c938d22ddfa",
+   "no_official_english": false,
+   "evidence": "same place in the boxes the Saturn opens and the slots the arcade's story reader reads, in forced runs of this ending (D-043, EXP-0046, EXP-0047)"
+  },
+  {
+   "unit": "scene 22 box 612",
+   "surface": "speaker name",
+   "scene": 22,
+   "position": 2,
+   "box": 612,
+   "saturn_lines": [
+    1017
+   ],
+   "saturn_line_bytes": [
+    12
+   ],
+   "arcade_slot": 621,
+   "slot_is_box_number": false,
+   "line_labels": [
+    "edited"
+   ],
+   "line_similarity": [
+    0.833
+   ],
+   "arcade_japanese_line_count": 1,
+   "arcade_unmapped_codes": [
+    "0x549"
+   ],
+   "label": "edited",
+   "arcade_english_record": "0x0BB982",
+   "english_characters": 10,
+   "english_lines": 1,
+   "english_sha256": "8af58e5adcd06029408bde53293710a9169b70773c94307c41496aefa981e60e",
+   "no_official_english": false,
+   "evidence": "same place in the boxes the Saturn opens and the slots the arcade's story reader reads, in forced runs of this ending (D-043, EXP-0046, EXP-0047)",
+   "own_number_slot": {
+    "slot": 612,
+    "line_labels": [
+     "edited"
+    ],
+    "line_similarity": [
+     0.364
+    ]
+   },
+   "name_rule_slot": {
+    "slot": 621,
+    "line_labels": [
+     "edited"
+    ],
+    "line_similarity": [
+     0.833
+    ],
+    "same_as_placed_slot": true
+   }
+  },
+  {
+   "unit": "scene 22 box 489",
+   "surface": "caption",
+   "scene": 22,
+   "position": 3,
+   "box": 489,
+   "saturn_lines": [
+    892,
+    893
+   ],
+   "saturn_line_bytes": [
+    32,
+    32
+   ],
+   "arcade_slot": 489,
+   "slot_is_box_number": true,
+   "line_labels": [
+    "exact",
+    "exact"
+   ],
+   "line_similarity": [
+    1.0,
+    1.0
+   ],
+   "arcade_japanese_line_count": 2,
+   "arcade_unmapped_codes": [],
+   "label": "exact",
+   "arcade_english_record": "0x0BB3B4",
+   "english_characters": 46,
+   "english_lines": 2,
+   "english_sha256": "445dc76c7a51b11fbd93600c5bd7c0424f0bf4f009361a277a86c32436494b6e",
+   "no_official_english": false,
+   "evidence": "same place in the boxes the Saturn opens and the slots the arcade's story reader reads, in forced runs of this ending (D-043, EXP-0046, EXP-0047)"
+  },
+  {
+   "unit": "scene 22 box 613",
+   "surface": "speaker name",
+   "scene": 22,
+   "position": 4,
+   "box": 613,
+   "saturn_lines": [
+    1018
+   ],
+   "saturn_line_bytes": [
+    10
+   ],
+   "arcade_slot": 622,
+   "slot_is_box_number": false,
+   "line_labels": [
+    "edited"
+   ],
+   "line_similarity": [
+    0.4
+   ],
+   "arcade_japanese_line_count": 1,
+   "arcade_unmapped_codes": [
+    "0x1383",
+    "0x13C6",
+    "0x549"
+   ],
+   "label": "edited",
+   "arcade_english_record": "0x0BB996",
+   "english_characters": 7,
+   "english_lines": 1,
+   "english_sha256": "8983ed181cc360d9c131655d1c6fd0731997897ae57644a7702350ac435c086c",
+   "no_official_english": false,
+   "evidence": "same place in the boxes the Saturn opens and the slots the arcade's story reader reads, in forced runs of this ending (D-043, EXP-0046, EXP-0047)",
+   "own_number_slot": {
+    "slot": 613,
+    "line_labels": [
+     "edited"
+    ],
+    "line_similarity": [
+     0.091
+    ]
+   },
+   "name_rule_slot": {
+    "slot": 622,
+    "line_labels": [
+     "edited"
+    ],
+    "line_similarity": [
+     0.4
+    ],
+    "same_as_placed_slot": true
+   }
+  },
+  {
+   "unit": "scene 22 box 490",
+   "surface": "caption",
+   "scene": 22,
+   "position": 5,
+   "box": 490,
+   "saturn_lines": [
+    894,
+    895
+   ],
+   "saturn_line_bytes": [
+    28,
+    30
+   ],
+   "arcade_slot": 490,
+   "slot_is_box_number": true,
+   "line_labels": [
+    "exact",
+    "exact"
+   ],
+   "line_similarity": [
+    1.0,
+    1.0
+   ],
+   "arcade_japanese_line_count": 2,
+   "arcade_unmapped_codes": [],
+   "label": "exact",
+   "arcade_english_record": "0x0BB3EC",
+   "english_characters": 65,
+   "english_lines": 2,
+   "english_sha256": "f2520a737cf96cca336bcc37b9ee60fead6b458d92943d0da408e6e3e34ac4a3",
+   "no_official_english": false,
+   "evidence": "same place in the boxes the Saturn opens and the slots the arcade's story reader reads, in forced runs of this ending (D-043, EXP-0046, EXP-0047)"
+  },
+  {
+   "unit": "scene 22 box 607",
+   "surface": "speaker name",
+   "scene": 22,
+   "position": 6,
+   "box": 607,
+   "saturn_lines": [
+    1012
+   ],
+   "saturn_line_bytes": [
+    6
+   ],
+   "arcade_slot": 616,
+   "slot_is_box_number": false,
+   "line_labels": [
+    "edited"
+   ],
+   "line_similarity": [
+    0.667
+   ],
+   "arcade_japanese_line_count": 1,
+   "arcade_unmapped_codes": [
+    "0x549"
+   ],
+   "label": "edited",
+   "arcade_english_record": "0x0BB92C",
+   "english_characters": 4,
+   "english_lines": 1,
+   "english_sha256": "504b7965adab2a6323858437bf6aaf40fd0e1623c51a29eb07a804786cfe36c7",
+   "no_official_english": false,
+   "evidence": "same place in the boxes the Saturn opens and the slots the arcade's story reader reads, in forced runs of this ending (D-043, EXP-0046, EXP-0047)",
+   "own_number_slot": {
+    "slot": 607,
+    "line_labels": [
+     "edited"
+    ],
+    "line_similarity": [
+     0.059
+    ]
+   },
+   "name_rule_slot": {
+    "slot": 616,
+    "line_labels": [
+     "edited"
+    ],
+    "line_similarity": [
+     0.667
+    ],
+    "same_as_placed_slot": true
+   }
+  },
+  {
+   "unit": "scene 22 box 491",
+   "surface": "caption",
+   "scene": 22,
+   "position": 7,
+   "box": 491,
+   "saturn_lines": [
+    896
+   ],
+   "saturn_line_bytes": [
+    26
+   ],
+   "arcade_slot": 491,
+   "slot_is_box_number": true,
+   "line_labels": [
+    "exact"
+   ],
+   "line_similarity": [
+    1.0
+   ],
+   "arcade_japanese_line_count": 1,
+   "arcade_unmapped_codes": [],
+   "label": "exact",
+   "arcade_english_record": "0x0BB436",
+   "english_characters": 40,
+   "english_lines": 2,
+   "english_sha256": "d463ea342ae493d3dc495b6d9426f27a8f35d524c928757c9466ba749af23ae8",
+   "no_official_english": false,
+   "evidence": "same place in the boxes the Saturn opens and the slots the arcade's story reader reads, in forced runs of this ending (D-043, EXP-0046, EXP-0047)"
+  },
+  {
+   "unit": "scene 22 box 614",
+   "surface": "speaker name",
+   "scene": 22,
+   "position": 8,
+   "box": 614,
+   "saturn_lines": [
+    1019
+   ],
+   "saturn_line_bytes": [
+    12
+   ],
+   "arcade_slot": 623,
+   "slot_is_box_number": false,
+   "line_labels": [
+    "edited"
+   ],
+   "line_similarity": [
+    0.833
+   ],
+   "arcade_japanese_line_count": 1,
+   "arcade_unmapped_codes": [
+    "0x549"
+   ],
+   "label": "edited",
+   "arcade_english_record": "0x0BB9A6",
+   "english_characters": 5,
+   "english_lines": 1,
+   "english_sha256": "543c57a41c3dd0ecb2aa4fafef179748b52c0d9bf1c5ccef3fb9428a0771498b",
+   "no_official_english": false,
+   "evidence": "same place in the boxes the Saturn opens and the slots the arcade's story reader reads, in forced runs of this ending (D-043, EXP-0046, EXP-0047)",
+   "own_number_slot": {
+    "slot": 614,
+    "line_labels": [
+     "edited"
+    ],
+    "line_similarity": [
+     0.583
+    ]
+   },
+   "name_rule_slot": {
+    "slot": 623,
+    "line_labels": [
+     "edited"
+    ],
+    "line_similarity": [
+     0.833
+    ],
+    "same_as_placed_slot": true
+   }
+  },
+  {
+   "unit": "scene 22 box 492",
+   "surface": "caption",
+   "scene": 22,
+   "position": 9,
+   "box": 492,
+   "saturn_lines": [
+    584
+   ],
+   "saturn_line_bytes": [
+    16
+   ],
+   "arcade_slot": 492,
+   "slot_is_box_number": true,
+   "line_labels": [
+    "exact"
+   ],
+   "line_similarity": [
+    1.0
+   ],
+   "arcade_japanese_line_count": 1,
+   "arcade_unmapped_codes": [],
+   "label": "exact",
+   "arcade_english_record": "0x0BB468",
+   "english_characters": 35,
+   "english_lines": 2,
+   "english_sha256": "f76b56becf025c17227667f070f2a95baa480f0d197ae302ed97d03469f697f0",
+   "no_official_english": false,
+   "evidence": "same place in the boxes the Saturn opens and the slots the arcade's story reader reads, in forced runs of this ending (D-043, EXP-0046, EXP-0047)"
+  }
+ ],
+ "unpaired_arcade_slots": [],
+ "shared_units": "the cast roll's names and the QSound line, as in jin_ending_pairing.json; every ending shows them (D-043)",
+ "counts": {
+  "units": 28,
+  "by_label": {
+   "no-counterpart": 1,
+   "exact": 13,
+   "edited": 14
+  },
+  "dialogue_lines": {
+   "exact": 20,
+   "edited": 14
+  },
+  "no_official_english": 0
+ }
+}

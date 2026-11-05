@@ -235,6 +235,7 @@ names it for its method only.
   words: "GO (Recommended)" and, for the shared name boxes 605 and 601,
   "Share, English everywhere (Recommended)". `END-010` is `READY`.
 - **2026-11-05: M7 CONFIRMED** (`END-010`, `EXP-0042`-`EXP-0045`, D-039-D-042): one image from the untouched source with the M5 roster unchanged and Jin's ending in official English. All 18 units are drawn as predicted; the cast roll's Japanese names are hidden in every ending (the user: "Hide in every ending (Recommended)"); the QSound line is erased. The shared names show English in lists 3, 4 and 8. A cold boot plays in English. Three long boxes finish typing just before they close: the user chose "Accept now, follow-up task (Recommended)" (`END-011`, `BACKLOG`). Next: M8 (`END-020`) needs its tasks written up first.
+- **2026-11-05: the roster endings paired** (`END-021`, `EXP-0047`, D-044): every text unit of lists 1-5 (102) has official English at the same place in the arcade; no new translation. One choice for the gate: box 608 (both twins) can show slot 615 (the arcade's, one twin) or 617 (the same Japanese). `END-022` waits on `END-011`.
 - **2026-11-05: the roster endings surveyed** (`END-020`, `EXP-0046`, D-043): lists 1-5 forced on the Saturn and in both arcade sets. All their Japanese is `END.BIN` boxes, and the post-dialogue screens are shared and already done. Correction: posted scripts run on into the next scenes, so Mary's and Bao and Mao's endings show the arcade's scenes 17-18 and 20. `END-021` (pairing) is `READY`.
 - **2026-11-05: M8 tasks written up** (Phase M, the user: "Write up M8"):
   `END-020` (survey the roster endings) and `END-011` (box timing) are
@@ -1564,7 +1565,7 @@ Known so far (facts and their confidence):
 
 ### END-021 - Pair lists 1-5 with the arcade English
 
-- **Status:** `READY`
+- **Status:** `DONE` (2026-11-05)
 - **Milestone:** M8
 - **Dependencies:** END-020 (done).
 - **Blockers:** None.
@@ -1575,13 +1576,23 @@ Known so far (facts and their confidence):
   - **Cases:** each case listed in the phase introduction resolved by evidence (the Japanese of both sides, the readers, or a forced run): 608 and 606 ↔ 615, and 603 in list 1's scene 22. Mary's and Bao and Mao's run-on scenes are paired like any other.
   - **On screen:** at least one pair per list shown in both games and agent-reviewed.
   - **New translations:** every unit with no official English listed with its context (no text committed), for the gate.
+- **Done:** 2026-11-05 (`EXP-0047`, D-044). No emulator run.
+  - **Tool:** `tools/text/ending_pairing.py` aligns the observed openings with the arcade's slot reads; box kinds come from the record header. List 0 reproduces `jin_ending_pairing.json`'s 31 units (slots, labels, similarities, English hashes). The new evidence wording and the `name_rule_slot` field differ; the committed file is kept for END-010's records.
+  - **Pairing:** lists 1-5, 102 text units and 4 blank ones. All have official English: 63 exact and 39 with the same wording (punctuation, the colon code, unmapped kanji codes; agent-checked line by line). `cybotsj` reads the same slots as `cybotsu`.
+  - **Cases:**
+    - 603 (list 1, scene 22): one extra opening of the Santana name, before caption 435, where the arcade opens none. It has official English (slot 612); no new text.
+    - 606: Bao, slot 615 by both rules.
+    - 608 (list 5, scenes 18, 19, 28): both twins. At the same place the arcade shows slot 615 (Bao alone); slot 617 (box + 9) has the same Japanese and its own English. This is for the gate.
+    - Mary's and Bao and Mao's run-on scenes pair like any other box.
+  - **On screen:** one pair per list, the same picture and speaker in both games (agent-reviewed; frames and hashes in `EXP-0047`).
+  - **New translations:** none.
 
 ### END-022 - Capacity of all roster endings together
 
 - **Status:** `BLOCKED`
 - **Milestone:** M8
-- **Dependencies:** END-021, END-011.
-- **Blockers:** END-021 (the units), END-011 (the hold rule may change rows).
+- **Dependencies:** END-021 (done), END-011.
+- **Blockers:** END-011 (the hold rule may change rows).
 - **Objective:** Whether all six endings' English fits `END.BIN`'s table, `SE.DAT`'s font, the room and the box limits, and what it costs if not.
 - **Acceptance criteria:**
   - **Measures:** `EXP-0041/capacity.py`'s, for lists 0-5 together:
@@ -1597,6 +1608,9 @@ Known so far (facts and their confidence):
 A dated block under `GATE-TRANSLATION`, asked before `END-023` starts. The
 user's GO covers:
 - the official English of lists 1-5 as paired (`END-021`);
+- box 608 (both twins, list 5): the English of the slot shown at the same
+  place (615, Bao alone) or of the slot with the same Japanese (617, both
+  twins; D-044);
 - any new translations, each listed with its translator;
 - the budget from `END-022` (sacrificed codes and the lines of lists 6-8
   they touch, if any);

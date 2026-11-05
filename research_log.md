@@ -2137,3 +2137,30 @@ Corrected (do not retry):
 - **The first `cybotsu` list-3 MAME run** stayed in attract mode and its
   taps logged nothing; the rerun was normal. The cause is unknown (one in
   ten runs).
+
+## 2026-11-05 — END-021: the roster endings paired (EXP-0047)
+
+User request (verbatim): "Start END-021". Static; no emulator run.
+
+- `tools/text/ending_pairing.py`:
+  - aligns each list's observed openings (`ending_surfaces.json`) with the
+    arcade's slot reads;
+  - takes box kinds from the record header (dialogue `0000 008C`,
+    narration `xx50` in the third word, caption `0x30` in the first, names
+    otherwise).
+  - List 0 reproduces Jin's units; only the evidence wording and the new
+    `name_rule_slot` field differ.
+- Lists 1-5: 102 text units, all with official English (63 exact, 39 with
+  the same wording, agent-checked); no new translation. Pairing files in
+  `data/translations/`.
+- Cases:
+  - 603: one extra Santana name opening, with official English;
+  - 608: both twins, where the arcade shows 615 (Bao alone) but 617 has the
+    same Japanese and its own English. 608 is added to the gate block.
+- One pair per list reviewed side by side.
+
+Notes:
+- The scene-number surface labels of `EXP-0041` were Jin-specific. The
+  header rule replaces them and gives the same labels for Jin.
+- `jin_ending_pairing.json` is not regenerated: END-010's records cite its
+  hash, and the tool reproduces its units.
