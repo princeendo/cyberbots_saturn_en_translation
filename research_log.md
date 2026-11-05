@@ -2164,3 +2164,44 @@ Notes:
   header rule replaces them and gives the same labels for Jin.
 - `jin_ending_pairing.json` is not regenerated: END-010's records cite its
   hash, and the tool reproduces its units.
+
+## 2026-11-05 — END-011: ending box timing (EXP-0048)
+
+User request (verbatim): "Start END-011". Forced runs from the END-001
+checkpoint and saved states; no cold boot, no key.
+
+Decision (verbatim, also in `TASKS.md` and the policy): "Faster typing +
+move cues (Recommended)".
+
+Results:
+- `EAnn` waits for cue `nn` of the list's table (pointers `0x060879A0`).
+  Jin's cue 2 at 540 closed box 409 60 frames later, and box 493 kept its
+  close.
+- `E2nn` sets typing frames per glyph: `E203` typed box 409 in 91 frames
+  instead of 181.
+- The script waits for each box's typing. Posts follow the box before a
+  wait or the scene end, and each scene's music starts with its post.
+- `tools/text/ending_timing.py` (`--retime`): on Jin's build, every post,
+  track start and file load falls on the Japanese frames, and the cued
+  English boxes hold 113-269 frames. Box 415 holds 31 (scene end, as in
+  the Japanese).
+- Dry runs on lists 1-5: smallest hold 45-86 frames; scene ends within 5
+  frames.
+
+Corrected along the way (do not retry):
+- **The first cue write** went to `0x06067872` (code) instead of
+  `0x06087872`; it had no effect. The table is at file `0x2786E`, so RAM
+  `0x0608786E`.
+- **"Posts never move" was wrong.** The first rule (3 frames a glyph
+  everywhere) moved posts 17-19 by −21, −54 and −6 frames and the cast
+  roll by −94 (`local/end011/live-jin`). The script waits for typing
+  before its waits and scene ends. The rule now keeps those times.
+- **The script walk stopped at the last opening**, so the last box's waits
+  (box 422) were missed and the cast roll came 123 frames early
+  (`live-jin2`). The walk now reads on to the timing words.
+- **Runs joined by frame gaps** split Santana's 432-433 at a 14-frame
+  `CA00` and left 433 a 20-frame hold. Runs are now joined by the script.
+- **Arieta's 455** has its typing word two words back; the rule looks back
+  up to three words.
+- **Counting non-blank cells** to measure typing failed (the cell buffer
+  keeps old glyphs); matching predicted cells works.

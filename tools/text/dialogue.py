@@ -755,12 +755,18 @@ def build(args: argparse.Namespace) -> int:
     if args.ending:
         from tools.text import ending as ending_text
 
-        built = ending_text.compile_ending(args.ending, program, font, texts, args.task)
+        built = ending_text.compile_ending(
+            args.ending, program, font, texts, args.task, retime=args.retime
+        )
         (out / "END.BIN").write_bytes(built.end)
         (out / "SE.DAT").write_bytes(built.se)
         (out / "ending_changes.json").write_text(
             json.dumps({"ranges": built.changes}, indent=1) + "\n"
         )
+        if args.retime:
+            (out / "ending_timing.json").write_text(
+                json.dumps(built.timing, indent=1) + "\n"
+            )
         (out / "ending_prediction.json").write_text(
             json.dumps(built.prediction, indent=1) + "\n"
         )
@@ -810,6 +816,11 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument("--quotes", type=Path, help="win-quote pairing (D-030)")
     parser.add_argument("--ending", type=Path, help="an ending's pairing (END-010)")
     parser.add_argument("--ending-record", type=Path, help="the ending's record")
+    parser.add_argument(
+        "--retime",
+        action="store_true",
+        help="ending boxes: faster typing and moved cues (END-011)",
+    )
     parser.add_argument("--font", type=Path, required=True)
     parser.add_argument("--driver", type=Path, required=True)
     parser.add_argument("--rompath", type=Path, required=True)

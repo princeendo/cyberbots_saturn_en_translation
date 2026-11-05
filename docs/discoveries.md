@@ -891,3 +891,46 @@ Reproduce: `research/experiments/EXP-0046/README.md`, "Procedure".
   arcade does not open there.
 
 Reproduce: `research/experiments/EXP-0047/README.md`, "Procedure".
+
+## D-045: How ending boxes are timed, and a rule that keeps the scenes in step (`END-011`, `EXP-0048`)
+
+- **Cues.** `END.BIN`'s pointer table `0x060879A0` holds 9 pointers, one cue
+  table per ending list (Jin's at `0x0608786E`, file `0x2786E`): 16-bit
+  frame counts on the scene's timer. Script word `0xEAnn` after a box waits
+  until the timer reaches cue `nn`, then the box closes. Raising Jin's cue 2
+  from 480 to 540 in RAM closed box 409 60 frames later, and box 493 opened
+  that much later but closed at its own cue; nothing else moved.
+- **Typing.** Script word `0xE2nn` before a box sets its typing interval to
+  `nn` frames a glyph (`E206` in Jin's ending, `E205`/`E203` in others).
+  `E203` in place of box 409's `E206` drew its 30 glyphs in 91 frames instead
+  of 181, with the box's open and close unchanged.
+- **The script waits for the typing.** After a box opens, the script goes
+  on only when its text is typed:
+  - `0xE3xx` then waits `xx` frames;
+  - `0xE000` ends the scene's script, and the routine posts the next scene
+    about 30 frames later (the screen fades meanwhile).
+
+  So a scene change comes from the typing and waits of the box before it.
+  Each scene's music track starts with its post (Jin's tracks 43 and 44
+  start 9 and 29 frames before posts 18 and 19). Longer or shorter English
+  moves the next scene and its music (END-010's build: post 17 +102
+  frames).
+- **The rule** (`tools/text/ending_timing.py`, the user's "Faster typing +
+  move cues"):
+  - English boxes that close on a cue type at 3 frames a glyph. Each run of
+    cued boxes with no wait or scene end between them keeps its first open
+    and last cue and shares its spare time evenly.
+  - A box before waits keeps the Japanese typing + waits, through its
+    interval and the waits.
+  - A box before the scene end gets the interval closest to the Japanese
+    typing.
+  - What is left goes to the run before it, or else to slower typing (up
+    to 16 frames a glyph).
+
+  In Jin's ending every post, track start and the cast roll fall on the
+  Japanese frames, and every English box holds its finished line 113 frames
+  or more, except box 415. Box 415 comes right before the scene end, so it
+  holds only while the screen fades, as the Japanese does. Dry runs on lists
+  1-5 hold 45 frames or more, with scene ends within 5 frames.
+
+Reproduce: `research/experiments/EXP-0048/README.md`, "Procedure".

@@ -235,6 +235,7 @@ names it for its method only.
   words: "GO (Recommended)" and, for the shared name boxes 605 and 601,
   "Share, English everywhere (Recommended)". `END-010` is `READY`.
 - **2026-11-05: M7 CONFIRMED** (`END-010`, `EXP-0042`-`EXP-0045`, D-039-D-042): one image from the untouched source with the M5 roster unchanged and Jin's ending in official English. All 18 units are drawn as predicted; the cast roll's Japanese names are hidden in every ending (the user: "Hide in every ending (Recommended)"); the QSound line is erased. The shared names show English in lists 3, 4 and 8. A cold boot plays in English. Three long boxes finish typing just before they close: the user chose "Accept now, follow-up task (Recommended)" (`END-011`, `BACKLOG`). Next: M8 (`END-020`) needs its tasks written up first.
+- **2026-11-05: ending box timing solved** (`END-011`, `EXP-0048`, D-045): cues (`EAnn`) close boxes, `E2nn` sets typing speed, and the script waits for typing, which sets the next scene and its music. The user chose "Faster typing + move cues (Recommended)". `--retime` gives Jin's English boxes 113+ frames with their full line, and every scene change and track start stays on the Japanese frame (built and live). `END-022` (capacity) is `READY`.
 - **2026-11-05: the roster endings paired** (`END-021`, `EXP-0047`, D-044): every text unit of lists 1-5 (102) has official English at the same place in the arcade; no new translation. One choice for the gate: box 608 (both twins) can show slot 615 (the arcade's, one twin) or 617 (the same Japanese). `END-022` waits on `END-011`.
 - **2026-11-05: the roster endings surveyed** (`END-020`, `EXP-0046`, D-043): lists 1-5 forced on the Saturn and in both arcade sets. All their Japanese is `END.BIN` boxes, and the post-dialogue screens are shared and already done. Correction: posted scripts run on into the next scenes, so Mary's and Bao and Mao's endings show the arcade's scenes 17-18 and 20. `END-021` (pairing) is `READY`.
 - **2026-11-05: M8 tasks written up** (Phase M, the user: "Write up M8"):
@@ -1471,7 +1472,7 @@ posts them shows the English names), with no sacrificed code. It is
 
 ### END-011 - Hold ending boxes whose English barely finishes typing
 
-- **Status:** `READY` (written into M8's order, 2026-11-05; not started)
+- **Status:** `DONE` (2026-11-05)
 - **Milestone:** M7 follow-up, needed by M8 (`END-023` applies its rule)
 - **Dependencies:** END-010 (done).
 - **Blockers:** None; scheduled by the user's answer (2026-11-05), not started.
@@ -1481,6 +1482,21 @@ posts them shows the English names), with no sacrificed code. It is
   - **Effect:** the experiment measures the box's close, the next box's open, and when the scene and track change, against the control.
   - **Rule:** a rule for how long a box holds its finished line (for example, the Japanese box's hold time), applied by the compiler from the prediction, with the user's choice if it moves the ending's timing against its music.
   - **Build and live:** as `END-010`, with every English box holding its full line for at least the rule's time.
+- **Done:** 2026-11-05 (`EXP-0048`, D-045).
+  - **Timer:** `EAnn` waits for cue `nn` of the list's table (pointers at `0x060879A0`). Raising Jin's cue 2 by 60 moved only box 409's close and 493's open. `E2nn` sets the typing interval: `E203` drew box 409 in 91 frames instead of 181.
+  - **Effect:** the script waits for each box's typing, so a box before a wait or the scene end sets when the next scene and its music start (END-010's English moved post 17 by +102 frames).
+  - **Rule:** asked: "Ending boxes close on fixed cues, and English needs more glyphs than the Japanese. At today's typing speed (one glyph of two letters every 6 frames, ~20 letters a second), 33 of the 61 English boxes in the six roster endings would hold their finished line for under 1 second, and three scenes can't fit their English at all (the next box gets cut short). Moving the cues inside each scene (never the scene changes, so the music stays in step) fixes part of it; typing twice as fast in endings (~40 letters a second; the same total time) plus moving the cues lets every box hold its full line for at least 0.7 s. How should the endings handle it?" The user's answer, verbatim: "Faster typing + move cues (Recommended)". `tools/text/ending_timing.py` (`--retime`):
+    - cued boxes type at 3 frames a glyph and share each run's spare time;
+    - boxes before waits or the scene end keep the Japanese time to the next event;
+    - leftovers go to the run before, or else to slower typing.
+  - **Build and live** (Jin's ending + M5 roster):
+    - two builds identical; RE-008's story files and END-010's other files unchanged; `END.BIN` differs only in its 30 timing words;
+    - 21/21 boxes draw as predicted;
+    - every post, track start and file load falls on the Japanese control's frame;
+    - every English box closing on a cue holds its finished line 113-269 frames. Box 415, before the scene end, holds 31 while the screen fades, as in the Japanese.
+
+    `data/regression/end011_jin_timing.json`.
+  - **Lists 1-5 (dry runs):** smallest hold 45-86 frames; scene ends within 5 frames. The M8 build checks them live.
 
 ## Phase M: M8 (All Roster Endings)
 
@@ -1589,17 +1605,17 @@ Known so far (facts and their confidence):
 
 ### END-022 - Capacity of all roster endings together
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M8
-- **Dependencies:** END-021 (done), END-011.
-- **Blockers:** END-011 (the hold rule may change rows).
+- **Dependencies:** END-021, END-011 (both done).
+- **Blockers:** None.
 - **Objective:** Whether all six endings' English fits `END.BIN`'s table, `SE.DAT`'s font, the room and the box limits, and what it costs if not.
 - **Acceptance criteria:**
   - **Measures:** `EXP-0041/capacity.py`'s, for lists 0-5 together:
     - rows, cells and the widest Saturn line per surface;
     - the pairs, as is and with the half-cell indent;
     - row bytes against the room (own lines, then D-039's);
-    - each box's typing time against its open time (`END-011`'s rule).
+    - each box's hold under `END-011`'s rule (`ending_timing.retime`; dry runs in `EXP-0048/rule.json`).
   - **Codes:** free codes counted by the story's rule, and with the codes only roster-ending lines use. If any Japanese code must be sacrificed, the lines of lists 6-8 it touches are listed (the gate decides).
   - **Options:** each limit stated with its evidence, and the options for the gate, with a recommendation.
 
@@ -1614,8 +1630,9 @@ user's GO covers:
 - any new translations, each listed with its translator;
 - the budget from `END-022` (sacrificed codes and the lines of lists 6-8
   they touch, if any);
-- `END-011`'s hold rule for all endings, if it moves an ending's timing
-  against its music.
+- `END-011`'s hold rule for all endings (chosen 2026-11-05; it keeps every
+  scene change and track start in place), and any box it slows (for
+  example Gawaine's 472 at 16 frames a glyph).
 
 ### END-023 - Build all roster endings in English (M8)
 

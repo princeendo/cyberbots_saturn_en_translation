@@ -1,0 +1,32 @@
+{
+ "task": "END-011",
+ "experiment": "EXP-0048",
+ "rebuild": "./invenv.sh python -m tools.text.dialogue --roster data/text/m5_roster.json --indent --rank staying --max-sacrifice 160 --task END-011 --font local/layout001/font/arcade_font.json --driver local/mame_src/cps2.cpp --rompath local/arcade --out build/end011/jin --ending data/translations/jin_ending_pairing.json --ending-record build/end011/jin-record.json --retime",
+ "replacements": {
+  "STG0AS.BIN;1": "7909913bae972ce88c373c50444b18829bdeff2bc59c2a352ca46c9548d59273",
+  "KANJI.BIN;1": "31dabb9a3dba8924e54445c7c6b7413ed0db32044144b029b20436ce638dba72",
+  "VICTORY.BIN;1": "bf5fa1a6e916f26f9b4f3a32c33af8e89444d04c815328d42ad5787f22d4e96b",
+  "END.BIN;1": "e0dfdf93907aac63862108c4c674fe61315d32697054048070d4ca195c08fd20",
+  "SE.DAT;1": "4b792936e78772c63453ec74c1ce7824e1603b4e2e46fb61ff0913586514e246",
+  "KEND_1.BIN;1": "83eff89c112efc7ef0f7f1f58bd39ee2d8257949c32c8a2ff61c039abe4d2413",
+  "QSD.PIX;1": "e37dc053e396c78adacf7bb8c25a38c9423f5d47fc0e06594795a35121c7a42f"
+ },
+ "changed_sectors": 160,
+ "output_sha256": {
+  "Cyberbots - Fullmetal Madness (Japan) (2M) (Track 01).bin": "d1cc6a3652156db5befa5cf8f06b68c0c04694f5ccd9e84d789c5862ede784de",
+  "Cyberbots - Fullmetal Madness (Japan) (2M).cue": "9f1248adc58b225fa55aa2960df36113212ff200c26917a8c40f22f2cb9c5f14"
+ },
+ "prediction_sha256": "a5835892187a1e310a5608f4adf0e5455b9233a4da427b051865e878f4eb308f",
+ "ending_prediction_sha256": "3f08d12365f322e0117989d1ed9d378ae71ea061436b4f838ab2e77c654970e4",
+ "changes_sha256": "55334a29fc0490df54ee9b50bef5fd4c5d13f66b3a578e7ac75bf5a87e3b37ed",
+ "ending_changes_sha256": "1d03c3b8dc4feb253dd58d63c122efc6ddebf57f36d1eec6bcef2fc06e319da2",
+ "ending_timing_sha256": "668f235d2ac6189b584bf0babfc54edcff948907bae3a16b1c0e8e63fee67a4c",
+ "story_regression": "data/regression/re008_roster.json (story files, prediction and changes unchanged)",
+ "same_as_end010": "KANJI.BIN, STG0AS.BIN, VICTORY.BIN, SE.DAT, KEND_1.BIN, QSD.PIX and ending_prediction.json; END.BIN differs only by the timing words and cues",
+ "checks": {
+  "two_builds": "identical",
+  "untouched": "END.BIN 941 bytes changed, all in ending_changes.json",
+  "sectors": "43,793 valid, 160 changed; source Track 01 unchanged",
+  "live": "21/21 boxes draw their predicted cells; posts 1618, 2819, 3217, 3717, track starts, KEND*.BIN, FIX.BIN and QSD.PIX loads on the Japanese control's frames; English holds 113-269 frames (box 422: 677), box 415 31 (scene end, as the Japanese)"
+ }
+}

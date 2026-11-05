@@ -1,0 +1,1378 @@
+{
+ "lists": [
+  {
+   "list": 0,
+   "cued_boxes": [
+    {
+     "box": 408,
+     "cue": 1,
+     "cue_frames": [
+      210,
+      175
+     ],
+     "window": [
+      193,
+      158
+     ],
+     "typing": 45,
+     "hold": 113
+    },
+    {
+     "box": 409,
+     "cue": 2,
+     "cue_frames": [
+      480,
+      431
+     ],
+     "window": [
+      268,
+      254
+     ],
+     "typing": 141,
+     "hold": 113
+    },
+    {
+     "box": 493,
+     "cue": 3,
+     "cue_frames": [
+      750,
+      681
+     ],
+     "window": [
+      268,
+      248
+     ],
+     "typing": 135,
+     "hold": 113
+    },
+    {
+     "box": 410,
+     "cue": 4,
+     "cue_frames": [
+      810,
+      814
+     ],
+     "window": [
+      58,
+      131
+     ],
+     "typing": 18,
+     "hold": 113
+    },
+    {
+     "box": 411,
+     "cue": 5,
+     "cue_frames": [
+      990,
+      990
+     ],
+     "window": [
+      178,
+      174
+     ],
+     "typing": 57,
+     "hold": 117
+    },
+    {
+     "box": 414,
+     "cue": 8,
+     "cue_frames": [
+      390,
+      384
+     ],
+     "window": [
+      390,
+      384
+     ],
+     "typing": 120,
+     "hold": 264,
+     "absorbs": -6
+    },
+    {
+     "box": 416,
+     "cue": 10,
+     "cue_frames": [
+      330,
+      390
+     ],
+     "window": [
+      208,
+      268
+     ],
+     "typing": 66,
+     "hold": 202
+    },
+    {
+     "box": 417,
+     "cue": 11,
+     "cue_frames": [
+      750,
+      660
+     ],
+     "window": [
+      418,
+      268
+     ],
+     "typing": 66,
+     "hold": 202
+    },
+    {
+     "box": 418,
+     "cue": 12,
+     "cue_frames": [
+      1050,
+      957
+     ],
+     "window": [
+      298,
+      295
+     ],
+     "typing": 93,
+     "hold": 202
+    },
+    {
+     "box": 419,
+     "cue": 13,
+     "cue_frames": [
+      1260,
+      1176
+     ],
+     "window": [
+      208,
+      217
+     ],
+     "typing": 15,
+     "hold": 202
+    },
+    {
+     "box": 420,
+     "cue": 14,
+     "cue_frames": [
+      1440,
+      1479
+     ],
+     "window": [
+      178,
+      301
+     ],
+     "typing": 99,
+     "hold": 202
+    },
+    {
+     "box": 421,
+     "cue": 15,
+     "cue_frames": [
+      1620,
+      1740
+     ],
+     "window": [
+      178,
+      259
+     ],
+     "typing": 54,
+     "hold": 205,
+     "absorbs": 120
+    }
+   ],
+   "waits": [
+    {
+     "box": 412,
+     "interval": [
+      6,
+      3
+     ],
+     "wait": [
+      [
+       60
+      ],
+      [
+       81
+      ]
+     ],
+     "japanese_frames": 204,
+     "english_frames": 204
+    },
+    {
+     "box": 413,
+     "interval": [
+      6,
+      3
+     ],
+     "wait": [
+      [
+       120
+      ],
+      [
+       174
+      ]
+     ],
+     "japanese_frames": 186,
+     "english_frames": 186
+    },
+    {
+     "box": 415,
+     "interval": [
+      6,
+      2
+     ],
+     "wait": null,
+     "japanese_frames": 78,
+     "english_frames": 84
+    },
+    {
+     "box": 422,
+     "interval": [
+      6,
+      6
+     ],
+     "wait": [
+      [
+       240,
+       240
+      ],
+      [
+       255,
+       255
+      ]
+     ],
+     "japanese_frames": 672,
+     "english_frames": 552
+    }
+   ],
+   "smallest_hold": 113,
+   "runs_absorbing": [
+    414,
+    421
+   ],
+   "differences": [
+    {
+     "box": 415,
+     "difference": -6
+    },
+    {
+     "box": 422,
+     "difference": 120
+    }
+   ],
+   "changes": 30
+  },
+  {
+   "list": 1,
+   "cued_boxes": [
+    {
+     "box": 425,
+     "cue": 3,
+     "cue_frames": [
+      540,
+      540
+     ],
+     "window": [
+      118,
+      118
+     ],
+     "typing": 33,
+     "hold": 85
+    },
+    {
+     "box": 426,
+     "cue": 4,
+     "cue_frames": [
+      690,
+      690
+     ],
+     "window": [
+      145,
+      145
+     ],
+     "typing": 48,
+     "hold": 97
+    },
+    {
+     "box": 427,
+     "cue": 5,
+     "cue_frames": [
+      900,
+      913
+     ],
+     "window": [
+      205,
+      218
+     ],
+     "typing": 111,
+     "hold": 107
+    },
+    {
+     "box": 428,
+     "cue": 6,
+     "cue_frames": [
+      1050,
+      1050
+     ],
+     "window": [
+      148,
+      135
+     ],
+     "typing": 27,
+     "hold": 108
+    },
+    {
+     "box": 430,
+     "cue": 8,
+     "cue_frames": [
+      270,
+      270
+     ],
+     "window": [
+      268,
+      268
+     ],
+     "typing": 126,
+     "hold": 142
+    },
+    {
+     "box": 432,
+     "cue": 10,
+     "cue_frames": [
+      360,
+      335
+     ],
+     "window": [
+      208,
+      183
+     ],
+     "typing": 138,
+     "hold": 45
+    },
+    {
+     "box": 433,
+     "cue": 11,
+     "cue_frames": [
+      450,
+      454
+     ],
+     "window": [
+      76,
+      105
+     ],
+     "typing": 60,
+     "hold": 45,
+     "absorbs": 4
+    },
+    {
+     "box": 435,
+     "cue": 13,
+     "cue_frames": [
+      870,
+      870
+     ],
+     "window": [
+      293,
+      293
+     ],
+     "typing": 129,
+     "hold": 164
+    }
+   ],
+   "waits": [
+    {
+     "box": 423,
+     "interval": [
+      6,
+      3
+     ],
+     "wait": [
+      [
+       30
+      ],
+      [
+       36
+      ]
+     ],
+     "japanese_frames": 138,
+     "english_frames": 138
+    },
+    {
+     "box": 424,
+     "interval": [
+      6,
+      3
+     ],
+     "wait": [
+      [
+       40
+      ],
+      [
+       79
+      ]
+     ],
+     "japanese_frames": 124,
+     "english_frames": 124
+    },
+    {
+     "box": 429,
+     "interval": [
+      6,
+      3
+     ],
+     "wait": [
+      [
+       200,
+       100
+      ],
+      [
+       218,
+       217
+      ]
+     ],
+     "japanese_frames": 522,
+     "english_frames": 522
+    },
+    {
+     "box": 431,
+     "interval": [
+      6,
+      3
+     ],
+     "wait": [
+      [
+       60
+      ],
+      [
+       114
+      ]
+     ],
+     "japanese_frames": 228,
+     "english_frames": 228
+    },
+    {
+     "box": 434,
+     "interval": [
+      6,
+      5
+     ],
+     "wait": null,
+     "japanese_frames": 54,
+     "english_frames": 50
+    },
+    {
+     "box": 436,
+     "interval": [
+      6,
+      3
+     ],
+     "wait": [
+      [
+       240,
+       240
+      ],
+      [
+       221,
+       220
+      ]
+     ],
+     "japanese_frames": 582,
+     "english_frames": 582
+    }
+   ],
+   "smallest_hold": 45,
+   "runs_absorbing": [
+    433
+   ],
+   "differences": [
+    {
+     "box": 434,
+     "difference": 4
+    }
+   ],
+   "changes": 24
+  },
+  {
+   "list": 2,
+   "cued_boxes": [
+    {
+     "box": 437,
+     "cue": 1,
+     "cue_frames": [
+      210,
+      189
+     ],
+     "window": [
+      178,
+      157
+     ],
+     "typing": 45,
+     "hold": 112
+    },
+    {
+     "box": 438,
+     "cue": 2,
+     "cue_frames": [
+      330,
+      330
+     ],
+     "window": [
+      118,
+      139
+     ],
+     "typing": 27,
+     "hold": 112
+    },
+    {
+     "box": 440,
+     "cue": 4,
+     "cue_frames": [
+      180,
+      178
+     ],
+     "window": [
+      148,
+      146
+     ],
+     "typing": 60,
+     "hold": 86
+    },
+    {
+     "box": 441,
+     "cue": 5,
+     "cue_frames": [
+      390,
+      395
+     ],
+     "window": [
+      208,
+      215
+     ],
+     "typing": 129,
+     "hold": 86
+    },
+    {
+     "box": 442,
+     "cue": 6,
+     "cue_frames": [
+      615,
+      615
+     ],
+     "window": [
+      223,
+      218
+     ],
+     "typing": 132,
+     "hold": 86
+    },
+    {
+     "box": 444,
+     "cue": 8,
+     "cue_frames": [
+      1200,
+      1278
+     ],
+     "window": [
+      118,
+      196
+     ],
+     "typing": 48,
+     "hold": 148
+    },
+    {
+     "box": 445,
+     "cue": 9,
+     "cue_frames": [
+      1470,
+      1530
+     ],
+     "window": [
+      268,
+      250
+     ],
+     "typing": 102,
+     "hold": 148
+    },
+    {
+     "box": 446,
+     "cue": 10,
+     "cue_frames": [
+      1770,
+      1770
+     ],
+     "window": [
+      298,
+      238
+     ],
+     "typing": 90,
+     "hold": 148
+    }
+   ],
+   "waits": [
+    {
+     "box": 439,
+     "interval": [
+      6,
+      3
+     ],
+     "wait": [
+      [
+       60
+      ],
+      [
+       72
+      ]
+     ],
+     "japanese_frames": 162,
+     "english_frames": 162
+    },
+    {
+     "box": 443,
+     "interval": [
+      6,
+      6
+     ],
+     "wait": null,
+     "japanese_frames": 186,
+     "english_frames": 186
+    },
+    {
+     "box": 447,
+     "interval": [
+      6,
+      6
+     ],
+     "wait": [
+      [
+       240,
+       240
+      ],
+      [
+       249,
+       249
+      ]
+     ],
+     "japanese_frames": 594,
+     "english_frames": 594
+    }
+   ],
+   "smallest_hold": 86,
+   "runs_absorbing": [],
+   "differences": [],
+   "changes": 17
+  },
+  {
+   "list": 3,
+   "cued_boxes": [
+    {
+     "box": 448,
+     "cue": 1,
+     "cue_frames": [
+      300,
+      300
+     ],
+     "window": [
+      208,
+      208
+     ],
+     "typing": 51,
+     "hold": 157
+    },
+    {
+     "box": 449,
+     "cue": 2,
+     "cue_frames": [
+      510,
+      510
+     ],
+     "window": [
+      205,
+      205
+     ],
+     "typing": 54,
+     "hold": 151
+    },
+    {
+     "box": 450,
+     "cue": 3,
+     "cue_frames": [
+      570,
+      673
+     ],
+     "window": [
+      55,
+      158
+     ],
+     "typing": 33,
+     "hold": 125
+    },
+    {
+     "box": 451,
+     "cue": 4,
+     "cue_frames": [
+      900,
+      900
+     ],
+     "window": [
+      328,
+      225
+     ],
+     "typing": 99,
+     "hold": 126
+    },
+    {
+     "box": 453,
+     "cue": 6,
+     "cue_frames": [
+      1470,
+      1470
+     ],
+     "window": [
+      118,
+      118
+     ],
+     "typing": 57,
+     "hold": 61
+    },
+    {
+     "box": 457,
+     "cue": 10,
+     "cue_frames": [
+      330,
+      424
+     ],
+     "window": [
+      88,
+      182
+     ],
+     "typing": 63,
+     "hold": 119
+    },
+    {
+     "box": 458,
+     "cue": 11,
+     "cue_frames": [
+      720,
+      659
+     ],
+     "window": [
+      388,
+      233
+     ],
+     "typing": 114,
+     "hold": 119
+    },
+    {
+     "box": 459,
+     "cue": 12,
+     "cue_frames": [
+      990,
+      906
+     ],
+     "window": [
+      268,
+      245
+     ],
+     "typing": 126,
+     "hold": 119
+    },
+    {
+     "box": 460,
+     "cue": 13,
+     "cue_frames": [
+      1200,
+      1153
+     ],
+     "window": [
+      208,
+      245
+     ],
+     "typing": 126,
+     "hold": 119
+    },
+    {
+     "box": 461,
+     "cue": 14,
+     "cue_frames": [
+      1440,
+      1370
+     ],
+     "window": [
+      238,
+      215
+     ],
+     "typing": 96,
+     "hold": 119
+    },
+    {
+     "box": 462,
+     "cue": 15,
+     "cue_frames": [
+      1722,
+      1638
+     ],
+     "window": [
+      280,
+      266
+     ],
+     "typing": 147,
+     "hold": 119
+    },
+    {
+     "box": 463,
+     "cue": 16,
+     "cue_frames": [
+      1860,
+      1860
+     ],
+     "window": [
+      136,
+      220
+     ],
+     "typing": 99,
+     "hold": 121
+    }
+   ],
+   "waits": [
+    {
+     "box": 452,
+     "interval": [
+      6,
+      3
+     ],
+     "wait": [
+      [
+       60
+      ],
+      [
+       120
+      ]
+     ],
+     "japanese_frames": 174,
+     "english_frames": 174
+    },
+    {
+     "box": 454,
+     "interval": [
+      6,
+      3
+     ],
+     "wait": [
+      [
+       120
+      ],
+      [
+       126
+      ]
+     ],
+     "japanese_frames": 186,
+     "english_frames": 186
+    },
+    {
+     "box": 455,
+     "interval": [
+      6,
+      5
+     ],
+     "wait": null,
+     "japanese_frames": 60,
+     "english_frames": 65,
+     "slowed": true
+    },
+    {
+     "box": 456,
+     "interval": [
+      6,
+      6
+     ],
+     "wait": null,
+     "japanese_frames": 108,
+     "english_frames": 108
+    },
+    {
+     "box": 464,
+     "interval": [
+      6,
+      3
+     ],
+     "wait": [
+      [
+       240,
+       240
+      ],
+      [
+       249,
+       249
+      ]
+     ],
+     "japanese_frames": 582,
+     "english_frames": 582
+    }
+   ],
+   "smallest_hold": 61,
+   "runs_absorbing": [],
+   "differences": [
+    {
+     "box": 455,
+     "difference": -5
+    }
+   ],
+   "changes": 27
+  },
+  {
+   "list": 4,
+   "cued_boxes": [
+    {
+     "box": 465,
+     "cue": 1,
+     "cue_frames": [
+      330,
+      261
+     ],
+     "window": [
+      268,
+      199
+     ],
+     "typing": 117,
+     "hold": 82
+    },
+    {
+     "box": 466,
+     "cue": 2,
+     "cue_frames": [
+      540,
+      402
+     ],
+     "window": [
+      208,
+      139
+     ],
+     "typing": 57,
+     "hold": 82
+    },
+    {
+     "box": 467,
+     "cue": 3,
+     "cue_frames": [
+      615,
+      612
+     ],
+     "window": [
+      73,
+      208
+     ],
+     "typing": 126,
+     "hold": 82
+    },
+    {
+     "box": 468,
+     "cue": 4,
+     "cue_frames": [
+      825,
+      789
+     ],
+     "window": [
+      208,
+      175
+     ],
+     "typing": 93,
+     "hold": 82
+    },
+    {
+     "box": 469,
+     "cue": 5,
+     "cue_frames": [
+      870,
+      885
+     ],
+     "window": [
+      43,
+      94
+     ],
+     "typing": 12,
+     "hold": 82
+    },
+    {
+     "box": 470,
+     "cue": 6,
+     "cue_frames": [
+      1110,
+      1110
+     ],
+     "window": [
+      238,
+      223
+     ],
+     "typing": 141,
+     "hold": 82
+    },
+    {
+     "box": 473,
+     "cue": 9,
+     "cue_frames": [
+      300,
+      300
+     ],
+     "window": [
+      300,
+      300
+     ],
+     "typing": 117,
+     "hold": 183
+    },
+    {
+     "box": 475,
+     "cue": 11,
+     "cue_frames": [
+      420,
+      352
+     ],
+     "window": [
+      298,
+      230
+     ],
+     "typing": 36,
+     "hold": 194
+    },
+    {
+     "box": 476,
+     "cue": 12,
+     "cue_frames": [
+      660,
+      689
+     ],
+     "window": [
+      238,
+      335
+     ],
+     "typing": 141,
+     "hold": 194
+    },
+    {
+     "box": 477,
+     "cue": 13,
+     "cue_frames": [
+      1020,
+      1020
+     ],
+     "window": [
+      358,
+      329
+     ],
+     "typing": 135,
+     "hold": 194
+    }
+   ],
+   "waits": [
+    {
+     "box": 471,
+     "interval": [
+      5,
+      3
+     ],
+     "wait": [
+      [
+       60
+      ],
+      [
+       104
+      ]
+     ],
+     "japanese_frames": 200,
+     "english_frames": 200
+    },
+    {
+     "box": 472,
+     "interval": [
+      5,
+      16
+     ],
+     "wait": null,
+     "japanese_frames": 80,
+     "english_frames": 80,
+     "slowed": true
+    },
+    {
+     "box": 474,
+     "interval": [
+      5,
+      5
+     ],
+     "wait": [
+      [
+       240
+      ],
+      [
+       220
+      ]
+     ],
+     "japanese_frames": 440,
+     "english_frames": 440
+    },
+    {
+     "box": 478,
+     "interval": [
+      5,
+      3
+     ],
+     "wait": [
+      [
+       240,
+       240,
+       60
+      ],
+      [
+       186,
+       186,
+       185
+      ]
+     ],
+     "japanese_frames": 650,
+     "english_frames": 650
+    }
+   ],
+   "smallest_hold": 82,
+   "runs_absorbing": [],
+   "differences": [],
+   "changes": 25
+  },
+  {
+   "list": 5,
+   "cued_boxes": [
+    {
+     "box": 479,
+     "cue": 1,
+     "cue_frames": [
+      180,
+      180
+     ],
+     "window": [
+      148,
+      148
+     ],
+     "typing": 21,
+     "hold": 127
+    },
+    {
+     "box": 481,
+     "cue": 3,
+     "cue_frames": [
+      540,
+      540
+     ],
+     "window": [
+      148,
+      148
+     ],
+     "typing": 21,
+     "hold": 127
+    },
+    {
+     "box": 484,
+     "cue": 7,
+     "cue_frames": [
+      1140,
+      1140
+     ],
+     "window": [
+      268,
+      268
+     ],
+     "typing": 96,
+     "hold": 172
+    },
+    {
+     "box": 488,
+     "cue": 10,
+     "cue_frames": [
+      1650,
+      1650
+     ],
+     "window": [
+      118,
+      118
+     ],
+     "typing": 33,
+     "hold": 85
+    },
+    {
+     "box": 491,
+     "cue": 13,
+     "cue_frames": [
+      2400,
+      2400
+     ],
+     "window": [
+      268,
+      268
+     ],
+     "typing": 66,
+     "hold": 202
+    }
+   ],
+   "waits": [
+    {
+     "box": 480,
+     "interval": [
+      5,
+      3
+     ],
+     "wait": [
+      [
+       60
+      ],
+      [
+       97
+      ]
+     ],
+     "japanese_frames": 160,
+     "english_frames": 160
+    },
+    {
+     "box": 551,
+     "interval": [
+      5,
+      3
+     ],
+     "wait": [
+      [
+       20
+      ],
+      [
+       16
+      ]
+     ],
+     "japanese_frames": 85,
+     "english_frames": 85
+    },
+    {
+     "box": 482,
+     "interval": [
+      5,
+      6
+     ],
+     "wait": null,
+     "japanese_frames": 45,
+     "english_frames": 42,
+     "slowed": true
+    },
+    {
+     "box": 483,
+     "interval": [
+      3,
+      6
+     ],
+     "wait": null,
+     "japanese_frames": 39,
+     "english_frames": 42,
+     "slowed": true
+    },
+    {
+     "box": 485,
+     "interval": [
+      5,
+      3
+     ],
+     "wait": [
+      [
+       30
+      ],
+      [
+       68
+      ]
+     ],
+     "japanese_frames": 155,
+     "english_frames": 155
+    },
+    {
+     "box": 486,
+     "interval": [
+      3,
+      3
+     ],
+     "wait": [
+      [
+       30
+      ],
+      [
+       39
+      ]
+     ],
+     "japanese_frames": 66,
+     "english_frames": 66
+    },
+    {
+     "box": 487,
+     "interval": [
+      5,
+      10
+     ],
+     "wait": null,
+     "japanese_frames": 40,
+     "english_frames": 40,
+     "slowed": true
+    },
+    {
+     "box": 489,
+     "interval": [
+      5,
+      3
+     ],
+     "wait": [
+      [
+       80
+      ],
+      [
+       174
+      ]
+     ],
+     "japanese_frames": 240,
+     "english_frames": 240
+    },
+    {
+     "box": 490,
+     "interval": [
+      5,
+      3
+     ],
+     "wait": [
+      [
+       70
+      ],
+      [
+       119
+      ]
+     ],
+     "japanese_frames": 215,
+     "english_frames": 215
+    },
+    {
+     "box": 492,
+     "interval": [
+      5,
+      3
+     ],
+     "wait": [
+      [
+       240,
+       240
+      ],
+      [
+       235,
+       234
+      ]
+     ],
+     "japanese_frames": 520,
+     "english_frames": 520
+    }
+   ],
+   "smallest_hold": 85,
+   "runs_absorbing": [],
+   "differences": [
+    {
+     "box": 482,
+     "difference": 3
+    },
+    {
+     "box": 483,
+     "difference": -3
+    }
+   ],
+   "changes": 22
+  }
+ ]
+}

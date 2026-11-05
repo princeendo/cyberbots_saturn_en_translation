@@ -38,7 +38,7 @@ from typing import Any
 
 from tools.font import kanji, pairs
 from tools.reference.cybots_text import decode, long, read_record
-from tools.text import dialogue
+from tools.text import dialogue, ending_timing
 
 BASE = 0x06060000
 RECORDS = 0x060817B4
@@ -46,6 +46,7 @@ CODE_TABLE = 0x26EAC
 FONT_START, FONT_END = 0x40000, 0x68000
 BOXES = 1074
 POSTS = Path("data/text/ending_posts.json")
+SURFACES = Path("data/text/ending_surfaces.json")
 
 
 # The QSound notice (D-035): `QSD.PIX`, a 512 x 256 bitmap of 256-colour
@@ -149,6 +150,7 @@ class EndingBuild:
     changes: list[dict[str, object]] = field(default_factory=list)
     prediction: list[dict[str, object]] = field(default_factory=list)
     record: dict[str, Any] = field(default_factory=dict)
+    timing: list[dict[str, Any]] = field(default_factory=list)
 
 
 def end_lines() -> list[tuple[int, int]]:
@@ -222,6 +224,7 @@ def compile_ending(
     font: Mapping[str, Any],
     texts: Sequence[bytes],
     task: str,
+    retime: bool = False,
 ) -> EndingBuild:
     pairing = json.loads(pairing_path.read_text())
     end, se = dialogue.checked("END.BIN"), dialogue.checked("SE.DAT")
@@ -382,6 +385,36 @@ def compile_ending(
     }
     if unhandled:
         raise SystemExit(f"no handler for {unhandled}")
+
+    if retime:  # END-011: faster typing and moved cues (ending_timing)
+        surfaces = json.loads(SURFACES.read_text())["lists"][pairing["list"]]
+        untouched = bytes(dialogue.checked("END.BIN"))
+        jp_codes = set(kanji.read_code_table(untouched, CODE_TABLE)) - {
+            dialogue.SPACE_CODE
+        }
+        jp_box_lines = record_lines(untouched, lines)
+        japanese = {
+            box: sum(
+                1
+                for k in jp_box_lines[box]
+                for i in range(0, lines[k][1] - 1, 2)
+                if int.from_bytes(
+                    untouched[lines[k][0] + i : lines[k][0] + i + 2], "big"
+                )
+                in jp_codes
+            )
+            for box in range(BOXES)
+            if jp_box_lines[box]
+        }
+        retimed = ending_timing.retime(
+            end,
+            pairing["list"],
+            surfaces,
+            {b.box: dialogue.cells_of(b.rows) for b in boxes},
+            japanese,
+        )
+        build.changes += retimed.changes
+        build.timing = retimed.boxes + retimed.waits
 
     used_room = sum(len(r) for r in all_rows)
     own_spans = spans(lines, own)
