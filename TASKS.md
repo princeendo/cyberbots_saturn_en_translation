@@ -235,6 +235,7 @@ names it for its method only.
   words: "GO (Recommended)" and, for the shared name boxes 605 and 601,
   "Share, English everywhere (Recommended)". `END-010` is `READY`.
 - **2026-11-05: M7 CONFIRMED** (`END-010`, `EXP-0042`-`EXP-0045`, D-039-D-042): one image from the untouched source with the M5 roster unchanged and Jin's ending in official English. All 18 units are drawn as predicted; the cast roll's Japanese names are hidden in every ending (the user: "Hide in every ending (Recommended)"); the QSound line is erased. The shared names show English in lists 3, 4 and 8. A cold boot plays in English. Three long boxes finish typing just before they close: the user chose "Accept now, follow-up task (Recommended)" (`END-011`, `BACKLOG`). Next: M8 (`END-020`) needs its tasks written up first.
+- **2026-11-05: `GATE-TRANSLATION` extended to the roster endings.** The user's words: "GO (Recommended)", "Indent, as the story (Recommended)", "Bao Mao: (Recommended)" and "Accept the rule (Recommended)". `END-023` (the M8 image) is `READY`.
 - **2026-11-05: capacity of the roster endings measured** (`END-022`, `EXP-0049`, D-046): all six endings' English fits. With the half-cell indent the 330 pairs fit the 335 free codes, and nothing Japanese is touched. Room: the roster's own lines plus about 750 bytes of never-shown lines. Lists 6-8 show only their posted boxes. Next: the gate extension for the roster endings (the user's GO).
 - **2026-11-05: ending box timing solved** (`END-011`, `EXP-0048`, D-045): cues (`EAnn`) close boxes, `E2nn` sets typing speed, and the script waits for typing, which sets the next scene and its music. The user chose "Faster typing + move cues (Recommended)". `--retime` gives Jin's English boxes 113+ frames with their full line, and every scene change and track start stays on the Japanese frame (built and live). `END-022` (capacity) is `READY`.
 - **2026-11-05: the roster endings paired** (`END-021`, `EXP-0047`, D-044): every text unit of lists 1-5 (102) has official English at the same place in the arcade; no new translation. One choice for the gate: box 608 (both twins) can show slot 615 (the arcade's, one twin) or 617 (the same Japanese). `END-022` waits on `END-011`.
@@ -1648,12 +1649,21 @@ user's GO covers:
   scene change and track start in place), and any box it slows (for
   example Gawaine's 472 at 16 frames a glyph).
 
+**2026-11-05: GO for the roster endings.** Shown: the pairing (`END-021`, D-044), the capacity and options (`END-022`, D-046) and the timing rule (`END-011`, D-045).
+- "GATE-TRANSLATION extension for the roster endings: may the official US arcade English go on the disc for the endings of Santana, Mary, Arieta, Gawaine, and Bao and Mao, as paired by END-021, unchanged and in pair glyphs? That is 102 text units (63 matching the arcade's Japanese exactly, 39 with the same wording), no new translations, built together with Jin's ending in one image." → "GO (Recommended)"
+- "The six endings need 388 two-letter glyphs as plain rows, but only 335 codes are unused by any Japanese line. With the half-cell indent the story already uses (some rows start half a glyph in so rows share glyphs), they need 330 and fit with no Japanese character touched. Plain rows would take 53 codes whose Japanese characters appear only in lines that become English or are never shown, so nothing visible changes either way. Which?" → "Indent, as the story (Recommended)"
+- "In Bao and Mao's ending, one Saturn speaker name reads "Bao Mao:" (both twins). At those three places the arcade shows "Bao:" instead, but the arcade also has an official "Bao Mao:" name line that matches the Saturn's Japanese exactly. Which English should the Saturn show there?" → "Bao Mao: (Recommended)"
+- "The timing rule you chose (faster typing + moved cues) keeps every scene change and music start on its Japanese frame. To do that, five very short English lines type slower than the Japanese so their scenes keep their length: one in Arieta's ending (5 frames a glyph), one in Gawaine's (16 frames a glyph: a 5-glyph shout over about 1.3 s) and three in Bao and Mao's (6-10). Every other box holds its finished line at least 0.75 s. Accept the rule for all six endings?" → "Accept the rule (Recommended)"
+
+So `END-023` builds lists 0-5 with the half-cell indent across the ending rows (330 pairs in the 335 free codes, no sacrifice), box 608 from slot 617, and `--retime` on every ending. It is `READY`.
+
+
 ### END-023 - Build all roster endings in English (M8)
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M8
-- **Dependencies:** END-021, END-022, the gate extension above.
-- **Blockers:** the user's GO for the gate extension.
+- **Dependencies:** END-021, END-022, the gate extension above (all done; GO 2026-11-05).
+- **Blockers:** None.
 - **Objective:** One image, built from the untouched source, with the M5 story and win quotes and all six roster endings in English, verified box by box.
 - **Acceptance criteria:**
   - **Systematic:** the compiler takes a roster of ending pairings (`data/text/m8_endings.json`) in place of one `--ending`. One allocation over `END.BIN`'s table and `SE.DAT`'s font, one room. `END-011`'s rule is applied. No list-specific code.
@@ -1678,7 +1688,7 @@ and `docs/lessons_from_xvsf.md`.
 | ID | Milestone | Outline |
 | --- | --- | --- |
 | END-010 | M7 | `DONE` (2026-11-05, Phase L); follow-up `END-011` (`BACKLOG`). |
-| END-020 | M8 | Written up: Phase M (`END-020`-`END-023`, with `END-011`). |
+| END-020 | M8 | Written up: Phase M (`END-020`-`END-023`, with `END-011`); `END-020`-`END-022` and `END-011` done; `END-023` `READY` (gate GO 2026-11-05). |
 | UI-004 | after M5, early | Boot, cartridge and save warnings (`WARNING0-4.PIX` are candidates); in the first backlog this time (`docs/lessons_from_xvsf.md`, lesson 5). |
 | UI-001 | after M8, user request | UI art: inventory English art already in every font before drawing anything. |
 | UI-002 | after M8, user request | Attract and opening text (`OPDEMO*`, `STDEM*.PIR`, `VADEM*.MAC`, `STDEMO.*` are candidates): layer, container, codecs, oracles. |

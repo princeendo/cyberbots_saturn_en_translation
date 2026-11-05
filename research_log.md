@@ -2228,3 +2228,15 @@ Mao's run-on boxes show (806-819, 888, 1007). The room now excludes every
 line any list 0-8 is seen to show; M7's rows were not in them (checked).
 Survey: lists 6-8 load no `QSD.PIX` within the window for list 7, so the
 survey's last file is now optional.
+
+## 2026-11-05 — GATE-TRANSLATION extended to the roster endings
+
+User request (verbatim): "Ask the gate GO". Four questions (verbatim in
+`TASKS.md` and the policy). Answers, verbatim:
+- "GO (Recommended)";
+- "Indent, as the story (Recommended)";
+- "Bao Mao: (Recommended)";
+- "Accept the rule (Recommended)".
+
+`END-023` is `READY`: lists 0-5 with the half-cell indent across the ending
+rows, box 608 from slot 617, and `--retime` on every ending. Nothing built.
