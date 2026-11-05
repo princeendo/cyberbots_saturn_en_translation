@@ -35,13 +35,31 @@ surface.
 | `RANKING` | Attract | English | — | `emu003/boot1/frames/118.png` |
 | Stage backgrounds | Fights, attract | Japanese signage painted into the art | Same art in the arcade | many |
 
+## Jin's Ending (`EXP-0037`)
+
+Reached by RAM writes from REF-005 state 4138 (no key pressed); samples
+are in the ignored `local/end001/final-c/` (run from the checkpoint,
+frames counted from it). Scenes 16-19 are `END.BIN`'s, shown by its copy of
+the box routine from its record table `0x060817B4`.
+
+| Surface | When shown | Text on the Saturn | Arcade English | Sample (SHA-256) |
+| --- | --- | --- | --- | --- |
+| **Ending dialogue boxes** | Scenes 16-17, after the last win | **Japanese**, typed out in a story-style box with portraits (boxes 408-413, 493, 1072) | `END-004` | `f02069.png` (`3260eff6…2a17`), `f03109.png` (`0f894470…5b60`) |
+| **Ending narration** | Scene 18 | **Japanese**, typed white text on black, no box (boxes 414-415) | `END-004` | `f03629.png` (`7242307e…dde8`) |
+| **Ending captions with speaker names** | Scene 19 | **Japanese**, typed lines under a picture, each led by the speaker's name (boxes 416-422; names 601, 605) | `END-004` | `f04409.png` (`56d90dbb…df73`), `f05189.png` (`3b44d63d…33d4`) |
+| **Cast roll** | After scene 19 (`KEND*.BIN`, track 40) | **Japanese** pilot names (katakana; one title in kanji) over yellow Latin names, portraits; `CAST`, `and...`, `AS YOU.` in English | `END-004` | `f07276.png` (`b29a715b…9ee7`), `f08056.png` (`deb5723c…060d`) |
+| Staff credits | Track 36 | English (`ARCADE STAFF`, `CONSUMER STAFF`) | — | `f09096.png` (`58c55296…8d23`) |
+| `THANK YOU FOR PLAYING!`, `PRODUCED BY CAPCOM` | After the credits | English | — | `f12476.png` (`e6c605e9…1c82`) |
+| QSound notice (`QSD.PIX`) | After the credits | English, plus **one Japanese trademark line** (an image) | — | `f13102.png` (`d46c3202…2746`) |
+| Game over, initials, ranking | Then the attract loop | English | — | `f13779.png` (`9e00cf92…cf96`), `f14829.png` (`3acbdd4b…864e`) |
+
 ## Not Seen Yet
 
 Each needs its own capture before it can be ruled in or out.
 
 | Surface | Why expected | Lead |
 | --- | --- | --- |
-| Endings | Every pilot has one | `END.BIN`; audio tracks 42-62 (D-002) |
+| Other pilots' endings, Jin's scene 20 | Every pilot has one; Jin's route posted scenes 16-19 only | `END.BIN`; audio tracks 45-62 (D-002); `END-003` |
 | Console-only pilots' stories | Four pilots added on consoles | Saturn lines from 1141 on name Chiyomaru and Tessan (D-011) |
 | `KEY CONFIG`, `SOUND TEST`, `DATA RESET` sub-screens | Option rows | — |
 | Boot, cart and save warnings | `WARNING0`-`4.PIX` on the disc | `UI-004` |
@@ -52,6 +70,8 @@ Each needs its own capture before it can be ruled in or out.
 
 So far the Japanese on screen is (1) story dialogue boxes, (2) the VS
 screen's chapter caption, (3) pilot and mech names drawn as katakana art
-on the pilot select and VS screens, and (4) the versus-mode win quote
-(D-029). Menus, HUD, banners, scores, continue,
+on the pilot select and VS screens, (4) the versus-mode win quote
+(D-029), and (5) in Jin's ending, its dialogue, narration and captions,
+the cast roll's names and one QSound line (`EXP-0037`). Menus, HUD,
+banners, scores, continue, credits,
 game over and options are already English.

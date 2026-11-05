@@ -199,6 +199,14 @@ names it for its method only.
 - **2026-11-04: M6 tasks written up** (Phase K): `END-001` (reach Jin's
   ending, list its surfaces) is `READY`; `END-002`-`END-005` follow.
   Nothing started.
+- **2026-11-04: Jin's ending reached** (`END-001`, `EXP-0037`, D-034):
+  four RAM writes from REF-005 state 4138 and the vitality hold, no keys;
+  checkpoint `local/end001/checkpoint/jin_ending_a16503.mcs`
+  (`7e314718…64f2`). `END.BIN` scenes 16-19; Japanese in its dialogue,
+  narration, captions, the cast roll's names and one QSound line. On the
+  M5 image no ending line shows a pair glyph: the ending probably draws
+  from `SE.DAT`'s copy of `KANJI.BIN` (SUPPORTED). Next: `END-002`,
+  `END-003`, `END-004` are `READY`.
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -1264,7 +1272,7 @@ menu key presses only; fights and routes forced by RAM writes (the user,
 
 ### END-001 - Reach Jin's ending and list what it shows
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** M6
 - **Dependencies:** RE-008 (done).
 - **Blockers:** None.
@@ -1277,13 +1285,14 @@ menu key presses only; fights and routes forced by RAM writes (the user,
   - **Scenes:** the scene posts (`0x06066852`, R5) with frames, matched to the boxes shown.
   - **M5 image:** the same route on the M5 image (`build/re008/roster`), to record which ending lines show the sacrificed codes' pair glyphs (the recorded trade-off).
 - **Notes:** the user does not read Japanese; review every screenshot yourself. If Jin's last stage cannot be forced (a cockpit stage, as Mary's stage 19, `EXP-0036`), record it and ask before any other route.
+- **Done:** 2026-11-04 (`EXP-0037`, D-034), from a saved state, with no cold boot and no keys. The route writes the stage index (8), player 2's pilot and machine for index 8, the opponent word and the last-fight flag `0x060CFF07` before the stage start, then holds the vitality; writing only the stage byte, or leaving out the opponent or the flag, does not end the story (`research_log.md`). Two runs agree frame for frame; checkpoint `jin_ending_a16503.mcs` (`7e314718…64f2`); the loads, scene posts (16-19, not 20) and boxes are in the README; surfaces in `docs/text_surfaces.md`. M5 image: one character predicted to show a pair glyph shows the original: the ending reads `SE.DAT` (which holds a `KANJI.BIN` copy) and no `KANJI.BIN`, so the sacrifice does not reach this ending (the font source is SUPPORTED, for `END-002`).
 
 ### END-002 - How each ending surface is drawn, and with which font
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M6
 - **Dependencies:** END-001.
-- **Blockers:** Dependencies not done.
+- **Blockers:** None.
 - **Objective:** For each surface of `END-001`'s table, the routine that draws it and the font or image data it uses, proven by a controlled change.
 - **Acceptance criteria:**
   - **Dialogue boxes:** whether `END.BIN`'s boxes go through the same glyph cells (`0x060FE200`, D-020) and code table (`END.BIN`'s copy, D-019) with `KANJI.BIN`, shown by matching captured cells to the decoded font, and by one RAM write to a line that changes exactly the predicted cell.
@@ -1293,10 +1302,10 @@ menu key presses only; fights and routes forced by RAM writes (the user,
 
 ### END-003 - Ending text in RAM and on disc; what selects it
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M6
 - **Dependencies:** END-001.
-- **Blockers:** Dependencies not done.
+- **Blockers:** None.
 - **Objective:** Where each ending surface's text lives in RAM and on the disc, how it gets there, and what selects which ending is shown.
 - **Acceptance criteria:**
   - **Dialogue:** `END.BIN`'s scene lists and box records for Jin's ending scenes (16-20 by number), read from the code (as `EXP-0022/box_list.py` did for `STG0AS.BIN`), and checked against the boxes `END-001` saw.
@@ -1307,10 +1316,10 @@ menu key presses only; fights and routes forced by RAM writes (the user,
 
 ### END-004 - The arcade's English for the endings
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M6
 - **Dependencies:** END-001 (for the surface list; the MAME work can start alongside `END-002`/`END-003`).
-- **Blockers:** Dependencies not done.
+- **Blockers:** None.
 - **Objective:** What English the US arcade shows for each ending surface, reached with no play.
 - **Acceptance criteria:**
   - **Route:** a headless MAME timeline that reaches Jin's ending in `cybotsu` and `cybotsj` by forcing the stage and the fights (debugger breakpoints or write taps, as `EXP-0032`), repeatable from a fixed NVRAM copy.

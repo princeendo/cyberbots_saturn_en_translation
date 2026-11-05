@@ -1719,3 +1719,58 @@ became `END-010` (M7) and `END-020` (M8). No experiment was run.
 
 Next action: `END-001` (`READY`), when the user starts it; it needs cold
 boots with the user present.
+
+
+## 2026-11-04 — END-001: Jin's ending reached by RAM writes (EXP-0037)
+
+Action: the user said "Start END-001". From REF-005 state 4138, no cold
+boot and no key: `research/experiments/EXP-0037/ending_route.py` writes the
+progress bytes, holds the vitality through the last fight (time-out win)
+and logs disc reads, scene posts (with callers), `END.BIN` box calls, polls,
+screenshots and glyph cells. Runs under `local/end001/`.
+
+Failed or corrected along the way (do not retry):
+- `route1`: stage byte `0x060CFF88` = 8 after the stage start. Stage 8's
+  scenes and fight played, but the win went to stage 1: the stage start
+  sets the stage from `0x0607B440`[pilot x 10 + index] and a win adds 1 to
+  the index (record + `0x2E3`, `0x06018EE6`).
+- `route2`: index 8 too. The win went to index 9 (entry 0) and Jin's story
+  restarted; the opponent was still index 0's (Shade, machine 5), set at
+  arcade start by `0x06027834` from `0x0604B5C0`/`0x0604B650`.
+- `route3`: opponent written (pilot 8, machine 11). Still back to stage 0:
+  the win only ends the story via `0x060CFF04` (`0x060185A2`), which needs
+  the last-fight flag `0x060CFF07`, set by `0x06027950` when the opponent
+  row's next entry is negative.
+- `route5`/`route6`: flag written: the ending played (`END.BIN` scenes
+  16-19). But the stage was written after one stage-0 step had run, so
+  scene 21 was posted alongside scene 14. `run8` (M5 image) drew the two
+  scenes' English over each other and stalled: an artifact of the route,
+  not an M5 defect (the final route plays those scenes cleanly on M5).
+- A second Mednafen on the same silent home is refused (lockfile);
+  `MEDNAFEN_ALLOWMULTI=1` runs two at once.
+- The first glyph comparison used each box's last 50-frame dump and failed
+  its own untouched-vs-untouched control (boxes caught mid-typing); the
+  final check matches each dump against predicted cells.
+- Checkpoints saved while running land a few frames after the poll; two
+  runs' checkpoints are different instants (route5/6 at the same frame had
+  identical memory; final A/B did not land on the same frame).
+
+Final route (writes at frame 318, before the stage start): index 8, player
+2 `08 0B 0B 0B`, opponent word `0008`, flag `01`; the game sets stage 8
+itself. Runs A and B: identical posts, 96 disc reads and 39 box calls,
+frame for frame. Checkpoint A, frame 16503, `7e314718…64f2`. Run C from it
+reproduces A's 43 reads and 39 box calls, 16,317 frames earlier.
+
+Result:
+- Mode 5 (`0x06017CAE`) loads `END.BIN`; scenes 16-19 show boxes 408-422,
+  493, 601, 605, 1072 from `END.BIN`'s table `0x060817B4`; scene 20 (box
+  550) is not posted on this route.
+- Japanese surfaces: ending dialogue boxes, narration, captions with
+  speaker names, cast-roll names, one QSound line. Credits English.
+- M5 image: predicted one pair glyph (line 770); the original glyph shows.
+  `SE.DAT` (read before scene 16) holds `KANJI.BIN` at `0x40000`; the
+  ending reads no `KANJI.BIN`. SUPPORTED: the ending's font is `SE.DAT`'s
+  copy (`END-002` to confirm).
+
+Conclusion: **CONFIRMED**, D-034. `END-001` is done; `END-002`, `END-003`,
+`END-004` are `READY`.

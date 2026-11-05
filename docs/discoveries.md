@@ -584,3 +584,33 @@ identical, and every changed byte lies in a range the compiler lists.
 
 Reproduce: `research/experiments/EXP-0036/README.md`, "Procedure".
 
+
+## D-034: Jin's ending: how it is reached and what it shows (`END-001`, `EXP-0037`)
+
+A win ends the story only when the last-fight flag `0x060CFF07` is set. After
+each win the game adds 1 to player 1's stage index (record `0x060CFFDC` +
+`0x2E3`), sets the next opponent from `0x0604B5C0`/`0x0604B650`[row x 16 +
+index], and sets that flag when the row's next entry is negative. The
+round-end code then sets game mode 5 (`0x060CFEDC`), whose handler loads
+`END.BIN`. The stage start sets the stage byte from `0x0607B440`[pilot x 10
++ index].
+
+From REF-005 state 4138, writing index 8, Jin's last opponent (pilot 8,
+machine 11), the opponent word and the flag before the stage start, and
+holding the vitality, reaches his ending with no key pressed. Two runs log
+the same posts, disc reads and box calls frame for frame. A checkpoint
+before the win (`7e314718…64f2`) reproduces the ending exactly.
+
+- **Loads:** `END.BIN`, portraits, `STDEMO.*`, `SE.DAT`, tracks 42-44
+  (`JIN_END1`-`3`); then `KEND.BIN`, `KEND_0.BIN`, `KEND_1.BIN`,
+  `ST09_FNT.BIN` and tracks 40 and 36 for the cast roll and credits; then
+  `QSD.PIX` and the game over. No `KANJI.BIN`.
+- **Scenes:** `END.BIN` posts scenes 16-19. They show boxes 408-422, 493,
+  601, 605 and 1072 through its copy of the box routine (`0x0606268C`) and
+  its record table `0x060817B4`, as dialogue boxes (16-17), narration on
+  black (18) and captions with speaker names (19). Every box's predicted
+  cells were drawn.
+- **Japanese surfaces:** those three, the cast roll's names and one QSound
+  line. The credits and everything after them are English.
+
+Reproduce: `research/experiments/EXP-0037/README.md`, "Procedure".
