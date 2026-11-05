@@ -101,6 +101,11 @@ PILOT_LISTS = 0x060AAD24
 PILOTS = 11
 APPROVED_SACRIFICE = 73  # GATE-TRANSLATION, Jin + Santana (2026-11-03)
 CAPTIONS = 0x0609CC22  # VS caption boxes, 9 pilots x 10 stages (EXP-0032)
+QUOTE_LIST = 9  # the versus win quotes' scene list (D-030)
+VICTORY_RECORDS = 0x0607849C  # VICTORY.BIN's box table (D-030)
+VICTORY_TABLE_OFFSET = (
+    0x1DB94  # VICTORY.BIN's copy of the code table (WRAM-H 0x0607DB94)
+)
 
 
 class BudgetExceeded(SystemExit):
@@ -320,6 +325,21 @@ def pilot_spec(
     return pairing, box_list, list(story)
 
 
+def roster_inputs(path: Path) -> tuple[list[Path], Path]:
+    """The pairing files and the win-quote pairing a roster file names.
+
+    A pilot's pairing is ``data/translations/<name>_pairing.json`` for its box
+    list ``data/text/<name>_boxes.json``; the win quotes are the file the
+    roster's ``win_quotes`` entry names first (RE-008).
+    """
+    roster = json.loads(path.read_text())
+    pairings = []
+    for pilot in roster["pilots"]:
+        name = Path(pilot["boxes_file"]).name.removesuffix("_boxes.json")
+        pairings.append(Path("data/translations") / f"{name}_pairing.json")
+    return pairings, Path(roster["win_quotes"].split()[0])
+
+
 def build(args: argparse.Namespace) -> int:
     specs = [pilot_spec(p) for p in args.pairing]
     driver = args.driver.read_text(encoding="latin-1")
@@ -353,13 +373,35 @@ def build(args: argparse.Namespace) -> int:
                 f"box {p['box']}: {len(rows)} rows, {cells_of(rows)} cells"
             )
         boxes.append(Box(p["box"], slot, tuple(p["saturn_lines"]), tuple(rows)))
+    # Win quotes (VICTORY.BIN, D-030): the boxes the built pilots reach.
+    quotes: list[Box] = []
+    if args.quotes:
+        doc = json.loads(args.quotes.read_text())
+        index_of = {int(bl["pilot"]): i for i, (_, bl, _) in enumerate(specs)}  # type: ignore[call-overload]
+        for e in doc["entries"]:
+            if e["pilot"] in index_of:
+                for qb in e["saturn_boxes"]:
+                    pilot_of_box.setdefault(qb, index_of[e["pilot"]])
+        for q in doc["roster_quote_boxes"]:
+            if q["box"] not in pilot_of_box:
+                continue  # a pilot outside this build
+            slot = q["arcade_slot"]
+            record = read_record(program, long(program, EN_TABLE + 4 * slot))
+            english_records[slot] = record
+            rows = wrap(decode(record.codes))
+            if len(rows) > MAX_ROWS or cells_of(rows) > MAX_CELLS:
+                raise SystemExit(f"quote box {q['box']}: {len(rows)} rows")
+            quotes.append(Box(q["box"], slot, tuple(q["saturn_lines"]), tuple(rows)))
     if args.indent:
-        shifted = iter(shift_rows([r for b in boxes for r in b.rows]))
-        boxes = [
-            Box(b.box, b.slot, b.lines, tuple(next(shifted) for _ in b.rows))
-            for b in boxes
-        ]
-        for b in boxes:
+        shifted = iter(shift_rows([r for b in boxes + quotes for r in b.rows]))
+        boxes, quotes = (
+            [
+                Box(b.box, b.slot, b.lines, tuple(next(shifted) for _ in b.rows))
+                for b in group
+            ]
+            for group in (boxes, quotes)
+        )
+        for b in boxes + quotes:
             if cells_of(b.rows) > MAX_CELLS:
                 raise SystemExit(f"box {b.box}: {cells_of(b.rows)} cells after indent")
 
@@ -442,7 +484,7 @@ def build(args: argparse.Namespace) -> int:
     line_counts: Counter[int] = Counter()
     for text in texts:
         line_counts.update(codes_in(text) & set(table))
-    replaced = set(own_lines) - set(kept)
+    replaced = set(own_lines) - set(kept) | {n for q in quotes for n in q.lines}
     staying_counts: Counter[int] | None = None
     if args.rank == "staying":
         captions = {u16(CAPTIONS + 2 * k) for k in range(PILOTS * 10)} - {0}
@@ -461,7 +503,7 @@ def build(args: argparse.Namespace) -> int:
         line_counts,
         staying_counts,
     )
-    wanted = wanted_pairs(boxes)
+    wanted = wanted_pairs(boxes + quotes)
     last_row = kanji.TABLE_ROWS - 1
     last_row_used = len(table) - last_row * kanji.TABLE_ROW_CODES
     new_slots = kanji.TABLE_ROW_CODES - last_row_used - 1  # keep a 0 terminator
@@ -476,8 +518,34 @@ def build(args: argparse.Namespace) -> int:
             and codes_in(bytes(stg[off : off + length])) & set(rare[:needed])
         }
     )
+    # VICTORY.BIN shows only list 9 (its one post, D-030): its copies of the
+    # quotes' and the stories' own lines are room, less any line another
+    # list-9 box shows.
+    vic_room: list[list[int]] = []
+    if quotes:
+        census = json.loads(CENSUS.read_text())
+        vic_first = next(f for f in census["files"] if f["file"] == "VICTORY.BIN")
+        delta = vic_first["blocks"][0]["table"][0][0] - lines[0][0]
+        others = {
+            n
+            for (p, _), found in scene_boxes.items()
+            if p == QUOTE_LIST
+            for b in found
+            if b not in {q.box for q in quotes}
+            for n in box_lines.get(b, [])
+        }
+        for n in sorted(
+            ({n for q in quotes for n in q.lines} | set(own_lines)) - others
+        ):
+            off, length = lines[n]
+            span = [off + delta, off + delta + ((length + 1 + 3) & ~3)]
+            if vic_room and vic_room[-1][1] == span[0]:
+                vic_room[-1][1] = span[1]
+            else:
+                vic_room.append(span)
     budget = {
         "pilots": [str(p) for p in args.pairing],
+        "quote_boxes": len(quotes),
         "rank": args.rank,
         "indent": args.indent,
         "boxes": len(boxes),
@@ -491,6 +559,10 @@ def build(args: argparse.Namespace) -> int:
             len(row_bytes(r, dict.fromkeys(wanted, 1))) for b in boxes for r in b.rows
         ),
         "room_bytes": sum(e - s for s, e in room),
+        "quote_text_bytes": sum(
+            len(row_bytes(r, dict.fromkeys(wanted, 1))) for b in quotes for r in b.rows
+        ),
+        "quote_room_bytes": sum(e - s for s, e in vic_room),
         "kept_lines": kept,
         "dead_lines": dead,
     }
@@ -506,44 +578,90 @@ def build(args: argparse.Namespace) -> int:
         wanted, unused, new_slots, rare, args.max_sacrifice
     )
 
-    # Table: new codes after the last row's codes.
-    row_start = kanji.TABLE_OFFSET + last_row * kanji.TABLE_ROW_CODES * 2
-    for k, code in enumerate(new):
-        at = row_start + 2 * (last_row_used + k)
-        stg[at : at + 2] = code.to_bytes(2, "big")
+    changes: list[dict[str, object]] = []
+    vic = checked("VICTORY.BIN") if quotes else bytearray()
+
+    # Table: new codes after the last row's codes (and in VICTORY.BIN's copy).
+    targets: list[tuple[bytearray, int, str]] = [
+        (stg, kanji.TABLE_OFFSET, "STG0AS.BIN")
+    ]
+    if quotes:
+        targets.append((vic, VICTORY_TABLE_OFFSET, "VICTORY.BIN"))
+    for target_file, offset, name in targets:
+        row_start = offset + last_row * kanji.TABLE_ROW_CODES * 2
+        for k, code in enumerate(new):
+            at = row_start + 2 * (last_row_used + k)
+            target_file[at : at + 2] = code.to_bytes(2, "big")
+        if new:
+            first = row_start + 2 * last_row_used
+            changes.append(
+                {
+                    "file": name,
+                    "start": first,
+                    "end": first + 2 * len(new),
+                    "what": "table codes",
+                }
+            )
     table = kanji.read_code_table(bytes(stg))
     cells = kanji.decode(bytes(kan))
     for pair, code in codes.items():
         cells[table.index(code)] = pairs.render_pair(font, pair)
     kan[:] = kanji.encode(cells)
+    glyphs_changed = sorted(table.index(c) for c in codes.values())
 
-    # Rows and records.
-    all_rows = [row_bytes(r, codes) for b in boxes for r in b.rows]
-    offsets = iter(place(all_rows, [(r[0], r[1]) for r in room]))
-    data_rows = iter(all_rows)
+    # Rows and records: story in STG0AS.BIN, win quotes in VICTORY.BIN.
     prediction = []
     record_out = []
-    for b in boxes:
-        pointers = []
-        for _ in b.rows:
-            off, data = next(offsets), next(data_rows)
-            stg[off : off + len(data)] = data
-            pointers.append(BASE + off)
-        rec = u32(RECORDS + 4 * b.box)
-        entries = record_entries(pointers)
-        stg[rec - BASE + 8 : rec - BASE + 8 + 24] = entries + bytes(24 - len(entries))
-        drawn = [
-            cells[table.index(codes[p])]
-            for r in b.rows
-            for p in pairs.split_pairs(r)
-            if p != "  "
-        ]
-        prediction.append(
-            {"box": b.box, "cells": [hashlib.sha256(c).hexdigest() for c in drawn]}
-        )
-        en = english_records[b.slot]
-        record_out.append(
-            {
+    groups = [(boxes, stg, room, RECORDS, "STG0AS.BIN")]
+    if quotes:
+        groups.append((quotes, vic, vic_room, VICTORY_RECORDS, "VICTORY.BIN"))
+    group_rows: dict[str, list[bytes]] = {}
+    for group, data_file, group_room, records, name in groups:
+        all_rows = [row_bytes(r, codes) for b in group for r in b.rows]
+        group_rows[name] = all_rows
+        offsets = iter(place(all_rows, [(r[0], r[1]) for r in group_room]))
+        data_rows = iter(all_rows)
+        for b in group:
+            pointers = []
+            for _ in b.rows:
+                off, data = next(offsets), next(data_rows)
+                data_file[off : off + len(data)] = data
+                changes.append(
+                    {
+                        "file": name,
+                        "start": off,
+                        "end": off + len(data),
+                        "what": f"box {b.box} row",
+                    }
+                )
+                pointers.append(BASE + off)
+            rec = int.from_bytes(
+                data_file[records - BASE + 4 * b.box : records - BASE + 4 * b.box + 4],
+                "big",
+            )
+            entries = record_entries(pointers)
+            data_file[rec - BASE + 8 : rec - BASE + 8 + 24] = entries + bytes(
+                24 - len(entries)
+            )
+            changes.append(
+                {
+                    "file": name,
+                    "start": rec - BASE + 8,
+                    "end": rec - BASE + 32,
+                    "what": f"box {b.box} record",
+                }
+            )
+            drawn = [
+                cells[table.index(codes[p])]
+                for r in b.rows
+                for p in pairs.split_pairs(r)
+                if p != "  "
+            ]
+            prediction.append(
+                {"box": b.box, "cells": [hashlib.sha256(c).hexdigest() for c in drawn]}
+            )
+            en = english_records[b.slot]
+            out_entry: dict[str, object] = {
                 "box": b.box,
                 "slot": b.slot,
                 "saturn_lines": list(b.lines),
@@ -553,16 +671,23 @@ def build(args: argparse.Namespace) -> int:
                 "cells": len(drawn),
                 "row_addresses": [f"0x{p:08X}" for p in pointers],
             }
-        )
+            if name != "STG0AS.BIN":
+                out_entry["file"] = name
+            record_out.append(out_entry)
 
     out: Path = args.out
     out.mkdir(parents=True, exist_ok=False)
     (out / "STG0AS.BIN").write_bytes(stg)
     (out / "KANJI.BIN").write_bytes(kan)
+    if quotes:
+        (out / "VICTORY.BIN").write_bytes(vic)
+    (out / "changes.json").write_text(
+        json.dumps({"ranges": changes, "kanji_glyphs": glyphs_changed}, indent=1) + "\n"
+    )
     (out / "prediction.json").write_text(json.dumps(prediction, indent=1) + "\n")
-    summary = {
+    summary: dict[str, object] = {
         "boxes": len(boxes),
-        "rows": len(all_rows),
+        "rows": len(group_rows["STG0AS.BIN"]),
         "pairs": len(wanted),
         "unused_codes_used": min(len(wanted), len(unused)),
         "new_codes": len(new),
@@ -571,9 +696,13 @@ def build(args: argparse.Namespace) -> int:
             for c in sacrificed
         ],
         "kept_lines": kept,
-        "text_bytes": sum(len(r) for r in all_rows),
+        "text_bytes": sum(len(r) for r in group_rows["STG0AS.BIN"]),
         "room_bytes": sum(e - s for s, e in room),
     }
+    if quotes:
+        summary["quote_boxes"] = len(quotes)
+        summary["quote_text_bytes"] = sum(len(r) for r in group_rows["VICTORY.BIN"])
+        summary["quote_room_bytes"] = sum(e - s for s, e in vic_room)
     record_paths: list[Path | None] = [None] * len(specs)
     if args.record:
         record_paths[0] = args.record
@@ -584,8 +713,10 @@ def build(args: argparse.Namespace) -> int:
     for index, path in enumerate(record_paths):
         if path is None:
             continue
-        mine = [r for r in record_out if pilot_of_box[int(r["box"])] == index]  # type: ignore[call-overload]
-        my_pairs = wanted_pairs([b for b in boxes if pilot_of_box[b.box] == index])
+        mine = [r for r in record_out if pilot_of_box[int(str(r["box"]))] == index]
+        my_pairs = wanted_pairs(
+            [b for b in boxes + quotes if pilot_of_box[b.box] == index]
+        )
         my_codes = {p: codes[p] for p in my_pairs} if len(specs) > 1 else codes
         path.write_text(
             json.dumps(
@@ -631,6 +762,11 @@ def build(args: argparse.Namespace) -> int:
             "KANJI.BIN;1",
             "--data",
             str(out / "KANJI.BIN"),
+            *(
+                ["--file", "VICTORY.BIN;1", "--data", str(out / "VICTORY.BIN")]
+                if quotes
+                else []
+            ),
             "--out-dir",
             str(out / "image"),
         ]
@@ -639,7 +775,13 @@ def build(args: argparse.Namespace) -> int:
 
 def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
-    parser.add_argument("--pairing", type=Path, action="append", required=True)
+    parser.add_argument("--pairing", type=Path, action="append", default=[])
+    parser.add_argument(
+        "--roster",
+        type=Path,
+        help="build every pilot of a roster file (data/text/m5_roster.json)",
+    )
+    parser.add_argument("--quotes", type=Path, help="win-quote pairing (D-030)")
     parser.add_argument("--font", type=Path, required=True)
     parser.add_argument("--driver", type=Path, required=True)
     parser.add_argument("--rompath", type=Path, required=True)
@@ -660,7 +802,12 @@ def main(argv: Sequence[str] | None = None) -> int:
         action="store_true",
         help="indent rows by half a cell where it saves pairs (CAP-001)",
     )
-    return build(parser.parse_args(argv))
+    args = parser.parse_args(argv)
+    if args.roster:
+        args.pairing, args.quotes = roster_inputs(args.roster)
+    if not args.pairing:
+        parser.error("--pairing or --roster is required")
+    return build(args)
 
 
 if __name__ == "__main__":

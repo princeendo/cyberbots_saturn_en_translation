@@ -1,5 +1,5 @@
 {
- "task": "RE-007",
+ "task": "RE-008",
  "policy": "official US arcade English, as paired (D-022), unchanged; pair glyphs (D-024)",
  "sources": {
   "program_sha256": "18e8827dc742f4fef577aac8c06ae05dfb54ddad60a589238ac610f07b4152fd",
@@ -343,32 +343,505 @@
   "332": "0xF056",
   "333": "0xF057",
   "334": "0xF058",
-  "335": "0x8264",
-  "336": "0x8271",
-  "337": "0x8278",
-  "338": "0x82A1",
-  "339": "0x8344",
-  "340": "0x88C0",
-  "341": "0x88C4",
-  "342": "0x88D0",
-  "343": "0x88D5",
-  "344": "0x88DB",
-  "345": "0x895F",
-  "346": "0x8969",
-  "347": "0x8970",
-  "348": "0x897E",
-  "349": "0x8980",
-  "350": "0x8998",
-  "351": "0x89C9",
-  "352": "0x89D2"
+  "335": "0x82A1",
+  "336": "0x8344",
+  "337": "0x88D0",
+  "338": "0x89C9",
+  "339": "0x89F7",
+  "340": "0x8A88",
+  "341": "0x8AB7",
+  "342": "0x8AFC",
+  "343": "0x8B7A",
+  "344": "0x8C9A",
+  "345": "0x8CA3"
  },
  "summary": {
-  "boxes": 127,
-  "rows": 260,
-  "pairs": 408,
+  "boxes": 404,
+  "rows": 851,
+  "pairs": 487,
   "unused_codes_used": 310,
   "new_codes": 25,
   "sacrificed": [
+   {
+    "code": "0x82A1",
+    "glyph": 61,
+    "lines": 3
+   },
+   {
+    "code": "0x8344",
+    "glyph": 143,
+    "lines": 3
+   },
+   {
+    "code": "0x88D0",
+    "glyph": 232,
+    "lines": 3
+   },
+   {
+    "code": "0x89C9",
+    "glyph": 286,
+    "lines": 3
+   },
+   {
+    "code": "0x89F7",
+    "glyph": 306,
+    "lines": 3
+   },
+   {
+    "code": "0x8A88",
+    "glyph": 331,
+    "lines": 3
+   },
+   {
+    "code": "0x8AB7",
+    "glyph": 340,
+    "lines": 3
+   },
+   {
+    "code": "0x8AFC",
+    "glyph": 368,
+    "lines": 3
+   },
+   {
+    "code": "0x8B7A",
+    "glyph": 392,
+    "lines": 3
+   },
+   {
+    "code": "0x8BB6",
+    "glyph": 415,
+    "lines": 3
+   },
+   {
+    "code": "0x8BC1",
+    "glyph": 420,
+    "lines": 3
+   },
+   {
+    "code": "0x8BCA",
+    "glyph": 425,
+    "lines": 3
+   },
+   {
+    "code": "0x8BD9",
+    "glyph": 428,
+    "lines": 3
+   },
+   {
+    "code": "0x8C8A",
+    "glyph": 462,
+    "lines": 3
+   },
+   {
+    "code": "0x8CA0",
+    "glyph": 473,
+    "lines": 3
+   },
+   {
+    "code": "0x8CC2",
+    "glyph": 487,
+    "lines": 3
+   },
+   {
+    "code": "0x8CF8",
+    "glyph": 507,
+    "lines": 3
+   },
+   {
+    "code": "0x8DCC",
+    "glyph": 546,
+    "lines": 3
+   },
+   {
+    "code": "0x8DD3",
+    "glyph": 548,
+    "lines": 3
+   },
+   {
+    "code": "0x8E70",
+    "glyph": 578,
+    "lines": 3
+   },
+   {
+    "code": "0x8E8E",
+    "glyph": 591,
+    "lines": 3
+   },
+   {
+    "code": "0x8EA1",
+    "glyph": 601,
+    "lines": 3
+   },
+   {
+    "code": "0x8EEA",
+    "glyph": 629,
+    "lines": 3
+   },
+   {
+    "code": "0x8EED",
+    "glyph": 630,
+    "lines": 3
+   },
+   {
+    "code": "0x8F45",
+    "glyph": 639,
+    "lines": 3
+   },
+   {
+    "code": "0x8F50",
+    "glyph": 645,
+    "lines": 3
+   },
+   {
+    "code": "0x8F5F",
+    "glyph": 651,
+    "lines": 3
+   },
+   {
+    "code": "0x8F6C",
+    "glyph": 657,
+    "lines": 3
+   },
+   {
+    "code": "0x8FA4",
+    "glyph": 677,
+    "lines": 3
+   },
+   {
+    "code": "0x8FC5",
+    "glyph": 686,
+    "lines": 3
+   },
+   {
+    "code": "0x8FCC",
+    "glyph": 687,
+    "lines": 3
+   },
+   {
+    "code": "0x9051",
+    "glyph": 710,
+    "lines": 3
+   },
+   {
+    "code": "0x9058",
+    "glyph": 713,
+    "lines": 3
+   },
+   {
+    "code": "0x9177",
+    "glyph": 783,
+    "lines": 3
+   },
+   {
+    "code": "0x92E3",
+    "glyph": 884,
+    "lines": 3
+   },
+   {
+    "code": "0x9379",
+    "glyph": 909,
+    "lines": 3
+   },
+   {
+    "code": "0x9399",
+    "glyph": 919,
+    "lines": 3
+   },
+   {
+    "code": "0x93BE",
+    "glyph": 933,
+    "lines": 3
+   },
+   {
+    "code": "0x93CD",
+    "glyph": 938,
+    "lines": 3
+   },
+   {
+    "code": "0x944F",
+    "glyph": 952,
+    "lines": 3
+   },
+   {
+    "code": "0x9470",
+    "glyph": 962,
+    "lines": 3
+   },
+   {
+    "code": "0x9497",
+    "glyph": 970,
+    "lines": 3
+   },
+   {
+    "code": "0x94AF",
+    "glyph": 975,
+    "lines": 3
+   },
+   {
+    "code": "0x94B1",
+    "glyph": 976,
+    "lines": 3
+   },
+   {
+    "code": "0x94BB",
+    "glyph": 979,
+    "lines": 3
+   },
+   {
+    "code": "0x94D4",
+    "glyph": 985,
+    "lines": 3
+   },
+   {
+    "code": "0x959B",
+    "glyph": 1025,
+    "lines": 3
+   },
+   {
+    "code": "0x959D",
+    "glyph": 1027,
+    "lines": 3
+   },
+   {
+    "code": "0x95D3",
+    "glyph": 1044,
+    "lines": 3
+   },
+   {
+    "code": "0x9656",
+    "glyph": 1064,
+    "lines": 3
+   },
+   {
+    "code": "0x965F",
+    "glyph": 1070,
+    "lines": 3
+   },
+   {
+    "code": "0x9684",
+    "glyph": 1077,
+    "lines": 3
+   },
+   {
+    "code": "0x9688",
+    "glyph": 1080,
+    "lines": 3
+   },
+   {
+    "code": "0x9745",
+    "glyph": 1119,
+    "lines": 3
+   },
+   {
+    "code": "0x9756",
+    "glyph": 1125,
+    "lines": 3
+   },
+   {
+    "code": "0x975E",
+    "glyph": 1130,
+    "lines": 3
+   },
+   {
+    "code": "0x9785",
+    "glyph": 1146,
+    "lines": 3
+   },
+   {
+    "code": "0x978D",
+    "glyph": 1151,
+    "lines": 3
+   },
+   {
+    "code": "0x9180",
+    "glyph": 1219,
+    "lines": 3
+   },
+   {
+    "code": "0x88F6",
+    "glyph": 244,
+    "lines": 6
+   },
+   {
+    "code": "0x8993",
+    "glyph": 268,
+    "lines": 6
+   },
+   {
+    "code": "0x8AE9",
+    "glyph": 357,
+    "lines": 6
+   },
+   {
+    "code": "0x8B76",
+    "glyph": 390,
+    "lines": 6
+   },
+   {
+    "code": "0x8CB4",
+    "glyph": 481,
+    "lines": 6
+   },
+   {
+    "code": "0x8CEC",
+    "glyph": 503,
+    "lines": 6
+   },
+   {
+    "code": "0x8E77",
+    "glyph": 584,
+    "lines": 6
+   },
+   {
+    "code": "0x8ECD",
+    "glyph": 618,
+    "lines": 6
+   },
+   {
+    "code": "0x8F9D",
+    "glyph": 673,
+    "lines": 6
+   },
+   {
+    "code": "0x90B8",
+    "glyph": 741,
+    "lines": 6
+   },
+   {
+    "code": "0x915F",
+    "glyph": 776,
+    "lines": 6
+   },
+   {
+    "code": "0x91A9",
+    "glyph": 800,
+    "lines": 6
+   },
+   {
+    "code": "0x9278",
+    "glyph": 859,
+    "lines": 6
+   },
+   {
+    "code": "0x935F",
+    "glyph": 898,
+    "lines": 6
+   },
+   {
+    "code": "0x936E",
+    "glyph": 904,
+    "lines": 6
+   },
+   {
+    "code": "0x9467",
+    "glyph": 958,
+    "lines": 6
+   },
+   {
+    "code": "0x94F1",
+    "glyph": 994,
+    "lines": 6
+   },
+   {
+    "code": "0x957C",
+    "glyph": 1015,
+    "lines": 6
+   },
+   {
+    "code": "0x9590",
+    "glyph": 1021,
+    "lines": 6
+   },
+   {
+    "code": "0x95DB",
+    "glyph": 1047,
+    "lines": 6
+   },
+   {
+    "code": "0x9643",
+    "glyph": 1060,
+    "lines": 6
+   },
+   {
+    "code": "0x96D9",
+    "glyph": 1103,
+    "lines": 6
+   },
+   {
+    "code": "0x96F1",
+    "glyph": 1113,
+    "lines": 6
+   },
+   {
+    "code": "0x9765",
+    "glyph": 1133,
+    "lines": 6
+   },
+   {
+    "code": "0x8193",
+    "glyph": 21,
+    "lines": 9
+   },
+   {
+    "code": "0x8AE8",
+    "glyph": 356,
+    "lines": 9
+   },
+   {
+    "code": "0x8DEC",
+    "glyph": 554,
+    "lines": 9
+   },
+   {
+    "code": "0x919D",
+    "glyph": 796,
+    "lines": 9
+   },
+   {
+    "code": "0x91D1",
+    "glyph": 819,
+    "lines": 9
+   },
+   {
+    "code": "0x9484",
+    "glyph": 967,
+    "lines": 9
+   },
+   {
+    "code": "0x9640",
+    "glyph": 1059,
+    "lines": 9
+   },
+   {
+    "code": "0x9752",
+    "glyph": 1122,
+    "lines": 9
+   },
+   {
+    "code": "0x917B",
+    "glyph": 785,
+    "lines": 12
+   },
+   {
+    "code": "0x97B8",
+    "glyph": 1166,
+    "lines": 12
+   },
+   {
+    "code": "0x94FC",
+    "glyph": 999,
+    "lines": 15
+   },
+   {
+    "code": "0x96C5",
+    "glyph": 1099,
+    "lines": 15
+   },
+   {
+    "code": "0x8CCC",
+    "glyph": 491,
+    "lines": 18
+   },
    {
     "code": "0x8264",
     "glyph": 37,
@@ -385,16 +858,6 @@
     "lines": 3
    },
    {
-    "code": "0x82A1",
-    "glyph": 61,
-    "lines": 3
-   },
-   {
-    "code": "0x8344",
-    "glyph": 143,
-    "lines": 3
-   },
-   {
     "code": "0x88C0",
     "glyph": 225,
     "lines": 3
@@ -402,11 +865,6 @@
    {
     "code": "0x88C4",
     "glyph": 227,
-    "lines": 3
-   },
-   {
-    "code": "0x88D0",
-    "glyph": 232,
     "lines": 3
    },
    {
@@ -450,11 +908,6 @@
     "lines": 3
    },
    {
-    "code": "0x89C9",
-    "glyph": 286,
-    "lines": 3
-   },
-   {
     "code": "0x89D2",
     "glyph": 291,
     "lines": 3
@@ -472,11 +925,6 @@
    {
     "code": "0x89F6",
     "glyph": 305,
-    "lines": 3
-   },
-   {
-    "code": "0x89F7",
-    "glyph": 306,
     "lines": 3
    },
    {
@@ -525,18 +973,8 @@
     "lines": 3
    },
    {
-    "code": "0x8A88",
-    "glyph": 331,
-    "lines": 3
-   },
-   {
     "code": "0x8AA5",
     "glyph": 334,
-    "lines": 3
-   },
-   {
-    "code": "0x8AB7",
-    "glyph": 340,
     "lines": 3
    },
    {
@@ -560,11 +998,6 @@
     "lines": 3
    },
    {
-    "code": "0x8AFC",
-    "glyph": 368,
-    "lines": 3
-   },
-   {
     "code": "0x8B5B",
     "glyph": 381,
     "lines": 3
@@ -572,11 +1005,6 @@
    {
     "code": "0x8B78",
     "glyph": 391,
-    "lines": 3
-   },
-   {
-    "code": "0x8B7A",
-    "glyph": 392,
     "lines": 3
    },
    {
@@ -595,11 +1023,6 @@
     "lines": 3
    },
    {
-    "code": "0x8BB6",
-    "glyph": 415,
-    "lines": 3
-   },
-   {
     "code": "0x8BB9",
     "glyph": 416,
     "lines": 3
@@ -612,11 +1035,6 @@
    {
     "code": "0x8BBE",
     "glyph": 419,
-    "lines": 3
-   },
-   {
-    "code": "0x8BC1",
-    "glyph": 420,
     "lines": 3
    },
    {
@@ -635,18 +1053,8 @@
     "lines": 3
    },
    {
-    "code": "0x8BCA",
-    "glyph": 425,
-    "lines": 3
-   },
-   {
     "code": "0x8BD8",
     "glyph": 427,
-    "lines": 3
-   },
-   {
-    "code": "0x8BD9",
-    "glyph": 428,
     "lines": 3
    },
    {
@@ -680,11 +1088,6 @@
     "lines": 3
    },
    {
-    "code": "0x8C8A",
-    "glyph": 462,
-    "lines": 3
-   },
-   {
     "code": "0x8C93",
     "glyph": 466,
     "lines": 3
@@ -695,11 +1098,6 @@
     "lines": 3
    },
    {
-    "code": "0x8CA0",
-    "glyph": 473,
-    "lines": 3
-   },
-   {
     "code": "0x8CA3",
     "glyph": 475,
     "lines": 3
@@ -707,11 +1105,6 @@
    {
     "code": "0x8CC0",
     "glyph": 486,
-    "lines": 3
-   },
-   {
-    "code": "0x8CC2",
-    "glyph": 487,
     "lines": 3
    },
    {
@@ -728,20 +1121,18 @@
     "code": "0x8CF3",
     "glyph": 504,
     "lines": 3
-   },
-   {
-    "code": "0x8CF7",
-    "glyph": 506,
-    "lines": 3
    }
   ],
   "kept_lines": [
-   57,
-   75,
-   144
+   562,
+   584,
+   661
   ],
-  "text_bytes": 7316,
-  "room_bytes": 8088
+  "text_bytes": 23904,
+  "room_bytes": 25272,
+  "quote_boxes": 46,
+  "quote_text_bytes": 1324,
+  "quote_room_bytes": 22464
  },
  "boxes": [
   {
@@ -788,7 +1179,7 @@
    "english_record": "0x0B3E20",
    "english_sha256": "e6470837e1553da8c6239658140de47b86150824103f5394db7a840292b36d5f",
    "rows": 3,
-   "cells": 42,
+   "cells": 41,
    "row_addresses": [
     "0x0606F0C8",
     "0x0606F0EC",
@@ -930,7 +1321,7 @@
    "english_record": "0x0B402C",
    "english_sha256": "073125647cf546888a2cdacdc056453ced25eed2155b3f737b68d00781940b03",
    "rows": 2,
-   "cells": 22,
+   "cells": 24,
    "row_addresses": [
     "0x0606F2AC",
     "0x0606F2CC"
@@ -945,7 +1336,7 @@
    "english_record": "0x0B4064",
    "english_sha256": "e6b7f2f3be77d29e55e6236129fa4f201835d054088dd36a505a18d41dbcf983",
    "rows": 3,
-   "cells": 46,
+   "cells": 45,
    "row_addresses": [
     "0x0606F2E0",
     "0x0606F300",
@@ -1143,8 +1534,8 @@
    "cells": 45,
    "row_addresses": [
     "0x0606F674",
-    "0x0606F6B4",
-    "0x0606F6D8"
+    "0x0606F694",
+    "0x0606F6B8"
    ]
   },
   {
@@ -1158,9 +1549,9 @@
    "rows": 3,
    "cells": 45,
    "row_addresses": [
+    "0x0606F6D8",
     "0x0606F6F8",
-    "0x0606F718",
-    "0x0606F73C"
+    "0x0606F71C"
    ]
   },
   {
@@ -1175,8 +1566,8 @@
    "rows": 2,
    "cells": 20,
    "row_addresses": [
-    "0x0606F75C",
-    "0x0606F694"
+    "0x0606F73C",
+    "0x0606F75C"
    ]
   },
   {
@@ -1191,8 +1582,8 @@
    "rows": 2,
    "cells": 25,
    "row_addresses": [
-    "0x0606F77C",
-    "0x0606F79C"
+    "0x0606F768",
+    "0x0606F78C"
    ]
   },
   {
@@ -1207,9 +1598,9 @@
    "rows": 3,
    "cells": 44,
    "row_addresses": [
-    "0x0606F7B4",
-    "0x0606F7D8",
-    "0x0606F7F8"
+    "0x0606F7A4",
+    "0x0606F7C8",
+    "0x0606F7E8"
    ]
   },
   {
@@ -1223,7 +1614,7 @@
    "rows": 1,
    "cells": 8,
    "row_addresses": [
-    "0x0606F818"
+    "0x0606F808"
    ]
   },
   {
@@ -1239,8 +1630,8 @@
    "rows": 2,
    "cells": 18,
    "row_addresses": [
-    "0x0606F82C",
-    "0x0606F84C"
+    "0x0606F81C",
+    "0x0606F83C"
    ]
   },
   {
@@ -1253,9 +1644,9 @@
    "english_record": "0x0B45EA",
    "english_sha256": "256a4f9be281923f15c7583f2d0ef66c555ce0743f937876c48a65e7deec4ab9",
    "rows": 1,
-   "cells": 14,
+   "cells": 16,
    "row_addresses": [
-    "0x0606F858"
+    "0x0606F848"
    ]
   },
   {
@@ -1270,8 +1661,8 @@
    "rows": 2,
    "cells": 31,
    "row_addresses": [
-    "0x0606F8AC",
-    "0x0606F8D0"
+    "0x0606F86C",
+    "0x0606F890"
    ]
   },
   {
@@ -1286,8 +1677,8 @@
    "rows": 2,
    "cells": 27,
    "row_addresses": [
-    "0x0606F8F0",
-    "0x0606F910"
+    "0x0606F8B0",
+    "0x0606F8D0"
    ]
   },
   {
@@ -1303,9 +1694,9 @@
    "rows": 3,
    "cells": 46,
    "row_addresses": [
-    "0x0606F930",
-    "0x0606F950",
-    "0x0606F974"
+    "0x0606F8F0",
+    "0x0606F910",
+    "0x0606F934"
    ]
   },
   {
@@ -1320,9 +1711,9 @@
    "rows": 3,
    "cells": 40,
    "row_addresses": [
-    "0x0606F998",
-    "0x0606F9BC",
-    "0x0606F878"
+    "0x0606F958",
+    "0x0606F97C",
+    "0x0606F99C"
    ]
   },
   {
@@ -1337,8 +1728,8 @@
    "rows": 2,
    "cells": 27,
    "row_addresses": [
-    "0x0606F9DC",
-    "0x0606F9FC"
+    "0x0606F9B0",
+    "0x0606F9D0"
    ]
   },
   {
@@ -1354,8 +1745,8 @@
    "rows": 2,
    "cells": 27,
    "row_addresses": [
-    "0x0606FA18",
-    "0x0606FA38"
+    "0x0606F9EC",
+    "0x0606FA0C"
    ]
   },
   {
@@ -1371,8 +1762,8 @@
    "rows": 2,
    "cells": 25,
    "row_addresses": [
-    "0x0606FA54",
-    "0x0606FA74"
+    "0x0606FA28",
+    "0x0606FA48"
    ]
   },
   {
@@ -1386,7 +1777,7 @@
    "rows": 1,
    "cells": 7,
    "row_addresses": [
-    "0x0606FA8C"
+    "0x0606FA60"
    ]
   },
   {
@@ -1399,11 +1790,11 @@
    "english_record": "0x0B483E",
    "english_sha256": "3fc5fb834bdae3827208dcb472b286462570697c6c9d413867dbf76f9578524d",
    "rows": 3,
-   "cells": 34,
+   "cells": 35,
    "row_addresses": [
-    "0x0606FA9C",
-    "0x0606FAB8",
-    "0x0606FAD8"
+    "0x0606FA70",
+    "0x0606FA8C",
+    "0x0606FAAC"
    ]
   },
   {
@@ -1418,8 +1809,8 @@
    "rows": 2,
    "cells": 21,
    "row_addresses": [
-    "0x0606FAEC",
-    "0x0606FB0C"
+    "0x0606FAC0",
+    "0x0606FAE0"
    ]
   },
   {
@@ -1431,9 +1822,9 @@
    "english_record": "0x0B48C2",
    "english_sha256": "a69976c67da02517e2396978ead6bf7fb685e598b6f99364ffd2f7f28d2a0921",
    "rows": 1,
-   "cells": 9,
+   "cells": 11,
    "row_addresses": [
-    "0x0606FB1C"
+    "0x0606FAF0"
    ]
   },
   {
@@ -1449,8 +1840,8 @@
    "rows": 2,
    "cells": 26,
    "row_addresses": [
-    "0x0606FB34",
-    "0x0606FB54"
+    "0x0606FB08",
+    "0x0606FB28"
    ]
   },
   {
@@ -1465,9 +1856,9 @@
    "rows": 3,
    "cells": 40,
    "row_addresses": [
-    "0x0606FB70",
-    "0x0606FB94",
-    "0x0606FBB8"
+    "0x0606FB44",
+    "0x0606FB68",
+    "0x0606FB8C"
    ]
   },
   {
@@ -1482,9 +1873,9 @@
    "rows": 3,
    "cells": 42,
    "row_addresses": [
-    "0x0606FBCC",
-    "0x0606FBE8",
-    "0x0606FC08"
+    "0x0606FBA0",
+    "0x0606FBBC",
+    "0x0606FBDC"
    ]
   },
   {
@@ -1498,8 +1889,8 @@
    "rows": 2,
    "cells": 18,
    "row_addresses": [
-    "0x0606FC28",
-    "0x0606FC48"
+    "0x0606FC00",
+    "0x0606FC20"
    ]
   },
   {
@@ -1514,7 +1905,7 @@
    "rows": 1,
    "cells": 3,
    "row_addresses": [
-    "0x0606FC50"
+    "0x0606FC28"
    ]
   },
   {
@@ -1529,7 +1920,7 @@
    "rows": 1,
    "cells": 13,
    "row_addresses": [
-    "0x0606FC58"
+    "0x0606FC30"
    ]
   },
   {
@@ -1544,8 +1935,8 @@
    "rows": 2,
    "cells": 28,
    "row_addresses": [
-    "0x0606FC74",
-    "0x0606FC98"
+    "0x0606FC4C",
+    "0x0606FC70"
    ]
   },
   {
@@ -1560,7 +1951,7 @@
    "rows": 1,
    "cells": 9,
    "row_addresses": [
-    "0x0606FCB4"
+    "0x0606FC8C"
    ]
   },
   {
@@ -1575,8 +1966,8 @@
    "rows": 2,
    "cells": 26,
    "row_addresses": [
-    "0x0606FCC8",
-    "0x0606FCEC"
+    "0x0606FCA0",
+    "0x0606FCC4"
    ]
   },
   {
@@ -1590,8 +1981,8 @@
    "rows": 2,
    "cells": 18,
    "row_addresses": [
-    "0x0606FD04",
-    "0x0606FD28"
+    "0x0606FCDC",
+    "0x0606FD00"
    ]
   },
   {
@@ -1606,9 +1997,9 @@
    "rows": 3,
    "cells": 46,
    "row_addresses": [
-    "0x0606FD30",
-    "0x0606FD50",
-    "0x0606FD74"
+    "0x0606FD08",
+    "0x0606FD28",
+    "0x0606FD4C"
    ]
   },
   {
@@ -1623,9 +2014,9 @@
    "rows": 3,
    "cells": 46,
    "row_addresses": [
-    "0x0606FD98",
-    "0x0606FDBC",
-    "0x0606FDE0"
+    "0x0606FD70",
+    "0x0606FD94",
+    "0x0606FDB8"
    ]
   },
   {
@@ -1640,9 +2031,9 @@
    "rows": 3,
    "cells": 38,
    "row_addresses": [
-    "0x0606FE00",
-    "0x0606FE20",
-    "0x0606FE40"
+    "0x0606FDD8",
+    "0x0606FDF8",
+    "0x0606FE18"
    ]
   },
   {
@@ -1657,8 +2048,8 @@
    "rows": 2,
    "cells": 20,
    "row_addresses": [
-    "0x0606FE54",
-    "0x0606FE74"
+    "0x0606FE2C",
+    "0x0606FE4C"
    ]
   },
   {
@@ -1674,9 +2065,9 @@
    "rows": 3,
    "cells": 34,
    "row_addresses": [
-    "0x0606FE84",
-    "0x0606FEA8",
-    "0x0606FEC8"
+    "0x0606FE5C",
+    "0x0606FE80",
+    "0x0606FEA0"
    ]
   },
   {
@@ -1691,8 +2082,8 @@
    "rows": 2,
    "cells": 28,
    "row_addresses": [
-    "0x0606FED4",
-    "0x0606FEF0"
+    "0x0606FEAC",
+    "0x0606FEC8"
    ]
   },
   {
@@ -1706,7 +2097,7 @@
    "rows": 1,
    "cells": 15,
    "row_addresses": [
-    "0x0606FF14"
+    "0x0606FEEC"
    ]
   },
   {
@@ -1721,9 +2112,9 @@
    "rows": 3,
    "cells": 40,
    "row_addresses": [
-    "0x0606FF38",
-    "0x0606FF5C",
-    "0x0606FF7C"
+    "0x0606FF10",
+    "0x0606FF34",
+    "0x0606FF54"
    ]
   },
   {
@@ -1737,7 +2128,7 @@
    "rows": 1,
    "cells": 10,
    "row_addresses": [
-    "0x0606FF94"
+    "0x0606FF6C"
    ]
   },
   {
@@ -1750,12 +2141,117 @@
    "english_record": "0x0B4D9E",
    "english_sha256": "2101c8087a111ec6e475d3bdf285ac08075c351eeab97f303484e8ad81a67b73",
    "rows": 3,
-   "cells": 37,
+   "cells": 38,
    "row_addresses": [
-    "0x0606FFAC",
-    "0x0606FFD0",
-    "0x0606FFF4"
+    "0x0606FF84",
+    "0x0606FFA8",
+    "0x0606FFCC"
    ]
+  },
+  {
+   "box": 554,
+   "slot": 554,
+   "saturn_lines": [
+    955
+   ],
+   "english_record": "0x0BB52E",
+   "english_sha256": "f3a74a5c62f1c1ddc2922ba87b9ea50590609eed6769843c4a760dbd6713f3d9",
+   "rows": 1,
+   "cells": 11,
+   "row_addresses": [
+    "0x06061CE8"
+   ],
+   "file": "VICTORY.BIN"
+  },
+  {
+   "box": 556,
+   "slot": 556,
+   "saturn_lines": [
+    957
+   ],
+   "english_record": "0x0BB54E",
+   "english_sha256": "5160856a08cd24efa3a3efb37443511f732e00e30a0c2bc037675e70ff152e58",
+   "rows": 1,
+   "cells": 12,
+   "row_addresses": [
+    "0x06061D00"
+   ],
+   "file": "VICTORY.BIN"
+  },
+  {
+   "box": 557,
+   "slot": 557,
+   "saturn_lines": [
+    958
+   ],
+   "english_record": "0x0BB570",
+   "english_sha256": "aa29d0aaa00008e3c48fea9054862acef625d536f16fc770db3288541ba5a717",
+   "rows": 1,
+   "cells": 12,
+   "row_addresses": [
+    "0x06061D1C"
+   ],
+   "file": "VICTORY.BIN"
+  },
+  {
+   "box": 558,
+   "slot": 558,
+   "saturn_lines": [
+    959
+   ],
+   "english_record": "0x0BB570",
+   "english_sha256": "aa29d0aaa00008e3c48fea9054862acef625d536f16fc770db3288541ba5a717",
+   "rows": 1,
+   "cells": 12,
+   "row_addresses": [
+    "0x06061D38"
+   ],
+   "file": "VICTORY.BIN"
+  },
+  {
+   "box": 559,
+   "slot": 559,
+   "saturn_lines": [
+    960
+   ],
+   "english_record": "0x0BB590",
+   "english_sha256": "dd5eb8ecfdb768bb34e3a221af99687c0babeec1b21dccf5067799b2e3bfda2b",
+   "rows": 1,
+   "cells": 11,
+   "row_addresses": [
+    "0x06061D54"
+   ],
+   "file": "VICTORY.BIN"
+  },
+  {
+   "box": 560,
+   "slot": 560,
+   "saturn_lines": [
+    961
+   ],
+   "english_record": "0x0BB590",
+   "english_sha256": "dd5eb8ecfdb768bb34e3a221af99687c0babeec1b21dccf5067799b2e3bfda2b",
+   "rows": 1,
+   "cells": 11,
+   "row_addresses": [
+    "0x06061D6C"
+   ],
+   "file": "VICTORY.BIN"
+  },
+  {
+   "box": 599,
+   "slot": 599,
+   "saturn_lines": [
+    1004
+   ],
+   "english_record": "0x0BB54E",
+   "english_sha256": "5160856a08cd24efa3a3efb37443511f732e00e30a0c2bc037675e70ff152e58",
+   "rows": 1,
+   "cells": 12,
+   "row_addresses": [
+    "0x060621FC"
+   ],
+   "file": "VICTORY.BIN"
   }
  ]
 }

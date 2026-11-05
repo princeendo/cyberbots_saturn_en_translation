@@ -1670,3 +1670,41 @@ arcade English, no new translations, up to 160 sacrificed codes with
 Next action: `RE-008` (the roster image), which needs cold boots with the
 user present.
 
+## 2026-11-04 — EXP-0036: M5, the roster image (RE-008)
+
+Action: extended `dialogue.py` (`--roster`, `--quotes`, `VICTORY.BIN`,
+`changes.json`); built the roster image twice; untouched-byte, sector and
+source checks; forced all 114 story scenes on the built image (unattended,
+12:24-14:22) and controls on the original; a Saturn-only scene; one versus
+cold boot (all quotes forced from its selector state); a cold boot per
+roster pilot with no keys during fights (14:45-16:53, the user present;
+"Yes, at ~14:30 (Recommended)", "Yes, rerun both (Recommended)").
+
+Result:
+- 487 pairs, 152 codes, 51 lines touched; two builds identical; every
+  changed byte accounted for; 102 changed sectors, all valid.
+- Forced: 404/404 story boxes (10,529 cells), 46/46 quotes (615 with box
+  1023); controls 0/905; list 6's box 896 shows its pair glyph as recorded.
+- Play: five pilots to stage 2 of their groups; Mary to her stage 1.
+- The old references still reproduce byte for byte.
+
+Failed or corrected along the way (do not retry):
+- `--steps 100` is too few for Jin's scene 9 (8 boxes); 160 shows box 40.
+- A `quote_boxes` field in every record changed the old builds' records; now
+  only quote builds write it, and the summary's row counts are the story's.
+- `play-santana` lost an A at machine select; `play_route.py` now presses A
+  again if no scene posts within 45 s (at most twice).
+- Mary's stage 19 is a cockpit stage (step 22): no input means game over.
+  The 20-minute cap had hidden this in the first run.
+
+Question, verbatim: "Five roster pilots reached stage 2 of their groups in cold boots with their English boxes shown. Mary reached only her stage 1 (twice): stage 19 is a cockpit stage, not a fight, and with no input it ends in GAME OVER, so the RAM win doesn't apply there. Her English showed in play in 5 scenes (stages 18-19), and every one of her 69 boxes passed the forced check. How should RE-008 close?"
+Answer, verbatim: "Accept, record why (Recommended)"
+
+Commands: `ruff format`, `ruff check`, `mypy tools/ tests/` and the new
+scripts (clean); `pytest -q`: 164 passed.
+
+Conclusion: **CONFIRMED**, D-033. M5 is reached.
+
+Next action: write up M6 (endings) when the user asks; nothing past M5
+starts before that.
+

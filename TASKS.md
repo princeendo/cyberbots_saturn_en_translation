@@ -190,6 +190,12 @@ names it for its method only.
   next (the user's GO).
 - **2026-11-04: `GATE-TRANSLATION` extended to the roster.** The user's
   words: "GO, cap 160 (Recommended)" and, for win quotes, "Shared official line (Recommended)". `RE-008` is `READY`.
+- **2026-11-04: M5 CONFIRMED** (`RE-008`, `EXP-0036`, D-033): one image
+  from the untouched source with all six roster pilots' story and versus win
+  quotes in official English; every box forced as predicted; cold boots to
+  stage 2 (Mary's stage 1, a cockpit stage, accepted by the user). Next: M6
+  (endings) needs its tasks written up first; `UI-004` (warnings) is in the
+  outline.
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -210,7 +216,7 @@ names it for its method only.
   use, font users, record size, free RAM), D-024 (pair glyphs work), D-025 (M3: Jin's story in
   English; fighter vitality), D-026 (pilot lists; stage groups), D-027 (Santana's pairing), D-028 (M4),
   D-029 (versus win quotes), D-030 (how a win quote is picked; box for
-  slot; US English per level), D-031 (block k is list k; routes), D-032 (lists 2-5 paired). The font's layout is not confirmed.
+  slot; US English per level), D-031 (block k is list k; routes), D-032 (lists 2-5 paired), D-033 (M5). The font's layout is not confirmed.
 
 ## Milestones
 
@@ -1192,7 +1198,7 @@ staying`; each pair of win quotes sharing a US record shows that record.
 
 ### RE-008 - Build the roster's story in English from the source image (M5)
 
-- **Status:** `READY`
+- **Status:** `DONE` (2026-11-04, `EXP-0036`)
 - **Milestone:** M5
 - **Dependencies:** RE-005, PAIR-003, WIN-002, CAP-001, the gate extension (all done).
 - **Blockers:** None.
@@ -1206,6 +1212,15 @@ staying`; each pair of win quotes sharing a US record shows that record.
   - **Japanese left:** a Saturn-only pilot's box and, if reachable, a `VICTORY.BIN` screen draw as the recorded trade-off says.
   - **Provenance:** `data/translations/<pilot>_story.json` per pilot and `data/regression/re008_roster.json`.
 - **Notes:** the gate allows up to 160 sacrificed codes (`--max-sacrifice 160`) with `--indent --rank staying`; more stops the build for the user. Win quotes go into `VICTORY.BIN` (its own line table, box records and code-table copy, D-030). The image commit pushes after the agent's cold-boot checks pass (user rule, 2026-11-02). Cold boots only with the user present.
+- **Results** (`EXP-0036`, D-033; `data/regression/re008_roster.json`):
+  - **Systematic:** `dialogue.py --roster data/text/m5_roster.json --indent --rank staying --max-sacrifice 160`; win quotes go into `VICTORY.BIN`. The old commands still reproduce `re003` and `re007`.
+  - **Build:** 152 codes sacrificed (160 approved); two builds identical; 102 changed sectors, all valid; sources unchanged; every changed byte accounted for (`changes.json`, `untouched.py`).
+  - **Live:** 404/404 story boxes, 10,529 cells, as predicted; controls 0 of 905.
+  - **Play:** stage 2 of their groups for Jin, Santana, Arieta, Gawaine, and Bao and Mao; Mary her stage 1. Her stage 19 is a cockpit stage that ends in game over without input. Asked: "Five roster pilots reached stage 2 of their groups in cold boots with their English boxes shown. Mary reached only her stage 1 (twice): stage 19 is a cockpit stage, not a fight, and with no input it ends in GAME OVER, so the RAM win doesn't apply there. Her English showed in play in 5 scenes (stages 18-19), and every one of her 69 boxes passed the forced check. How should RE-008 close?" The user's answer, verbatim: "Accept, record why (Recommended)".
+  - **Win quotes:** 46/46 forced, 615 cells; the cold boot's own pick shows in English.
+  - **Japanese left:** list 6's box 896 and quote box 1023 draw as the trade-off records.
+  - **Provenance:** `data/translations/<pilot>_story.json` for all six; `data/regression/re008_roster.json`.
+
 
 ## Later Milestones (outline only)
 

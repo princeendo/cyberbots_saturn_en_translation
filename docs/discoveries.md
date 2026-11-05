@@ -562,3 +562,25 @@ and 335 are in no scene.
 
 Reproduce: `research/experiments/EXP-0035/README.md`, "Procedure".
 
+## D-033: M5, the roster's story and win quotes in English from the source image (`RE-008`, `EXP-0036`)
+
+`tools/text/dialogue.py --roster data/text/m5_roster.json --indent --rank
+staying --max-sacrifice 160` builds, from the untouched source, one image
+with the six roster pilots' 404 story boxes (`STG0AS.BIN`) and 46 win-quote
+boxes (`VICTORY.BIN`: its own records, line room and code-table copy) in
+the official US arcade English: 487 pair glyphs, 152 sacrificed codes, 102
+changed sectors, all valid (Track 01 `2c8505df…`). Two builds are
+identical, and every changed byte lies in a range the compiler lists.
+
+- **Forced:** every story box of the 114 story scenes and every roster quote
+  box draws exactly its predicted cells (10,529 and 615); the original image
+  draws none (0 of 905).
+- **Play:** cold boots with menu keys only reach stage 2 of their groups for
+  Jin, Santana, Arieta, Gawaine, and Bao and Mao, and Mary's stage 1 (her
+  stage 19 is a cockpit stage that ends without input), with English boxes;
+  a versus win shows an English quote.
+- **Japanese left:** a Saturn-only box draws its sacrificed code's pair
+  glyph, as recorded.
+
+Reproduce: `research/experiments/EXP-0036/README.md`, "Procedure".
+

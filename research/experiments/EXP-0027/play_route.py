@@ -20,10 +20,14 @@ A debug harness; it never ships. It generalizes
   the scene task (``@0x0600800C`` + ``0x1F``), and saves a screenshot and the
   60 glyph cells.
 - **End:** 60 s after the stage byte reaches the pilot's first stage group
-  plus ``--until-stage``, or after 20
-  minutes. With ``--stop-after-posts N`` (EXP-0033) it ends once N scene
+  plus ``--until-stage``, or after ``--max-minutes`` (default 20). With
+  ``--stop-after-posts N`` (EXP-0033) it ends once N scene
   posts are logged, before any fight, so it presses no keys after the
-  machine select.
+  machine select. With ``--no-fight-keys`` (RE-008) it presses nothing during
+  fights either: each fight ends at time-out with the vitality held (the
+  user, 2026-11-03: no repeated key presses). If no scene is posted 45 s
+  after the machine select, it presses A again, at most twice (RE-008: a
+  press can be lost while a portrait loads).
 """
 
 from __future__ import annotations
@@ -55,6 +59,8 @@ def main() -> int:
     parser.add_argument("--stop-after-posts", type=int, default=0)
     parser.add_argument("--select-wait", type=float, default=6.0)
     parser.add_argument("--move-wait", type=float, default=1.0)
+    parser.add_argument("--no-fight-keys", action="store_true")
+    parser.add_argument("--max-minutes", type=float, default=20)
     args = parser.parse_args()
     out: Path = args.out
     if run("launch", str(args.cue), str(out)):
@@ -104,8 +110,9 @@ def main() -> int:
     reached: float | None = None
     base: int | None = None
     poll = 0
+    extra_a = 0
     with (out / "poll.jsonl").open("a") as log:
-        while time.time() - start < 1200:
+        while time.time() - start < 60 * args.max_minutes:
             poll += 1
             stage = agent.bus_read(STAGE, 2)
             task = int.from_bytes(agent.bus_read(0x0600800C, 4), "big")
@@ -122,12 +129,20 @@ def main() -> int:
                 "step": stage[1],
                 "task_pilot": pilot,
             }
+            if (
+                extra_a < 2
+                and time.time() - start > 45 * (extra_a + 1)
+                and not any("PC=0606DBEA" in e.upper() for e in agent.events())
+            ):  # a machine-select press lost while a portrait loads (RE-008)
+                extra_a += 1
+                key(out, "a")
             if stage[1] == 14:
                 foe = agent.bus_read(P2_VITALITY, 4)
                 if foe[0:2] == foe[2:4]:
                     agent.bus_write(P2_VITALITY, bytes(4))
                 agent.bus_write(P1_VITALITY, FULL.to_bytes(2, "big") * 2)
-                key(out, "a", "0.15")
+                if not args.no_fight_keys:
+                    key(out, "a", "0.15")
             run("shot", str(out), f"p{poll:04d}")
             (out / f"cells-{poll:04d}.bin").write_bytes(
                 agent.bus_read(0x060FE200, 60 * 0x80)

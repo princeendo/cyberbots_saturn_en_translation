@@ -1,0 +1,39 @@
+{
+ "task": "RE-008",
+ "experiment": "EXP-0036",
+ "rebuild": "./invenv.sh python -m tools.text.dialogue --roster data/text/m5_roster.json --indent --rank staying --max-sacrifice 160 --task RE-008 --font local/layout001/font/arcade_font.json --driver local/mame_src/cps2.cpp --rompath local/arcade --out build/re008/roster --record-dir data/translations",
+ "replacements": {
+  "STG0AS.BIN;1": "7909913bae972ce88c373c50444b18829bdeff2bc59c2a352ca46c9548d59273",
+  "KANJI.BIN;1": "31dabb9a3dba8924e54445c7c6b7413ed0db32044144b029b20436ce638dba72",
+  "VICTORY.BIN;1": "bf5fa1a6e916f26f9b4f3a32c33af8e89444d04c815328d42ad5787f22d4e96b"
+ },
+ "changed_sectors": 102,
+ "output_sha256": {
+  "Cyberbots - Fullmetal Madness (Japan) (2M) (Track 01).bin": "2c8505dfeb71a85665047d6fc71a78f2c7375b17df7b5d3b7f48c821b8f28528",
+  "Cyberbots - Fullmetal Madness (Japan) (2M).cue": "9f1248adc58b225fa55aa2960df36113212ff200c26917a8c40f22f2cb9c5f14"
+ },
+ "prediction_sha256": "a5835892187a1e310a5608f4adf0e5455b9233a4da427b051865e878f4eb308f",
+ "changes_sha256": "55334a29fc0490df54ee9b50bef5fd4c5d13f66b3a578e7ac75bf5a87e3b37ed",
+ "record_sha256": {
+  "jin_story.json": "22d753269f588160ff0a2adb88bc28cdcbdaeff88125dfa006f377d8a286149e",
+  "santana_story.json": "ffa3e8407e59ba8624efebfac6ef0a3f932475825c675dd10366903fcc1b7bdd",
+  "mary_story.json": "d50a16ea6646f88c39d8d2c90432ef73d1a5e9399228ab4098f0ab8bd38032f0",
+  "arieta_story.json": "4dc4f2201b47d2a81e3d86d301a136160995ae7a7fa150a647ba4d07d36bb81e",
+  "gawaine_story.json": "55611cddba7536756f632354f7a549b0fdd1d297602bed00cd2dc46aedb844db",
+  "baomao_story.json": "05f7a869887e5bf366b8c4c8cf69ac52d7a6ca097cfef94a01da0603ae90e860"
+ },
+ "sacrificed_codes": 152,
+ "pairs": 487,
+ "checks": {
+  "two_builds": "identical (files, Track 01, prediction, records)",
+  "untouched": "STG0AS 25,492 and VICTORY 1,438 bytes changed, all in changes.json; KANJI 487 cells, all assigned",
+  "sectors": "43,793 valid, 102 changed; source files unchanged",
+  "forced_story": "404/404 boxes, 10,529/10,529 cells (114 scenes; Jin scene 9 with 160 steps)",
+  "control": "original image, scene 9 of each pilot: 0 of 905 cells",
+  "forced_quotes": "46 roster quote boxes + Saturn-only 1023: 615/615 cells",
+  "versus_cold_boot": "natural pick box 599 shown in English",
+  "play": "Jin, Santana, Arieta, Gawaine, Bao and Mao to stage 2 of their groups; Mary to her stage 1 (cockpit stage 19 ends in game over without input; accepted by the user)",
+  "japanese_left": "list 6 scene 1: box 896 draws its sacrificed code's pair glyph as predicted",
+  "regression": "re003_jin and re007_jin_santana reproduced byte for byte with their own commands"
+ }
+}

@@ -23,7 +23,8 @@ A debug harness; it never ships. It sends no key presses (the user,
 - ``replay``: loads ``OUT/post.mcs`` and runs 400 frames with a log-mode
   breakpoint on ``VICTORY.BIN``'s box routine ``0x060615C8`` (R6 is the box,
   ``mov r14,r6`` at ``0x06061396``) and a screenshot every 25 frames
-  (``OUT/replay-NNNNN.png``). Adds the boxes to ``OUT/select.json``.
+  (``OUT/replay-NNNNN.png``) and the 60 glyph cells (``OUT/replay-cells-
+  NNNNN.bin``, RE-008). Adds the boxes to ``OUT/select.json``.
 - ``force``: for each BOX, loads ``OUT/post.mcs``, writes BOX over the box
   word of the chosen scene's script (list 9, ``0x0607DA00``; the scene is
   the quote table's entry R0 & 7 of row R8) while the task waits, and runs
@@ -55,6 +56,7 @@ TABLE = 0x0606FAA0  # 9 pilots x 8 (scene, byte)
 QUOTE_SCRIPTS = 0x0607DA00  # list 9's script pointers
 VICTORY = Path("local/extracted/saturn_jp/VICTORY.BIN")
 BASE = 0x06060000
+CELLS = 0x060FE200  # the 60 glyph cells of the box (D-020)
 FIELD = re.compile(r"(\w+)=([0-9A-Fa-f]+)")
 
 
@@ -69,6 +71,9 @@ def boxes_shown(agent: Agent, out: Path, prefix: str, frames: int) -> list[list[
         agent.frames(25)
         status = agent.wait_halted(60.0)
         agent.screenshot(out / f"{prefix}-{int(status['frame']):05d}.png")
+        (out / f"{prefix}-cells-{int(status['frame']):05d}.bin").write_bytes(
+            agent.bus_read(CELLS, 60 * 0x80)
+        )
         agent.run()
     found = []
     for line in agent.events():
