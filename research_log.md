@@ -2087,3 +2087,25 @@ Corrected along the way (do not retry):
 
 Commands: in each EXP README. `ruff check .`, `ruff format --check .`,
 `mypy tools tests`, `pytest -q`: see the closeout below.
+
+## 2026-11-05 — M8 tasks written up (Phase M)
+
+User request (verbatim): "Write up M8". Documentation only; no run.
+
+- Phase M in `TASKS.md`:
+  - `END-020`: survey the roster endings' surfaces, lists 1-5, forced
+    from the END-001 checkpoint and in headless MAME;
+  - `END-021`: pair lists 1-5 with a generalized `tools/text/ending_pairing.py`;
+  - `END-022`: capacity of all six endings together;
+  - the gate extension;
+  - `END-023`: the M8 image, coverage register and play check.
+- `END-011` (box timing) moves from `BACKLOG` to `READY` in M8's order:
+  `END-022` and `END-023` use its hold rule.
+- Facts gathered for the phase introduction, from `ending_posts.json` and
+  `ending_scripts.json`:
+  - 91 distinct roster boxes; 601, 605 and 1072 shared with lists 6-8;
+  - 604, 606 and 607 shared between roster lists;
+  - pairing cases to resolve: 608 ↔ 615 (list 5, scenes 18 and 28), 603
+    (list 1, scene 22), and the arcade-only scenes (Mary 17-18, Bao and
+    Mao 20).
+- `END-020` and `END-011` are `READY`; nothing started.

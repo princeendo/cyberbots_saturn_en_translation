@@ -235,6 +235,10 @@ names it for its method only.
   words: "GO (Recommended)" and, for the shared name boxes 605 and 601,
   "Share, English everywhere (Recommended)". `END-010` is `READY`.
 - **2026-11-05: M7 CONFIRMED** (`END-010`, `EXP-0042`-`EXP-0045`, D-039-D-042): one image from the untouched source with the M5 roster unchanged and Jin's ending in official English. All 18 units are drawn as predicted; the cast roll's Japanese names are hidden in every ending (the user: "Hide in every ending (Recommended)"); the QSound line is erased. The shared names show English in lists 3, 4 and 8. A cold boot plays in English. Three long boxes finish typing just before they close: the user chose "Accept now, follow-up task (Recommended)" (`END-011`, `BACKLOG`). Next: M8 (`END-020`) needs its tasks written up first.
+- **2026-11-05: M8 tasks written up** (Phase M, the user: "Write up M8"):
+  `END-020` (survey the roster endings) and `END-011` (box timing) are
+  `READY`; `END-021` (pairing), `END-022` (capacity), the gate extension
+  and `END-023` (the M8 image) follow. Nothing is started.
 - **2026-11-05: local data backed up to the homelab** (user request):
   `local/` (86,298 files, all save states; no image, ROM or BIOS) is in
   `Archives/Cyberbots-Saturn-EN` with a manifest and restore commands. The
@@ -1465,8 +1469,8 @@ posts them shows the English names), with no sacrificed code. It is
 
 ### END-011 - Hold ending boxes whose English barely finishes typing
 
-- **Status:** `BACKLOG`
-- **Milestone:** M7 follow-up (before M8's endings are generalized)
+- **Status:** `READY` (written into M8's order, 2026-11-05; not started)
+- **Milestone:** M7 follow-up, needed by M8 (`END-023` applies its rule)
 - **Dependencies:** END-010 (done).
 - **Blockers:** None; scheduled by the user's answer (2026-11-05), not started.
 - **Objective:** English boxes 409, 493 and 420 of Jin's ending stay on screen long enough after they finish typing to be read (D-042), with the ending's music and pictures still in step.
@@ -1475,6 +1479,137 @@ posts them shows the English names), with no sacrificed code. It is
   - **Effect:** the experiment measures the box's close, the next box's open, and when the scene and track change, against the control.
   - **Rule:** a rule for how long a box holds its finished line (for example, the Japanese box's hold time), applied by the compiler from the prediction, with the user's choice if it moves the ending's timing against its music.
   - **Build and live:** as `END-010`, with every English box holding its full line for at least the rule's time.
+
+## Phase M: M8 (All Roster Endings)
+
+M8: a general ending pipeline. Every roster pilot's ending (lists 0-5,
+`RE-005`) is localized by the same mechanism as Jin's, from one roster of
+ending pairings, in one image with the story and win quotes, built from the
+untouched source. The Saturn-only pilots' endings (lists 6-8) stay out (rule
+24, `SPECIAL-001`), except where they share a box with a roster ending.
+Nothing in this phase is started. The order is:
+
+1. `END-020` (survey every roster ending's surfaces) and `END-011` (box
+   timing), which are independent;
+2. `END-021` (pair lists 1-5 with the arcade English);
+3. `END-022` (capacity of all six endings together, with `END-011`'s rule);
+4. the user's gate extension for the roster endings;
+5. `END-023` (the M8 image), which closes M8.
+
+Known so far (facts and their confidence):
+- **Posts (D-036, CONFIRMED):** each list's routine posts constant scenes
+  (`data/text/ending_posts.json`):
+
+  | List | Pilot | Scenes posted | Box openings | Distinct boxes | Lines |
+  | --- | --- | --- | --- | --- | --- |
+  | 0 | Jin | 16-19 | 20 | 19 | 31 |
+  | 1 | Santana | 16-22 | 22 | 18 | 28 |
+  | 2 | Mary | 16 | 4 | 4 | 6 |
+  | 3 | Arieta | 16-21, 27, 28 | 24 | 23 | 36 |
+  | 4 | Gawaine | 16-19 | 17 | 16 | 29 |
+  | 5 | Bao and Mao | 16, 17, 28, 18, 19, 21, 22 | 26 | 21 | 28 |
+
+  91 distinct boxes in all. Boxes 604, 606 and 607 are shown by more than
+  one roster ending.
+- **Shared with lists 6-8 (D-036):** 601 and 605 (list 8, already English
+  since M7, the gate's choice) and the blank 1072 (list 7). No other box.
+- **Arcade (D-037, `data/arcade/ending_scripts.json`, CONFIRMED):** both
+  sets' scripts are equal. Against the Saturn, box N is slot N except:
+  - the blank 1072;
+  - most speaker names, which are slot − 9 (601 → 610, 603 → 612, ...).
+
+  Cases a pairing must resolve (HYPOTHESIS until `END-021`):
+  - list 5, scenes 18 and 28: Saturn 608 where the arcade opens 615
+    (− 9 would be 617);
+  - list 1, scene 22: Saturn 603 with no arcade slot left over;
+  - arcade-only scenes: Mary's 17-18 and Bao and Mao's 20 are never posted
+    by the Saturn.
+- **Shared surfaces (D-040, D-041):** the cast roll and the QSound notice
+  are already done for every ending. Whether any ending shows other
+  Japanese images is UNKNOWN (only Jin's was surveyed, `END-001`).
+- **Capacity (EXP-0041, SUPPORTED as an estimate):** `END.BIN`'s table has
+  310 codes no line uses plus 25 new ones. M7 used 179. 816 codes are free
+  if only the other endings' lines stay Japanese; for M8 the staying lines
+  are lists 6-8's. Room: the roster endings' own lines plus D-039's 43,304
+  bytes (less M7's 64).
+- **Timing (D-042):** each box's time is set by its scene; longer English
+  can finish typing just before the close (`END-011`).
+
+### END-020 - Survey every roster ending's surfaces
+
+- **Status:** `READY`
+- **Milestone:** M8
+- **Dependencies:** END-010 (done).
+- **Blockers:** None.
+- **Objective:** For lists 1-5, every surface the ending shows, as `END-001` did for Jin: which carry Japanese, how each is drawn, and whether any is new.
+- **Acceptance criteria:**
+  - **Reach:** each of lists 1-5 forced from the END-001 checkpoint (`0x060CFF7E`, D-036) on the untouched image, run to the end of the QSound notice. No cold boot.
+  - **Surfaces:** every screen with text listed per list (scene, frames, layer, Japanese or English), with agent-reviewed screenshots and their hashes. Any surface not in D-035 gets its drawing path found as `END-002` did (one controlled change), or is recorded as an open question.
+  - **Arcade:** the same lists reached in headless MAME (`EXP-0040`'s route with the ending number forced) and their surfaces listed, for the arcade English of each new surface.
+  - **Boxes:** each list's box openings and closes, and each box's open time (for `END-011`'s rule).
+  - **Records:** `docs/text_surfaces.md` (per list) and `data/text/ending_surfaces.json` (numbers and labels only).
+- **Notes:** headless MAME and forced Mednafen runs need no focus.
+
+### END-021 - Pair lists 1-5 with the arcade English
+
+- **Status:** `BLOCKED`
+- **Milestone:** M8
+- **Dependencies:** END-020.
+- **Blockers:** END-020 (image surfaces and new screens).
+- **Objective:** Every text unit of every roster ending with its official English, or recorded as having none, by both games' scripts.
+- **Acceptance criteria:**
+  - **Tool:** `EXP-0041/pair_ending.py` generalized into `tools/text/ending_pairing.py` (lists as an argument). For list 0 it reproduces `data/translations/jin_ending_pairing.json`'s units byte for byte, or every difference is explained.
+  - **Pairing:** `data/translations/<pilot>_ending_pairing.json` for lists 1-5 (no text), with the same labels (`exact`, `edited`, `no-counterpart`).
+  - **Cases:** each case listed in the phase introduction resolved by evidence (the Japanese of both sides, the readers, or a forced run): 608 ↔ 615, 603 in list 1's scene 22, and the arcade-only scenes (recorded in `docs/coverage_exceptions.md` if never shown).
+  - **On screen:** at least one pair per list shown in both games and agent-reviewed.
+  - **New translations:** every unit with no official English listed with its context (no text committed), for the gate.
+
+### END-022 - Capacity of all roster endings together
+
+- **Status:** `BLOCKED`
+- **Milestone:** M8
+- **Dependencies:** END-021, END-011.
+- **Blockers:** END-021 (the units), END-011 (the hold rule may change rows).
+- **Objective:** Whether all six endings' English fits `END.BIN`'s table, `SE.DAT`'s font, the room and the box limits, and what it costs if not.
+- **Acceptance criteria:**
+  - **Measures:** `EXP-0041/capacity.py`'s, for lists 0-5 together:
+    - rows, cells and the widest Saturn line per surface;
+    - the pairs, as is and with the half-cell indent;
+    - row bytes against the room (own lines, then D-039's);
+    - each box's typing time against its open time (`END-011`'s rule).
+  - **Codes:** free codes counted by the story's rule, and with the codes only roster-ending lines use. If any Japanese code must be sacrificed, the lines of lists 6-8 it touches are listed (the gate decides).
+  - **Options:** each limit stated with its evidence, and the options for the gate, with a recommendation.
+
+### GATE-TRANSLATION extension for the roster endings
+
+A dated block under `GATE-TRANSLATION`, asked before `END-023` starts. The
+user's GO covers:
+- the official English of lists 1-5 as paired (`END-021`);
+- any new translations, each listed with its translator;
+- the budget from `END-022` (sacrificed codes and the lines of lists 6-8
+  they touch, if any);
+- `END-011`'s hold rule for all endings, if it moves an ending's timing
+  against its music.
+
+### END-023 - Build all roster endings in English (M8)
+
+- **Status:** `BLOCKED`
+- **Milestone:** M8
+- **Dependencies:** END-021, END-022, the gate extension above.
+- **Blockers:** the user's GO for the gate extension.
+- **Objective:** One image, built from the untouched source, with the M5 story and win quotes and all six roster endings in English, verified box by box.
+- **Acceptance criteria:**
+  - **Systematic:** the compiler takes a roster of ending pairings (`data/text/m8_endings.json`) in place of one `--ending`. One allocation over `END.BIN`'s table and `SE.DAT`'s font, one room. `END-011`'s rule is applied. No list-specific code.
+  - **Build:** as `END-010`:
+    - from the untouched source; two builds identical; all sectors valid; source hashes unchanged;
+    - every changed byte accounted for;
+    - RE-008's story files, prediction and changes unchanged.
+  - **Live:** each of lists 0-5 forced from the END-001 checkpoint: every unit draws its predicted cells; agent-reviewed screenshots of each scene. Jin's units draw the same cells as in `end010_jin_ending.json`, unless the hold rule changed a row (listed).
+  - **Others:** each of lists 6-8 forced: its boxes draw their original cells, except the shared boxes as recorded.
+  - **Coverage:** `docs/coverage_exceptions.md` gains the endings: every box of every list's posts either built or excluded with evidence (lists 6-8, arcade-only scenes, blank boxes).
+  - **Play:** a cold boot of the built image reaches play and shows English story boxes. One roster ending other than Jin's is reached in that boot by RAM writes, as `END-001` did, and shows its English. Cold boots only with the user present, asked first.
+  - **Provenance:** `data/translations/<pilot>_ending.json` (no text) and `data/regression/end023_roster_endings.json`.
+- **Notes:** M8's image supersedes M7's as the latest. The image commit pushes after the agent's checks pass (user rule, 2026-11-02).
 
 ## Later Milestones (outline only)
 
@@ -1486,7 +1621,7 @@ and `docs/lessons_from_xvsf.md`.
 | ID | Milestone | Outline |
 | --- | --- | --- |
 | END-010 | M7 | `DONE` (2026-11-05, Phase L); follow-up `END-011` (`BACKLOG`). |
-| END-020 | M8 | All roster endings; one image with story, win quotes and endings; coverage register (`docs/coverage_exceptions.md`). |
+| END-020 | M8 | Written up: Phase M (`END-020`-`END-023`, with `END-011`). |
 | UI-004 | after M5, early | Boot, cartridge and save warnings (`WARNING0-4.PIX` are candidates); in the first backlog this time (`docs/lessons_from_xvsf.md`, lesson 5). |
 | UI-001 | after M8, user request | UI art: inventory English art already in every font before drawing anything. |
 | UI-002 | after M8, user request | Attract and opening text (`OPDEMO*`, `STDEM*.PIR`, `VADEM*.MAC`, `STDEMO.*` are candidates): layer, container, codecs, oracles. |
