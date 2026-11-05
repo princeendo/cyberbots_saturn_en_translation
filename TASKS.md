@@ -234,6 +234,7 @@ names it for its method only.
 - **2026-11-05: `GATE-TRANSLATION` extended to Jin's ending.** The user's
   words: "GO (Recommended)" and, for the shared name boxes 605 and 601,
   "Share, English everywhere (Recommended)". `END-010` is `READY`.
+- **2026-11-05: M7 CONFIRMED** (`END-010`, `EXP-0042`-`EXP-0045`, D-039-D-042): one image from the untouched source with the M5 roster unchanged and Jin's ending in official English. All 18 units are drawn as predicted; the cast roll's Japanese names are hidden in every ending (the user: "Hide in every ending (Recommended)"); the QSound line is erased. The shared names show English in lists 3, 4 and 8. A cold boot plays in English. Three long boxes finish typing just before they close: the user chose "Accept now, follow-up task (Recommended)" (`END-011`, `BACKLOG`). Next: M8 (`END-020`) needs its tasks written up first.
 - **2026-11-05: local data backed up to the homelab** (user request):
   `local/` (86,298 files, all save states; no image, ROM or BIOS) is in
   `Archives/Cyberbots-Saturn-EN` with a manifest and restore commands. The
@@ -1394,7 +1395,8 @@ M7 puts Jin's ending in English on the disc: the official US arcade English
 as paired by `END-005`, drawn as pair glyphs through the ending's own code
 table and font copy, with the cast roll's Japanese names hidden and the
 QSound line erased. The user gave the gate extension below its GO on
-2026-11-05; `END-010` is `READY` and not started.
+2026-11-05; `END-010` is `DONE` (M7 confirmed), and `END-011` (box timing) is
+`BACKLOG`.
 
 ### GATE-TRANSLATION extension for Jin's ending
 
@@ -1423,7 +1425,7 @@ posts them shows the English names), with no sacrificed code. It is
 
 ### END-010 - Build Jin's ending in English from the source image (M7)
 
-- **Status:** `READY`
+- **Status:** `DONE` (2026-11-05)
 - **Milestone:** M7
 - **Dependencies:** END-005, the gate extension above (both done; GO 2026-11-05).
 - **Blockers:** None.
@@ -1448,6 +1450,31 @@ posts them shows the English names), with no sacrificed code. It is
   - **Play:** a cold boot of the built image reaches play and shows English story boxes. Cold boots only with the user present, asked first.
   - **Provenance:** `data/translations/jin_ending.json` (no text) and `data/regression/end010_jin_ending.json`.
 - **Notes:** endings draw through `END.BIN`'s own copies of the box path, code table and the `SE.DAT` font (D-035), so the story's sacrificed codes do not reach them. The image commit pushes after the agent's checks pass (user rule, 2026-11-02).
+- **Done:** 2026-11-05 (`EXP-0042`-`EXP-0045`, D-039-D-042). M7 is met.
+  - **Systematic:** `tools.text.dialogue --ending data/translations/jin_ending_pairing.json` (`tools/text/ending.py`): `END.BIN` rows, records and table, `SE.DAT`'s glyphs, and the two image decisions from the pairing's handling entries. 179 pairs, all on unused codes; no sacrifice.
+  - **Room (`EXP-0042`, D-039):** marker image, read breakpoints and a positive control. No read of the 1,591 unshown lines while `END.BIN` is resident, in Jin's and Santana's endings. The build uses 64 bytes of it (two rows at `0x0AECC`) beyond Jin's own 828.
+  - **Cast names (`EXP-0044`, D-040):** sprite parts of bank 16; the 16 Japanese-name records' size words set to 0 in `KEND_1.BIN`. Every name is hidden and every Latin name kept. The roll is shared by every ending. Asked: "The cast roll (10 portraits, each with a Japanese name image above a yellow Latin name) is the same in every pilot's ending, not just Jin's: Santana's ending shows the identical roll. You chose to hide the Japanese name images, as the US arcade does. Hiding them on disc hides them in every ending's cast roll. Hiding them only in Jin's ending would need a code patch that checks which ending is playing. Which?" The user's answer, verbatim: "Hide in every ending (Recommended)".
+  - **QSound line (`EXP-0043`, D-041):** rows 180-190, x 89-300 of `QSD.PIX` set to the background index 255 (index 0 is transparent). The pixel diff is only the line, with no gap.
+  - **Build (`EXP-0045`):** two builds identical; 158 sectors changed, all 43,793 valid; source hashes unchanged. Every changed byte of `END.BIN` (910), `SE.DAT` (14,558), `KEND_1.BIN` (32) and `QSD.PIX` (798) is in `ending_changes.json`; the story files equal RE-008's.
+  - **Live:** from the END-001 checkpoint all 18 units draw their predicted cells (box 420 confirmed at 1-frame polls); the untouched image is the negative control. The screenshots of each scene, the cast roll and the QSound notice were agent-reviewed. Caption rows 2-3 start under the caption's column.
+  - **Shared boxes:** Gawaine's ending (list 4, forced) shows 605/601 in English and his 14 boxes in their original Japanese.
+  - **Regression:** RE-008's story files, `prediction.json` and `changes.json` hashes are unchanged.
+  - **Play:** asked: "END-010's last check is a cold boot of the built image (M5 roster + Jin's ending): boot, start arcade, pick Jin, and stop once his first two story scenes have shown English. About 5 pad-key presses through System Events in the first 2 minutes (Mednafen comes to the front at each press), then it runs on its own; about 4-5 minutes in all, no key loops. May I run it now?" The user's answer, verbatim: "Yes, run it now (Recommended)". Scenes 21 and 0 drew 6 of 6 boxes in English.
+  - **Box timing:** English boxes 409, 493 and 420 finish typing 7, 7 and 4 frames before their timed close (D-042). Asked: "In Jin's ending each dialogue box stays up for a fixed time set by the scene, and text types at about 20 letters a second. Three English boxes (409, 493, 420: 43-45 and 31 glyphs, longer than the Japanese) finish typing only 4-7 frames (under 0.1 s) before the box closes, so the full line is never held on screen; nothing is cut off, and every other box has 1.5-5 s to spare. How should this be handled?" The user's answer, verbatim: "Accept now, follow-up task (Recommended)". It is `END-011`.
+  - **Provenance:** `data/translations/jin_ending.json` and `data/regression/end010_jin_ending.json`.
+
+### END-011 - Hold ending boxes whose English barely finishes typing
+
+- **Status:** `BACKLOG`
+- **Milestone:** M7 follow-up (before M8's endings are generalized)
+- **Dependencies:** END-010 (done).
+- **Blockers:** None; scheduled by the user's answer (2026-11-05), not started.
+- **Objective:** English boxes 409, 493 and 420 of Jin's ending stay on screen long enough after they finish typing to be read (D-042), with the ending's music and pictures still in step.
+- **Acceptance criteria:**
+  - **Timer:** one controlled experiment finds the word that sets an ending box's time (in `END.BIN`'s scene scripts or the code that reads them), changing exactly it from the END-001 checkpoint (`docs/known_unknowns.md`).
+  - **Effect:** the experiment measures the box's close, the next box's open, and when the scene and track change, against the control.
+  - **Rule:** a rule for how long a box holds its finished line (for example, the Japanese box's hold time), applied by the compiler from the prediction, with the user's choice if it moves the ending's timing against its music.
+  - **Build and live:** as `END-010`, with every English box holding its full line for at least the rule's time.
 
 ## Later Milestones (outline only)
 
@@ -1458,7 +1485,7 @@ and `docs/lessons_from_xvsf.md`.
 
 | ID | Milestone | Outline |
 | --- | --- | --- |
-| END-010 | M7 | Written up: Phase L; `READY` (gate GO 2026-11-05). |
+| END-010 | M7 | `DONE` (2026-11-05, Phase L); follow-up `END-011` (`BACKLOG`). |
 | END-020 | M8 | All roster endings; one image with story, win quotes and endings; coverage register (`docs/coverage_exceptions.md`). |
 | UI-004 | after M5, early | Boot, cartridge and save warnings (`WARNING0-4.PIX` are candidates); in the first backlog this time (`docs/lessons_from_xvsf.md`, lesson 5). |
 | UI-001 | after M8, user request | UI art: inventory English art already in every font before drawing anything. |

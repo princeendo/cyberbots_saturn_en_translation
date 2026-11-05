@@ -58,12 +58,17 @@ narration, caption and speaker-name box has official English
 (`data/translations/jin_ending_pairing.json`). The cast-roll names and the
 QSound line have none; the user chose to hide the names and erase the line.
 
+Built in English (`END-010`, `EXP-0045`, D-042): the dialogue in `END.BIN`
+and `SE.DAT`'s font; the cast roll's Japanese names hidden in every ending
+(16 size words in `KEND_1.BIN`, D-040); the QSound line erased (`QSD.PIX`,
+D-041).
+
 How each is drawn (`EXP-0038`, D-035):
 
 | Surface | Layer | Pixels from | To change it |
 | --- | --- | --- | --- |
 | Dialogue, narration, captions | VDP1 glyph cells (the story's path) | `END.BIN`'s lines and code table; glyphs from `SE.DAT`'s copy of `KANJI.BIN` (VDP2 VRAM `0x40000`) | `END.BIN`'s lines, and `SE.DAT`'s font copy as well as `KANJI.BIN` |
-| Cast-roll names | VDP1, one sprite per name line | Images decoded by `0x0601446C` from `KEND_1.BIN` | New images in `KEND_1.BIN`'s format (not decoded yet) |
+| Cast-roll names | VDP1, one sprite per name line | Sprite parts of bank 16 (`KEND.BIN`, `KEND_0.BIN`); images decoded by `0x0601446C` from `KEND_1.BIN` records (D-040) | Hide: a record's size word 0. New images: `KEND_1.BIN`'s pixel format (not decoded yet) |
 | Credits, thank-you | VDP2 NBG0 | `FIX.BIN`, ASCII-indexed characters | Already English |
 | QSound Japanese line | VDP2 NBG1 bitmap | `QSD.PIX` (raw 512×256, 256 colours) | Edit the bitmap |
 

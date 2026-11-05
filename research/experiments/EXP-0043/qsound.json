@@ -1,0 +1,90 @@
+{
+ "QSD.PIX": "ff061ebdc98ad35a7a59e46410335b8ec16c07710ff42e9711a2445f3af3d488",
+ "erased": "e37dc053e396c78adacf7bb8c25a38c9423f5d47fc0e06594795a35121c7a42f",
+ "bytes_changed": 798,
+ "rows": [
+  180,
+  190
+ ],
+ "columns": [
+  99,
+  285
+ ],
+ "all_inside_region": true,
+ "non_background_in_region_after": 0,
+ "kept_non_background_rows_170_199": {
+  "logo_edge_x84_88": 125,
+  "left_of_x84": 1869,
+  "row_179_x89_300": 1,
+  "rows_191_plus_x89_300": 4,
+  "rows_170_178_x89_300": 618
+ },
+ "changes": [
+  {
+   "file": "QSD.PIX",
+   "start": 92249,
+   "end": 92461,
+   "what": "row 180"
+  },
+  {
+   "file": "QSD.PIX",
+   "start": 92761,
+   "end": 92973,
+   "what": "row 181"
+  },
+  {
+   "file": "QSD.PIX",
+   "start": 93273,
+   "end": 93485,
+   "what": "row 182"
+  },
+  {
+   "file": "QSD.PIX",
+   "start": 93785,
+   "end": 93997,
+   "what": "row 183"
+  },
+  {
+   "file": "QSD.PIX",
+   "start": 94297,
+   "end": 94509,
+   "what": "row 184"
+  },
+  {
+   "file": "QSD.PIX",
+   "start": 94809,
+   "end": 95021,
+   "what": "row 185"
+  },
+  {
+   "file": "QSD.PIX",
+   "start": 95321,
+   "end": 95533,
+   "what": "row 186"
+  },
+  {
+   "file": "QSD.PIX",
+   "start": 95833,
+   "end": 96045,
+   "what": "row 187"
+  },
+  {
+   "file": "QSD.PIX",
+   "start": 96345,
+   "end": 96557,
+   "what": "row 188"
+  },
+  {
+   "file": "QSD.PIX",
+   "start": 96857,
+   "end": 97069,
+   "what": "row 189"
+  },
+  {
+   "file": "QSD.PIX",
+   "start": 97369,
+   "end": 97581,
+   "what": "row 190"
+  }
+ ]
+}

@@ -1,0 +1,97 @@
+{
+ "sources": {
+  "END.BIN": "a4868d8d39f657cb2e924c5e3d0467cc4f7fe83b9375e2a2ffbd7dd21281f3fa",
+  "census": "data/text/script_census.json",
+  "posts": "data/text/ending_posts.json"
+ },
+ "table_lines": 1927,
+ "referenced_lines": 1850,
+ "unreferenced_dialogue_lines": [
+  34
+ ],
+ "boxes_pointing_inside_a_line": {
+  "938": [
+   "0x60759d4"
+  ]
+ },
+ "shown_boxes": 147,
+ "shown_lines": 259,
+ "room_lines": 1591,
+ "room_bytes": 43304,
+ "spans": [
+  [
+   "0x0AECC",
+   "0x0B2BC"
+  ],
+  [
+   "0x0B2D4",
+   "0x0ECD4"
+  ],
+  [
+   "0x0ECEC",
+   "0x0EEFC"
+  ],
+  [
+   "0x0EF10",
+   "0x1017C"
+  ],
+  [
+   "0x10718",
+   "0x108BC"
+  ],
+  [
+   "0x10FE0",
+   "0x10FFC"
+  ],
+  [
+   "0x1111C",
+   "0x115C8"
+  ],
+  [
+   "0x115E4",
+   "0x11B24"
+  ],
+  [
+   "0x11B2C",
+   "0x11B38"
+  ],
+  [
+   "0x11B84",
+   "0x11B90"
+  ],
+  [
+   "0x11BD0",
+   "0x12F48"
+  ],
+  [
+   "0x132D4",
+   "0x138CC"
+  ],
+  [
+   "0x138DC",
+   "0x14944"
+  ],
+  [
+   "0x14E58",
+   "0x159D4"
+  ],
+  [
+   "0x159D8",
+   "0x166D0"
+  ],
+  [
+   "0x166E0",
+   "0x169EC"
+  ],
+  [
+   "0x16CE0",
+   "0x1725C"
+  ],
+  [
+   "0x17260",
+   "0x17284"
+  ]
+ ],
+ "marker_end_bin": "4e45d87c8b2e5a6598b9ba99814f83c33b3fae9a9bda353af6648466e5d52f03",
+ "changed_bytes": 28360
+}

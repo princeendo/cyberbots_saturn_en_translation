@@ -2024,3 +2024,66 @@ translated in place; no sacrificed code is approved, so the build stops and
 asks if it needs one. Recorded in `TASKS.md` (the gate block and
 `END-010`) and `docs/localization_policy.md` (decisions and gate tables;
 the two `END-005` decisions were added there too, as they were missing).
+
+## 2026-11-05 — END-010: Jin's ending in English (M7) (EXP-0042 to EXP-0045)
+
+User request (verbatim): "Start END-010". Forced runs from saved states in
+the silent home; one cold boot with the user present and asked first.
+
+Decisions (verbatim, also in `TASKS.md` and `docs/localization_policy.md`):
+- the cast roll is the same in every ending: "Hide in every ending
+  (Recommended)";
+- the cold boot: "Yes, run it now (Recommended)";
+- three boxes finish typing just before they close: "Accept now, follow-up
+  task (Recommended)" (`END-011`, `BACKLOG`).
+
+Results:
+- **EXP-0042 (D-039), the room.** 1,591 lines no ending box shows (18 spans,
+  43,304 bytes), filled with a marker. Read breakpoints log no hit while
+  `END.BIN` is resident, in Jin's and Santana's endings; a positive control
+  on line 752 hits at the character reader. The Santana control run was
+  fetched back from the homelab archive (all 1,146 files matched).
+- **EXP-0043 (D-041), the QSound line.** Rows 180-190, x 89-300 of
+  `QSD.PIX` set to 255; only the line changes on screen.
+- **EXP-0044 (D-040), the cast names.**
+  - Traced from the VDP1 command to the main program's sprite-part routine
+    `0x060113F0`, bank 16 in `KEND.BIN`, `KEND_0.BIN` and `KEND_1.BIN`.
+  - Size 0 skips a part. The roll's even frames `0x1B6`-`0x1C8` are the
+    Japanese names (16 records).
+  - From a pre-roll state, zeroing them hides only the names.
+- **EXP-0045 (D-042), the build.** `tools.text.dialogue --ending`:
+  - two builds identical; RE-008's story hashes kept;
+  - 179 pairs on unused codes;
+  - 158 sectors changed, all valid;
+  - live: all 18 units drawn, Gawaine's ending with English names and his
+    Japanese boxes;
+  - play: scenes 21 and 0 in English.
+
+Corrected along the way (do not retry):
+- **The room count.** `EXP-0041`'s 44,124 bytes counted the ASCII file names
+  after line 1850 (`KANJI.BIN`, `SCR00.PIX`, ...), which the game does
+  read. The room now counts only lines a box record points to.
+- **Read hits outside `END.BIN`.** The first look at the room runs counted
+  14,499 hits. They are reads of other files at the same addresses: before
+  `END.BIN` loads, and inside `KEND.BIN` after it loads (`0x06060000`-
+  `0x0606C8A7`).
+- **EXP-0038's QSound test.** It zeroed the line with index 0, which is
+  transparent: the layer behind showed through. It also cut the logo's edge
+  and missed row 190. Its README's `0x200B4` should read `0x20000` + 180 ×
+  512 + 84. The disc change uses index 255.
+- **Screenshot comparisons.** Poll frames drift by a frame between runs,
+  and one frame already changes animated scenes, so screenshots were not
+  evidence for the room. The read breakpoints and the cell checks were.
+- **`SE.DAT` change ranges.** First recorded as 128-byte blocks per glyph.
+  A glyph is four 32-byte tiles (`tools.font.kanji.tiles`), so 9,044 bytes
+  fell outside; the ranges are now per tile.
+- **The record derivation hung.** It used the cache-through part pointer
+  (`0x20200000`) unmasked; the address is masked now.
+- **Box 420 short (30 of 31).** The 11-frame polls missed the last glyph;
+  1-frame polls show it drawn 4 frames before the box closes. That timing
+  is END-011.
+- **The cold boot.** Two retry key presses were not sent because Mednafen
+  was not in front; the run did not need them.
+
+Commands: in each EXP README. `ruff check .`, `ruff format --check .`,
+`mypy tools tests`, `pytest -q`: see the closeout below.

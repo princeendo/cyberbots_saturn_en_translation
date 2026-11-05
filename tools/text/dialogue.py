@@ -55,6 +55,11 @@ English, as paired (D-022, D-027), unchanged, drawn as pair glyphs (D-024).
 7. **Image.** `KANJI.BIN` and `STG0AS.BIN` go through `tools.disc.patch_image`
    into ``OUT/image``.
 
+8. **Ending** (``--ending PAIRING``, END-010): one ending's dialogue goes into
+   `END.BIN` and `SE.DAT`'s font by ``tools.text.ending``, written to
+   ``OUT/ending_changes.json`` and ``OUT/ending_prediction.json`` so the story
+   outputs stay as they were; ``--ending-record`` writes its provenance.
+
 Also writes ``OUT/prediction.json``: per box, the SHA-256 of each predicted
 glyph cell in drawing order, for live checks. ``--record-dir`` writes one
 committed provenance record per pilot (``<name>_story.json`` for
@@ -746,6 +751,26 @@ def build(args: argparse.Namespace) -> int:
             + "\n"
         )
     print(json.dumps(summary))
+    extra: list[str] = []
+    if args.ending:
+        from tools.text import ending as ending_text
+
+        built = ending_text.compile_ending(args.ending, program, font, texts, args.task)
+        (out / "END.BIN").write_bytes(built.end)
+        (out / "SE.DAT").write_bytes(built.se)
+        (out / "ending_changes.json").write_text(
+            json.dumps({"ranges": built.changes}, indent=1) + "\n"
+        )
+        (out / "ending_prediction.json").write_text(
+            json.dumps(built.prediction, indent=1) + "\n"
+        )
+        if args.ending_record:
+            args.ending_record.write_text(json.dumps(built.record, indent=1) + "\n")
+        print(json.dumps(built.record["summary"]))
+        for name, data in sorted(built.images.items()):
+            (out / name).write_bytes(data)
+        for name in ("END.BIN", "SE.DAT", *sorted(built.images)):
+            extra += ["--file", f"{name};1", "--data", str(out / name)]
     return patch_image.main(
         [
             "--source-dir",
@@ -767,6 +792,7 @@ def build(args: argparse.Namespace) -> int:
                 if quotes
                 else []
             ),
+            *extra,
             "--out-dir",
             str(out / "image"),
         ]
@@ -782,6 +808,8 @@ def main(argv: Sequence[str] | None = None) -> int:
         help="build every pilot of a roster file (data/text/m5_roster.json)",
     )
     parser.add_argument("--quotes", type=Path, help="win-quote pairing (D-030)")
+    parser.add_argument("--ending", type=Path, help="an ending's pairing (END-010)")
+    parser.add_argument("--ending-record", type=Path, help="the ending's record")
     parser.add_argument("--font", type=Path, required=True)
     parser.add_argument("--driver", type=Path, required=True)
     parser.add_argument("--rompath", type=Path, required=True)

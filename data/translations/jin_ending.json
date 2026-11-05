@@ -1,0 +1,527 @@
+{
+ "task": "END-010",
+ "policy": "official US arcade English, as paired (D-038), unchanged; pair glyphs (D-024); END.BIN's own code table and SE.DAT's font (D-035)",
+ "sources": {
+  "program_sha256": "18e8827dc742f4fef577aac8c06ae05dfb54ddad60a589238ac610f07b4152fd",
+  "english_table": "0x0B33AA",
+  "pairing": "data/translations/jin_ending_pairing.json",
+  "END.BIN": "a4868d8d39f657cb2e924c5e3d0467cc4f7fe83b9375e2a2ffbd7dd21281f3fa",
+  "SE.DAT": "0430d5e75976adc5c26ad96e96ce00ad66dae994a8bbddb81ba725c18e042a71"
+ },
+ "codes": {
+  "0": "0x8144",
+  "1": "0x8162",
+  "2": "0x8168",
+  "3": "0x817E",
+  "4": "0x8253",
+  "5": "0x8255",
+  "6": "0x8256",
+  "7": "0x8261",
+  "8": "0x8262",
+  "9": "0x8265",
+  "10": "0x8267",
+  "11": "0x8268",
+  "12": "0x8269",
+  "13": "0x826A",
+  "14": "0x826B",
+  "15": "0x826C",
+  "16": "0x826D",
+  "17": "0x826F",
+  "18": "0x8270",
+  "19": "0x8272",
+  "20": "0x8273",
+  "21": "0x8274",
+  "22": "0x8276",
+  "23": "0x8277",
+  "24": "0x8279",
+  "25": "0x82A3",
+  "26": "0x82A7",
+  "27": "0x82C0",
+  "28": "0x82D2",
+  "29": "0x82D8",
+  "30": "0x82DB",
+  "31": "0x8355",
+  "32": "0x8359",
+  "33": "0x835B",
+  "34": "0x8361",
+  "35": "0x8364",
+  "36": "0x836B",
+  "37": "0x8378",
+  "38": "0x8379",
+  "39": "0x8386",
+  "40": "0x838E",
+  "41": "0x8392",
+  "42": "0x88A2",
+  "43": "0x88A3",
+  "44": "0x88C9",
+  "45": "0x88CC",
+  "46": "0x88D9",
+  "47": "0x88DA",
+  "48": "0x88E2",
+  "49": "0x88E4",
+  "50": "0x88F9",
+  "51": "0x8941",
+  "52": "0x8945",
+  "53": "0x8948",
+  "54": "0x8966",
+  "55": "0x8973",
+  "56": "0x8984",
+  "57": "0x8987",
+  "58": "0x898A",
+  "59": "0x899C",
+  "60": "0x899F",
+  "61": "0x89A1",
+  "62": "0x89AA",
+  "63": "0x89BF",
+  "64": "0x89CC",
+  "65": "0x89D8",
+  "66": "0x89EB",
+  "67": "0x89F5",
+  "68": "0x89F9",
+  "69": "0x8A5A",
+  "70": "0x8A6B",
+  "71": "0x8A77",
+  "72": "0x8A81",
+  "73": "0x8A98",
+  "74": "0x8AA3",
+  "75": "0x8AA6",
+  "76": "0x8AAF",
+  "77": "0x8ABE",
+  "78": "0x8AC3",
+  "79": "0x8AD1",
+  "80": "0x8AD7",
+  "81": "0x8AD9",
+  "82": "0x8AE2",
+  "83": "0x8AE6",
+  "84": "0x8AF3",
+  "85": "0x8AF6",
+  "86": "0x8B49",
+  "87": "0x8B53",
+  "88": "0x8B5A",
+  "89": "0x8B67",
+  "90": "0x8B6C",
+  "91": "0x8B70",
+  "92": "0x8B72",
+  "93": "0x8B74",
+  "94": "0x8B7B",
+  "95": "0x8B8B",
+  "96": "0x8B8C",
+  "97": "0x8B9B",
+  "98": "0x8BB0",
+  "99": "0x8BB5",
+  "100": "0x8BBD",
+  "101": "0x8BC6",
+  "102": "0x8BE3",
+  "103": "0x8BFC",
+  "104": "0x8C42",
+  "105": "0x8C50",
+  "106": "0x8C5C",
+  "107": "0x8C62",
+  "108": "0x8C68",
+  "109": "0x8C79",
+  "110": "0x8C83",
+  "111": "0x8C8E",
+  "112": "0x8C9B",
+  "113": "0x8C9D",
+  "114": "0x8CA2",
+  "115": "0x8CB3",
+  "116": "0x8CB5",
+  "117": "0x8CCD",
+  "118": "0x8CD5",
+  "119": "0x8CDC",
+  "120": "0x8CE1",
+  "121": "0x8CE4",
+  "122": "0x8CEB",
+  "123": "0x8D47",
+  "124": "0x8D4B",
+  "125": "0x8D52",
+  "126": "0x8D5F",
+  "127": "0x8D60",
+  "128": "0x8D6C",
+  "129": "0x8D72",
+  "130": "0x8D7C",
+  "131": "0x8D81",
+  "132": "0x8D86",
+  "133": "0x8D98",
+  "134": "0x8D9C",
+  "135": "0x8DA2",
+  "136": "0x8DB0",
+  "137": "0x8DB2",
+  "138": "0x8DB6",
+  "139": "0x8DE3",
+  "140": "0x8DE7",
+  "141": "0x8DED",
+  "142": "0x8E61",
+  "143": "0x8E69",
+  "144": "0x8E6C",
+  "145": "0x8E91",
+  "146": "0x8E97",
+  "147": "0x8EA5",
+  "148": "0x8EAE",
+  "149": "0x8EB5",
+  "150": "0x8EB7",
+  "151": "0x8EBA",
+  "152": "0x8EC4",
+  "153": "0x8ECA",
+  "154": "0x8ED3",
+  "155": "0x8ED7",
+  "156": "0x8EF4",
+  "157": "0x8EF7",
+  "158": "0x8F51",
+  "159": "0x8F5D",
+  "160": "0x8F61",
+  "161": "0x8F63",
+  "162": "0x8F6A",
+  "163": "0x8F6E",
+  "164": "0x8F70",
+  "165": "0x8F72",
+  "166": "0x8F7E",
+  "167": "0x8F89",
+  "168": "0x8F91",
+  "169": "0x8F94",
+  "170": "0x8F9E",
+  "171": "0x8FAB",
+  "172": "0x8FB8",
+  "173": "0x8FBC",
+  "174": "0x8FCE",
+  "175": "0x8FCF",
+  "176": "0x8FD8",
+  "177": "0x8FF3",
+  "178": "0x9044"
+ },
+ "summary": {
+  "boxes": 18,
+  "rows": 34,
+  "pairs": 179,
+  "unused_codes_used": 179,
+  "new_codes": 0,
+  "sacrificed": [],
+  "glyphs": 179,
+  "own_free_lines": [
+   752,
+   753,
+   754,
+   755,
+   756,
+   757,
+   758,
+   759,
+   760,
+   761,
+   762,
+   763,
+   764,
+   765,
+   766,
+   767,
+   768,
+   769,
+   770,
+   771,
+   772,
+   773,
+   774,
+   775,
+   776,
+   777,
+   897,
+   898,
+   1006,
+   1010
+  ],
+  "own_room_bytes": 828,
+  "text_bytes": 872,
+  "bytes_beyond_own_lines": 64,
+  "rows_beyond_own_lines": [
+   "0x0AECC",
+   "0x0AEE8"
+  ],
+  "unshown_room_bytes": 43304,
+  "images": [
+   "KEND_1.BIN",
+   "QSD.PIX"
+  ]
+ },
+ "boxes": [
+  {
+   "box": 408,
+   "slot": 408,
+   "saturn_lines": [
+    752
+   ],
+   "english_record": "0x0BA116",
+   "english_sha256": "8f9d3829015f3ddbdf4ad6afc693bb5895358d69e37dc974f176aa1e6c865611",
+   "rows": 1,
+   "cells": 13,
+   "row_addresses": [
+    "0x0607017C"
+   ]
+  },
+  {
+   "box": 409,
+   "slot": 409,
+   "saturn_lines": [
+    753,
+    754
+   ],
+   "english_record": "0x0BA13A",
+   "english_sha256": "6afad40669b8c17a1f98da59fa30916248f8399afbcadfa634f4a2735e04f0e7",
+   "rows": 3,
+   "cells": 45,
+   "row_addresses": [
+    "0x06070198",
+    "0x060701BC",
+    "0x060701E0"
+   ]
+  },
+  {
+   "box": 493,
+   "slot": 493,
+   "saturn_lines": [
+    897,
+    898
+   ],
+   "english_record": "0x0BB494",
+   "english_sha256": "9521b2633dca916222002a1ef2b788f07503811b2f4291d05805730704f7471c",
+   "rows": 3,
+   "cells": 43,
+   "row_addresses": [
+    "0x060701FC",
+    "0x06070220",
+    "0x06070240"
+   ]
+  },
+  {
+   "box": 410,
+   "slot": 410,
+   "saturn_lines": [
+    755
+   ],
+   "english_record": "0x0BA1A0",
+   "english_sha256": "397fea26811ad6057dad44e2047980250e811c3e51ce29cf4ba2a4fe62c39966",
+   "rows": 1,
+   "cells": 4,
+   "row_addresses": [
+    "0x0607025C"
+   ]
+  },
+  {
+   "box": 411,
+   "slot": 411,
+   "saturn_lines": [
+    756,
+    757
+   ],
+   "english_record": "0x0BA1B2",
+   "english_sha256": "7eed79ba846aeb98b3a968964f0a8c45a3840fb9e20f679be93775e0628b098b",
+   "rows": 2,
+   "cells": 17,
+   "row_addresses": [
+    "0x06070268",
+    "0x06070288"
+   ]
+  },
+  {
+   "box": 412,
+   "slot": 412,
+   "saturn_lines": [
+    758,
+    759
+   ],
+   "english_record": "0x0BA1DE",
+   "english_sha256": "bb0a584b4d00ab5fdee8116fc6438ccaffb6f01ea837faa9b74a0601ef03a19e",
+   "rows": 3,
+   "cells": 41,
+   "row_addresses": [
+    "0x06070290",
+    "0x060702B4",
+    "0x060702D4"
+   ]
+  },
+  {
+   "box": 413,
+   "slot": 413,
+   "saturn_lines": [
+    760
+   ],
+   "english_record": "0x0BA238",
+   "english_sha256": "55237d7c1fbb90016a21929e254c677ed493f3aea99a4f993bb8bfbbf2e2a3f7",
+   "rows": 1,
+   "cells": 4,
+   "row_addresses": [
+    "0x060702EC"
+   ]
+  },
+  {
+   "box": 414,
+   "slot": 414,
+   "saturn_lines": [
+    761,
+    762,
+    763
+   ],
+   "english_record": "0x0BA24A",
+   "english_sha256": "eabfce7c2c4d9b4830272038c4e6f8b9b3391fd94e26faace6fb598df93783ba",
+   "rows": 3,
+   "cells": 38,
+   "row_addresses": [
+    "0x060702F8",
+    "0x06070318",
+    "0x0607033C"
+   ]
+  },
+  {
+   "box": 415,
+   "slot": 415,
+   "saturn_lines": [
+    764
+   ],
+   "english_record": "0x0BA2A0",
+   "english_sha256": "6ecb784187d4fede230bcaf93ffc9e0e91dcc5b7809d441d8813647157dfd7bb",
+   "rows": 3,
+   "cells": 42,
+   "row_addresses": [
+    "0x0607034C",
+    "0x06070368",
+    "0x06070388"
+   ]
+  },
+  {
+   "box": 605,
+   "slot": 614,
+   "saturn_lines": [
+    1010
+   ],
+   "english_record": "0x0BB90C",
+   "english_sha256": "7bdf8a1d9051e2a6543740707f97679e96a4697d10e2e870372f19cc6871b10d",
+   "rows": 1,
+   "cells": 4,
+   "row_addresses": [
+    "0x060703AC"
+   ]
+  },
+  {
+   "box": 416,
+   "slot": 416,
+   "saturn_lines": [
+    765
+   ],
+   "english_record": "0x0BA300",
+   "english_sha256": "3b71355e0fe4c984c14f2da1cc0920350dc0df2bd2ab78d7b99524e4e72c4075",
+   "rows": 2,
+   "cells": 20,
+   "row_addresses": [
+    "0x060703B8",
+    "0x060703D8"
+   ]
+  },
+  {
+   "box": 417,
+   "slot": 417,
+   "saturn_lines": [
+    766,
+    767,
+    768
+   ],
+   "english_record": "0x0BA332",
+   "english_sha256": "7838db3d420226430c7d01dd1fe1619c1ed95619cb35b0e2d19e172837866b07",
+   "rows": 2,
+   "cells": 20,
+   "row_addresses": [
+    "0x060703E4",
+    "0x06070404"
+   ]
+  },
+  {
+   "box": 418,
+   "slot": 418,
+   "saturn_lines": [
+    769,
+    770
+   ],
+   "english_record": "0x0BA366",
+   "english_sha256": "756655c475c112ee07ebb118dca6b656c5f709dccc13df76c7b4dab4d1fa1573",
+   "rows": 2,
+   "cells": 29,
+   "row_addresses": [
+    "0x06070414",
+    "0x06070438"
+   ]
+  },
+  {
+   "box": 601,
+   "slot": 610,
+   "saturn_lines": [
+    1006
+   ],
+   "english_record": "0x0BB8CE",
+   "english_sha256": "1dbc7ce0635fcce6a6b0598b7a7242461740eec7749f7b2b76ac5e32f83abf29",
+   "rows": 1,
+   "cells": 2,
+   "row_addresses": [
+    "0x060710D8"
+   ]
+  },
+  {
+   "box": 419,
+   "slot": 419,
+   "saturn_lines": [
+    771
+   ],
+   "english_record": "0x0BA3AC",
+   "english_sha256": "78a9a24b191922d555605611723b172e64fe837cb06cda8a2c7bd9db1b0cc58d",
+   "rows": 1,
+   "cells": 3,
+   "row_addresses": [
+    "0x060710E0"
+   ]
+  },
+  {
+   "box": 420,
+   "slot": 420,
+   "saturn_lines": [
+    772,
+    773
+   ],
+   "english_record": "0x0BA3BA",
+   "english_sha256": "90c63ec80172d4f7be5106b562142a9369e9234bcb8cd39d437e92e417c7e1a8",
+   "rows": 3,
+   "cells": 31,
+   "row_addresses": [
+    "0x060710E8",
+    "0x0606AECC",
+    "0x06071108"
+   ]
+  },
+  {
+   "box": 421,
+   "slot": 421,
+   "saturn_lines": [
+    774
+   ],
+   "english_record": "0x0BA406",
+   "english_sha256": "0f888955dfdcf7f1b06318e494380e12e1b64cb4158482d2149783c657b2e433",
+   "rows": 1,
+   "cells": 16,
+   "row_addresses": [
+    "0x0606AEE8"
+   ]
+  },
+  {
+   "box": 422,
+   "slot": 422,
+   "saturn_lines": [
+    775,
+    776,
+    777
+   ],
+   "english_record": "0x0BA42E",
+   "english_sha256": "aed11728c72e7767c5bba724ab0cb69d76dbf6f726038aaa8c424c8cf74388e8",
+   "rows": 1,
+   "cells": 7,
+   "row_addresses": [
+    "0x06071B54"
+   ]
+  }
+ ]
+}

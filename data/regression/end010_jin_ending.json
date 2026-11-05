@@ -1,0 +1,37 @@
+{
+ "task": "END-010",
+ "experiment": "EXP-0045",
+ "rebuild": "./invenv.sh python -m tools.text.dialogue --roster data/text/m5_roster.json --indent --rank staying --max-sacrifice 160 --task END-010 --font local/layout001/font/arcade_font.json --driver local/mame_src/cps2.cpp --rompath local/arcade --out build/end010/jin --ending data/translations/jin_ending_pairing.json --ending-record data/translations/jin_ending.json",
+ "replacements": {
+  "STG0AS.BIN;1": "7909913bae972ce88c373c50444b18829bdeff2bc59c2a352ca46c9548d59273",
+  "KANJI.BIN;1": "31dabb9a3dba8924e54445c7c6b7413ed0db32044144b029b20436ce638dba72",
+  "VICTORY.BIN;1": "bf5fa1a6e916f26f9b4f3a32c33af8e89444d04c815328d42ad5787f22d4e96b",
+  "END.BIN;1": "239d504b369640170e67388dcc5410653e17b486d2f0741ebd3249daa54cdb04",
+  "SE.DAT;1": "4b792936e78772c63453ec74c1ce7824e1603b4e2e46fb61ff0913586514e246",
+  "KEND_1.BIN;1": "83eff89c112efc7ef0f7f1f58bd39ee2d8257949c32c8a2ff61c039abe4d2413",
+  "QSD.PIX;1": "e37dc053e396c78adacf7bb8c25a38c9423f5d47fc0e06594795a35121c7a42f"
+ },
+ "changed_sectors": 158,
+ "output_sha256": {
+  "Cyberbots - Fullmetal Madness (Japan) (2M) (Track 01).bin": "f2be320daafdb98cda38fc812cb8ff14aa379af1ea21aa435b90a58490732ffb",
+  "Cyberbots - Fullmetal Madness (Japan) (2M).cue": "9f1248adc58b225fa55aa2960df36113212ff200c26917a8c40f22f2cb9c5f14"
+ },
+ "prediction_sha256": "a5835892187a1e310a5608f4adf0e5455b9233a4da427b051865e878f4eb308f",
+ "ending_prediction_sha256": "3f08d12365f322e0117989d1ed9d378ae71ea061436b4f838ab2e77c654970e4",
+ "changes_sha256": "55334a29fc0490df54ee9b50bef5fd4c5d13f66b3a578e7ac75bf5a87e3b37ed",
+ "ending_changes_sha256": "c1e17878de602a52dba11ec3ec35b9b34ffec5b384520e3de0affe522b84609c",
+ "record_sha256": {
+  "jin_ending.json": "820004a7e027c1bf3a989db6d9db7274096ff4130d85cfac56e4dcc134bdcbb8"
+ },
+ "story_regression": "data/regression/re008_roster.json (story files, prediction and changes unchanged)",
+ "pairs": 179,
+ "sacrificed_codes": 0,
+ "checks": {
+  "two_builds": "identical (all outputs, Track 01, records)",
+  "untouched": "END.BIN 910, SE.DAT 14,558 (179 glyphs), KEND_1.BIN 32 (16 size words), QSD.PIX 798 bytes changed, all in ending_changes.json; SE.DAT outside the font copy unchanged; M5 files equal RE-008's",
+  "sectors": "43,793 valid, 158 changed; source Track 01 758fa795... unchanged",
+  "forced_ending": "Jin: 19/20 translated openings full at 11-frame polls, 20/20 with box 420 at 1-frame polls; Gawaine (list 4): 20/20 boxes, 605/601 in English, his boxes in their original Japanese",
+  "images": "cast roll: the 10 Japanese names hidden, Latin names kept (every ending); QSound line erased",
+  "play": "cold boot, Jin: scenes 21 and 0 complete in English (6/6 boxes)"
+ }
+}

@@ -756,3 +756,83 @@ Reproduce: `research/experiments/EXP-0040/README.md`, "Procedure".
   box 1072 by lists 1-5 and 7.
 
 Reproduce: `research/experiments/EXP-0041/README.md`, "Procedure".
+
+## D-039: During an ending, `END.BIN` never reads the lines no ending box shows (`END-010`, `EXP-0042`)
+
+- `END.BIN`'s line table holds the 1,851 dialogue lines, then ASCII file
+  names. 1,850 lines are pointed to by box records; 1,591 of those (18
+  spans, 43,304 bytes) are in no box any ending posts. (`EXP-0041`'s 44,124
+  bytes counted the file names too.)
+- With those lines filled with a marker code in a test image, read
+  breakpoints on the 18 spans log no hit while `END.BIN` is resident, from
+  its load to `KEND.BIN`'s, in Jin's ending and in Santana's (list 1,
+  forced). A read breakpoint on one of Jin's shown lines hits at its box's
+  character reader (`0x06062788`/`0x0606278E`), so the method sees reads.
+- Every box draws its original cells, and the box calls equal the
+  controls'. The other hits are reads of other files at the same addresses:
+  before `END.BIN` loads, and inside `KEND.BIN` (`0x06060000`-`0x0606C8A7`)
+  after it loads.
+- The other seven endings post only constant scenes through the same code
+  (D-036), so for them this is SUPPORTED.
+
+Reproduce: `research/experiments/EXP-0042/README.md`, "Procedure".
+
+## D-040: The cast roll's names are sprite parts; size word 0 hides one (`END-010`, `EXP-0044`)
+
+- The cast roll is bank 16 of the main program's sprite-part routine
+  (`0x060113F0`). The bank header is at `KEND.BIN` + `0xA704`: +4 holds a
+  16-bit part index per frame, and +8 the 6-byte parts in `KEND_0.BIN` (at
+  `0x00200000`).
+- A part whose second word has bit `0x20` takes its pattern record from
+  `KEND_1.BIN` (at `0x00280000`), at 4 × (bit 0 << 16 | third word). The
+  record's first word is the size: width (word & `0x0F00`) >> 5, height
+  word & `0x7F`. A size of 0 skips the part (`0x0601157C`/`0x06011584`), so
+  no command is written and nothing is decoded.
+- Every ending's cast roll draws frames `0x1B6`-`0x1C9`. The even frames are
+  the ten Japanese names (colour `0x40E0`, 16 records, 10-11 pixels high),
+  the odd frames the Latin names (`0x41E0`).
+- From a pre-roll state, setting the 16 records' size words to 0 removes
+  every Japanese name and nothing else. The portraits and Latin names are
+  unchanged, and shots without names are identical to the control. The
+  built image does the same from disc (`EXP-0045`).
+
+Reproduce: `research/experiments/EXP-0044/README.md`, "Procedure".
+
+## D-041: The QSound line is erased by background pixels in `QSD.PIX` (`END-010`, `EXP-0043`)
+
+- In `QSD.PIX`, index 0 is transparent and the notice's background is index
+  255.
+- The Japanese trademark line is the only non-background content in rows
+  180-190, x 89-300; x 84-88 is the logo's edge.
+- Setting that region to 255 changes 798 pixels, all of them the line. On
+  screen the line is gone with no gap, and the English lines and the logo
+  are unchanged (x 115-301, y 172-182 differ; nothing else does).
+
+Reproduce: `research/experiments/EXP-0043/README.md`, "Procedure".
+
+## D-042: Jin's ending in English, built from the source image (M7) (`END-010`, `EXP-0045`)
+
+- `tools.text.dialogue --ending` builds one image with the M5 roster
+  unchanged and Jin's ending in the official US arcade English. RE-008's
+  story files, prediction and changes hashes are kept, and two builds are
+  identical.
+  - **`END.BIN`:** 18 boxes, 34 rows. All 179 pairs are on codes no line
+    uses, with no sacrifice. The rows use Jin's own free lines (828 bytes,
+    including the shared names' lines 1006 and 1010) and 64 bytes of D-039's
+    room.
+  - **`SE.DAT`'s font copy:** 179 glyphs.
+  - **`KEND_1.BIN` and `QSD.PIX`:** D-040 and D-041.
+  - 158 sectors changed, all valid.
+- From the END-001 checkpoint every unit draws its predicted cells. Forced
+  list 4 shows boxes 605/601 in English and its own boxes unchanged. A cold
+  boot plays Jin's story in English. The screenshots were agent-reviewed.
+- Caption rows 2-3 start under the caption's column, after the speaker
+  name, as in the arcade.
+- **Box timing.** Each ending box stays open for a time the scene sets, the
+  same in both languages within ±8 frames, and typing takes about 6 frames
+  a glyph. English boxes 409, 493 and 420 (45, 43 and 31 glyphs, against
+  30, 30 and 25 in Japanese) finish typing 7, 7 and 4 frames before they
+  close. Nothing is cut off; every other box holds its full line for 80-300
+  frames.
+
+Reproduce: `research/experiments/EXP-0045/README.md`, "Procedure".
