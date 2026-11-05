@@ -132,6 +132,11 @@ All five held sets carry identical record content in all three tables.
 Decoder: `tools/reference/cybots_text.py`; metadata:
 `data/arcade/dialogue_tables.json`.
 
+**Corrected 2026-11-05 (`EXP-0040`):** the Japanese table also has 624
+pointers. Slots 494-623, speaker names among them, sit at
+`0x0A38AE`-`0x0A3AB5` in `cybotsj` and point to records past `0x0AA8D4`;
+`cybotsj`'s ending reads slots 610 and 614 there.
+
 Reproduce: `research/experiments/EXP-0008/README.md`, "Procedure".
 
 ## D-010: What the arcade draws, and what selects it (`REF-004`, `EXP-0009`)
@@ -686,3 +691,33 @@ Reproduce: `research/experiments/EXP-0038/README.md`, "Procedure".
   (`XRCADE STAFF`, `SPECIAL THINKS`, `THINK YOU FOR PLAYING!`).
 
 Reproduce: `research/experiments/EXP-0039/README.md`, "Procedure".
+
+## D-037: The arcade's ending, reached and read; its English for Jin's ending (`END-004`, `EXP-0040`)
+
+- **Selection.** The arcade selects its ending as the Saturn does. The round
+  end (`0xDAF4`, in `cybotsu` and `cybotsj`) takes the ending path when
+  `0xFFEA28` is set. It then copies the winner's pilot byte to the ending
+  number `0xFFEB2C`. The mode handler dispatches on that number to one of 6
+  routines (`cybotsu` table `0xE496`).
+- **Route.** In headless MAME, from a fixed NVRAM copy, menu presses and one
+  breakpoint at `0xDAE4` reach Jin's ending in both sets. The breakpoint
+  gives player 1 two round wins, player 2 none, and sets the flag. Repeat
+  runs are byte-identical.
+- **Readers.** The ending's boxes are read by slot by the story's readers:
+  - `cybotsu`: `0x011F6A`/`0x012014`, from the English table;
+  - `cybotsj`: `0x011E7A`/`0x011F0E`, from the Japanese table.
+
+  The slots are 408-422, 493, and the names 614 and 610. Nothing reads a
+  dialogue table after scene 19, and `0x97222` is not used.
+- **Scripts.** Both sets post the same ending scenes with the same slots
+  (`data/arcade/ending_scripts.json`). Against the Saturn, box N is slot N,
+  with three kinds of difference:
+  - the Saturn adds a blank box 1072;
+  - its speaker-name boxes are the arcade slot − 9 (Saturn 608 = slot 615);
+  - it never posts Mary's scenes 17-18 or Bao and Mao's scene 20.
+- **Surfaces.** The US arcade has English for Jin's dialogue, narration and
+  captions (with English speaker names). Its cast roll shows Latin names
+  only, while `cybotsj` shows katakana over Latin like the Saturn. Its
+  ending has no QSound notice. Its staff credits are the arcade staff only.
+
+Reproduce: `research/experiments/EXP-0040/README.md`, "Procedure".

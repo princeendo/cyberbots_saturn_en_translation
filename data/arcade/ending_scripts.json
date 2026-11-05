@@ -1,0 +1,1242 @@
+{
+ "sources": {
+  "cybotsu-maincpu.bin": "18e8827dc742f4fef577aac8c06ae05dfb54ddad60a589238ac610f07b4152fd",
+  "cybotsj-maincpu.bin": "2d1e6b255184bd75a0b8b8af7b3fe25eed1f0086065c3bcc1f01d7e65806928e",
+  "ending_posts.json": "4aa3e3ae2a74bbf5038ecfbfcba21d53b6adcd6a0918629e0d39c809ec62e323"
+ },
+ "sets": {
+  "cybotsu": {
+   "dispatch_table": "0x00E496",
+   "dispatchers": [
+    "0x04B88C",
+    "0x04BCBE",
+    "0x04C1B2",
+    "0x04C586",
+    "0x04CB9A",
+    "0x04D0B2"
+   ],
+   "scripts": "0x012150"
+  },
+  "cybotsj": {
+   "dispatch_table": "0x00E480",
+   "dispatchers": [
+    "0x04B878",
+    "0x04BCAA",
+    "0x04C19E",
+    "0x04C572",
+    "0x04CB86",
+    "0x04D09E"
+   ],
+   "scripts": "0x012138"
+  }
+ },
+ "lists": [
+  {
+   "list": 0,
+   "saturn_posts": [
+    16,
+    17,
+    18,
+    19
+   ],
+   "cybotsu_posts": [
+    16,
+    17,
+    18,
+    19
+   ],
+   "cybotsj_posts": [
+    16,
+    17,
+    18,
+    19
+   ],
+   "scenes": [
+    {
+     "scene": 16,
+     "posted_by": [
+      "saturn",
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": [
+      1072,
+      408,
+      409,
+      493,
+      410,
+      411,
+      412
+     ],
+     "cybotsu_slots": [
+      408,
+      409,
+      493,
+      410,
+      411,
+      412
+     ],
+     "cybotsj_slots": [
+      408,
+      409,
+      493,
+      410,
+      411,
+      412
+     ],
+     "saturn_only": [
+      1072
+     ],
+     "cybotsu_only": [],
+     "cybotsj_differs_from_cybotsu": false
+    },
+    {
+     "scene": 17,
+     "posted_by": [
+      "saturn",
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": [
+      1072,
+      413
+     ],
+     "cybotsu_slots": [
+      413
+     ],
+     "cybotsj_slots": [
+      413
+     ],
+     "saturn_only": [
+      1072
+     ],
+     "cybotsu_only": [],
+     "cybotsj_differs_from_cybotsu": false
+    },
+    {
+     "scene": 18,
+     "posted_by": [
+      "saturn",
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": [
+      414,
+      415
+     ],
+     "cybotsu_slots": [
+      414,
+      415
+     ],
+     "cybotsj_slots": [
+      414,
+      415
+     ],
+     "saturn_only": [],
+     "cybotsu_only": [],
+     "cybotsj_differs_from_cybotsu": false
+    },
+    {
+     "scene": 19,
+     "posted_by": [
+      "saturn",
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": [
+      605,
+      416,
+      417,
+      418,
+      601,
+      419,
+      420,
+      421,
+      422
+     ],
+     "cybotsu_slots": [
+      614,
+      416,
+      417,
+      418,
+      610,
+      419,
+      420,
+      421,
+      422
+     ],
+     "cybotsj_slots": [
+      614,
+      416,
+      417,
+      418,
+      610,
+      419,
+      420,
+      421,
+      422
+     ],
+     "saturn_only": [
+      605,
+      601
+     ],
+     "cybotsu_only": [
+      614,
+      610
+     ],
+     "cybotsj_differs_from_cybotsu": false
+    }
+   ]
+  },
+  {
+   "list": 1,
+   "saturn_posts": [
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22
+   ],
+   "cybotsu_posts": [
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22
+   ],
+   "cybotsj_posts": [
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22
+   ],
+   "scenes": [
+    {
+     "scene": 16,
+     "posted_by": [
+      "saturn",
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": [
+      1072,
+      423,
+      424
+     ],
+     "cybotsu_slots": [
+      423,
+      424
+     ],
+     "cybotsj_slots": [
+      423,
+      424
+     ],
+     "saturn_only": [
+      1072
+     ],
+     "cybotsu_only": [],
+     "cybotsj_differs_from_cybotsu": false
+    },
+    {
+     "scene": 17,
+     "posted_by": [
+      "saturn",
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": [
+      603,
+      425
+     ],
+     "cybotsu_slots": [
+      612,
+      425
+     ],
+     "cybotsj_slots": [
+      612,
+      425
+     ],
+     "saturn_only": [
+      603
+     ],
+     "cybotsu_only": [
+      612
+     ],
+     "cybotsj_differs_from_cybotsu": false
+    },
+    {
+     "scene": 18,
+     "posted_by": [
+      "saturn",
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": [
+      604,
+      426
+     ],
+     "cybotsu_slots": [
+      613,
+      426
+     ],
+     "cybotsj_slots": [
+      613,
+      426
+     ],
+     "saturn_only": [
+      604
+     ],
+     "cybotsu_only": [
+      613
+     ],
+     "cybotsj_differs_from_cybotsu": false
+    },
+    {
+     "scene": 19,
+     "posted_by": [
+      "saturn",
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": [
+      603,
+      427,
+      604,
+      428,
+      429
+     ],
+     "cybotsu_slots": [
+      612,
+      427,
+      613,
+      428,
+      429
+     ],
+     "cybotsj_slots": [
+      612,
+      427,
+      613,
+      428,
+      429
+     ],
+     "saturn_only": [
+      603,
+      604
+     ],
+     "cybotsu_only": [
+      612,
+      613
+     ],
+     "cybotsj_differs_from_cybotsu": false
+    },
+    {
+     "scene": 20,
+     "posted_by": [
+      "saturn",
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": [
+      430,
+      431
+     ],
+     "cybotsu_slots": [
+      430,
+      431
+     ],
+     "cybotsj_slots": [
+      430,
+      431
+     ],
+     "saturn_only": [],
+     "cybotsu_only": [],
+     "cybotsj_differs_from_cybotsu": false
+    },
+    {
+     "scene": 21,
+     "posted_by": [
+      "saturn",
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": [
+      603,
+      432,
+      611,
+      433,
+      434
+     ],
+     "cybotsu_slots": [
+      612,
+      432,
+      620,
+      433,
+      434
+     ],
+     "cybotsj_slots": [
+      612,
+      432,
+      620,
+      433,
+      434
+     ],
+     "saturn_only": [
+      603,
+      611
+     ],
+     "cybotsu_only": [
+      612,
+      620
+     ],
+     "cybotsj_differs_from_cybotsu": false
+    },
+    {
+     "scene": 22,
+     "posted_by": [
+      "saturn",
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": [
+      603,
+      435,
+      436
+     ],
+     "cybotsu_slots": [
+      435,
+      436
+     ],
+     "cybotsj_slots": [
+      435,
+      436
+     ],
+     "saturn_only": [
+      603
+     ],
+     "cybotsu_only": [],
+     "cybotsj_differs_from_cybotsu": false
+    }
+   ]
+  },
+  {
+   "list": 2,
+   "saturn_posts": [
+    16
+   ],
+   "cybotsu_posts": [
+    16,
+    17,
+    18
+   ],
+   "cybotsj_posts": [
+    16,
+    17,
+    18
+   ],
+   "scenes": [
+    {
+     "scene": 16,
+     "posted_by": [
+      "saturn",
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": [
+      1072,
+      437,
+      438,
+      439
+     ],
+     "cybotsu_slots": [
+      437,
+      438,
+      439
+     ],
+     "cybotsj_slots": [
+      437,
+      438,
+      439
+     ],
+     "saturn_only": [
+      1072
+     ],
+     "cybotsu_only": [],
+     "cybotsj_differs_from_cybotsu": false
+    },
+    {
+     "scene": 17,
+     "posted_by": [
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": null,
+     "cybotsu_slots": [
+      619,
+      440,
+      611,
+      441,
+      442,
+      443
+     ],
+     "cybotsj_slots": [
+      619,
+      440,
+      611,
+      441,
+      442,
+      443
+     ],
+     "saturn_only": [],
+     "cybotsu_only": [
+      619,
+      440,
+      611,
+      441,
+      442,
+      443
+     ],
+     "cybotsj_differs_from_cybotsu": false
+    },
+    {
+     "scene": 18,
+     "posted_by": [
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": null,
+     "cybotsu_slots": [
+      613,
+      444,
+      611,
+      445,
+      446,
+      447
+     ],
+     "cybotsj_slots": [
+      613,
+      444,
+      611,
+      445,
+      446,
+      447
+     ],
+     "saturn_only": [],
+     "cybotsu_only": [
+      613,
+      444,
+      611,
+      445,
+      446,
+      447
+     ],
+     "cybotsj_differs_from_cybotsu": false
+    }
+   ]
+  },
+  {
+   "list": 3,
+   "saturn_posts": [
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    27,
+    28
+   ],
+   "cybotsu_posts": [
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    27,
+    28
+   ],
+   "cybotsj_posts": [
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    27,
+    28
+   ],
+   "scenes": [
+    {
+     "scene": 16,
+     "posted_by": [
+      "saturn",
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": [
+      1072,
+      448
+     ],
+     "cybotsu_slots": [
+      448
+     ],
+     "cybotsj_slots": [
+      448
+     ],
+     "saturn_only": [
+      1072
+     ],
+     "cybotsu_only": [],
+     "cybotsj_differs_from_cybotsu": false
+    },
+    {
+     "scene": 17,
+     "posted_by": [
+      "saturn",
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": [
+      449
+     ],
+     "cybotsu_slots": [
+      449
+     ],
+     "cybotsj_slots": [
+      449
+     ],
+     "saturn_only": [],
+     "cybotsu_only": [],
+     "cybotsj_differs_from_cybotsu": false
+    },
+    {
+     "scene": 18,
+     "posted_by": [
+      "saturn",
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": [
+      450,
+      451
+     ],
+     "cybotsu_slots": [
+      450,
+      451
+     ],
+     "cybotsj_slots": [
+      450,
+      451
+     ],
+     "saturn_only": [],
+     "cybotsu_only": [],
+     "cybotsj_differs_from_cybotsu": false
+    },
+    {
+     "scene": 19,
+     "posted_by": [
+      "saturn",
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": [
+      452
+     ],
+     "cybotsu_slots": [
+      452
+     ],
+     "cybotsj_slots": [
+      452
+     ],
+     "saturn_only": [],
+     "cybotsu_only": [],
+     "cybotsj_differs_from_cybotsu": false
+    },
+    {
+     "scene": 20,
+     "posted_by": [
+      "saturn",
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": [
+      610,
+      453,
+      605,
+      454
+     ],
+     "cybotsu_slots": [
+      619,
+      453,
+      614,
+      454
+     ],
+     "cybotsj_slots": [
+      619,
+      453,
+      614,
+      454
+     ],
+     "saturn_only": [
+      610,
+      605
+     ],
+     "cybotsu_only": [
+      619,
+      614
+     ],
+     "cybotsj_differs_from_cybotsu": false
+    },
+    {
+     "scene": 21,
+     "posted_by": [
+      "saturn",
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": [
+      455
+     ],
+     "cybotsu_slots": [
+      455
+     ],
+     "cybotsj_slots": [
+      455
+     ],
+     "saturn_only": [],
+     "cybotsu_only": [],
+     "cybotsj_differs_from_cybotsu": false
+    },
+    {
+     "scene": 27,
+     "posted_by": [
+      "saturn",
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": [
+      606,
+      456
+     ],
+     "cybotsu_slots": [
+      615,
+      456
+     ],
+     "cybotsj_slots": [
+      615,
+      456
+     ],
+     "saturn_only": [
+      606
+     ],
+     "cybotsu_only": [
+      615
+     ],
+     "cybotsj_differs_from_cybotsu": false
+    },
+    {
+     "scene": 28,
+     "posted_by": [
+      "saturn",
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": [
+      604,
+      457,
+      605,
+      458,
+      459,
+      460,
+      461,
+      462,
+      607,
+      463,
+      464
+     ],
+     "cybotsu_slots": [
+      613,
+      457,
+      614,
+      458,
+      459,
+      460,
+      461,
+      462,
+      616,
+      463,
+      464
+     ],
+     "cybotsj_slots": [
+      613,
+      457,
+      614,
+      458,
+      459,
+      460,
+      461,
+      462,
+      616,
+      463,
+      464
+     ],
+     "saturn_only": [
+      604,
+      605,
+      607
+     ],
+     "cybotsu_only": [
+      613,
+      614,
+      616
+     ],
+     "cybotsj_differs_from_cybotsu": false
+    }
+   ]
+  },
+  {
+   "list": 4,
+   "saturn_posts": [
+    16,
+    17,
+    18,
+    19
+   ],
+   "cybotsu_posts": [
+    16,
+    17,
+    18,
+    19
+   ],
+   "cybotsj_posts": [
+    16,
+    17,
+    18,
+    19
+   ],
+   "scenes": [
+    {
+     "scene": 16,
+     "posted_by": [
+      "saturn",
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": [
+      605,
+      465,
+      601,
+      466,
+      467,
+      468,
+      469,
+      470,
+      471
+     ],
+     "cybotsu_slots": [
+      614,
+      465,
+      610,
+      466,
+      467,
+      468,
+      469,
+      470,
+      471
+     ],
+     "cybotsj_slots": [
+      614,
+      465,
+      610,
+      466,
+      467,
+      468,
+      469,
+      470,
+      471
+     ],
+     "saturn_only": [
+      605,
+      601
+     ],
+     "cybotsu_only": [
+      614,
+      610
+     ],
+     "cybotsj_differs_from_cybotsu": false
+    },
+    {
+     "scene": 17,
+     "posted_by": [
+      "saturn",
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": [
+      472
+     ],
+     "cybotsu_slots": [
+      472
+     ],
+     "cybotsj_slots": [
+      472
+     ],
+     "saturn_only": [],
+     "cybotsu_only": [],
+     "cybotsj_differs_from_cybotsu": false
+    },
+    {
+     "scene": 18,
+     "posted_by": [
+      "saturn",
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": [
+      473,
+      474
+     ],
+     "cybotsu_slots": [
+      473,
+      474
+     ],
+     "cybotsj_slots": [
+      473,
+      474
+     ],
+     "saturn_only": [],
+     "cybotsu_only": [],
+     "cybotsj_differs_from_cybotsu": false
+    },
+    {
+     "scene": 19,
+     "posted_by": [
+      "saturn",
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": [
+      601,
+      475,
+      476,
+      477,
+      478
+     ],
+     "cybotsu_slots": [
+      610,
+      475,
+      476,
+      477,
+      478
+     ],
+     "cybotsj_slots": [
+      610,
+      475,
+      476,
+      477,
+      478
+     ],
+     "saturn_only": [
+      601
+     ],
+     "cybotsu_only": [
+      610
+     ],
+     "cybotsj_differs_from_cybotsu": false
+    }
+   ]
+  },
+  {
+   "list": 5,
+   "saturn_posts": [
+    16,
+    17,
+    28,
+    18,
+    19,
+    21,
+    22
+   ],
+   "cybotsu_posts": [
+    16,
+    17,
+    28,
+    18,
+    19,
+    20,
+    21,
+    22
+   ],
+   "cybotsj_posts": [
+    16,
+    17,
+    28,
+    18,
+    19,
+    20,
+    21,
+    22
+   ],
+   "scenes": [
+    {
+     "scene": 16,
+     "posted_by": [
+      "saturn",
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": [
+      1072,
+      479,
+      480
+     ],
+     "cybotsu_slots": [
+      479,
+      480
+     ],
+     "cybotsj_slots": [
+      479,
+      480
+     ],
+     "saturn_only": [
+      1072
+     ],
+     "cybotsu_only": [],
+     "cybotsj_differs_from_cybotsu": false
+    },
+    {
+     "scene": 17,
+     "posted_by": [
+      "saturn",
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": [
+      607,
+      481,
+      606,
+      551
+     ],
+     "cybotsu_slots": [
+      616,
+      481,
+      615,
+      551
+     ],
+     "cybotsj_slots": [
+      616,
+      481,
+      615,
+      551
+     ],
+     "saturn_only": [
+      607,
+      606
+     ],
+     "cybotsu_only": [
+      616,
+      615
+     ],
+     "cybotsj_differs_from_cybotsu": false
+    },
+    {
+     "scene": 18,
+     "posted_by": [
+      "saturn",
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": [
+      608,
+      483
+     ],
+     "cybotsu_slots": [
+      615,
+      483
+     ],
+     "cybotsj_slots": [
+      615,
+      483
+     ],
+     "saturn_only": [
+      608
+     ],
+     "cybotsu_only": [
+      615
+     ],
+     "cybotsj_differs_from_cybotsu": false
+    },
+    {
+     "scene": 19,
+     "posted_by": [
+      "saturn",
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": [
+      613,
+      484,
+      612,
+      485
+     ],
+     "cybotsu_slots": [
+      622,
+      484,
+      621,
+      485
+     ],
+     "cybotsj_slots": [
+      622,
+      484,
+      621,
+      485
+     ],
+     "saturn_only": [
+      613,
+      612
+     ],
+     "cybotsu_only": [
+      622,
+      621
+     ],
+     "cybotsj_differs_from_cybotsu": false
+    },
+    {
+     "scene": 20,
+     "posted_by": [
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": null,
+     "cybotsu_slots": [
+      615,
+      486
+     ],
+     "cybotsj_slots": [
+      615,
+      486
+     ],
+     "saturn_only": [],
+     "cybotsu_only": [
+      615,
+      486
+     ],
+     "cybotsj_differs_from_cybotsu": false
+    },
+    {
+     "scene": 21,
+     "posted_by": [
+      "saturn",
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": [
+      487
+     ],
+     "cybotsu_slots": [
+      487
+     ],
+     "cybotsj_slots": [
+      487
+     ],
+     "saturn_only": [],
+     "cybotsu_only": [],
+     "cybotsj_differs_from_cybotsu": false
+    },
+    {
+     "scene": 22,
+     "posted_by": [
+      "saturn",
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": [
+      606,
+      488,
+      612,
+      489,
+      613,
+      490,
+      607,
+      491,
+      614,
+      492
+     ],
+     "cybotsu_slots": [
+      615,
+      488,
+      621,
+      489,
+      622,
+      490,
+      616,
+      491,
+      623,
+      492
+     ],
+     "cybotsj_slots": [
+      615,
+      488,
+      621,
+      489,
+      622,
+      490,
+      616,
+      491,
+      623,
+      492
+     ],
+     "saturn_only": [
+      606,
+      612,
+      613,
+      607,
+      614
+     ],
+     "cybotsu_only": [
+      615,
+      621,
+      622,
+      616,
+      623
+     ],
+     "cybotsj_differs_from_cybotsu": false
+    },
+    {
+     "scene": 28,
+     "posted_by": [
+      "saturn",
+      "cybotsu",
+      "cybotsj"
+     ],
+     "saturn_boxes": [
+      608,
+      482
+     ],
+     "cybotsu_slots": [
+      615,
+      482
+     ],
+     "cybotsj_slots": [
+      615,
+      482
+     ],
+     "saturn_only": [
+      608
+     ],
+     "cybotsu_only": [
+      615
+     ],
+     "cybotsj_differs_from_cybotsu": false
+    }
+   ]
+  }
+ ]
+}

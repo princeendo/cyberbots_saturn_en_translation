@@ -218,6 +218,11 @@ names it for its method only.
   scenes (`data/text/ending_posts.json`). Santana's ending was forced and
   matched its prediction. Jin's scene 20 is never shown. Credits text is
   ASCII in `KEND.BIN`. Next: `END-004` is `READY`.
+- **2026-11-05: the arcade's ending English** (`END-004`, `EXP-0040`,
+  D-037): headless MAME reaches Jin's ending in `cybotsu` and `cybotsj`
+  with one round-end breakpoint. The arcade has English for every dialogue
+  box of it; the US cast roll drops the katakana line; there is no QSound
+  notice in the arcade ending. Next: `END-005` (closes M6) is `READY`.
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base
@@ -1331,7 +1336,7 @@ menu key presses only; fights and routes forced by RAM writes (the user,
 
 ### END-004 - The arcade's English for the endings
 
-- **Status:** `READY`
+- **Status:** `DONE`
 - **Milestone:** M6
 - **Dependencies:** END-001 (for the surface list; the MAME work can start alongside `END-002`/`END-003`).
 - **Blockers:** None.
@@ -1342,13 +1347,14 @@ menu key presses only; fights and routes forced by RAM writes (the user,
   - **Scripts:** the arcade's ending scene scripts for Jin (list 0, scenes 16 and up, `0x12150`) against the Saturn's, scene by scene, with each difference listed.
   - **Snapshots:** agent-reviewed MAME snapshots of each English surface, matched to the Saturn's surfaces of `END-001`.
 - **Notes:** headless MAME needs no focus; no new tool is installed or downloaded.
+- **Done:** 2026-11-05 (`EXP-0040`, D-037), headless MAME 0.289, fixed NVRAM copies, menu presses only. Route: one breakpoint at the round end `0xDAE4` (P1 2 round wins, P2 0, ending flag `0xFFEA28`) reaches Jin's ending in `cybotsu` and `cybotsj`; repeat runs byte-identical. The arcade mirrors the Saturn: the winner's pilot byte becomes the ending number `0xFFEB2C`, dispatched to one of 6 routines (`0xE496`). Readers: the story box readers (`0x011F6A`/`0x012014` U, `0x011E7A`/`0x011F0E` J) read slots 408-422, 493, 614, 610 from the English (U) or Japanese (J) table; no table is read after scene 19; `0x97222` and the Spanish table are not used. Scripts: both sets equal; against the Saturn, box N is slot N except the Saturn's blank box 1072 and its speaker names (slot − 9); Mary's scenes 17-18 and Bao and Mao's 20 are arcade-only (`data/arcade/ending_scripts.json`). Surfaces: English dialogue, narration and captions; the US cast roll has Latin names only; no QSound notice in the arcade ending. D-009 corrected: the Japanese table has 624 slots.
 
 ### END-005 - Pair Jin's ending with the arcade English (closes M6)
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M6
 - **Dependencies:** END-002, END-003, END-004.
-- **Blockers:** Dependencies not done.
+- **Blockers:** None.
 - **Objective:** For every text unit of Jin's ending, the official English shown in the same place, by game logic, and what has none.
 - **Acceptance criteria:**
   - **Pairing:** `data/translations/jin_ending_pairing.json` (no text): each Saturn unit (box or other surface) with its arcade counterpart, labelled `exact`, `edited` or `no-counterpart`, explained by both games' scripts or readers.

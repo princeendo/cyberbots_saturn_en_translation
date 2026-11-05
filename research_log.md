@@ -1868,3 +1868,47 @@ Commands: `ruff check .` and `ruff format --check .` (clean, 182 files),
 `mypy tools tests` and the EXP-0039 scripts (clean, 65 files), `pytest -q`:
 164 passed; `end_scenes.py` reproduces `data/text/ending_posts.json` byte
 for byte.
+
+## 2026-11-05 — END-004: the arcade's English for Jin's ending (EXP-0040)
+
+Action: the user said "Start END-004". Static reading of both arcade
+sets' disassemblies (MAME `debug dasm`; `cybotsj`'s made here), then
+headless MAME 0.289 routes from fixed NVRAM copies, menu presses only. Runs
+under `local/end004/mame/`.
+
+Result:
+- The arcade mirrors the Saturn:
+  - round-end flag `0xFFEA28` (set from `0xFFEA2B`);
+  - the winner's pilot copied to the ending number `0xFFEB2C`;
+  - 6 ending routines (`0xE496`), with the same post form.
+- One breakpoint at `0xDAE4` (P1 2 wins, P2 0, flag) reaches Jin's ending
+  in `cybotsu` (ending number at 9259) and `cybotsj` (9436). Repeat runs
+  are byte-identical.
+- The story readers read the ending slots from the English (U) or
+  Japanese (J) table. No table is read after scene 19.
+- Scripts are equal in both sets. Against the Saturn:
+  - box 1072 is added;
+  - speaker names are the slot − 9;
+  - Mary's 17-18 and Bao and Mao's 20 are arcade-only.
+- The US cast roll shows Latin names only. The arcade ending has no QSound
+  notice.
+
+Failed or corrected along the way (do not retry):
+- MAME refuses a read tap with an even end address. The error cancelled
+  every later tap installed on that frame, so only the first tap logged.
+  Use odd ends.
+- `cybotsj`'s first taps covered 494 Japanese pointers (D-009). Speaker
+  names 610/614 went unseen, and it looked as if `cybotsj` read no name
+  slots. The table has 624 pointers. D-009 now carries a correction.
+- The dispatch table read from `cybotsu-maincpu.bin` came out as garbage:
+  PC-relative reads go through the decrypted opcode space. The words are
+  now taken from the disassembly.
+- Searching the encrypted `cybotsu-maincpu.bin` for code bytes fails; use
+  the disassembly, or `cybotsud` for a quick search.
+
+Conclusion: **CONFIRMED**, D-037. `END-004` is done; `END-005` is `READY`.
+
+Commands: `ruff check .` and `ruff format --check .` (clean, 184 files),
+`mypy tools tests` and the EXP-0040 script (clean, 63 files), `pytest -q`:
+164 passed; `compare_scripts.py` reproduces `data/arcade/ending_scripts.json`
+byte for byte.

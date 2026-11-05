@@ -44,13 +44,13 @@ the box routine from its record table `0x060817B4`.
 
 | Surface | When shown | Text on the Saturn | Arcade English | Sample (SHA-256) |
 | --- | --- | --- | --- | --- |
-| **Ending dialogue boxes** | Scenes 16-17, after the last win | **Japanese**, typed out in a story-style box with portraits (boxes 408-413, 493, 1072) | `END-004` | `f02069.png` (`3260eff6…2a17`), `f03109.png` (`0f894470…5b60`) |
-| **Ending narration** | Scene 18 | **Japanese**, typed white text on black, no box (boxes 414-415) | `END-004` | `f03629.png` (`7242307e…dde8`) |
-| **Ending captions with speaker names** | Scene 19 | **Japanese**, typed lines under a picture, each led by the speaker's name (boxes 416-422; names 601, 605) | `END-004` | `f04409.png` (`56d90dbb…df73`), `f05189.png` (`3b44d63d…33d4`) |
-| **Cast roll** | After scene 19 (`KEND*.BIN`, track 40) | **Japanese** pilot names (katakana; one title in kanji) over yellow Latin names, portraits; `CAST`, `and...`, `AS YOU.` in English | `END-004` | `f07276.png` (`b29a715b…9ee7`), `f08056.png` (`deb5723c…060d`) |
-| Staff credits | Track 36 | English (`ARCADE STAFF`, `CONSUMER STAFF`) | — | `f09096.png` (`58c55296…8d23`) |
+| **Ending dialogue boxes** | Scenes 16-17, after the last win | **Japanese**, typed out in a story-style box with portraits (boxes 408-413, 493, 1072) | English boxes, slots 408-413, 493 (no blank box 1072); `EXP-0040` `f09740` | `f02069.png` (`3260eff6…2a17`), `f03109.png` (`0f894470…5b60`) |
+| **Ending narration** | Scene 18 | **Japanese**, typed white text on black, no box (boxes 414-415) | English, slots 414-415; `EXP-0040` `f11210` | `f03629.png` (`7242307e…dde8`) |
+| **Ending captions with speaker names** | Scene 19 | **Japanese**, typed lines under a picture, each led by the speaker's name (boxes 416-422; names 601, 605) | English, slots 416-422; names `Gawaine:`/`Jin:` are slots 614/610; `EXP-0040` `f12200` | `f04409.png` (`56d90dbb…df73`), `f05189.png` (`3b44d63d…33d4`) |
+| **Cast roll** | After scene 19 (`KEND*.BIN`, track 40) | **Japanese** pilot names (katakana; one title in kanji) over yellow Latin names, portraits; `CAST`, `and...`, `AS YOU.` in English | **Latin names only**; no line for the katakana (`cybotsj` shows katakana, as the Saturn); `EXP-0040` `f14340` | `f07276.png` (`b29a715b…9ee7`), `f08056.png` (`deb5723c…060d`) |
+| Staff credits | Track 36 | English (`ARCADE STAFF`, `CONSUMER STAFF`) | `STAFF`, the arcade staff only | `f09096.png` (`58c55296…8d23`) |
 | `THANK YOU FOR PLAYING!`, `PRODUCED BY CAPCOM` | After the credits | English | — | `f12476.png` (`e6c605e9…1c82`) |
-| QSound notice (`QSD.PIX`) | After the credits | English, plus **one Japanese trademark line** (an image) | — | `f13102.png` (`d46c3202…2746`) |
+| QSound notice (`QSD.PIX`) | After the credits | English, plus **one Japanese trademark line** (an image) | **None** in the ending; a different, all-English QSound screen in the attract loop | `f13102.png` (`d46c3202…2746`) |
 | Game over, initials, ranking | Then the attract loop | English | — | `f13779.png` (`9e00cf92…cf96`), `f14829.png` (`3acbdd4b…864e`) |
 
 How each is drawn (`EXP-0038`, D-035):
