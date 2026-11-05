@@ -27,6 +27,14 @@ can apply unchanged.
 `bsdtar -xf` into an empty scratch folder under `local/`, then moved to the
 ignored `vendor/mednafen/src/`. It is not modified.
 
+On 2026-11-05 the source trees (`src/`, `src-agent/`) and every build file
+except the two executables were deleted to free disk space (research log,
+2026-11-05). The executables stay at their paths with the hashes below. To
+rebuild, extract the archive from `local/downloads/mednafen-1.32.1/` again
+and follow the steps here and in `vendor/mednafen/README.md`. A rebuilt agent
+binary needs V1-V4 again (`EMU-021`). The logs named below were in
+`local/logs/`, which is now in the homelab archive (`Cyberbots-Saturn-EN`).
+
 ## Exact Stock Build
 
 Host: macOS 26.7.2 (25G332), Darwin 25.6.0 arm64 (12 CPUs), Apple clang

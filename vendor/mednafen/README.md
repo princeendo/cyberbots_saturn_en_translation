@@ -5,6 +5,11 @@ The stock Mednafen 1.32.1 source and build stay unmodified in the ignored
 `docs/mednafen.md`). Do not commit source archives, binaries, runtime state,
 BIOS files, or game data.
 
+Since 2026-11-05 only the two executables remain (`build/src/mednafen` and
+`build-agent/src/mednafen`); the source trees and objects were deleted to
+free disk space. Re-extract the archive from `local/downloads/` into `src/`
+before following the build steps below (`docs/mednafen.md`).
+
 ## Agent-Interface Patch (`EMU-021`)
 
 - `patches/0001-agent-interface.patch`, SHA-256

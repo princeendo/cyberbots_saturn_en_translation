@@ -231,6 +231,12 @@ names it for its method only.
   text is needed. The English fits, with no sacrificed code; room needs
   lines beyond Jin's own (SUPPORTED). Next: M7's gate extension (the user's
   GO), then `END-010`, written up in Phase L.
+- **2026-11-05: local data backed up to the homelab** (user request):
+  `local/` (86,298 files, all save states; no image, ROM or BIOS) is in
+  `Archives/Cyberbots-Saturn-EN` with a manifest and restore commands. The
+  finished-task folders, the M5 build images and the Mednafen sources and
+  objects were then deleted here; what END-010 and the tools use was kept
+  (`research_log.md`).
 - **2026-11-02: script census** (`TXT-001`, `EXP-0007`, D-008): one
   byte-identical table of 1,851 Shift-JIS dialogue lines in `VICTORY.BIN`,
   `END.BIN` and `STG0AS.BIN`, each line pointed to from records at base

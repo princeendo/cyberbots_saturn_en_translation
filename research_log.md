@@ -1958,3 +1958,52 @@ Commands: `ruff check .` and `ruff format --check .` (clean, 187 files),
 `mypy tools tests` and the EXP-0041 scripts (clean, 64 files), `pytest -q`:
 164 passed. Both data files reproduce byte for byte (`6e9f2988…`,
 `985946d5…`).
+
+## 2026-11-05 — SESSION: local data backed up to the homelab, unused data deleted
+
+User request (verbatim): "Please take a moment to back up any data to the
+homelab the same way that XvSF and MSHvSF did and delete any data not
+currently in use. I'm low on disk space." Ignored paths only; no tracked
+game file changed.
+
+- **Backup:** `local/` copied to the homelab archive
+  `/mnt/HD/Seagate22TB/filebrowser-inbox/Archives/Cyberbots-Saturn-EN`
+  (File Browser `/Inbox/Archives/Cyberbots-Saturn-EN`): 86,298 files,
+  1,791,645,194 bytes, all 189 save states, with `MANIFEST.tsv` (path,
+  bytes, SHA-256), `SYMLINKS.tsv` and a README holding the restore
+  commands. Left out: the source image (`disc_images/`), `extracted/`, the
+  arcade zips (`arcade/`), the four ROM program images
+  `ref003/*-maincpu.bin`, the BIOS (`mednafen/firmware/`) and the 4
+  `firmware` links (in `SYMLINKS.tsv`). No file in it equals a BIOS file.
+  Server-side `sha256sum -c` passed for every row; no symlinks; owner and
+  modes as the Inbox; Plex health passed. Access and logging followed
+  `remote_server_maintenance` (its research_log entry of 2026-11-05).
+- **Kept on the Mac (in use by END-010, the tools or the regression):**
+  `disc_images`, `extracted`, `arcade`, `ref003`, `mame_src`,
+  `mame_arcade`, the five Mednafen homes, `downloads` (Mednafen tarball),
+  `checkpoints`, `layout001` (the arcade font), `cap001`, `end001` (the
+  END-001 checkpoint), `end002` (`control/route.json`), `end004`, `ref005`
+  (session states) and `win002` (disassembly); `research/memory_dumps`
+  (`mcs_extract` validation).
+- **Deleted after the check:**
+  - from `local/`, 42 finished-task entries (1.07 GiB): `dbg001`-`dbg004`,
+    `disc001`, `disc002`, `emu003`, `emu004`, `emu006`, `emu007`, `emu021`,
+    `end003`, `env007`, `font001`, `font002`, `logs`, `pair001`-`pair003`,
+    `re001`-`re008`, `ref001`, `ref004`, `ref007`, `ref008`, `win001` and
+    nine loose logs. All are in the archive.
+  - the M5 build images `build/re007/js` and `build/re008/roster`
+    (rebuild: the `rebuild` command in `data/regression/re007_jin_santana.json`
+    and `re008_roster.json`; standing permission for finished images).
+  - the Mednafen source trees and objects (`vendor/mednafen/src`,
+    `src-agent`, and everything in `build` and `build-agent` except the two
+    executables). Both executables kept in place, hashes unchanged
+    (`077ac658…669f` stock, `2fc3d547…aaf` agent, as recorded). Rebuild
+    from `local/downloads/mednafen-1.32.1/mednafen-1.32.1.tar.xz`
+    (`docs/mednafen.md`, `vendor/mednafen/README.md`; a rebuilt agent
+    binary needs V1-V4 again).
+- **Disk:** `local/` 2.5 GB → 1.4 GB, `build/` 1.1 GB → 1.6 MB, `vendor/`
+  595 MB → 41 MB; free space 8.7 GiB → 12 GiB.
+
+Checks: `./invenv.sh python -m pytest -q`: 164 passed. Both EXP-0041 data
+files reproduce byte for byte from the kept inputs; the END-001 checkpoint
+and `end002/control/route.json` are in place; the stock executable starts.
