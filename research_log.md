@@ -2007,3 +2007,20 @@ game file changed.
 Checks: `./invenv.sh python -m pytest -q`: 164 passed. Both EXP-0041 data
 files reproduce byte for byte from the kept inputs; the END-001 checkpoint
 and `end002/control/route.json` are in place; the stock executable starts.
+
+## 2026-11-05 — GATE-TRANSLATION extended to Jin's ending
+
+User request (verbatim): "Let's begin the gate GO." Shown: the `END-005`
+pairing and capacity (`EXP-0041`, D-038) and the shared speaker-name boxes.
+No emulator run, no build.
+
+- Asked: "GATE-TRANSLATION extension for Jin's ending: may the official US arcade English go on the disc as paired by END-005, unchanged and drawn in pair glyphs? That means 18 dialogue units (30 lines), the cast roll's Japanese names hidden and the QSound line erased, as you chose. No Japanese glyph is expected to be sacrificed (160-179 pairs needed, 335 free codes in the ending's own table); if one is needed, the build stops and asks."
+  Answer, verbatim: "GO (Recommended)"
+- Asked: "In Jin's ending, two speaker-name boxes (Gawaine's and Jin's names before a caption) are also shown in three other pilots' endings (lists 3, 4 and 8). Translating them turns those names English in the other endings too, next to Japanese text, until all endings are done (M8). The alternative gives Jin's ending its own copies of the two name boxes, which changes the ending's script and uses more of the scarce room (Jin's own lines are already 44 bytes short). Which?"
+  Answer, verbatim: "Share, English everywhere (Recommended)"
+
+Result: `END-010` is `READY` (not started). Boxes 605 and 601 are
+translated in place; no sacrificed code is approved, so the build stops and
+asks if it needs one. Recorded in `TASKS.md` (the gate block and
+`END-010`) and `docs/localization_policy.md` (decisions and gate tables;
+the two `END-005` decisions were added there too, as they were missing).

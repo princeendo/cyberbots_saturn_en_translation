@@ -231,6 +231,9 @@ names it for its method only.
   text is needed. The English fits, with no sacrificed code; room needs
   lines beyond Jin's own (SUPPORTED). Next: M7's gate extension (the user's
   GO), then `END-010`, written up in Phase L.
+- **2026-11-05: `GATE-TRANSLATION` extended to Jin's ending.** The user's
+  words: "GO (Recommended)" and, for the shared name boxes 605 and 601,
+  "Share, English everywhere (Recommended)". `END-010` is `READY`.
 - **2026-11-05: local data backed up to the homelab** (user request):
   `local/` (86,298 files, all save states; no image, ROM or BIOS) is in
   `Archives/Cyberbots-Saturn-EN` with a manifest and restore commands. The
@@ -1390,8 +1393,8 @@ menu key presses only; fights and routes forced by RAM writes (the user,
 M7 puts Jin's ending in English on the disc: the official US arcade English
 as paired by `END-005`, drawn as pair glyphs through the ending's own code
 table and font copy, with the cast roll's Japanese names hidden and the
-QSound line erased. It begins with the user's GO for the gate extension
-below. Nothing in it is started.
+QSound line erased. The user gave the gate extension below its GO on
+2026-11-05; `END-010` is `READY` and not started.
 
 ### GATE-TRANSLATION extension for Jin's ending
 
@@ -1409,12 +1412,21 @@ user's GO covers:
   indent, against 335 free codes in `END.BIN`'s table). The build stops and
   asks if it needs any.
 
+**2026-11-05: GO for Jin's ending.** Shown: the pairing and capacity of
+`END-005` (`EXP-0041`, D-038) and the shared name boxes.
+- "GATE-TRANSLATION extension for Jin's ending: may the official US arcade English go on the disc as paired by END-005, unchanged and drawn in pair glyphs? That means 18 dialogue units (30 lines), the cast roll's Japanese names hidden and the QSound line erased, as you chose. No Japanese glyph is expected to be sacrificed (160-179 pairs needed, 335 free codes in the ending's own table); if one is needed, the build stops and asks." → "GO (Recommended)"
+- "In Jin's ending, two speaker-name boxes (Gawaine's and Jin's names before a caption) are also shown in three other pilots' endings (lists 3, 4 and 8). Translating them turns those names English in the other endings too, next to Japanese text, until all endings are done (M8). The alternative gives Jin's ending its own copies of the two name boxes, which changes the ending's script and uses more of the scarce room (Jin's own lines are already 44 bytes short). Which?" → "Share, English everywhere (Recommended)"
+
+So `END-010` translates boxes 605 and 601 in place (every ending that
+posts them shows the English names), with no sacrificed code. It is
+`READY`.
+
 ### END-010 - Build Jin's ending in English from the source image (M7)
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M7
-- **Dependencies:** END-005 (done), the gate extension above.
-- **Blockers:** the user's GO for the gate extension.
+- **Dependencies:** END-005, the gate extension above (both done; GO 2026-11-05).
+- **Blockers:** None.
 - **Objective:** One image, built from the untouched source, that shows Jin's ending in English: every dialogue unit in its official English, the cast-roll names hidden and the QSound line erased, verified box by box from the `END-001` checkpoint.
 - **Acceptance criteria:**
   - **Systematic:** the compiler (`tools/text/dialogue.py`, or a module beside it) takes `data/translations/jin_ending_pairing.json` and writes:
@@ -1431,7 +1443,7 @@ user's GO covers:
     - the original image is the control;
     - agent-reviewed screenshots of each scene, the cast roll and the QSound notice;
     - the caption rows 2-3 start where they read correctly (`docs/known_unknowns.md`).
-  - **Shared boxes:** per the gate's choice for 605 and 601, one other list's ending (3, 4 or 8) is forced and shows its names as recorded.
+  - **Shared boxes:** per the gate's choice ("Share, English everywhere (Recommended)"), 605 and 601 are translated in place; one other list's ending (3, 4 or 8) is forced and shows those names in English, with its other boxes unchanged.
   - **Regression:** the M5 roster's predictions are unchanged (`data/regression/re008_roster.json`).
   - **Play:** a cold boot of the built image reaches play and shows English story boxes. Cold boots only with the user present, asked first.
   - **Provenance:** `data/translations/jin_ending.json` (no text) and `data/regression/end010_jin_ending.json`.
@@ -1446,7 +1458,7 @@ and `docs/lessons_from_xvsf.md`.
 
 | ID | Milestone | Outline |
 | --- | --- | --- |
-| END-010 | M7 | Written up: Phase L. |
+| END-010 | M7 | Written up: Phase L; `READY` (gate GO 2026-11-05). |
 | END-020 | M8 | All roster endings; one image with story, win quotes and endings; coverage register (`docs/coverage_exceptions.md`). |
 | UI-004 | after M5, early | Boot, cartridge and save warnings (`WARNING0-4.PIX` are candidates); in the first backlog this time (`docs/lessons_from_xvsf.md`, lesson 5). |
 | UI-001 | after M8, user request | UI art: inventory English art already in every font before drawing anything. |
