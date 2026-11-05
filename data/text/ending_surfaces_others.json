@@ -1,0 +1,982 @@
+{
+ "sources": {
+  "ending_posts": "data/text/ending_posts.json",
+  "ending_posts_sha256": "4aa3e3ae2a74bbf5038ecfbfcba21d53b6adcd6a0918629e0d39c809ec62e323"
+ },
+ "lists": [
+  {
+   "list": 6,
+   "pilot": "Saturn-only list 6",
+   "run": "local/end020/list6",
+   "posts": [
+    {
+     "frame": 1648,
+     "scene": 19
+    },
+    {
+     "frame": 3955,
+     "scene": 20
+    },
+    {
+     "frame": 3955,
+     "scene": 20
+    }
+   ],
+   "files": [
+    {
+     "file": "END.BIN",
+     "frame": 1169
+    },
+    {
+     "file": "SOUND.LF",
+     "frame": 1260
+    },
+    {
+     "file": "PL39_0.BIN",
+     "frame": 1308
+    },
+    {
+     "file": "PL3A_0.BIN",
+     "frame": 1331
+    },
+    {
+     "file": "STDEMO.CMN",
+     "frame": 1394
+    },
+    {
+     "file": "STDEM6.PIR",
+     "frame": 1429
+    },
+    {
+     "file": "STDEM4.PIR",
+     "frame": 1467
+    },
+    {
+     "file": "VADEM0.MAC",
+     "frame": 1483
+    },
+    {
+     "file": "KANJI.BIN",
+     "frame": 1499
+    },
+    {
+     "file": "SCR60.PIX",
+     "frame": 1544
+    },
+    {
+     "file": "KANJI.BIN",
+     "frame": 1567
+    },
+    {
+     "file": "FIX.BIN",
+     "frame": 5962
+    },
+    {
+     "file": "KEND.BIN",
+     "frame": 6017
+    },
+    {
+     "file": "SOUND.LF",
+     "frame": 6038
+    },
+    {
+     "file": "KEND_0.BIN",
+     "frame": 6099
+    },
+    {
+     "file": "KEND_1.BIN",
+     "frame": 6211
+    },
+    {
+     "file": "ST09_FNT.BIN",
+     "frame": 6270
+    },
+    {
+     "file": "QSD.PIX",
+     "frame": 12764
+    }
+   ],
+   "openings": [
+    {
+     "box": 1008,
+     "open": 1680,
+     "close": 1858,
+     "open_time": 178,
+     "shot": {
+      "frame": 1848,
+      "sha256": "db5f16fe44f85a581af9409483e7bae382836d67a6d9e94872eb04b8383d0734"
+     }
+    },
+    {
+     "box": 1009,
+     "open": 1860,
+     "close": 2098,
+     "open_time": 238,
+     "shot": {
+      "frame": 2068,
+      "sha256": "f92cc99a8c3e955bf491b4cc66652a7e12060b194e198a529df6ab143547a415"
+     }
+    },
+    {
+     "box": 1010,
+     "open": 2100,
+     "close": 2458,
+     "open_time": 358,
+     "shot": {
+      "frame": 2453,
+      "sha256": "d2b3d31462c0b56552597f9601e0c273f4c8eb1f02ba2faead9fd6c148601c8c"
+     }
+    },
+    {
+     "box": 1011,
+     "open": 2460,
+     "close": 2878,
+     "open_time": 418,
+     "shot": {
+      "frame": 2838,
+      "sha256": "6693bd48251582ac03219f4a44a7c6c9609bbe775b92b9c2498c18b54aa47e65"
+     }
+    },
+    {
+     "box": 1012,
+     "open": 2880,
+     "close": 2998,
+     "open_time": 118,
+     "shot": {
+      "frame": 2948,
+      "sha256": "edc676a9665d7942ef651e68794affe8678fbcf44e68da6b19194976af0b4d5f"
+     }
+    },
+    {
+     "box": 1013,
+     "open": 3000,
+     "close": 3088,
+     "open_time": 88,
+     "shot": {
+      "frame": 3058,
+      "sha256": "3cc9497806cc2910fafc942fde5def3ee96594d4e1b1d71f03ac0add41027ed6"
+     }
+    },
+    {
+     "box": 1014,
+     "open": 3090,
+     "close": 3148,
+     "open_time": 58,
+     "shot": {
+      "frame": 3113,
+      "sha256": "b506ce0ad35fb3a4b4b0b0147dc176c587b1f23f9934133e5845eef9702fe2b3"
+     }
+    },
+    {
+     "box": 1015,
+     "open": 3150,
+     "close": 3538,
+     "open_time": 388,
+     "shot": {
+      "frame": 3498,
+      "sha256": "9397b97d9663cb7d9042f9f2df636867497638a53072ccf0468aab9ba571a600"
+     }
+    },
+    {
+     "box": 1016,
+     "open": 3540,
+     "close": 3658,
+     "open_time": 118,
+     "shot": {
+      "frame": 3608,
+      "sha256": "ccb1766a75c5f4a6a5b148bc394d7e1ec9e6b18406830eca6d8d195f8809a674"
+     }
+    },
+    {
+     "box": 1017,
+     "open": 3660,
+     "close": null,
+     "open_time": null,
+     "shot": {
+      "frame": 3938,
+      "sha256": "1df52482f8ba8a5a5fcb95b9f45f3c2203203fd1c5734caff9d8d912d26ba3bd"
+     }
+    },
+    {
+     "box": 1018,
+     "open": 4047,
+     "close": 4315,
+     "open_time": 268,
+     "shot": {
+      "frame": 4268,
+      "sha256": "eb10a44fe752d96ad4ecb34a8751a38130e771d9729965cb4e13a6cf8f2006ac"
+     }
+    },
+    {
+     "box": 1019,
+     "open": 4317,
+     "close": 4765,
+     "open_time": 448,
+     "shot": {
+      "frame": 4763,
+      "sha256": "122a05101a10620c00682f391f1409ce3605bc3f5919707dd14180ef15cc1998"
+     }
+    },
+    {
+     "box": 1020,
+     "open": 4767,
+     "close": 5227,
+     "open_time": 460,
+     "shot": {
+      "frame": 5203,
+      "sha256": "d869f8b3adb480d93e1052dd5fb978bc2e3d334317d6dd186e4262e0bb05788d"
+     }
+    },
+    {
+     "box": 1021,
+     "open": 5229,
+     "close": 5425,
+     "open_time": 196,
+     "shot": {
+      "frame": 5423,
+      "sha256": "aad195469ce3deb5b7f70ff3b804c93ac5c17cd9959526019bcd7b4e9ccd13f1"
+     }
+    },
+    {
+     "box": 1022,
+     "open": 5427,
+     "close": 5844,
+     "open_time": 417,
+     "shot": {
+      "frame": 5808,
+      "sha256": "03f90758eb90cf7264a1265cfde8e672d5fd0eb0099aa6d0326d720b726ebb86"
+     }
+    }
+   ],
+   "boxes_not_in_posts": [],
+   "posted_boxes_not_opened": [],
+   "openings_count": 15,
+   "posted_openings_count": 15,
+   "surface_kinds": null,
+   "shared_after_dialogue": [
+    "cast roll",
+    "staff credits",
+    "thank-you screen",
+    "QSound notice"
+   ]
+  },
+  {
+   "list": 7,
+   "pilot": "Saturn-only list 7",
+   "run": "local/end020/list7",
+   "posts": [
+    {
+     "frame": 1749,
+     "scene": 22
+    },
+    {
+     "frame": 4943,
+     "scene": 23
+    },
+    {
+     "frame": 7227,
+     "scene": 24
+    },
+    {
+     "frame": 7416,
+     "scene": 25
+    },
+    {
+     "frame": 8198,
+     "scene": 26
+    }
+   ],
+   "files": [
+    {
+     "file": "END.BIN",
+     "frame": 1171
+    },
+    {
+     "file": "SOUND.LF",
+     "frame": 1262
+    },
+    {
+     "file": "PL39_0.BIN",
+     "frame": 1310
+    },
+    {
+     "file": "PL3A_0.BIN",
+     "frame": 1333
+    },
+    {
+     "file": "STDEMO.CMN",
+     "frame": 1396
+    },
+    {
+     "file": "STDEM7.PIR",
+     "frame": 1431
+    },
+    {
+     "file": "STDEM0.PIR",
+     "frame": 1453
+    },
+    {
+     "file": "STDEM1.PIR",
+     "frame": 1468
+    },
+    {
+     "file": "STDEM2.PIR",
+     "frame": 1481
+    },
+    {
+     "file": "STDEM3.PIR",
+     "frame": 1496
+    },
+    {
+     "file": "STDEM4.PIR",
+     "frame": 1510
+    },
+    {
+     "file": "VADEM0.MAC",
+     "frame": 1525
+    },
+    {
+     "file": "VADEM0.MAC",
+     "frame": 1541
+    },
+    {
+     "file": "VADEM3.MAC",
+     "frame": 1557
+    },
+    {
+     "file": "VADEMD.MAC",
+     "frame": 1575
+    },
+    {
+     "file": "KANJI.BIN",
+     "frame": 1587
+    },
+    {
+     "file": "SCRPW.PIX",
+     "frame": 1632
+    },
+    {
+     "file": "KANJI.BIN",
+     "frame": 1667
+    },
+    {
+     "file": "FIX.BIN",
+     "frame": 9918
+    },
+    {
+     "file": "KEND.BIN",
+     "frame": 9975
+    },
+    {
+     "file": "SOUND.LF",
+     "frame": 9996
+    },
+    {
+     "file": "KEND_0.BIN",
+     "frame": 10057
+    },
+    {
+     "file": "KEND_1.BIN",
+     "frame": 10169
+    },
+    {
+     "file": "ST09_FNT.BIN",
+     "frame": 10228
+    }
+   ],
+   "openings": [
+    {
+     "box": 857,
+     "open": 1781,
+     "close": 2199,
+     "open_time": 418,
+     "shot": {
+      "frame": 2191,
+      "sha256": "816a50beda3375f67cafd6931658711d4db499fd6150cc74573388708fb3b5bb"
+     }
+    },
+    {
+     "box": 858,
+     "open": 2201,
+     "close": 2349,
+     "open_time": 148,
+     "shot": {
+      "frame": 2301,
+      "sha256": "2a1d9c9ea2145ca67f49beccebabd6c7f7963794c682a56fec00ac234ad3cda6"
+     }
+    },
+    {
+     "box": 859,
+     "open": 2351,
+     "close": 2829,
+     "open_time": 478,
+     "shot": {
+      "frame": 2796,
+      "sha256": "a56a765dd852b162dc0738db76651887905546a0ef1d4704c6f5dda9d0f85b5d"
+     }
+    },
+    {
+     "box": 860,
+     "open": 2831,
+     "close": 2979,
+     "open_time": 148,
+     "shot": {
+      "frame": 2961,
+      "sha256": "aa979eea5acf2b4a2956aa4bfac914811fff27d541c045e6ea910d35fb636738"
+     }
+    },
+    {
+     "box": 861,
+     "open": 2981,
+     "close": 3039,
+     "open_time": 58,
+     "shot": {
+      "frame": 3016,
+      "sha256": "7b170f82ad8348347e1f89a4960a77b3015f0703200126bac317f01be4907a22"
+     }
+    },
+    {
+     "box": 862,
+     "open": 3041,
+     "close": 3399,
+     "open_time": 358,
+     "shot": {
+      "frame": 3346,
+      "sha256": "6165705a92950ed7baca4b6aa6726f956e5c5f94227bf350de207a7feaa442db"
+     }
+    },
+    {
+     "box": 863,
+     "open": 3401,
+     "close": 3639,
+     "open_time": 238,
+     "shot": {
+      "frame": 3621,
+      "sha256": "9fdb12e4dd5216e66f1df34af69bf859d239458815eec1f61caf3d6e712fce0a"
+     }
+    },
+    {
+     "box": 864,
+     "open": 3641,
+     "close": 3969,
+     "open_time": 328,
+     "shot": {
+      "frame": 3951,
+      "sha256": "38882fc260de59cbba703fb256587992d82415155e8a310376b74ff742378bd7"
+     }
+    },
+    {
+     "box": 865,
+     "open": 3971,
+     "close": 4299,
+     "open_time": 328,
+     "shot": {
+      "frame": 4281,
+      "sha256": "0a68da39120df82ff6ed2307a0a103e90ef0c1734e75f5d1717d5b6ef2351d89"
+     }
+    },
+    {
+     "box": 866,
+     "open": 4301,
+     "close": 4539,
+     "open_time": 238,
+     "shot": {
+      "frame": 4501,
+      "sha256": "981b56add1f77b60df7a65eafc619b0af7e846a5a93c923f7c876a5ed88da1c6"
+     }
+    },
+    {
+     "box": 867,
+     "open": 4541,
+     "close": 4791,
+     "open_time": 250,
+     "shot": {
+      "frame": 4776,
+      "sha256": "e9646e93fcb42de940f182105fc1e1b2cd2bcd0d9c4b87a9f9afcbc7d22ac24a"
+     }
+    },
+    {
+     "box": 868,
+     "open": 4793,
+     "close": null,
+     "open_time": null,
+     "shot": {
+      "frame": 4941,
+      "sha256": "f0858bda6c535ff0619c61598b8e4b972eb40f2802648c1b75e004562e900ef6"
+     }
+    },
+    {
+     "box": 869,
+     "open": 4945,
+     "close": 5153,
+     "open_time": 208,
+     "shot": {
+      "frame": 5106,
+      "sha256": "ea59f9444e51fc323e6c8104a9818b0cb75baa1d77ae4aeded57c7f397e2572b"
+     }
+    },
+    {
+     "box": 870,
+     "open": 5155,
+     "close": 5393,
+     "open_time": 238,
+     "shot": {
+      "frame": 5381,
+      "sha256": "87ed2294354b5f3b4fc4fd48153f1e17e8fcfcf22da6acc6034ad2c9da4ea771"
+     }
+    },
+    {
+     "box": 871,
+     "open": 5395,
+     "close": 5663,
+     "open_time": 268,
+     "shot": {
+      "frame": 5656,
+      "sha256": "c9524035d87013263f59ae596c9626a5d6903b2cf71d48b18d80f079f3b46d1d"
+     }
+    },
+    {
+     "box": 872,
+     "open": 5665,
+     "close": 5723,
+     "open_time": 58,
+     "shot": {
+      "frame": 5711,
+      "sha256": "d7da8335981440d6a03ccfe42fd7abf1df57bf26f8b1de42520f70657dece87f"
+     }
+    },
+    {
+     "box": 873,
+     "open": 5725,
+     "close": 6023,
+     "open_time": 298,
+     "shot": {
+      "frame": 5986,
+      "sha256": "fbafa24ef2190c6db5158961302dd0decdd7c82c110ff0399773143040f2f107"
+     }
+    },
+    {
+     "box": 874,
+     "open": 6027,
+     "close": 6593,
+     "open_time": 566,
+     "shot": {
+      "frame": 6591,
+      "sha256": "0b44dba3b7f343da9135612c6b7a8ad1c4f31d9fbfe66227da9a97ab11d51211"
+     }
+    },
+    {
+     "box": 875,
+     "open": 6595,
+     "close": 6803,
+     "open_time": 208,
+     "shot": {
+      "frame": 6756,
+      "sha256": "ef11de1cd0e673c8d232c116479d75d415518dca345fb873f89688519fbbac65"
+     }
+    },
+    {
+     "box": 876,
+     "open": 6805,
+     "close": 7103,
+     "open_time": 298,
+     "shot": {
+      "frame": 7086,
+      "sha256": "ef8167b86e6b7a26bded1ef4fdb8283496d9a860c731d612bbb83c44377d3c00"
+     }
+    },
+    {
+     "box": 877,
+     "open": 7105,
+     "close": null,
+     "open_time": null,
+     "shot": {
+      "frame": 7196,
+      "sha256": "f5d009e29a610c66756f904c8c6bfb290965a9be86f7b180faa52d35dddef285"
+     }
+    },
+    {
+     "box": 1072,
+     "open": 7250,
+     "close": null,
+     "open_time": null,
+     "shot": {
+      "frame": 7361,
+      "sha256": "89ddfce90f99fcd58136b202dd91ef738c7bd537d95f0552737f1e00cea0a4c0"
+     }
+    },
+    {
+     "box": 878,
+     "open": 7315,
+     "close": null,
+     "open_time": null,
+     "shot": {
+      "frame": 7361,
+      "sha256": "89ddfce90f99fcd58136b202dd91ef738c7bd537d95f0552737f1e00cea0a4c0"
+     }
+    },
+    {
+     "box": 1072,
+     "open": 7448,
+     "close": null,
+     "open_time": null,
+     "shot": {
+      "frame": 8186,
+      "sha256": "bda3b1d6105d036b5f0eb6a61b1cac4bdf41b672b8e4ccfd76c60bd04dee01c9"
+     }
+    },
+    {
+     "box": 879,
+     "open": 7705,
+     "close": 7762,
+     "open_time": 57,
+     "shot": {
+      "frame": 7746,
+      "sha256": "5be5c95df25027efd104b9fb52bdba7214d1d802b621eeae567f8ffd6e521d50"
+     }
+    },
+    {
+     "box": 880,
+     "open": 8221,
+     "close": 8708,
+     "open_time": 487,
+     "shot": {
+      "frame": 8681,
+      "sha256": "cdb84e68526e97ecda4c94df43645711620ccd8ebf932e9f1a82b581922a077c"
+     }
+    },
+    {
+     "box": 881,
+     "open": 8710,
+     "close": 9158,
+     "open_time": 448,
+     "shot": {
+      "frame": 9121,
+      "sha256": "b9ebd7beede87c92cd789ad424c17fa949a07156093bec015bb9d62e9f66ee71"
+     }
+    },
+    {
+     "box": 882,
+     "open": 9160,
+     "close": null,
+     "open_time": null,
+     "shot": {
+      "frame": 9506,
+      "sha256": "1898d3ebf40acbae153d4e30472d057b86f243f2f376d19a231bfb96a1eec3aa"
+     }
+    }
+   ],
+   "boxes_not_in_posts": [],
+   "posted_boxes_not_opened": [],
+   "openings_count": 28,
+   "posted_openings_count": 28,
+   "surface_kinds": null,
+   "shared_after_dialogue": [
+    "cast roll",
+    "staff credits",
+    "thank-you screen",
+    "QSound notice"
+   ]
+  },
+  {
+   "list": 8,
+   "pilot": "Saturn-only list 8",
+   "run": "local/end020/list8",
+   "posts": [
+    {
+     "frame": 1666,
+     "scene": 32
+    },
+    {
+     "frame": 4538,
+     "scene": 33
+    },
+    {
+     "frame": 5147,
+     "scene": 34
+    }
+   ],
+   "files": [
+    {
+     "file": "END.BIN",
+     "frame": 1169
+    },
+    {
+     "file": "SOUND.LF",
+     "frame": 1260
+    },
+    {
+     "file": "PL39_0.BIN",
+     "frame": 1306
+    },
+    {
+     "file": "PL3A_0.BIN",
+     "frame": 1329
+    },
+    {
+     "file": "STDEMO.CMN",
+     "frame": 1392
+    },
+    {
+     "file": "STDEM8.PIR",
+     "frame": 1427
+    },
+    {
+     "file": "STDEM0.PIR",
+     "frame": 1454
+    },
+    {
+     "file": "VADEM0.MAC",
+     "frame": 1469
+    },
+    {
+     "file": "VADEM9.MAC",
+     "frame": 1485
+    },
+    {
+     "file": "KANJI.BIN",
+     "frame": 1502
+    },
+    {
+     "file": "SCRPW.PIX",
+     "frame": 1547
+    },
+    {
+     "file": "KANJI.BIN",
+     "frame": 1582
+    },
+    {
+     "file": "FIX.BIN",
+     "frame": 7320
+    },
+    {
+     "file": "KEND.BIN",
+     "frame": 7378
+    },
+    {
+     "file": "SOUND.LF",
+     "frame": 7399
+    },
+    {
+     "file": "KEND_0.BIN",
+     "frame": 7460
+    },
+    {
+     "file": "KEND_1.BIN",
+     "frame": 7572
+    },
+    {
+     "file": "ST09_FNT.BIN",
+     "frame": 7631
+    },
+    {
+     "file": "QSD.PIX",
+     "frame": 14126
+    }
+   ],
+   "openings": [
+    {
+     "box": 732,
+     "open": 1728,
+     "close": 2026,
+     "open_time": 298,
+     "shot": {
+      "frame": 2018,
+      "sha256": "659d94653fdade77157c35e417b736dd3c208d42be3be9772445fb65f00bf4be"
+     }
+    },
+    {
+     "box": 733,
+     "open": 2028,
+     "close": 2326,
+     "open_time": 298,
+     "shot": {
+      "frame": 2293,
+      "sha256": "75f6da97f2ea0e96c80b659f6c3fbe032b9d860fdf383cdc50a298906cb9dbbc"
+     }
+    },
+    {
+     "box": 734,
+     "open": 2328,
+     "close": 2596,
+     "open_time": 268,
+     "shot": {
+      "frame": 2568,
+      "sha256": "4daf329098419ef3f2085ab860cec6c280e98824758b621e4b44a364ae98d893"
+     }
+    },
+    {
+     "box": 735,
+     "open": 2598,
+     "close": 3016,
+     "open_time": 418,
+     "shot": {
+      "frame": 3008,
+      "sha256": "edabff58c40be7aa1944b2850639a3874efbe4cf7119c4f58e74ad0deeb2487b"
+     }
+    },
+    {
+     "box": 736,
+     "open": 3018,
+     "close": 3256,
+     "open_time": 238,
+     "shot": {
+      "frame": 3228,
+      "sha256": "fa4adb4cca4b097d89f3f98ebe7c6cea9cfe57910728ee7617ceaaa85f8445d0"
+     }
+    },
+    {
+     "box": 737,
+     "open": 3258,
+     "close": 3316,
+     "open_time": 58,
+     "shot": {
+      "frame": 3283,
+      "sha256": "5d81718fc5848920e70afe8e2f9d0c224f04c5963a714e75e81cf3018458340d"
+     }
+    },
+    {
+     "box": 738,
+     "open": 3318,
+     "close": 3826,
+     "open_time": 508,
+     "shot": {
+      "frame": 3778,
+      "sha256": "76bd0e1b98920da3c832b5b129aa06b805823f04c135bc026451ce604b937310"
+     }
+    },
+    {
+     "box": 739,
+     "open": 3828,
+     "close": 4126,
+     "open_time": 298,
+     "shot": {
+      "frame": 4108,
+      "sha256": "cbb5f997ce7f7fe135c725af5f2a7a14bb051b55d727eecd1df9189c5835575f"
+     }
+    },
+    {
+     "box": 740,
+     "open": 4128,
+     "close": 4165,
+     "open_time": 37,
+     "shot": {
+      "frame": 4163,
+      "sha256": "1e6621c389ee9d9176d393245d99652eb505ed7bf4f92d83390cf3273eabeb05"
+     }
+    },
+    {
+     "box": 741,
+     "open": 4167,
+     "close": null,
+     "open_time": null,
+     "shot": {
+      "frame": 4493,
+      "sha256": "55dc92ed209aa75eb653aadbd6b72b6306b71fa3a9752ebb242506b4d39b7514"
+     }
+    },
+    {
+     "box": 742,
+     "open": 4638,
+     "close": null,
+     "open_time": null,
+     "shot": {
+      "frame": 5098,
+      "sha256": "f1998dfe4852ad4e3a7b70ae35e99b73000dbcd2744a4e0e91f5cc8d5057e803"
+     }
+    },
+    {
+     "box": 601,
+     "open": 5387,
+     "close": 5807,
+     "open_time": 420,
+     "shot": {
+      "frame": 5758,
+      "sha256": "f63f46263002802442f1957e2f12cc1c12ca1fab8642fb95b12f02a546b92c16"
+     }
+    },
+    {
+     "box": 743,
+     "open": 5389,
+     "close": 5807,
+     "open_time": 418,
+     "shot": {
+      "frame": 5758,
+      "sha256": "f63f46263002802442f1957e2f12cc1c12ca1fab8642fb95b12f02a546b92c16"
+     }
+    },
+    {
+     "box": 605,
+     "open": 5807,
+     "close": 6107,
+     "open_time": 300,
+     "shot": {
+      "frame": 6088,
+      "sha256": "139fad8f4461f1280efcd9113a1f68e0766765999d3c2464ef1d10131d862955"
+     }
+    },
+    {
+     "box": 744,
+     "open": 5809,
+     "close": 6107,
+     "open_time": 298,
+     "shot": {
+      "frame": 6088,
+      "sha256": "139fad8f4461f1280efcd9113a1f68e0766765999d3c2464ef1d10131d862955"
+     }
+    },
+    {
+     "box": 601,
+     "open": 6107,
+     "close": 6527,
+     "open_time": 420,
+     "shot": {
+      "frame": 6473,
+      "sha256": "2e74a5b18fbe34bc1874b1c3d2ab154dc300f128f82fddd4438b7990b346e895"
+     }
+    },
+    {
+     "box": 745,
+     "open": 6109,
+     "close": 6527,
+     "open_time": 418,
+     "shot": {
+      "frame": 6473,
+      "sha256": "2e74a5b18fbe34bc1874b1c3d2ab154dc300f128f82fddd4438b7990b346e895"
+     }
+    },
+    {
+     "box": 601,
+     "open": 6527,
+     "close": null,
+     "open_time": null,
+     "shot": {
+      "frame": 6913,
+      "sha256": "836babf4a365fce885cc54033adc85e1187bf38f46e7ec3cc5ba64a52e2dd6d5"
+     }
+    },
+    {
+     "box": 746,
+     "open": 6529,
+     "close": null,
+     "open_time": null,
+     "shot": {
+      "frame": 6913,
+      "sha256": "836babf4a365fce885cc54033adc85e1187bf38f46e7ec3cc5ba64a52e2dd6d5"
+     }
+    }
+   ],
+   "boxes_not_in_posts": [],
+   "posted_boxes_not_opened": [],
+   "openings_count": 19,
+   "posted_openings_count": 17,
+   "surface_kinds": null,
+   "shared_after_dialogue": [
+    "cast roll",
+    "staff credits",
+    "thank-you screen",
+    "QSound notice"
+   ]
+  }
+ ]
+}

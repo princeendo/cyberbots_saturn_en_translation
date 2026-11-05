@@ -235,6 +235,7 @@ names it for its method only.
   words: "GO (Recommended)" and, for the shared name boxes 605 and 601,
   "Share, English everywhere (Recommended)". `END-010` is `READY`.
 - **2026-11-05: M7 CONFIRMED** (`END-010`, `EXP-0042`-`EXP-0045`, D-039-D-042): one image from the untouched source with the M5 roster unchanged and Jin's ending in official English. All 18 units are drawn as predicted; the cast roll's Japanese names are hidden in every ending (the user: "Hide in every ending (Recommended)"); the QSound line is erased. The shared names show English in lists 3, 4 and 8. A cold boot plays in English. Three long boxes finish typing just before they close: the user chose "Accept now, follow-up task (Recommended)" (`END-011`, `BACKLOG`). Next: M8 (`END-020`) needs its tasks written up first.
+- **2026-11-05: capacity of the roster endings measured** (`END-022`, `EXP-0049`, D-046): all six endings' English fits. With the half-cell indent the 330 pairs fit the 335 free codes, and nothing Japanese is touched. Room: the roster's own lines plus about 750 bytes of never-shown lines. Lists 6-8 show only their posted boxes. Next: the gate extension for the roster endings (the user's GO).
 - **2026-11-05: ending box timing solved** (`END-011`, `EXP-0048`, D-045): cues (`EAnn`) close boxes, `E2nn` sets typing speed, and the script waits for typing, which sets the next scene and its music. The user chose "Faster typing + move cues (Recommended)". `--retime` gives Jin's English boxes 113+ frames with their full line, and every scene change and track start stays on the Japanese frame (built and live). `END-022` (capacity) is `READY`.
 - **2026-11-05: the roster endings paired** (`END-021`, `EXP-0047`, D-044): every text unit of lists 1-5 (102) has official English at the same place in the arcade; no new translation. One choice for the gate: box 608 (both twins) can show slot 615 (the arcade's, one twin) or 617 (the same Japanese). `END-022` waits on `END-011`.
 - **2026-11-05: the roster endings surveyed** (`END-020`, `EXP-0046`, D-043): lists 1-5 forced on the Saturn and in both arcade sets. All their Japanese is `END.BIN` boxes, and the post-dialogue screens are shared and already done. Correction: posted scripts run on into the next scenes, so Mary's and Bao and Mao's endings show the arcade's scenes 17-18 and 20. `END-021` (pairing) is `READY`.
@@ -1605,7 +1606,7 @@ Known so far (facts and their confidence):
 
 ### END-022 - Capacity of all roster endings together
 
-- **Status:** `READY`
+- **Status:** `DONE` (2026-11-05)
 - **Milestone:** M8
 - **Dependencies:** END-021, END-011 (both done).
 - **Blockers:** None.
@@ -1618,6 +1619,18 @@ Known so far (facts and their confidence):
     - each box's hold under `END-011`'s rule (`ending_timing.retime`; dry runs in `EXP-0048/rule.json`).
   - **Codes:** free codes counted by the story's rule, and with the codes only roster-ending lines use. If any Japanese code must be sacrificed, the lines of lists 6-8 it touches are listed (the gate decides).
   - **Options:** each limit stated with its evidence, and the options for the gate, with a recommendation.
+- **Done:** 2026-11-05 (`EXP-0049`, D-046). Lists 6-8 forced (no key, no cold boot); the rest static.
+  - **Measures:** 100 English boxes; at most 3 rows and 47 cells; no row wider than the Saturn's lines of the same kind (16 cells, names 6).
+    - Pairs: 388 as is, 330 with the indent.
+    - Rows need 4,920 bytes (4,976 with the indent) against 4,232 in the roster's own lines and 42,844 in lines no ending shows.
+    - Every cued box holds 45 frames or more under `END-011`'s rule (`EXP-0048/rule.json`).
+  - **Codes:** 335 codes no line uses (310 + 25 new); 930 that no line staying Japanese uses (lists 6-8's 114 lines and the blank 1072). With the indent nothing beyond the 335 is needed. As is, 53 codes of characters only now-English or never-shown lines use; no Japanese on screen changes, and lists 6-8 lose nothing.
+  - **Lists 6-8:** they show only their posted boxes (`data/text/ending_surfaces_others.json`), and every ending shows the shared cast roll.
+  - **Room correction:** D-039's room had 16 lines that Mary's and Bao and Mao's run-on boxes show; the room is now the lines no list 0-8 is seen to show. M7's rows were not among them.
+  - **Options (for the gate):**
+    1. Rows with the half-cell indent, as M5 (Recommended), or as is with 53 invisible codes.
+    2. Box 608: slot 617, the same Japanese (Recommended), or 615, the arcade's at that place.
+    3. The timing rule as chosen.
 
 ### GATE-TRANSLATION extension for the roster endings
 
@@ -1628,8 +1641,9 @@ user's GO covers:
   place (615, Bao alone) or of the slot with the same Japanese (617, both
   twins; D-044);
 - any new translations, each listed with its translator;
-- the budget from `END-022` (sacrificed codes and the lines of lists 6-8
-  they touch, if any);
+- the budget from `END-022`: with the half-cell indent no code is
+  sacrificed (330 pairs in the 335 free codes); as is, 53 codes that only
+  now-English or never-shown lines use, touching no line of lists 6-8;
 - `END-011`'s hold rule for all endings (chosen 2026-11-05; it keeps every
   scene change and track start in place), and any box it slows (for
   example Gawaine's 472 at 16 frames a glyph).
@@ -1648,7 +1662,7 @@ user's GO covers:
     - every changed byte accounted for;
     - RE-008's story files, prediction and changes unchanged.
   - **Live:** each of lists 0-5 forced from the END-001 checkpoint: every unit draws its predicted cells; agent-reviewed screenshots of each scene. Jin's units draw the same cells as in `end010_jin_ending.json`, unless the hold rule changed a row (listed).
-  - **Others:** each of lists 6-8 forced: its boxes draw their original cells, except the shared boxes as recorded.
+  - **Others:** each of lists 6-8 forced: its boxes draw their original cells, except the shared boxes as recorded. Every one of lists 0-8 is forced on the built image, since the unshown room is marker-tested only in lists 0-1 (`EXP-0049`).
   - **Coverage:** `docs/coverage_exceptions.md` gains the endings: every box of every list's posts either built or excluded with evidence (lists 6-8, arcade-only scenes, blank boxes).
   - **Play:** a cold boot of the built image reaches play and shows English story boxes. One roster ending other than Jin's is reached in that boot by RAM writes, as `END-001` did, and shows its English. Cold boots only with the user present, asked first.
   - **Provenance:** `data/translations/<pilot>_ending.json` (no text) and `data/regression/end023_roster_endings.json`.

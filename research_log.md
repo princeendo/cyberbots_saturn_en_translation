@@ -2205,3 +2205,26 @@ Corrected along the way (do not retry):
   up to three words.
 - **Counting non-blank cells** to measure typing failed (the cell buffer
   keeps old glyphs); matching predicted cells works.
+
+## 2026-11-05 — END-022: capacity of all roster endings (EXP-0049)
+
+User request (verbatim): "Start END-022". Lists 6-8 forced from the
+END-001 checkpoint (three in parallel, silent home, no key); the rest
+static.
+
+- Lists 6-8 show only their posted boxes and the shared cast roll
+  (`data/text/ending_surfaces_others.json`; `survey.py --others`).
+- 100 English boxes: 3 rows and 47 cells at most, and no row wider than the
+  Saturn's own.
+- Pairs: 330 with the indent (fits the 335 free codes), 388 as is (fits the
+  930 codes no staying line uses).
+- Room: 4,920-4,980 bytes needed; 4,232 in own lines, 42,844 in lines no
+  list 0-8 shows.
+- Options written for the gate: indent (Recommended), box 608 → 617
+  (Recommended), the timing rule.
+
+Corrected (do not retry): D-039's room included 16 lines Mary's and Bao and
+Mao's run-on boxes show (806-819, 888, 1007). The room now excludes every
+line any list 0-8 is seen to show; M7's rows were not in them (checked).
+Survey: lists 6-8 load no `QSD.PIX` within the window for list 7, so the
+survey's last file is now optional.

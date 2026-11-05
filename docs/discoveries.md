@@ -779,6 +779,10 @@ Reproduce: `research/experiments/EXP-0041/README.md`, "Procedure".
 - The other seven endings post only constant scenes through the same code
   (D-036), so for them this is SUPPORTED.
 
+  Corrected by D-046: 16 of those lines (806-819, 888, 1007) are shown by
+  Mary's and Bao and Mao's run-on boxes (D-043), so they are not room. The
+  room is the lines no box of any list 0-8 is seen to open.
+
 Reproduce: `research/experiments/EXP-0042/README.md`, "Procedure".
 
 ## D-040: The cast roll's names are sprite parts; size word 0 hides one (`END-010`, `EXP-0044`)
@@ -934,3 +938,23 @@ Reproduce: `research/experiments/EXP-0047/README.md`, "Procedure".
   1-5 hold 45 frames or more, with scene ends within 5 frames.
 
 Reproduce: `research/experiments/EXP-0048/README.md`, "Procedure".
+
+## D-046: All six roster endings' English fits; the Saturn-only endings show only their posted boxes (`END-022`, `EXP-0049`)
+
+- **Lists 6-8** (forced from the END-001 checkpoint) open only their
+  posted scripts' boxes, 114 lines, and all show the shared cast roll
+  (`data/text/ending_surfaces_others.json`).
+- **Capacity.** The 100 English boxes of lists 0-5 take at most 3 rows and
+  47 glyph cells, with no row wider than the Saturn's own lines of the same
+  kind.
+  - **Pairs:** 330 with the half-cell indent, which fits the 335 codes no
+    line uses; 388 as is, which also fits the 930 codes no line that stays
+    Japanese uses.
+  - **Room:** the rows need 4,920-4,980 bytes. The roster's own lines hold
+    4,232; the lines no ending is seen to show hold 42,844.
+- **Correction to D-039's room.** Its 1,591 lines included 16 that Mary's and
+  Bao and Mao's run-on boxes show (806-819, 888, 1007, D-043). The room is
+  now the lines no box of any list 0-8 is seen to open: 1,575 lines. M7's
+  rows are not in those 16 lines.
+
+Reproduce: `research/experiments/EXP-0049/README.md`, "Procedure".

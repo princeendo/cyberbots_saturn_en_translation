@@ -49,7 +49,18 @@ ARCADE = {
 ARCADE |= {(s, 0): Path(f"local/end004/mame/route-{s}") for s in ("u", "j")}
 READER = {"u": ("011f6a", 0x0B33AA, "en"), "j": ("011e7a", 0x0A30F6, "jp")}
 ENDING_WRITE_FRAME = 9259  # the round end's copy into 0xFFEB2C (EXP-0040)
-PILOTS = ["Jin", "Santana", "Mary", "Arieta", "Gawaine", "Bao and Mao"]
+PILOTS = [
+    "Jin",
+    "Santana",
+    "Mary",
+    "Arieta",
+    "Gawaine",
+    "Bao and Mao",
+    "Saturn-only list 6",
+    "Saturn-only list 7",
+    "Saturn-only list 8",
+]
+OTHERS = {n: Path(f"local/end020/list{n}") for n in (6, 7, 8)}  # END-022
 
 # The agent's review (EXP-0046/README.md): the kinds of surface each list's
 # scenes show before the cast roll. Every Japanese text is one of these, all
@@ -83,7 +94,10 @@ def saturn(n: int, run: Path, posted: list[int]) -> dict[str, Any]:
         if x.get("file") and str(x["file"]).endswith("+0")
     ]
     first = next(f["frame"] for f in files if f["file"] == "END.BIN")
-    last = next(f["frame"] for f in files if f["file"] == "QSD.PIX")
+    last = next(
+        (f["frame"] for f in files if f["file"] == "QSD.PIX"),
+        max(f["frame"] for f in files),
+    )
     files = [f for f in files if first <= f["frame"] <= last]
     shots = sorted((int(p.stem[1:]), p) for p in run.glob("f*.png"))
     events = [
@@ -124,7 +138,7 @@ def saturn(n: int, run: Path, posted: list[int]) -> dict[str, Any]:
         "posted_boxes_not_opened": sorted(set(posted) - set(opened)),
         "openings_count": len(opened),
         "posted_openings_count": len(posted),
-        "surface_kinds": KINDS[n],
+        "surface_kinds": KINDS.get(n),
         "shared_after_dialogue": SHARED,
     }
 
@@ -154,13 +168,20 @@ def arcade(s: str, n: int, run: Path) -> dict[str, Any]:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--out", type=Path)
+    parser.add_argument(
+        "--others",
+        action="store_true",
+        help="lists 6-8 (Saturn-only, no arcade), END-022",
+    )
     args = parser.parse_args()
     posts = json.loads(POSTS.read_text())
     lists = []
-    for n, run in RUNS.items():
+    runs = OTHERS if args.others else RUNS
+    for n, run in runs.items():
         posted = [b["box"] for p in posts["lists"][n]["posts"] for b in p["boxes"]]
         entry = saturn(n, run, posted)
-        entry["arcade"] = [arcade(s, n, ARCADE[(s, n)]) for s in ("u", "j")]
+        if not args.others:
+            entry["arcade"] = [arcade(s, n, ARCADE[(s, n)]) for s in ("u", "j")]
         lists.append(entry)
     result = {
         "sources": {
@@ -180,7 +201,7 @@ def main() -> int:
             "not in posts",
             e["boxes_not_in_posts"],
             "arcade slots",
-            [a["distinct_slots"] for a in e["arcade"]],
+            [a["distinct_slots"] for a in e.get("arcade", [])],
         )
     if args.out:
         args.out.write_text(json.dumps(result, indent=1) + "\n")

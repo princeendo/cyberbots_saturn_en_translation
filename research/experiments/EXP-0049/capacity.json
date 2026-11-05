@@ -1,0 +1,6150 @@
+{
+ "sources": {
+  "cybotsu_program_sha256": "18e8827dc742f4fef577aac8c06ae05dfb54ddad60a589238ac610f07b4152fd",
+  "END.BIN": "a4868d8d39f657cb2e924c5e3d0467cc4f7fe83b9375e2a2ffbd7dd21281f3fa",
+  "ending_surfaces_sha256": "772653c4e8317a967f2fabf776b78deeed01f1f67cc15584a61176a6f6046424",
+  "ending_surfaces_others_sha256": "e6561394eea15bed05c8de5554a3a9f6603c4ab780767679009777f74ebb4c13"
+ },
+ "english_boxes": 100,
+ "boxes_in_more_than_one_list": [
+  601,
+  604,
+  605,
+  606,
+  607,
+  610
+ ],
+ "widest_saturn_line": {
+  "caption": 16,
+  "dialogue box": 16,
+  "speaker name": 6,
+  "narration": 16
+ },
+ "codes": {
+  "table": 1222,
+  "unused_by_any_line": 310,
+  "new_in_last_row": 25,
+  "story_rule_total": 335,
+  "staying_boxes": [
+   732,
+   733,
+   734,
+   735,
+   736,
+   737,
+   738,
+   739,
+   740,
+   741,
+   742,
+   743,
+   744,
+   745,
+   746,
+   857,
+   858,
+   859,
+   860,
+   861,
+   862,
+   863,
+   864,
+   865,
+   866,
+   867,
+   868,
+   869,
+   870,
+   871,
+   872,
+   873,
+   874,
+   875,
+   876,
+   877,
+   878,
+   879,
+   880,
+   881,
+   882,
+   1008,
+   1009,
+   1010,
+   1011,
+   1012,
+   1013,
+   1014,
+   1015,
+   1016,
+   1017,
+   1018,
+   1019,
+   1020,
+   1021,
+   1022,
+   1072
+  ],
+  "free_of_staying_lines": 905,
+  "free_of_staying_lines_plus_new": 930
+ },
+ "room": {
+  "own_lines": 163,
+  "own_bytes": 4232,
+  "unshown_lines": 1575,
+  "unshown_bytes": 42844,
+  "unshown_bytes_marker_tested": 42844,
+  "lines_shown_by_lists_6_8": 114,
+  "exp0042_room_lines_now_seen_shown": [
+   806,
+   807,
+   808,
+   809,
+   810,
+   811,
+   812,
+   813,
+   814,
+   815,
+   816,
+   817,
+   818,
+   819,
+   888,
+   1007
+  ]
+ },
+ "variants_608": {
+  "place (615)": {
+   "as_is": {
+    "boxes": [
+     {
+      "box": 408,
+      "lists": [
+       0
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       13
+      ],
+      "glyph_cells": 13,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 409,
+      "lists": [
+       0
+      ],
+      "kind": "dialogue box",
+      "rows": 3,
+      "row_cells": [
+       16,
+       16,
+       13
+      ],
+      "glyph_cells": 45,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 410,
+      "lists": [
+       0
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       4
+      ],
+      "glyph_cells": 4,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 411,
+      "lists": [
+       0
+      ],
+      "kind": "dialogue box",
+      "rows": 2,
+      "row_cells": [
+       15,
+       2
+      ],
+      "glyph_cells": 17,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 412,
+      "lists": [
+       0
+      ],
+      "kind": "dialogue box",
+      "rows": 3,
+      "row_cells": [
+       16,
+       14,
+       11
+      ],
+      "glyph_cells": 41,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 413,
+      "lists": [
+       0
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       4
+      ],
+      "glyph_cells": 4,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 414,
+      "lists": [
+       0
+      ],
+      "kind": "narration",
+      "rows": 3,
+      "row_cells": [
+       15,
+       16,
+       7
+      ],
+      "glyph_cells": 38,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 415,
+      "lists": [
+       0
+      ],
+      "kind": "narration",
+      "rows": 3,
+      "row_cells": [
+       12,
+       14,
+       16
+      ],
+      "glyph_cells": 42,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 416,
+      "lists": [
+       0
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       5
+      ],
+      "glyph_cells": 20,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 417,
+      "lists": [
+       0
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       14,
+       6
+      ],
+      "glyph_cells": 20,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 418,
+      "lists": [
+       0
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       14
+      ],
+      "glyph_cells": 29,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 419,
+      "lists": [
+       0
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       3
+      ],
+      "glyph_cells": 3,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 420,
+      "lists": [
+       0
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       14,
+       13,
+       4
+      ],
+      "glyph_cells": 31,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 421,
+      "lists": [
+       0
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       16
+      ],
+      "glyph_cells": 16,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 422,
+      "lists": [
+       0
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       7
+      ],
+      "glyph_cells": 7,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 493,
+      "lists": [
+       0
+      ],
+      "kind": "dialogue box",
+      "rows": 3,
+      "row_cells": [
+       16,
+       15,
+       13
+      ],
+      "glyph_cells": 43,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 601,
+      "lists": [
+       0,
+       4
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       2
+      ],
+      "glyph_cells": 2,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 605,
+      "lists": [
+       0,
+       3,
+       4
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       4
+      ],
+      "glyph_cells": 4,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 423,
+      "lists": [
+       1
+      ],
+      "kind": "dialogue box",
+      "rows": 3,
+      "row_cells": [
+       16,
+       14,
+       4
+      ],
+      "glyph_cells": 34,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 424,
+      "lists": [
+       1
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       16
+      ],
+      "glyph_cells": 15,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 425,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       9
+      ],
+      "glyph_cells": 9,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 426,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       14
+      ],
+      "glyph_cells": 14,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 427,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       14,
+       14,
+       7
+      ],
+      "glyph_cells": 35,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 428,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       7
+      ],
+      "glyph_cells": 7,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 429,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       13,
+       16
+      ],
+      "glyph_cells": 29,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 430,
+      "lists": [
+       1
+      ],
+      "kind": "narration",
+      "rows": 3,
+      "row_cells": [
+       15,
+       15,
+       10
+      ],
+      "glyph_cells": 40,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 431,
+      "lists": [
+       1
+      ],
+      "kind": "narration",
+      "rows": 3,
+      "row_cells": [
+       15,
+       16,
+       7
+      ],
+      "glyph_cells": 38,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 432,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       16,
+       15,
+       14
+      ],
+      "glyph_cells": 44,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 433,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       3
+      ],
+      "glyph_cells": 18,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 434,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       10
+      ],
+      "glyph_cells": 10,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 435,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       16,
+       16,
+       9
+      ],
+      "glyph_cells": 41,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 436,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       16,
+       15,
+       16
+      ],
+      "glyph_cells": 47,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 603,
+      "lists": [
+       1
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       4
+      ],
+      "glyph_cells": 4,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 604,
+      "lists": [
+       1,
+       2,
+       3
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       4
+      ],
+      "glyph_cells": 4,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 611,
+      "lists": [
+       1
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       5
+      ],
+      "glyph_cells": 5,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 437,
+      "lists": [
+       2
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       13
+      ],
+      "glyph_cells": 13,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 438,
+      "lists": [
+       2
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       7
+      ],
+      "glyph_cells": 7,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 439,
+      "lists": [
+       2
+      ],
+      "kind": "dialogue box",
+      "rows": 2,
+      "row_cells": [
+       15,
+       16
+      ],
+      "glyph_cells": 30,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 440,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       2
+      ],
+      "glyph_cells": 18,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 441,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       15,
+       11
+      ],
+      "glyph_cells": 41,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 442,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       14,
+       13
+      ],
+      "glyph_cells": 42,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 443,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       16
+      ],
+      "glyph_cells": 31,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 444,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       15
+      ],
+      "glyph_cells": 14,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 445,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       12,
+       6
+      ],
+      "glyph_cells": 32,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 446,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       13
+      ],
+      "glyph_cells": 28,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 447,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       16
+      ],
+      "glyph_cells": 16,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 602,
+      "lists": [
+       2
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       3
+      ],
+      "glyph_cells": 3,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 610,
+      "lists": [
+       2,
+       3
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       5
+      ],
+      "glyph_cells": 5,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 448,
+      "lists": [
+       3
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       15
+      ],
+      "glyph_cells": 15,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 449,
+      "lists": [
+       3
+      ],
+      "kind": "dialogue box",
+      "rows": 2,
+      "row_cells": [
+       15,
+       2
+      ],
+      "glyph_cells": 16,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 450,
+      "lists": [
+       3
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       9
+      ],
+      "glyph_cells": 9,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 451,
+      "lists": [
+       3
+      ],
+      "kind": "dialogue box",
+      "rows": 3,
+      "row_cells": [
+       14,
+       13,
+       4
+      ],
+      "glyph_cells": 31,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 452,
+      "lists": [
+       3
+      ],
+      "kind": "dialogue box",
+      "rows": 2,
+      "row_cells": [
+       15,
+       4
+      ],
+      "glyph_cells": 18,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 453,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       14,
+       3
+      ],
+      "glyph_cells": 17,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 454,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       5
+      ],
+      "glyph_cells": 20,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 455,
+      "lists": [
+       3
+      ],
+      "kind": "narration",
+      "rows": 1,
+      "row_cells": [
+       13
+      ],
+      "glyph_cells": 13,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 456,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       3
+      ],
+      "glyph_cells": 18,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 457,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       14,
+       5
+      ],
+      "glyph_cells": 19,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 458,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       16,
+       16,
+       4
+      ],
+      "glyph_cells": 36,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 459,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       15,
+       10
+      ],
+      "glyph_cells": 40,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 460,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       15,
+       10
+      ],
+      "glyph_cells": 40,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 461,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       14
+      ],
+      "glyph_cells": 30,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 462,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       16,
+       15,
+       16
+      ],
+      "glyph_cells": 47,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 463,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       16
+      ],
+      "glyph_cells": 31,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 464,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       13
+      ],
+      "glyph_cells": 28,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 606,
+      "lists": [
+       3,
+       5
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       2
+      ],
+      "glyph_cells": 2,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 607,
+      "lists": [
+       3,
+       5
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       2
+      ],
+      "glyph_cells": 2,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 465,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       14,
+       15,
+       8
+      ],
+      "glyph_cells": 37,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 466,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       2
+      ],
+      "glyph_cells": 17,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 467,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       16,
+       14,
+       11
+      ],
+      "glyph_cells": 40,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 468,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       12,
+       15,
+       2
+      ],
+      "glyph_cells": 29,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 469,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       2
+      ],
+      "glyph_cells": 2,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 470,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       14,
+       15,
+       16
+      ],
+      "glyph_cells": 45,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 471,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       14,
+       16,
+       3
+      ],
+      "glyph_cells": 32,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 472,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       5
+      ],
+      "glyph_cells": 5,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 473,
+      "lists": [
+       4
+      ],
+      "kind": "narration",
+      "rows": 3,
+      "row_cells": [
+       16,
+       15,
+       6
+      ],
+      "glyph_cells": 37,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 474,
+      "lists": [
+       4
+      ],
+      "kind": "narration",
+      "rows": 3,
+      "row_cells": [
+       14,
+       15,
+       16
+      ],
+      "glyph_cells": 44,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 475,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       10
+      ],
+      "glyph_cells": 10,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 476,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       15,
+       15
+      ],
+      "glyph_cells": 45,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 477,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       16,
+       12
+      ],
+      "glyph_cells": 43,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 478,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       15
+      ],
+      "glyph_cells": 31,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 479,
+      "lists": [
+       5
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       5
+      ],
+      "glyph_cells": 5,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 480,
+      "lists": [
+       5
+      ],
+      "kind": "dialogue box",
+      "rows": 2,
+      "row_cells": [
+       15,
+       6
+      ],
+      "glyph_cells": 21,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 481,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       5
+      ],
+      "glyph_cells": 5,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 482,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       7
+      ],
+      "glyph_cells": 7,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 483,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       7
+      ],
+      "glyph_cells": 7,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 484,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       14
+      ],
+      "glyph_cells": 30,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 485,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       14
+      ],
+      "glyph_cells": 29,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 486,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       9
+      ],
+      "glyph_cells": 9,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 487,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       4
+      ],
+      "glyph_cells": 4,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 488,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       9
+      ],
+      "glyph_cells": 9,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 489,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       7
+      ],
+      "glyph_cells": 22,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 490,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       16
+      ],
+      "glyph_cells": 32,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 491,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       5
+      ],
+      "glyph_cells": 20,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 492,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       14,
+       3
+      ],
+      "glyph_cells": 17,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 551,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       14,
+       9
+      ],
+      "glyph_cells": 23,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 608,
+      "lists": [
+       5
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       2
+      ],
+      "glyph_cells": 2,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 612,
+      "lists": [
+       5
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       5
+      ],
+      "glyph_cells": 5,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 613,
+      "lists": [
+       5
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       4
+      ],
+      "glyph_cells": 4,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 614,
+      "lists": [
+       5
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       3
+      ],
+      "glyph_cells": 3,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     }
+    ],
+    "max_rows": 3,
+    "max_glyph_cells": 47,
+    "over_limits": [],
+    "boxes_with_wider_rows": [],
+    "pairs": 388,
+    "row_bytes": 4920
+   },
+   "indent": {
+    "boxes": [
+     {
+      "box": 408,
+      "lists": [
+       0
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       13
+      ],
+      "glyph_cells": 13,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 409,
+      "lists": [
+       0
+      ],
+      "kind": "dialogue box",
+      "rows": 3,
+      "row_cells": [
+       16,
+       16,
+       14
+      ],
+      "glyph_cells": 46,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 410,
+      "lists": [
+       0
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       4
+      ],
+      "glyph_cells": 4,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 411,
+      "lists": [
+       0
+      ],
+      "kind": "dialogue box",
+      "rows": 2,
+      "row_cells": [
+       15,
+       2
+      ],
+      "glyph_cells": 17,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 412,
+      "lists": [
+       0
+      ],
+      "kind": "dialogue box",
+      "rows": 3,
+      "row_cells": [
+       16,
+       14,
+       11
+      ],
+      "glyph_cells": 41,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 413,
+      "lists": [
+       0
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       5
+      ],
+      "glyph_cells": 5,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 414,
+      "lists": [
+       0
+      ],
+      "kind": "narration",
+      "rows": 3,
+      "row_cells": [
+       15,
+       16,
+       7
+      ],
+      "glyph_cells": 38,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 415,
+      "lists": [
+       0
+      ],
+      "kind": "narration",
+      "rows": 3,
+      "row_cells": [
+       12,
+       14,
+       16
+      ],
+      "glyph_cells": 42,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 416,
+      "lists": [
+       0
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       6
+      ],
+      "glyph_cells": 21,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 417,
+      "lists": [
+       0
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       14,
+       6
+      ],
+      "glyph_cells": 20,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 418,
+      "lists": [
+       0
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       14
+      ],
+      "glyph_cells": 29,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 419,
+      "lists": [
+       0
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       3
+      ],
+      "glyph_cells": 3,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 420,
+      "lists": [
+       0
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       14,
+       13,
+       4
+      ],
+      "glyph_cells": 31,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 421,
+      "lists": [
+       0
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       16
+      ],
+      "glyph_cells": 16,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 422,
+      "lists": [
+       0
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       8
+      ],
+      "glyph_cells": 8,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 493,
+      "lists": [
+       0
+      ],
+      "kind": "dialogue box",
+      "rows": 3,
+      "row_cells": [
+       16,
+       15,
+       13
+      ],
+      "glyph_cells": 43,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 601,
+      "lists": [
+       0,
+       4
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       3
+      ],
+      "glyph_cells": 3,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 605,
+      "lists": [
+       0,
+       3,
+       4
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       4
+      ],
+      "glyph_cells": 4,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 423,
+      "lists": [
+       1
+      ],
+      "kind": "dialogue box",
+      "rows": 3,
+      "row_cells": [
+       16,
+       14,
+       5
+      ],
+      "glyph_cells": 35,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 424,
+      "lists": [
+       1
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       16
+      ],
+      "glyph_cells": 16,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 425,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       9
+      ],
+      "glyph_cells": 9,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 426,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       14
+      ],
+      "glyph_cells": 14,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 427,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       14,
+       7
+      ],
+      "glyph_cells": 35,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 428,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       8
+      ],
+      "glyph_cells": 8,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 429,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       14,
+       16
+      ],
+      "glyph_cells": 30,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 430,
+      "lists": [
+       1
+      ],
+      "kind": "narration",
+      "rows": 3,
+      "row_cells": [
+       15,
+       15,
+       10
+      ],
+      "glyph_cells": 40,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 431,
+      "lists": [
+       1
+      ],
+      "kind": "narration",
+      "rows": 3,
+      "row_cells": [
+       16,
+       16,
+       7
+      ],
+      "glyph_cells": 39,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 432,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       16,
+       16,
+       14
+      ],
+      "glyph_cells": 45,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 433,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       3
+      ],
+      "glyph_cells": 18,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 434,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       10
+      ],
+      "glyph_cells": 10,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 435,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       16,
+       16,
+       9
+      ],
+      "glyph_cells": 41,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 436,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       16,
+       15,
+       16
+      ],
+      "glyph_cells": 47,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 603,
+      "lists": [
+       1
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       5
+      ],
+      "glyph_cells": 5,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 604,
+      "lists": [
+       1,
+       2,
+       3
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       4
+      ],
+      "glyph_cells": 4,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 611,
+      "lists": [
+       1
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       5
+      ],
+      "glyph_cells": 5,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 437,
+      "lists": [
+       2
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       13
+      ],
+      "glyph_cells": 13,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 438,
+      "lists": [
+       2
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       7
+      ],
+      "glyph_cells": 7,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 439,
+      "lists": [
+       2
+      ],
+      "kind": "dialogue box",
+      "rows": 2,
+      "row_cells": [
+       15,
+       16
+      ],
+      "glyph_cells": 31,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 440,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       2
+      ],
+      "glyph_cells": 18,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 441,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       15,
+       11
+      ],
+      "glyph_cells": 41,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 442,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       14,
+       13
+      ],
+      "glyph_cells": 42,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 443,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       16
+      ],
+      "glyph_cells": 31,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 444,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       15
+      ],
+      "glyph_cells": 14,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 445,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       12,
+       6
+      ],
+      "glyph_cells": 32,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 446,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       13
+      ],
+      "glyph_cells": 28,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 447,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       16
+      ],
+      "glyph_cells": 16,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 602,
+      "lists": [
+       2
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       3
+      ],
+      "glyph_cells": 3,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 610,
+      "lists": [
+       2,
+       3
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       6
+      ],
+      "glyph_cells": 6,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 448,
+      "lists": [
+       3
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       15
+      ],
+      "glyph_cells": 15,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 449,
+      "lists": [
+       3
+      ],
+      "kind": "dialogue box",
+      "rows": 2,
+      "row_cells": [
+       15,
+       2
+      ],
+      "glyph_cells": 16,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 450,
+      "lists": [
+       3
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       10
+      ],
+      "glyph_cells": 10,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 451,
+      "lists": [
+       3
+      ],
+      "kind": "dialogue box",
+      "rows": 3,
+      "row_cells": [
+       14,
+       13,
+       5
+      ],
+      "glyph_cells": 32,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 452,
+      "lists": [
+       3
+      ],
+      "kind": "dialogue box",
+      "rows": 2,
+      "row_cells": [
+       15,
+       4
+      ],
+      "glyph_cells": 18,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 453,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       14,
+       4
+      ],
+      "glyph_cells": 18,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 454,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       5
+      ],
+      "glyph_cells": 20,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 455,
+      "lists": [
+       3
+      ],
+      "kind": "narration",
+      "rows": 1,
+      "row_cells": [
+       14
+      ],
+      "glyph_cells": 14,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 456,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       3
+      ],
+      "glyph_cells": 18,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 457,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       14,
+       5
+      ],
+      "glyph_cells": 19,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 458,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       16,
+       16,
+       4
+      ],
+      "glyph_cells": 36,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 459,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       15,
+       10
+      ],
+      "glyph_cells": 40,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 460,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       16,
+       10
+      ],
+      "glyph_cells": 41,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 461,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       14
+      ],
+      "glyph_cells": 30,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 462,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       16,
+       15,
+       16
+      ],
+      "glyph_cells": 47,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 463,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       16
+      ],
+      "glyph_cells": 32,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 464,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       13
+      ],
+      "glyph_cells": 28,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 606,
+      "lists": [
+       3,
+       5
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       2
+      ],
+      "glyph_cells": 2,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 607,
+      "lists": [
+       3,
+       5
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       2
+      ],
+      "glyph_cells": 2,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 465,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       14,
+       15,
+       8
+      ],
+      "glyph_cells": 37,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 466,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       2
+      ],
+      "glyph_cells": 17,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 467,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       16,
+       14,
+       11
+      ],
+      "glyph_cells": 40,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 468,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       12,
+       15,
+       2
+      ],
+      "glyph_cells": 29,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 469,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       2
+      ],
+      "glyph_cells": 2,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 470,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       15,
+       16
+      ],
+      "glyph_cells": 46,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 471,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       14,
+       16,
+       3
+      ],
+      "glyph_cells": 32,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 472,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       5
+      ],
+      "glyph_cells": 5,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 473,
+      "lists": [
+       4
+      ],
+      "kind": "narration",
+      "rows": 3,
+      "row_cells": [
+       16,
+       15,
+       6
+      ],
+      "glyph_cells": 37,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 474,
+      "lists": [
+       4
+      ],
+      "kind": "narration",
+      "rows": 3,
+      "row_cells": [
+       14,
+       16,
+       16
+      ],
+      "glyph_cells": 46,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 475,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       10
+      ],
+      "glyph_cells": 10,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 476,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       15,
+       15
+      ],
+      "glyph_cells": 44,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 477,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       16,
+       12
+      ],
+      "glyph_cells": 43,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 478,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       15
+      ],
+      "glyph_cells": 31,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 479,
+      "lists": [
+       5
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       5
+      ],
+      "glyph_cells": 5,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 480,
+      "lists": [
+       5
+      ],
+      "kind": "dialogue box",
+      "rows": 2,
+      "row_cells": [
+       15,
+       6
+      ],
+      "glyph_cells": 21,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 481,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       5
+      ],
+      "glyph_cells": 5,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 482,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       7
+      ],
+      "glyph_cells": 7,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 483,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       7
+      ],
+      "glyph_cells": 7,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 484,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       15
+      ],
+      "glyph_cells": 31,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 485,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       14
+      ],
+      "glyph_cells": 30,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 486,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       9
+      ],
+      "glyph_cells": 9,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 487,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       4
+      ],
+      "glyph_cells": 4,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 488,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       9
+      ],
+      "glyph_cells": 9,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 489,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       7
+      ],
+      "glyph_cells": 23,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 490,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       16
+      ],
+      "glyph_cells": 32,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 491,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       5
+      ],
+      "glyph_cells": 20,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 492,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       14,
+       3
+      ],
+      "glyph_cells": 17,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 551,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       14,
+       9
+      ],
+      "glyph_cells": 23,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 608,
+      "lists": [
+       5
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       2
+      ],
+      "glyph_cells": 2,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 612,
+      "lists": [
+       5
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       6
+      ],
+      "glyph_cells": 6,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 613,
+      "lists": [
+       5
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       4
+      ],
+      "glyph_cells": 4,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 614,
+      "lists": [
+       5
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       3
+      ],
+      "glyph_cells": 3,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     }
+    ],
+    "max_rows": 3,
+    "max_glyph_cells": 47,
+    "over_limits": [],
+    "boxes_with_wider_rows": [],
+    "pairs": 330,
+    "row_bytes": 4976
+   }
+  },
+  "same Japanese (617)": {
+   "as_is": {
+    "boxes": [
+     {
+      "box": 408,
+      "lists": [
+       0
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       13
+      ],
+      "glyph_cells": 13,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 409,
+      "lists": [
+       0
+      ],
+      "kind": "dialogue box",
+      "rows": 3,
+      "row_cells": [
+       16,
+       16,
+       13
+      ],
+      "glyph_cells": 45,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 410,
+      "lists": [
+       0
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       4
+      ],
+      "glyph_cells": 4,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 411,
+      "lists": [
+       0
+      ],
+      "kind": "dialogue box",
+      "rows": 2,
+      "row_cells": [
+       15,
+       2
+      ],
+      "glyph_cells": 17,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 412,
+      "lists": [
+       0
+      ],
+      "kind": "dialogue box",
+      "rows": 3,
+      "row_cells": [
+       16,
+       14,
+       11
+      ],
+      "glyph_cells": 41,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 413,
+      "lists": [
+       0
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       4
+      ],
+      "glyph_cells": 4,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 414,
+      "lists": [
+       0
+      ],
+      "kind": "narration",
+      "rows": 3,
+      "row_cells": [
+       15,
+       16,
+       7
+      ],
+      "glyph_cells": 38,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 415,
+      "lists": [
+       0
+      ],
+      "kind": "narration",
+      "rows": 3,
+      "row_cells": [
+       12,
+       14,
+       16
+      ],
+      "glyph_cells": 42,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 416,
+      "lists": [
+       0
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       5
+      ],
+      "glyph_cells": 20,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 417,
+      "lists": [
+       0
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       14,
+       6
+      ],
+      "glyph_cells": 20,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 418,
+      "lists": [
+       0
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       14
+      ],
+      "glyph_cells": 29,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 419,
+      "lists": [
+       0
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       3
+      ],
+      "glyph_cells": 3,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 420,
+      "lists": [
+       0
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       14,
+       13,
+       4
+      ],
+      "glyph_cells": 31,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 421,
+      "lists": [
+       0
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       16
+      ],
+      "glyph_cells": 16,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 422,
+      "lists": [
+       0
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       7
+      ],
+      "glyph_cells": 7,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 493,
+      "lists": [
+       0
+      ],
+      "kind": "dialogue box",
+      "rows": 3,
+      "row_cells": [
+       16,
+       15,
+       13
+      ],
+      "glyph_cells": 43,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 601,
+      "lists": [
+       0,
+       4
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       2
+      ],
+      "glyph_cells": 2,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 605,
+      "lists": [
+       0,
+       3,
+       4
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       4
+      ],
+      "glyph_cells": 4,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 423,
+      "lists": [
+       1
+      ],
+      "kind": "dialogue box",
+      "rows": 3,
+      "row_cells": [
+       16,
+       14,
+       4
+      ],
+      "glyph_cells": 34,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 424,
+      "lists": [
+       1
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       16
+      ],
+      "glyph_cells": 15,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 425,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       9
+      ],
+      "glyph_cells": 9,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 426,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       14
+      ],
+      "glyph_cells": 14,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 427,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       14,
+       14,
+       7
+      ],
+      "glyph_cells": 35,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 428,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       7
+      ],
+      "glyph_cells": 7,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 429,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       13,
+       16
+      ],
+      "glyph_cells": 29,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 430,
+      "lists": [
+       1
+      ],
+      "kind": "narration",
+      "rows": 3,
+      "row_cells": [
+       15,
+       15,
+       10
+      ],
+      "glyph_cells": 40,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 431,
+      "lists": [
+       1
+      ],
+      "kind": "narration",
+      "rows": 3,
+      "row_cells": [
+       15,
+       16,
+       7
+      ],
+      "glyph_cells": 38,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 432,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       16,
+       15,
+       14
+      ],
+      "glyph_cells": 44,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 433,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       3
+      ],
+      "glyph_cells": 18,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 434,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       10
+      ],
+      "glyph_cells": 10,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 435,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       16,
+       16,
+       9
+      ],
+      "glyph_cells": 41,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 436,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       16,
+       15,
+       16
+      ],
+      "glyph_cells": 47,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 603,
+      "lists": [
+       1
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       4
+      ],
+      "glyph_cells": 4,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 604,
+      "lists": [
+       1,
+       2,
+       3
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       4
+      ],
+      "glyph_cells": 4,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 611,
+      "lists": [
+       1
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       5
+      ],
+      "glyph_cells": 5,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 437,
+      "lists": [
+       2
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       13
+      ],
+      "glyph_cells": 13,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 438,
+      "lists": [
+       2
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       7
+      ],
+      "glyph_cells": 7,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 439,
+      "lists": [
+       2
+      ],
+      "kind": "dialogue box",
+      "rows": 2,
+      "row_cells": [
+       15,
+       16
+      ],
+      "glyph_cells": 30,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 440,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       2
+      ],
+      "glyph_cells": 18,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 441,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       15,
+       11
+      ],
+      "glyph_cells": 41,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 442,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       14,
+       13
+      ],
+      "glyph_cells": 42,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 443,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       16
+      ],
+      "glyph_cells": 31,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 444,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       15
+      ],
+      "glyph_cells": 14,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 445,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       12,
+       6
+      ],
+      "glyph_cells": 32,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 446,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       13
+      ],
+      "glyph_cells": 28,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 447,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       16
+      ],
+      "glyph_cells": 16,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 602,
+      "lists": [
+       2
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       3
+      ],
+      "glyph_cells": 3,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 610,
+      "lists": [
+       2,
+       3
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       5
+      ],
+      "glyph_cells": 5,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 448,
+      "lists": [
+       3
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       15
+      ],
+      "glyph_cells": 15,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 449,
+      "lists": [
+       3
+      ],
+      "kind": "dialogue box",
+      "rows": 2,
+      "row_cells": [
+       15,
+       2
+      ],
+      "glyph_cells": 16,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 450,
+      "lists": [
+       3
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       9
+      ],
+      "glyph_cells": 9,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 451,
+      "lists": [
+       3
+      ],
+      "kind": "dialogue box",
+      "rows": 3,
+      "row_cells": [
+       14,
+       13,
+       4
+      ],
+      "glyph_cells": 31,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 452,
+      "lists": [
+       3
+      ],
+      "kind": "dialogue box",
+      "rows": 2,
+      "row_cells": [
+       15,
+       4
+      ],
+      "glyph_cells": 18,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 453,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       14,
+       3
+      ],
+      "glyph_cells": 17,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 454,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       5
+      ],
+      "glyph_cells": 20,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 455,
+      "lists": [
+       3
+      ],
+      "kind": "narration",
+      "rows": 1,
+      "row_cells": [
+       13
+      ],
+      "glyph_cells": 13,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 456,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       3
+      ],
+      "glyph_cells": 18,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 457,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       14,
+       5
+      ],
+      "glyph_cells": 19,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 458,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       16,
+       16,
+       4
+      ],
+      "glyph_cells": 36,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 459,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       15,
+       10
+      ],
+      "glyph_cells": 40,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 460,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       15,
+       10
+      ],
+      "glyph_cells": 40,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 461,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       14
+      ],
+      "glyph_cells": 30,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 462,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       16,
+       15,
+       16
+      ],
+      "glyph_cells": 47,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 463,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       16
+      ],
+      "glyph_cells": 31,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 464,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       13
+      ],
+      "glyph_cells": 28,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 606,
+      "lists": [
+       3,
+       5
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       2
+      ],
+      "glyph_cells": 2,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 607,
+      "lists": [
+       3,
+       5
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       2
+      ],
+      "glyph_cells": 2,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 465,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       14,
+       15,
+       8
+      ],
+      "glyph_cells": 37,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 466,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       2
+      ],
+      "glyph_cells": 17,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 467,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       16,
+       14,
+       11
+      ],
+      "glyph_cells": 40,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 468,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       12,
+       15,
+       2
+      ],
+      "glyph_cells": 29,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 469,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       2
+      ],
+      "glyph_cells": 2,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 470,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       14,
+       15,
+       16
+      ],
+      "glyph_cells": 45,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 471,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       14,
+       16,
+       3
+      ],
+      "glyph_cells": 32,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 472,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       5
+      ],
+      "glyph_cells": 5,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 473,
+      "lists": [
+       4
+      ],
+      "kind": "narration",
+      "rows": 3,
+      "row_cells": [
+       16,
+       15,
+       6
+      ],
+      "glyph_cells": 37,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 474,
+      "lists": [
+       4
+      ],
+      "kind": "narration",
+      "rows": 3,
+      "row_cells": [
+       14,
+       15,
+       16
+      ],
+      "glyph_cells": 44,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 475,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       10
+      ],
+      "glyph_cells": 10,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 476,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       15,
+       15
+      ],
+      "glyph_cells": 45,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 477,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       16,
+       12
+      ],
+      "glyph_cells": 43,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 478,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       15
+      ],
+      "glyph_cells": 31,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 479,
+      "lists": [
+       5
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       5
+      ],
+      "glyph_cells": 5,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 480,
+      "lists": [
+       5
+      ],
+      "kind": "dialogue box",
+      "rows": 2,
+      "row_cells": [
+       15,
+       6
+      ],
+      "glyph_cells": 21,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 481,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       5
+      ],
+      "glyph_cells": 5,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 482,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       7
+      ],
+      "glyph_cells": 7,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 483,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       7
+      ],
+      "glyph_cells": 7,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 484,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       14
+      ],
+      "glyph_cells": 30,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 485,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       14
+      ],
+      "glyph_cells": 29,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 486,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       9
+      ],
+      "glyph_cells": 9,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 487,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       4
+      ],
+      "glyph_cells": 4,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 488,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       9
+      ],
+      "glyph_cells": 9,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 489,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       7
+      ],
+      "glyph_cells": 22,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 490,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       16
+      ],
+      "glyph_cells": 32,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 491,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       5
+      ],
+      "glyph_cells": 20,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 492,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       14,
+       3
+      ],
+      "glyph_cells": 17,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 551,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       14,
+       9
+      ],
+      "glyph_cells": 23,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 608,
+      "lists": [
+       5
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       4
+      ],
+      "glyph_cells": 4,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 612,
+      "lists": [
+       5
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       5
+      ],
+      "glyph_cells": 5,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 613,
+      "lists": [
+       5
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       4
+      ],
+      "glyph_cells": 4,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 614,
+      "lists": [
+       5
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       3
+      ],
+      "glyph_cells": 3,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     }
+    ],
+    "max_rows": 3,
+    "max_glyph_cells": 47,
+    "over_limits": [],
+    "boxes_with_wider_rows": [],
+    "pairs": 388,
+    "row_bytes": 4924
+   },
+   "indent": {
+    "boxes": [
+     {
+      "box": 408,
+      "lists": [
+       0
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       13
+      ],
+      "glyph_cells": 13,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 409,
+      "lists": [
+       0
+      ],
+      "kind": "dialogue box",
+      "rows": 3,
+      "row_cells": [
+       16,
+       16,
+       14
+      ],
+      "glyph_cells": 46,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 410,
+      "lists": [
+       0
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       4
+      ],
+      "glyph_cells": 4,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 411,
+      "lists": [
+       0
+      ],
+      "kind": "dialogue box",
+      "rows": 2,
+      "row_cells": [
+       15,
+       2
+      ],
+      "glyph_cells": 17,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 412,
+      "lists": [
+       0
+      ],
+      "kind": "dialogue box",
+      "rows": 3,
+      "row_cells": [
+       16,
+       14,
+       11
+      ],
+      "glyph_cells": 41,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 413,
+      "lists": [
+       0
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       5
+      ],
+      "glyph_cells": 5,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 414,
+      "lists": [
+       0
+      ],
+      "kind": "narration",
+      "rows": 3,
+      "row_cells": [
+       15,
+       16,
+       7
+      ],
+      "glyph_cells": 38,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 415,
+      "lists": [
+       0
+      ],
+      "kind": "narration",
+      "rows": 3,
+      "row_cells": [
+       12,
+       14,
+       16
+      ],
+      "glyph_cells": 42,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 416,
+      "lists": [
+       0
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       6
+      ],
+      "glyph_cells": 21,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 417,
+      "lists": [
+       0
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       14,
+       6
+      ],
+      "glyph_cells": 20,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 418,
+      "lists": [
+       0
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       14
+      ],
+      "glyph_cells": 29,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 419,
+      "lists": [
+       0
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       3
+      ],
+      "glyph_cells": 3,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 420,
+      "lists": [
+       0
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       14,
+       13,
+       4
+      ],
+      "glyph_cells": 31,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 421,
+      "lists": [
+       0
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       16
+      ],
+      "glyph_cells": 16,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 422,
+      "lists": [
+       0
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       8
+      ],
+      "glyph_cells": 8,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 493,
+      "lists": [
+       0
+      ],
+      "kind": "dialogue box",
+      "rows": 3,
+      "row_cells": [
+       16,
+       15,
+       13
+      ],
+      "glyph_cells": 43,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 601,
+      "lists": [
+       0,
+       4
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       3
+      ],
+      "glyph_cells": 3,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 605,
+      "lists": [
+       0,
+       3,
+       4
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       4
+      ],
+      "glyph_cells": 4,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 423,
+      "lists": [
+       1
+      ],
+      "kind": "dialogue box",
+      "rows": 3,
+      "row_cells": [
+       16,
+       14,
+       5
+      ],
+      "glyph_cells": 35,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 424,
+      "lists": [
+       1
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       16
+      ],
+      "glyph_cells": 16,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 425,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       9
+      ],
+      "glyph_cells": 9,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 426,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       14
+      ],
+      "glyph_cells": 14,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 427,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       14,
+       7
+      ],
+      "glyph_cells": 35,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 428,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       8
+      ],
+      "glyph_cells": 8,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 429,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       14,
+       16
+      ],
+      "glyph_cells": 30,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 430,
+      "lists": [
+       1
+      ],
+      "kind": "narration",
+      "rows": 3,
+      "row_cells": [
+       15,
+       15,
+       10
+      ],
+      "glyph_cells": 40,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 431,
+      "lists": [
+       1
+      ],
+      "kind": "narration",
+      "rows": 3,
+      "row_cells": [
+       16,
+       16,
+       7
+      ],
+      "glyph_cells": 39,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 432,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       16,
+       16,
+       14
+      ],
+      "glyph_cells": 45,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 433,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       3
+      ],
+      "glyph_cells": 18,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 434,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       10
+      ],
+      "glyph_cells": 10,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 435,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       16,
+       16,
+       9
+      ],
+      "glyph_cells": 41,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 436,
+      "lists": [
+       1
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       16,
+       15,
+       16
+      ],
+      "glyph_cells": 47,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 603,
+      "lists": [
+       1
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       5
+      ],
+      "glyph_cells": 5,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 604,
+      "lists": [
+       1,
+       2,
+       3
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       4
+      ],
+      "glyph_cells": 4,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 611,
+      "lists": [
+       1
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       5
+      ],
+      "glyph_cells": 5,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 437,
+      "lists": [
+       2
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       13
+      ],
+      "glyph_cells": 13,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 438,
+      "lists": [
+       2
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       7
+      ],
+      "glyph_cells": 7,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 439,
+      "lists": [
+       2
+      ],
+      "kind": "dialogue box",
+      "rows": 2,
+      "row_cells": [
+       15,
+       16
+      ],
+      "glyph_cells": 31,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 440,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       2
+      ],
+      "glyph_cells": 18,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 441,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       15,
+       11
+      ],
+      "glyph_cells": 41,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 442,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       14,
+       13
+      ],
+      "glyph_cells": 42,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 443,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       16
+      ],
+      "glyph_cells": 31,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 444,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       15
+      ],
+      "glyph_cells": 14,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 445,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       12,
+       6
+      ],
+      "glyph_cells": 32,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 446,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       13
+      ],
+      "glyph_cells": 28,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 447,
+      "lists": [
+       2
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       16
+      ],
+      "glyph_cells": 16,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 602,
+      "lists": [
+       2
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       3
+      ],
+      "glyph_cells": 3,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 610,
+      "lists": [
+       2,
+       3
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       6
+      ],
+      "glyph_cells": 6,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 448,
+      "lists": [
+       3
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       15
+      ],
+      "glyph_cells": 15,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 449,
+      "lists": [
+       3
+      ],
+      "kind": "dialogue box",
+      "rows": 2,
+      "row_cells": [
+       15,
+       2
+      ],
+      "glyph_cells": 16,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 450,
+      "lists": [
+       3
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       10
+      ],
+      "glyph_cells": 10,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 451,
+      "lists": [
+       3
+      ],
+      "kind": "dialogue box",
+      "rows": 3,
+      "row_cells": [
+       14,
+       13,
+       5
+      ],
+      "glyph_cells": 32,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 452,
+      "lists": [
+       3
+      ],
+      "kind": "dialogue box",
+      "rows": 2,
+      "row_cells": [
+       15,
+       4
+      ],
+      "glyph_cells": 18,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 453,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       14,
+       4
+      ],
+      "glyph_cells": 18,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 454,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       5
+      ],
+      "glyph_cells": 20,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 455,
+      "lists": [
+       3
+      ],
+      "kind": "narration",
+      "rows": 1,
+      "row_cells": [
+       14
+      ],
+      "glyph_cells": 14,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 456,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       3
+      ],
+      "glyph_cells": 18,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 457,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       14,
+       5
+      ],
+      "glyph_cells": 19,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 458,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       16,
+       16,
+       4
+      ],
+      "glyph_cells": 36,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 459,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       15,
+       10
+      ],
+      "glyph_cells": 40,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 460,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       16,
+       10
+      ],
+      "glyph_cells": 41,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 461,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       14
+      ],
+      "glyph_cells": 30,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 462,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       16,
+       15,
+       16
+      ],
+      "glyph_cells": 47,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 463,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       16
+      ],
+      "glyph_cells": 32,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 464,
+      "lists": [
+       3
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       13
+      ],
+      "glyph_cells": 28,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 606,
+      "lists": [
+       3,
+       5
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       2
+      ],
+      "glyph_cells": 2,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 607,
+      "lists": [
+       3,
+       5
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       2
+      ],
+      "glyph_cells": 2,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 465,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       14,
+       15,
+       8
+      ],
+      "glyph_cells": 37,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 466,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       2
+      ],
+      "glyph_cells": 17,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 467,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       16,
+       14,
+       11
+      ],
+      "glyph_cells": 40,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 468,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       12,
+       15,
+       2
+      ],
+      "glyph_cells": 29,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 469,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       2
+      ],
+      "glyph_cells": 2,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 470,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       15,
+       16
+      ],
+      "glyph_cells": 46,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 471,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       14,
+       16,
+       3
+      ],
+      "glyph_cells": 32,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 472,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       5
+      ],
+      "glyph_cells": 5,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 473,
+      "lists": [
+       4
+      ],
+      "kind": "narration",
+      "rows": 3,
+      "row_cells": [
+       16,
+       15,
+       6
+      ],
+      "glyph_cells": 37,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 474,
+      "lists": [
+       4
+      ],
+      "kind": "narration",
+      "rows": 3,
+      "row_cells": [
+       14,
+       16,
+       16
+      ],
+      "glyph_cells": 46,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 475,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       10
+      ],
+      "glyph_cells": 10,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 476,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       15,
+       15
+      ],
+      "glyph_cells": 44,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 477,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 3,
+      "row_cells": [
+       15,
+       16,
+       12
+      ],
+      "glyph_cells": 43,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 478,
+      "lists": [
+       4
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       15
+      ],
+      "glyph_cells": 31,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 479,
+      "lists": [
+       5
+      ],
+      "kind": "dialogue box",
+      "rows": 1,
+      "row_cells": [
+       5
+      ],
+      "glyph_cells": 5,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 480,
+      "lists": [
+       5
+      ],
+      "kind": "dialogue box",
+      "rows": 2,
+      "row_cells": [
+       15,
+       6
+      ],
+      "glyph_cells": 21,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 481,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       5
+      ],
+      "glyph_cells": 5,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 482,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       7
+      ],
+      "glyph_cells": 7,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 483,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       7
+      ],
+      "glyph_cells": 7,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 484,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       15
+      ],
+      "glyph_cells": 31,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 485,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       14
+      ],
+      "glyph_cells": 30,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 486,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       9
+      ],
+      "glyph_cells": 9,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 487,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       4
+      ],
+      "glyph_cells": 4,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 488,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 1,
+      "row_cells": [
+       9
+      ],
+      "glyph_cells": 9,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 489,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       7
+      ],
+      "glyph_cells": 23,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 490,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       16,
+       16
+      ],
+      "glyph_cells": 32,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 491,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       15,
+       5
+      ],
+      "glyph_cells": 20,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 492,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       14,
+       3
+      ],
+      "glyph_cells": 17,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 551,
+      "lists": [
+       5
+      ],
+      "kind": "caption",
+      "rows": 2,
+      "row_cells": [
+       14,
+       9
+      ],
+      "glyph_cells": 23,
+      "widest_saturn_line": 16,
+      "rows_wider": 0
+     },
+     {
+      "box": 608,
+      "lists": [
+       5
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       4
+      ],
+      "glyph_cells": 4,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 612,
+      "lists": [
+       5
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       6
+      ],
+      "glyph_cells": 6,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 613,
+      "lists": [
+       5
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       4
+      ],
+      "glyph_cells": 4,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     },
+     {
+      "box": 614,
+      "lists": [
+       5
+      ],
+      "kind": "speaker name",
+      "rows": 1,
+      "row_cells": [
+       3
+      ],
+      "glyph_cells": 3,
+      "widest_saturn_line": 6,
+      "rows_wider": 0
+     }
+    ],
+    "max_rows": 3,
+    "max_glyph_cells": 47,
+    "over_limits": [],
+    "boxes_with_wider_rows": [],
+    "pairs": 330,
+    "row_bytes": 4980
+   }
+  }
+ }
+}
