@@ -1,0 +1,89 @@
+{
+ "cases": [
+  {
+   "case": "damaged",
+   "picture": 0,
+   "screenshot": "w01457.png",
+   "warnings_marked": [
+    "00000000"
+   ],
+   "warnings_untouched": [
+    "00000000"
+   ],
+   "predicted_pixels": 1472,
+   "predicted_pixels_as_predicted": 64,
+   "other_pixels_differing": 0,
+   "red_pixels": 0,
+   "vram_equals_marked_file": true
+  },
+  {
+   "case": "zero",
+   "picture": 1,
+   "screenshot": "w01457.png",
+   "warnings_marked": [
+    "00000001"
+   ],
+   "warnings_untouched": [
+    "00000001"
+   ],
+   "predicted_pixels": 1472,
+   "predicted_pixels_as_predicted": 64,
+   "other_pixels_differing": 0,
+   "red_pixels": 0,
+   "vram_equals_marked_file": true
+  },
+  {
+   "case": "cart-zero",
+   "picture": 2,
+   "screenshot": "w01457.png",
+   "warnings_marked": [
+    "00000002"
+   ],
+   "warnings_untouched": [
+    "00000002"
+   ],
+   "predicted_pixels": 1472,
+   "predicted_pixels_as_predicted": 64,
+   "other_pixels_differing": 0,
+   "red_pixels": 0,
+   "vram_equals_marked_file": true
+  },
+  {
+   "case": "both-zero",
+   "picture": 3,
+   "screenshot": "w01457.png",
+   "warnings_marked": [
+    "00000003"
+   ],
+   "warnings_untouched": [
+    "00000003"
+   ],
+   "predicted_pixels": 1472,
+   "predicted_pixels_as_predicted": 64,
+   "other_pixels_differing": 0,
+   "red_pixels": 0,
+   "vram_equals_marked_file": true
+  },
+  {
+   "case": "free4",
+   "picture": 4,
+   "screenshot": "w01457.png",
+   "warnings_marked": [
+    "00000004"
+   ],
+   "warnings_untouched": [
+    "00000004"
+   ],
+   "predicted_pixels": 1472,
+   "predicted_pixels_as_predicted": 64,
+   "other_pixels_differing": 0,
+   "red_pixels": 71,
+   "vram_equals_marked_file": true
+  }
+ ],
+ "control": {
+  "screenshots": 6,
+  "equal_to_untouched": 6,
+  "sequence_equal": true
+ }
+}

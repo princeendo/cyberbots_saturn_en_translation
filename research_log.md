@@ -2330,3 +2330,26 @@ Corrected or failed (do not retry):
   pick `wram_h.bin` by name.
 
 Checks: ruff, ruff format and mypy on `EXP-0051`'s scripts (below).
+
+## 2026-11-06 — BOOT-002: how the boot warnings are stored and drawn (EXP-0052)
+
+User request (verbatim): "Start BOOT-002". Six cold boots of a marked test
+image, asked first ("Yes, run all 6 (Recommended)"); no key pressed. One
+state-based run (VRAM writes).
+
+- Format: 512 × 8-bit rows, values 0-15; VDP2 NBG1 256-colour bitmap at
+  `0x20000`, bitmap palette 2; the 16 colours are `CYBER.BIN`'s table at
+  `0x06053AAC`. All five redraw with 0 differing pixels (D-049).
+- Each screen reads its own file: the marked image changed only that
+  screen's ID block; a normal boot is unchanged.
+- Visible: file columns 0-351, rows 0-223.
+
+Corrected (do not retry):
+- **Colour expansion `(c << 3) | (c >> 2)`** is not what Mednafen's
+  screenshots show; they show `c << 3`.
+- **A marker band at file rows 228-231 did not show.** The display has 224
+  lines (`TVMD` VRESO 0); Mednafen's 240-row screenshot pads 8 black rows
+  above and below. The edge is between file rows 223 and 224 (VRAM writes,
+  `edge.py`). XvSF found the same edge late (its `EXP-0056`).
+
+Checks: ruff, ruff format, mypy on `EXP-0052`'s scripts; pytest (below).

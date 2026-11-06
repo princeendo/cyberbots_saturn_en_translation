@@ -1,0 +1,236 @@
+{
+ "palette_rgb555": [
+  "0x7FFF",
+  "0x1084",
+  "0x2108",
+  "0x2D6B",
+  "0x39CE",
+  "0x4A52",
+  "0x5AD6",
+  "0x7BDE",
+  "0x0012",
+  "0x001E",
+  "0x01CE",
+  "0x0318",
+  "0x03DE",
+  "0x4240",
+  "0x7BC0",
+  "0x0000"
+ ],
+ "pictures": [
+  {
+   "picture": "WARNING0.PIX",
+   "bytes": 122880,
+   "rows": 240,
+   "screen": [
+    352,
+    240
+   ],
+   "offset_dx_dy": [
+    0,
+    -8
+   ],
+   "pixels_differing": 0,
+   "values_used": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    10,
+    11,
+    12,
+    15
+   ],
+   "background_value": 15,
+   "value_0_on_screen": 4,
+   "file_rows_on_screen": [
+    0,
+    231
+   ],
+   "text_box_x": [
+    48,
+    305
+   ],
+   "text_box_y": [
+    26,
+    191
+   ]
+  },
+  {
+   "picture": "WARNING1.PIX",
+   "bytes": 122880,
+   "rows": 240,
+   "screen": [
+    352,
+    240
+   ],
+   "offset_dx_dy": [
+    0,
+    -8
+   ],
+   "pixels_differing": 0,
+   "values_used": [
+    0,
+    3,
+    4,
+    5,
+    6,
+    7,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "background_value": 15,
+   "value_0_on_screen": 0,
+   "file_rows_on_screen": [
+    0,
+    231
+   ],
+   "text_box_x": [
+    25,
+    328
+   ],
+   "text_box_y": [
+    21,
+    201
+   ]
+  },
+  {
+   "picture": "WARNING2.PIX",
+   "bytes": 122880,
+   "rows": 240,
+   "screen": [
+    352,
+    240
+   ],
+   "offset_dx_dy": [
+    0,
+    -8
+   ],
+   "pixels_differing": 0,
+   "values_used": [
+    0,
+    3,
+    4,
+    5,
+    6,
+    7,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "background_value": 15,
+   "value_0_on_screen": 0,
+   "file_rows_on_screen": [
+    0,
+    231
+   ],
+   "text_box_x": [
+    24,
+    326
+   ],
+   "text_box_y": [
+    20,
+    208
+   ]
+  },
+  {
+   "picture": "WARNING3.PIX",
+   "bytes": 122880,
+   "rows": 240,
+   "screen": [
+    352,
+    240
+   ],
+   "offset_dx_dy": [
+    0,
+    -8
+   ],
+   "pixels_differing": 0,
+   "values_used": [
+    0,
+    3,
+    4,
+    5,
+    6,
+    7,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "background_value": 15,
+   "value_0_on_screen": 0,
+   "file_rows_on_screen": [
+    0,
+    231
+   ],
+   "text_box_x": [
+    24,
+    326
+   ],
+   "text_box_y": [
+    20,
+    208
+   ]
+  },
+  {
+   "picture": "WARNING4.PIX",
+   "bytes": 131072,
+   "rows": 256,
+   "screen": [
+    352,
+    240
+   ],
+   "offset_dx_dy": [
+    0,
+    -8
+   ],
+   "pixels_differing": 0,
+   "values_used": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "background_value": 15,
+   "value_0_on_screen": 0,
+   "file_rows_on_screen": [
+    0,
+    231
+   ],
+   "text_box_x": [
+    32,
+    324
+   ],
+   "text_box_y": [
+    20,
+    210
+   ]
+  }
+ ]
+}

@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-06: how the boot warnings are drawn** (`BOOT-002`, `EXP-0052`, D-049): each is its own `WARNINGn.PIX`, a whole 512-wide, one-byte-a-pixel bitmap on VDP2 NBG1, drawn with 16 colours from the program (`CYBER.BIN`), not the file; 352 × 224 pixels show. A marked test image (six cold boots, the user: "Yes, run all 6 (Recommended)") changed only each screen's own marker. `BOOT-003` (English and lettering, a gate extension) is `READY`.
 - **2026-11-06: the boot warnings found** (`BOOT-001`, `EXP-0051`, D-048): the game's only boot-time messages are five Japanese pictures, `WARNING0`-`4.PIX`, shown by one save check before the title: a damaged save (`0`), unformatted internal memory (`1`), an unformatted save cart (`2`), both (`3`), and no save with too little free space (`4`, fewer than 6 free blocks). Nine cold boots (the user: "Yes, run all 9 (Recommended)"), each picture on screen and in VRAM byte for byte. `BOOT-002` (storage and drawing) is `READY`.
 - **2026-11-05: `UI-004` tasks written up** (Phase N, the user: "Write up UI-004"): `BOOT-001` (census, code first: the readers of `CYBER.BIN`'s `WARNING*.PIX` table) is `READY`; `BOOT-002` (storage and drawing), `BOOT-003` (English and lettering, a gate extension), `BOOT-004` (build on the M8 image) and `BOOT-005` (verify) follow. Nothing is started.
 - **2026-11-05: `GATE-TRANSLATION` extended to the roster endings.** The user's words: "GO (Recommended)", "Indent, as the story (Recommended)", "Bao Mao: (Recommended)" and "Accept the rule (Recommended)". `END-023` (the M8 image) is `READY`.
@@ -1702,8 +1703,8 @@ So `END-023` builds lists 0-5 with the half-cell indent across the ending rows (
 The outline scheduled `UI-004` early after M5, and lesson 5 of
 `docs/lessons_from_xvsf.md` puts it in the first backlog: in both siblings
 the user added boot, cartridge and save warnings mid-project. The user asked
-for these tasks (verbatim, 2026-11-05): "Write up UI-004". `BOOT-001` is
-done (2026-11-06); the rest is not started. The order is:
+for these tasks (verbatim, 2026-11-05): "Write up UI-004". `BOOT-001` and
+`BOOT-002` are done (2026-11-06); the rest is not started. The order is:
 
 1. `BOOT-001` (census: which message shows under which condition);
 2. `BOOT-002` (where each message is stored and how it is drawn);
@@ -1820,7 +1821,7 @@ Known so far (facts and their confidence):
 
 ### BOOT-002 - Where each message is stored and how it is drawn
 
-- **Status:** `READY`
+- **Status:** `DONE` (2026-11-06, `EXP-0052`, D-049)
 - **Milestone:** Boot-time messages (`UI-004`)
 - **Dependencies:** BOOT-001.
 - **Blockers:** None.
@@ -1840,10 +1841,31 @@ Known so far (facts and their confidence):
     rows and columns, and colours; or the text's space and glyphs.
 - **Notes:** if a message is drawn from code or a font rather than a
   picture, record it here and adjust `BOOT-004` before it starts.
+- **Done:** 2026-11-06 (`EXP-0052`, D-049).
+  - **Location:** each screen draws its own `WARNINGn.PIX` whole. A test
+    image from the untouched source with a marker in each file changed only
+    that screen's marker under each condition, and a normal boot not at
+    all. Asked: "BOOT-002's controlled change: a test image (built from the
+    untouched source, never shipped) with a coloured marker in each of the
+    five warning pictures. To show that each screen reads its own file, and
+    where the visible edge is, I need 6 cold boots of that test image, one
+    at a time with no key presses: the five warning conditions from
+    BOOT-001 (same fixtures), plus one normal-save boot as a control to
+    confirm nothing else changed. Each opens a Mednafen window for about a
+    minute; about 8 minutes in all. May I run them now?" The user's
+    answer, verbatim: "Yes, run all 6 (Recommended)".
+  - **Format:** 512 bytes a row, one byte a pixel (values 0-15), no
+    header; VDP2 NBG1, a 256-colour 512 × 256 bitmap at `0x20000`, the
+    only layer on. The 16 colours come from `CYBER.BIN` `0x06053AAC`, not
+    the file. All five redraw with 0 differing pixels.
+  - **Room:** 352 × 224 visible pixels (file columns 0-351, rows 0-223; a
+    marker at rows 228-231 did not show, and VRAM writes put the edge
+    between rows 223 and 224); 16 fixed colours (0 transparent); the
+    files' sizes fixed. The Japanese uses columns 24-328, rows 20-210.
 
 ### BOOT-003 - English text and lettering (gate extension)
 
-- **Status:** `BACKLOG`
+- **Status:** `READY`
 - **Milestone:** Boot-time messages (`UI-004`)
 - **Dependencies:** BOOT-001, BOOT-002.
 - **Blockers:** None.
@@ -1929,7 +1951,7 @@ and `docs/lessons_from_xvsf.md`.
 | --- | --- | --- |
 | END-010 | M7 | `DONE` (2026-11-05, Phase L); follow-up `END-011` (`BACKLOG`). |
 | END-020 | M8 | `DONE` (2026-11-05, Phase M: `END-020`-`END-023`, with `END-011`); M8 confirmed. |
-| UI-004 | after M5, early | Phase N (`BOOT-001`-`BOOT-005`): `BOOT-001` `DONE` (2026-11-06); `BOOT-002` `READY`. |
+| UI-004 | after M5, early | Phase N (`BOOT-001`-`BOOT-005`): `BOOT-001`, `BOOT-002` `DONE` (2026-11-06); `BOOT-003` `READY`. |
 | UI-001 | after M8, user request | UI art: inventory English art already in every font before drawing anything. |
 | UI-002 | after M8, user request | Attract and opening text (`OPDEMO*`, `STDEM*.PIR`, `VADEM*.MAC`, `STDEMO.*` are candidates): layer, container, codecs, oracles. |
 | UI-003 | after M8, user request | Other UI text (select, continue, ranking, options): find the arcade English by tracing the arcade code. |

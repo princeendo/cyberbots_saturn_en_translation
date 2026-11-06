@@ -1018,3 +1018,24 @@ Reproduce: `research/experiments/EXP-0050/README.md`, "Procedure".
   it reads the word from its cache. `BOOT-005`'s cold boots press one.
 
 Reproduce: `research/experiments/EXP-0051/README.md`, "Procedure".
+
+## D-049: The boot warnings are whole 352 × 224 bitmaps on NBG1 with a palette from the program (`BOOT-002`, `EXP-0052`)
+
+- **Location.** Each warning screen draws its own `WARNINGn.PIX` whole
+  (`0x06036DA8`, raw to VDP2 VRAM `0x20000`). A test image with a marker in
+  each file changed only its own screen's marker pixels under each
+  condition, and nothing else, including a normal boot.
+- **Format.** 512 bytes a row, one byte a pixel, values 0-15, no header;
+  `WARNING0`-`3` 240 rows, `WARNING4` 256. Shown as VDP2 NBG1, the only
+  layer on: a 256-colour 512 × 256 bitmap with bitmap palette 2 (colour RAM
+  entries 512-527). Screen row = file row + 8 in Mednafen's 240-row
+  screenshot; the display has 224 lines, so file rows 0-223 and columns
+  0-351 are visible. All five redraw from the files with 0 differing pixels.
+- **Palette.** 16 RGB555 colours copied from `CYBER.BIN` `0x06053AAC`
+  (file offset `0x46AAC`) by `0x0600F334`, not from the files: 0
+  transparent (black back screen), 1-7 grey to white, 8-9 red, 10-12
+  yellow, 13-14 cyan, 15 black.
+- **Room.** 352 × 224 pixels in those 16 colours, at the file's fixed size.
+  The Japanese uses columns 24-328 and rows 20-210.
+
+Reproduce: `research/experiments/EXP-0052/README.md`, "Procedure".
