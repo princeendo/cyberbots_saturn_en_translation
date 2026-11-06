@@ -2240,3 +2240,43 @@ User request (verbatim): "Ask the gate GO". Four questions (verbatim in
 
 `END-023` is `READY`: lists 0-5 with the half-cell indent across the ending
 rows, box 608 from slot 617, and `--retime` on every ending. Nothing built.
+
+## 2026-11-05 — END-023: the M8 image, all roster endings in English (EXP-0050)
+
+User request (verbatim): "Start END-023". Forced runs from saved states
+(silent home, no key), one play-state run, and one cold boot with the user
+present and asked first.
+
+Decisions, verbatim (also in `TASKS.md` and the policy):
+- "Add the one glyph (Recommended)", then, corrected because no invisible
+  code was left, "Use M5's 153rd code (Recommended)";
+- "Yes, run it now (Recommended)" (the cold boot).
+
+Results:
+- `ending.compile_endings` and `--endings`. END-011's build reproduces byte
+  for byte with the refactored code.
+- M8 build: 330 pairs, no `END.BIN` sacrifice; two builds identical; 202
+  sectors valid. RE-008's files are unchanged except `KANJI.BIN`'s one
+  glyph.
+- All nine endings forced on the build: every box as expected; timing
+  within 6 frames of the Japanese; cued holds of 42 frames or more.
+- Arieta's ending from the REF-005 play state: 26/26 boxes. Cold boot:
+  scenes 21 and 0 in English.
+
+Faults found and fixed (do not retry):
+- **Lists 6-8 draw with `KANJI.BIN`**, not `SE.DAT`. The shared names
+  601/605 were garbled in list 8 from M7 on; END-010's shared-box check
+  used list 4, which uses `SE.DAT`. They now take story codes, and one pair
+  (": ") takes the 153rd sacrifice code.
+  - Corrected along the way: an "invisible" code does not exist; M5's 152
+    sacrifices took all 96 zero-visible-use codes.
+  - The row variants of the two names are now chosen jointly (one at a time
+    they needed two codes).
+- **Typing spends time on spaces**: Arieta's 455 (3 full-width spaces) put
+  her scene 27 23 frames early. The M8 build counts every code.
+- **`check_live` expected a glyph for `0x2020`.** It draws none, so the
+  boxes of lists 6-8 only seemed short.
+- **`EXP-0050/ending_route.py` crashed** on the on-hit action lines. It now
+  filters them, as EXP-0039's probe does.
+- A first live check on a pre-fix image was stopped and rerun on the final
+  image (`local/end023`).

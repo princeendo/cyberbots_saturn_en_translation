@@ -1,0 +1,44 @@
+{
+ "task": "END-023",
+ "experiment": "EXP-0050",
+ "rebuild": "./invenv.sh python -m tools.text.dialogue --roster data/text/m5_roster.json --indent --rank staying --max-sacrifice 160 --task END-023 --font local/layout001/font/arcade_font.json --driver local/mame_src/cps2.cpp --rompath local/arcade --out build/end023/m8 --endings data/text/m8_endings.json --ending-record-dir data/translations",
+ "replacements": {
+  "STG0AS.BIN;1": "7909913bae972ce88c373c50444b18829bdeff2bc59c2a352ca46c9548d59273",
+  "KANJI.BIN;1": "e164e96c116625b471b325ac19324a867cec45b6e2fbcd5a88e1df228d5ad5bb",
+  "VICTORY.BIN;1": "bf5fa1a6e916f26f9b4f3a32c33af8e89444d04c815328d42ad5787f22d4e96b",
+  "END.BIN;1": "a7201d0305b86db525936e768d5169af078af9c5d1905f2e80ae0c0648b22170",
+  "SE.DAT;1": "3afb26a92ee80f9e3447f1546507bcaa0a56c58dc016f31063f396150b010659",
+  "KEND_1.BIN;1": "83eff89c112efc7ef0f7f1f58bd39ee2d8257949c32c8a2ff61c039abe4d2413",
+  "QSD.PIX;1": "e37dc053e396c78adacf7bb8c25a38c9423f5d47fc0e06594795a35121c7a42f"
+ },
+ "changed_sectors": 202,
+ "output_sha256": {
+  "Cyberbots - Fullmetal Madness (Japan) (2M) (Track 01).bin": "abb115e40ee0880dd3dfb29fb0b6fdc4be1b3c13098914234ba9b12a7cdc9556",
+  "Cyberbots - Fullmetal Madness (Japan) (2M).cue": "9f1248adc58b225fa55aa2960df36113212ff200c26917a8c40f22f2cb9c5f14"
+ },
+ "prediction_sha256": "a5835892187a1e310a5608f4adf0e5455b9233a4da427b051865e878f4eb308f",
+ "ending_prediction_sha256": "a5f4ae2470ffa0be7e6fd6e191cb09cfc62e633c09ee26de0c62734f63bb9b4d",
+ "changes_sha256": "55334a29fc0490df54ee9b50bef5fd4c5d13f66b3a578e7ac75bf5a87e3b37ed",
+ "ending_changes_sha256": "b41fe73ade8c38e6749dc3e06796b10c9064ebf294af0a4c1795f25d8711c9d3",
+ "ending_timing_sha256": "1192f10642186ce5716dbda4f72e271587156a31f5b7737566ab5f660712c17e",
+ "record_sha256": {
+  "jin_ending.json": "f284c8d80fe6e848df4111551dc9d16a76beb093f552ad8ec2f6039a2bfbdc3b",
+  "santana_ending.json": "ada91ee2e1c797f7c5ea9c8e3159777421ad4308325f647d1f97c200cc8998ba",
+  "mary_ending.json": "f7126aed44f1b419d63dad5c8f8247df393f72854e8a4be5dd6b3b77c5b1764b",
+  "arieta_ending.json": "d6653c8869e704da5f48cdd562294403d629d74a72beae478b22284ec212bb0e",
+  "gawaine_ending.json": "4eca60e31444f7346a23094cd3c6aa8ce445680cb333de855bfb0ea8438580aa",
+  "baomao_ending.json": "bb166b05227ea8be133e3b6e8f2ab20b0211fb7bac0d7a5ad2796ef2a9b8f0fc"
+ },
+ "story_regression": "data/regression/re008_roster.json: STG0AS.BIN, VICTORY.BIN, prediction.json and changes.json unchanged; KANJI.BIN differs only in glyph 506 (code 0x8CF7, the 153rd story sacrifice, the user's choice), recorded in ending_changes.json",
+ "pairs": 330,
+ "sacrificed_codes": {
+  "END.BIN": 0,
+  "KANJI.BIN": 1
+ },
+ "checks": {
+  "two_builds": "identical (all outputs, Track 01, six records)",
+  "untouched": "END.BIN 5,355, SE.DAT 27,000, KEND_1.BIN 32, QSD.PIX 798 bytes changed, all in ending_changes.json; KANJI.BIN 61 bytes, all in glyph 506's tiles",
+  "sectors": "43,793 valid, 202 changed; source Track 01 unchanged",
+  "live": "lists 0-5 forced: every box draws its predicted cells; lists 6-8 forced: every box draws its expected cells from the built KANJI.BIN (601/605 in English); posts, track starts and file loads on the untouched runs' frames except Arieta's scene 27 (+6) and Bao and Mao's two posts (+/-3); cued English boxes hold 42+ frames"
+ }
+}

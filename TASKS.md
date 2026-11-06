@@ -235,6 +235,11 @@ names it for its method only.
   words: "GO (Recommended)" and, for the shared name boxes 605 and 601,
   "Share, English everywhere (Recommended)". `END-010` is `READY`.
 - **2026-11-05: M7 CONFIRMED** (`END-010`, `EXP-0042`-`EXP-0045`, D-039-D-042): one image from the untouched source with the M5 roster unchanged and Jin's ending in official English. All 18 units are drawn as predicted; the cast roll's Japanese names are hidden in every ending (the user: "Hide in every ending (Recommended)"); the QSound line is erased. The shared names show English in lists 3, 4 and 8. A cold boot plays in English. Three long boxes finish typing just before they close: the user chose "Accept now, follow-up task (Recommended)" (`END-011`, `BACKLOG`). Next: M8 (`END-020`) needs its tasks written up first.
+- **2026-11-05: M8 CONFIRMED** (`END-023`, `EXP-0050`, D-047): one image from the untouched source with the M5 story and win quotes and all six roster endings in official English. Every box of all nine endings draws as expected, the scene changes and music stay within 6 frames of the Japanese, and a cold boot plays in English. Two faults found and fixed on the way:
+  - the Saturn-only endings use the story font, so the shared names (garbled in list 8 since M7) now use story codes plus one more sacrifice (the user: "Use M5's 153rd code (Recommended)");
+  - typing counts spaces.
+
+  Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
 - **2026-11-05: `GATE-TRANSLATION` extended to the roster endings.** The user's words: "GO (Recommended)", "Indent, as the story (Recommended)", "Bao Mao: (Recommended)" and "Accept the rule (Recommended)". `END-023` (the M8 image) is `READY`.
 - **2026-11-05: capacity of the roster endings measured** (`END-022`, `EXP-0049`, D-046): all six endings' English fits. With the half-cell indent the 330 pairs fit the 335 free codes, and nothing Japanese is touched. Room: the roster's own lines plus about 750 bytes of never-shown lines. Lists 6-8 show only their posted boxes. Next: the gate extension for the roster endings (the user's GO).
 - **2026-11-05: ending box timing solved** (`END-011`, `EXP-0048`, D-045): cues (`EAnn`) close boxes, `E2nn` sets typing speed, and the script waits for typing, which sets the next scene and its music. The user chose "Faster typing + move cues (Recommended)". `--retime` gives Jin's English boxes 113+ frames with their full line, and every scene change and track start stays on the Japanese frame (built and live). `END-022` (capacity) is `READY`.
@@ -1660,7 +1665,7 @@ So `END-023` builds lists 0-5 with the half-cell indent across the ending rows (
 
 ### END-023 - Build all roster endings in English (M8)
 
-- **Status:** `READY`
+- **Status:** `DONE` (2026-11-05)
 - **Milestone:** M8
 - **Dependencies:** END-021, END-022, the gate extension above (all done; GO 2026-11-05).
 - **Blockers:** None.
@@ -1677,6 +1682,18 @@ So `END-023` builds lists 0-5 with the half-cell indent across the ending rows (
   - **Play:** a cold boot of the built image reaches play and shows English story boxes. One roster ending other than Jin's is reached in that boot by RAM writes, as `END-001` did, and shows its English. Cold boots only with the user present, asked first.
   - **Provenance:** `data/translations/<pilot>_ending.json` (no text) and `data/regression/end023_roster_endings.json`.
 - **Notes:** M8's image supersedes M7's as the latest. The image commit pushes after the agent's checks pass (user rule, 2026-11-02).
+- **Done:** 2026-11-05 (`EXP-0050`, D-047). M8 is met.
+  - **Systematic:** `--endings data/text/m8_endings.json` (`ending.compile_endings`): one allocation (330 pairs, no `END.BIN` sacrifice), one room, the indent, box 608 → 617, `--retime` on every list, observed boxes of lists 0-8. END-011's build reproduces byte for byte with the refactored code.
+  - **Build:** two builds and six records identical; every changed byte accounted for; 202 sectors changed, all valid. RE-008's story files, `prediction.json` and `changes.json` are unchanged; `KANJI.BIN` differs by one glyph (below).
+  - **Fixes found by the live check:**
+    - Lists 6-8 draw with `KANJI.BIN`, so the shared names were garbled in list 8, a fault since M7. The names now take the story's codes, plus one pair at the story's 153rd sacrifice code. Asked: "The three Saturn-only pilots' endings draw their text with the story font (KANJI.BIN), not the endings' font. So the two speaker names shared with them since M7 ("Jin:" and "Gawaine:") show as garbled glyphs in the Shade ending (list 8): a bug that has been in the image since M7, found now by M8's live check. Story glyphs cover every pair except one: ": " (colon + space). Fixing it means adding that one glyph to the story font at the code of a Japanese character used only in lines that are already English or never shown, so nothing visible changes, but KANJI.BIN differs from M5's by one glyph. How should M8 handle it?" The user's answer, verbatim: "Add the one glyph (Recommended)". Corrected and asked: "Correction to my last question: no invisible code is left in the story font. M5's 152 sacrificed codes already took every code no visible line uses. The closest option is M5's own next code (153rd of the 160 you approved for M5, same rarest-first rule): it would put the ": " glyph in place of one kanji in one line (line 1052) of the first Saturn-only pilot's story, text that stays Japanese until those pilots are done. That makes "Jin:" and "Gawaine:" read correctly in the Shade ending. Which?" The user's answer, verbatim: "Use M5's 153rd code (Recommended)".
+    - Typing counts full-width spaces (Arieta's 455 had moved her scene 27 by 23 frames).
+  - **Live:** all nine endings forced on the built image. Every box draws as expected (lists 6-8 against the built `KANJI.BIN`; 601/605 in English). Scene changes and track starts are on the Japanese frames within 6 frames, and the cued English boxes hold 42-116 frames at the least.
+  - **Coverage:** `docs/coverage_exceptions.md`, "M8 Endings".
+  - **Play:**
+    - From the REF-005 play state with the ending number forced, Arieta's ending plays in English (26/26 boxes).
+    - Asked: "END-023's play check is a cold boot of the M8 image (story, win quotes and all six roster endings): boot, start arcade, pick Jin, and stop once his first story scenes have shown English, as in END-010. About 5 pad-key presses through System Events in the first 2 minutes (Mednafen comes to the front at each press), then it runs on its own; about 6-7 minutes in all, no key loops. A separate run, already going and pressing no keys, plays from your REF-005 play state into Arieta's ending on the same image. May I run the cold boot now?" The user's answer, verbatim: "Yes, run it now (Recommended)". The cold boot reaches play: scenes 21 and 0, 6/6 English boxes.
+  - **Provenance:** `data/translations/<pilot>_ending.json` (six) and `data/regression/end023_roster_endings.json`.
 
 ## Later Milestones (outline only)
 
@@ -1688,7 +1705,7 @@ and `docs/lessons_from_xvsf.md`.
 | ID | Milestone | Outline |
 | --- | --- | --- |
 | END-010 | M7 | `DONE` (2026-11-05, Phase L); follow-up `END-011` (`BACKLOG`). |
-| END-020 | M8 | Written up: Phase M (`END-020`-`END-023`, with `END-011`); `END-020`-`END-022` and `END-011` done; `END-023` `READY` (gate GO 2026-11-05). |
+| END-020 | M8 | `DONE` (2026-11-05, Phase M: `END-020`-`END-023`, with `END-011`); M8 confirmed. |
 | UI-004 | after M5, early | Boot, cartridge and save warnings (`WARNING0-4.PIX` are candidates); in the first backlog this time (`docs/lessons_from_xvsf.md`, lesson 5). |
 | UI-001 | after M8, user request | UI art: inventory English art already in every font before drawing anything. |
 | UI-002 | after M8, user request | Attract and opening text (`OPDEMO*`, `STDEM*.PIR`, `VADEM*.MAC`, `STDEMO.*` are candidates): layer, container, codecs, oracles. |

@@ -1,0 +1,776 @@
+{
+ "task": "END-023",
+ "policy": "official US arcade English, as paired (D-038), unchanged; pair glyphs (D-024); END.BIN's own code table and SE.DAT's font (D-035)",
+ "sources": {
+  "program_sha256": "18e8827dc742f4fef577aac8c06ae05dfb54ddad60a589238ac610f07b4152fd",
+  "english_table": "0x0B33AA",
+  "pairing": "data/translations/arieta_ending_pairing.json",
+  "END.BIN": "a4868d8d39f657cb2e924c5e3d0467cc4f7fe83b9375e2a2ffbd7dd21281f3fa",
+  "SE.DAT": "0430d5e75976adc5c26ad96e96ce00ad66dae994a8bbddb81ba725c18e042a71"
+ },
+ "codes": {
+  "0": "0x8DB6",
+  "1": "0x8DE3",
+  "2": "0x8C83",
+  "3": "0x89EB",
+  "4": "0x8CF7",
+  "5": "0x9166",
+  "6": "0x8987",
+  "7": "0x90D9",
+  "8": "0x926C",
+  "9": "0x8945",
+  "10": "0x88A2",
+  "11": "0x8941",
+  "12": "0x94D1",
+  "13": "0x8269",
+  "14": "0x836B",
+  "15": "0x95EA",
+  "16": "0x928D",
+  "17": "0x928E",
+  "18": "0x8AD7",
+  "19": "0x8359",
+  "20": "0x8D5F",
+  "21": "0x8C9B",
+  "22": "0x838E",
+  "23": "0x8B70",
+  "24": "0x8EAE",
+  "25": "0x90B0",
+  "26": "0x88F9",
+  "27": "0x8948",
+  "28": "0x8C9D",
+  "29": "0x8BE3",
+  "30": "0x8AE6",
+  "31": "0x8256",
+  "32": "0x8EB5",
+  "33": "0x92F1",
+  "34": "0x95EB",
+  "35": "0x8C5C",
+  "36": "0x8F6A",
+  "37": "0x8274",
+  "38": "0x8265",
+  "39": "0x8276",
+  "40": "0x82D8",
+  "41": "0x95A6",
+  "42": "0x9167",
+  "43": "0x826F",
+  "44": "0x8270",
+  "45": "0x82D2",
+  "46": "0x8279",
+  "47": "0x8CA2",
+  "48": "0x964C",
+  "49": "0x8386",
+  "50": "0x8EBA",
+  "51": "0x899F",
+  "52": "0x9657",
+  "53": "0x8273",
+  "54": "0x8378",
+  "55": "0x8392",
+  "56": "0x8CCD",
+  "57": "0x8262",
+  "58": "0x965A",
+  "59": "0x8D6C",
+  "60": "0x8B9B",
+  "61": "0x94AA",
+  "62": "0x8AE2",
+  "63": "0x9664",
+  "64": "0x88C9",
+  "65": "0x8253",
+  "66": "0x9668",
+  "67": "0x8F6E",
+  "68": "0x8FCE",
+  "69": "0x8B6C",
+  "70": "0x95E9",
+  "71": "0x966B",
+  "72": "0x8B8C",
+  "73": "0x90F9",
+  "74": "0x948C",
+  "75": "0x8C79",
+  "76": "0x8B8B",
+  "77": "0x966C",
+  "78": "0x835B",
+  "79": "0x898A",
+  "80": "0x8B72",
+  "81": "0x8FD8",
+  "82": "0x8C8E",
+  "83": "0x8BFC",
+  "84": "0x8E91",
+  "85": "0x8AAF",
+  "86": "0x8FBC",
+  "87": "0x968B",
+  "88": "0x826B",
+  "89": "0x9363",
+  "90": "0x8A6B",
+  "91": "0x82DB",
+  "92": "0x92E1",
+  "93": "0x8A5A",
+  "94": "0x8C62",
+  "95": "0x89F5",
+  "96": "0x89F9",
+  "97": "0x8255",
+  "98": "0x8DB2",
+  "99": "0x88A3",
+  "100": "0x9695",
+  "101": "0x96B2",
+  "102": "0x916E",
+  "103": "0x9560",
+  "104": "0x8F9E",
+  "105": "0x96BB",
+  "106": "0x88CC",
+  "107": "0x8CB3",
+  "108": "0x8EB7",
+  "109": "0x96CA",
+  "110": "0x8144",
+  "111": "0x8162",
+  "112": "0x916A",
+  "113": "0x8CB5",
+  "114": "0x8267",
+  "115": "0x8D7C",
+  "116": "0x95E0",
+  "117": "0x8272",
+  "118": "0x90BE",
+  "119": "0x8D4B",
+  "120": "0x92F6",
+  "121": "0x89CC",
+  "122": "0x826D",
+  "123": "0x96D8",
+  "124": "0x96E5",
+  "125": "0x8B49",
+  "126": "0x8BBD",
+  "127": "0x8AA3",
+  "128": "0x96E7",
+  "129": "0x8168",
+  "130": "0x8F89",
+  "131": "0x959A",
+  "132": "0x96E9",
+  "133": "0x93EF",
+  "134": "0x90F4",
+  "135": "0x91AC",
+  "136": "0x94E6",
+  "137": "0x96EC",
+  "138": "0x899C",
+  "139": "0x88E4",
+  "140": "0x8277",
+  "141": "0x907D",
+  "142": "0x9085",
+  "143": "0x96ED",
+  "144": "0x8984",
+  "145": "0x8E97",
+  "146": "0x8F94",
+  "147": "0x934F",
+  "148": "0x8CE4",
+  "149": "0x89D8",
+  "150": "0x93BF",
+  "151": "0x8F70",
+  "152": "0x8364",
+  "153": "0x8BC6",
+  "154": "0x8AF3",
+  "155": "0x88E2",
+  "156": "0x8CD5",
+  "157": "0x96F4",
+  "158": "0x91F2",
+  "159": "0x8C50",
+  "160": "0x8E61",
+  "161": "0x91C4",
+  "162": "0x8F72",
+  "163": "0x91EC",
+  "164": "0x91BA",
+  "165": "0x90EC",
+  "166": "0x826A",
+  "167": "0x8FB8",
+  "168": "0x91B9",
+  "169": "0x89BF",
+  "170": "0x9263",
+  "171": "0x8261",
+  "172": "0x974C",
+  "173": "0x9753",
+  "174": "0x90D3",
+  "175": "0x8DA2",
+  "176": "0x8973",
+  "177": "0x8CE1",
+  "178": "0x8DE7",
+  "179": "0x8AD1",
+  "180": "0x91AA",
+  "181": "0x9758"
+ },
+ "summary": {
+  "boxes": 100,
+  "rows": 189,
+  "pairs": 330,
+  "unused_codes_used": 310,
+  "new_codes": 19,
+  "sacrificed": [],
+  "glyphs": 330,
+  "own_free_lines": [
+   562,
+   584,
+   752,
+   753,
+   754,
+   755,
+   756,
+   757,
+   758,
+   759,
+   760,
+   761,
+   762,
+   763,
+   764,
+   765,
+   766,
+   767,
+   768,
+   769,
+   770,
+   771,
+   772,
+   773,
+   774,
+   775,
+   776,
+   777,
+   778,
+   779,
+   780,
+   781,
+   782,
+   783,
+   784,
+   785,
+   786,
+   787,
+   788,
+   789,
+   790,
+   791,
+   792,
+   793,
+   794,
+   795,
+   796,
+   797,
+   798,
+   799,
+   800,
+   801,
+   802,
+   803,
+   804,
+   805,
+   806,
+   807,
+   808,
+   809,
+   810,
+   811,
+   812,
+   813,
+   814,
+   815,
+   816,
+   817,
+   818,
+   819,
+   820,
+   821,
+   822,
+   823,
+   824,
+   825,
+   826,
+   827,
+   828,
+   829,
+   830,
+   831,
+   832,
+   833,
+   834,
+   835,
+   836,
+   837,
+   838,
+   839,
+   840,
+   841,
+   842,
+   843,
+   844,
+   845,
+   846,
+   847,
+   848,
+   849,
+   850,
+   851,
+   852,
+   853,
+   854,
+   855,
+   856,
+   857,
+   858,
+   859,
+   860,
+   861,
+   862,
+   863,
+   864,
+   865,
+   866,
+   867,
+   868,
+   869,
+   870,
+   871,
+   872,
+   873,
+   874,
+   875,
+   876,
+   877,
+   878,
+   879,
+   880,
+   881,
+   882,
+   883,
+   884,
+   885,
+   886,
+   887,
+   888,
+   889,
+   890,
+   891,
+   892,
+   893,
+   894,
+   895,
+   896,
+   897,
+   898,
+   954,
+   1006,
+   1007,
+   1008,
+   1009,
+   1010,
+   1011,
+   1012,
+   1013,
+   1015,
+   1016,
+   1017,
+   1018,
+   1019
+  ],
+  "own_room_bytes": 4232,
+  "text_bytes": 4980,
+  "bytes_beyond_own_lines": 760,
+  "rows_beyond_own_lines": [
+   "0x0AECC",
+   "0x0AEEC",
+   "0x0AF0C",
+   "0x0AF30",
+   "0x0AF4C",
+   "0x0AF70",
+   "0x0AF90",
+   "0x0AFB0",
+   "0x0AFBC",
+   "0x0AFDC",
+   "0x0AFF0",
+   "0x0AFFC",
+   "0x0B00C",
+   "0x0B01C",
+   "0x0B028",
+   "0x0B04C",
+   "0x0B06C",
+   "0x0B07C",
+   "0x0B0A0",
+   "0x0B0C0",
+   "0x0B0D4",
+   "0x0B0E0",
+   "0x0B0F4",
+   "0x0B118",
+   "0x0B128",
+   "0x0B14C",
+   "0x0B170",
+   "0x0B190",
+   "0x0B19C",
+   "0x0B1BC"
+  ],
+  "unshown_room_bytes": 42844,
+  "images": [
+   "KEND_1.BIN",
+   "QSD.PIX"
+  ]
+ },
+ "boxes": [
+  {
+   "box": 605,
+   "slot": 614,
+   "saturn_lines": [
+    1010
+   ],
+   "english_record": "0x0BB90C",
+   "english_sha256": "7bdf8a1d9051e2a6543740707f97679e96a4697d10e2e870372f19cc6871b10d",
+   "rows": 1,
+   "cells": 5,
+   "row_addresses": [
+    "0x06070390"
+   ]
+  },
+  {
+   "box": 604,
+   "slot": 613,
+   "saturn_lines": [
+    1009
+   ],
+   "english_record": "0x0BB8FC",
+   "english_sha256": "c3bd280b9df79024d52cc50c45685d2e4357b74bf3b30d9016c96c415835b826",
+   "rows": 1,
+   "cells": 4,
+   "row_addresses": [
+    "0x0607055C"
+   ]
+  },
+  {
+   "box": 610,
+   "slot": 619,
+   "saturn_lines": [
+    1015
+   ],
+   "english_record": "0x0BB95C",
+   "english_sha256": "da74e44730162fe5c567f09a0405c95e3cfa2a335782ab5f435bd6847881b10e",
+   "rows": 1,
+   "cells": 6,
+   "row_addresses": [
+    "0x060708C8"
+   ]
+  },
+  {
+   "box": 448,
+   "slot": 448,
+   "saturn_lines": [
+    820,
+    821
+   ],
+   "english_record": "0x0BAA70",
+   "english_sha256": "e3a30d3b67fab46a94da371fcd352306354eceb15d28c0c4793ec9d4f4e219af",
+   "rows": 1,
+   "cells": 15,
+   "row_addresses": [
+    "0x06070AD0"
+   ]
+  },
+  {
+   "box": 449,
+   "slot": 449,
+   "saturn_lines": [
+    822
+   ],
+   "english_record": "0x0BAA98",
+   "english_sha256": "d9561eefaf56e2807e06dce3989fe3dfd7766020d1bf03486b8833acfebd9fdc",
+   "rows": 2,
+   "cells": 16,
+   "row_addresses": [
+    "0x06070AF0",
+    "0x06070B10"
+   ]
+  },
+  {
+   "box": 450,
+   "slot": 450,
+   "saturn_lines": [
+    823
+   ],
+   "english_record": "0x0BAAC6",
+   "english_sha256": "97fbbb6380b96bd6a1c8a3863ce6f5a615a2a94abce07cabb65dce9a0a913218",
+   "rows": 1,
+   "cells": 10,
+   "row_addresses": [
+    "0x06070B18"
+   ]
+  },
+  {
+   "box": 451,
+   "slot": 451,
+   "saturn_lines": [
+    824,
+    825
+   ],
+   "english_record": "0x0BAAE2",
+   "english_sha256": "1d8b929ee1b8d319dda459024d735b718a4327794ae7d5f7179e06000abe0545",
+   "rows": 3,
+   "cells": 32,
+   "row_addresses": [
+    "0x06070B30",
+    "0x06070B50",
+    "0x06070B6C"
+   ]
+  },
+  {
+   "box": 452,
+   "slot": 452,
+   "saturn_lines": [
+    826,
+    827
+   ],
+   "english_record": "0x0BAB2C",
+   "english_sha256": "a277173fc6a76ad66eb8f6bb9e7e58069b4a74c75b836ad3b03271cdbcc858ae",
+   "rows": 2,
+   "cells": 18,
+   "row_addresses": [
+    "0x06070B78",
+    "0x06070B98"
+   ]
+  },
+  {
+   "box": 453,
+   "slot": 453,
+   "saturn_lines": [
+    828,
+    829
+   ],
+   "english_record": "0x0BAB5C",
+   "english_sha256": "f001ea96c3f7d6334787ea26cb34696caf060c792b003a4d06c9aef26e962e3d",
+   "rows": 2,
+   "cells": 18,
+   "row_addresses": [
+    "0x06070BA4",
+    "0x06070BC4"
+   ]
+  },
+  {
+   "box": 454,
+   "slot": 454,
+   "saturn_lines": [
+    830
+   ],
+   "english_record": "0x0BAB8A",
+   "english_sha256": "c4a41ebc62b1edc25adf986513708882a89ba1e2d3b8f5ea4e0bd417dc7b6bcc",
+   "rows": 2,
+   "cells": 20,
+   "row_addresses": [
+    "0x06070BD0",
+    "0x06070BF0"
+   ]
+  },
+  {
+   "box": 455,
+   "slot": 455,
+   "saturn_lines": [
+    831
+   ],
+   "english_record": "0x0BABBA",
+   "english_sha256": "8780560f92f9a34d20ccc37f55b67a423d26ee0622ce2c5d2891b3c6b0fc4521",
+   "rows": 1,
+   "cells": 14,
+   "row_addresses": [
+    "0x06070BFC"
+   ]
+  },
+  {
+   "box": 606,
+   "slot": 615,
+   "saturn_lines": [
+    1011
+   ],
+   "english_record": "0x0BB91E",
+   "english_sha256": "dde49f5834e7c6f676228dddb2b8f3c19284701baac01dc2cb4467edb588e3f1",
+   "rows": 1,
+   "cells": 2,
+   "row_addresses": [
+    "0x06070C1C"
+   ]
+  },
+  {
+   "box": 456,
+   "slot": 456,
+   "saturn_lines": [
+    832,
+    833
+   ],
+   "english_record": "0x0BABDE",
+   "english_sha256": "c96ed8360c6c5ea45c6860361c1001154a2734e97a994872c95f1ab146ecb5ab",
+   "rows": 2,
+   "cells": 18,
+   "row_addresses": [
+    "0x06070C24",
+    "0x06070C44"
+   ]
+  },
+  {
+   "box": 457,
+   "slot": 457,
+   "saturn_lines": [
+    834
+   ],
+   "english_record": "0x0BAC0A",
+   "english_sha256": "10588a42586f69b9c45c045d94d6001c8122243f3517536f87d0a2ec29e536b7",
+   "rows": 2,
+   "cells": 19,
+   "row_addresses": [
+    "0x06070C4C",
+    "0x06070C6C"
+   ]
+  },
+  {
+   "box": 458,
+   "slot": 458,
+   "saturn_lines": [
+    835,
+    836,
+    837
+   ],
+   "english_record": "0x0BAC3A",
+   "english_sha256": "a08a16acd5073a208e636855e3e9e5453f96ca8bb2b7401d1f1285c4b0c5a324",
+   "rows": 3,
+   "cells": 36,
+   "row_addresses": [
+    "0x06070C78",
+    "0x06070C9C",
+    "0x06070CC0"
+   ]
+  },
+  {
+   "box": 459,
+   "slot": 459,
+   "saturn_lines": [
+    838,
+    839
+   ],
+   "english_record": "0x0BAC8C",
+   "english_sha256": "cef2c37defe256b6c972921eb5196907780c6b4c1004e8f76861b7f9e5301847",
+   "rows": 3,
+   "cells": 40,
+   "row_addresses": [
+    "0x06070CCC",
+    "0x06070CEC",
+    "0x06070D0C"
+   ]
+  },
+  {
+   "box": 460,
+   "slot": 460,
+   "saturn_lines": [
+    840,
+    841
+   ],
+   "english_record": "0x0BACE6",
+   "english_sha256": "320076be7495aa29651c650022ae6d708f73834279f7ef584dc76fd45bbd458f",
+   "rows": 3,
+   "cells": 41,
+   "row_addresses": [
+    "0x06070D24",
+    "0x06070D44",
+    "0x06070D68"
+   ]
+  },
+  {
+   "box": 461,
+   "slot": 461,
+   "saturn_lines": [
+    842,
+    843,
+    844
+   ],
+   "english_record": "0x0BAD44",
+   "english_sha256": "b55febcd36be145e3b2386aa0ba29fadbd603a97ad524308459fbfbd11af826d",
+   "rows": 2,
+   "cells": 30,
+   "row_addresses": [
+    "0x06070D80",
+    "0x06070DA4"
+   ]
+  },
+  {
+   "box": 462,
+   "slot": 462,
+   "saturn_lines": [
+    845,
+    846
+   ],
+   "english_record": "0x0BAD8A",
+   "english_sha256": "ca9fa8343d61a6137020be23e1d6ffe40e7acf41679eddc05921ecf0257be31a",
+   "rows": 3,
+   "cells": 47,
+   "row_addresses": [
+    "0x06070DC4",
+    "0x06070DE8",
+    "0x06070E08"
+   ]
+  },
+  {
+   "box": 607,
+   "slot": 616,
+   "saturn_lines": [
+    1012
+   ],
+   "english_record": "0x0BB92C",
+   "english_sha256": "a57ce359198500b10630971dd2dd9fd17455028b062534972ac96014211a3798",
+   "rows": 1,
+   "cells": 2,
+   "row_addresses": [
+    "0x06070E2C"
+   ]
+  },
+  {
+   "box": 463,
+   "slot": 463,
+   "saturn_lines": [
+    847
+   ],
+   "english_record": "0x0BADF2",
+   "english_sha256": "bfcbb0fa9827c43ea87ba5690bf04396fe860b085b7baa0974ab027cee0b93e1",
+   "rows": 2,
+   "cells": 32,
+   "row_addresses": [
+    "0x06070E34",
+    "0x06070E58"
+   ]
+  },
+  {
+   "box": 464,
+   "slot": 464,
+   "saturn_lines": [
+    848,
+    849
+   ],
+   "english_record": "0x0BAE3A",
+   "english_sha256": "366d2f324d2488e68b2bf230fc6048311a8b266c0c9011f0bb4255cb2d137eae",
+   "rows": 2,
+   "cells": 28,
+   "row_addresses": [
+    "0x06070E7C",
+    "0x06070E9C"
+   ]
+  }
+ ],
+ "build": {
+  "endings": [
+   "data/translations/jin_ending_pairing.json",
+   "data/translations/santana_ending_pairing.json",
+   "data/translations/mary_ending_pairing.json",
+   "data/translations/arieta_ending_pairing.json",
+   "data/translations/gawaine_ending_pairing.json",
+   "data/translations/baomao_ending_pairing.json"
+  ],
+  "indent": true,
+  "overrides": {
+   "608": 617
+  },
+  "retime": true
+ },
+ "kanji_sacrificed": [
+  {
+   "code": "0x8CF7",
+   "glyph": 506,
+   "story_sacrifice_number": 153,
+   "lines_touched": [
+    1052
+   ]
+  }
+ ]
+}

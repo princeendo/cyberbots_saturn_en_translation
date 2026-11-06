@@ -752,18 +752,78 @@ def build(args: argparse.Namespace) -> int:
         )
     print(json.dumps(summary))
     extra: list[str] = []
-    if args.ending:
+    if args.ending or args.endings:
         from tools.text import ending as ending_text
 
-        built = ending_text.compile_ending(
-            args.ending, program, font, texts, args.task, retime=args.retime
-        )
+        if args.endings:  # END-023: a roster of endings, the gate's choices
+            roster = json.loads(args.endings.read_text())
+            paths = [Path(p) for p in roster["endings"]]
+            built = ending_text.compile_endings(
+                paths,
+                program,
+                font,
+                texts,
+                args.task,
+                retime=bool(roster.get("retime")),
+                indent=bool(roster.get("indent")),
+                overrides={int(k): v for k, v in roster.get("overrides", {}).items()},
+                observed=True,
+                story_codes=codes,
+                # The story's next sacrifice codes, same rule (the user, END-023:
+                # "Use M5's 153rd code (Recommended)", within M5's cap of 160).
+                kanji_spare=[
+                    c for c in rare if c not in sacrificed and c not in codes.values()
+                ],
+            )
+            if built.kanji_glyphs:  # END-023: glyphs lists 6-8 need in KANJI.BIN
+                kan_cells = kanji.decode(bytes(kan))
+                for code, pair in built.kanji_glyphs.items():
+                    glyph = table.index(code)
+                    kan_cells[glyph] = pairs.render_pair(font, pair)
+                    for tile in kanji.tiles(glyph):
+                        built.changes.append(
+                            {
+                                "file": "KANJI.BIN",
+                                "start": tile * kanji.TILE_BYTES,
+                                "end": (tile + 1) * kanji.TILE_BYTES,
+                                "what": f"glyph {glyph} tile (lists 6-8)",
+                            }
+                        )
+                kan[:] = kanji.encode(kan_cells)
+                (out / "KANJI.BIN").write_bytes(kan)
+                touched = sorted(
+                    n
+                    for n, (off, length) in enumerate(lines)
+                    if codes_in(bytes(stg[off : off + length]))
+                    & set(built.kanji_glyphs)
+                )
+                for pilot_record in built.records.values():
+                    pilot_record["kanji_sacrificed"] = [
+                        {
+                            "code": f"0x{c:04X}",
+                            "glyph": table.index(c),
+                            "story_sacrifice_number": len(sacrificed) + 1 + k,
+                            "lines_touched": touched,
+                        }
+                        for k, c in enumerate(sorted(built.kanji_glyphs))
+                    ]
+            if args.ending_record_dir:
+                for path in paths:
+                    pairing = json.loads(path.read_text())
+                    name = path.name.replace("_pairing", "")
+                    (args.ending_record_dir / name).write_text(
+                        json.dumps(built.records[pairing["list"]], indent=1) + "\n"
+                    )
+        else:
+            built = ending_text.compile_ending(
+                args.ending, program, font, texts, args.task, retime=args.retime
+            )
         (out / "END.BIN").write_bytes(built.end)
         (out / "SE.DAT").write_bytes(built.se)
         (out / "ending_changes.json").write_text(
             json.dumps({"ranges": built.changes}, indent=1) + "\n"
         )
-        if args.retime:
+        if built.timing:
             (out / "ending_timing.json").write_text(
                 json.dumps(built.timing, indent=1) + "\n"
             )
@@ -816,6 +876,12 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument("--quotes", type=Path, help="win-quote pairing (D-030)")
     parser.add_argument("--ending", type=Path, help="an ending's pairing (END-010)")
     parser.add_argument("--ending-record", type=Path, help="the ending's record")
+    parser.add_argument(
+        "--endings", type=Path, help="a roster of ending pairings (END-023)"
+    )
+    parser.add_argument(
+        "--ending-record-dir", type=Path, help="one record per ending (END-023)"
+    )
     parser.add_argument(
         "--retime",
         action="store_true",

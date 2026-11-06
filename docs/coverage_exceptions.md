@@ -55,3 +55,40 @@ Win quotes: the 46 boxes that the quote table's rows 0-5 reach
   Gawaine 57, 144, 538, 562, 584; Bao and Mao 75, 386, 538, 661). A shared
   line changed for one pilot changes for the other; line 661 is also in
   list 6's box 974.
+
+## M8 Endings
+
+The roster's endings (`END-023`), decided at the gate on 2026-11-05: the
+official US arcade English of lists 0-5 as paired (D-038, D-044), built
+from `data/text/m8_endings.json`.
+
+### In Scope
+
+Every box each roster ending is seen to open, forced from the END-001
+checkpoint (`data/text/ending_surfaces.json`, D-043). That includes the
+scenes the arcade posts and the Saturn reaches only through run-on scripts
+(Mary's 17-18, Bao and Mao's 20).
+
+| List | Pilot | Distinct boxes shown | English boxes | Blank (1072) |
+| --- | --- | --- | --- | --- |
+| 0 | Jin | 19 | 18 | yes |
+| 1 | Santana | 18 | 17 | yes |
+| 2 | Mary | 15 | 14 | yes |
+| 3 | Arieta | 23 | 22 | yes |
+| 4 | Gawaine | 16 | 16 | no |
+| 5 | Bao and Mao | 22 | 21 | yes |
+
+That is 100 English boxes, with boxes 601, 604, 605, 606, 607 and 610 shared
+between roster endings. Every ending also shows the cast roll (its Japanese
+name images hidden, D-040) and, where the run reaches it, the QSound
+notice (its Japanese line erased, D-041). The staff credits and thank-you
+screen are already English.
+
+### Excluded, With Evidence
+
+| What | Boxes | Evidence | Why |
+| --- | --- | --- | --- |
+| The Saturn-only pilots' endings (lists 6-8) | their boxes in `data/text/ending_surfaces_others.json` (114 lines), less 601 and 605 | Forced runs (`EXP-0049`): they open only their posted boxes | No official English; special cases (rule 24, `SPECIAL-001`) |
+| Boxes 601 and 605 in list 8's ending | 2 speaker names | Shared with lists 0, 3 and 4 (D-036) | English since M7: the gate's "Share, English everywhere (Recommended)" |
+| Box 1072 | 1 (lists 0-3, 5 and 7) | A full-width space (D-038) | Nothing to show |
+| Jin's scene 20 (box 550) | 1 | Never posted, and no script runs into it (D-036, D-043) | Never shown |

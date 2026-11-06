@@ -958,3 +958,29 @@ Reproduce: `research/experiments/EXP-0048/README.md`, "Procedure".
   rows are not in those 16 lines.
 
 Reproduce: `research/experiments/EXP-0049/README.md`, "Procedure".
+
+## D-047: All six roster endings in English (M8); the Saturn-only endings use the story font (`END-023`, `EXP-0050`)
+
+- `tools.text.dialogue --endings data/text/m8_endings.json` builds one image
+  from the untouched source with the M5 story and win quotes and the six
+  roster endings in the official US arcade English:
+  - 100 boxes and 330 pairs in `END.BIN`'s own table and `SE.DAT`'s font,
+    with no `END.BIN` code sacrificed;
+  - the half-cell indent; box 608 from slot 617;
+  - END-011's rule, with typing time counting every code, spaces included.
+
+  Two builds are identical. Forced from the END-001 checkpoint, every box
+  of all nine endings draws as expected, and the scene changes and music
+  stay within 6 frames of the Japanese. A cold boot plays in English, and
+  a play state reaches Arieta's ending in English.
+- **Lists 6-8 draw their ending text with `KANJI.BIN`**, which their runs
+  load twice; they load no `SE.DAT`. So their Japanese shows the story's
+  sacrificed glyphs, and any English box they share must use codes whose
+  `KANJI.BIN` glyph is the same pair. The shared names 601/605 take the
+  story's codes, plus one new pair at the story's 153rd sacrifice code
+  (`0x8CF7`, line 1052), the user's choice. The M7 images showed those
+  names garbled in list 8.
+- **The renderer draws no glyph for `0x2020`** (two ASCII spaces), as for
+  `0x8140`. Typing spends its interval on both.
+
+Reproduce: `research/experiments/EXP-0050/README.md`, "Procedure".

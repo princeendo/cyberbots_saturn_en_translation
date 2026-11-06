@@ -30,6 +30,7 @@ everywhere (Recommended)".
 from __future__ import annotations
 
 import hashlib
+import itertools
 import json
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass, field
@@ -47,6 +48,7 @@ FONT_START, FONT_END = 0x40000, 0x68000
 BOXES = 1074
 POSTS = Path("data/text/ending_posts.json")
 SURFACES = Path("data/text/ending_surfaces.json")
+SURFACES_OTHERS = Path("data/text/ending_surfaces_others.json")
 
 
 # The QSound notice (D-035): `QSD.PIX`, a 512 x 256 bitmap of 256-colour
@@ -151,6 +153,8 @@ class EndingBuild:
     prediction: list[dict[str, object]] = field(default_factory=list)
     record: dict[str, Any] = field(default_factory=dict)
     timing: list[dict[str, Any]] = field(default_factory=list)
+    records: dict[int, dict[str, Any]] = field(default_factory=dict)
+    kanji_glyphs: dict[int, str] = field(default_factory=dict)
 
 
 def end_lines() -> list[tuple[int, int]]:
@@ -226,25 +230,88 @@ def compile_ending(
     task: str,
     retime: bool = False,
 ) -> EndingBuild:
-    pairing = json.loads(pairing_path.read_text())
+    """One ending (END-010, END-011): ``compile_endings`` with one pairing."""
+    return compile_endings([pairing_path], program, font, texts, task, retime=retime)
+
+
+def compile_endings(
+    pairing_paths: Sequence[Path],
+    program: bytes,
+    font: Mapping[str, Any],
+    texts: Sequence[bytes],
+    task: str,
+    retime: bool = False,
+    indent: bool = False,
+    overrides: Mapping[int, int] | None = None,
+    observed: bool = False,
+    story_codes: Mapping[str, int] | None = None,
+    kanji_spare: Sequence[int] = (),
+) -> EndingBuild:
+    """Several endings in one allocation, one room and one font (END-023).
+
+    ``overrides`` maps a box to the slot the gate chose for it (box 608 →
+    617, 2026-11-05). With ``observed``, the boxes shown are those every
+    list 0-8 is seen to open (``ending_surfaces*.json``, D-043, D-046) as
+    well as the posted scripts' boxes; without it, the posted scripts' boxes
+    only (END-010's build). ``indent`` shifts the ending rows by half a cell
+    where that saves pairs (``dialogue.shift_rows``, the gate's "Indent, as
+    the story").
+
+    ``story_codes`` is the story build's pair → code. Lists 6-8 draw their
+    ending text with `KANJI.BIN` (the story's font, changed by the story
+    build), not `SE.DAT` (EXP-0050). So every pair of an English box those
+    lists show (601 and 605) takes the story's code for that pair, whose
+    `KANJI.BIN` glyph is that pair; the same glyph goes into `SE.DAT`. A
+    pair the story never used gets the first of ``kanji_spare`` (the story's
+    next sacrifice codes in its rarest-first order; the user's "Use M5's
+    153rd code (Recommended)", 2026-11-05),
+    returned in ``kanji_glyphs`` for the caller to draw into `KANJI.BIN`. Of
+    each box's row variants (as built, plain, indented), the one needing the
+    fewest such pairs is used.
+    """
+    pairings = [json.loads(p.read_text()) for p in pairing_paths]
+    overrides = dict(overrides or {})
     end, se = dialogue.checked("END.BIN"), dialogue.checked("SE.DAT")
     english = {}
     boxes: list[dialogue.Box] = []
-    for unit in pairing["units"]:
-        slot = unit.get("arcade_slot")
-        if slot is None:
-            continue
-        record = read_record(program, long(program, dialogue.EN_TABLE + 4 * slot))
-        english[slot] = record
-        rows = dialogue.wrap(decode(record.codes))
-        if (
-            len(rows) > dialogue.MAX_ROWS
-            or dialogue.cells_of(rows) > dialogue.MAX_CELLS
-        ):
-            raise SystemExit(f"ending box {unit['box']}: {len(rows)} rows")
-        boxes.append(
-            dialogue.Box(unit["box"], slot, tuple(unit["saturn_lines"]), tuple(rows))
-        )
+    lists_of: dict[int, list[int]] = {}
+    slot_of: dict[int, int] = {}
+    for pairing in pairings:
+        for unit in pairing["units"]:
+            slot = unit.get("arcade_slot")
+            if slot is None:
+                continue
+            slot = overrides.get(unit["box"], slot)
+            lists_of.setdefault(unit["box"], [])
+            if pairing["list"] not in lists_of[unit["box"]]:
+                lists_of[unit["box"]].append(pairing["list"])
+            if unit["box"] in slot_of:
+                if slot_of[unit["box"]] != slot:
+                    raise SystemExit(f"box {unit['box']}: two slots")
+                continue
+            slot_of[unit["box"]] = slot
+            record = read_record(program, long(program, dialogue.EN_TABLE + 4 * slot))
+            english[slot] = record
+            rows = dialogue.wrap(decode(record.codes))
+            if (
+                len(rows) > dialogue.MAX_ROWS
+                or dialogue.cells_of(rows) > dialogue.MAX_CELLS
+            ):
+                raise SystemExit(f"ending box {unit['box']}: {len(rows)} rows")
+            boxes.append(
+                dialogue.Box(
+                    unit["box"], slot, tuple(unit["saturn_lines"]), tuple(rows)
+                )
+            )
+    if indent:
+        shifted = iter(dialogue.shift_rows([r for b in boxes for r in b.rows]))
+        boxes = [
+            dialogue.Box(b.box, b.slot, b.lines, tuple(next(shifted) for _ in b.rows))
+            for b in boxes
+        ]
+        for b in boxes:
+            if dialogue.cells_of(b.rows) > dialogue.MAX_CELLS:
+                raise SystemExit(f"ending box {b.box}: too many cells after indent")
 
     lines = end_lines()
     box_lines = record_lines(bytes(end), lines)
@@ -255,6 +322,10 @@ def compile_ending(
     posted = {
         b["box"] for lst in posts["lists"] for p in lst["posts"] for b in p["boxes"]
     }
+    if observed:
+        for path in (SURFACES, SURFACES_OTHERS):
+            for lst in json.loads(path.read_text())["lists"]:
+                posted |= {o["box"] for o in lst["openings"]}
     ours = {b.box for b in boxes}
     own, unshown = free_lines(box_lines, posted, ours)
     room = spans(lines, own) + spans(lines, unshown)
@@ -265,14 +336,78 @@ def compile_ending(
     last_row_used = len(table) - last_row * kanji.TABLE_ROW_CODES
     new_slots = kanji.TABLE_ROW_CODES - last_row_used - 1  # keep a 0 terminator
     wanted = dialogue.wanted_pairs(boxes)
+    fixed: dict[str, int] = {}
+    build_kanji: dict[int, str] = {}
+    kanji_boxes: list[int] = []
+    if observed and story_codes is not None:
+        for lst in json.loads(SURFACES_OTHERS.read_text())["lists"]:
+            kanji_boxes += [
+                o["box"]
+                for o in lst["openings"]
+                if o["box"] in ours and o["box"] not in kanji_boxes
+            ]
+        swapped: list[dialogue.Box] = []
+        extra: dict[str, int] = {}
+        spare = list(kanji_spare)
+
+        def lacking(rows: tuple[str, ...]) -> list[str]:
+            assert story_codes is not None
+            return [
+                p
+                for r in rows
+                for p in pairs.split_pairs(r)
+                if p != "  "
+                and (p not in story_codes or story_codes[p] >= dialogue.NEW_CODE_FIRST)
+            ]
+
+        targets = [b for b in boxes if b.box in kanji_boxes]
+        options = []
+        for b in targets:
+            plain = tuple(r.lstrip(" ") for r in b.rows)
+            options.append([b.rows, plain, tuple(" " + r for r in plain)])
+        # The combination of row variants that needs the fewest new pairs.
+        best = min(
+            itertools.product(*options),
+            key=lambda combo: (
+                len({p for rows in combo for p in lacking(rows)}),
+                sum(len(lacking(rows)) for rows in combo),
+            ),
+        )
+        chosen_rows = {b.box: rows for b, rows in zip(targets, best, strict=True)}
+        for b in boxes:
+            if b.box not in chosen_rows:
+                swapped.append(b)
+                continue
+            chosen = chosen_rows[b.box]
+            for p in lacking(chosen):
+                if p not in extra:
+                    if not spare:
+                        raise SystemExit(f"box {b.box}: no spare KANJI.BIN code")
+                    extra[p] = spare.pop(0)
+            for r in chosen:
+                for p in pairs.split_pairs(r):
+                    if p != "  ":
+                        fixed[p] = extra[p] if p in extra else story_codes[p]
+            swapped.append(dialogue.Box(b.box, b.slot, b.lines, chosen))
+        build_kanji = {code: p for p, code in extra.items()}
+        boxes = swapped
+        wanted = dialogue.wanted_pairs(boxes)
     try:
-        codes, new, _ = dialogue.allocate_codes(wanted, unused, new_slots, [], 0)
+        rest, new, _ = dialogue.allocate_codes(
+            [p for p in wanted if p not in fixed],
+            [c for c in unused if c not in fixed.values()],
+            new_slots,
+            [],
+            0,
+        )
     except ValueError as error:
         raise dialogue.BudgetExceeded(
             f"ending: {error}; no sacrifice approved"
         ) from error
+    codes = {p: fixed[p] if p in fixed else rest[p] for p in wanted}
 
     build = EndingBuild(end, se)
+    build.kanji_glyphs = build_kanji
     row_start = CODE_TABLE + last_row * kanji.TABLE_ROW_CODES * 2
     for k, code in enumerate(new):
         at = row_start + 2 * (last_row_used + k)
@@ -308,7 +443,7 @@ def compile_ending(
     all_rows = [dialogue.row_bytes(r, codes) for b in boxes for r in b.rows]
     offsets = iter(dialogue.place(all_rows, [(s, e) for s, e in room]))
     data_rows = iter(all_rows)
-    out_boxes = []
+    out_boxes: list[dict[str, Any]] = []
     placed: list[tuple[int, int]] = []
     for b in boxes:
         pointers = []
@@ -360,9 +495,10 @@ def compile_ending(
                 "row_addresses": [f"0x{p:08X}" for p in pointers],
             }
         )
-    # Image units (END-005 decisions, in the pairing's handling entries).
+    # Image units (END-005 decisions, in the pairings' handling entries).
     decisions = {
         u["surface"]: u.get("handling", {}).get("decision")
+        for pairing in pairings
         for u in pairing["units"]
         if u.get("no_official_english")
     }
@@ -387,11 +523,14 @@ def compile_ending(
         raise SystemExit(f"no handler for {unhandled}")
 
     if retime:  # END-011: faster typing and moved cues (ending_timing)
-        surfaces = json.loads(SURFACES.read_text())["lists"][pairing["list"]]
+        surfaces = json.loads(SURFACES.read_text())["lists"]
         untouched = bytes(dialogue.checked("END.BIN"))
-        jp_codes = set(kanji.read_code_table(untouched, CODE_TABLE)) - {
-            dialogue.SPACE_CODE
-        }
+        # Typing steps over every code, full-width spaces included (EXP-0050:
+        # Arieta's box 455). END-010 and END-011's builds counted only glyphs;
+        # they keep that count, the roster build (``observed``) counts all.
+        jp_codes = set(kanji.read_code_table(untouched, CODE_TABLE))
+        if not observed:
+            jp_codes -= {dialogue.SPACE_CODE}
         jp_box_lines = record_lines(untouched, lines)
         japanese = {
             box: sum(
@@ -406,15 +545,22 @@ def compile_ending(
             for box in range(BOXES)
             if jp_box_lines[box]
         }
-        retimed = ending_timing.retime(
-            end,
-            pairing["list"],
-            surfaces,
-            {b.box: dialogue.cells_of(b.rows) for b in boxes},
-            japanese,
-        )
-        build.changes += retimed.changes
-        build.timing = retimed.boxes + retimed.waits
+        box_cells = {
+            b.box: (
+                sum(len(pairs.split_pairs(r)) for r in b.rows)
+                if observed
+                else dialogue.cells_of(b.rows)
+            )
+            for b in boxes
+        }
+        for pairing in pairings:
+            n = pairing["list"]
+            retimed = ending_timing.retime(end, n, surfaces[n], box_cells, japanese)
+            build.changes += retimed.changes
+            timing_rows = retimed.boxes + retimed.waits
+            if len(pairings) > 1:
+                timing_rows = [{"list": n} | row for row in timing_rows]
+            build.timing += timing_rows
 
     used_room = sum(len(r) for r in all_rows)
     own_spans = spans(lines, own)
@@ -424,36 +570,54 @@ def compile_ending(
         for off, n in placed
         if not any(s <= off and off + n <= e for s, e in own_spans)
     ]
-    build.record = {
-        "task": task,
-        "policy": (
-            "official US arcade English, as paired (D-038), unchanged; pair glyphs"
-            " (D-024); END.BIN's own code table and SE.DAT's font (D-035)"
-        ),
-        "sources": {
-            "program_sha256": hashlib.sha256(program).hexdigest(),
-            "english_table": f"0x{dialogue.EN_TABLE:06X}",
-            "pairing": str(pairing_path),
-            "END.BIN": hashlib.sha256(dialogue.checked("END.BIN")).hexdigest(),
-            "SE.DAT": hashlib.sha256(dialogue.checked("SE.DAT")).hexdigest(),
-        },
-        "codes": {n: f"0x{c:04X}" for n, c in enumerate(codes.values())},
-        "summary": {
-            "boxes": len(boxes),
-            "rows": len(all_rows),
-            "pairs": len(wanted),
-            "unused_codes_used": min(len(wanted), len(unused)),
-            "new_codes": len(new),
-            "sacrificed": [],
-            "glyphs": len(glyphs),
-            "own_free_lines": own,
-            "own_room_bytes": own_bytes,
-            "text_bytes": used_room,
-            "bytes_beyond_own_lines": sum(n for _, n in beyond),
-            "rows_beyond_own_lines": [f"0x{off:05X}" for off, _ in beyond],
-            "unshown_room_bytes": sum(e - s for s, e in spans(lines, unshown)),
-            "images": sorted(build.images),
-        },
-        "boxes": out_boxes,
+    summary = {
+        "boxes": len(boxes),
+        "rows": len(all_rows),
+        "pairs": len(wanted),
+        "unused_codes_used": min(len(wanted), len(unused)),
+        "new_codes": len(new),
+        "sacrificed": [],
+        "glyphs": len(glyphs),
+        "own_free_lines": own,
+        "own_room_bytes": own_bytes,
+        "text_bytes": used_room,
+        "bytes_beyond_own_lines": sum(n for _, n in beyond),
+        "rows_beyond_own_lines": [f"0x{off:05X}" for off, _ in beyond],
+        "unshown_room_bytes": sum(e - s for s, e in spans(lines, unshown)),
+        "images": sorted(build.images),
     }
+    for path, pairing in zip(pairing_paths, pairings, strict=True):
+        n = pairing["list"]
+        pilot: dict[str, Any] = {
+            "task": task,
+            "policy": (
+                "official US arcade English, as paired (D-038), unchanged; pair"
+                " glyphs (D-024); END.BIN's own code table and SE.DAT's font (D-035)"
+            ),
+            "sources": {
+                "program_sha256": hashlib.sha256(program).hexdigest(),
+                "english_table": f"0x{dialogue.EN_TABLE:06X}",
+                "pairing": str(path),
+                "END.BIN": hashlib.sha256(dialogue.checked("END.BIN")).hexdigest(),
+                "SE.DAT": hashlib.sha256(dialogue.checked("SE.DAT")).hexdigest(),
+            },
+            "codes": {k: f"0x{c:04X}" for k, c in enumerate(codes.values())},
+            "summary": summary,
+            "boxes": [o for o in out_boxes if n in lists_of[int(o["box"])]],
+        }
+        if len(pairings) > 1:
+            pilot["build"] = {
+                "endings": [str(p) for p in pairing_paths],
+                "indent": indent,
+                "overrides": {str(k): v for k, v in overrides.items()},
+                "retime": retime,
+            }
+            pilot["codes"] = {
+                k: f"0x{codes[p]:04X}"
+                for k, p in enumerate(
+                    dialogue.wanted_pairs([b for b in boxes if n in lists_of[b.box]])
+                )
+            }
+        build.records[n] = pilot
+    build.record = build.records[pairings[0]["list"]]
     return build

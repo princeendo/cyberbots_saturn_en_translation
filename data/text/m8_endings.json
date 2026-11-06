@@ -1,0 +1,18 @@
+{
+ "task": "END-023",
+ "gate": "GATE-TRANSLATION extension for the roster endings, 2026-11-05 (TASKS.md)",
+ "endings": [
+  "data/translations/jin_ending_pairing.json",
+  "data/translations/santana_ending_pairing.json",
+  "data/translations/mary_ending_pairing.json",
+  "data/translations/arieta_ending_pairing.json",
+  "data/translations/gawaine_ending_pairing.json",
+  "data/translations/baomao_ending_pairing.json"
+ ],
+ "indent": true,
+ "indent_decision": "Indent, as the story (Recommended)",
+ "overrides": {"608": 617},
+ "overrides_decision": "Bao Mao: (Recommended)",
+ "retime": true,
+ "retime_decision": "Accept the rule (Recommended)"
+}
