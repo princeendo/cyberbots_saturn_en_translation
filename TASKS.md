@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-06: Names switch decided** (`OPT-004`): an `EXTRA OPTIONS` sub-menu reached from a 9th OPTION MODE row (rows moved up a line), holding `NAMES  ENGLISH / JAPANESE`, saved; katakana in new tail files; SSP checked in `REL-002`. Answers verbatim in `docs/localization_policy.md`. `OPT-005` (build) is `READY`.
 - **2026-11-06: Free RAM proven** (`OPT-003`, `EXP-0064`, D-057): 1,024 bytes inside `CYBER.BIN` (loaded with it) and 5,628 bytes above its BSS are unused once the program runs (logs, canaries, a cold boot, an independent review); the largest zero range is the VDP1 command list's open tail and is not free. `OPT-004` (the switch's design, with the user) is `READY`; option A of `OPT-002` is the one that fits.
 - **2026-11-06: README layout and release tools** (`DOC-004`, `REL-001`, in parallel with `OPT-003`): the README follows MSHvSF's sections with placeholders; XvSF's `make_patch`, `make_ssp`, `make_zips` and `check_zips` are ported with provenance, Cyberbots parameters and synthetic tests. Phase R written up; `REL-002`-`REL-004` wait for `OPT-006`, the release-timing rule and the user.
 - **2026-11-06: Storage and switch points found** (`OPT-002`, `EXP-0063`, D-056): the katakana set is 30,838 bytes; Track 01 has 150 unused sectors at its end, and a file placed there loads through the game's own loader; the game finds files by name, with room for more. The art goes in at two sites (after the `SELECT.VAD` load and after the `PL3F_0.BIN` load). Recommended for `OPT-004`: small files in the tail, loaded per screen. `OPT-003` (free RAM for the hooks) is `READY`.
@@ -2561,7 +2562,7 @@ Known so far (facts and their confidence):
 
 ### OPT-004 - The switch, decided with the user
 
-- **Status:** `READY`
+- **Status:** `DONE` (2026-11-06)
 - **Milestone:** Names switch (`OPT-001`)
 - **Dependencies:** OPT-001, OPT-002, OPT-003.
 - **Blockers:** None (the user's answers).
@@ -2576,13 +2577,23 @@ Known so far (facts and their confidence):
     extension in `docs/localization_policy.md`, answers verbatim with the
     date.
 - **Notes:** No build before this gate.
+- **Done:** 2026-11-06. The user's answers, verbatim, are in
+  `docs/localization_policy.md` ("Names Switch, Decided"): a sub-menu
+  ("Sub-menu"), reached from a 9th OPTION MODE row with every row moved up
+  one line ("Rows up one line (Recommended)"), named `EXTRA OPTIONS`
+  ("EXTRA OPTIONS (Recommended)"), holding `NAMES  ENGLISH / JAPANESE`
+  ("NAMES  ENGLISH / JAPANESE (Recommended)"), saved in the settings block
+  ("Save it (Recommended)"), with the katakana in new files in Track 01's
+  tail and SSP checked in `REL-002` ("Tail files; check SSP later
+  (Recommended)"). Recorded as a `GATE-TRANSLATION` extension for the new
+  menu words.
 
 ### OPT-005 - Build the switch
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** Names switch (`OPT-001`)
 - **Dependencies:** OPT-004.
-- **Blockers:** `OPT-004`.
+- **Blockers:** None.
 - **Objective:** One image whose Options screen switches the name art,
   Latin by default.
 - **Acceptance criteria:**
@@ -2596,7 +2607,18 @@ Known so far (facts and their confidence):
     Latin build's behaviour.
   - **Save:** the boot check still passes with the new setting saved, and
     an old save (without it) still loads.
-- **Notes:** Free RAM per `OPT-003` only.
+- **Design (from `OPT-004`):** OPTION MODE: every row and `PRESS START TO
+  EXIT` one text row higher, a 9th row `EXTRA OPTIONS` that opens a
+  sub-menu (as `KEY CONFIG` opens its screen); the sub-menu: title `EXTRA
+  OPTIONS`, a row `NAMES  ENGLISH / JAPANESE`, a way back; the value in the
+  settings block's spare byte `0x060D9295` (saved; 0 = English); the
+  katakana pieces as new files in Track 01's tail (names sorting after
+  `WARNING4.PIX`), loaded after `SELECT.VAD` (`0x06038CD6`) and after
+  `PL3F_0.BIN` (`0x060605C2`) when the byte is set.
+- **Notes:** Code only in `OPT-003`'s ranges: `0x06055424`-`0x06055824`
+  (in `CYBER.BIN`'s file) and `0x060DF8A8`-`0x060E0EA4` (copied in at run
+  time). The disc builder must write directory records and tail sectors
+  (new tool work).
 
 ### OPT-006 - Verify and register
 
@@ -2762,6 +2784,6 @@ and `docs/lessons_from_xvsf.md`.
 | UI-003 | after M8, user request | Other UI text (select, continue, ranking, options): find the arcade English by tracing the arcade code. |
 | TXT-002 | after M8, user request | Rare, random, or region-gated text: trace every reader of every text table. |
 | LOC-001 | after REF-007 | `DONE` (2026-11-06, Phase O: `LOC-001`-`LOC-006` and the gate extension). |
-| OPT-001 | after LOC-001, user decision 2026-11-02 | Phase P (`OPT-001`-`OPT-006`): `OPT-001`-`OPT-003` `DONE` (2026-11-06); `OPT-004` (the user's choices) `READY`. |
+| OPT-001 | after LOC-001, user decision 2026-11-02 | Phase P (`OPT-001`-`OPT-006`): `OPT-001`-`OPT-004` `DONE` (2026-11-06); `OPT-005` (build) `READY`. |
 | SPECIAL-001 | M9, user approval | Boss and hidden pilots, alternate routes, unlocks. Secondary sources (`docs/references.md`) say the console ports add four pilots (Chiyomaru Kagura, Tessan Hagure, Princess Devilotte, SHADE) with no arcade English, and an Akuma-mech code; their lines need recorded new translations under the user's policy. Size: Saturn lines 899-1850 (952 lines, about half the script) have no arcade counterpart (D-011). Among the arcade pilots' stories only line 258 is Saturn-only (line 34 is dead data); the earlier count of 74 came from REF-006's reader bug (`EXP-0023`). |
 | REL-001 | after M5 | Phase R (`REL-001`-`REL-004`): `REL-001` (tool port) `DONE` (2026-11-06); `REL-002`-`REL-004` `BLOCKED` on `OPT-006`, the release-timing rule and the user. |

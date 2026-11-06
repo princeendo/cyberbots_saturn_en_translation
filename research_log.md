@@ -2724,3 +2724,15 @@ Disproven or failed (do not retry):
 - A `session.launch` that fails leaves Mednafen running (check `ps`).
 
 Checks: ruff, ruff format, mypy, pytest (below).
+
+## 2026-11-06 — OPT-004: the names switch decided with the user
+
+User request (verbatim): "Please present me with any questions and
+otherwise continue." Six multiple-choice questions after `OPT-001`-`OPT-003`;
+answers verbatim in `docs/localization_policy.md` ("Names Switch,
+Decided"): an `EXTRA OPTIONS` sub-menu reached from a 9th OPTION MODE row
+(all rows moved up one text row), holding `NAMES  ENGLISH / JAPANESE`,
+saved in the settings block's spare byte; the katakana in new files in
+Track 01's tail; whether SSP can carry that is checked in `REL-002`. The
+user picked the sub-menu over the recommended 9th row; the entry row then
+took the recommended "Rows up one line". `OPT-005` (build) is `READY`.
