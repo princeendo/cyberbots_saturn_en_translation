@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-06: Release decisions** (`REL-002`, asked on "Start REL-002"): the user wants `UI-001`, `UI-002`, `UI-003`, `TXT-002` and `SPECIAL-001` done before any release ("Do them first"), so `REL-002` stays `BLOCKED`; xdelta first with SSP researched; a read-only RetroAchievements lookup; the hardware test deferred. Next: write up the UI tasks (outline items, "after M8, user request").
 - **2026-11-06: Names switch play-checked; Phase P done** (`OPT-006`, `EXP-0066`): two cold boots with real presses set `JAPANESE` (katakana on pilot select, `SET UP`, VS), kept it across a power cycle, and set `ENGLISH` (Latin again); new reference `opt006_names_switch.json`; all earlier references match. `REL-002` now waits only on the release-timing rule (every open task done or deferred by the user) and the user; the UI tasks start on request.
 - **2026-11-06: Names switch built** (`OPT-005`, `EXP-0065`, D-058): `--names-switch` adds the `EXTRA OPTIONS` sub-menu (layout: title and rows up two lines, the user's choice) and the katakana tail files; from saved states the menu works and each setting shows its art on the pilot select and VS screens. `OPT-006` (cold-boot play check, with presses) is `READY`.
 - **2026-11-06: Names switch decided** (`OPT-004`): an `EXTRA OPTIONS` sub-menu reached from a 9th OPTION MODE row (rows moved up a line), holding `NAMES  ENGLISH / JAPANESE`, saved; katakana in new tail files; SSP checked in `REL-002`. Answers verbatim in `docs/localization_policy.md`. `OPT-005` (build) is `READY`.
@@ -2741,8 +2742,8 @@ Known so far (facts and their confidence):
 - **Status:** `BLOCKED`
 - **Milestone:** Release (`REL-001`)
 - **Dependencies:** REL-001, OPT-006; the release-timing rule.
-- **Blockers:** every open task done or deferred by the user by name
-  (the release-timing rule); `OPT-006` is done (2026-11-06).
+- **Blockers:** `UI-001`, `UI-002`, `UI-003`, `TXT-002`, `SPECIAL-001`
+  (the user, 2026-11-06: "Do them first"); `OPT-006` is done.
 - **Objective:** xdelta and SSP patches that turn the untouched source into
   the final registered image, proven by applying them.
 - **Acceptance criteria:**
@@ -2763,6 +2764,12 @@ Known so far (facts and their confidence):
     user's 2026-11-02 rule), or deferred by the user by name.
 - **Notes:** Patches stay under `build/`; only the JSON records are
   committed.
+- **Decisions (2026-11-06, verbatim in `docs/localization_policy.md`,
+  "Release Decisions"):** the five open items first ("Do them first");
+  xdelta, with SSP researched before it is added ("xdelta now, research
+  SSP (Recommended)"); a read-only RetroAchievements lookup ("Yes, look it
+  up (Recommended)"); the real-Saturn test deferred ("Defer the hardware
+  test (Recommended)").
 
 ### REL-003 - Release zips, README and checks
 
@@ -2818,4 +2825,4 @@ and `docs/lessons_from_xvsf.md`.
 | LOC-001 | after REF-007 | `DONE` (2026-11-06, Phase O: `LOC-001`-`LOC-006` and the gate extension). |
 | OPT-001 | after LOC-001, user decision 2026-11-02 | `DONE` (2026-11-06, Phase P: `OPT-001`-`OPT-006`). |
 | SPECIAL-001 | M9, user approval | Boss and hidden pilots, alternate routes, unlocks. Secondary sources (`docs/references.md`) say the console ports add four pilots (Chiyomaru Kagura, Tessan Hagure, Princess Devilotte, SHADE) with no arcade English, and an Akuma-mech code; their lines need recorded new translations under the user's policy. Size: Saturn lines 899-1850 (952 lines, about half the script) have no arcade counterpart (D-011). Among the arcade pilots' stories only line 258 is Saturn-only (line 34 is dead data); the earlier count of 74 came from REF-006's reader bug (`EXP-0023`). |
-| REL-001 | after M5 | Phase R (`REL-001`-`REL-004`): `REL-001` (tool port) `DONE` (2026-11-06); `REL-002`-`REL-004` `BLOCKED` on the release-timing rule and the user (`OPT-006` done 2026-11-06). |
+| REL-001 | after M5 | Phase R (`REL-001`-`REL-004`): `REL-001` (tool port) `DONE` (2026-11-06); `REL-002`-`REL-004` `BLOCKED`: the user wants `UI-001`-`UI-003`, `TXT-002` and `SPECIAL-001` done first (2026-11-06). |

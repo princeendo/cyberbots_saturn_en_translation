@@ -2788,3 +2788,20 @@ Notes (do not retry):
   confirm); screenshot, then press once more.
 
 Checks: ruff, ruff format, mypy, pytest (below).
+
+## 2026-11-06 — REL-002: release decisions
+
+User request (verbatim): "Start REL-002". Four questions, answers verbatim
+in `docs/localization_policy.md` ("Release Decisions"): the five open
+outline items (`UI-001`-`UI-003`, `TXT-002`, `SPECIAL-001`) are to be done
+before any release ("Do them first"), so `REL-002` stays `BLOCKED` and no
+release patch was built; xdelta first, SSP researched before it is added;
+a read-only RetroAchievements lookup; the real-Saturn test deferred.
+
+- The RetroAchievements hash input (the MD5 of track 01 sector 0's first
+  512 user-data bytes, as `make_patch` computes it) is
+  `37674ab0fe794821dfd080116e1a10ba` for both the untouched source and the
+  names-switch build (`build/opt005/a`): the header is unchanged.
+- Read-only research (RetroAchievements listing; whether the Sega Saturn
+  Patcher can add files) runs in a background workflow; results below when
+  they arrive.
