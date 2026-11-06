@@ -2604,3 +2604,32 @@ D-053. `docs/known_unknowns.md`: the type-2 question closed (D-053); the
 storage question moved to `OPT-002`.
 
 No experiment, no emulator run.
+
+## 2026-11-06 — OPT-001: the Options screen, its settings and the save (EXP-0062)
+
+User request (verbatim): "Start OPT-001". One cold boot, no key, asked
+first: "Yes, run it now (Recommended)".
+
+- The labels are C strings in `OPDEMO.BIN` (found by a text search of the
+  extracted files); the code that prints them was read from RAM at state
+  27173 and every value variable confirmed by one write (D-055).
+- Settings block `0x060D9290`, 16 bytes, saved at +4 of `CYBERBOTS01`; the
+  save's last word is the byte sum of bytes 0-253. Bytes +5-15 unused; a
+  value there is saved, summed and loaded (states, then the cold boot).
+- Watch of `0x060D9295`-`9F` over all 166 session states: only start-up
+  code and the save's copy.
+
+Notes (do not retry):
+- **Writing `0x0606BE90` = 0 does not hide `3M RAM MODE`:** the text layer
+  is not cleared, so the old row stays. The condition is from code.
+- **Mednafen writes the home's backup memory on exit** from whatever the
+  state held, so save tests run in a scratch copy of the silent home.
+- **A save can be tested without a cold boot** from state 384 (before the
+  check at about frame 1,370) by writing the agent's `backup` space.
+- Do not read through another script's live agent directory (I did once,
+  read-only, while `watch.py` ran; it worked, but the command files can
+  collide).
+- `watch.py` loads every state in one Mednafen process (166 states, about
+  12 minutes).
+
+Checks: ruff, ruff format, mypy, pytest (below).

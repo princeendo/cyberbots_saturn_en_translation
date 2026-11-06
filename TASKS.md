@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-06: Options screen and save mapped** (`OPT-001`, `EXP-0062`, D-055): the menu prints C strings from `OPDEMO.BIN`; its settings are a 16-byte block (`0x060D9290`) saved in `CYBERBOTS01` with a byte sum; bytes +5-15 are unused, and one set there is saved and loaded at boot (one cold boot). A ninth row fits with EXIT moved down a row. `OPT-002` and `OPT-003` are `READY`.
 - **2026-11-06: Phase P written up (names switch)**: `OPT-001` (Options screen and settings), `OPT-002` (where the katakana art can live, and the switch point) and `OPT-003` (free RAM proven by logs) are `READY` and independent; `OPT-004` (the user's choices and a gate extension), `OPT-005` (build) and `OPT-006` (verify) follow.
 - **2026-11-06: Latin name art play-checked; Phase O done** (`LOC-006`, `EXP-0061`, D-054): two cold boots (arcade with a second player, versus) showed only the built Latin names on the pilot select, `SET UP` and VS screens; all eight regression references match. The build is `data/regression/loc005_name_art.json`. Next unblocked: `OPT-001` (the names switch), `REL-001`, or the UI tasks, on request.
 - **2026-11-06: Latin name art built** (`LOC-005`, `EXP-0060`, D-053): the VS screen's compressed pattern format read in full; `--name-art` builds the nine select names and the nine pilot and sixteen mech VS names (model codes after the names). Two builds identical; only `SELECT.VAD`, `STG0A.BIN` and `PL3F_0.BIN` change; all 34 names show as built from saved states. A first build drew half of each mech name (a part list's end bit); fixed. `LOC-006` (cold-boot play check) is `READY`.
@@ -2425,7 +2426,7 @@ Known so far (facts and their confidence):
 
 ### OPT-001 - The Options screen and its settings
 
-- **Status:** `READY`
+- **Status:** `DONE` (2026-11-06, `EXP-0062`, D-055)
 - **Milestone:** Names switch (`OPT-001`)
 - **Dependencies:** LOC-006.
 - **Blockers:** None.
@@ -2447,6 +2448,26 @@ Known so far (facts and their confidence):
     row noted.
 - **Notes:** From saved states first (no key); a cold boot only for the
   save test, asked first.
+- **Done:** 2026-11-06 (`EXP-0062`, D-055).
+  - **Rows:** `OPDEMO.BIN` at `0x06060000`; C strings printed by
+    `0x0602A82A` (x 6, rows 8-20; `3M RAM MODE` row 22 only with a RAM
+    cart, flag `0x0606BE90`; EXIT row 24); cursor `0x0606BE8C`, wrap at 7
+    or 6; one handler per row in `0x06062704`; each value confirmed by a
+    write seen on screen.
+  - **Settings:** block `0x060D9290`-`9F`, +0-+4 used (difficulty, time
+    limit, short cut, sound, sound test); `3M RAM MODE` is `0x06047ED4`
+    (cart RAM as a load cache; set at start-up; not saved).
+  - **Save:** leaving Options saves `CYBERBOTS01` (256 bytes; the block at
+    +4-19; a 16-bit byte sum at +254). A byte in +5-15 is saved, summed and
+    loaded at boot (states and a cold boot, asked first: "Yes, run it now
+    (Recommended)"); a stale sum gives `WARNING0`; no save and `DATA
+    RESET` give 0. Only start-up code and the save's copy touched +5-15 in
+    the session.
+  - **Room:** labels at y = 8r + 12; a ninth row fits at row 24 with EXIT
+    at row 26 (y 220-226, inside the visible rows 8-231), or the rows move
+    up a row; the menu font has `A`-`Z`, digits, `&`, `-` and lower case;
+    `KEY CONFIG` is a sub-screen model. No hidden row besides `3M RAM
+    MODE`.
 
 ### OPT-002 - Where the katakana art can live and when it goes in
 
@@ -2564,6 +2585,6 @@ and `docs/lessons_from_xvsf.md`.
 | UI-003 | after M8, user request | Other UI text (select, continue, ranking, options): find the arcade English by tracing the arcade code. |
 | TXT-002 | after M8, user request | Rare, random, or region-gated text: trace every reader of every text table. |
 | LOC-001 | after REF-007 | `DONE` (2026-11-06, Phase O: `LOC-001`-`LOC-006` and the gate extension). |
-| OPT-001 | after LOC-001, user decision 2026-11-02 | Phase P (`OPT-001`-`OPT-006`), written up 2026-11-06; `OPT-001`-`OPT-003` `READY`. |
+| OPT-001 | after LOC-001, user decision 2026-11-02 | Phase P (`OPT-001`-`OPT-006`): `OPT-001` `DONE` (2026-11-06); `OPT-002`, `OPT-003` `READY`. |
 | SPECIAL-001 | M9, user approval | Boss and hidden pilots, alternate routes, unlocks. Secondary sources (`docs/references.md`) say the console ports add four pilots (Chiyomaru Kagura, Tessan Hagure, Princess Devilotte, SHADE) with no arcade English, and an Akuma-mech code; their lines need recorded new translations under the user's policy. Size: Saturn lines 899-1850 (952 lines, about half the script) have no arcade counterpart (D-011). Among the arcade pilots' stories only line 258 is Saturn-only (line 34 is dead data); the earlier count of 74 came from REF-006's reader bug (`EXP-0023`). |
 | REL-001 | after M5 | Copy XvSF `make_patch`/`make_ssp` (with the RetroAchievements header guard) and parameterize the source folder, manifest and author; xdelta and SSP; release zips via promoted `make_zips`/`check_zips`. Patches are Release assets only, never committed. |

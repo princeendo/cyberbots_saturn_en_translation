@@ -1135,3 +1135,24 @@ Reproduce: `research/experiments/EXP-0060/README.md`, "Procedure".
 
 Reproduce: `research/experiments/EXP-0061/README.md`, "Procedure" (cold
 boots with presses: ask the user first).
+
+## D-055: The Options screen, its settings block and the game's save (`OPT-001`, `EXP-0062`)
+
+- **Screen:** `OPDEMO.BIN` at `0x06060000`; the menu (state word
+  `0x060CFEE0`, table `0x06067624`) prints C strings with `0x0602A82A`
+  (x cell, row, colour 31/20, string): labels at x 6, rows 8-20, `3M RAM
+  MODE` at row 22 when `0x0606BE90` is set (a RAM cart), `PRESS START TO
+  EXIT` at row 24; text row r is at screenshot y = 8r + 12. Cursor
+  `0x0606BE8C`.
+- **Settings block** `0x060D9290`-`9F` (16 bytes): +0 difficulty, +1 time
+  limit, +2 short cut, +3 sound, +4 sound test; +5-15 unused. Each of
+  +0-+4 shown by a write. `3M RAM MODE` is the long `0x06047ED4`, not
+  saved.
+- **Save** `CYBERBOTS01` (256 bytes): the block at +4-19; the last word is
+  the 16-bit sum of bytes 0-253. Leaving Options saves (`0x06036A58`). A
+  byte set in +5-15 is saved, summed and loaded back at boot (from states
+  and a cold boot); with a stale sum the boot shows `WARNING0`. With no
+  save, and after `DATA RESET`, +5-15 are 0. Only start-up code and the
+  save's copy touched +5-15 in a whole session.
+
+Reproduce: `research/experiments/EXP-0062/README.md`, "Procedure".
