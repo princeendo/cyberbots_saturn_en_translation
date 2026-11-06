@@ -1,0 +1,91 @@
+{
+ "description": "BOOT-003 (EXP-0053): the approved English for the five boot warnings, WARNING0.PIX-WARNING4.PIX. A new translation by Claude (the agent), approved by the user on 2026-11-06 under GATE-TRANSLATION (boot-warnings extension). No official English exists: the arcade has no save memory (its only shared word is the region screen's title 'WARNING'). Terms from the Sega Saturn BIOS (sega_101.bin, mpr-17933.bin; the same files whose screens XvSF's EXP-0055 recorded): 'Memory Manager', 'System Memory', 'Cartridge Memory'; 'control panel' for the BIOS screen (the user's choice). {text} is drawn cyan and [text] red, as the Japanese highlights; an empty line is a half-line gap. The fonts have no parentheses, so the Japanese '(initialize it)' is folded into the sentence.",
+ "translator": "Claude (agent), EXP-0053",
+ "approved": "2026-11-06, the user: \"Approve the drafts (Recommended)\", \"control panel (Recommended)\", \"6, what the game checks\", \"Arcade font, Japanese colours (Recommended)\"",
+ "style": {
+  "font": "arcade dialogue letters (local/layout001/font/arcade_font.json, EXP-0025), not narrowed, 8-pixel advance",
+  "line_pitch": 18,
+  "title": "WARNING",
+  "title_top": 16,
+  "colours": "CYBER.BIN table 0x06053AAC: body white 7/6/5/4, title yellow 12/12/11/10, {} cyan 14/14/13/13, [] red 9/9/8/8, shadow 1, background 15",
+  "layout": "lines centred; the body centred vertically below the title (EXP-0053/render.py)"
+ },
+ "title": "WARNING",
+ "screens": {
+  "WARNING0.PIX": {
+   "when": "the game's save fails its checksum (D-048)",
+   "source_screen_sha256": "1904dbafd01f1209e766c6ec3ce8c5e6e92d159e5ae97df1a71f7f80cd48387c",
+   "lines": [
+    "The saved data could not be read",
+    "correctly.",
+    "",
+    "If you start the game now, your",
+    "earlier data will not be used.",
+    "",
+    "Press any button to start the game."
+   ]
+  },
+  "WARNING1.PIX": {
+   "when": "System Memory unformatted (D-048)",
+   "source_screen_sha256": "3d044f4ea7dd8fcaa1f0b262ae3b6fab3c4c5daea9bf8e8071ebaaea1582e5f0",
+   "lines": [
+    "System Memory is not yet ready to",
+    "save data.",
+    "",
+    "In the Sega Saturn's {Memory Manager},",
+    "clear all data in System Memory to",
+    "initialize it.",
+    "",
+    "Press any button to go to the",
+    "control panel."
+   ]
+  },
+  "WARNING2.PIX": {
+   "when": "a save cartridge, unformatted (D-048)",
+   "source_screen_sha256": "177e54ed19a05eee3820c3f19c859b017261461517615b8a56869928dd493bb2",
+   "lines": [
+    "Cartridge Memory is not yet ready to",
+    "save data.",
+    "",
+    "In the Sega Saturn's {Memory Manager},",
+    "clear all data in Cartridge Memory",
+    "to initialize it.",
+    "",
+    "Press any button to go to the",
+    "control panel."
+   ]
+  },
+  "WARNING3.PIX": {
+   "when": "both unformatted (D-048)",
+   "source_screen_sha256": "27518ac19fee5ece598d6e1c0387ff13c5e4f6606473e8b79b2b41016de87e0d",
+   "lines": [
+    "Neither System Memory nor Cartridge",
+    "Memory is ready to save data yet.",
+    "",
+    "In the Sega Saturn's {Memory Manager},",
+    "clear all data in both to initialize",
+    "them.",
+    "",
+    "Press any button to go to the",
+    "control panel."
+   ]
+  },
+  "WARNING4.PIX": {
+   "when": "no save, and too little free space (D-048)",
+   "source_screen_sha256": "3f358756a65e0f1638ec16be5da6d69945b801c157572109fda60e368743cdf4",
+   "lines": [
+    "If you start the game now, your data",
+    "cannot be saved.",
+    "",
+    "Saving needs [6] blocks of free space.",
+    "In the Sega Saturn's {Memory Manager},",
+    "delete other games' data or copy it",
+    "to Cartridge Memory, then restart",
+    "the game.",
+    "",
+    "Press any button to start the game."
+   ],
+   "fix": "The Japanese says 05; the game needs 6 free blocks (5 still warn, EXP-0051). The user chose the fix: \"6, what the game checks\"."
+  }
+ }
+}

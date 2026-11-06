@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-06: `GATE-TRANSLATION` extended to the boot warnings** (`BOOT-003`, `EXP-0053`): no official English exists, so the agent's translation, with the Saturn BIOS's terms, is approved. The user's words: "Approve the drafts (Recommended)", "control panel (Recommended)", "6, what the game checks" (an opt-in fix of the Japanese 05), "Arcade font, Japanese colours (Recommended)". `BOOT-004` (the build) is `READY`.
 - **2026-11-06: how the boot warnings are drawn** (`BOOT-002`, `EXP-0052`, D-049): each is its own `WARNINGn.PIX`, a whole 512-wide, one-byte-a-pixel bitmap on VDP2 NBG1, drawn with 16 colours from the program (`CYBER.BIN`), not the file; 352 × 224 pixels show. A marked test image (six cold boots, the user: "Yes, run all 6 (Recommended)") changed only each screen's own marker. `BOOT-003` (English and lettering, a gate extension) is `READY`.
 - **2026-11-06: the boot warnings found** (`BOOT-001`, `EXP-0051`, D-048): the game's only boot-time messages are five Japanese pictures, `WARNING0`-`4.PIX`, shown by one save check before the title: a damaged save (`0`), unformatted internal memory (`1`), an unformatted save cart (`2`), both (`3`), and no save with too little free space (`4`, fewer than 6 free blocks). Nine cold boots (the user: "Yes, run all 9 (Recommended)"), each picture on screen and in VRAM byte for byte. `BOOT-002` (storage and drawing) is `READY`.
 - **2026-11-05: `UI-004` tasks written up** (Phase N, the user: "Write up UI-004"): `BOOT-001` (census, code first: the readers of `CYBER.BIN`'s `WARNING*.PIX` table) is `READY`; `BOOT-002` (storage and drawing), `BOOT-003` (English and lettering, a gate extension), `BOOT-004` (build on the M8 image) and `BOOT-005` (verify) follow. Nothing is started.
@@ -1703,8 +1704,8 @@ So `END-023` builds lists 0-5 with the half-cell indent across the ending rows (
 The outline scheduled `UI-004` early after M5, and lesson 5 of
 `docs/lessons_from_xvsf.md` puts it in the first backlog: in both siblings
 the user added boot, cartridge and save warnings mid-project. The user asked
-for these tasks (verbatim, 2026-11-05): "Write up UI-004". `BOOT-001` and
-`BOOT-002` are done (2026-11-06); the rest is not started. The order is:
+for these tasks (verbatim, 2026-11-05): "Write up UI-004". `BOOT-001` to
+`BOOT-003` are done (2026-11-06); the rest is not started. The order is:
 
 1. `BOOT-001` (census: which message shows under which condition);
 2. `BOOT-002` (where each message is stored and how it is drawn);
@@ -1865,7 +1866,7 @@ Known so far (facts and their confidence):
 
 ### BOOT-003 - English text and lettering (gate extension)
 
-- **Status:** `READY`
+- **Status:** `DONE` (2026-11-06, `EXP-0053`)
 - **Milestone:** Boot-time messages (`UI-004`)
 - **Dependencies:** BOOT-001, BOOT-002.
 - **Blockers:** None.
@@ -1890,10 +1891,52 @@ Known so far (facts and their confidence):
     that sibling's.
   - **Style:** the user also chooses the lettering (for a picture: font,
     size and colours) from rendered samples.
+- **Done:** 2026-11-06 (`EXP-0053`).
+  - **Official English:** none. The arcade has no cartridge or save
+    message; its only shared word is its region screen's title, "WARNING".
+    Both Saturn BIOS files (the same as XvSF's, whose screens it recorded)
+    give "Manage Memory", "Memory Manager", "System Memory", "Cartridge",
+    "Clear", "Not Formatted".
+  - **New translation:** by Claude (the agent), every screen within the
+    room (widest line 288 px, lowest row 207), with the source screens'
+    hashes, in `data/translations/boot_warnings.json`.
+  - **Decision:** recorded below and in `docs/localization_policy.md`.
+  - **Style:** the arcade font in the Japanese colours, from rendered
+    sheets.
+
+### GATE-TRANSLATION extension for the boot warnings
+
+- **Status:** `DONE` (2026-11-06)
+- **Scope:** the five boot warnings, `WARNING0`-`4.PIX` (D-048, D-049).
+- **Asked** (2026-11-06), after the sheets were sent (the Japanese beside
+  the draft English in the arcade font; the same drafts in `FIX.BIN`'s
+  font), and the user's answers, verbatim:
+  - "The five boot warnings have no official English, so the English is a
+    new translation by Claude (the agent), as your policy allows with your
+    approval. The drafts in the sheet I just sent follow the Japanese
+    closely, using the Saturn BIOS's own names ("Memory Manager", "System
+    Memory", "Cartridge Memory") and the arcade's title word "WARNING". Do
+    you approve the draft wording?" → "Approve the drafts (Recommended)"
+  - "Three of the warnings (unformatted memory) end with "press any button
+    to go to the multiplayer screen": the Japanese name for the Saturn's
+    built-in screen you get with no game running (CD player, Manage
+    Memory). XvSF's user chose "control panel" for the same screen. What
+    should the English call it?" → "control panel (Recommended)"
+  - "The out-of-space warning says this game needs "05" blocks free. But
+    the game actually checks for a bit more: with exactly 5 free blocks it
+    still shows the warning; 6 is the real minimum (measured in BOOT-001).
+    Your policy makes fixes opt-in. Which number should the English show?"
+    → "6, what the game checks"
+  - "Which lettering for the English warning pictures? (Sheets sent just
+    now.)" → "Arcade font, Japanese colours (Recommended)"
+
+So `BOOT-004` builds the five pictures from `data/translations/
+boot_warnings.json` in the arcade letters and the Japanese colours. It is
+`READY`.
 
 ### BOOT-004 - Build the English messages
 
-- **Status:** `BACKLOG`
+- **Status:** `READY`
 - **Milestone:** Boot-time messages (`UI-004`)
 - **Dependencies:** BOOT-002, BOOT-003, END-023 (done).
 - **Blockers:** None.
@@ -1951,7 +1994,7 @@ and `docs/lessons_from_xvsf.md`.
 | --- | --- | --- |
 | END-010 | M7 | `DONE` (2026-11-05, Phase L); follow-up `END-011` (`BACKLOG`). |
 | END-020 | M8 | `DONE` (2026-11-05, Phase M: `END-020`-`END-023`, with `END-011`); M8 confirmed. |
-| UI-004 | after M5, early | Phase N (`BOOT-001`-`BOOT-005`): `BOOT-001`, `BOOT-002` `DONE` (2026-11-06); `BOOT-003` `READY`. |
+| UI-004 | after M5, early | Phase N (`BOOT-001`-`BOOT-005`): `BOOT-001`-`BOOT-003` and the gate extension `DONE` (2026-11-06); `BOOT-004` `READY`. |
 | UI-001 | after M8, user request | UI art: inventory English art already in every font before drawing anything. |
 | UI-002 | after M8, user request | Attract and opening text (`OPDEMO*`, `STDEM*.PIR`, `VADEM*.MAC`, `STDEMO.*` are candidates): layer, container, codecs, oracles. |
 | UI-003 | after M8, user request | Other UI text (select, continue, ranking, options): find the arcade English by tracing the arcade code. |

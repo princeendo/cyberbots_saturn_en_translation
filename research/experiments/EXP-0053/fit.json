@@ -1,0 +1,46 @@
+{
+ "font": "arcade",
+ "line_pitch": 18,
+ "screens": {
+  "WARNING0.PIX": {
+   "lines": 5,
+   "widest_line_px": 280,
+   "last_row_used": 180,
+   "text_bottom_px": 183,
+   "fits": true,
+   "missing_characters": []
+  },
+  "WARNING1.PIX": {
+   "lines": 7,
+   "widest_line_px": 288,
+   "last_row_used": 198,
+   "text_bottom_px": 201,
+   "fits": true,
+   "missing_characters": []
+  },
+  "WARNING2.PIX": {
+   "lines": 7,
+   "widest_line_px": 288,
+   "last_row_used": 198,
+   "text_bottom_px": 201,
+   "fits": true,
+   "missing_characters": []
+  },
+  "WARNING3.PIX": {
+   "lines": 7,
+   "widest_line_px": 288,
+   "last_row_used": 198,
+   "text_bottom_px": 201,
+   "fits": true,
+   "missing_characters": []
+  },
+  "WARNING4.PIX": {
+   "lines": 8,
+   "widest_line_px": 288,
+   "last_row_used": 207,
+   "text_bottom_px": 210,
+   "fits": true,
+   "missing_characters": []
+  }
+ }
+}

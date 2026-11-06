@@ -2353,3 +2353,26 @@ Corrected (do not retry):
   `edge.py`). XvSF found the same edge late (its `EXP-0056`).
 
 Checks: ruff, ruff format, mypy on `EXP-0052`'s scripts; pytest (below).
+
+## 2026-11-06 — BOOT-003: English for the boot warnings (EXP-0053)
+
+User request (verbatim): "Start BOOT-003". No emulator run.
+
+- Official English: none. The arcade has no save message (only its region
+  screen's title "WARNING"); the BIOS files give "Memory Manager",
+  "Manage Memory", "Cartridge", "Clear", "Not Formatted". XvSF's screens of
+  the same BIOS files add "System Memory".
+- Drafts by the agent, rendered in the arcade letters and in `FIX.BIN`'s;
+  sheets sent to the user.
+- Decisions, verbatim: "Approve the drafts (Recommended)", "control panel
+  (Recommended)", "6, what the game checks", "Arcade font, Japanese colours
+  (Recommended)". Recorded in `TASKS.md` and the policy;
+  `data/translations/boot_warnings.json` holds the approved text.
+
+Notes (do not retry):
+- A first wrap at 27 characters overflowed two screens in the arcade font;
+  38 characters fit everything.
+- `FIX.BIN` draws comma and apostrophe as dots.
+- The arcade font has no parentheses.
+
+Checks: ruff, ruff format and mypy on `EXP-0053/render.py`; pytest.

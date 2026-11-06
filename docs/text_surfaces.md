@@ -99,11 +99,11 @@ known yet (`BOOT-003`). Screenshots: `local/boot001/<case>/w01457.png`.
 
 | Picture | When shown | Text on the Saturn | Arcade English | Sample (SHA-256) |
 | --- | --- | --- | --- | --- |
-| `WARNING0` | The save fails the game's checksum | **Japanese** picture: the records could not be read | Not looked for yet (`BOOT-003`) | `damaged/w01457.png` (`1904dbaf…`) |
-| `WARNING1` | Internal backup memory unformatted | **Japanese** picture: system RAM not ready | Not looked for yet | `zero/w01457.png` (`3d044f4e…`) |
-| `WARNING2` | Save cart unformatted | **Japanese** picture: cartridge RAM not ready | Not looked for yet | `cart-zero/w01457.png` (`177e54ed…`) |
-| `WARNING3` | Both unformatted | **Japanese** picture: neither ready | Not looked for yet | `both-zero/w01457.png` (`27518ac1…`) |
-| `WARNING4` | No save and too little free space | **Japanese** picture: records cannot be saved | Not looked for yet | `free4/w01457.png` (`3f358756…`) |
+| `WARNING0` | The save fails the game's checksum | **Japanese** picture: the records could not be read | None (`BOOT-003`): a new translation, approved | `damaged/w01457.png` (`1904dbaf…`) |
+| `WARNING1` | Internal backup memory unformatted | **Japanese** picture: system RAM not ready | None | `zero/w01457.png` (`3d044f4e…`) |
+| `WARNING2` | Save cart unformatted | **Japanese** picture: cartridge RAM not ready | None | `cart-zero/w01457.png` (`177e54ed…`) |
+| `WARNING3` | Both unformatted | **Japanese** picture: neither ready | None | `both-zero/w01457.png` (`27518ac1…`) |
+| `WARNING4` | No save and too little free space | **Japanese** picture: records cannot be saved | None | `free4/w01457.png` (`3f358756…`) |
 
 ## Not Seen Yet
 
