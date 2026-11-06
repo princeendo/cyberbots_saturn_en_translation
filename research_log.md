@@ -2297,3 +2297,36 @@ emulator.
   - No `ERR*.BIN` on the disc.
 - D-003 tested boot and attract only, so `BOOT-001` starts from the code
   (the readers of that table) rather than from cart settings.
+
+## 2026-11-06 — BOOT-001: the boot warnings and their conditions (EXP-0051)
+
+User request (verbatim): "Start BOOT-001". Nine cold boots, asked first
+("Yes, run all 9 (Recommended)"); no key pressed. Button tests from saved
+states only.
+
+- Static first: `CYBER.BIN` (resident at `0x0600D000`) holds the
+  `WARNINGn.PIX` pointer table at `0x06053ACC`; the picture routine
+  `0x06036DA8` has three `bsr` callers, all in the save check
+  `0x06036C3E`, which the start-up code calls once.
+- Each of the five pictures came up under its predicted condition (D-048):
+  damaged save `0`, unformatted internal `1`, unformatted cart `2`, both
+  `3`, no save and too little room `4`. VRAM at `0x20000` equals the file
+  each time.
+- Statuses observed: 0 ready, 1 not connected, 2 unformatted.
+- Free space: 5 free blocks still warn (BIOS free size 260 < 0x120).
+
+Corrected or failed (do not retry):
+- **A first static note had `WARNING4` call the BIOS like `1`-`3`.** Its
+  screen says the game starts, and it has its own wait loop
+  (`0x06036CD6`).
+- **Predicted `WARNING3` then `1` then `2` when both are unformatted.**
+  Only `3` shows: the wait never returns.
+- **A button by RAM write does not work here.** Halting at the pad read
+  (`mov.w @(8,Rn)`, Rn `0x060CC00E`) and writing `0100` to `0x060CC016`
+  changed nothing on three screens; probably the SH-2 reads that word from
+  its cache. The agent has no register write or cache space. Use a real
+  press (`BOOT-005`), or halt earlier where the line is not cached.
+- `mcs_extract --out-dir` also writes `manifest.json` and `preview.png`;
+  pick `wram_h.bin` by name.
+
+Checks: ruff, ruff format and mypy on `EXP-0051`'s scripts (below).

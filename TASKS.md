@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-06: the boot warnings found** (`BOOT-001`, `EXP-0051`, D-048): the game's only boot-time messages are five Japanese pictures, `WARNING0`-`4.PIX`, shown by one save check before the title: a damaged save (`0`), unformatted internal memory (`1`), an unformatted save cart (`2`), both (`3`), and no save with too little free space (`4`, fewer than 6 free blocks). Nine cold boots (the user: "Yes, run all 9 (Recommended)"), each picture on screen and in VRAM byte for byte. `BOOT-002` (storage and drawing) is `READY`.
 - **2026-11-05: `UI-004` tasks written up** (Phase N, the user: "Write up UI-004"): `BOOT-001` (census, code first: the readers of `CYBER.BIN`'s `WARNING*.PIX` table) is `READY`; `BOOT-002` (storage and drawing), `BOOT-003` (English and lettering, a gate extension), `BOOT-004` (build on the M8 image) and `BOOT-005` (verify) follow. Nothing is started.
 - **2026-11-05: `GATE-TRANSLATION` extended to the roster endings.** The user's words: "GO (Recommended)", "Indent, as the story (Recommended)", "Bao Mao: (Recommended)" and "Accept the rule (Recommended)". `END-023` (the M8 image) is `READY`.
 - **2026-11-05: capacity of the roster endings measured** (`END-022`, `EXP-0049`, D-046): all six endings' English fits. With the half-cell indent the 330 pairs fit the 335 free codes, and nothing Japanese is touched. Room: the roster's own lines plus about 750 bytes of never-shown lines. Lists 6-8 show only their posted boxes. Next: the gate extension for the roster endings (the user's GO).
@@ -1701,8 +1702,8 @@ So `END-023` builds lists 0-5 with the half-cell indent across the ending rows (
 The outline scheduled `UI-004` early after M5, and lesson 5 of
 `docs/lessons_from_xvsf.md` puts it in the first backlog: in both siblings
 the user added boot, cartridge and save warnings mid-project. The user asked
-for these tasks (verbatim, 2026-11-05): "Write up UI-004". Nothing in this
-phase is started. The order is:
+for these tasks (verbatim, 2026-11-05): "Write up UI-004". `BOOT-001` is
+done (2026-11-06); the rest is not started. The order is:
 
 1. `BOOT-001` (census: which message shows under which condition);
 2. `BOOT-002` (where each message is stored and how it is drawn);
@@ -1756,7 +1757,7 @@ Known so far (facts and their confidence):
 
 ### BOOT-001 - Census of the boot-time messages
 
-- **Status:** `READY`
+- **Status:** `DONE` (2026-11-06, `EXP-0051`, D-048)
 - **Milestone:** Boot-time messages (`UI-004`)
 - **Dependencies:** EMU-004, EMU-021 (done).
 - **Blockers:** None.
@@ -1791,10 +1792,35 @@ Known so far (facts and their confidence):
 - **Notes:** if the code reads no `WARNING` file in any reachable path,
   record that with the evidence and stop the phase there (the user
   decides). Method: XvSF `BOOT-001` (`EXP-0053`).
+- **Done:** 2026-11-06 (`EXP-0051`, D-048).
+  - **Code first:** one save check (`0x06036C3E`), called once by the
+    start-up code before the title; the picture routine `0x06036DA8` has
+    three callers, all in it. Its tests: the BIOS backup status of the
+    internal memory and of a cart, the save's checksum (or read failure),
+    and the free space where no save exists.
+  - **Triggers:** nine cold boots of the untouched image, one fixture each
+    (hashes in `EXP-0051`). Asked: "BOOT-001 needs cold boots of the
+    untouched image, one per backup-memory condition, because the game
+    checks its save only once at power-on. Planned: 9 boots, one at a time,
+    in throwaway copies of the silent home: a normal save (control);
+    unformatted memory; 4, 5 and 6 blocks free; a damaged save; then a save
+    cartridge (normal, unformatted, and unformatted with unformatted
+    internal memory). No key presses. Each opens a Mednafen window for
+    about a minute; about 15 minutes in all. May I run them now?" The
+    user's answer, verbatim: "Yes, run all 9 (Recommended)".
+  - **Screens:** five, one per picture, each captured with its file in VDP2
+    VRAM byte for byte; transcribed and translated by the agent (kept
+    locally). No BIOS screen came up. `WARNING1`-`3` lead to the BIOS on a
+    button, `WARNING0` and `WARNING4` let the game start: SUPPORTED by the
+    code and the screens' words. A RAM-written button was not seen by the
+    CPU (probably its cache), so a real press is left to `BOOT-005`.
+  - **Unreachable:** a read failure of an intact save and internal status 1;
+    both show pictures already captured, so no branch needed forcing.
+  - **Record:** `docs/text_surfaces.md`, "Boot-Time Warnings".
 
 ### BOOT-002 - Where each message is stored and how it is drawn
 
-- **Status:** `BACKLOG`
+- **Status:** `READY`
 - **Milestone:** Boot-time messages (`UI-004`)
 - **Dependencies:** BOOT-001.
 - **Blockers:** None.
@@ -1903,7 +1929,7 @@ and `docs/lessons_from_xvsf.md`.
 | --- | --- | --- |
 | END-010 | M7 | `DONE` (2026-11-05, Phase L); follow-up `END-011` (`BACKLOG`). |
 | END-020 | M8 | `DONE` (2026-11-05, Phase M: `END-020`-`END-023`, with `END-011`); M8 confirmed. |
-| UI-004 | after M5, early | Written up 2026-11-05: Phase N (`BOOT-001`-`BOOT-005`); `BOOT-001` is `READY`, nothing started. |
+| UI-004 | after M5, early | Phase N (`BOOT-001`-`BOOT-005`): `BOOT-001` `DONE` (2026-11-06); `BOOT-002` `READY`. |
 | UI-001 | after M8, user request | UI art: inventory English art already in every font before drawing anything. |
 | UI-002 | after M8, user request | Attract and opening text (`OPDEMO*`, `STDEM*.PIR`, `VADEM*.MAC`, `STDEMO.*` are candidates): layer, container, codecs, oracles. |
 | UI-003 | after M8, user request | Other UI text (select, continue, ranking, options): find the arcade English by tracing the arcade code. |

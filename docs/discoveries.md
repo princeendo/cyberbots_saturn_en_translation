@@ -984,3 +984,37 @@ Reproduce: `research/experiments/EXP-0049/README.md`, "Procedure".
   `0x8140`. Typing spends its interval on both.
 
 Reproduce: `research/experiments/EXP-0050/README.md`, "Procedure".
+
+## D-048: The five boot warnings, the save check that shows them, and its conditions (`BOOT-001`, `EXP-0051`)
+
+- **One save check, once, before the title.** The start-up code
+  (`0x060169D4`) calls `0x06036C3E` at about frame 1,370 of a cold boot.
+  No other code shows a warning: the picture routine `0x06036DA8` has only
+  the three `bsr` callers below, and no file holds its address.
+- **Status.** `0x060367F4` starts the BIOS backup library and stores the
+  status of the internal memory (`0x060DBA94`) and of a cart
+  (`0x060DBA98`): observed 0 ready, 1 not connected (no save cart), 2
+  unformatted.
+- **Which picture** (`0x06036DA8` loads `WARNINGn.PIX`, n = R4, raw to
+  VDP2 VRAM `0x20000`; each capture's VRAM there equals its file byte for
+  byte):
+
+  | Picture | Condition (cold boot, untouched image) | Meaning (agent's paraphrase) | After a button (SUPPORTED) |
+  | --- | --- | --- | --- |
+  | `WARNING0` | the game's save fails its checksum (one data byte inverted) | the records could not be read; the old data will not be used | the game starts |
+  | `WARNING1` | internal memory unformatted (status 2) | system RAM is not ready; initialize it in the Saturn's data screen | the multiplayer (BIOS) screen |
+  | `WARNING2` | a save cart, unformatted (status 2) | cartridge RAM is not ready; initialize it | the multiplayer (BIOS) screen |
+  | `WARNING3` | both unformatted | neither is ready; initialize both | the multiplayer (BIOS) screen |
+  | `WARNING4` | no save, and less than 0x120 bytes free by the BIOS's count on every device (4 or 5 blocks free: 202 or 260 bytes) | records cannot be saved; free space or copy saves to a cart, then restart | the game starts (without saving) |
+
+  With 6 blocks free, a normal save, or a normal save cart there is no
+  warning. `WARNING1`-`3` wait forever in `0x06036754`, so only the first
+  one met is shown (both unformatted shows `WARNING3` only).
+- **Not producible here:** a read failure of an intact save (10 tries) also
+  leads to `WARNING0`; internal status 1 cannot be made in Mednafen. Both
+  use pictures already shown.
+- **Buttons** are SUPPORTED only (code and the screens' own words): a pad
+  word written in RAM at the read was not seen by the CPU, probably because
+  it reads the word from its cache. `BOOT-005`'s cold boots press one.
+
+Reproduce: `research/experiments/EXP-0051/README.md`, "Procedure".

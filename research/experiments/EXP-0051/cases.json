@@ -1,0 +1,337 @@
+{
+ "cases": [
+  {
+   "case": "control",
+   "cart": "auto",
+   "bkr_sha256": "050d517b921328efe570ab5b99a14c7edc82a6df310520a14707e84e8d67221d",
+   "bcr_sha256": null,
+   "first_frame": 1,
+   "sequence": [
+    "1369 check (find save) R4=00000000",
+    "1369 BUP init and status R4=00000000",
+    "1372 read save R4=060DBA9D",
+    "1372 BUP init and status R4=060DBA9D",
+    "1375 save accepted R4=060DBAA0"
+   ],
+   "warnings": [],
+   "status_internal": 0,
+   "status_cart": 1,
+   "save_found_flags": 1,
+   "room_flags": 0,
+   "captures": [],
+   "sav_after": {
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.bkr": {
+     "bytes": 32768,
+     "sha256": "050d517b921328efe570ab5b99a14c7edc82a6df310520a14707e84e8d67221d"
+    },
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.smpc": {
+     "bytes": 12,
+     "sha256": "7305a66f0a47b8217ac554acd90f85446bea7942e5c7c570c8b1e305e3deea2d"
+    }
+   }
+  },
+  {
+   "case": "damaged",
+   "cart": "auto",
+   "bkr_sha256": "8db23429b3e149a5d6f380027585c07b45ef950ca8e820907e420c82d3af7108",
+   "bcr_sha256": null,
+   "first_frame": 1,
+   "sequence": [
+    "1369 check (find save) R4=00000000",
+    "1369 BUP init and status R4=00000000",
+    "1372 read save R4=060DBA9D",
+    "1372 BUP init and status R4=060DBA9D",
+    "1375 warning 0 call R4=060DBAA0",
+    "1375 warning picture (R4 = index) R4=00000000"
+   ],
+   "warnings": [
+    0
+   ],
+   "status_internal": 0,
+   "status_cart": 1,
+   "save_found_flags": 1,
+   "room_flags": 0,
+   "captures": [
+    {
+     "frame": 1457,
+     "png": "w01457.png",
+     "vdp2": "vdp2_01457.bin",
+     "state": "s01457.mcs",
+     "png_sha256": "1904dbafd01f1209e766c6ec3ce8c5e6e92d159e5ae97df1a71f7f80cd48387c"
+    }
+   ],
+   "sav_after": {
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.bkr": {
+     "bytes": 32768,
+     "sha256": "8db23429b3e149a5d6f380027585c07b45ef950ca8e820907e420c82d3af7108"
+    },
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.smpc": {
+     "bytes": 12,
+     "sha256": "f6b90751bd9203c356662a6f29ce64f4d93deb2dc94c96ecd4c37b20d5620fae"
+    }
+   }
+  },
+  {
+   "case": "zero",
+   "cart": "auto",
+   "bkr_sha256": "c35020473aed1b4642cd726cad727b63fff2824ad68cedd7ffb73c7cbd890479",
+   "bcr_sha256": null,
+   "first_frame": 1,
+   "sequence": [
+    "1369 check (find save) R4=00000000",
+    "1369 BUP init and status R4=00000000",
+    "1372 warning, wait (any key: BIOS) R4=00000001",
+    "1372 warning picture (R4 = index) R4=00000001"
+   ],
+   "warnings": [
+    1
+   ],
+   "status_internal": 2,
+   "status_cart": 1,
+   "save_found_flags": 0,
+   "room_flags": 0,
+   "captures": [
+    {
+     "frame": 1457,
+     "png": "w01457.png",
+     "vdp2": "vdp2_01457.bin",
+     "state": "s01457.mcs",
+     "png_sha256": "3d044f4ea7dd8fcaa1f0b262ae3b6fab3c4c5daea9bf8e8071ebaaea1582e5f0"
+    }
+   ],
+   "sav_after": {
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.bkr": {
+     "bytes": 32768,
+     "sha256": "c35020473aed1b4642cd726cad727b63fff2824ad68cedd7ffb73c7cbd890479"
+    },
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.smpc": {
+     "bytes": 12,
+     "sha256": "5364684b0b9dab65072b6dec6739d2f56716946a0801fb9ff0076aa268f4aa63"
+    }
+   }
+  },
+  {
+   "case": "cart-zero",
+   "cart": "backup",
+   "bkr_sha256": "050d517b921328efe570ab5b99a14c7edc82a6df310520a14707e84e8d67221d",
+   "bcr_sha256": "a484aacc8eb1d497b725c046a769db5343ed86b50acd6a42a574bbdd23036497",
+   "first_frame": 1,
+   "sequence": [
+    "1369 check (find save) R4=00000000",
+    "1369 BUP init and status R4=00000000",
+    "1372 warning, wait (any key: BIOS) R4=00000002",
+    "1372 warning picture (R4 = index) R4=00000002"
+   ],
+   "warnings": [
+    2
+   ],
+   "status_internal": 0,
+   "status_cart": 2,
+   "save_found_flags": 0,
+   "room_flags": 0,
+   "captures": [
+    {
+     "frame": 1457,
+     "png": "w01457.png",
+     "vdp2": "vdp2_01457.bin",
+     "state": "s01457.mcs",
+     "png_sha256": "177e54ed19a05eee3820c3f19c859b017261461517615b8a56869928dd493bb2"
+    }
+   ],
+   "sav_after": {
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.bcr": {
+     "bytes": 543,
+     "sha256": "8ce3a7a691a1b5fb96beece58273c6c38ac88cccc7e177c3176ddc55ec95735e"
+    },
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.bkr": {
+     "bytes": 32768,
+     "sha256": "050d517b921328efe570ab5b99a14c7edc82a6df310520a14707e84e8d67221d"
+    },
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.smpc": {
+     "bytes": 12,
+     "sha256": "4eb35cbd91681bbd3fc8871da207459e3e6b784cd99bf219616c9da190aa37f3"
+    }
+   }
+  },
+  {
+   "case": "both-zero",
+   "cart": "backup",
+   "bkr_sha256": "c35020473aed1b4642cd726cad727b63fff2824ad68cedd7ffb73c7cbd890479",
+   "bcr_sha256": "a484aacc8eb1d497b725c046a769db5343ed86b50acd6a42a574bbdd23036497",
+   "first_frame": 1,
+   "sequence": [
+    "1369 check (find save) R4=00000000",
+    "1369 BUP init and status R4=00000000",
+    "1372 warning, wait (any key: BIOS) R4=00000003",
+    "1372 warning picture (R4 = index) R4=00000003"
+   ],
+   "warnings": [
+    3
+   ],
+   "status_internal": 2,
+   "status_cart": 2,
+   "save_found_flags": 0,
+   "room_flags": 0,
+   "captures": [
+    {
+     "frame": 1457,
+     "png": "w01457.png",
+     "vdp2": "vdp2_01457.bin",
+     "state": "s01457.mcs",
+     "png_sha256": "27518ac19fee5ece598d6e1c0387ff13c5e4f6606473e8b79b2b41016de87e0d"
+    }
+   ],
+   "sav_after": {
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.bcr": {
+     "bytes": 543,
+     "sha256": "8ce3a7a691a1b5fb96beece58273c6c38ac88cccc7e177c3176ddc55ec95735e"
+    },
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.bkr": {
+     "bytes": 32768,
+     "sha256": "c35020473aed1b4642cd726cad727b63fff2824ad68cedd7ffb73c7cbd890479"
+    },
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.smpc": {
+     "bytes": 12,
+     "sha256": "9496fce29d318c8798849d25393dd097816a50476c04d30c73e507fb8fa4129f"
+    }
+   }
+  },
+  {
+   "case": "free4",
+   "cart": "auto",
+   "bkr_sha256": "b385ae5f196987f715740c435655eedaaa8ea95415b02d3960013b0427d30a5f",
+   "bcr_sha256": null,
+   "first_frame": 1,
+   "sequence": [
+    "1369 check (find save) R4=00000000",
+    "1369 BUP init and status R4=00000000",
+    "1372 warning picture (R4 = index) R4=00000004"
+   ],
+   "warnings": [
+    4
+   ],
+   "status_internal": 0,
+   "status_cart": 1,
+   "save_found_flags": 0,
+   "room_flags": 0,
+   "captures": [
+    {
+     "frame": 1457,
+     "png": "w01457.png",
+     "vdp2": "vdp2_01457.bin",
+     "state": "s01457.mcs",
+     "png_sha256": "3f358756a65e0f1638ec16be5da6d69945b801c157572109fda60e368743cdf4"
+    }
+   ],
+   "sav_after": {
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.bkr": {
+     "bytes": 32768,
+     "sha256": "b385ae5f196987f715740c435655eedaaa8ea95415b02d3960013b0427d30a5f"
+    },
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.smpc": {
+     "bytes": 12,
+     "sha256": "958c773b9176abfcc5b1bb69d1991c41ff79727bcf35df2c90ec7e8ff03fc1c6"
+    }
+   }
+  },
+  {
+   "case": "free5",
+   "cart": "auto",
+   "bkr_sha256": "2b0c29b40e475ff244f7992accd0843a790c6b23b313c3c047b6342bd31b6179",
+   "bcr_sha256": null,
+   "first_frame": 1,
+   "sequence": [
+    "1369 check (find save) R4=00000000",
+    "1369 BUP init and status R4=00000000",
+    "1372 warning picture (R4 = index) R4=00000004"
+   ],
+   "warnings": [
+    4
+   ],
+   "status_internal": 0,
+   "status_cart": 1,
+   "save_found_flags": 0,
+   "room_flags": 0,
+   "captures": [
+    {
+     "frame": 1457,
+     "png": "w01457.png",
+     "vdp2": "vdp2_01457.bin",
+     "state": "s01457.mcs",
+     "png_sha256": "3f358756a65e0f1638ec16be5da6d69945b801c157572109fda60e368743cdf4"
+    }
+   ],
+   "sav_after": {
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.bkr": {
+     "bytes": 32768,
+     "sha256": "2b0c29b40e475ff244f7992accd0843a790c6b23b313c3c047b6342bd31b6179"
+    },
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.smpc": {
+     "bytes": 12,
+     "sha256": "6d2fb2df165d1e2806708ce2dd67d77fb068267f624a8b2b5d01e0b0aececc5e"
+    }
+   }
+  },
+  {
+   "case": "free6",
+   "cart": "auto",
+   "bkr_sha256": "d5a863ccecfb9a605bfa5d2e5d43af980861ffdbe5e846177f1cc5ee6ea5123b",
+   "bcr_sha256": null,
+   "first_frame": 1,
+   "sequence": [
+    "1369 check (find save) R4=00000000",
+    "1369 BUP init and status R4=00000000"
+   ],
+   "warnings": [],
+   "status_internal": 0,
+   "status_cart": 1,
+   "save_found_flags": 0,
+   "room_flags": 1,
+   "captures": [],
+   "sav_after": {
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.bkr": {
+     "bytes": 32768,
+     "sha256": "d5a863ccecfb9a605bfa5d2e5d43af980861ffdbe5e846177f1cc5ee6ea5123b"
+    },
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.smpc": {
+     "bytes": 12,
+     "sha256": "1f2650119b07e23ca8f1e15e306247ed07efefc6122e957d8a3d3a51dfd9315b"
+    }
+   }
+  },
+  {
+   "case": "cart",
+   "cart": "backup",
+   "bkr_sha256": "050d517b921328efe570ab5b99a14c7edc82a6df310520a14707e84e8d67221d",
+   "bcr_sha256": null,
+   "first_frame": 1,
+   "sequence": [
+    "1369 check (find save) R4=00000000",
+    "1369 BUP init and status R4=00000000",
+    "1373 read save R4=060DBA9D",
+    "1373 BUP init and status R4=060DBA9D",
+    "1376 save accepted R4=060DBAA0"
+   ],
+   "warnings": [],
+   "status_internal": 0,
+   "status_cart": 0,
+   "save_found_flags": 1,
+   "room_flags": 0,
+   "captures": [],
+   "sav_after": {
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.bcr": {
+     "bytes": 570,
+     "sha256": "858c34ae275d240b965bedc88b76ad6064f079385b5d5ebaa7fe1864fb8d305e"
+    },
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.bkr": {
+     "bytes": 32768,
+     "sha256": "050d517b921328efe570ab5b99a14c7edc82a6df310520a14707e84e8d67221d"
+    },
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.smpc": {
+     "bytes": 12,
+     "sha256": "e2f8b785460e0bbd64aff2fd86d032949652a4e8cea712277137ea2b84cf8a8c"
+    }
+   }
+  }
+ ]
+}

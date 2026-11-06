@@ -91,6 +91,20 @@ notice (D-035, D-040, D-041).
 The arcade (`cybotsu`) shows the same kinds in English, with the Latin-only
 cast roll and no QSound notice in the ending.
 
+## Boot-Time Warnings (`BOOT-001`, D-048)
+
+Shown once, before the title, only under the backup-memory condition given.
+Each is a whole Japanese picture (`WARNINGn.PIX`) with no official English
+known yet (`BOOT-003`). Screenshots: `local/boot001/<case>/w01457.png`.
+
+| Picture | When shown | Text on the Saturn | Arcade English | Sample (SHA-256) |
+| --- | --- | --- | --- | --- |
+| `WARNING0` | The save fails the game's checksum | **Japanese** picture: the records could not be read | Not looked for yet (`BOOT-003`) | `damaged/w01457.png` (`1904dbaf…`) |
+| `WARNING1` | Internal backup memory unformatted | **Japanese** picture: system RAM not ready | Not looked for yet | `zero/w01457.png` (`3d044f4e…`) |
+| `WARNING2` | Save cart unformatted | **Japanese** picture: cartridge RAM not ready | Not looked for yet | `cart-zero/w01457.png` (`177e54ed…`) |
+| `WARNING3` | Both unformatted | **Japanese** picture: neither ready | Not looked for yet | `both-zero/w01457.png` (`27518ac1…`) |
+| `WARNING4` | No save and too little free space | **Japanese** picture: records cannot be saved | Not looked for yet | `free4/w01457.png` (`3f358756…`) |
+
 ## Not Seen Yet
 
 Each needs its own capture before it can be ruled in or out.
@@ -99,7 +113,6 @@ Each needs its own capture before it can be ruled in or out.
 | --- | --- | --- |
 | Console-only pilots' stories | Four pilots added on consoles | Saturn lines from 1141 on name Chiyomaru and Tessan (D-011) |
 | `KEY CONFIG`, `SOUND TEST`, `DATA RESET` sub-screens | Option rows | — |
-| Boot, cart and save warnings | `WARNING0`-`4.PIX` on the disc | `UI-004` |
 | Attract or opening text not in the first two minutes | `OPDEMO*`, `STDEM*`, `VADEM*` files | `UI-002` |
 | A second route through the same pilot, other pilots' scenes | The arcade script branches by pilot | `RE-002` |
 
