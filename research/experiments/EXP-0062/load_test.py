@@ -3,7 +3,7 @@
 Run from the repository root:
 
     ./invenv.sh python research/experiments/EXP-0062/load_test.py OUT BKR \\
-        [--set OFFSET=HEX ...] [--fix-sum]
+        [--set OFFSET=HEX ...] [--fix-sum] [--cue CUE]
 
 Session state 384 is before the boot save check (``0x06036C3E``, about
 frame 1,370, D-048). In a scratch copy of the silent home, the state is
@@ -69,6 +69,7 @@ def main() -> int:
     parser.add_argument("bkr", type=Path)
     parser.add_argument("--set", action="append", default=[])
     parser.add_argument("--fix-sum", action="store_true")
+    parser.add_argument("--cue", type=Path, default=save_test.UNTOUCHED)
     args = parser.parse_args()
     out: Path = args.out
     out.mkdir(parents=True, exist_ok=False)
@@ -90,7 +91,7 @@ def main() -> int:
     }
     with (out / "mednafen.log").open("wb") as log:
         process = subprocess.Popen(
-            [str(save_test.BINARY), str(save_test.UNTOUCHED)],
+            [str(save_test.BINARY), str(args.cue)],
             env=env,
             stdout=log,
             stderr=subprocess.STDOUT,

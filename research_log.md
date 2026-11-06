@@ -2736,3 +2736,31 @@ saved in the settings block's spare byte; the katakana in new files in
 Track 01's tail; whether SSP can carry that is checked in `REL-002`. The
 user picked the sub-menu over the recommended 9th row; the entry row then
 took the recommended "Rows up one line". `OPT-005` (build) is `READY`.
+
+## 2026-11-06 — OPT-005: the names switch built (EXP-0065)
+
+User request (verbatim): "Start OPT-005", then "Please continue on when
+ready." One question: the layout ("Title and rows up two lines
+(Recommended)"), after the design review showed that "Rows up one line"
+frees only one line; the earlier "4 pixels" figure was corrected in the
+question (13 pixels).
+
+- A background workflow built `tools/disc/add_files.py` and designed the
+  menu patches and the load hooks, each checked by an independent reviewer
+  (the menu's cursor code on an SH-2 interpreter, 204 cases). The review
+  found D-056's "binary search" wrong: the search is linear to an end flag
+  (D-056 and EXP-0063 corrected).
+- `tools/text/names_switch.py` and `--names-switch`: 740 bytes of code; two
+  builds identical; 30 sectors changed against `loc005`, all expected.
+- From saved states: boot loads, menu, sub-menu, and both settings' art.
+
+Failed or corrected (do not retry):
+- **Both designs first used the same code address**; the generator lays the
+  menu code first, then the hooks (4-byte aligned).
+- **Injecting `OPDEMO.BIN` at state 2538 breaks the select**: `STG0A.BIN` is
+  still arriving at `0x06060000` there.
+- **Injected directory entries need the count** (`0x060DBC58`, 329 after
+  the new boot); without it the new file is not found and the VS screen
+  goes black.
+
+Checks: ruff, ruff format, mypy, pytest (below).

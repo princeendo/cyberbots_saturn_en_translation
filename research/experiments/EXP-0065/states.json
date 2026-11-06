@@ -1,0 +1,86 @@
+{
+ "boot": {
+  "entries_325_329": [
+   {
+    "index": 325,
+    "fad": 24277,
+    "size": 122880,
+    "flags": "00000000",
+    "name": "WARNING3.PIX",
+    "raw": "00005ed50001e000000000005741524e494e47332e504958"
+   },
+   {
+    "index": 326,
+    "fad": 24337,
+    "size": 131072,
+    "flags": "00000000",
+    "name": "WARNING4.PIX",
+    "raw": "00005f1100020000000000005741524e494e47342e504958"
+   },
+   {
+    "index": 327,
+    "fad": 43793,
+    "size": 8640,
+    "flags": "00000000",
+    "name": "ZNAMES1.BIN",
+    "raw": "0000ab11000021c0000000005a4e414d4553312e42494e00"
+   },
+   {
+    "index": 328,
+    "fad": 43798,
+    "size": 38700,
+    "flags": "00000001",
+    "name": "ZNAMES2.BIN",
+    "raw": "0000ab160000972c000000015a4e414d4553322e42494e00"
+   },
+   {
+    "index": 329,
+    "fad": 0,
+    "size": 0,
+    "flags": "00000000",
+    "name": "",
+    "raw": "000000000000000000000000000000000000000000000000"
+   }
+  ],
+  "cyber_changes_in_ram": true,
+  "opdemo_in_ram_equal_chunks": 24,
+  "opdemo_chunks": 24,
+  "ok": true,
+  "directory_count": 329
+ },
+ "options": {
+  "main": "96b14a7c1659210b5a9e5afd5e508c1c4fe129c32252ae9cb88df7f32e92d12d",
+  "main_cursor8": "b5722f3a61470526c68b0d6978e8ea393ae9dd905eaa22d523c949d6793e70c1",
+  "sub_english": "021f42bd8ff7b36ed0b516ffbb35ea1ae47fb281cdf054cee0b752c7f8c05b8d",
+  "sub_state": "0003/0002",
+  "sub_japanese": "3da842639aa0ac579501d77556d40160747451a07341c8053a3e132676355358",
+  "back_main": "b5722f3a61470526c68b0d6978e8ea393ae9dd905eaa22d523c949d6793e70c1",
+  "flag_after": "01"
+ },
+ "names": {
+  "select-0": {
+   "built-select": 0,
+   "katakana-select": 0,
+   "built-vs": 1,
+   "katakana-vs": 0
+  },
+  "select-1": {
+   "built-select": 0,
+   "katakana-select": 2,
+   "built-vs": 0,
+   "katakana-vs": 0
+  },
+  "vs-0": {
+   "built-select": 0,
+   "katakana-select": 0,
+   "built-vs": 6,
+   "katakana-vs": 0
+  },
+  "vs-1": {
+   "built-select": 0,
+   "katakana-select": 0,
+   "built-vs": 0,
+   "katakana-vs": 12
+  }
+ }
+}

@@ -1161,7 +1161,7 @@ Reproduce: `research/experiments/EXP-0062/README.md`, "Procedure".
 
 - **Directory:** the game copies the root directory at start-up into a table
   (`0x060DCB68`, 24-byte entries: FAD, size, flags, name; maximum 384,
-  327 used) and finds files by name (binary search, `0x0603B564`). The
+  327 used) and finds files by name: a linear search (`0x060410C0`, names compared by `0x0603B550`) that stops after the entry whose byte 11 bit 0 is set, an end flag the directory loader puts on its last record (`0x060412E6`-`0x060412EC`). (Corrected 2026-11-06, `OPT-005` review: first recorded as a binary search.) The
   disc's last directory sector (LSN 27) has 1,532 bytes free.
 - **Loader** `0x060385A0`(name, destination, maximum) writes exactly the
   file's size. `SELECT.VAD` is loaded to VDP1 VRAM `0x20000` at
@@ -1191,3 +1191,24 @@ Reproduce: `research/experiments/EXP-0063/README.md`, "Procedure".
   `0x06008000` to `0x0600D000` are task and interrupt stacks.
 
 Reproduce: `research/experiments/EXP-0064/README.md`, "Procedure".
+
+## D-058: The names switch: EXTRA OPTIONS, the hooks and the tail files (`OPT-005`, `EXP-0065`)
+
+- **Menu** (`OPDEMO.BIN`): OPTION MODE's title on text row 2, its rows two
+  higher, a row `EXTRA OPTIONS` (row 22, cursor 8; with no RAM cart 7 is
+  skipped) drawn by a hook on the title call (literal `0x06062470`); state 3
+  with the cursor on 8 runs the `EXTRA OPTIONS` sub-menu (literal
+  `0x06062B3C`), which toggles the saved byte `0x060D9295`.
+- **Art:** with the byte set, hook C copies the untouched part table to
+  `0x0607CA18` before `STG0A.BIN`'s init (literal `0x06038DA0`), hook A
+  loads `ZNAMES1.BIN` to `0x25C37840` after `SELECT.VAD` (literal
+  `0x06038DC0`, `jsr @r4` at `0x06038CD6`), hook B loads `ZNAMES2.BIN` to
+  `0x20200090` when the `PL3F_0.BIN` poll ends (literal `0x060606C0` in
+  `STG0AS.BIN`). Code: `0x06055424`-`0x06055708`.
+- **Files found:** two files added after `WARNING4.PIX` in the root
+  directory are in the game's table after boot, the end flag moved to the
+  last and the count `0x060DBC58` raised to 329.
+- From saved states, byte 0 shows the Latin art and byte 1 the katakana on
+  the pilot select and VS screens; saves with and without the byte load.
+
+Reproduce: `research/experiments/EXP-0065/README.md`, "Procedure".

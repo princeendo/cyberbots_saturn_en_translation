@@ -97,10 +97,14 @@ same in both builds) and the part table `0x1CA18`-`0x1CA94` (124 bytes).
   type 1, **maximum 0x180 (384) entries**, table `0x060DCB68` (`.`, `..`,
   then 325 files; 24 bytes each: FAD, size, flags, name). 327 are used, 57
   spare.
-- Files are found **by name**: a binary search compares names
-  (`0x0603B564`, from `0x060410EA`), and a file's request number is its
-  table index (`VICTORY.BIN` 320 = `0x140`). A new name that sorts after
-  `WARNING4.PIX` keeps every existing number.
+- Files are found **by name**: a linear search (`0x060410C0`; names
+  compared by `0x0603B550`, called from `0x060410EA`) that stops after the
+  entry flagged as last (byte 11 bit 0, set by the directory loader at
+  `0x060412E6`-`0x060412EC`). (Corrected 2026-11-06 in the `OPT-005`
+  review; first written as a binary search from the many name compares.)
+  A file's request number is its table index (`VICTORY.BIN` 320 =
+  `0x140`). A new name that sorts after `WARNING4.PIX` keeps every
+  existing number.
 
 ### Load sites (`loads_select.json`, `loads_vs.json`, `stg0a_stack.json`)
 

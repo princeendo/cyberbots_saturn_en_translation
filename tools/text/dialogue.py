@@ -89,11 +89,15 @@ from collections import Counter
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 from tools.disc import patch_image
 from tools.font import kanji, pairs
 from tools.reference.cybots_text import build_program, decode, long, read_record
 from tools.reference.mame_audit import parse_driver
+
+if TYPE_CHECKING:
+    from tools.text import names_switch
 
 BASE = 0x06060000
 RECORDS = 0x060A5684
@@ -897,7 +901,32 @@ def build(args: argparse.Namespace) -> int:
             )
             + "\n"
         )
-    return patch_image.main(
+    switch = None
+    if args.names_switch:
+        from tools.text import names_switch
+
+        switch = names_switch.build(
+            {
+                name: bytes(checked(name))
+                for name in (
+                    "CYBER.BIN",
+                    "OPDEMO.BIN",
+                    "STG0AS.BIN",
+                    "STG0A.BIN",
+                    "SELECT.VAD",
+                    "PL3F_0.BIN",
+                )
+            },
+            json.loads(args.names_switch.read_text()),
+        )
+        for name, data in switch.files.items():
+            (out / name).write_bytes(data)
+            extra += ["--file", f"{name};1", "--data", str(out / name)]
+        stg_path = out / "STG0AS.BIN"
+        stg_path.write_bytes(names_switch.patch_stg0as(stg_path.read_bytes(), switch))
+        for name, data in switch.tail:
+            (out / name.split(";")[0]).write_bytes(data)
+    status = patch_image.main(
         [
             "--source-dir",
             str(SOURCE_DIR),
@@ -923,6 +952,55 @@ def build(args: argparse.Namespace) -> int:
             str(out / "image"),
         ]
     )
+    if status or switch is None:
+        return status
+    return add_switch_files(args, out, switch)
+
+
+def add_switch_files(
+    args: argparse.Namespace, out: Path, switch: names_switch.Built
+) -> int:
+    """Add the names switch's files to the built Track 01 (OPT-005).
+
+    The built track is replaced by a copy with the files in its free tail
+    and their directory records (``tools.disc.add_files``); the build
+    manifest's Track 01 hash is updated and the placements recorded with
+    every binary change in ``OUT/names_switch_changes.json``.
+    """
+    from tools.disc import add_files
+
+    track = out / "image" / TRACK
+    staged = track.with_name(track.name + ".new")
+    result = add_files.add_files(
+        track, staged, [add_files.NewFile(name, data) for name, data in switch.tail]
+    )
+    staged.replace(track)
+    digest = patch_image.sha256_file(track)
+    manifest_path = out / "image" / "build_manifest.json"
+    manifest = json.loads(manifest_path.read_text())
+    manifest["output_sha256"][TRACK] = digest
+    manifest["added_files"] = [vars(p) for p in result.placements]
+    manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
+    (out / "names_switch_changes.json").write_text(
+        json.dumps(
+            {
+                "approved_sha256": hashlib.sha256(
+                    args.names_switch.read_bytes()
+                ).hexdigest(),
+                "code_range": [f"0x{v:08X}" for v in switch.code_range],
+                "labels": {k: f"0x{v:08X}" for k, v in sorted(switch.labels.items())},
+                "changes": switch.changes,
+                "added_files": [vars(p) for p in result.placements],
+                "changed_sectors": result.changed_sectors,
+                "verification": result.verification,
+                "track01_sha256": digest,
+            },
+            indent=1,
+        )
+        + "\n"
+    )
+    print(json.dumps({"names_switch_track01": digest}))
+    return 0
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -957,6 +1035,12 @@ def main(argv: Sequence[str] | None = None) -> int:
         type=Path,
         help="approved boot-warning English (BOOT-004)",
     )
+    parser.add_argument(
+        "--names-switch",
+        type=Path,
+        help="the EXTRA OPTIONS names switch (OPT-005; needs --name-art; "
+        "data/translations/names_switch.json)",
+    )
     parser.add_argument("--font", type=Path, required=True)
     parser.add_argument("--driver", type=Path, required=True)
     parser.add_argument("--rompath", type=Path, required=True)
@@ -982,6 +1066,8 @@ def main(argv: Sequence[str] | None = None) -> int:
         args.pairing, args.quotes = roster_inputs(args.roster)
     if not args.pairing:
         parser.error("--pairing or --roster is required")
+    if args.names_switch and not args.name_art:
+        parser.error("--names-switch needs --name-art")
     return build(args)
 
 

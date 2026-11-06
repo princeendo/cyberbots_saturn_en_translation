@@ -1,0 +1,13 @@
+{
+ "task": "OPT-004",
+ "approved": "2026-11-06, docs/localization_policy.md \"Names Switch, Decided\"",
+ "menu": {
+  "entry": "EXTRA OPTIONS",
+  "title": "EXTRA OPTIONS",
+  "row": "NAMES",
+  "values": ["ENGLISH", "JAPANESE"]
+ },
+ "default": "ENGLISH",
+ "setting_byte": "0x060D9295",
+ "saved": true
+}
