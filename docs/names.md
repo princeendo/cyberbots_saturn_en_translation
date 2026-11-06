@@ -49,7 +49,7 @@ On the Saturn the VS-screen name art is VDP1 sprites stored uncompressed in
 neighbouring data does not read as a list of names in 64×15 blocks, and
 finding the sprite table needs the code that draws the VS screen (`LOC-001`).
 
-Voices: whether any name is spoken was not checked (`LOC-003`).
+Voices: see "Names in Voice" below (`LOC-003`).
 
 ## What "Two Variants" Can Mean Here
 
@@ -147,3 +147,21 @@ Room: `SELECT.VAD` can take Latin names of the same size in place, but has
 no room to keep the katakana as well (1,440 bytes of slack). `PL3F_0.BIN`'s
 name records are 20,804 bytes compressed; Latin art in a literal-only
 encoding would need about 7.8 KB more, and the file has 288 bytes of slack.
+
+## Names in Voice (`LOC-003`, `EXP-0058`)
+
+Heard by the user, one clip at a time:
+
+| Moment | Speech | Name heard |
+| --- | --- | --- |
+| Pilot select, each pick (versus, Jin and Arieta) | none | — |
+| VS screen | none | — |
+| Round start | none | — |
+| Knockout win | "TARGET DESTROYED" | — |
+| Story narration (Jin's introduction) | Japanese | "jin", where the text names Jin |
+| Versus `VICTORY!` quote | yes | perhaps "Jin" (unsure; the quote's text has no name) |
+| Ending dialogue (Santana's) | yes | none |
+
+No announcer calls a name. Names are heard only inside voiced Japanese
+lines, in their Japanese readings of the same names, so they cannot
+disagree with Latin art; no voice change is planned.

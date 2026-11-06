@@ -2497,3 +2497,20 @@ Failed or corrected (do not retry):
   session scratchpad.
 
 Checks: ruff, ruff format, mypy; pytest (below).
+
+## 2026-11-06 — LOC-003: names in voice (EXP-0058)
+
+User request (verbatim): "Start LOC-003". Six recordings from saved states
+and one cold boot (5 single presses; the user's choice "Run one more cold
+boot"). Eight clips heard by the user, one at a time.
+
+- No announcer calls a name; the story, victory quotes and endings are
+  voiced in Japanese; "jin" is heard in Jin's narration.
+- `-qtrecord` captures sound even with the silent home's volume at 0.
+
+Notes (do not retry):
+- A recording from state 7160 caught only loading; the round start begins
+  after state 7339.
+- `-qtrecord` files are about 8.5 MB a second; cut clips and delete them.
+- `ffmpeg -sseof` is an input option: place it before `-i`.
+- `drive.py shot` fails if the screenshot name exists; use new names.
