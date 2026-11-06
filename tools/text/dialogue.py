@@ -66,6 +66,10 @@ English, as paired (D-022, D-027), unchanged, drawn as pair glyphs (D-024).
    ``--font`` letters; written to ``OUT/WARNINGn.PIX`` with
    ``OUT/boot_changes.json`` (ranges, original and new hashes, fit).
 
+10. **Name art** (``--name-art APPROVED``, LOC-005): the pilot-select and VS
+    names in Latin by ``tools.text.name_art`` (`SELECT.VAD`, `STG0A.BIN`,
+    `PL3F_0.BIN`), written with ``OUT/name_art_changes.json``.
+
 Also writes ``OUT/prediction.json``: per box, the SHA-256 of each predicted
 glyph cell in drawing order, for live checks. ``--record-dir`` writes one
 committed provenance record per pilot (``<name>_story.json`` for
@@ -867,6 +871,32 @@ def build(args: argparse.Namespace) -> int:
             )
             + "\n"
         )
+    if args.name_art:
+        from tools.text import name_art
+
+        approved_names = name_art.load_approved(args.name_art)
+        originals = {
+            name: bytes(checked(name))
+            for name in ("SELECT.VAD", "STG0A.BIN", "PL3F_0.BIN", "STG0AS.BIN")
+        }
+        art = name_art.build(approved_names, name_art.load_font(args.font), originals)
+        for name, data in art.files.items():
+            (out / name).write_bytes(data)
+            extra += ["--file", f"{name};1", "--data", str(out / name)]
+        (out / "name_art_changes.json").write_text(
+            json.dumps(
+                {
+                    "approved_sha256": hashlib.sha256(
+                        args.name_art.read_bytes()
+                    ).hexdigest(),
+                    "ranges": art.changes,
+                    "report": art.report,
+                },
+                indent=1,
+                ensure_ascii=False,
+            )
+            + "\n"
+        )
     return patch_image.main(
         [
             "--source-dir",
@@ -916,6 +946,11 @@ def main(argv: Sequence[str] | None = None) -> int:
         "--retime",
         action="store_true",
         help="ending boxes: faster typing and moved cues (END-011)",
+    )
+    parser.add_argument(
+        "--name-art",
+        type=Path,
+        help="approved Latin name art (LOC-005; data/translations/name_art.json)",
     )
     parser.add_argument(
         "--boot-warnings",

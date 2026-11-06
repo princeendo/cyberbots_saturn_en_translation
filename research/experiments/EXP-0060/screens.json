@@ -1,0 +1,245 @@
+{
+ "select": [
+  {
+   "frame": "0x14",
+   "name": "Jin",
+   "parts_on_screen": 1,
+   "all_built": true,
+   "screenshot_sha256": "b33478ad075d0a63203b70a309a961f9dd4adf070932194ac33efbe1f16c3ab9"
+  },
+  {
+   "frame": "0x15",
+   "name": "Santana",
+   "parts_on_screen": 1,
+   "all_built": true,
+   "screenshot_sha256": "07f3fffc0c6d462e345c55ec63726fa6092af3846d4a789f6b1a9067bff6761a"
+  },
+  {
+   "frame": "0x16",
+   "name": "Mary",
+   "parts_on_screen": 1,
+   "all_built": true,
+   "screenshot_sha256": "5b6e59cec508013ffc006fae9828f8b856091e0733fd0977e5962292c7a54860"
+  },
+  {
+   "frame": "0x17",
+   "name": "Arieta",
+   "parts_on_screen": 1,
+   "all_built": true,
+   "screenshot_sha256": "fe89fa69b0422053bc97d554ff4e0e319075c6bceee82eab62671c19c9e7f6d1"
+  },
+  {
+   "frame": "0x18",
+   "name": "Gawaine",
+   "parts_on_screen": 1,
+   "all_built": true,
+   "screenshot_sha256": "dc4b042734cd4783ff58a6ed2189a3a166d995085789f0837915663b877f084d"
+  },
+  {
+   "frame": "0x19",
+   "name": "Bao&Mao",
+   "parts_on_screen": 1,
+   "all_built": true,
+   "screenshot_sha256": "19c6b548b3489cd53d65a00d1cb3b69480f896d9ff47daa6eeebf6fc5ecea569"
+  },
+  {
+   "frame": "0x1A",
+   "name": "Devilotte",
+   "parts_on_screen": 1,
+   "all_built": true,
+   "screenshot_sha256": "5338d6dde0d4bf5fd4b7316bc685f228ae0b95a6133c2c291fdbec83e5f50036"
+  },
+  {
+   "frame": "0x1B",
+   "name": "Chiyomaru",
+   "parts_on_screen": 1,
+   "all_built": true,
+   "screenshot_sha256": "8d631a305202875457460392cb7d35ce4c6ccc2d3de6e2f4d009e1cbc43a313d"
+  },
+  {
+   "frame": "0x1C",
+   "name": "SHADE",
+   "parts_on_screen": 1,
+   "all_built": true,
+   "screenshot_sha256": "79be55d97bb45cfffaea255d0315632e737631d854725ca4ea0081a4c8ac5a5b"
+  }
+ ],
+ "vs": [
+  {
+   "frame": "0x02",
+   "name": "Jin",
+   "parts_on_screen": 1,
+   "all_built": true,
+   "screenshot_sha256": "f83b1e90b5bd068572ca86ba4cfbf3383b14dd56c71c4cd68c6244809b1fea33"
+  },
+  {
+   "frame": "0x03",
+   "name": "Santana",
+   "parts_on_screen": 1,
+   "all_built": true,
+   "screenshot_sha256": "512eb9fcb922c546aa7eac5155c9d740ddbcc11a29b25a3e2076c3275eb03b40"
+  },
+  {
+   "frame": "0x04",
+   "name": "Mary",
+   "parts_on_screen": 1,
+   "all_built": true,
+   "screenshot_sha256": "e95a611be1663c301ae2630c81df2c360409cfe0bca51868586a1d1d05ade751"
+  },
+  {
+   "frame": "0x05",
+   "name": "Arieta",
+   "parts_on_screen": 1,
+   "all_built": true,
+   "screenshot_sha256": "24b45700aa7fc5151f5061a78aa8c890d17babbb99d73e5cc950e99204ba9051"
+  },
+  {
+   "frame": "0x06",
+   "name": "Gawaine",
+   "parts_on_screen": 1,
+   "all_built": true,
+   "screenshot_sha256": "d396a7205ededd1f396ab23c7aa4e457613d020c62a574ba9c65302f24f1156f"
+  },
+  {
+   "frame": "0x07",
+   "name": "Bao&Mao",
+   "parts_on_screen": 1,
+   "all_built": true,
+   "screenshot_sha256": "b9a029621277d1aef737e14ae952b6be427d384f5f56277c3369eb317e0adc1d"
+  },
+  {
+   "frame": "0x08",
+   "name": "Devilotte",
+   "parts_on_screen": 1,
+   "all_built": true,
+   "screenshot_sha256": "3f7c1be5abbbb1a4cb5845b29f708290b3c6d318f2608f35b5d8de324da54bc0"
+  },
+  {
+   "frame": "0x09",
+   "name": "Chiyomaru",
+   "parts_on_screen": 1,
+   "all_built": true,
+   "screenshot_sha256": "be1bad5041387d0f6f79fe706d06b04c65ca2c17ce21da0279fef369a79cec70"
+  },
+  {
+   "frame": "0x0A",
+   "name": "SHADE",
+   "parts_on_screen": 1,
+   "all_built": true,
+   "screenshot_sha256": "86d9c4291ea9a10d69976c72d0553ca7ccbb034aaa454a41988a670280cd84ef"
+  },
+  {
+   "frame": "0x0C",
+   "name": "BLODIA",
+   "parts_on_screen": 2,
+   "all_built": true,
+   "screenshot_sha256": "f83b1e90b5bd068572ca86ba4cfbf3383b14dd56c71c4cd68c6244809b1fea33"
+  },
+  {
+   "frame": "0x0D",
+   "name": "B·SWORDSMAN",
+   "parts_on_screen": 2,
+   "all_built": true,
+   "screenshot_sha256": "4ef218d6ad8682d710d5607e71a47c8463b720b80a15e76606fb799761e6215f"
+  },
+  {
+   "frame": "0x0E",
+   "name": "B·RIOT",
+   "parts_on_screen": 2,
+   "all_built": true,
+   "screenshot_sha256": "4e4302c769ad3f7f4f98281700a5f96945cb8625830ebf02f74470951abcfff5"
+  },
+  {
+   "frame": "0x0F",
+   "name": "REPTOS",
+   "parts_on_screen": 2,
+   "all_built": true,
+   "screenshot_sha256": "3e10a0a31a98ffa0472407b6496697aedefd0386631431de6272e1ca15722c4e"
+  },
+  {
+   "frame": "0x10",
+   "name": "R·LIGHTNING",
+   "parts_on_screen": 2,
+   "all_built": true,
+   "screenshot_sha256": "1c37726bf971e7e2e80b043f1d373b78d1aca9abe3ec014204b39c7fb32a1820"
+  },
+  {
+   "frame": "0x11",
+   "name": "R·JACKAL",
+   "parts_on_screen": 2,
+   "all_built": true,
+   "screenshot_sha256": "b4021723bb125f8ea19c77f809f033ecfb594d118d9bf136197f89fb8d33e281"
+  },
+  {
+   "frame": "0x12",
+   "name": "FORDY",
+   "parts_on_screen": 2,
+   "all_built": true,
+   "screenshot_sha256": "8fb6f0261b10cafa3da0146a29e08b049f57ce8b09e588c1fbcfed28594cfd03"
+  },
+  {
+   "frame": "0x13",
+   "name": "F·TALANTURA",
+   "parts_on_screen": 2,
+   "all_built": true,
+   "screenshot_sha256": "df3bf0fd41359713c259636e53c7d4b5aed92f9251d26aaed18db239a9ff55cb"
+  },
+  {
+   "frame": "0x14",
+   "name": "F·KILLER BEE",
+   "parts_on_screen": 2,
+   "all_built": true,
+   "screenshot_sha256": "df1b5a278fdef99c4cb85a8c81192ef6094f5bf58b9da37a1e47db37e5a4e2c7"
+  },
+  {
+   "frame": "0x15",
+   "name": "GULDIN",
+   "parts_on_screen": 2,
+   "all_built": true,
+   "screenshot_sha256": "e2d67799f85b39ad2f2287e453b45b0ad7b66c1024a11375620df8c6f660752c"
+  },
+  {
+   "frame": "0x16",
+   "name": "G·VICE",
+   "parts_on_screen": 2,
+   "all_built": true,
+   "screenshot_sha256": "c52827ce35ff93860e5b37e12fc5384089ee333c3802b060f60029e7532e99b1"
+  },
+  {
+   "frame": "0x17",
+   "name": "G·CYCLONE",
+   "parts_on_screen": 2,
+   "all_built": true,
+   "screenshot_sha256": "f954f090e1f6a3422f68c3ec5d01d6f26f152d772ffd4b3d874479dc516782ce"
+  },
+  {
+   "frame": "0x18",
+   "name": "GAITS",
+   "parts_on_screen": 2,
+   "all_built": true,
+   "screenshot_sha256": "ad903089539df4b6e15af49f9279619ac5b5a8507db79fa694860ab8812c34a7"
+  },
+  {
+   "frame": "0x19",
+   "name": "HELION",
+   "parts_on_screen": 2,
+   "all_built": true,
+   "screenshot_sha256": "decdec545a7ab2dcc99cfba1be3651c31ba9afcd3c14274e9413bc197d788302"
+  },
+  {
+   "frame": "0x1A",
+   "name": "WARLOCK",
+   "parts_on_screen": 2,
+   "all_built": true,
+   "screenshot_sha256": "a2a02962d212bfa230f0d46dbdd9e52a206b515180517ce5843d516448a278ee"
+  },
+  {
+   "frame": "0x1B",
+   "name": "SUPER-8",
+   "parts_on_screen": 2,
+   "all_built": true,
+   "screenshot_sha256": "842673c18a2a594a0f5d91bb897ca8bb9eeb01ff34b842ca6a8462758ddb137f"
+  }
+ ],
+ "ok": true
+}

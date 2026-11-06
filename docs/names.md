@@ -181,3 +181,13 @@ spellings are in `data/translations/name_art.json`:
   WARLOCK, SUPER-8 (each with its Saturn model code).
 
 Tessan has no name art; his romanization belongs to `SPECIAL-001`.
+
+## Latin Name Art, Built (`LOC-005`, `EXP-0060`)
+
+`--name-art data/translations/name_art.json` builds the decided names
+(D-053): one part per select name in `SELECT.VAD` (with its part table in
+`STG0A.BIN`), and type-2 records in `PL3F_0.BIN` for the VS screen (one
+per pilot, two per mech: name, then model code). All 34 names were seen on
+screen from saved states. The katakana art is replaced, not kept; a
+switchable Japanese version (`OPT-001`) needs storage of its own. The
+cold-boot play check is `LOC-006`.

@@ -1092,3 +1092,27 @@ Reproduce: `research/experiments/EXP-0056/README.md`, "Procedure".
   288. The VS names take 20,804 bytes compressed (26,188 raw).
 
 Reproduce: `research/experiments/EXP-0057/README.md`, "Procedure".
+
+## D-053: The type-2 pattern format, the part list's end bit, and the Latin name art (`LOC-005`, `EXP-0060`)
+
+- **Type-2 records** (decoder `0x0601446C`): word 0 = type 2 | width / 8 |
+  height; word 1 = offset from its end to the literal stream; then control
+  bytes, one operation each on 32-bit output longs: 0-15 copy n + 1 literal
+  longs; 16-191 repeat the literal 4(n − 15) bytes back; 192-207 fill n − 191
+  longs with the previous halfword; 208-255 copy 1-16 longs from the row
+  above, at offsets R, R + 4 or R − 4 (R = row bytes).
+  `tools/text/pattern_t2.py` decodes every bank-63 record, matching all 14
+  name parts the game decoded, and encodes valid records.
+- **Part words** (banks 56 and 63): screen x = 80 + (word 0 >> 6), y =
+  origin + (word 1 >> 6); flips = (word 1 >> 2) & 3; word 1 bit 1 marks the
+  frame's last part, and the routine stops there; pattern index = (word 1
+  bit 0) << 16 | word 2. In bank 56 (8-byte parts) a size word of 0 skips
+  the part.
+- **Latin name art built** (`tools.text.dialogue --name-art`,
+  `tools/text/name_art.py`): the nine select names get one 120 x 16 slot
+  each in `SELECT.VAD`'s name block and one part each in `STG0A.BIN`'s table;
+  the VS names are packed again in `PL3F_0.BIN` (12,316 of 21,712 bytes),
+  one record per pilot, two per mech, with the model code moved after the
+  name. All 34 names show as built.
+
+Reproduce: `research/experiments/EXP-0060/README.md`, "Procedure".

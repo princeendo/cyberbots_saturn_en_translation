@@ -2531,3 +2531,31 @@ Notes (do not retry):
   VRAM `0x10000` up: it is refreshed every frame.
 - Colour variants of the pilot banner look alike (pale yellow is the
   lightest colour).
+
+## 2026-11-06 — LOC-005: the Latin name art built (EXP-0060)
+
+User request (verbatim): "Start LOC-005". No key, no cold boot.
+
+- Type-2 format read in full (D-053); `tools/text/pattern_t2.py` decodes
+  every bank-63 record and encodes valid ones.
+- `tools/text/name_art.py` and `--name-art`: one part per select name, one
+  record per VS pilot, two per mech; VS records 12,316 of 21,712 bytes.
+- Build clean (two identical, three files changed, all sectors valid); all
+  34 names on screen as built.
+
+Failed or corrected (do not retry):
+- **Word 1 bit 1 of a part ends the frame's part list.** Copying the left
+  mech part's words into the first slot hid the right half; set the bit
+  on the last part only.
+- **Part x is word 0 >> 6**, not >> 5 (fitted against every on-screen part).
+- **`STG0A.BIN` is resident in every saved state**, so a state cannot test
+  its built table from the disc; the select check writes it into RAM, and
+  the cold boot is `LOC-006`'s.
+- **The VS screen lasts a few seconds**: reload the state per name.
+- **Stepping one frame per agent call is slow** (about a minute for 340
+  frames); step in one call when nothing is written each frame.
+- The `--ending-record-dir` folder must exist before the build.
+- My first unit-test expectations for the halfword fill and a shadow
+  position were wrong; the code was right.
+
+Checks: ruff, ruff format, mypy, pytest (below).

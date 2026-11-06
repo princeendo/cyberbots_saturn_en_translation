@@ -1,0 +1,67 @@
+{
+ "two_builds": {
+  "outputs": 22,
+  "differing": [],
+  "track01_sha256": "e1a88dc6a049debc60c1be3a04c2b5d3d399c1ce9e738a27096bb14c2d7e4a6d",
+  "track01_equal": true,
+  "records_differing": []
+ },
+ "earlier_unchanged": {
+  "files": {
+   "STG0AS.BIN": true,
+   "KANJI.BIN": true,
+   "VICTORY.BIN": true,
+   "END.BIN": true,
+   "SE.DAT": true,
+   "KEND_1.BIN": true,
+   "QSD.PIX": true,
+   "WARNING0.PIX": true,
+   "WARNING1.PIX": true,
+   "WARNING2.PIX": true,
+   "WARNING3.PIX": true,
+   "WARNING4.PIX": true
+  },
+  "records_equal_committed": {
+   "arieta_ending.json": true,
+   "baomao_ending.json": true,
+   "gawaine_ending.json": true,
+   "jin_ending.json": true,
+   "mary_ending.json": true,
+   "santana_ending.json": true
+  }
+ },
+ "name_art_files": {
+  "SELECT.VAD": {
+   "sha256": "02070298d238281639e1cf02d5f444ca82dea8c73c50c633a9c090f1c1a00740",
+   "bytes_changed": 7572,
+   "inside_ranges": true,
+   "size_kept": true
+  },
+  "STG0A.BIN": {
+   "sha256": "52e6ac38312dcf4ca6d2d26238c30f89a37068aeb965b50044e203c855b20c62",
+   "bytes_changed": 36,
+   "inside_ranges": true,
+   "size_kept": true
+  },
+  "PL3F_0.BIN": {
+   "sha256": "542db756f47a84f650daecc03874ab2a7f9039ec72d09bedc31182db693ebfe9",
+   "bytes_changed": 20151,
+   "inside_ranges": true,
+   "size_kept": true
+  },
+  "bank63": {
+   "frame_table_unchanged_in_built_STG0AS": true,
+   "type2_parts_decoding": 1599,
+   "type2_parts_failing": 0,
+   "other_type_parts": 7
+  }
+ },
+ "image": {
+  "boot004_track01_sha256": "ef27ebc6d5ccd18ba054a4dfa92b1cd2bfdf52d4dffb575877427c1d40d4fe25",
+  "sectors_changed_vs_boot004": 18,
+  "changed_outside_the_three_files": [],
+  "sectors": 43793,
+  "invalid_sectors": 0
+ },
+ "ok": true
+}
