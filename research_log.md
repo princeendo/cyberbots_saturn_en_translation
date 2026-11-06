@@ -2425,3 +2425,16 @@ Notes (do not retry):
   slower but frame-exact.
 
 Checks: ruff, ruff format, mypy, pytest (below).
+
+## 2026-11-06 — LOC-001 written up (Phase O, no experiment)
+
+User request (verbatim): "Write up LOC-001". Tasks only; nothing run.
+
+- Phase O in `TASKS.md`: `LOC-001` (`READY`) to `LOC-006`, modelled on
+  XvSF's name-variant phase for method only (rule 13). The Options switch
+  stays `OPT-001`; this phase builds the Latin default and keeps the
+  katakana addressable for it.
+- Facts carried in: D-013 (one set of names; only the select and VS name
+  art differs), the VS art's place in `SELECT.VAD`, the cast roll's Latin
+  names (D-040) as a candidate source, Tessan's missing arcade spelling.
+  Unknown: the pilot-select art's storage, Latin art on the disc, voice.

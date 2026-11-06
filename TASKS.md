@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-06: `LOC-001` tasks written up** (Phase O, the user: "Write up LOC-001"): `LOC-001` (census of every name-art surface, Saturn and US arcade) is `READY`; `LOC-002` (storage, and whether Latin art is on the disc), `LOC-003` (voice), `LOC-004` (the user's plan, a gate extension), `LOC-005` (the Latin build) and `LOC-006` (verify) follow. The switch stays `OPT-001`. Nothing is started.
 - **2026-11-06: `UI-004` DONE** (`BOOT-005`, `EXP-0055`): six cold boots with one A press each (the user: "Yes, run all 6 (Recommended)"). Every boot warning shows in English, and a button does what the English says: the game goes on after the damaged-save and out-of-space warnings, the Saturn control panel follows the three unformatted-memory ones. A normal boot reaches the title. All earlier regression references still rebuild. Coverage and README updated. Next: the outline's remaining items (`REL-001`, `LOC-001`, `UI-001`-`003`, `TXT-002`, `SPECIAL-001`) need their tasks written up first.
 - **2026-11-06: the boot warnings built in English** (`BOOT-004`, `EXP-0054`, D-050): `--boot-warnings` adds the five English pictures to the M8 build; nothing else changes (two builds identical, every M8 output equal, 208 sectors changed, all in the pictures). Five cold boots (the user: "Yes, run all 6 (Recommended)") show each warning exactly as generated; a normal boot is unchanged. `BOOT-005` (play check and register) is `READY`.
 - **2026-11-06: `GATE-TRANSLATION` extended to the boot warnings** (`BOOT-003`, `EXP-0053`): no official English exists, so the agent's translation, with the Saturn BIOS's terms, is approved. The user's words: "Approve the drafts (Recommended)", "control panel (Recommended)", "6, what the game checks" (an opt-in fix of the Japanese 05), "Arcade font, Japanese colours (Recommended)". `BOOT-004` (the build) is `READY`.
@@ -2028,6 +2029,203 @@ boot_warnings.json` in the arcade letters and the Japanese colours. It is
   - **README:** "What's Changed", "Still Japanese" and "Build the Patch"
     updated.
 
+## Phase O: Name Art (`LOC-001`)
+
+The user asked for these tasks (verbatim, 2026-11-06): "Write up LOC-001".
+Nothing in this phase is started. The order is:
+
+1. `LOC-001` (census of every name-art surface, and what the US arcade
+   shows on each);
+2. `LOC-002` (storage and drawing, and whether Latin art is on the disc)
+   and `LOC-003` (voice), which are independent;
+3. `LOC-004` (the user's plan per surface; a gate extension for any new art
+   or romanization);
+4. `LOC-005` (the Latin-art build, the default);
+5. `LOC-006` (verify and register).
+
+The switch itself is `OPT-001` (outline), after this phase: this phase
+gives the default Latin art and keeps the katakana art intact and
+addressable, so that the switch can choose between them.
+
+Known so far (facts and their confidence):
+- **Names (D-013, CONFIRMED):** one set of names in both regions; the
+  English text already uses the arcade's. Only the **art** differs: the
+  pilot-select name under each portrait and the VS screen's pilot and mech
+  names are katakana on the Saturn and the Japanese arcade, Latin on the US
+  arcade (`docs/names.md`). The HUD and `MACHINE SELECT` are Latin
+  everywhere.
+- **VS-screen art (D-013, CONFIRMED):** VDP1 sprites stored uncompressed in
+  `SELECT.VAD`, for example a pilot name (64 × 15, 4 bpp) at `0x1EE80` and a
+  mech name (104 × 23) at `0x1F0A0`.
+- **Pilot-select art:** where it is stored is **UNKNOWN** (not looked at).
+- **Latin name art on the disc: UNKNOWN.** Not found next to the katakana in
+  `SELECT.VAD` (`EXP-0012`, a render of the neighbouring data). Two leads,
+  both **HYPOTHESIS**:
+  - the ending cast roll has Latin pilot names as sprite parts
+    (`KEND_1.BIN`, odd frames `0x1B6`-`0x1C9`, D-040), in its own style;
+  - the US arcade's Latin art, in the CPS-II graphics ROMs (not decoded),
+    as a model to draw from if the Saturn has none.
+- **Pilots without arcade English:** Tessan has no arcade spelling; the
+  other console-only pilots (Chiyomaru, Devilotte, SHADE) do (`docs/
+  names.md`). Whether each shows name art on these screens is not yet
+  recorded.
+- **Voice: UNKNOWN.** Whether any name is spoken was never checked. Names
+  are the same in both regions, so a spoken name would not conflict with
+  the Latin art; it is checked for completeness.
+- **Siblings (HYPOTHESIS for Cyberbots, rule 13):** in MSHvSF every US-name
+  asset was already on the disc; in XvSF the US art was on the disc for
+  some surfaces and spelled from existing letters for others. Their
+  variants differed by 58 KB of font (MSHvSF) and 243 bytes (XvSF): the
+  difference here is measured early (`LOC-002`).
+- **Policy** (`docs/localization_policy.md`, "Names, Refined"): Latin art
+  by default, katakana by an Options switch (`OPT-001`). New art or a new
+  romanization is new work, approved by the user like a new translation.
+- **Run rules:** cold boots and key presses only with the user present and
+  asked first; no key loops; the agent reviews the screenshots.
+
+### LOC-001 - Census of every name-art surface
+
+- **Status:** `READY`
+- **Milestone:** Name art (`LOC-001`)
+- **Dependencies:** REF-007 (done), BOOT-005 (done; the current image).
+- **Blockers:** None.
+- **Objective:** List every place the game shows a pilot or mech name as
+  art, with what the Saturn shows and what the US arcade shows there.
+- **Acceptance criteria:**
+  - **Surfaces:** each with screen evidence (screenshot SHA-256 and frame),
+    from saved states where one exists, otherwise from a cold boot with the
+    user present:
+    - the pilot select, for every portrait it shows (including any reached
+      only by a code or a hidden cursor position, recorded as such);
+    - `MACHINE SELECT` and `BODY TYPE`;
+    - the VS screen, pilot and mech names, for both sides;
+    - the versus mode's select and VS screens, if they differ;
+    - win and continue screens, the ending and cast roll (Latin since
+      D-040), rankings and initials, options and any menu that lists
+      pilots or mechs.
+
+    A surface is recorded as showing no name only after it has been seen.
+  - **Both arcade conventions:** the same surfaces in `cybotsu` (US) and
+    `cybotsj` (Japan) in MAME 0.289, headless, per surface, so the US
+    arcade's Latin forms (spelling, case, which mechs are named) are known.
+  - **Names without US art:** pilots or mechs the US arcade never shows
+    (the console-only pilots, Tessan) are listed with what the Saturn shows.
+  - **Output:** `docs/names.md` gains a surface × name table with the
+    Saturn and US evidence; unobserved cells are UNKNOWN.
+- **Notes:** observes only; changes nothing on the disc. Method: XvSF
+  `LOC-001` (`EXP-0048`).
+
+### LOC-002 - Where each name surface is stored, and whether Latin art exists
+
+- **Status:** `BACKLOG`
+- **Milestone:** Name art (`LOC-001`)
+- **Dependencies:** LOC-001.
+- **Blockers:** None.
+- **Objective:** For each surface in `LOC-001`, find the drawing path and
+  the stored art, and whether a Latin version is on the disc.
+- **Acceptance criteria:**
+  - **Location:** per surface, the VDP1 command or VDP2 tile, then its VRAM
+    data, then the file and offset it is loaded from, CONFIRMED by a
+    controlled change (a RAM change from a saved state, or a test build)
+    that alters only that name on screen.
+  - **Table:** the code and table that choose each name's art (by pilot or
+    mech number), so that a build can point it elsewhere.
+  - **Latin art:** present or absent, per surface. "Present" needs the art
+    found and shown on screen by a controlled change. "Absent" needs the
+    reader traced to its table, showing that no entry holds Latin art; a
+    data search alone is not enough. The cast-roll Latin names (D-040) are
+    checked as a candidate source.
+  - **Room:** for each surface, the size, colours and storage a Latin
+    replacement may use, and whether the katakana art can stay on the disc
+    beside it (needed for `OPT-001`).
+  - **Variant difference:** the bytes that would differ between a Latin and
+    a katakana build, counted early.
+- **Notes:** if a surface turns out to be text in a font rather than art,
+  record it here and adjust `LOC-005` before it starts.
+
+### LOC-003 - Names in voice
+
+- **Status:** `BACKLOG`
+- **Milestone:** Name art (`LOC-001`)
+- **Dependencies:** LOC-001.
+- **Blockers:** None.
+- **Objective:** Find whether any pilot or mech name is spoken, and when.
+- **Acceptance criteria:**
+  - **Moments:** select, VS screen, round start, win and the story's voiced
+    scenes, from saved states, with sound, for at least two pilots.
+  - **Listening:** the user is the sound oracle. Each candidate clip is
+    given to the user one at a time, never several at once; the user says
+    whether a name is spoken and which.
+  - **Record:** `docs/names.md`, per moment. No change is planned: the
+    names are the same in both regions (D-013), so speech cannot disagree
+    with the art. If a spoken name ever differs from the text, it is
+    recorded and put to the user in `LOC-004`.
+- **Notes:** if no name is heard, close with that evidence.
+
+### LOC-004 - The user's plan for each name surface
+
+- **Status:** `BACKLOG`
+- **Milestone:** Name art (`LOC-001`)
+- **Dependencies:** LOC-001, LOC-002, LOC-003.
+- **Blockers:** None.
+- **Objective:** The user decides, per surface, where the Latin art comes
+  from.
+- **Acceptance criteria:**
+  - **Options and costs:** for every surface × name, the options are put to
+    the user, with rendered samples beside the US arcade's:
+    - point the game at Latin art already on the disc;
+    - draw new art (modelled on the US arcade's, or set in a font already
+      in the game), recorded as new work like a new translation;
+    - keep the katakana and record an exception.
+  - **Romanization:** a Latin spelling for every name with no arcade
+    English (Tessan at least), as a recorded new translation.
+  - **Gate:** the decisions, in the user's words, as a `GATE-TRANSLATION`
+    extension here and in `docs/localization_policy.md` and
+    `docs/names.md`.
+  - **Build switch:** the build option for the Latin art is named (for
+    example `dialogue.py --name-art latin`); Latin is the default, and the
+    katakana stays available for `OPT-001`.
+
+### LOC-005 - Build the Latin name art
+
+- **Status:** `BACKLOG`
+- **Milestone:** Name art (`LOC-001`)
+- **Dependencies:** LOC-004.
+- **Blockers:** None.
+- **Objective:** The current image with every name-art surface in Latin,
+  as decided, built from the untouched source.
+- **Acceptance criteria:**
+  - **Generator:** a script makes each Latin asset (or pointer change) from
+    the decided sources, with format checks against `LOC-002`. No game art
+    is committed (rule 21); scripts, tests and any approved spellings are.
+  - **Build:** the option is added to the current build (`dialogue.py`,
+    with the M8 and boot-warning options). Two builds identical; every
+    changed range listed with its original and new bytes (rule 12); every
+    changed file fits its sectors; all sectors valid; the katakana art
+    still on the disc where `LOC-002` says the switch needs it.
+  - **Screens:** every surface of `LOC-001` shows its Latin name, from saved
+    states (and a cold boot only where no state reaches it, asked first),
+    checked by the agent against the generated art.
+  - **No other change:** apart from the name art, the image equals the
+    current reference (`data/regression/boot004_boot_warnings.json`).
+
+### LOC-006 - Verify and register
+
+- **Status:** `BACKLOG`
+- **Milestone:** Name art (`LOC-001`)
+- **Dependencies:** LOC-005.
+- **Blockers:** None.
+- **Objective:** Play-check the Latin name art and lock the build.
+- **Acceptance criteria:**
+  - **Play check:** a cold boot with the user present (asked first) through
+    the pilot select, `MACHINE SELECT` and one VS screen, for at least two
+    pilots, run by the agent; the screens are the generated art.
+  - **Regression:** a new reference in `data/regression/`; all earlier
+    references still match.
+  - **Coverage:** `docs/coverage_exceptions.md` lists any name left in
+    katakana, and why.
+  - **README:** "What's Changed", "Still Japanese" and the build command.
+
 ## Later Milestones (outline only)
 
 Placeholders so the order is visible. Each becomes a full task, with its own
@@ -2044,7 +2242,7 @@ and `docs/lessons_from_xvsf.md`.
 | UI-002 | after M8, user request | Attract and opening text (`OPDEMO*`, `STDEM*.PIR`, `VADEM*.MAC`, `STDEMO.*` are candidates): layer, container, codecs, oracles. |
 | UI-003 | after M8, user request | Other UI text (select, continue, ranking, options): find the arcade English by tracing the arcade code. |
 | TXT-002 | after M8, user request | Rare, random, or region-gated text: trace every reader of every text table. |
-| LOC-001 | after REF-007 | Name art only (D-013): find the pilot-select and VS-screen name sprites' table (VS draw code, `SELECT.VAD`), check whether Latin name art is on the disc, otherwise model it on the US arcade's; census the difference between the two variants early (XvSF: 243 bytes; MSHvSF: 58 KB of font). Voices: check whether names are spoken. |
+| LOC-001 | after REF-007 | Written up 2026-11-06: Phase O (`LOC-001`-`LOC-006`); `LOC-001` is `READY`, nothing started. |
 | OPT-001 | after LOC-001, user decision 2026-11-02 | An Options-screen switch for the name art, Latin by default, in an expanded Options screen if needed. Model: MSHvSF `OPT-003` (a proven home for new code), `OPT-004` (EXTRA OPTIONS sub-menu), `OPT-005` (names switch); XvSF `LOC-009`/`LOC-010`. Prove free RAM by read/write logs before placing code (XvSF's first toggle hung the title). |
 | SPECIAL-001 | M9, user approval | Boss and hidden pilots, alternate routes, unlocks. Secondary sources (`docs/references.md`) say the console ports add four pilots (Chiyomaru Kagura, Tessan Hagure, Princess Devilotte, SHADE) with no arcade English, and an Akuma-mech code; their lines need recorded new translations under the user's policy. Size: Saturn lines 899-1850 (952 lines, about half the script) have no arcade counterpart (D-011). Among the arcade pilots' stories only line 258 is Saturn-only (line 34 is dead data); the earlier count of 74 came from REF-006's reader bug (`EXP-0023`). |
 | REL-001 | after M5 | Copy XvSF `make_patch`/`make_ssp` (with the RetroAchievements header guard) and parameterize the source folder, manifest and author; xdelta and SSP; release zips via promoted `make_zips`/`check_zips`. Patches are Release assets only, never committed. |
