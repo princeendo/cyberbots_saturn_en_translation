@@ -1055,3 +1055,21 @@ Reproduce: `research/experiments/EXP-0052/README.md`, "Procedure".
   0 pixels differing from the built file; a normal boot is unchanged.
 
 Reproduce: `research/experiments/EXP-0054/README.md`, "Procedure".
+
+## D-051: Where the select and VS screens' name art is chosen (`LOC-001`, `EXP-0056`)
+
+- The pilot select and the VS screen draw every name through the shared
+  sprite-part routine (`0x060118E4` → `0x060113F0`, as D-040): an actor
+  points at a 16-byte pose record whose word at +6 is the frame.
+- **Pilot select** (`STG0A.BIN` at `0x06060000`): name records from
+  `0x06065192`, frames `0x14`-`0x1C`, one per pilot (Jin, Santana, Mary,
+  Arieta, Gawaine, Bao and Mao, Devilotte, Chiyomaru, Shade).
+- **VS screen**: pilot names from `0x06087E98` (frames `0x02`-`0x0A`, via a
+  word-offset table at `0x06087E72`); mech names from `0x06087A3E` (frames
+  `0x0C`-`0x1C`, via a table at `0x06087A1C`; 16 names and one entry that
+  draws a portrait).
+- Writing a record's frame number from a saved state shows the matching
+  name on the real screen. Every other surface seen is Latin or nameless;
+  the US arcade's Latin forms are in `docs/names.md`.
+
+Reproduce: `research/experiments/EXP-0056/README.md`, "Procedure".

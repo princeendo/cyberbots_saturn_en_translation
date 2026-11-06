@@ -2438,3 +2438,33 @@ User request (verbatim): "Write up LOC-001". Tasks only; nothing run.
   art differs), the VS art's place in `SELECT.VAD`, the cast roll's Latin
   names (D-040) as a candidate source, Tessan's missing arcade spelling.
   Unknown: the pilot-select art's storage, Latin art on the disc, voice.
+
+## 2026-11-06 — LOC-001: name-art census (EXP-0056)
+
+User request (verbatim): "Start LOC-001". No key, no cold boot: Saturn from
+saved states with RAM writes; arcade in headless MAME.
+
+- The select and VS screens draw names as frames of pose records (D-051);
+  writing a record's frame shows any pilot's or mech's name on the real
+  screen.
+- Name art only on the pilot select and VS screen. US arcade: mixed-case
+  pilots, capital mechs and SHADE, no model codes.
+- `CYBER.BIN` has Latin lists of 17 mechs and 8 pilots beside the versus
+  `SET UP` labels.
+
+Failed or corrected (do not retry):
+- **The fighter record's pilot byte (`0x060D02B2`) is not the select
+  cursor**: writing it changed nothing.
+- **VDP1 command writes are not CPU writes**: the list is built at WRAM-H
+  `0x060E1000` and copied; break there instead.
+- **Parallel `poke.py` runs race on `configure()`** (one read a half-written
+  `mednafen.cfg`; the file itself stayed intact). Stagger starts, or run
+  `configure()` once first.
+- **A ffmpeg `xstack` grid needs exactly cols × rows inputs**; a scratch
+  Python montage was used instead.
+- At `MACHINE SELECT` in the arcade, Buttons 2-4 pick the same base body as
+  Button 1; variants were not reached.
+- First tied the VS table's 17th entry to ZERO-GOUKI by list order; that is
+  only a HYPOTHESIS and is recorded as one.
+
+Checks: ruff, ruff format, mypy on `EXP-0056`'s scripts; pytest.

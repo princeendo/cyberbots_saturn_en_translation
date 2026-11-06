@@ -1,0 +1,423 @@
+{
+ "saturn_select": [
+  {
+   "frame": "0x14",
+   "pilot": "Jin",
+   "art": "ジン",
+   "shot_sha256": "7cb0a43b1edc521a44a06a71ea1b0c878e308996ef593a2e9d5875f6de4c25e2"
+  },
+  {
+   "frame": "0x15",
+   "pilot": "Santana",
+   "art": "サンタナ",
+   "shot_sha256": "0fc1b7cab52d3ea10b2928d3c7222ea8f6e0b7d6e711d9484067b709d956444f"
+  },
+  {
+   "frame": "0x16",
+   "pilot": "Mary",
+   "art": "マリー",
+   "shot_sha256": "69b4f125ee9df4e80cbfcefa79975ced3dcfae5097fbc7c603af692ab319c6a7"
+  },
+  {
+   "frame": "0x17",
+   "pilot": "Arieta",
+   "art": "アリエータ",
+   "shot_sha256": "733289332d3ab455b1cd7f0e41a44aedae2bcf5b493ae98b2c348eb5eea408b3"
+  },
+  {
+   "frame": "0x18",
+   "pilot": "Gawaine",
+   "art": "ガウェイン",
+   "shot_sha256": "6ac6a56d6f5eb1d04eecbcb326cb8d76f38602aa61ceb9bd51083ba81790af6a"
+  },
+  {
+   "frame": "0x19",
+   "pilot": "Bao and Mao",
+   "art": "バオ&マオ",
+   "shot_sha256": "eaae4f07473c7c90b04f2c1a93b3ef477ddf1d7bc3dcafa7cd4b757f41728b32"
+  },
+  {
+   "frame": "0x1A",
+   "pilot": "Devilotte",
+   "art": "デビロット姫",
+   "shot_sha256": "3f2a17e0ceb39b95f134bb437c61721ecd55e025f7af68b45c831f359f631a70"
+  },
+  {
+   "frame": "0x1B",
+   "pilot": "Chiyomaru",
+   "art": "千代丸",
+   "shot_sha256": "24002e291efbf6dad2f9caa13d8c3932636480a9e8baaa56444120c341b6d11f"
+  },
+  {
+   "frame": "0x1C",
+   "pilot": "Shade",
+   "art": "シェイド",
+   "shot_sha256": "a9ed8d03fc008902bd75d6b4b952eddfd7ac183e516b572e35b7a2b9c80ddfd8"
+  }
+ ],
+ "saturn_vs_pilots": [
+  {
+   "frame": "0x02",
+   "pilot": "Jin",
+   "art": "ジン",
+   "shot_sha256": "55b4cb579c77c88bc4fac1c88e67b6e3479da26aeff853707f1460efb6cf64cb"
+  },
+  {
+   "frame": "0x03",
+   "pilot": "Santana",
+   "art": "サンタナ",
+   "shot_sha256": "98c7ab334258846b63b66107f882341e4038eba7cbccbb9745fc7658de5fc488"
+  },
+  {
+   "frame": "0x04",
+   "pilot": "Mary",
+   "art": "マリー",
+   "shot_sha256": "3272e8e583516c46adcf3ca5a29ad64642bb4a8e52dfc7156d18daf4c8d76678"
+  },
+  {
+   "frame": "0x05",
+   "pilot": "Arieta",
+   "art": "アリエータ",
+   "shot_sha256": "915014ec0524f352d9e816796444d779de9b50d491032c4ef0d87381d894d1ab"
+  },
+  {
+   "frame": "0x06",
+   "pilot": "Gawaine",
+   "art": "ガウェイン",
+   "shot_sha256": "c9149f62097ed30d0275b03922f6c2be9c6769aa783b54aad800b53b1e3c95d2"
+  },
+  {
+   "frame": "0x07",
+   "pilot": "Bao and Mao",
+   "art": "バオ&マオ",
+   "shot_sha256": "6191f05fbe13942600fd596771b4dfb5187bc6ec1d905e04e0b14fcfbf8bba87"
+  },
+  {
+   "frame": "0x08",
+   "pilot": "Devilotte",
+   "art": "デビロット姫",
+   "shot_sha256": "6b8d8f004655a82399e83e1e812a7185b590b68b425b979f741558d654716802"
+  },
+  {
+   "frame": "0x09",
+   "pilot": "Chiyomaru",
+   "art": "千代丸",
+   "shot_sha256": "4badc9af38fb304212a55b364e9ea5963d9ff5ed7171ab9f7568942a317882ea"
+  },
+  {
+   "frame": "0x0A",
+   "pilot": "Shade",
+   "art": "シェイド",
+   "shot_sha256": "c02332c3459cb0274ea38e07aca52f0fafcc9f1777194e99d2ecbbf77acbc444"
+  }
+ ],
+ "saturn_vs_mechs": [
+  {
+   "frame": "0x0C",
+   "latin_text_name": "BLODIA",
+   "art": "ブロディア",
+   "model_code": "BX-02",
+   "shot_sha256": "55b4cb579c77c88bc4fac1c88e67b6e3479da26aeff853707f1460efb6cf64cb"
+  },
+  {
+   "frame": "0x0D",
+   "latin_text_name": "SWORDSMAN",
+   "art": "B・ソードマン",
+   "model_code": "BX-04S",
+   "shot_sha256": "d106318e8f7ae64d3246275f697e6f112649418f643891a0cc28872dd55a8641"
+  },
+  {
+   "frame": "0x0E",
+   "latin_text_name": "RIOT",
+   "art": "B・ライアット",
+   "model_code": "BX-07S",
+   "shot_sha256": "d27c3039899f6bdfa515500ad0bc9ac6de29c5322a70ecdcb78ec34305e3a44a"
+  },
+  {
+   "frame": "0x0F",
+   "latin_text_name": "REPTOS",
+   "art": "レプトス",
+   "model_code": "RF-004",
+   "shot_sha256": "dacb7081db943d5ef95be3790ef71d1c6efb89c284fb7db0961bca94ce6c6069"
+  },
+  {
+   "frame": "0x10",
+   "latin_text_name": "LIGHTNING",
+   "art": "R・ライトニング",
+   "model_code": "RF-009",
+   "shot_sha256": "bd3f4d9a19ed6cfee72e8a0c5fe8664f3afe3ae038f1dd964199794980f9209a"
+  },
+  {
+   "frame": "0x11",
+   "latin_text_name": "JACKAL",
+   "art": "R・ジャッカル",
+   "model_code": "RF-027",
+   "shot_sha256": "bde125cb7521941af760973ab835ee0b80d9ccad2baeb5f7e6b257c08c8884c9"
+  },
+  {
+   "frame": "0x12",
+   "latin_text_name": "FORDY",
+   "art": "フォーディー",
+   "model_code": "F7100",
+   "shot_sha256": "2a8ea830e785c6a3bcf17a31d6eaeced99d9788db3fcc222d328376dc90a32e6"
+  },
+  {
+   "frame": "0x13",
+   "latin_text_name": "TALANTURA",
+   "art": "F・タランテラ",
+   "model_code": "F7202",
+   "shot_sha256": "36cb7478a3abd44f79f5e41b8889f3366ada25aee297f60b3a6b9bd8acc5690d"
+  },
+  {
+   "frame": "0x14",
+   "latin_text_name": "KILLER BEE",
+   "art": "F・キラービー",
+   "model_code": "F7900J",
+   "shot_sha256": "1348fd3d7720bebb9be2abdf67db04ba5c2961a5fb15e9cd25d8b5670a85e36b"
+  },
+  {
+   "frame": "0x15",
+   "latin_text_name": "GULDIN",
+   "art": "ガルディン",
+   "model_code": "GP-N1",
+   "shot_sha256": "811c935458fe5badc032d3f622cae4dc4eb2d102c1727dc27fe0979a536f578e"
+  },
+  {
+   "frame": "0x16",
+   "latin_text_name": "VICE",
+   "art": "G・ヴァイス",
+   "model_code": "GP-V4",
+   "shot_sha256": "550b412ba0ad85ea9ff6961805bc9311bfa3b76184671fc4798549ae9e65682d"
+  },
+  {
+   "frame": "0x17",
+   "latin_text_name": "CYCLONE",
+   "art": "G・サイクロン",
+   "model_code": "GP-02",
+   "shot_sha256": "c7812d0c058ab600823cae295a5c59ee36ab04b0792c5c0451ca1fb543853432"
+  },
+  {
+   "frame": "0x18",
+   "latin_text_name": "GAITS",
+   "art": "ゲイツ",
+   "model_code": "P-10033",
+   "shot_sha256": "088a53495bd99195eea92bd97d0236cd3caeec5640abb2f03b02815b162a80f4"
+  },
+  {
+   "frame": "0x19",
+   "latin_text_name": "HELION",
+   "art": "ヘリオン",
+   "model_code": "UVA-02",
+   "shot_sha256": "a0eb0a35a8d7df1f61ef8d61904fcb7603d36c38b90943327fa96b0afafedca3"
+  },
+  {
+   "frame": "0x1A",
+   "latin_text_name": "WARLOCK",
+   "art": "ワーロック",
+   "model_code": "X-0",
+   "shot_sha256": "dd9c0984818de4ad7e87a4dc23789453f4c496bde4d8bfa866d2cb34dd34f782"
+  },
+  {
+   "frame": "0x1B",
+   "latin_text_name": "SUPER-8",
+   "art": "スーパー8",
+   "model_code": "S-008",
+   "shot_sha256": "cc32f411a7eac9a035702e7d0482dcdd2ad9bd7fde91befcb08115758991b50a"
+  },
+  {
+   "frame": "0x1C",
+   "latin_text_name": "ZERO-GOUKI (HYPOTHESIS: list order)",
+   "art": "(a portrait, not a name)",
+   "model_code": null,
+   "shot_sha256": "4f73e35574d5fd27ec5e8b2bac4c717e930a016a4bd46c7cf3908314b565554c"
+  }
+ ],
+ "arcade": {
+  "cybotsu": {
+   "select": {
+    "cybotsu_f00970.png": "abb2290c7d0531ca02cf2393b946c9ea7b02f2c21f8037316d8133eab5d49808",
+    "cybotsu_f01030.png": "6f92b48495877e4964d6684020bde9a19f2ef4f11e73dd915265e9c367ba4ada",
+    "cybotsu_f01090.png": "1eeed877d032528b13e76dbbcfc346284a06b1546b1963925f558962fa71c388",
+    "cybotsu_f01150.png": "40d66a745e3ddff6fb6d2fdebd2842ec2f0dfdca04f0e3b8cf9513563e79ff27",
+    "cybotsu_f01210.png": "d85e9e8c7b04ac78ed974c02386778451fae5db593c6edf82a52667cf83b747b",
+    "cybotsu_f01270.png": "302999d3fe3c12d9d08a65540a591ad4e43e49f045356a151b0b342f09223402",
+    "cybotsu_f01330.png": "81864e413dce84be696ffba6ffb02bdfc137deee58b7a8f25ca78246b6a798aa",
+    "cybotsu_f01390.png": "3fc3c076990d2712122044c26aac72be30a1a4b09803a28128e44476eae8da20",
+    "cybotsu_f01450.png": "a1e7f3c82410e44e5789ac0377c444000bb0180e12149db3b0854a1d8218b809",
+    "cybotsu_f01510.png": "bb91b276380de30f4a188143e946f6655ee7a12c47be8b918b6856bfb41f85ea",
+    "cybotsu_f01570.png": "7119bb1266b8298d7438eb8509ea1402242ed6de124cb1e0da1104c9ccc75664"
+   },
+   "vs": {
+    "mech0": {
+     "snap": "cybotsu_f03960.png",
+     "sha256": "a1f86bc2e8f3f576bf8909a3c47368a4fe74c0cd63f8dfe97eab9012381fce7f"
+    },
+    "mech0b2": {
+     "snap": "cybotsu_f03960.png",
+     "sha256": "a1f86bc2e8f3f576bf8909a3c47368a4fe74c0cd63f8dfe97eab9012381fce7f"
+    },
+    "mech0b3": {
+     "snap": "cybotsu_f03960.png",
+     "sha256": "a1f86bc2e8f3f576bf8909a3c47368a4fe74c0cd63f8dfe97eab9012381fce7f"
+    },
+    "mech0b4": {
+     "snap": "cybotsu_f03960.png",
+     "sha256": "a1f86bc2e8f3f576bf8909a3c47368a4fe74c0cd63f8dfe97eab9012381fce7f"
+    },
+    "mech1": {
+     "snap": "cybotsu_f03960.png",
+     "sha256": "bba8327f87a436077bde25d4b7f9e4c330a692830a09a09a7080f9d9d8169df4"
+    },
+    "mech1b2": {
+     "snap": "cybotsu_f03960.png",
+     "sha256": "bba8327f87a436077bde25d4b7f9e4c330a692830a09a09a7080f9d9d8169df4"
+    },
+    "mech1b3": {
+     "snap": "cybotsu_f03960.png",
+     "sha256": "bba8327f87a436077bde25d4b7f9e4c330a692830a09a09a7080f9d9d8169df4"
+    },
+    "mech1b4": {
+     "snap": "cybotsu_f03960.png",
+     "sha256": "bba8327f87a436077bde25d4b7f9e4c330a692830a09a09a7080f9d9d8169df4"
+    },
+    "mech2": {
+     "snap": "cybotsu_f03960.png",
+     "sha256": "294d2cb78f98c343576ae6f77237113d3cdfaab04e23569087775638ae984e58"
+    },
+    "mech2b2": {
+     "snap": "cybotsu_f03960.png",
+     "sha256": "294d2cb78f98c343576ae6f77237113d3cdfaab04e23569087775638ae984e58"
+    },
+    "mech2b3": {
+     "snap": "cybotsu_f03960.png",
+     "sha256": "294d2cb78f98c343576ae6f77237113d3cdfaab04e23569087775638ae984e58"
+    },
+    "mech2b4": {
+     "snap": "cybotsu_f03960.png",
+     "sha256": "294d2cb78f98c343576ae6f77237113d3cdfaab04e23569087775638ae984e58"
+    },
+    "mech3": {
+     "snap": "cybotsu_f03960.png",
+     "sha256": "b4e64724c722711ace21fcf028032d430691ed0575d91f37be5ceb5f6c61ca25"
+    },
+    "mech3b2": {
+     "snap": "cybotsu_f03960.png",
+     "sha256": "b4e64724c722711ace21fcf028032d430691ed0575d91f37be5ceb5f6c61ca25"
+    },
+    "mech3b3": {
+     "snap": "cybotsu_f03960.png",
+     "sha256": "b4e64724c722711ace21fcf028032d430691ed0575d91f37be5ceb5f6c61ca25"
+    },
+    "mech3b4": {
+     "snap": "cybotsu_f03960.png",
+     "sha256": "b4e64724c722711ace21fcf028032d430691ed0575d91f37be5ceb5f6c61ca25"
+    },
+    "pilot1": {
+     "snap": "cybotsu_f03900.png",
+     "sha256": "5a91c855323ed07d4c8acef8aba0a98ca1a0412685a7c9fb10c597212f565e6f"
+    },
+    "pilot2": {
+     "snap": "cybotsu_f03960.png",
+     "sha256": "80742ce6a8ae8b124424ca8cc51d2ac2fa5d6c11f25d143a711faa9f7409303c"
+    },
+    "pilot3": {
+     "snap": "cybotsu_f04080.png",
+     "sha256": "61cb6a8e11cdb5c64895aa047ff77df872eb664fecfb848d31948a61c8de7057"
+    },
+    "pilot4": {
+     "snap": "cybotsu_f04020.png",
+     "sha256": "a67717864d0df35c2b37b2599bf2bae50b2e5e9405b375cccd59354f16b0be06"
+    },
+    "pilot5": {
+     "snap": "cybotsu_f03840.png",
+     "sha256": "f10e5b8d3fe92e13721f26c3e27ba58e8d981bf56d375374a8c496ccac3510b9"
+    },
+    "pilot6": {
+     "snap": "cybotsu_f03960.png",
+     "sha256": "a1f86bc2e8f3f576bf8909a3c47368a4fe74c0cd63f8dfe97eab9012381fce7f"
+    },
+    "pilot7": {
+     "snap": "cybotsu_f03900.png",
+     "sha256": "5a91c855323ed07d4c8acef8aba0a98ca1a0412685a7c9fb10c597212f565e6f"
+    },
+    "pilot8": {
+     "snap": "cybotsu_f03960.png",
+     "sha256": "80742ce6a8ae8b124424ca8cc51d2ac2fa5d6c11f25d143a711faa9f7409303c"
+    },
+    "pilot9": {
+     "snap": "cybotsu_f04080.png",
+     "sha256": "61cb6a8e11cdb5c64895aa047ff77df872eb664fecfb848d31948a61c8de7057"
+    }
+   }
+  },
+  "cybotsj": {
+   "select": {
+    "cybotsj_f00970.png": "c240acc1b6109d32c82c5f0e5963b347f22df70880955b53ca3cbbcd702a7614",
+    "cybotsj_f01030.png": "ee85db9377b4d67a53778509e3dfeabc0e7f9ca8cdd0f3c0fe2d74f3c6270dfa",
+    "cybotsj_f01090.png": "d95f809b5c44ce8d01839cf02b279fd41c56a7b321d9f2ebc52f20da143f5c8c",
+    "cybotsj_f01150.png": "f1c05cc426de2d918d175433cb127b39ff3f452076eed7f6570b7b8b665a3190",
+    "cybotsj_f01210.png": "e35d5cd8d8a96d3d04a0b6140b342a601be027e45ae441c32935d21dedc76f96",
+    "cybotsj_f01270.png": "8e65c4bb48eb82d25aac751728829c9bbf4321238e2dc0372f3da089fd653ebb",
+    "cybotsj_f01330.png": "2d3a414642f9c7444ab81ed53a2298dff7125f63665c1e0b7967436f02e2aa7a",
+    "cybotsj_f01390.png": "97ffad377ad23a99d74a4759a67b8f697ba74f21108062577c9d62df4bffcaee",
+    "cybotsj_f01450.png": "b6d7087358a1ba6d891f51dfac8337b89526e23b771b46cfaf7986bb2911058c",
+    "cybotsj_f01510.png": "906d4d374a4d9f794a8ff36c86c88a9e580a21b5dea2e115f8bc6adc911e433a",
+    "cybotsj_f01570.png": "f3a28fd4ac93c627625808eea6fe244b0c0224879c280af18481bb3bceb167d4"
+   },
+   "vs": {
+    "mech0": {
+     "snap": "cybotsj_f04020.png",
+     "sha256": "9c31f8a41fa95af3a9f43d3fbf1cbead652dfdc0777089998529bdfa35279723"
+    },
+    "mech1": {
+     "snap": "cybotsj_f04020.png",
+     "sha256": "e47d3cb628d14b18845c06c0909da9efca0bf75425694ce726917e3b9562abad"
+    },
+    "mech2": {
+     "snap": "cybotsj_f04020.png",
+     "sha256": "2531a73eb5312ac09cd7c676c6e627d550b0d922c65eb382d3fcbec83aae1b34"
+    },
+    "mech3": {
+     "snap": "cybotsj_f04020.png",
+     "sha256": "4898874835b9947d9113fded99b3bc3bd0c933af830d130d1615d96dede757eb"
+    },
+    "pilot1": {
+     "snap": "cybotsj_f03900.png",
+     "sha256": "7a90a2656e04b2451730dfa7311788d99587cfc56cdd07c087cf8e98d8dec39a"
+    },
+    "pilot2": {
+     "snap": "cybotsj_f04080.png",
+     "sha256": "45510077e61b769082516ea7c81f0da14030ebcb3039792a32548762378bf501"
+    },
+    "pilot3": {
+     "snap": "cybotsj_f04380.png",
+     "sha256": "796f619d76ddbc32d4bf24732505ddb4555f0fedfcd78d3582d1e506d378d28e"
+    },
+    "pilot4": {
+     "snap": "cybotsj_f04200.png",
+     "sha256": "2b2977c17674c32f4093bb0c6def21b4c0b83e325986cf6989acc1f1b70b1d83"
+    },
+    "pilot5": {
+     "snap": "cybotsj_f04020.png",
+     "sha256": "68884dcffe78c8e0cef409df570a186141e8e73372eebf900dd7f6b3631cc9e1"
+    },
+    "pilot6": {
+     "snap": "cybotsj_f04020.png",
+     "sha256": "9c31f8a41fa95af3a9f43d3fbf1cbead652dfdc0777089998529bdfa35279723"
+    },
+    "pilot7": {
+     "snap": "cybotsj_f03900.png",
+     "sha256": "7a90a2656e04b2451730dfa7311788d99587cfc56cdd07c087cf8e98d8dec39a"
+    },
+    "pilot8": {
+     "snap": "cybotsj_f04080.png",
+     "sha256": "45510077e61b769082516ea7c81f0da14030ebcb3039792a32548762378bf501"
+    },
+    "pilot9": {
+     "snap": "cybotsj_f04380.png",
+     "sha256": "796f619d76ddbc32d4bf24732505ddb4555f0fedfcd78d3582d1e506d378d28e"
+    }
+   }
+  }
+ }
+}
