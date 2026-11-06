@@ -2280,3 +2280,20 @@ Faults found and fixed (do not retry):
   filters them, as EXP-0039's probe does.
 - A first live check on a pre-fix image was stopped and rerun on the final
   image (`local/end023`).
+
+## 2026-11-05 — UI-004 written up (Phase N, no experiment)
+
+User request (verbatim): "Write up UI-004". Tasks only; nothing run in an
+emulator.
+
+- Phase N in `TASKS.md`: `BOOT-001` (`READY`) to `BOOT-005`, modelled on
+  XvSF's Phase O for method only (rule 13).
+- Static facts gathered for the phase intro (read-only):
+  - `WARNING0`-`3.PIX` are 122,880 bytes, `WARNING4.PIX` 131,072 (the
+    size of `QSD.PIX`); hashes in the phase intro. The format is
+    arithmetic only (HYPOTHESIS).
+  - `grep -a` over `local/extracted/saturn_jp/`: only `CYBER.BIN` names
+    the five files, in 16-byte entries from offset `0x39168`.
+  - No `ERR*.BIN` on the disc.
+- D-003 tested boot and attract only, so `BOOT-001` starts from the code
+  (the readers of that table) rather than from cart settings.

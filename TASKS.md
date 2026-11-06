@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-05: `UI-004` tasks written up** (Phase N, the user: "Write up UI-004"): `BOOT-001` (census, code first: the readers of `CYBER.BIN`'s `WARNING*.PIX` table) is `READY`; `BOOT-002` (storage and drawing), `BOOT-003` (English and lettering, a gate extension), `BOOT-004` (build on the M8 image) and `BOOT-005` (verify) follow. Nothing is started.
 - **2026-11-05: `GATE-TRANSLATION` extended to the roster endings.** The user's words: "GO (Recommended)", "Indent, as the story (Recommended)", "Bao Mao: (Recommended)" and "Accept the rule (Recommended)". `END-023` (the M8 image) is `READY`.
 - **2026-11-05: capacity of the roster endings measured** (`END-022`, `EXP-0049`, D-046): all six endings' English fits. With the half-cell indent the 330 pairs fit the 335 free codes, and nothing Japanese is touched. Room: the roster's own lines plus about 750 bytes of never-shown lines. Lists 6-8 show only their posted boxes. Next: the gate extension for the roster endings (the user's GO).
 - **2026-11-05: ending box timing solved** (`END-011`, `EXP-0048`, D-045): cues (`EAnn`) close boxes, `E2nn` sets typing speed, and the script waits for typing, which sets the next scene and its music. The user chose "Faster typing + move cues (Recommended)". `--retime` gives Jin's English boxes 113+ frames with their full line, and every scene change and track start stays on the Japanese frame (built and live). `END-022` (capacity) is `READY`.
@@ -1695,6 +1696,202 @@ So `END-023` builds lists 0-5 with the half-cell indent across the ending rows (
     - Asked: "END-023's play check is a cold boot of the M8 image (story, win quotes and all six roster endings): boot, start arcade, pick Jin, and stop once his first story scenes have shown English, as in END-010. About 5 pad-key presses through System Events in the first 2 minutes (Mednafen comes to the front at each press), then it runs on its own; about 6-7 minutes in all, no key loops. A separate run, already going and pressing no keys, plays from your REF-005 play state into Arieta's ending on the same image. May I run the cold boot now?" The user's answer, verbatim: "Yes, run it now (Recommended)". The cold boot reaches play: scenes 21 and 0, 6/6 English boxes.
   - **Provenance:** `data/translations/<pilot>_ending.json` (six) and `data/regression/end023_roster_endings.json`.
 
+## Phase N: Boot-Time Messages (`UI-004`)
+
+The outline scheduled `UI-004` early after M5, and lesson 5 of
+`docs/lessons_from_xvsf.md` puts it in the first backlog: in both siblings
+the user added boot, cartridge and save warnings mid-project. The user asked
+for these tasks (verbatim, 2026-11-05): "Write up UI-004". Nothing in this
+phase is started. The order is:
+
+1. `BOOT-001` (census: which message shows under which condition);
+2. `BOOT-002` (where each message is stored and how it is drawn);
+3. `BOOT-003` (English text and lettering; the user's gate extension);
+4. `BOOT-004` (the build, on top of the M8 image);
+5. `BOOT-005` (verify and register), which closes `UI-004`.
+
+Known so far (facts and their confidence):
+- **No warning at boot or in attract** (D-003, `EXP-0002`, CONFIRMED for
+  what was tested): `ss.cart` `none`, `backup`, `extram1` and `extram4`,
+  one 120 s cold boot each, showed no warning. Only boot and attract were
+  tested, with the homes' normal backup memory; a check at Start, at a
+  save, or with other backup memory is not excluded.
+- **Candidate files** (`references/saturn_jp/iso_listing.json`; names and
+  sizes only):
+
+  | File | Bytes | SHA-256 (first 12) |
+  | --- | --- | --- |
+  | `WARNING0.PIX` | 122,880 | `0524f6f8ddd3` |
+  | `WARNING1.PIX` | 122,880 | `d7b190a19d38` |
+  | `WARNING2.PIX` | 122,880 | `c3054ae2b8f0` |
+  | `WARNING3.PIX` | 122,880 | `9a790f138f90` |
+  | `WARNING4.PIX` | 131,072 | `66ff1b0d42b5` |
+
+  - 122,880 is 512 × 240 bytes and 131,072 is 512 × 256, the size of
+    `QSD.PIX`, a raw 512 × 256 256-colour VDP2 bitmap (D-035). That the
+    `WARNING` files share its format is arithmetic only: **HYPOTHESIS**.
+  - `CYBER.BIN` holds the five names in a table of 16-byte entries from
+    file offset `0x39168` (static search, 2026-11-05). No other extracted
+    file names them. Which code reads that table, and when, is **UNKNOWN**.
+  - There are no `ERR*.BIN` files (the siblings' warnings).
+- **Siblings (HYPOTHESIS for Cyberbots, rule 13):** MSHvSF and XvSF each
+  showed five boot warnings as whole bitmaps: no cart or a backup cart, a
+  1 MB cart, unformatted backup memory, a damaged save, too little free
+  memory. Cyberbots runs with no cart (D-003), so its warnings may be about
+  backup memory only, or something else.
+- **Tools:** `tools/mednafen/backup_ram.py` (copied from MSHvSF via XvSF)
+  writes backup-memory fixtures: unformatted, N blocks free, a damaged copy
+  of a real save. Its layout was checked on the siblings' saves only, so it
+  is re-checked on a Cyberbots save before use.
+- **Policy** (`docs/localization_policy.md`): text with no official English
+  gets a recorded new translation, the translator named and source hashes
+  kept, approved by the user surface by surface. Absence of official
+  English must be shown, not assumed. The references are arcade-only
+  (`REF-002` `REJECTED`).
+- **Scope:** only the game's own messages. The Saturn BIOS's screens
+  (memory manager, CD player, "no disc") are not the game's and stay out.
+- **Run rules:** each cold boot is asked first, with the user present. Key
+  presses are menu keys only, never loops. Saves and backup-memory files
+  stay under ignored paths, recorded by hash.
+
+### BOOT-001 - Census of the boot-time messages
+
+- **Status:** `READY`
+- **Milestone:** Boot-time messages (`UI-004`)
+- **Dependencies:** EMU-004, EMU-021 (done).
+- **Blockers:** None.
+- **Objective:** List every message the game can show about its cartridge
+  or backup memory, with the condition that shows it.
+- **Acceptance criteria:**
+  - **Code first:** the readers of `CYBER.BIN`'s `WARNING*.PIX` table are
+    found (static disassembly, then a read breakpoint on the table in a
+    running game). Each branch that leads to a load is listed with the
+    condition it tests (cart, backup memory, a save's contents, or other)
+    and when it runs (boot, Start, a save, other).
+  - **Triggers:** each condition the code tests is made in Mednafen, one
+    change at a time from the untouched image, recorded by setting or
+    fixture hash:
+    - backup memory: unformatted, nearly full (around the code's limit),
+      holding a damaged save of this game (made from a real save, the
+      damage recorded), and a normal save (control);
+    - cart: only if the code tests it (D-003 saw no warning with any cart);
+    - any other condition the code tests.
+
+    A condition that needs a cold boot is asked first. One that can be made
+    from a saved state (for example by writing backup memory in RAM before
+    the check runs) is made that way where the code shows it is equivalent.
+  - **Screens:** each message screen is captured (screenshot hash, frame).
+    The agent transcribes and translates it, and records what each button
+    does there. A screen that is the BIOS's is recorded as such and left
+    out.
+  - **Unreachable:** a condition the code tests that Mednafen cannot make
+    is listed with the reason, and its file is shown by forcing the branch.
+  - **Record:** `docs/text_surfaces.md` gets one row per message, replacing
+    the "Not Seen Yet" row.
+- **Notes:** if the code reads no `WARNING` file in any reachable path,
+  record that with the evidence and stop the phase there (the user
+  decides). Method: XvSF `BOOT-001` (`EXP-0053`).
+
+### BOOT-002 - Where each message is stored and how it is drawn
+
+- **Status:** `BACKLOG`
+- **Milestone:** Boot-time messages (`UI-004`)
+- **Dependencies:** BOOT-001.
+- **Blockers:** None.
+- **Objective:** For each message in `BOOT-001`, find the data the game
+  draws and the drawing path, so that an English version can be built.
+- **Acceptance criteria:**
+  - **Location:** per message, the file and offset (or code address) of its
+    text or picture, CONFIRMED by a controlled change: altering those bytes
+    in a test build from the untouched source changes that screen and
+    nothing else. The file a screen reads is shown by a load log or a
+    single-file change, not by its name.
+  - **Format:** for a picture, its size, pixel format and palette (where
+    the palette comes from), decoded and drawn back out to match the
+    screenshot pixel for pixel; how it reaches the screen (VDP1 or VDP2,
+    layer, VRAM address). For text, its encoding and font.
+  - **Room:** what an English version may use: the picture's size, visible
+    rows and columns, and colours; or the text's space and glyphs.
+- **Notes:** if a message is drawn from code or a font rather than a
+  picture, record it here and adjust `BOOT-004` before it starts.
+
+### BOOT-003 - English text and lettering (gate extension)
+
+- **Status:** `BACKLOG`
+- **Milestone:** Boot-time messages (`UI-004`)
+- **Dependencies:** BOOT-001, BOOT-002.
+- **Blockers:** None.
+- **Objective:** An English text for every message, from an official source
+  where one exists, otherwise a recorded new translation the user approves.
+- **Acceptance criteria:**
+  - **Official English:** looked for, with each search recorded:
+    - the arcade has no cartridge or backup memory; its boot and service
+      messages are checked for any shared wording (`cybotsu` program,
+      `local/ref003/`);
+    - the US Saturn BIOS already in the homes (`EMU-002`) is checked for its
+      backup-memory terms (for example the memory manager's name), by its
+      own screens.
+  - **New translation:** where no official English exists, a translation by
+    the agent, with the translator named and each source screen's hash
+    kept. Each line fits `BOOT-002`'s room. Stored in
+    `data/translations/boot_warnings.json` (no Japanese text committed).
+  - **Decision:** the user sees every message's meaning beside its proposed
+    English and approves it in their own words, as a `GATE-TRANSLATION`
+    extension recorded here and in `docs/localization_policy.md`. A
+    sibling's approved wording may be offered as an option, labelled as
+    that sibling's.
+  - **Style:** the user also chooses the lettering (for a picture: font,
+    size and colours) from rendered samples.
+
+### BOOT-004 - Build the English messages
+
+- **Status:** `BACKLOG`
+- **Milestone:** Boot-time messages (`UI-004`)
+- **Dependencies:** BOOT-002, BOOT-003, END-023 (done).
+- **Blockers:** None.
+- **Objective:** Every boot-time message in English, built from the
+  untouched source on top of the M8 image's changes.
+- **Acceptance criteria:**
+  - **Generator:** a script makes each replacement (picture or text) from
+    the approved data, with checks of its format against `BOOT-002`. The
+    generated files' hashes are recorded. No game file or picture is
+    committed (rule 21); the script, its tests and the approved English are.
+  - **Build:** `dialogue.py` (or the build entry point then current) takes
+    the messages as an option. Two builds are identical; every changed
+    range is listed with its original and new bytes (rule 12); every
+    changed file fits its sectors; all sectors pass EDC/ECC; the source
+    hashes are unchanged.
+  - **Screens:** every message `BOOT-001` triggered is shown in English on
+    the built image (and a forced branch for any unreachable one) and
+    checked by the agent against the generated file and the approved text,
+    pixel for pixel.
+  - **No other change:** apart from the message files, the image equals
+    the M8 build (`data/regression/end023_roster_endings.json`), and a
+    normal boot with a normal save is unchanged.
+- **Notes:** both name variants (`LOC-001`, `OPT-001`) are not built yet;
+  whichever comes later carries these changes.
+
+### BOOT-005 - Verify and register
+
+- **Status:** `BACKLOG`
+- **Milestone:** Boot-time messages (`UI-004`)
+- **Dependencies:** BOOT-004.
+- **Blockers:** None.
+- **Objective:** Play-check the English messages and lock the build.
+- **Acceptance criteria:**
+  - **Play check:** cold boots of the built image under each condition
+    `BOOT-001` could trigger, run by the agent with the user present and
+    asked first, show the English screens; one normal boot reaches the
+    title.
+  - **Regression:** a reference in `data/regression/` with the build's
+    hashes, and the earlier references still match.
+  - **Coverage:** `docs/coverage_exceptions.md` lists any message left in
+    Japanese, or only forced, and why.
+  - **README:** the "Still Japanese" list and the build commands are
+    updated.
+- **Notes:** the image commit pushes after the agent's checks pass (user
+  rule, 2026-11-02).
+
 ## Later Milestones (outline only)
 
 Placeholders so the order is visible. Each becomes a full task, with its own
@@ -1706,7 +1903,7 @@ and `docs/lessons_from_xvsf.md`.
 | --- | --- | --- |
 | END-010 | M7 | `DONE` (2026-11-05, Phase L); follow-up `END-011` (`BACKLOG`). |
 | END-020 | M8 | `DONE` (2026-11-05, Phase M: `END-020`-`END-023`, with `END-011`); M8 confirmed. |
-| UI-004 | after M5, early | Boot, cartridge and save warnings (`WARNING0-4.PIX` are candidates); in the first backlog this time (`docs/lessons_from_xvsf.md`, lesson 5). |
+| UI-004 | after M5, early | Written up 2026-11-05: Phase N (`BOOT-001`-`BOOT-005`); `BOOT-001` is `READY`, nothing started. |
 | UI-001 | after M8, user request | UI art: inventory English art already in every font before drawing anything. |
 | UI-002 | after M8, user request | Attract and opening text (`OPDEMO*`, `STDEM*.PIR`, `VADEM*.MAC`, `STDEMO.*` are candidates): layer, container, codecs, oracles. |
 | UI-003 | after M8, user request | Other UI text (select, continue, ranking, options): find the arcade English by tracing the arcade code. |
