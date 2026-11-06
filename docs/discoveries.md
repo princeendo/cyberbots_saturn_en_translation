@@ -1073,3 +1073,22 @@ Reproduce: `research/experiments/EXP-0054/README.md`, "Procedure".
   the US arcade's Latin forms are in `docs/names.md`.
 
 Reproduce: `research/experiments/EXP-0056/README.md`, "Procedure".
+
+## D-052: Name art storage; no Latin pilot or mech names on the disc's name banks (`LOC-002`, `EXP-0057`)
+
+- **Pilot select:** raw 4 bpp art in `SELECT.VAD` (`0x17840`-`0x19B20`,
+  nine names), which the select screen copies to VDP1 VRAM `0x20000`; bank
+  56's parts address it directly.
+- **VS screen:** compressed records in `PL3F_0.BIN` (loaded to WRAM-L
+  `0x00200000`), one or two per name, `0x4324`-`0x5A..` for the nine pilots
+  and `0x5E58`-`0x97..` for the sixteen mechs. A record's first word is type
+  (bits 12-15), width / 8 and height; the names are type 2, a byte-coded
+  format (`0x0601446C`) whose handlers 0-2 copy literal longs.
+- A test image marking Jin's select name and two VS records, read by the
+  game from saved states before the loads, changed exactly those names.
+- Every frame of both banks was drawn (149 and 122): neither holds a Latin
+  version of any pilot or mech name. Versus mode uses the same art.
+- Room: `SELECT.VAD` is full but for 1,440 bytes of slack; `PL3F_0.BIN` has
+  288. The VS names take 20,804 bytes compressed (26,188 raw).
+
+Reproduce: `research/experiments/EXP-0057/README.md`, "Procedure".

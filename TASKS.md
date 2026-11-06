@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-06: name-art storage found** (`LOC-002`, `EXP-0057`, D-052): select names are raw art in `SELECT.VAD`, VS names compressed records in `PL3F_0.BIN` (confirmed by a marked test image read from saved states). No Latin pilot or mech name exists in either bank (every frame drawn); versus mode uses the same art (one cold boot, the user: "Yes, run it now (Recommended)"). Room: Latin select names fit in place; VS names need compression or more space; neither file can also keep the katakana for `OPT-001`. `LOC-003` (voice) is `READY`; `LOC-004` waits on it.
 - **2026-11-06: name-art census done** (`LOC-001`, `EXP-0056`, D-051): name art appears only on the pilot select (9 pilot names) and the VS screen (9 pilot and 16 mech names); every other screen seen is Latin or nameless. Each name was shown on the real screen by a RAM write from a saved state (no key). The US arcade uses Latin in mixed case for pilots and capitals for mechs and SHADE. Versus mode's own screens were not reached (carried to `LOC-002`). `LOC-002` (storage, Latin art) and `LOC-003` (voice) are `READY`.
 - **2026-11-06: `LOC-001` tasks written up** (Phase O, the user: "Write up LOC-001"): `LOC-001` (census of every name-art surface, Saturn and US arcade) is `READY`; `LOC-002` (storage, and whether Latin art is on the disc), `LOC-003` (voice), `LOC-004` (the user's plan, a gate extension), `LOC-005` (the Latin build) and `LOC-006` (verify) follow. The switch stays `OPT-001`. Nothing is started.
 - **2026-11-06: `UI-004` DONE** (`BOOT-005`, `EXP-0055`): six cold boots with one A press each (the user: "Yes, run all 6 (Recommended)"). Every boot warning shows in English, and a button does what the English says: the game goes on after the damaged-save and out-of-space warnings, the Saturn control panel follows the three unformatted-memory ones. A normal boot reaches the title. All earlier regression references still rebuild. Coverage and README updated. Next: the outline's remaining items (`REL-001`, `LOC-001`, `UI-001`-`003`, `TXT-002`, `SPECIAL-001`) need their tasks written up first.
@@ -2033,7 +2034,7 @@ boot_warnings.json` in the arcade letters and the Japanese colours. It is
 ## Phase O: Name Art (`LOC-001`)
 
 The user asked for these tasks (verbatim, 2026-11-06): "Write up LOC-001".
-`LOC-001` is done (2026-11-06). The order is:
+`LOC-001` and `LOC-002` are done (2026-11-06). The order is:
 
 1. `LOC-001` (census of every name-art surface, and what the US arcade
    shows on each);
@@ -2133,7 +2134,7 @@ Known so far (facts and their confidence):
 
 ### LOC-002 - Where each name surface is stored, and whether Latin art exists
 
-- **Status:** `READY`
+- **Status:** `DONE` (2026-11-06, `EXP-0057`, D-052)
 - **Milestone:** Name art (`LOC-001`)
 - **Dependencies:** LOC-001.
 - **Blockers:** None.
@@ -2162,6 +2163,34 @@ Known so far (facts and their confidence):
   reached; check them for name art first (a state there, or a cold boot
   with the user present). Leads: D-051's records and tables; `CYBER.BIN`'s
   Latin pilot and mech lists; the cast roll's Latin names (D-040).
+- **Done:** 2026-11-06 (`EXP-0057`, D-052).
+  - **Location:** select names are raw art in `SELECT.VAD` (`0x17840`-
+    `0x19B20`); VS pilot and mech names are compressed type-2 records in
+    `PL3F_0.BIN` (`0x4324`-`0x97..`). CONFIRMED by a test image marking
+    Jin's select name and two VS records, read by the game from saved
+    states before the loads: exactly those names changed.
+  - **Table:** D-051's records → bank 56 / bank 63 frame tables → parts →
+    patterns (`SELECT.VAD` offset, or `PL3F_0.BIN` record).
+  - **Latin art:** absent for every pilot and mech name: all 149 frames of
+    bank 56 and all 122 of bank 63 were drawn. Present elsewhere: the cast
+    roll's Latin names (`KEND_1.BIN`), `CYBER.BIN`'s text lists, and a
+    Latin "G.O.D." banner in bank 63 (use unknown).
+  - **Room:** Latin select names fit in place; VS names need about 7.8 KB
+    more than their records in a literal-only encoding, so in place they
+    need compression (more of the type-2 format) or other space. Neither
+    file can also keep the katakana for `OPT-001`.
+  - **Variant difference:** about 29.7 KB if replaced in place (the two
+    ranges).
+  - **Versus mode** (carried from `LOC-001`): one cold boot, asked: "LOC-002
+    still has to check versus mode's own screens (its pilot select, a "SET
+    UP" screen with handicap and rounds, and its VS screen) for name art.
+    No saved state reaches them, so it needs one cold boot of the untouched
+    image with about 12 single pad-key presses for both players (Start,
+    down to VERSUS MODE, pick a pilot and mech for each side, confirm the
+    setup), one at a time, with a screenshot checked before each press.
+    Each press brings Mednafen to the front for about a second; no key
+    loops. About 5 minutes. May I run it now?" The user's answer,
+    verbatim: "Yes, run it now (Recommended)". Same art, nothing new.
 
 ### LOC-003 - Names in voice
 
@@ -2262,7 +2291,7 @@ and `docs/lessons_from_xvsf.md`.
 | UI-002 | after M8, user request | Attract and opening text (`OPDEMO*`, `STDEM*.PIR`, `VADEM*.MAC`, `STDEMO.*` are candidates): layer, container, codecs, oracles. |
 | UI-003 | after M8, user request | Other UI text (select, continue, ranking, options): find the arcade English by tracing the arcade code. |
 | TXT-002 | after M8, user request | Rare, random, or region-gated text: trace every reader of every text table. |
-| LOC-001 | after REF-007 | Phase O (`LOC-001`-`LOC-006`): `LOC-001` `DONE` (2026-11-06); `LOC-002` and `LOC-003` `READY`. |
+| LOC-001 | after REF-007 | Phase O (`LOC-001`-`LOC-006`): `LOC-001`, `LOC-002` `DONE` (2026-11-06); `LOC-003` `READY`. |
 | OPT-001 | after LOC-001, user decision 2026-11-02 | An Options-screen switch for the name art, Latin by default, in an expanded Options screen if needed. Model: MSHvSF `OPT-003` (a proven home for new code), `OPT-004` (EXTRA OPTIONS sub-menu), `OPT-005` (names switch); XvSF `LOC-009`/`LOC-010`. Prove free RAM by read/write logs before placing code (XvSF's first toggle hung the title). |
 | SPECIAL-001 | M9, user approval | Boss and hidden pilots, alternate routes, unlocks. Secondary sources (`docs/references.md`) say the console ports add four pilots (Chiyomaru Kagura, Tessan Hagure, Princess Devilotte, SHADE) with no arcade English, and an Akuma-mech code; their lines need recorded new translations under the user's policy. Size: Saturn lines 899-1850 (952 lines, about half the script) have no arcade counterpart (D-011). Among the arcade pilots' stories only line 258 is Saturn-only (line 34 is dead data); the earlier count of 74 came from REF-006's reader bug (`EXP-0023`). |
 | REL-001 | after M5 | Copy XvSF `make_patch`/`make_ssp` (with the RetroAchievements header guard) and parameterize the source folder, manifest and author; xdelta and SSP; release zips via promoted `make_zips`/`check_zips`. Patches are Release assets only, never committed. |

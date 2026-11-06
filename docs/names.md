@@ -127,3 +127,23 @@ VS mech table also has a seventeenth entry, which points at a frame
 (`0x1C`) that draws a portrait, not a name; the Latin list's seventeenth
 name is ZERO-GOUKI (that the two match is a HYPOTHESIS). The other sixteen
 are matched to their Latin names by reading the art.
+
+## Where the Name Art Is Stored (`LOC-002`, `EXP-0057`)
+
+| Surface | Stored in | Format | Latin version on the disc |
+| --- | --- | --- | --- |
+| Pilot select names (9) | `SELECT.VAD` `0x17840`-`0x19B20` | raw 4 bpp, bank 56 | none (all 149 frames of bank 56 drawn) |
+| VS pilot names (9) | `PL3F_0.BIN` `0x4324`-`0x5A..` | compressed type 2, bank 63 | none (all 122 frames of bank 63 drawn) |
+| VS mech names (16) | `PL3F_0.BIN` `0x5E58`-`0x97..` | compressed type 2, bank 63 | none |
+| Versus mode select, `SET UP`, VS | the same banks | — | none |
+
+Latin names that do exist elsewhere: the cast roll's (`KEND_1.BIN`, its own
+small style, D-040) and `CYBER.BIN`'s plain-text lists (8 pilots, 17 mechs;
+not seen drawn). Bank 63 also holds a Latin banner "G.O.D." (frame `0x0B`)
+and a third banner style for story-only characters (frames `0x74`-`0x79`);
+where these show is not known.
+
+Room: `SELECT.VAD` can take Latin names of the same size in place, but has
+no room to keep the katakana as well (1,440 bytes of slack). `PL3F_0.BIN`'s
+name records are 20,804 bytes compressed; Latin art in a literal-only
+encoding would need about 7.8 KB more, and the file has 288 bytes of slack.

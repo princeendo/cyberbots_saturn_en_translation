@@ -3,12 +3,13 @@
 Run from the repository root:
 
     ./invenv.sh python research/experiments/EXP-0056/trace.py OUT --state STATE \\
-        --pc ADDR[,ADDR...] [--frames 2] [--read-bp A-B] [--write-bp A-B]
+        --pc ADDR[,ADDR...] [--frames 2] [--read-bp A-B] [--write-bp A-B] \\
+    [--write ADDR=HEX ...]
 
 A debug harness; it never ships. Loads STATE in the silent home (patched
-build, D-007, untouched image), sets log-mode PC (and optionally read or
-write) breakpoints, runs ``--frames`` frames and writes every hit's fields
-to ``OUT/hits.jsonl``.
+build, D-007, untouched image), makes the ``--write`` RAM writes, sets
+log-mode PC (and optionally read or write) breakpoints, runs ``--frames``
+frames and writes every hit's fields to ``OUT/hits.jsonl``.
 """
 
 from __future__ import annotations
@@ -42,6 +43,7 @@ def main() -> int:
     parser.add_argument("--read-bp")
     parser.add_argument("--write-bp")
     parser.add_argument("--frames", type=int, default=2)
+    parser.add_argument("--write", action="append", default=[], help="ADDR=HEX")
     parser.add_argument("--cue", type=Path, default=IMAGE)
     args = parser.parse_args()
     out: Path = args.out
@@ -76,6 +78,9 @@ def main() -> int:
                 agent.run()
             agent.loadstate(args.state.resolve())
             agent.pause()
+            for item in args.write:
+                address, data = item.split("=")
+                agent.bus_write(int(address, 16), bytes.fromhex(data))
             agent.bpmode("log")
             if args.pc:
                 agent.breakpoints("pc", args.pc.split(","))

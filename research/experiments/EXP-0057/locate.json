@@ -1,0 +1,1283 @@
+{
+ "runs": [
+  {
+   "run": "sel-14",
+   "frame": "0x14",
+   "parts": [
+    {
+     "command": 1216,
+     "vram": "0x37840",
+     "size": [
+      64,
+      16
+     ],
+     "xy": [
+      22,
+      201
+     ],
+     "found": [
+      {
+       "file": "SELECT.VAD",
+       "offset": "0x17840"
+      }
+     ]
+    },
+    {
+     "command": 1248,
+     "vram": "0x37A40",
+     "size": [
+      104,
+      16
+     ],
+     "xy": [
+      38,
+      201
+     ],
+     "found": [
+      {
+       "file": "SELECT.VAD",
+       "offset": "0x17A40"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "run": "sel-15",
+   "frame": "0x15",
+   "parts": [
+    {
+     "command": 1216,
+     "vram": "0x37D80",
+     "size": [
+      120,
+      16
+     ],
+     "xy": [
+      18,
+      201
+     ],
+     "found": [
+      {
+       "file": "SELECT.VAD",
+       "offset": "0x17D80"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "run": "sel-16",
+   "frame": "0x16",
+   "parts": [
+    {
+     "command": 1056,
+     "vram": "0x38140",
+     "size": [
+      16,
+      9
+     ],
+     "xy": [
+      122,
+      205
+     ],
+     "found": [
+      {
+       "file": "SELECT.VAD",
+       "offset": "0x18140"
+      }
+     ]
+    },
+    {
+     "command": 1088,
+     "vram": "0x381A0",
+     "size": [
+      40,
+      16
+     ],
+     "xy": [
+      82,
+      201
+     ],
+     "found": [
+      {
+       "file": "SELECT.VAD",
+       "offset": "0x181A0"
+      }
+     ]
+    },
+    {
+     "command": 1120,
+     "vram": "0x382E0",
+     "size": [
+      8,
+      16
+     ],
+     "xy": [
+      80,
+      201
+     ],
+     "found": [
+      {
+       "file": "SELECT.VAD",
+       "offset": "0x182E0"
+      }
+     ]
+    },
+    {
+     "command": 1152,
+     "vram": "0x38140",
+     "size": [
+      16,
+      9
+     ],
+     "xy": [
+      22,
+      205
+     ],
+     "found": [
+      {
+       "file": "SELECT.VAD",
+       "offset": "0x18140"
+      }
+     ]
+    },
+    {
+     "command": 1184,
+     "vram": "0x381A0",
+     "size": [
+      40,
+      16
+     ],
+     "xy": [
+      82,
+      201
+     ],
+     "found": [
+      {
+       "file": "SELECT.VAD",
+       "offset": "0x181A0"
+      }
+     ]
+    },
+    {
+     "command": 1216,
+     "vram": "0x38320",
+     "size": [
+      48,
+      16
+     ],
+     "xy": [
+      38,
+      201
+     ],
+     "found": [
+      {
+       "file": "SELECT.VAD",
+       "offset": "0x18320"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "run": "sel-17",
+   "frame": "0x17",
+   "parts": [
+    {
+     "command": 1056,
+     "vram": "0x384A0",
+     "size": [
+      120,
+      16
+     ],
+     "xy": [
+      18,
+      201
+     ],
+     "found": [
+      {
+       "file": "SELECT.VAD",
+       "offset": "0x184A0"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "run": "sel-18",
+   "frame": "0x18",
+   "parts": [
+    {
+     "command": 1216,
+     "vram": "0x38860",
+     "size": [
+      120,
+      16
+     ],
+     "xy": [
+      18,
+      201
+     ],
+     "found": [
+      {
+       "file": "SELECT.VAD",
+       "offset": "0x18860"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "run": "sel-19",
+   "frame": "0x19",
+   "parts": [
+    {
+     "command": 1056,
+     "vram": "0x38C20",
+     "size": [
+      120,
+      16
+     ],
+     "xy": [
+      22,
+      201
+     ],
+     "found": [
+      {
+       "file": "SELECT.VAD",
+       "offset": "0x18C20"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "run": "sel-1a",
+   "frame": "0x1a",
+   "parts": [
+    {
+     "command": 1216,
+     "vram": "0x38FE0",
+     "size": [
+      120,
+      16
+     ],
+     "xy": [
+      18,
+      201
+     ],
+     "found": [
+      {
+       "file": "SELECT.VAD",
+       "offset": "0x18FE0"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "run": "sel-1b",
+   "frame": "0x1b",
+   "parts": [
+    {
+     "command": 1216,
+     "vram": "0x393A0",
+     "size": [
+      120,
+      16
+     ],
+     "xy": [
+      22,
+      201
+     ],
+     "found": [
+      {
+       "file": "SELECT.VAD",
+       "offset": "0x193A0"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "run": "sel-1c",
+   "frame": "0x1c",
+   "parts": [
+    {
+     "command": 1216,
+     "vram": "0x39760",
+     "size": [
+      120,
+      16
+     ],
+     "xy": [
+      18,
+      201
+     ],
+     "found": [
+      {
+       "file": "SELECT.VAD",
+       "offset": "0x19760"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "run": "vsm-0c",
+   "frame": "0x0c",
+   "parts": [
+    {
+     "command": 3488,
+     "vram": "0x10980",
+     "size": [
+      72,
+      16
+     ],
+     "xy": [
+      80,
+      33
+     ],
+     "found": []
+    },
+    {
+     "command": 3520,
+     "vram": "0x10BC0",
+     "size": [
+      72,
+      16
+     ],
+     "xy": [
+      8,
+      33
+     ],
+     "found": []
+    }
+   ]
+  },
+  {
+   "run": "vsm-0d",
+   "frame": "0x0d",
+   "parts": [
+    {
+     "command": 3488,
+     "vram": "0x16D20",
+     "size": [
+      72,
+      16
+     ],
+     "xy": [
+      80,
+      33
+     ],
+     "found": []
+    },
+    {
+     "command": 3520,
+     "vram": "0x16F60",
+     "size": [
+      16,
+      12
+     ],
+     "xy": [
+      8,
+      37
+     ],
+     "found": []
+    },
+    {
+     "command": 3552,
+     "vram": "0x16FC0",
+     "size": [
+      56,
+      16
+     ],
+     "xy": [
+      24,
+      33
+     ],
+     "found": []
+    }
+   ]
+  },
+  {
+   "run": "vsm-0e",
+   "frame": "0x0e",
+   "parts": [
+    {
+     "command": 3488,
+     "vram": "0x16D20",
+     "size": [
+      72,
+      16
+     ],
+     "xy": [
+      80,
+      33
+     ],
+     "found": []
+    },
+    {
+     "command": 3520,
+     "vram": "0x16F60",
+     "size": [
+      16,
+      12
+     ],
+     "xy": [
+      8,
+      37
+     ],
+     "found": []
+    },
+    {
+     "command": 3552,
+     "vram": "0x16FC0",
+     "size": [
+      56,
+      16
+     ],
+     "xy": [
+      24,
+      33
+     ],
+     "found": []
+    }
+   ]
+  },
+  {
+   "run": "vsm-0f",
+   "frame": "0x0f",
+   "parts": [
+    {
+     "command": 3488,
+     "vram": "0x16D20",
+     "size": [
+      72,
+      16
+     ],
+     "xy": [
+      8,
+      33
+     ],
+     "found": []
+    },
+    {
+     "command": 3520,
+     "vram": "0x16F60",
+     "size": [
+      72,
+      16
+     ],
+     "xy": [
+      80,
+      33
+     ],
+     "found": []
+    }
+   ]
+  },
+  {
+   "run": "vsm-10",
+   "frame": "0x10",
+   "parts": [
+    {
+     "command": 3488,
+     "vram": "0x11C20",
+     "size": [
+      72,
+      16
+     ],
+     "xy": [
+      80,
+      33
+     ],
+     "found": []
+    },
+    {
+     "command": 3520,
+     "vram": "0x11E60",
+     "size": [
+      16,
+      12
+     ],
+     "xy": [
+      8,
+      37
+     ],
+     "found": [
+      {
+       "file": "PL3F_0.BIN",
+       "offset": "0x6EBC"
+      }
+     ]
+    },
+    {
+     "command": 3552,
+     "vram": "0x11EC0",
+     "size": [
+      56,
+      16
+     ],
+     "xy": [
+      24,
+      33
+     ],
+     "found": []
+    }
+   ]
+  },
+  {
+   "run": "vsm-11",
+   "frame": "0x11",
+   "parts": [
+    {
+     "command": 3488,
+     "vram": "0x16D20",
+     "size": [
+      72,
+      16
+     ],
+     "xy": [
+      80,
+      33
+     ],
+     "found": []
+    },
+    {
+     "command": 3520,
+     "vram": "0x11E60",
+     "size": [
+      16,
+      12
+     ],
+     "xy": [
+      8,
+      37
+     ],
+     "found": [
+      {
+       "file": "PL3F_0.BIN",
+       "offset": "0x6EBC"
+      }
+     ]
+    },
+    {
+     "command": 3552,
+     "vram": "0x16F60",
+     "size": [
+      56,
+      16
+     ],
+     "xy": [
+      24,
+      33
+     ],
+     "found": []
+    }
+   ]
+  },
+  {
+   "run": "vsm-12",
+   "frame": "0x12",
+   "parts": [
+    {
+     "command": 3488,
+     "vram": "0x16D20",
+     "size": [
+      72,
+      16
+     ],
+     "xy": [
+      8,
+      33
+     ],
+     "found": []
+    },
+    {
+     "command": 3520,
+     "vram": "0x16F60",
+     "size": [
+      72,
+      16
+     ],
+     "xy": [
+      80,
+      33
+     ],
+     "found": []
+    }
+   ]
+  },
+  {
+   "run": "vsm-13",
+   "frame": "0x13",
+   "parts": [
+    {
+     "command": 3488,
+     "vram": "0x16D20",
+     "size": [
+      72,
+      16
+     ],
+     "xy": [
+      80,
+      33
+     ],
+     "found": []
+    },
+    {
+     "command": 3520,
+     "vram": "0x16F60",
+     "size": [
+      72,
+      16
+     ],
+     "xy": [
+      8,
+      33
+     ],
+     "found": []
+    }
+   ]
+  },
+  {
+   "run": "vsm-14",
+   "frame": "0x14",
+   "parts": [
+    {
+     "command": 3488,
+     "vram": "0x16D20",
+     "size": [
+      72,
+      16
+     ],
+     "xy": [
+      79,
+      33
+     ],
+     "found": []
+    },
+    {
+     "command": 3520,
+     "vram": "0x16F60",
+     "size": [
+      72,
+      16
+     ],
+     "xy": [
+      8,
+      33
+     ],
+     "found": []
+    }
+   ]
+  },
+  {
+   "run": "vsm-15",
+   "frame": "0x15",
+   "parts": [
+    {
+     "command": 3488,
+     "vram": "0x16D20",
+     "size": [
+      72,
+      16
+     ],
+     "xy": [
+      80,
+      33
+     ],
+     "found": []
+    },
+    {
+     "command": 3520,
+     "vram": "0x16F60",
+     "size": [
+      72,
+      16
+     ],
+     "xy": [
+      8,
+      33
+     ],
+     "found": []
+    }
+   ]
+  },
+  {
+   "run": "vsm-16",
+   "frame": "0x16",
+   "parts": [
+    {
+     "command": 3488,
+     "vram": "0x16D20",
+     "size": [
+      72,
+      16
+     ],
+     "xy": [
+      80,
+      33
+     ],
+     "found": []
+    },
+    {
+     "command": 3520,
+     "vram": "0x16F60",
+     "size": [
+      72,
+      16
+     ],
+     "xy": [
+      8,
+      33
+     ],
+     "found": []
+    }
+   ]
+  },
+  {
+   "run": "vsm-17",
+   "frame": "0x17",
+   "parts": [
+    {
+     "command": 3488,
+     "vram": "0x16D20",
+     "size": [
+      72,
+      16
+     ],
+     "xy": [
+      80,
+      33
+     ],
+     "found": []
+    },
+    {
+     "command": 3520,
+     "vram": "0x16F60",
+     "size": [
+      72,
+      16
+     ],
+     "xy": [
+      8,
+      33
+     ],
+     "found": []
+    }
+   ]
+  },
+  {
+   "run": "vsm-18",
+   "frame": "0x18",
+   "parts": [
+    {
+     "command": 3488,
+     "vram": "0x16D20",
+     "size": [
+      72,
+      16
+     ],
+     "xy": [
+      80,
+      33
+     ],
+     "found": []
+    },
+    {
+     "command": 3520,
+     "vram": "0x16F60",
+     "size": [
+      72,
+      16
+     ],
+     "xy": [
+      8,
+      33
+     ],
+     "found": []
+    }
+   ]
+  },
+  {
+   "run": "vsm-19",
+   "frame": "0x19",
+   "parts": [
+    {
+     "command": 3488,
+     "vram": "0x16D20",
+     "size": [
+      72,
+      16
+     ],
+     "xy": [
+      79,
+      33
+     ],
+     "found": []
+    },
+    {
+     "command": 3520,
+     "vram": "0x16F60",
+     "size": [
+      72,
+      16
+     ],
+     "xy": [
+      8,
+      33
+     ],
+     "found": []
+    }
+   ]
+  },
+  {
+   "run": "vsm-1a",
+   "frame": "0x1a",
+   "parts": [
+    {
+     "command": 3488,
+     "vram": "0x16D20",
+     "size": [
+      72,
+      16
+     ],
+     "xy": [
+      80,
+      33
+     ],
+     "found": []
+    },
+    {
+     "command": 3520,
+     "vram": "0x16F60",
+     "size": [
+      72,
+      16
+     ],
+     "xy": [
+      8,
+      33
+     ],
+     "found": []
+    }
+   ]
+  },
+  {
+   "run": "vsm-1b",
+   "frame": "0x1b",
+   "parts": [
+    {
+     "command": 3488,
+     "vram": "0x16D20",
+     "size": [
+      72,
+      16
+     ],
+     "xy": [
+      80,
+      33
+     ],
+     "found": []
+    },
+    {
+     "command": 3520,
+     "vram": "0x16F60",
+     "size": [
+      72,
+      16
+     ],
+     "xy": [
+      8,
+      33
+     ],
+     "found": []
+    }
+   ]
+  },
+  {
+   "run": "vsm-1c",
+   "frame": "0x1c",
+   "parts": []
+  },
+  {
+   "run": "vsp-02",
+   "frame": "0x02",
+   "parts": [
+    {
+     "command": 3296,
+     "vram": "0x10620",
+     "size": [
+      16,
+      9
+     ],
+     "xy": [
+      22,
+      213
+     ],
+     "found": [
+      {
+       "file": "SELECT.VAD",
+       "offset": "0x18140"
+      }
+     ]
+    },
+    {
+     "command": 3328,
+     "vram": "0x10680",
+     "size": [
+      40,
+      15
+     ],
+     "xy": [
+      38,
+      210
+     ],
+     "found": []
+    },
+    {
+     "command": 3360,
+     "vram": "0x107C0",
+     "size": [
+      8,
+      16
+     ],
+     "xy": [
+      78,
+      209
+     ],
+     "found": []
+    },
+    {
+     "command": 3392,
+     "vram": "0x10680",
+     "size": [
+      40,
+      15
+     ],
+     "xy": [
+      38,
+      210
+     ],
+     "found": []
+    },
+    {
+     "command": 3424,
+     "vram": "0x10620",
+     "size": [
+      16,
+      9
+     ],
+     "xy": [
+      122,
+      213
+     ],
+     "found": [
+      {
+       "file": "SELECT.VAD",
+       "offset": "0x18140"
+      }
+     ]
+    },
+    {
+     "command": 3456,
+     "vram": "0x10800",
+     "size": [
+      48,
+      16
+     ],
+     "xy": [
+      74,
+      209
+     ],
+     "found": []
+    }
+   ]
+  },
+  {
+   "run": "vsp-03",
+   "frame": "0x03",
+   "parts": [
+    {
+     "command": 3296,
+     "vram": "0x16D20",
+     "size": [
+      120,
+      16
+     ],
+     "xy": [
+      18,
+      209
+     ],
+     "found": [
+      {
+       "file": "SELECT.VAD",
+       "offset": "0x17D80"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "run": "vsp-04",
+   "frame": "0x04",
+   "parts": [
+    {
+     "command": 3296,
+     "vram": "0x10620",
+     "size": [
+      16,
+      9
+     ],
+     "xy": [
+      122,
+      213
+     ],
+     "found": [
+      {
+       "file": "SELECT.VAD",
+       "offset": "0x18140"
+      }
+     ]
+    },
+    {
+     "command": 3328,
+     "vram": "0x16D20",
+     "size": [
+      40,
+      16
+     ],
+     "xy": [
+      82,
+      209
+     ],
+     "found": [
+      {
+       "file": "SELECT.VAD",
+       "offset": "0x181A0"
+      }
+     ]
+    },
+    {
+     "command": 3360,
+     "vram": "0x16E60",
+     "size": [
+      8,
+      16
+     ],
+     "xy": [
+      80,
+      209
+     ],
+     "found": [
+      {
+       "file": "SELECT.VAD",
+       "offset": "0x182E0"
+      }
+     ]
+    },
+    {
+     "command": 3392,
+     "vram": "0x10620",
+     "size": [
+      16,
+      9
+     ],
+     "xy": [
+      22,
+      213
+     ],
+     "found": [
+      {
+       "file": "SELECT.VAD",
+       "offset": "0x18140"
+      }
+     ]
+    },
+    {
+     "command": 3424,
+     "vram": "0x16D20",
+     "size": [
+      40,
+      16
+     ],
+     "xy": [
+      82,
+      209
+     ],
+     "found": [
+      {
+       "file": "SELECT.VAD",
+       "offset": "0x181A0"
+      }
+     ]
+    },
+    {
+     "command": 3456,
+     "vram": "0x16EA0",
+     "size": [
+      48,
+      16
+     ],
+     "xy": [
+      38,
+      209
+     ],
+     "found": [
+      {
+       "file": "SELECT.VAD",
+       "offset": "0x18320"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "run": "vsp-05",
+   "frame": "0x05",
+   "parts": [
+    {
+     "command": 3296,
+     "vram": "0x16D20",
+     "size": [
+      120,
+      16
+     ],
+     "xy": [
+      18,
+      209
+     ],
+     "found": [
+      {
+       "file": "SELECT.VAD",
+       "offset": "0x184A0"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "run": "vsp-06",
+   "frame": "0x06",
+   "parts": [
+    {
+     "command": 3296,
+     "vram": "0x16D20",
+     "size": [
+      120,
+      16
+     ],
+     "xy": [
+      18,
+      209
+     ],
+     "found": [
+      {
+       "file": "SELECT.VAD",
+       "offset": "0x18860"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "run": "vsp-07",
+   "frame": "0x07",
+   "parts": [
+    {
+     "command": 3296,
+     "vram": "0x16D20",
+     "size": [
+      120,
+      16
+     ],
+     "xy": [
+      22,
+      209
+     ],
+     "found": [
+      {
+       "file": "SELECT.VAD",
+       "offset": "0x18C20"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "run": "vsp-08",
+   "frame": "0x08",
+   "parts": [
+    {
+     "command": 3296,
+     "vram": "0x16D20",
+     "size": [
+      120,
+      16
+     ],
+     "xy": [
+      18,
+      209
+     ],
+     "found": [
+      {
+       "file": "SELECT.VAD",
+       "offset": "0x18FE0"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "run": "vsp-09",
+   "frame": "0x09",
+   "parts": [
+    {
+     "command": 3296,
+     "vram": "0x16D20",
+     "size": [
+      120,
+      16
+     ],
+     "xy": [
+      22,
+      209
+     ],
+     "found": [
+      {
+       "file": "SELECT.VAD",
+       "offset": "0x193A0"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "run": "vsp-0a",
+   "frame": "0x0a",
+   "parts": [
+    {
+     "command": 3296,
+     "vram": "0x11860",
+     "size": [
+      120,
+      16
+     ],
+     "xy": [
+      18,
+      209
+     ],
+     "found": [
+      {
+       "file": "SELECT.VAD",
+       "offset": "0x19760"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

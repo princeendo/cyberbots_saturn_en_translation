@@ -2468,3 +2468,32 @@ Failed or corrected (do not retry):
   only a HYPOTHESIS and is recorded as one.
 
 Checks: ruff, ruff format, mypy on `EXP-0056`'s scripts; pytest.
+
+## 2026-11-06 — LOC-002: where the name art is stored (EXP-0057)
+
+User request (verbatim): "Start LOC-002". Saved-state runs, one marked test
+image (deleted after use), and one versus-mode cold boot with 13 single
+presses, asked first ("Yes, run it now (Recommended)").
+
+- Select names: raw in `SELECT.VAD` (copied to VDP1 VRAM `0x20000`). VS
+  names: type-2 compressed records in `PL3F_0.BIN`. Controlled change
+  confirmed both.
+- No Latin pilot or mech name in banks 56 or 63 (every frame drawn).
+- Room: see D-052; the Options switch needs storage outside both files.
+
+Failed or corrected (do not retry):
+- **Session states replay without the user's keys**: from the title-menu
+  state the game stays in attract, so no select-screen loads appear. Use
+  a state after the mode choice (2538).
+- **A one-launch walk of bank 63 blanked after 7 frames** (probably the
+  pattern cache); draw each frame in its own run.
+- **`locate.py` found no VS mech pixels on the disc**: they are compressed;
+  trace `0x06010552`'s source instead.
+- **`drive.py key` sometimes finds Mednafen not in front** and sends
+  nothing; retry the single press (no loop of presses).
+- The first Start at the title came as the title timed out into the
+  attract demo; check the screen just before each press.
+- `/var/folders` (`$TMPDIR`) is not the scratchpad; scratch files go to the
+  session scratchpad.
+
+Checks: ruff, ruff format, mypy; pytest (below).
