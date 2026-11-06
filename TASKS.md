@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-06: README layout and release tools** (`DOC-004`, `REL-001`, in parallel with `OPT-003`): the README follows MSHvSF's sections with placeholders; XvSF's `make_patch`, `make_ssp`, `make_zips` and `check_zips` are ported with provenance, Cyberbots parameters and synthetic tests. Phase R written up; `REL-002`-`REL-004` wait for `OPT-006`, the release-timing rule and the user.
 - **2026-11-06: Storage and switch points found** (`OPT-002`, `EXP-0063`, D-056): the katakana set is 30,838 bytes; Track 01 has 150 unused sectors at its end, and a file placed there loads through the game's own loader; the game finds files by name, with room for more. The art goes in at two sites (after the `SELECT.VAD` load and after the `PL3F_0.BIN` load). Recommended for `OPT-004`: small files in the tail, loaded per screen. `OPT-003` (free RAM for the hooks) is `READY`.
 - **2026-11-06: Options screen and save mapped** (`OPT-001`, `EXP-0062`, D-055): the menu prints C strings from `OPDEMO.BIN`; its settings are a 16-byte block (`0x060D9290`) saved in `CYBERBOTS01` with a byte sum; bytes +5-15 are unused, and one set there is saved and loaded at boot (one cold boot). A ninth row fits with EXIT moved down a row. `OPT-002` and `OPT-003` are `READY`.
 - **2026-11-06: Phase P written up (names switch)**: `OPT-001` (Options screen and settings), `OPT-002` (where the katakana art can live, and the switch point) and `OPT-003` (free RAM proven by logs) are `READY` and independent; `OPT-004` (the user's choices and a gate extension), `OPT-005` (build) and `OPT-006` (verify) follow.
@@ -422,12 +423,22 @@ English text goes on disc).
 
 ### DOC-004 - Start the README in its final layout
 
-- **Status:** `BACKLOG`
+- **Status:** `DONE` (2026-11-06)
 - **Milestone:** before REL-001
 - **Dependencies:** DOC-002.
 - **Blockers:** None.
 - **Objective:** Avoid XvSF's post-release README reorganization.
 - **Acceptance criteria:** `README.md` follows the MSHvSF README's section layout, with placeholders for what is not done.
+- **Notes:** Done 2026-11-06, in parallel with `OPT-003` (the user:
+  "Begin OPT-003 and any other tasks you can do in parallel."). `README.md`
+  now has MSHvSF's sections (Download; What's Changed with "Still
+  Japanese"; Patch Files and Applying a Patch; Build the Patch with Files
+  You Need, Set Up, Build the Release Patches, Build Options; Development
+  with Further Files for Research, Python Tooling, Local Data, Project
+  Guides), with "Not yet (`REL-001`)" placeholders. Every earlier fact and
+  command kept (checked against the previous README); an independent
+  review added the missing `local/extracted/saturn_jp/` input and its
+  extraction command (tested: 264 files, identical to the existing copy).
 
 ## Phase C: Emulator
 
@@ -2589,6 +2600,136 @@ Known so far (facts and their confidence):
   - **Coverage and README:** `docs/coverage_exceptions.md`, "What's
     Changed" and the build command.
 
+## Phase R: Release (`REL-001`)
+
+The outline row (`REL-001`, "after M5"): "Copy XvSF `make_patch`/`make_ssp`
+(with the RetroAchievements header guard) and parameterize the source folder,
+manifest and author; xdelta and SSP; release zips via promoted
+`make_zips`/`check_zips`. Patches are Release assets only, never committed."
+The user's policy (`DOC-002`, 2026-11-02): release formats "xdelta + SSP
+(Recommended)"; release timing "After open tasks (Recommended)": nothing is
+published until every `IN_PROGRESS` and `BACKLOG` task is done or deferred by
+the user by name; a real-Saturn check comes only near the end, before a
+release (2026-11-02, after M2). The order is:
+
+1. `REL-001` (the tool port), independent of the names switch;
+2. `REL-002` (the release patches from the final image), after `OPT-006`
+   and the release-timing rule;
+3. `REL-003` (zips, release README and checks);
+4. `REL-004` (publish), only on the user's explicit approval.
+
+The siblings are a method only (rule 13): MSHvSF `REL-001`-`REL-004`
+(`EXP-0084`, `EXP-0102`) and XvSF `REL-001`, `RA-001` (`EXP-0071`,
+`EXP-0074`).
+
+Known so far (facts and their confidence):
+- **Source (ENV-006/007, CONFIRMED):** 62 tracks and the CUE equal Redump
+  58190 "(2M)"; the "(1M)" edition (Redump 3669) has the same track 01.
+- **Disc header:** track 01 sector 0 holds `SEGA SEGASATURN`, `T-1217G`,
+  `V1.002` (`references/saturn_jp/README.md`). That rcheevos hashes its first
+  512 user-data bytes is XvSF's reading of rcheevos; for Cyberbots a
+  HYPOTHESIS, and no RetroAchievements entry has been checked.
+- **Directory:** 325 root files, no subdirectories; 61 entries point at
+  audio tracks (D-002); all 327 root records carry no system-use (XA)
+  bytes (read for `REL-001`, logged 2026-11-06).
+- **SSP limits:** `make_ssp` (as ported) builds a patch only when track 01's
+  directory is unchanged and every changed sector lies in a source file;
+  `OPT-004` option A (new files in track 01's tail) would be refused.
+  Whether any SSP patcher can add files is UNKNOWN; xdelta handles it.
+
+### REL-001 - Port the release tools
+
+- **Status:** `DONE` (2026-11-06; tool port only)
+- **Milestone:** Release (`REL-001`)
+- **Dependencies:** None (the outline's "after M5" is met).
+- **Blockers:** None.
+- **Objective:** Release tools for xdelta and SSP patches and their zips,
+  parameterized for Cyberbots, with the RetroAchievements header guard.
+- **Acceptance criteria:**
+  - **Copied with provenance:** `tools/disc/make_patch.py`,
+    `tools/disc/make_ssp.py` (XvSF `e19a152`), `tools/release/make_zips.py`,
+    `tools/release/check_zips.py` (XvSF `EXP-0071`, `9cb01ad`, promoted;
+    `check_zips` rewritten in Python), each with source, path and commit.
+  - **Parameterized:** source folder, track 01, manifest, regression
+    reference (`data/regression/*.json` `output_sha256`), title, author,
+    URL, image name, zip prefix and date; no XvSF name left.
+  - **Guard:** both patch tools refuse a built track 01 whose sector 0
+    first 512 user-data bytes differ from the source's; the records carry
+    the computed `ra_md5`.
+  - **Tests:** synthetic fixtures only; ruff, format, mypy and pytest clean.
+- **Notes:** Done 2026-11-06 in parallel with `OPT-003`, at the user's
+  request (verbatim): "Begin OPT-003 and any other tasks you can do in
+  parallel." Nothing was built from the game image; 30 new tests (234 in
+  all). An independent review found no blocker; its nits: the two
+  header-refusal tests could write into the real `build/` (fixed: they use
+  a temporary `build/`), `check_zips --expect` takes one hash for all
+  variants, and `make_ssp` writes the `.ssp` before its round-trip check
+  (inherited from XvSF). Every behaviour is a HYPOTHESIS for Cyberbots
+  until `REL-002` applies the patches.
+
+### REL-002 - Build and verify the release patches
+
+- **Status:** `BLOCKED`
+- **Milestone:** Release (`REL-001`)
+- **Dependencies:** REL-001, OPT-006; the release-timing rule.
+- **Blockers:** `OPT-006` (the final image is the names-switch build); every
+  open task done or deferred by the user by name.
+- **Objective:** xdelta and SSP patches that turn the untouched source into
+  the final registered image, proven by applying them.
+- **Acceptance criteria:**
+  - **Build:** `make_patch` and `make_ssp` from the final regression
+    reference (`--reference data/regression/<final>.json`), each built
+    twice byte-identical, records in `release/`.
+  - **Apply:** each patch applied to an untouched copy of the source,
+    outside the repo's tools (`xdelta3 -d`; an SSP patcher, installed only
+    with the user's approval), gives the reference's track 01 SHA-256; the
+    patched image cold-boots in Mednafen to the title.
+  - **Header:** the patched track 01's `ra_md5` equals the source's;
+    whether RetroAchievements lists that hash is checked (a web fetch,
+    asked first) or recorded as UNKNOWN.
+  - **Route:** if the switch adds files to track 01 (`OPT-004` option A),
+    the SSP route is decided with the user (no SSP, or a patcher that
+    adds files, proven), before building it.
+  - **Real hardware:** a burned disc tried by the user on a Saturn (the
+    user's 2026-11-02 rule), or deferred by the user by name.
+- **Notes:** Patches stay under `build/`; only the JSON records are
+  committed.
+
+### REL-003 - Release zips, README and checks
+
+- **Status:** `BLOCKED`
+- **Milestone:** Release (`REL-001`)
+- **Dependencies:** REL-002.
+- **Blockers:** `REL-002`.
+- **Objective:** Reproducible zips with instructions a player can follow.
+- **Acceptance criteria:**
+  - **Zips:** `tools.release.make_zips` run twice, byte-identical; one
+    zip per format, each with a readme naming the source image, its track
+    01 hash, each patch's hash and the patched track 01 hash.
+  - **Check:** `tools.release.check_zips --expect <track 01>` on the
+    unpacked zips passes for every patch.
+  - **Docs:** `release/README.md` (apply steps for both formats, the "(1M)"
+    edition's shared track 01, known limits), `release/RELEASING.md`
+    (exact commands) and release notes; the README's "What's Changed".
+- **Notes:** The zips hold game-derived patches: under `build/` only.
+
+### REL-004 - Publish
+
+- **Status:** `BLOCKED`
+- **Milestone:** Release (`REL-001`)
+- **Dependencies:** REL-003.
+- **Blockers:** `REL-003`; the user's explicit approval (asked, answer
+  recorded verbatim with the date).
+- **Objective:** A GitHub Release with the zips as assets.
+- **Acceptance criteria:**
+  - **Approval:** the user approves the version, the notes and the asset
+    list, verbatim, in `docs/localization_policy.md`.
+  - **Release:** a tag and a GitHub Release whose assets are the two zips
+    (and, if approved, the bare patches); their SHA-256 equal `REL-003`'s.
+  - **History:** no patch, zip, image or game data in git history
+    (rule 21 exception: Release assets only).
+- **Notes:** Nothing is published without the user's go-ahead.
+
 ## Later Milestones (outline only)
 
 Placeholders so the order is visible. Each becomes a full task, with its own
@@ -2608,4 +2749,4 @@ and `docs/lessons_from_xvsf.md`.
 | LOC-001 | after REF-007 | `DONE` (2026-11-06, Phase O: `LOC-001`-`LOC-006` and the gate extension). |
 | OPT-001 | after LOC-001, user decision 2026-11-02 | Phase P (`OPT-001`-`OPT-006`): `OPT-001`, `OPT-002` `DONE` (2026-11-06); `OPT-003` `READY`. |
 | SPECIAL-001 | M9, user approval | Boss and hidden pilots, alternate routes, unlocks. Secondary sources (`docs/references.md`) say the console ports add four pilots (Chiyomaru Kagura, Tessan Hagure, Princess Devilotte, SHADE) with no arcade English, and an Akuma-mech code; their lines need recorded new translations under the user's policy. Size: Saturn lines 899-1850 (952 lines, about half the script) have no arcade counterpart (D-011). Among the arcade pilots' stories only line 258 is Saturn-only (line 34 is dead data); the earlier count of 74 came from REF-006's reader bug (`EXP-0023`). |
-| REL-001 | after M5 | Copy XvSF `make_patch`/`make_ssp` (with the RetroAchievements header guard) and parameterize the source folder, manifest and author; xdelta and SSP; release zips via promoted `make_zips`/`check_zips`. Patches are Release assets only, never committed. |
+| REL-001 | after M5 | Phase R (`REL-001`-`REL-004`): `REL-001` (tool port) `DONE` (2026-11-06); `REL-002`-`REL-004` `BLOCKED` on `OPT-006`, the release-timing rule and the user. |

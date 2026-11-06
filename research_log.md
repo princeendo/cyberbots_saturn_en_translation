@@ -2661,3 +2661,35 @@ Notes (do not retry):
   `0x06070800`; compare right after the load, against a control.
 
 Checks: ruff, ruff format, mypy, pytest (below).
+
+## 2026-11-06 — DOC-004 and REL-001, in parallel with OPT-003
+
+User request (verbatim): "Begin OPT-003 and any other tasks you can do in
+parallel." The two unblocked non-research tasks ran in a background
+workflow (one builder and one independent reviewer each), while `OPT-003`
+ran here. Neither agent ran an emulator, built a patch from game data,
+committed, or touched the sibling repositories.
+
+- **DOC-004:** `README.md` reorganized into MSHvSF's sections with
+  placeholders; every earlier fact and command kept. The review found one
+  gap: the build reads `local/extracted/saturn_jp/`, which no setup step
+  made. Added, with its command (`tools.disc.iso9660 TRACK01 --extract
+  local/extracted/saturn_jp/`), tested by extracting to a scratch folder:
+  264 files, identical to the existing copy.
+- **REL-001 (tool port):** `tools/disc/make_patch.py`,
+  `tools/disc/make_ssp.py` (XvSF `e19a152`), `tools/release/make_zips.py`
+  and `tools/release/check_zips.py` (XvSF `EXP-0071`, `9cb01ad`; the shell
+  check rewritten in Python), with provenance notes, Cyberbots parameters
+  and 30 synthetic tests. The RetroAchievements guard compares sector 0's
+  first 512 user-data bytes with the source's; on the real source it reads
+  `SEGA SEGASATURN`, `T-1217G`, `V1.002` (read only). Review nits: two
+  tests could have written into the real `build/` (fixed here: a temporary
+  `build/`); `check_zips --expect` takes one hash for all variants;
+  `make_ssp` writes before its round-trip check (inherited).
+- **Observations for later:** all 327 root directory records carry no
+  system-use (XA) bytes; `make_ssp` (as ported) refuses a changed
+  directory, so `OPT-004` option A would rule out the SSP route unless an
+  SSP patcher that adds files is found (UNKNOWN).
+
+Checks: ruff, ruff format (282 files), mypy (82 files), pytest (234
+passed).
