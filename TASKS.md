@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-06: Phase P written up (names switch)**: `OPT-001` (Options screen and settings), `OPT-002` (where the katakana art can live, and the switch point) and `OPT-003` (free RAM proven by logs) are `READY` and independent; `OPT-004` (the user's choices and a gate extension), `OPT-005` (build) and `OPT-006` (verify) follow.
 - **2026-11-06: Latin name art play-checked; Phase O done** (`LOC-006`, `EXP-0061`, D-054): two cold boots (arcade with a second player, versus) showed only the built Latin names on the pilot select, `SET UP` and VS screens; all eight regression references match. The build is `data/regression/loc005_name_art.json`. Next unblocked: `OPT-001` (the names switch), `REL-001`, or the UI tasks, on request.
 - **2026-11-06: Latin name art built** (`LOC-005`, `EXP-0060`, D-053): the VS screen's compressed pattern format read in full; `--name-art` builds the nine select names and the nine pilot and sixteen mech VS names (model codes after the names). Two builds identical; only `SELECT.VAD`, `STG0A.BIN` and `PL3F_0.BIN` change; all 34 names show as built from saved states. A first build drew half of each mech name (a part list's end bit); fixed. `LOC-006` (cold-boot play check) is `READY`.
 - **2026-11-06: `GATE-TRANSLATION` extended to the name art** (`LOC-004`, `EXP-0059`): from samples drawn into the real screens, the user chose the arcade letters in the Saturn banners, the US arcade's case, the mech model codes kept after each name, and "Devilotte". Spellings in `data/translations/name_art.json`. `LOC-005` (the build) is `READY`.
@@ -2373,6 +2374,179 @@ room (D-052) is its first problem.
     one small one (`0x70`), never seen on a screen, are excluded.
   - **README:** "What's Changed", "Still Japanese", the build command.
 
+## Phase P: Names Switch (`OPT-001`)
+
+The user asked for these tasks (verbatim, 2026-11-06): "Let's begin
+OPT-001". The user's decision behind them (2026-11-02, `DOC-002`,
+verbatim): "I definitely want the toggle and I want it placed in the
+options screen. We may need an expanded options screen like I'm currently
+working on". The order is:
+
+1. `OPT-001` (the Options screen: rows, drawing, settings and their save),
+   `OPT-002` (where the katakana art can live and when to put it in place)
+   and `OPT-003` (free RAM for code, proven by write logs), which are
+   independent;
+2. `OPT-004` (the user's choices: the row, its words, where it goes; a gate
+   extension for the new menu words);
+3. `OPT-005` (the switch build, Latin by default);
+4. `OPT-006` (verify and register).
+
+The siblings are a method only (rule 13): MSHvSF's EXTRA OPTIONS sub-menu
+(`OPT-003`-`OPT-005`) and XvSF's names toggle (`LOC-009`, `LOC-010`, whose
+first build put code in the interrupt-handler table, hung the title and
+wrecked the test saves).
+
+Known so far (facts and their confidence):
+- **Options screen (`docs/text_surfaces.md`, seen, not traced):**
+  `OPTION MODE` from the title menu, eight rows in English (`DIFFICULTY`,
+  `TIME LIMIT`, `SHORT CUT`, `SOUND`, `SOUND TEST`, `DATA RESET`, `KEY
+  CONFIG`, `3M RAM MODE`) above `PRESS START TO EXIT`, with little room
+  below the last row (session screenshot `f00027081.png`; session states
+  26998-27524 are near it). How it is drawn, where its settings live and
+  whether they are saved: **UNKNOWN**.
+- **Save (D-048, CONFIRMED):** the game's save is checked at boot
+  (`0x06036C3E`), with a checksum; a damaged save shows `WARNING0`. Any
+  change to what is saved must keep that check passing.
+- **Name art (D-052, D-053, CONFIRMED):** the Latin build replaces the
+  katakana in place: `SELECT.VAD` `0x17840`-`0x19B20` (8,928 bytes raw)
+  with 36 changed bytes of `STG0A.BIN`'s part table, and `PL3F_0.BIN`'s
+  name records (the katakana took 20,804 bytes compressed). Neither file
+  has room for both sets (1,440 and 288 bytes of slack). The untouched
+  files hold the katakana; `name_art_changes.json` records every range.
+- **When the art is in RAM (D-052, CONFIRMED):** `SELECT.VAD` loads at the
+  pilot select and is copied raw to VDP1 VRAM `0x20000`; `STG0A.BIN` is
+  resident (`0x06060000`); `PL3F_0.BIN` loads to WRAM-L `0x00200000`
+  before the VS screen. Where a switch could act (a load hook, the part
+  table, the decoder) is **UNKNOWN**.
+- **Free RAM: UNKNOWN.** Nothing is proven unused. XvSF's lesson 13 (zero
+  bytes may be the interrupt-handler table) is a HYPOTHESIS for Cyberbots.
+- **`3M RAM MODE`:** what it does is **UNKNOWN**; it may change what is
+  loaded where, so free RAM must be checked in both settings.
+
+### OPT-001 - The Options screen and its settings
+
+- **Status:** `READY`
+- **Milestone:** Names switch (`OPT-001`)
+- **Dependencies:** LOC-006.
+- **Blockers:** None.
+- **Objective:** Know how the Options screen is built well enough to add a
+  row or a sub-menu, and where a new setting can be kept and saved.
+- **Acceptance criteria:**
+  - **Rows:** the row text's location and format, the drawing routine,
+    the cursor's row count and wrap, and each row's value handler, traced
+    (addresses, CONFIRMED by a one-variable change seen on screen).
+  - **Settings:** where each setting is held in RAM, found by comparing
+    steady windows before and after one change (the MSHvSF method), and
+    who reads `3M RAM MODE`'s value.
+  - **Save:** whether and when the settings are written to backup memory,
+    the save's layout around them, its checksum, and whether a spare byte
+    exists that the boot check (D-048) tolerates; tested by a write and a
+    cold boot of a fixture (asked first).
+  - **Room:** the screen space below `3M RAM MODE` measured; whether a
+    ninth row fits, or a sub-menu entry is needed; any hidden or unused
+    row noted.
+- **Notes:** From saved states first (no key); a cold boot only for the
+  save test, asked first.
+
+### OPT-002 - Where the katakana art can live and when it goes in
+
+- **Status:** `READY`
+- **Milestone:** Names switch (`OPT-001`)
+- **Dependencies:** LOC-006.
+- **Blockers:** None.
+- **Objective:** Find storage for the katakana name art beside the Latin,
+  and the point where the game could put one set or the other in place.
+- **Acceptance criteria:**
+  - **Size:** the bytes the katakana set needs, measured (select block,
+    part-table bytes, VS records; compressed with `pattern_t2` if smaller).
+  - **Storage options,** each measured, not assumed: slack or unused data
+    in files loaded at or before those screens (with what loads them); a
+    file grown into its sector slack; a moved or new file (what the disc
+    builder and the game's file table allow); RAM that already holds it.
+  - **Switch point:** for each screen, the load or copy that puts the name
+    art in place (`SELECT.VAD` to VDP1 VRAM, `PL3F_0.BIN` to WRAM-L, the
+    `STG0A.BIN` part table), traced, with where a check of the setting
+    could go; versus mode and `SET UP` included.
+  - **Options** with costs, for `OPT-004`.
+- **Notes:** `docs/known_unknowns.md` ("Where can both name-art sets
+  live"). No key.
+
+### OPT-003 - Free RAM for the switch's code
+
+- **Status:** `READY`
+- **Milestone:** Names switch (`OPT-001`)
+- **Dependencies:** LOC-006.
+- **Blockers:** None.
+- **Objective:** Prove a RAM range unused, for the switch's code and data,
+  by logs, not by zeros.
+- **Acceptance criteria:**
+  - **Candidates:** ranges read as constant (zero or otherwise) across the
+    session's states, WRAM-H and WRAM-L, `3M RAM MODE` on and off.
+  - **Proof:** read and write watch logs over boot, title, attract, Options,
+    pilot select, VS, a fight, a continue and an ending (states and one
+    recorded cold boot, asked first): no access to the chosen range; what
+    the zeros near it are (vectors, stacks, buffers) where traced.
+  - **Result:** the range, its size, and its evidence, CONFIRMED, in
+    `docs/discoveries.md`.
+- **Notes:** XvSF lesson 13. A range used by the BIOS or by the CD block is
+  excluded, not risked.
+
+### OPT-004 - The switch, decided with the user
+
+- **Status:** `BLOCKED`
+- **Milestone:** Names switch (`OPT-001`)
+- **Dependencies:** OPT-001, OPT-002, OPT-003.
+- **Blockers:** `OPT-001`-`OPT-003`.
+- **Objective:** Put the switch's design to the user with the facts.
+- **Acceptance criteria:**
+  - **Choices put to the user** (multiple choice, one recommended): where
+    the switch goes (a ninth row, or an extra-options sub-menu); its words
+    (for example `NAMES` with `LATIN`/`KATAKANA`) in the menu's own font;
+    whether it is saved with the other settings; where the katakana art is
+    kept (`OPT-002`'s options). Latin stays the default (`DOC-002`).
+  - **Gate:** the new menu words recorded as a `GATE-TRANSLATION`
+    extension in `docs/localization_policy.md`, answers verbatim with the
+    date.
+- **Notes:** No build before this gate.
+
+### OPT-005 - Build the switch
+
+- **Status:** `BLOCKED`
+- **Milestone:** Names switch (`OPT-001`)
+- **Dependencies:** OPT-004.
+- **Blockers:** `OPT-004`.
+- **Objective:** One image whose Options screen switches the name art,
+  Latin by default.
+- **Acceptance criteria:**
+  - **Build:** a build option beside `--name-art`; code and data only in
+    the proven ranges; every binary change recorded (original and new
+    bytes, address, purpose); two identical builds; all sectors valid.
+  - **Behaviour from saved states:** both settings show their own art on
+    the pilot select, `SET UP` and VS screens (every part compared, as
+    `EXP-0060`/`EXP-0061`); the row draws and changes; the setting is kept
+    as decided; with the switch at Latin nothing else differs from the
+    Latin build's behaviour.
+  - **Save:** the boot check still passes with the new setting saved, and
+    an old save (without it) still loads.
+- **Notes:** Free RAM per `OPT-003` only.
+
+### OPT-006 - Verify and register
+
+- **Status:** `BLOCKED`
+- **Milestone:** Names switch (`OPT-001`)
+- **Dependencies:** OPT-005.
+- **Blockers:** `OPT-005`.
+- **Objective:** Play-check the switch and lock the build.
+- **Acceptance criteria:**
+  - **Play check:** a cold boot (asked first), driven by the agent: the
+    switch changed in Options, then the pilot select and a VS screen in
+    each setting; a second cold boot shows the saved setting kept, if it
+    is saved.
+  - **Regression:** a new reference in `data/regression/`; all earlier
+    references still match.
+  - **Coverage and README:** `docs/coverage_exceptions.md`, "What's
+    Changed" and the build command.
+
 ## Later Milestones (outline only)
 
 Placeholders so the order is visible. Each becomes a full task, with its own
@@ -2390,6 +2564,6 @@ and `docs/lessons_from_xvsf.md`.
 | UI-003 | after M8, user request | Other UI text (select, continue, ranking, options): find the arcade English by tracing the arcade code. |
 | TXT-002 | after M8, user request | Rare, random, or region-gated text: trace every reader of every text table. |
 | LOC-001 | after REF-007 | `DONE` (2026-11-06, Phase O: `LOC-001`-`LOC-006` and the gate extension). |
-| OPT-001 | after LOC-001, user decision 2026-11-02 | An Options-screen switch for the name art, Latin by default, in an expanded Options screen if needed. Model: MSHvSF `OPT-003` (a proven home for new code), `OPT-004` (EXTRA OPTIONS sub-menu), `OPT-005` (names switch); XvSF `LOC-009`/`LOC-010`. Prove free RAM by read/write logs before placing code (XvSF's first toggle hung the title). |
+| OPT-001 | after LOC-001, user decision 2026-11-02 | Phase P (`OPT-001`-`OPT-006`), written up 2026-11-06; `OPT-001`-`OPT-003` `READY`. |
 | SPECIAL-001 | M9, user approval | Boss and hidden pilots, alternate routes, unlocks. Secondary sources (`docs/references.md`) say the console ports add four pilots (Chiyomaru Kagura, Tessan Hagure, Princess Devilotte, SHADE) with no arcade English, and an Akuma-mech code; their lines need recorded new translations under the user's policy. Size: Saturn lines 899-1850 (952 lines, about half the script) have no arcade counterpart (D-011). Among the arcade pilots' stories only line 258 is Saturn-only (line 34 is dead data); the earlier count of 74 came from REF-006's reader bug (`EXP-0023`). |
 | REL-001 | after M5 | Copy XvSF `make_patch`/`make_ssp` (with the RetroAchievements header guard) and parameterize the source folder, manifest and author; xdelta and SSP; release zips via promoted `make_zips`/`check_zips`. Patches are Release assets only, never committed. |

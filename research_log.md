@@ -2585,3 +2585,22 @@ Notes (do not retry):
   VDP1 VRAM `0x10000`-`0x1FFFF`.
 
 Checks: ruff, ruff format, mypy, pytest (below).
+
+## 2026-11-06 — Phase P written up (names switch, OPT-001)
+
+User request (verbatim): "Let's begin OPT-001". The outline row became
+Phase P in `TASKS.md`: `OPT-001` (the Options screen, its settings and
+their save), `OPT-002` (storage for the katakana art and the point where a
+set is put in place), `OPT-003` (free RAM proven by read/write logs) are
+`READY` and independent; `OPT-004` (the user's choices, a gate extension
+for the new menu words), `OPT-005` (build) and `OPT-006` (verify) follow.
+
+Read for method only: `docs/lessons_from_xvsf.md` (lessons 9 and 13; the
+toggle row), `docs/playbook_from_mshvsf.md` (the Options table found by
+comparing steady windows), XvSF `TASKS.md` `LOC-009`/`LOC-010` (read-only).
+Cyberbots facts used: the Options screen's eight rows
+(`docs/text_surfaces.md`, session screenshot `f00027081.png`), D-048, D-052,
+D-053. `docs/known_unknowns.md`: the type-2 question closed (D-053); the
+storage question moved to `OPT-002`.
+
+No experiment, no emulator run.
