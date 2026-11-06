@@ -2633,3 +2633,31 @@ Notes (do not retry):
   12 minutes).
 
 Checks: ruff, ruff format, mypy, pytest (below).
+
+## 2026-11-06 — OPT-002: storage for the katakana and the switch points (EXP-0063)
+
+User request (verbatim): "Start OPT-002". No key, no cold boot.
+
+- Size 30,838 bytes. Track 01 ends with 150 unused, valid sectors; the
+  root directory's last sector has 1,532 bytes free; the game's directory
+  table holds 384 (327 used) and finds files by name.
+- Load sites: `SELECT.VAD` at `0x06038CD6` (after `STG0A.BIN` by
+  `0x060388FA`(10)); `PL3F_0.BIN` at `0x060605B6`/`0x060605C2`
+  (`STG0AS.BIN`). A load writes exactly the file's size.
+- A copy of `M3CB00A.BIN` in the tail, with the game's RAM entry pointed
+  there, loaded byte for byte.
+
+Notes (do not retry):
+- **`0x06032E38` is not how these screens load:** the script handler's
+  request routine saw no hits; the named loader `0x060385A0`/`0x06038E40`
+  is.
+- **`STG0A.BIN` is not resident from the start:** the overlay at
+  `0x06060000` is `OPDEMO.BIN` up to state 2538 and `STG0A.BIN` from the
+  select on; its load began just before state 2538, so a PC trace from 2538
+  misses the call (a write watch on its data found it).
+- **A failed `session.launch` (bad state path) leaves Mednafen running**
+  and the next launch times out; check `ps` and kill the stray.
+- **RAM after a load is not the file for long:** later loads reuse
+  `0x06070800`; compare right after the load, against a control.
+
+Checks: ruff, ruff format, mypy, pytest (below).

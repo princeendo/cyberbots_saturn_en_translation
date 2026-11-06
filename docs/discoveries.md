@@ -1156,3 +1156,21 @@ boots with presses: ask the user first).
   save's copy touched +5-15 in a whole session.
 
 Reproduce: `research/experiments/EXP-0062/README.md`, "Procedure".
+
+## D-056: How the game finds and loads files; room for new files (`OPT-002`, `EXP-0063`)
+
+- **Directory:** the game copies the root directory at start-up into a table
+  (`0x060DCB68`, 24-byte entries: FAD, size, flags, name; maximum 384,
+  327 used) and finds files by name (binary search, `0x0603B564`). The
+  disc's last directory sector (LSN 27) has 1,532 bytes free.
+- **Loader** `0x060385A0`(name, destination, maximum) writes exactly the
+  file's size. `SELECT.VAD` is loaded to VDP1 VRAM `0x20000` at
+  `0x06038CD6` (after `STG0A.BIN` to `0x06060000` by `0x060388FA`(10));
+  `PL3F_0.BIN` to WRAM-L `0x00200000` by `STG0AS.BIN` code at
+  `0x060605B6` (wait loop to `0x060605C2`). Each name occurs once on the
+  disc.
+- **Free sectors:** Track 01's last 150 sectors (LSN 43,643-43,792) are
+  unused, valid Mode 1. A copy of `M3CB00A.BIN` placed there, with the
+  game's directory entry pointed at it, loaded byte for byte (Mednafen).
+
+Reproduce: `research/experiments/EXP-0063/README.md`, "Procedure".

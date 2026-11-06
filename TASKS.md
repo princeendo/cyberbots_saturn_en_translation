@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-06: Storage and switch points found** (`OPT-002`, `EXP-0063`, D-056): the katakana set is 30,838 bytes; Track 01 has 150 unused sectors at its end, and a file placed there loads through the game's own loader; the game finds files by name, with room for more. The art goes in at two sites (after the `SELECT.VAD` load and after the `PL3F_0.BIN` load). Recommended for `OPT-004`: small files in the tail, loaded per screen. `OPT-003` (free RAM for the hooks) is `READY`.
 - **2026-11-06: Options screen and save mapped** (`OPT-001`, `EXP-0062`, D-055): the menu prints C strings from `OPDEMO.BIN`; its settings are a 16-byte block (`0x060D9290`) saved in `CYBERBOTS01` with a byte sum; bytes +5-15 are unused, and one set there is saved and loaded at boot (one cold boot). A ninth row fits with EXIT moved down a row. `OPT-002` and `OPT-003` are `READY`.
 - **2026-11-06: Phase P written up (names switch)**: `OPT-001` (Options screen and settings), `OPT-002` (where the katakana art can live, and the switch point) and `OPT-003` (free RAM proven by logs) are `READY` and independent; `OPT-004` (the user's choices and a gate extension), `OPT-005` (build) and `OPT-006` (verify) follow.
 - **2026-11-06: Latin name art play-checked; Phase O done** (`LOC-006`, `EXP-0061`, D-054): two cold boots (arcade with a second player, versus) showed only the built Latin names on the pilot select, `SET UP` and VS screens; all eight regression references match. The build is `data/regression/loc005_name_art.json`. Next unblocked: `OPT-001` (the names switch), `REL-001`, or the UI tasks, on request.
@@ -2471,7 +2472,7 @@ Known so far (facts and their confidence):
 
 ### OPT-002 - Where the katakana art can live and when it goes in
 
-- **Status:** `READY`
+- **Status:** `DONE` (2026-11-06, `EXP-0063`, D-056)
 - **Milestone:** Names switch (`OPT-001`)
 - **Dependencies:** LOC-006.
 - **Blockers:** None.
@@ -2491,6 +2492,26 @@ Known so far (facts and their confidence):
   - **Options** with costs, for `OPT-004`.
 - **Notes:** `docs/known_unknowns.md` ("Where can both name-art sets
   live"). No key.
+- **Done:** 2026-11-06 (`EXP-0063`, D-056).
+  - **Size:** 30,838 bytes (the untouched bytes of the four Latin ranges);
+    as loadable pieces 8,640 (select, 5 sectors), 38,700 (`PL3F_0.BIN`
+    `0x90`-`0x97BC`, 19 sectors) and 124 (part table).
+  - **Storage options:** Track 01's last 150 sectors are free (a copy of a
+    file placed there loaded byte for byte through the game's loader);
+    the directory's last sector has 1,532 bytes and the game's table 57
+    entries spare; files are found by name, so a name sorting last
+    changes nothing else. Slack in the files loaded at these screens:
+    7,616 bytes (too little). Full alternate files do not fit the tail.
+    No RAM already holds the katakana.
+  - **Switch points:** pilot select, after `SELECT.VAD`'s load at
+    `0x06038CD6` (`CYBER.BIN`; `STG0A.BIN` is already loaded); VS, after
+    the `PL3F_0.BIN` wait loop at `0x060605C2` (`STG0AS.BIN`). Each name
+    occurs once on the disc, so versus mode and `SET UP` share them
+    (static). A load writes exactly the file's size.
+  - **Options for `OPT-004`:** A, small files in the tail loaded per
+    screen (recommended); B, one file loaded into about 31 KB of free RAM;
+    C, a longer Track 01 with full alternate files (moves every audio
+    track); D, slack (does not fit). Costs in `EXP-0063`.
 
 ### OPT-003 - Free RAM for the switch's code
 
@@ -2585,6 +2606,6 @@ and `docs/lessons_from_xvsf.md`.
 | UI-003 | after M8, user request | Other UI text (select, continue, ranking, options): find the arcade English by tracing the arcade code. |
 | TXT-002 | after M8, user request | Rare, random, or region-gated text: trace every reader of every text table. |
 | LOC-001 | after REF-007 | `DONE` (2026-11-06, Phase O: `LOC-001`-`LOC-006` and the gate extension). |
-| OPT-001 | after LOC-001, user decision 2026-11-02 | Phase P (`OPT-001`-`OPT-006`): `OPT-001` `DONE` (2026-11-06); `OPT-002`, `OPT-003` `READY`. |
+| OPT-001 | after LOC-001, user decision 2026-11-02 | Phase P (`OPT-001`-`OPT-006`): `OPT-001`, `OPT-002` `DONE` (2026-11-06); `OPT-003` `READY`. |
 | SPECIAL-001 | M9, user approval | Boss and hidden pilots, alternate routes, unlocks. Secondary sources (`docs/references.md`) say the console ports add four pilots (Chiyomaru Kagura, Tessan Hagure, Princess Devilotte, SHADE) with no arcade English, and an Akuma-mech code; their lines need recorded new translations under the user's policy. Size: Saturn lines 899-1850 (952 lines, about half the script) have no arcade counterpart (D-011). Among the arcade pilots' stories only line 258 is Saturn-only (line 34 is dead data); the earlier count of 74 came from REF-006's reader bug (`EXP-0023`). |
 | REL-001 | after M5 | Copy XvSF `make_patch`/`make_ssp` (with the RetroAchievements header guard) and parameterize the source folder, manifest and author; xdelta and SSP; release zips via promoted `make_zips`/`check_zips`. Patches are Release assets only, never committed. |
