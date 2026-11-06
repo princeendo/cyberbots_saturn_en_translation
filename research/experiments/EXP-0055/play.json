@@ -1,0 +1,115 @@
+{
+ "cases": [
+  {
+   "case": "damaged",
+   "warnings": [
+    0
+   ],
+   "press_logged_at_frame": 1623,
+   "routines_after_press": [
+    "warning 0: after the wait",
+    "write save"
+   ],
+   "shots": {
+    "warning_01457.png": "b49dc363db7d811e17df3bd9ca5531d9ff70df9aaef3baea8096693e393e383b",
+    "after_01747.png": "23d8cc401425dc4c6510401cd9112424b4b12f17d83ad205f6f1a48cce20cf08",
+    "f04444.png": "388ad4361acec53d6cca16cb9582c2f5785112ebf491e21181be03a2a919d44e"
+   },
+   "sav_after_bytes": {
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.bkr": 32768,
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.smpc": 12
+   }
+  },
+  {
+   "case": "zero",
+   "warnings": [
+    1
+   ],
+   "press_logged_at_frame": 1610,
+   "routines_after_press": [
+    "BIOS routine at the 0x0600026C vector"
+   ],
+   "shots": {
+    "warning_01457.png": "17c7c4b969937d8146cab12b84ca01bf288ef8ecdd4f8d9c94d0e83e5ce2136b",
+    "after_01735.png": "cff374f353599ceec6c1579d18c8eeb4144c76b25e26dfc32d2acd4fb865f305",
+    "f04519.png": "c536feb9ba327fc625dc9ce2fbf237341f13b2d27ff29fce85c42ff8d5c247a4"
+   },
+   "sav_after_bytes": {
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.bkr": 32768,
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.smpc": 12
+   }
+  },
+  {
+   "case": "cart-zero",
+   "warnings": [
+    2
+   ],
+   "press_logged_at_frame": 1609,
+   "routines_after_press": [
+    "BIOS routine at the 0x0600026C vector"
+   ],
+   "shots": {
+    "warning_01457.png": "491408007ad7a6ea256196e72910466c43184767cf5ec88acbbdc8b0e3dfddb5",
+    "after_01734.png": "0c4976d261ce60e8f4d4b97659a2da24e2f3e86831274dd73e3db4bed2dc68f3",
+    "f04516.png": "7032a2494457474e478c5a134bc07240ca9513ba4e4f822bc9dce68407bcb2bc"
+   },
+   "sav_after_bytes": {
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.bcr": 543,
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.bkr": 32768,
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.smpc": 12
+   }
+  },
+  {
+   "case": "both-zero",
+   "warnings": [
+    3
+   ],
+   "press_logged_at_frame": 1609,
+   "routines_after_press": [
+    "BIOS routine at the 0x0600026C vector"
+   ],
+   "shots": {
+    "warning_01457.png": "20e8e89631759f2b77047577bd3a06ae767985d8daf3e40d2ba766305929bd54",
+    "after_01734.png": "d835b826502c6dc182f853963613812b9da38e7d13b803a945797c89e68c554a",
+    "f04518.png": "fe1a85575c9d90fa40aab50bf8b15fd770eb1a4f38c8aef4a4e569642637a052"
+   },
+   "sav_after_bytes": {
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.bcr": 543,
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.bkr": 32768,
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.smpc": 12
+   }
+  },
+  {
+   "case": "free4",
+   "warnings": [
+    4
+   ],
+   "press_logged_at_frame": 1612,
+   "routines_after_press": [
+    "warning 4: after the wait"
+   ],
+   "shots": {
+    "warning_01457.png": "0edfbff8d08ba224289fb4355e0bd722833702f6ca378ca276d2e8557dea4b21",
+    "after_01736.png": "23d8cc401425dc4c6510401cd9112424b4b12f17d83ad205f6f1a48cce20cf08",
+    "f04433.png": "388ad4361acec53d6cca16cb9582c2f5785112ebf491e21181be03a2a919d44e"
+   },
+   "sav_after_bytes": {
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.bkr": 32768,
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.smpc": 12
+   }
+  },
+  {
+   "case": "normal",
+   "warnings": [],
+   "press_logged_at_frame": null,
+   "routines_after_press": [],
+   "shots": {
+    "f04340.png": "97a48a1f3399eb99d7c26b29ab3fd00ae8dfc6375a1a7d4db770b2b10d62a795"
+   },
+   "sav_after_bytes": {
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.bkr": 32768,
+    "Cyberbots - Fullmetal Madness (Japan) (2M).ee043c21f235a796453c19a841e691e2.smpc": 12
+   }
+  }
+ ]
+}

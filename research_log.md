@@ -2397,3 +2397,31 @@ Notes (do not retry):
   `build/boot004/a` is the current image.
 
 Checks: ruff, ruff format, mypy; pytest (190 passed).
+
+## 2026-11-06 — BOOT-005: play check and register; UI-004 done (EXP-0055)
+
+User request (verbatim): "Start BOOT-005". Six cold boots with one A press
+each in five, asked first ("Yes, run all 6 (Recommended)").
+
+- A on `WARNING0`: the game goes on and rewrites the save; on `WARNING4`:
+  the game goes on, no save; on `WARNING1`-`3`: the BIOS routine at the
+  `0x0600026C` vector (`0x0000186C`), the Saturn control panel. Normal boot:
+  the title. Warning screens equal `BOOT-004`'s.
+- Regression: five earlier references rebuild to their hashes
+  (`regress.py`, outputs and records redirected so nothing committed is
+  overwritten).
+- Coverage ("Boot Warnings"), README (What's Changed, Still Japanese, Build
+  the Patch), regression README, D-048's button row now CONFIRMED.
+
+Notes (do not retry):
+- **After a BIOS call, work-RAM breakpoints keep firing**: the BIOS's own
+  code runs at those addresses (1.2 million hits in one run). Stop reading
+  hits at the BIOS call.
+- `0x06036A1C` and `0x06036D8A` are on the normal path too; they mean "the
+  check went on", not "a warning was left".
+- The reference rebuild commands write records into `data/translations`;
+  redirect them when rebuilding (`regress.py`).
+- The regression builds and the boots ran at the same time; the boots ran
+  slower but frame-exact.
+
+Checks: ruff, ruff format, mypy, pytest (below).

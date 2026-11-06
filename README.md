@@ -19,12 +19,35 @@ See [docs/playbook_from_mshvsf.md](docs/playbook_from_mshvsf.md) and
 
 ## Download
 
-Nothing is released yet. The project is at milestone M0 (environment); see
-"Current State" in [TASKS.md](TASKS.md).
+Nothing is released yet. Work in progress is tracked in "Current State" in
+[TASKS.md](TASKS.md).
 
 ## What's Changed
 
-Nothing yet.
+In the current development build (not released):
+
+- **Story dialogue** of the six arcade pilots (Jin, Santana, Mary, Arieta,
+  Gawaine, Bao and Mao) and their **versus win quotes**: the official US
+  arcade English (M5).
+- **Endings** of those six pilots: the official US arcade English, with
+  the cast roll's Japanese names hidden and the QSound notice's Japanese
+  line removed (M8).
+- **Boot warnings** (damaged save, unformatted memory, no room to save): a
+  new translation, approved by the user, in the arcade's letters
+  (`UI-004`).
+
+## Still Japanese
+
+- The Saturn-only pilots' stories, win quotes and endings (lists 6-8; no
+  official English, `SPECIAL-001`).
+- The VS screen's chapter captions (no official English shown by the US
+  arcade).
+- Pilot and mech names drawn as katakana art on the pilot-select and VS
+  screens (`LOC-001`, `OPT-001`).
+- Surfaces not yet surveyed: attract and opening text (`UI-002`), option
+  sub-screens and other UI text (`UI-003`), rare or region-gated text
+  (`TXT-002`). The register is
+  [docs/coverage_exceptions.md](docs/coverage_exceptions.md).
 
 ## Patch Files
 
@@ -35,7 +58,15 @@ GitHub Release assets only.
 
 ## Build the Patch
 
-Not yet.
+There is no patch yet (`REL-001`). The current development image is built
+from the untouched source, with the game data under the ignored paths below:
+
+```bash
+./invenv.sh python -m tools.text.dialogue --roster data/text/m5_roster.json --indent --rank staying --max-sacrifice 160 --task END-023 --font local/layout001/font/arcade_font.json --driver local/mame_src/cps2.cpp --rompath local/arcade --out build/boot004/a --endings data/text/m8_endings.json --ending-record-dir local/boot004/rec-a --boot-warnings data/translations/boot_warnings.json
+```
+
+Its expected hashes are in
+[data/regression/boot004_boot_warnings.json](data/regression/boot004_boot_warnings.json).
 
 ## Development
 

@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-06: `UI-004` DONE** (`BOOT-005`, `EXP-0055`): six cold boots with one A press each (the user: "Yes, run all 6 (Recommended)"). Every boot warning shows in English, and a button does what the English says: the game goes on after the damaged-save and out-of-space warnings, the Saturn control panel follows the three unformatted-memory ones. A normal boot reaches the title. All earlier regression references still rebuild. Coverage and README updated. Next: the outline's remaining items (`REL-001`, `LOC-001`, `UI-001`-`003`, `TXT-002`, `SPECIAL-001`) need their tasks written up first.
 - **2026-11-06: the boot warnings built in English** (`BOOT-004`, `EXP-0054`, D-050): `--boot-warnings` adds the five English pictures to the M8 build; nothing else changes (two builds identical, every M8 output equal, 208 sectors changed, all in the pictures). Five cold boots (the user: "Yes, run all 6 (Recommended)") show each warning exactly as generated; a normal boot is unchanged. `BOOT-005` (play check and register) is `READY`.
 - **2026-11-06: `GATE-TRANSLATION` extended to the boot warnings** (`BOOT-003`, `EXP-0053`): no official English exists, so the agent's translation, with the Saturn BIOS's terms, is approved. The user's words: "Approve the drafts (Recommended)", "control panel (Recommended)", "6, what the game checks" (an opt-in fix of the Japanese 05), "Arcade font, Japanese colours (Recommended)". `BOOT-004` (the build) is `READY`.
 - **2026-11-06: how the boot warnings are drawn** (`BOOT-002`, `EXP-0052`, D-049): each is its own `WARNINGn.PIX`, a whole 512-wide, one-byte-a-pixel bitmap on VDP2 NBG1, drawn with 16 colours from the program (`CYBER.BIN`), not the file; 352 × 224 pixels show. A marked test image (six cold boots, the user: "Yes, run all 6 (Recommended)") changed only each screen's own marker. `BOOT-003` (English and lettering, a gate extension) is `READY`.
@@ -1705,8 +1706,8 @@ So `END-023` builds lists 0-5 with the half-cell indent across the ending rows (
 The outline scheduled `UI-004` early after M5, and lesson 5 of
 `docs/lessons_from_xvsf.md` puts it in the first backlog: in both siblings
 the user added boot, cartridge and save warnings mid-project. The user asked
-for these tasks (verbatim, 2026-11-05): "Write up UI-004". `BOOT-001` to
-`BOOT-004` are done (2026-11-06); `BOOT-005` is not started. The order is:
+for these tasks (verbatim, 2026-11-05): "Write up UI-004". All of it is done
+(2026-11-06). The order is:
 
 1. `BOOT-001` (census: which message shows under which condition);
 2. `BOOT-002` (where each message is stored and how it is drawn);
@@ -1986,7 +1987,7 @@ boot_warnings.json` in the arcade letters and the Japanese colours. It is
 
 ### BOOT-005 - Verify and register
 
-- **Status:** `READY`
+- **Status:** `DONE` (2026-11-06, `EXP-0055`)
 - **Milestone:** Boot-time messages (`UI-004`)
 - **Dependencies:** BOOT-004.
 - **Blockers:** None.
@@ -2004,6 +2005,28 @@ boot_warnings.json` in the arcade letters and the Japanese colours. It is
     updated.
 - **Notes:** the image commit pushes after the agent's checks pass (user
   rule, 2026-11-02).
+- **Done:** 2026-11-06 (`EXP-0055`). `UI-004` is done.
+  - **Play check:** six cold boots of the built image, run by the agent
+    with the user present. Asked: "BOOT-005's play check: 6 cold boots of
+    the built image, one at a time. Five boots each show one English
+    warning and then get exactly one pad-button press (A), to confirm what
+    a button does there: the damaged-save and out-of-space warnings should
+    let the game start, the three unformatted-memory warnings should go to
+    the Saturn's control panel. Each press brings Mednafen to the front for
+    about a second (System Events), then gives focus back; no key loops.
+    The sixth boot is a normal save with no key, running to the title.
+    About 12 minutes in all. May I run them now?" The user's answer,
+    verbatim: "Yes, run all 6 (Recommended)". Each warning showed its
+    English (the same screens as `BOOT-004`); A went on into the game on
+    `WARNING0` (the save rewritten) and `WARNING4`, and to the control
+    panel on `WARNING1`-`3`; the normal boot reached the title.
+  - **Regression:** `data/regression/boot004_boot_warnings.json` (new);
+    `re003`, `re007`, `re008`, `end010` and `end011` rebuild to their
+    recorded hashes; `end023` is reproduced by `BOOT-004`.
+  - **Coverage:** `docs/coverage_exceptions.md`, "Boot Warnings": no boot
+    message left in Japanese.
+  - **README:** "What's Changed", "Still Japanese" and "Build the Patch"
+    updated.
 
 ## Later Milestones (outline only)
 
@@ -2016,7 +2039,7 @@ and `docs/lessons_from_xvsf.md`.
 | --- | --- | --- |
 | END-010 | M7 | `DONE` (2026-11-05, Phase L); follow-up `END-011` (`BACKLOG`). |
 | END-020 | M8 | `DONE` (2026-11-05, Phase M: `END-020`-`END-023`, with `END-011`); M8 confirmed. |
-| UI-004 | after M5, early | Phase N (`BOOT-001`-`BOOT-005`): `BOOT-001`-`BOOT-004` and the gate extension `DONE` (2026-11-06); `BOOT-005` `READY`. |
+| UI-004 | after M5, early | `DONE` (2026-11-06, Phase N: `BOOT-001`-`BOOT-005` and the gate extension). |
 | UI-001 | after M8, user request | UI art: inventory English art already in every font before drawing anything. |
 | UI-002 | after M8, user request | Attract and opening text (`OPDEMO*`, `STDEM*.PIR`, `VADEM*.MAC`, `STDEMO.*` are candidates): layer, container, codecs, oracles. |
 | UI-003 | after M8, user request | Other UI text (select, continue, ranking, options): find the arcade English by tracing the arcade code. |

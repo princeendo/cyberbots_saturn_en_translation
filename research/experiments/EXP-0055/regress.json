@@ -1,0 +1,76 @@
+{
+ "re003_jin": {
+  "exit": 0,
+  "matches": {
+   "STG0AS.BIN": true,
+   "KANJI.BIN": true,
+   "Cyberbots - Fullmetal Madness (Japan) (2M) (Track 01).bin": true,
+   "prediction.json": true
+  },
+  "all": true
+ },
+ "re007_jin_santana": {
+  "exit": 0,
+  "matches": {
+   "STG0AS.BIN": true,
+   "KANJI.BIN": true,
+   "Cyberbots - Fullmetal Madness (Japan) (2M) (Track 01).bin": true,
+   "Cyberbots - Fullmetal Madness (Japan) (2M).cue": true,
+   "prediction.json": true
+  },
+  "all": true
+ },
+ "re008_roster": {
+  "exit": 0,
+  "matches": {
+   "STG0AS.BIN": true,
+   "KANJI.BIN": true,
+   "VICTORY.BIN": true,
+   "Cyberbots - Fullmetal Madness (Japan) (2M) (Track 01).bin": true,
+   "Cyberbots - Fullmetal Madness (Japan) (2M).cue": true,
+   "prediction.json": true,
+   "changes.json": true
+  },
+  "all": true
+ },
+ "end010_jin_ending": {
+  "exit": 0,
+  "matches": {
+   "STG0AS.BIN": true,
+   "KANJI.BIN": true,
+   "VICTORY.BIN": true,
+   "END.BIN": true,
+   "SE.DAT": true,
+   "KEND_1.BIN": true,
+   "QSD.PIX": true,
+   "Cyberbots - Fullmetal Madness (Japan) (2M) (Track 01).bin": true,
+   "Cyberbots - Fullmetal Madness (Japan) (2M).cue": true,
+   "prediction.json": true,
+   "changes.json": true,
+   "ending_prediction.json": true,
+   "ending_changes.json": true
+  },
+  "all": true
+ },
+ "end011_jin_timing": {
+  "exit": 0,
+  "matches": {
+   "STG0AS.BIN": true,
+   "KANJI.BIN": true,
+   "VICTORY.BIN": true,
+   "END.BIN": true,
+   "SE.DAT": true,
+   "KEND_1.BIN": true,
+   "QSD.PIX": true,
+   "Cyberbots - Fullmetal Madness (Japan) (2M) (Track 01).bin": true,
+   "Cyberbots - Fullmetal Madness (Japan) (2M).cue": true,
+   "prediction.json": true,
+   "changes.json": true,
+   "ending_prediction.json": true,
+   "ending_changes.json": true,
+   "ending_timing.json": true
+  },
+  "all": true
+ },
+ "ok": true
+}

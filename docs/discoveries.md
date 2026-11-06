@@ -999,7 +999,7 @@ Reproduce: `research/experiments/EXP-0050/README.md`, "Procedure".
   VDP2 VRAM `0x20000`; each capture's VRAM there equals its file byte for
   byte):
 
-  | Picture | Condition (cold boot, untouched image) | Meaning (agent's paraphrase) | After a button (SUPPORTED) |
+  | Picture | Condition (cold boot, untouched image) | Meaning (agent's paraphrase) | After a button (CONFIRMED, `EXP-0055`) |
   | --- | --- | --- | --- |
   | `WARNING0` | the game's save fails its checksum (one data byte inverted) | the records could not be read; the old data will not be used | the game starts |
   | `WARNING1` | internal memory unformatted (status 2) | system RAM is not ready; initialize it in the Saturn's data screen | the multiplayer (BIOS) screen |
@@ -1013,9 +1013,12 @@ Reproduce: `research/experiments/EXP-0050/README.md`, "Procedure".
 - **Not producible here:** a read failure of an intact save (10 tries) also
   leads to `WARNING0`; internal status 1 cannot be made in Mednafen. Both
   use pictures already shown.
-- **Buttons** are SUPPORTED only (code and the screens' own words): a pad
-  word written in RAM at the read was not seen by the CPU, probably because
-  it reads the word from its cache. `BOOT-005`'s cold boots press one.
+- **Buttons** were SUPPORTED only here (code and the screens' own words):
+  a pad word written in RAM at the read was not seen by the CPU, probably
+  because it reads the word from its cache. Confirmed by `BOOT-005`
+  (`EXP-0055`): one real A press goes on into the game on `WARNING0` and
+  `WARNING4`, and to the Saturn control panel (the BIOS routine at the
+  `0x0600026C` vector, `0x0000186C`) on `WARNING1`-`3`.
 
 Reproduce: `research/experiments/EXP-0051/README.md`, "Procedure".
 

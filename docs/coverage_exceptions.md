@@ -1,7 +1,7 @@
 # Coverage and Exceptions
 
-The register for M5 (`RE-005`). Endings (M6-M8) get their own section when
-those milestones begin.
+The register of what is in English and what is left out, with evidence:
+the M5 roster (`RE-005`), the M8 endings and the boot warnings (`UI-004`).
 
 ## M5 Roster
 
@@ -92,3 +92,30 @@ screen are already English.
 | Boxes 601 and 605 in list 8's ending | 2 speaker names | Shared with lists 0, 3 and 4 (D-036) | English since M7: the gate's "Share, English everywhere (Recommended)" |
 | Box 1072 | 1 (lists 0-3, 5 and 7) | A full-width space (D-038) | Nothing to show |
 | Jin's scene 20 (box 550) | 1 | Never posted, and no script runs into it (D-036, D-043) | Never shown |
+
+## Boot Warnings
+
+The five boot-time warnings (`UI-004`, `BOOT-001`-`BOOT-005`), decided at
+the gate on 2026-11-06: a new translation by the agent, approved by the
+user, in `data/translations/boot_warnings.json`.
+
+### In Scope
+
+| Picture | Shown when (D-048) | English | Seen in English |
+| --- | --- | --- | --- |
+| `WARNING0.PIX` | The game's save fails its checksum | yes | cold boot, damaged save (`EXP-0054`, `EXP-0055`) |
+| `WARNING1.PIX` | System Memory unformatted | yes | cold boot, zeroed memory |
+| `WARNING2.PIX` | A save cartridge, unformatted | yes | cold boot, zeroed save cart |
+| `WARNING3.PIX` | Both unformatted | yes | cold boot, both zeroed |
+| `WARNING4.PIX` | No save and fewer than 6 free blocks | yes | cold boot, 4 blocks free |
+
+No boot-time message stays Japanese: the save check's picture routine has
+no other caller (D-048).
+
+### Excluded, With Evidence
+
+| What | Evidence | Why |
+| --- | --- | --- |
+| A read failure of an intact save; internal memory "not connected" | The code sends both to pictures above (`WARNING0`; `WARNING1`/`3`), D-048 | Not producible in Mednafen; their pictures are already English |
+| The Saturn BIOS's own screens (memory manager, control panel) | The `WARNING1`-`3` button leads into the BIOS (`EXP-0055`) | Not the game's text |
+| The number on `WARNING4` | The Japanese says 05; the game needs 6 (`EXP-0051`) | The user's opt-in fix: "6, what the game checks" |
