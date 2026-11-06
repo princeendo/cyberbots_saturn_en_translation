@@ -35,6 +35,10 @@ In the current development build (not released):
 - **Boot warnings** (damaged save, unformatted memory, no room to save): a
   new translation, approved by the user, in the arcade's letters
   (`UI-004`).
+- **Pilot and mech names** on the pilot-select, `SET UP` and VS screens:
+  Latin art in the arcade's letters, spelled as the US arcade (Devilotte
+  for the Saturn-only princess), with each mech's model code after its name
+  (`LOC-001`). A switch back to the katakana is planned (`OPT-001`).
 
 ## Still Japanese
 
@@ -42,8 +46,8 @@ In the current development build (not released):
   official English, `SPECIAL-001`).
 - The VS screen's chapter captions (no official English shown by the US
   arcade).
-- Pilot and mech names drawn as katakana art on the pilot-select and VS
-  screens (`LOC-001`, `OPT-001`).
+- Six story-only name banners in the VS bank, in katakana or kanji, whose
+  screen is not known (`LOC-006`; listed in the coverage register).
 - Surfaces not yet surveyed: attract and opening text (`UI-002`), option
   sub-screens and other UI text (`UI-003`), rare or region-gated text
   (`TXT-002`). The register is
@@ -62,11 +66,11 @@ There is no patch yet (`REL-001`). The current development image is built
 from the untouched source, with the game data under the ignored paths below:
 
 ```bash
-./invenv.sh python -m tools.text.dialogue --roster data/text/m5_roster.json --indent --rank staying --max-sacrifice 160 --task END-023 --font local/layout001/font/arcade_font.json --driver local/mame_src/cps2.cpp --rompath local/arcade --out build/boot004/a --endings data/text/m8_endings.json --ending-record-dir local/boot004/rec-a --boot-warnings data/translations/boot_warnings.json
+./invenv.sh python -m tools.text.dialogue --roster data/text/m5_roster.json --indent --rank staying --max-sacrifice 160 --task END-023 --font local/layout001/font/arcade_font.json --driver local/mame_src/cps2.cpp --rompath local/arcade --out build/loc005/a --endings data/text/m8_endings.json --ending-record-dir local/loc005/rec-a --boot-warnings data/translations/boot_warnings.json --name-art data/translations/name_art.json
 ```
 
 Its expected hashes are in
-[data/regression/boot004_boot_warnings.json](data/regression/boot004_boot_warnings.json).
+[data/regression/loc005_name_art.json](data/regression/loc005_name_art.json).
 
 ## Development
 

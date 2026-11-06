@@ -119,3 +119,33 @@ no other caller (D-048).
 | A read failure of an intact save; internal memory "not connected" | The code sends both to pictures above (`WARNING0`; `WARNING1`/`3`), D-048 | Not producible in Mednafen; their pictures are already English |
 | The Saturn BIOS's own screens (memory manager, control panel) | The `WARNING1`-`3` button leads into the BIOS (`EXP-0055`) | Not the game's text |
 | The number on `WARNING4` | The Japanese says 05; the game needs 6 (`EXP-0051`) | The user's opt-in fix: "6, what the game checks" |
+
+## Name Art
+
+The pilot and mech names drawn as art (`LOC-001`-`LOC-006`), decided at
+the gate on 2026-11-06 (`LOC-004`): the arcade's letters, the US arcade's
+spellings, model codes after the mech names, "Devilotte".
+`data/translations/name_art.json`; built by `--name-art` (D-053).
+
+### In Scope
+
+| Surface | Names | Latin | Seen in Latin |
+| --- | --- | --- | --- |
+| Pilot select (bank 56, frames `0x14`-`0x1C`) | 9 pilots | yes | all 9 from saved states (`EXP-0060`); Jin, Mary, Santana, Gawaine, Arieta, Bao&Mao on cold boots (`EXP-0061`) |
+| `SET UP` (same art as the select) | the two chosen pilots | yes | cold boots: Santana, Arieta, Gawaine, Bao&Mao |
+| VS screen, pilots (bank 63, `0x02`-`0x0A`) | 9 pilots | yes | all 9 from saved states; Santana, Arieta, Gawaine, Bao&Mao on cold boots |
+| VS screen, mechs (bank 63, `0x0C`-`0x1B`) | 16 mechs | yes | all 16 from saved states; REPTOS, BLODIA, F·KILLER BEE, G·CYCLONE on cold boots |
+
+On the cold boots no katakana name part was on any screen checked
+(`EXP-0061/play.json`).
+
+### Excluded, With Evidence
+
+| What | Evidence | Why |
+| --- | --- | --- |
+| Bank-63 frames `0x74`-`0x79`: story-only characters' names (one appears to read 鉄山, Tessan), katakana or kanji, a third banner style | `EXP-0057` (every bank-63 frame drawn) | Not seen on any screen yet; where they are shown is unknown (`TXT-002`, `SPECIAL-001`) |
+| Bank-63 frame `0x70`, an unreadable small banner | `EXP-0057` | As above |
+| Bank-63 frame `0x0B`, "G.O.D." | Already Latin (`EXP-0057`) | Kept; its records were moved by the repack, not redrawn (D-053) |
+| The VS mech table's 17th entry (frame `0x1C`) | Draws a portrait, not a name (`EXP-0056`) | No name art |
+| `MACHINE SELECT`, `BODY TYPE`, the fight HUD, the versus `RESULT` tally, the cast roll | Latin already (`EXP-0056`, D-040) | Nothing to change |
+| The second row of the select grid (Devilotte, Chiyomaru, Shade) on a cold boot | A down press did not move either cursor there (`EXP-0061`) | Their names were seen from saved states only (`EXP-0060`); how the row is reached is not known (`SPECIAL-001`) |

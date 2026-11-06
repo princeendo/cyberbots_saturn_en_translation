@@ -1116,3 +1116,22 @@ Reproduce: `research/experiments/EXP-0057/README.md`, "Procedure".
   name. All 34 names show as built.
 
 Reproduce: `research/experiments/EXP-0060/README.md`, "Procedure".
+
+## D-054: The Latin name art from cold boots; how a mech variant is chosen (`LOC-006`, `EXP-0061`)
+
+- **Cold boots** of `data/regression/loc005_name_art.json`'s image, arcade
+  mode with a second player and versus mode: the pilot select, `SET UP`
+  and VS screens drew only built name parts (VDP1 sprites compared with the
+  built `SELECT.VAD` block and decoded `PL3F_0.BIN` records), never a
+  katakana one: Jin, Mary, Santana, Gawaine, Arieta, Bao&Mao, REPTOS
+  RF-004, BLODIA BX-02, F·KILLER BEE F7900J, G·CYCLONE GP-02. The select
+  screen read `STG0A.BIN`'s built part table from the disc.
+- **`MACHINE SELECT` takes two choices per player:** a body type (up/down,
+  then a button), then a variant (up/down among the body's mechs, shown by
+  name under it), then a button. With FORDY and GULDIN, one down press gave
+  KILLER BEE and CYCLONE.
+- A second player who has joined holds the arcade-mode select until that
+  player chooses; the match then has a `SET UP` screen.
+
+Reproduce: `research/experiments/EXP-0061/README.md`, "Procedure" (cold
+boots with presses: ask the user first).

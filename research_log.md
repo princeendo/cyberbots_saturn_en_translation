@@ -2559,3 +2559,29 @@ Failed or corrected (do not retry):
   position were wrong; the code was right.
 
 Checks: ruff, ruff format, mypy, pytest (below).
+
+## 2026-11-06 — LOC-006: play check of the Latin name art (EXP-0061)
+
+User request (verbatim): "Start LOC-006". Cold boots asked first: "Yes, run
+both (Recommended)". 11:33-11:48 local; 15 and 32 single presses, no key
+loops.
+
+- `EXP-0061/look.py` classifies the sprites on screen as built or katakana
+  name art; tested first from saved states on both images (no key).
+- Arcade mode (player 2 already joined, Arieta; not traced why) and versus
+  mode: pilot select, `MACHINE SELECT`, `SET UP`, VS. Only built name parts
+  on 75 checks; ten names read in Latin, including two variants (D-054).
+- All eight regression references rebuild and match; `build/regress`
+  (4.4 GB) deleted afterwards.
+
+Notes (do not retry):
+- **A press during a screen's entrance is dropped** (the variant step and
+  the mech cursor at `MACHINE SELECT`); screenshot, then press again once.
+- **`MACHINE SELECT` waits for a variant choice** after the body type; it
+  is not a hang.
+- Down presses on the pilot select did not reach the second grid row.
+- `look.py` must check VS records before the select block: the VS pilot
+  names have the select art's pixels. Its WRAM-H mirror read is only for
+  VDP1 VRAM `0x10000`-`0x1FFFF`.
+
+Checks: ruff, ruff format, mypy, pytest (below).

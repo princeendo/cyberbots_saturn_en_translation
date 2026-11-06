@@ -1,0 +1,144 @@
+{
+ "arcade": {
+  "launch_frame": 4,
+  "presses": 15,
+  "buttons": [
+   "start",
+   "start",
+   "start",
+   "a",
+   "right",
+   "right",
+   "down",
+   "a",
+   "p2a",
+   "down",
+   "a",
+   "p2a",
+   "a",
+   "p2a",
+   "start"
+  ],
+  "looks": 43,
+  "looks_with_built_art": 26,
+  "looks_with_katakana_art": [],
+  "screens": {
+   "sel-jin": {
+    "frame": 8264,
+    "screenshot_sha256": "97b914ceceeee044205eaeafbdd9c49e8fa8dd6e606376f1e698bcb954ef307e",
+    "built_parts": 2,
+    "read": "pilot select: Jin | Arieta"
+   },
+   "sel-r1": {
+    "frame": 8362,
+    "screenshot_sha256": "2cd21de9c5d22f543f288fb1ab254874281d4a00eee7f11649b06e90ca36f360",
+    "built_parts": 2,
+    "read": "pilot select: Mary | Arieta"
+   },
+   "sel-r2": {
+    "frame": 8690,
+    "screenshot_sha256": "c18fa9735239d6bb43d5d9a00e99d1ec12f4aaee6f86bdd318351b361df543b2",
+    "built_parts": 2,
+    "read": "pilot select: Santana | Arieta"
+   },
+   "machine5": {
+    "frame": 13145,
+    "screenshot_sha256": "dc7d0413d8c29babfd15b29b16e9873c06c209569ce2ba0d67300e22de44fc65",
+    "built_parts": 0,
+    "read": "MACHINE SELECT (Latin labels, no name art)"
+   },
+   "vs2-6": {
+    "frame": 17293,
+    "screenshot_sha256": "0179b89ef62c81cff604284e9c95f4ac49c28428bb154f12382b3de03e86313b",
+    "built_parts": 2,
+    "read": "SET UP: Santana | Arieta"
+   },
+   "vs3-9": {
+    "frame": 18434,
+    "screenshot_sha256": "71cf2d96c7e11fb0178644a714fa5b1db3c2d639613720354205969f5ee21fd3",
+    "built_parts": 6,
+    "read": "VS: REPTOS RF-004, Santana | BLODIA BX-02, Arieta"
+   }
+  }
+ },
+ "versus": {
+  "launch_frame": 4,
+  "presses": 32,
+  "buttons": [
+   "start",
+   "start",
+   "start",
+   "down",
+   "a",
+   "right",
+   "right",
+   "right",
+   "right",
+   "p2down",
+   "p2left",
+   "p2down",
+   "a",
+   "p2a",
+   "p2a",
+   "down",
+   "down",
+   "p2down",
+   "p2down",
+   "p2down",
+   "down",
+   "down",
+   "p2down",
+   "p2down",
+   "down",
+   "a",
+   "p2a",
+   "down",
+   "p2down",
+   "a",
+   "p2a",
+   "start"
+  ],
+  "looks": 32,
+  "looks_with_built_art": 24,
+  "looks_with_katakana_art": [],
+  "screens": {
+   "sel0": {
+    "frame": 8283,
+    "screenshot_sha256": "2f496fd70e7f79ef543b4dc0da979a0eced2fb1b5bb066ecbe5caa97d78e916b",
+    "built_parts": 2,
+    "read": "pilot select: Jin | Arieta"
+   },
+   "p1-r4": {
+    "frame": 9820,
+    "screenshot_sha256": "2d8a126a0bbe14f3b8e636c6267fd7b2d90533f06cbb33cbc40463235f394dcf",
+    "built_parts": 2,
+    "read": "pilot select: Gawaine | Arieta"
+   },
+   "p2-l1": {
+    "frame": 10334,
+    "screenshot_sha256": "975238cd8330a3bebd6d63fa1f8359b3dc363999708b7cdcf999ec1699024cdf",
+    "built_parts": 2,
+    "read": "pilot select: Gawaine | Bao&Mao"
+   },
+   "mach3": {
+    "frame": 12931,
+    "screenshot_sha256": "db17648f7533cfbf541a3a9525004a65f9f7dc1dbc8a0ba6897dd1485f6641df",
+    "built_parts": 0,
+    "read": "MACHINE SELECT (Latin labels, no name art)"
+   },
+   "su-8": {
+    "frame": 18867,
+    "screenshot_sha256": "a1a5865df4341fef8ddf7a7f627b4a1642387cfdc760fec961d422e529ff11c8",
+    "built_parts": 2,
+    "read": "SET UP: Gawaine | Bao&Mao"
+   },
+   "vs-9": {
+    "frame": 19688,
+    "screenshot_sha256": "425a1d355673371105961d4b5224556591c281890b9f00240bdd327b02bdfd58",
+    "built_parts": 6,
+    "read": "VS: F·KILLER BEE F7900J, Gawaine | G·CYCLONE GP-02, Bao&Mao"
+   }
+  }
+ },
+ "ok": true
+}
