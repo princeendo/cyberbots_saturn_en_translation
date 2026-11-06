@@ -2376,3 +2376,24 @@ Notes (do not retry):
 - The arcade font has no parentheses.
 
 Checks: ruff, ruff format and mypy on `EXP-0053/render.py`; pytest.
+
+## 2026-11-06 — BOOT-004: the English boot warnings built (EXP-0054)
+
+User request (verbatim): "Start BOOT-004". Six cold boots of the built
+image, asked first ("Yes, run all 6 (Recommended)"); no key pressed.
+
+- `tools/text/boot_warnings.py` (promoted from `EXP-0053/render.py`, with
+  tests) and `dialogue.py --boot-warnings`. The generator reproduces the
+  approved renders exactly.
+- Build: two identical; M8 outputs and records unchanged; 208 sectors
+  changed, all in the pictures; 0 invalid.
+- Screens: each condition shows its English picture, 0 pixels differing;
+  the normal boot is unchanged.
+
+Notes (do not retry):
+- **Pairing control screenshots by frame label fails** when the polls drift
+  by one frame (`f00311` against `f00310`); pair them in poll order.
+- `build/boot004/b`'s image was deleted after the check (rebuildable);
+  `build/boot004/a` is the current image.
+
+Checks: ruff, ruff format, mypy; pytest (190 passed).

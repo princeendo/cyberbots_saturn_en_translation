@@ -1039,3 +1039,16 @@ Reproduce: `research/experiments/EXP-0051/README.md`, "Procedure".
   The Japanese uses columns 24-328 and rows 20-210.
 
 Reproduce: `research/experiments/EXP-0052/README.md`, "Procedure".
+
+## D-050: The boot warnings in English, built from the untouched source (`BOOT-004`, `EXP-0054`)
+
+- `tools.text.dialogue --boot-warnings data/translations/boot_warnings.json`
+  (with the M8 options) builds M8 plus the five warnings in the approved
+  English (`tools.text.boot_warnings`): only each file's visible 352 × 224
+  pixels are redrawn, in the arcade letters and the program's 16 colours.
+- Two builds are identical; every M8 output is unchanged; the 208 sectors
+  that differ from M8 all lie in the five pictures; all sectors are valid.
+- Under each condition of D-048 a cold boot shows its English picture with
+  0 pixels differing from the built file; a normal boot is unchanged.
+
+Reproduce: `research/experiments/EXP-0054/README.md`, "Procedure".

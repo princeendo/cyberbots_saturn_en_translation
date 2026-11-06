@@ -1,0 +1,92 @@
+{
+ "cases": [
+  {
+   "case": "damaged",
+   "warnings_shown": [
+    "00000000"
+   ],
+   "screenshot": "w01457.png",
+   "screenshot_sha256": "b49dc363db7d811e17df3bd9ca5531d9ff70df9aaef3baea8096693e393e383b",
+   "pixels_differing": 0,
+   "vram_equals_built_file": true
+  },
+  {
+   "case": "zero",
+   "warnings_shown": [
+    "00000001"
+   ],
+   "screenshot": "w01457.png",
+   "screenshot_sha256": "17c7c4b969937d8146cab12b84ca01bf288ef8ecdd4f8d9c94d0e83e5ce2136b",
+   "pixels_differing": 0,
+   "vram_equals_built_file": true
+  },
+  {
+   "case": "cart-zero",
+   "warnings_shown": [
+    "00000002"
+   ],
+   "screenshot": "w01457.png",
+   "screenshot_sha256": "491408007ad7a6ea256196e72910466c43184767cf5ec88acbbdc8b0e3dfddb5",
+   "pixels_differing": 0,
+   "vram_equals_built_file": true
+  },
+  {
+   "case": "both-zero",
+   "warnings_shown": [
+    "00000003"
+   ],
+   "screenshot": "w01457.png",
+   "screenshot_sha256": "20e8e89631759f2b77047577bd3a06ae767985d8daf3e40d2ba766305929bd54",
+   "pixels_differing": 0,
+   "vram_equals_built_file": true
+  },
+  {
+   "case": "free4",
+   "warnings_shown": [
+    "00000004"
+   ],
+   "screenshot": "w01458.png",
+   "screenshot_sha256": "0edfbff8d08ba224289fb4355e0bd722833702f6ca378ca276d2e8557dea4b21",
+   "pixels_differing": 0,
+   "vram_equals_built_file": true
+  }
+ ],
+ "control": {
+  "sequence_equal_untouched": true,
+  "screenshots": 6,
+  "equal_to_untouched": 6,
+  "pairs": [
+   {
+    "built": "f00311.png",
+    "untouched": "f00310.png",
+    "equal": true
+   },
+   {
+    "built": "f00621.png",
+    "untouched": "f00620.png",
+    "equal": true
+   },
+   {
+    "built": "f00931.png",
+    "untouched": "f00930.png",
+    "equal": true
+   },
+   {
+    "built": "f01241.png",
+    "untouched": "f01240.png",
+    "equal": true
+   },
+   {
+    "built": "f01551.png",
+    "untouched": "f01550.png",
+    "equal": true
+   },
+   {
+    "built": "f01861.png",
+    "untouched": "f01860.png",
+    "equal": true
+   }
+  ]
+ },
+ "ok": true
+}

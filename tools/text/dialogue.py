@@ -60,6 +60,12 @@ English, as paired (D-022, D-027), unchanged, drawn as pair glyphs (D-024).
    ``OUT/ending_changes.json`` and ``OUT/ending_prediction.json`` so the story
    outputs stay as they were; ``--ending-record`` writes its provenance.
 
+9. **Boot warnings** (``--boot-warnings APPROVED``, BOOT-004): the five
+   `WARNINGn.PIX` pictures redrawn in English by ``tools.text.boot_warnings``
+   from the approved file (``data/translations/boot_warnings.json``) and the
+   ``--font`` letters; written to ``OUT/WARNINGn.PIX`` with
+   ``OUT/boot_changes.json`` (ranges, original and new hashes, fit).
+
 Also writes ``OUT/prediction.json``: per box, the SHA-256 of each predicted
 glyph cell in drawing order, for live checks. ``--record-dir`` writes one
 committed provenance record per pilot (``<name>_story.json`` for
@@ -837,6 +843,30 @@ def build(args: argparse.Namespace) -> int:
             (out / name).write_bytes(data)
         for name in ("END.BIN", "SE.DAT", *sorted(built.images)):
             extra += ["--file", f"{name};1", "--data", str(out / name)]
+    if args.boot_warnings:
+        from tools.text import boot_warnings
+
+        approved = json.loads(args.boot_warnings.read_text())
+        originals = {name: bytes(checked(name)) for name in approved["screens"]}
+        pictures, boot_changes = boot_warnings.build(
+            approved, boot_warnings.load_font(args.font), originals
+        )
+        for name, pic in pictures.items():
+            (out / name).write_bytes(pic.data)
+            extra += ["--file", f"{name};1", "--data", str(out / name)]
+        (out / "boot_changes.json").write_text(
+            json.dumps(
+                {
+                    "approved_sha256": hashlib.sha256(
+                        args.boot_warnings.read_bytes()
+                    ).hexdigest(),
+                    "ranges": boot_changes,
+                    "fit": {name: pic.fit for name, pic in pictures.items()},
+                },
+                indent=1,
+            )
+            + "\n"
+        )
     return patch_image.main(
         [
             "--source-dir",
@@ -886,6 +916,11 @@ def main(argv: Sequence[str] | None = None) -> int:
         "--retime",
         action="store_true",
         help="ending boxes: faster typing and moved cues (END-011)",
+    )
+    parser.add_argument(
+        "--boot-warnings",
+        type=Path,
+        help="approved boot-warning English (BOOT-004)",
     )
     parser.add_argument("--font", type=Path, required=True)
     parser.add_argument("--driver", type=Path, required=True)

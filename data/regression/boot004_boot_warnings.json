@@ -1,0 +1,41 @@
+{
+ "task": "BOOT-004",
+ "experiment": "EXP-0054",
+ "rebuild": "./invenv.sh python -m tools.text.dialogue --roster data/text/m5_roster.json --indent --rank staying --max-sacrifice 160 --task END-023 --font local/layout001/font/arcade_font.json --driver local/mame_src/cps2.cpp --rompath local/arcade --out build/boot004/a --endings data/text/m8_endings.json --ending-record-dir local/boot004/rec-a --boot-warnings data/translations/boot_warnings.json",
+ "base": "data/regression/end023_roster_endings.json (M8): every output and record equal",
+ "approved_sha256": "6bef339c2335fe85f72bce7de5d2a86e359b58d4ab2e38d3c0ec3b5e7422f262",
+ "replacements": {
+  "STG0AS.BIN;1": "7909913bae972ce88c373c50444b18829bdeff2bc59c2a352ca46c9548d59273",
+  "KANJI.BIN;1": "e164e96c116625b471b325ac19324a867cec45b6e2fbcd5a88e1df228d5ad5bb",
+  "VICTORY.BIN;1": "bf5fa1a6e916f26f9b4f3a32c33af8e89444d04c815328d42ad5787f22d4e96b",
+  "END.BIN;1": "a7201d0305b86db525936e768d5169af078af9c5d1905f2e80ae0c0648b22170",
+  "SE.DAT;1": "3afb26a92ee80f9e3447f1546507bcaa0a56c58dc016f31063f396150b010659",
+  "KEND_1.BIN;1": "83eff89c112efc7ef0f7f1f58bd39ee2d8257949c32c8a2ff61c039abe4d2413",
+  "QSD.PIX;1": "e37dc053e396c78adacf7bb8c25a38c9423f5d47fc0e06594795a35121c7a42f",
+  "WARNING0.PIX;1": "66c4d4b2c7868f343316fac37a4dac54cf30d42a3ddc4341ec3dd792d3176627",
+  "WARNING1.PIX;1": "538c49028ccc6afa5b054098dbfc93c9d43362a51cec82cd5a102bea5834c05a",
+  "WARNING2.PIX;1": "580ef4d18ef75843e61ee6d49839bd29c9ec15cd66e826e27d88bb0c42f61997",
+  "WARNING3.PIX;1": "75c696a64207721fea2df177355be32d295e34a7ee82f2fe6c6d675f60a7881b",
+  "WARNING4.PIX;1": "29da7ffce0e94a6ca5255639ff7e5fbf8f466736e18b9b42aa3218b4900e92c6"
+ },
+ "changed_sectors_vs_m8": 208,
+ "output_sha256": {
+  "Cyberbots - Fullmetal Madness (Japan) (2M) (Track 01).bin": "ef27ebc6d5ccd18ba054a4dfa92b1cd2bfdf52d4dffb575877427c1d40d4fe25",
+  "Cyberbots - Fullmetal Madness (Japan) (2M).cue": "9f1248adc58b225fa55aa2960df36113212ff200c26917a8c40f22f2cb9c5f14"
+ },
+ "boot_changes_sha256": "8b8f00a7e79ab66e359758f5ecc3f72bbcf21d361c29b3f06f34a9abd4ba66da",
+ "checks": {
+  "two_builds": "identical (18 outputs, Track 01, six ending records)",
+  "m8": "seven M8 replacements, prediction, changes and ending outputs equal end023; records equal the committed ones",
+  "sectors": "43,793 valid; 208 changed against M8, all inside WARNING0-4.PIX",
+  "screens": "five cold boots: each condition shows its English picture, 0 pixels differing from the built file drawn by D-049's rule; VRAM equals the file; read by the agent against the approved text",
+  "normal_boot": "a normal-save cold boot: the same routine sequence and the same six screenshots (poll order) as the untouched image"
+ },
+ "screens_sha256": {
+  "damaged": "b49dc363db7d811e17df3bd9ca5531d9ff70df9aaef3baea8096693e393e383b",
+  "zero": "17c7c4b969937d8146cab12b84ca01bf288ef8ecdd4f8d9c94d0e83e5ce2136b",
+  "cart-zero": "491408007ad7a6ea256196e72910466c43184767cf5ec88acbbdc8b0e3dfddb5",
+  "both-zero": "20e8e89631759f2b77047577bd3a06ae767985d8daf3e40d2ba766305929bd54",
+  "free4": "0edfbff8d08ba224289fb4355e0bd722833702f6ca378ca276d2e8557dea4b21"
+ }
+}
