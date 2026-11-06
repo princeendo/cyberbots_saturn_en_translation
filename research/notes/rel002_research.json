@@ -1,0 +1,111 @@
+{
+ "date": "2026-11-06",
+ "task": "REL-002",
+ "method": "read-only web research by two researchers, each checked by an independent verifier; no login, download or install",
+ "ssp": {
+  "answer": "Verdict: the prior answer holds up. Every public URL it cites says what it claims, and I found no contrary source. I made three corrections and one addition (marked VERIFY-NOTE). Overall confidence stays SUPPORTED. The egui findings are CONFIRMED from public source. The official patcher's handling of new files is UNKNOWN.\n\n1. The open-source applier (saturn-patcher-egui) cannot add files. CONFIRMED from its public README and src/lib.rs.\n   - load_ssp reads changes.md5 (required), the *._DFR entries and an optional version.txt. It ignores every other entry; the code never reads ._NEW or driveOrder.txt.\n   - apply_ssp only overwrites the data sectors of files already in the root directory and regenerates EDC/ECC. It changes no directory record.\n   - It fails with \"'{}' not found in ISO root\" when a target file is missing. It also fails with \"patched size != original, in-place rewrite not supported\" when a file's size changes.\n   - Its README says growing files \"would need a full ISO rebuild, which is not implemented\", and that it \"Operates on Track 1 of a BIN/CUE rip only\".\n   - VERIFY-NOTE: the code has no track-selection logic. It reads the given .bin from offset 0 at lba*2352. \"Track 1 only\" therefore means the tool expects to be given the track-1 BIN.\n   - Result: egui cannot apply any .ssp that adds ZNAMES1.BIN and ZNAMES2.BIN, or that changes a file's size or the root directory.\n\n2. The official Sega Saturn Patcher (Knight0fDragon) is closed source. Its public home is the SegaXtreme resource page.\n   - The page lists 1.91 BETA (updated Jul 20, 2021) and describes the tool as a multi-tool patcher that creates Saturn CD images.\n   - The author's GitHub has 24 public repositories. None is the patcher; the closest is ShiningForce3TranslationPatcher.\n   - Public sources do not document the .ssp format. Searches for driveOrder and _DFR found nothing.\n   - The 1.9 and 1.91 update notes say the patcher \"has been rebuild from the ground up\". They add command-line options: -i <folder> to build an image from a folder, -sort <file> for a \"directory and file order sheet\", and -ipbin <file> for the first 16 sectors.\n   - VERIFY-NOTE (addition): the Jan 13, 2021 update \"Fixed larger file bug\" fixes a larger changed file not getting its extra bytes. So the official patcher handles files that grow, which fits a rebuild model.\n   - The public notes never mention adding or deleting files, or LBA placement.\n   - VERIFY-NOTE (correction): 1.91 is not the newest build in circulation. A \"special 2.0 version\" ships inside some patch zips (for example, Silhouette Mirage). The sibling projects' v1.95 came bundled with a SegaXtreme patch zip (the Doom fix patch v0.3, per MSHvSF EXP-0084), not with the patcher's own resource page. The public Doom fix page does not mention the bundled patcher. How these newer builds treat new files is UNKNOWN.\n   - User guides describe the flow as: select the image, click \"+ Game Patch (SSP)\", then \"Patch Image\". This is consistent with the patcher writing a new image rather than editing in place.\n\n3. The only evidence of a new-file entry type is the MSHvSF decompile of v1.95 (EXP-0084, local and not public). For Cyberbots it is at most a HYPOTHESIS (AGENTS.md rule 13). I re-checked it locally.\n   - It decompiled SegaSaturnPatcherCore.dll 1.95 and SSPStandard.dll 2.0, and never ran the exe.\n   - Entry kinds it lists: ._NEW (new file), ._DEL (delete), ._RPL (whole file), the optional variants ._OPT/._OPL/._OEW/._ADD/._ODD, and ._TRK (audio track).\n   - The official patcher extracts the image's files, applies the entries, and rebuilds the ISO in driveOrder.txt order, keeping the image's PVD fields and IP.BIN.\n   - It writes changes.md5 but never reads it.\n   - In a harness run of the official core on macOS (one path-separator byte changed, same-size patches), every file kept its original LSN. Only LSN 16's volume space size changed. Audio tracks were re-laid, each starting about 145-146 sectors later, even in the no-patch control.\n   - Only the harness Program.cs files remain locally; the decompiled sources are not kept. So the following are UNKNOWN:\n     - how ._NEW is processed;\n     - whether a ._NEW file must also be in driveOrder.txt;\n     - what LSN or directory position it gets;\n     - whether ._NEW can target the root directory.\n\n4. Effect on Cyberbots (inference, HYPOTHESIS):\n   - Per D-056, the game copies the root directory into a table (up to 384 entries, 327 used) and finds files by name with a linear search. That search stops at the record carrying the end flag the loader sets on the last record. So a rebuilt image should work wherever the new files are placed, as long as both are root records and the directory stays within the game's limits.\n   - Whether an official rebuild with added files keeps the other files' LSNs is UNKNOWN. How it handles Cyberbots' 61 directory entries that point at audio tracks (D-002) is also UNKNOWN.\n   - The xdelta route does not depend on any of this.\n\n5. The repository's own tool, make_ssp.py (verified):\n   - changed_files raises \"the directory listings differ; an .ssp cannot move files\".\n   - Its docstring says an .ssp \"cannot add or move files\", so adding files to track 01 \"needs another route\".\n   - It writes only ._DFR, version.txt, readme.txt, meta.txt, driveOrder.txt and changes.md5. It can only express changes to existing root files.\n   - Same-size changes are the only form both appliers are known to support. Size-changing ._DFR works only with the official rebuild.\n\nPossible workaround (HYPOTHESIS, untested): avoid new directory records by putting the ZNAMES data inside existing files of unchanged size. Do not use free sectors outside any file: make_ssp refuses changes there, egui never writes them, and the official rebuild regenerates the layout.",
+  "confidence": "SUPPORTED",
+  "sources": [
+   {
+    "url": "https://raw.githubusercontent.com/ralfguth/saturn-patcher-egui/main/src/lib.rs",
+    "fact": "load_ssp reads changes.md5 (required), *._DFR, optional version.txt; never reads _NEW or driveOrder; apply_ssp rewrites existing root-file sectors in place; errors \"'{}' not found in ISO root\" and \"patched size != original, in-place rewrite not supported\"; no track-selection logic (lba*2352 from file start)"
+   },
+   {
+    "url": "https://raw.githubusercontent.com/ralfguth/saturn-patcher-egui/main/README.md",
+    "fact": "\"Only handles .ssp patches that keep every patched file the same size\"; \"Patches that grow files would need a full ISO rebuild, which is not implemented\"; \"Operates on Track 1 of a BIN/CUE rip only\"; official patcher is Windows-only WPF/.NET 5"
+   },
+   {
+    "url": "https://segaxtreme.net/resources/sega-saturn-patcher.73/",
+    "fact": "Author Knight0fDragon; 1.91 BETA, last update Jul 20, 2021; multi-tool patcher designed to create Sega Saturn CD images; no mention of adding files, file order or LBA"
+   },
+   {
+    "url": "https://segaxtreme.net/resources/sega-saturn-patcher.73/updates",
+    "fact": "1.9/1.91: patcher \"has been rebuild from the ground up\"; CLI -i <foldername>, -sort <filename> directory and file order sheet, -ipbin first 16 sectors; V1.1 file priority order across Version.SSP/CD.SSP/base SSP; Jan 13 2021 \"Fixed larger file bug\" (larger changed file's extra bytes); nothing on adding/deleting files or LBA"
+   },
+   {
+    "url": "https://segaxtreme.net/resources/sega-saturn-patcher.73/updates?page=2",
+    "fact": "Jan 2021 fixes: Version SSP, ISO9660 compliance, track altering, directory separator, CCD; nothing on new files or LBA"
+   },
+   {
+    "url": "https://github.com/knight0fdragon?tab=repositories",
+    "fact": "24 public repos; none is the Sega Saturn Patcher; closest is ShiningForce3TranslationPatcher"
+   },
+   {
+    "url": "https://segasaturnshiro.com/2023/11/03/fans-release-completed-english-patch-for-silhouette-mirage",
+    "fact": "patch needs \"a special 2.0 version of the patcher utility\", included in the patch zip"
+   },
+   {
+    "url": "https://www.segasaturnshiro.com/2026/06/17/patches-add-english-translation-3d-pad-support-to-steamgear-mash/",
+    "fact": "SSP steps: select image, click \"+ Game Patch (SSP)\", select .ssp, click \"Patch Image\""
+   },
+   {
+    "url": "file:///Users/colinwhite/workspace/personal/msh_vs_sf_saturn_en_translation/research/experiments/EXP-0084/README.md",
+    "fact": "v1.95 from the Doom fix patch v0.3 zip, decompiled not run; kinds ._NEW/._DEL/._RPL/._OPT/._OPL/._OEW/._ADD/._ODD/._TRK; rebuild in driveOrder.txt order with image PVD and IP.BIN; changes.md5 written but never read by official; same-size test kept every file LSN, LSN 16 volume size changed, audio re-laid ~145-146 sectors later"
+   },
+   {
+    "url": "file:///Users/colinwhite/workspace/personal/cyberbots_saturn_en_translation/tools/disc/make_ssp.py",
+    "fact": "docstring: an .ssp cannot add or move files, adding files to track 01 needs another route; line 328 raises \"the directory listings differ; an .ssp cannot move files\""
+   },
+   {
+    "url": "file:///Users/colinwhite/workspace/personal/cyberbots_saturn_en_translation/docs/discoveries.md",
+    "fact": "D-056: root directory copied to 384-entry table (327 used), files found by name via linear search ending at end-flag record; last directory sector (LSN 27) has 1,532 bytes free"
+   }
+  ],
+  "open": "Public sources do not settle these points:\n- how the official patcher (v1.95, or the newer 2.0 builds bundled inside some patch zips) processes a ._NEW entry;\n- whether a new file must also be listed in driveOrder.txt, and in what position;\n- what LSN a new file gets in the rebuild, and whether it can go in the root directory;\n- whether a rebuild with added files keeps the other files' LSNs;\n- how the rebuild treats Cyberbots' directory entries that point at audio tracks.\n\nSettling them would take one of two things, both outside this read-only web task: re-reading the decompiled v1.95 sources (not kept locally; only the EXP-0084 harness Program.cs files remain), or a controlled run of the official core on a Cyberbots copy.\n\nWhether SSP support is still needed, given that egui users cannot apply a patch that adds files, is a user decision."
+ },
+ "retroachievements": {
+  "answer": "Verification result: the earlier answer holds up. I re-read every cited source, and each one says what was claimed. One correction narrows the \"(1M) vs (2M)\" open question, which now has a clear answer.\n\n1) RA game page (SUPPORTED). The Wayback capture of retroachievements.org/game/9742 dated 2024-03-04 does show what was claimed: \"Cyberbots: Fullmetal Madness (Saturn) · RetroAchievements\", Developer/Publisher Capcom, March 28, 1997, Author Tayadaoc, \"There are 25 achievements worth 184 points\", \"(482)\" next to the points, and the first achievement \"Jin Tonic\" = \"Clear Jin Saotome's story\". The CDX index lists three captures of /game/9742 (2022-02-08, 2022-02-26 and 2024-03-04) and one capture of /game/9742/hashes (2026-03-03, HTTP 403). In my session the live hashes page also returned HTTP 403 to WebFetch. I did not bypass it. The current live achievement count was not read directly: 25 is the 2024 figure.\n\n2) Achievements (SUPPORTED, as of 2024). There were 25 in the 2024 archive. I did not re-check the search-snippet claim (\"11 of 25\"). It is weak corroboration.\n\n3) Hash list. I could not read RA's own list, so official support is UNKNOWN. The third-party file is as described: mentalblank/raromonhashes hashlinks.json maps key \"9742\" to exactly one hash, \"37674AB0FE794821DFD080116E1A10BA\". The label is a myrient URL \".../RetroAchievements/RA - Sega Saturn/Cyberbots - Fullmetal Madness (Japan) (1M).chd\". Key \"18367\" maps the PS1 Japan disc to D56F28C78338092B050108BBF5FB5DE7. Two caveats:\n(a) The README says the file only covers hashes the script could link to a download (\"Linked Hashes: 35,922 / Missing Hashes: 5,270, as of Mar. 2, 2026\"). So RA could list more hashes for 9742 than this file shows.\n(b) The project is abandoned because Myrient was closing.\nA web search for the exact MD5 string found no other source.\n\nCorrection to the open \"(1M) vs (2M)\" question. Redump lists two Saturn discs:\n- Disc 58190: Edition \"Original\", serial T-1217G, ring mastering code \"T-1217GP-01438 2MB1\".\n- Disc 3669: Edition \"Limited Edition\", serial T-1216G, ring code \"T-1217GP-01438 1M2\".\nBoth discs have the same Track 01: Data/Mode 1, 103001136 bytes, CRC 86c3a4b3, MD5 161db5cf79a46eed7c6aeb57acedcd8d. Both also show the same header dump (\"SEGA SEGASATURN \", \"T-1217G V1.002\", \"19970219CD-1/1\", \"CYBER BOTS\"). rcheevos hashes only the first 512 user-data bytes of track 1 sector 0, so both pressings must give the same rcheevos hash. The \"(1M)\" label on the mirror therefore does not conflict with the project's (2M) image.\n\nTwo of these links are inference, not things a source states. That \"(1M)\" names the 1M2 mastering (the Limited Edition disc) is inferred from Redump's naming convention. That identical track files give identical hashes follows from how the function works. The project already records the shared track MD5 in references/saturn_jp/redump_3669.json and redump_58190.json. Its research_log.md line 2803 records 37674ab0fe794821dfd080116e1a10ba for the untouched source.\n\n4) The rcheevos Saturn method (CONFIRMED as source text, develop branch). The latest commit touching src/hash/rc_hash_disc.c is 50de7c62dbf96e7d2e2f3ffcbaf6c6ba94bad9e2 (2026-11-05). In src/hash/rc_hash.c, lines 980-985, \"case RC_CONSOLE_SEGA_CD: case RC_CONSOLE_SATURN:\" share one path. That path calls rc_hash_generate_from_playlist for .m3u files, and otherwise `return rc_hash_sega_cd(hash, iterator);`.\n\nCorrection: the comment \"handles both Sega CD and Saturn\" is not on that case. It is an ASSERT comment on the extension-to-console tables (lines 1093, 1109 and 1174). The meaning is unchanged.\n\n`int rc_hash_sega_cd(char hash[33], const rc_hash_iterator_t* iterator)` (rc_hash_disc.c, line 1449) does the following:\n- Declares `uint8_t buffer[512]` and calls rc_cd_open_track(iterator, 1).\n- Calls rc_cd_read_sector(iterator, track_handle, 0, buffer, sizeof(buffer)).\n- Rejects the disc unless the buffer starts with \"SEGADISCSYSTEM  \" or \"SEGA SEGASATURN \".\n- Returns rc_hash_buffer(hash, buffer, sizeof(buffer), iterator).\nA source comment says the first 512 bytes of sector 0 are the volume header and ROM header. rc_cdreader.c sets sector_header_size to 16 (MODE1/2352), 24 (MODE2/2352), 0 (2048-byte sectors) or 8 (some other formats), and adds it to the read offset, so the reader skips the raw sector header. This matches the project's assumption: an MD5 of the first 512 user-data bytes of track 01, sector 0.\n\nOverall: the game page and the 25-achievement set are SUPPORTED (2024 archive). The hashing method is CONFIRMED from source. That 37674ab0... is an RA-supported hash for game 9742 is SUPPORTED by one third-party mirror only, and is UNKNOWN on RA's own pages. The (1M)/(2M) label mismatch has no effect, because the Redump track-1 MD5 is identical for both pressings.",
+  "confidence": "SUPPORTED",
+  "sources": [
+   {
+    "url": "http://web.archive.org/web/20240304044647id_/https://retroachievements.org/game/9742",
+    "fact": "Archived RA page: 'Cyberbots: Fullmetal Madness (Saturn)', Capcom developer/publisher, March 28, 1997, Author Tayadaoc, 'There are 25 achievements worth 184 points', '(482)', first achievement 'Jin Tonic' = 'Clear Jin Saotome's story'."
+   },
+   {
+    "url": "http://web.archive.org/cdx/search/cdx?url=retroachievements.org/game/9742*&output=txt&limit=50",
+    "fact": "Captures of /game/9742 on 2022-02-08, 2022-02-26 and 2024-03-04 (200); the only /game/9742/hashes capture is 2026-03-03 with status 403."
+   },
+   {
+    "url": "https://retroachievements.org/game/9742/hashes",
+    "fact": "Live fetch returned HTTP 403; not bypassed, no login."
+   },
+   {
+    "url": "https://raw.githubusercontent.com/mentalblank/raromonhashes/main/hashlinks.json",
+    "fact": "Key \"9742\" maps to the single hash \"37674AB0FE794821DFD080116E1A10BA\", labeled '.../RetroAchievements/RA - Sega Saturn/Cyberbots - Fullmetal Madness (Japan) (1M).chd'; key \"18367\" maps PS1 Japan Cyberbots to D56F28C78338092B050108BBF5FB5DE7."
+   },
+   {
+    "url": "https://raw.githubusercontent.com/mentalblank/raromonhashes/main/README.md",
+    "fact": "Userscript for RA 'Supported Game Files' pages; 'Linked Hash Status (as of Mar. 2, 2026)' with 35,922 linked and 5,270 missing hashes; project abandoned because Myrient closed."
+   },
+   {
+    "url": "http://redump.org/disc/58190/",
+    "fact": "Saturn Cyberbots, serial T-1217G, Edition Original, ring 'T-1217GP-01438 2MB1'; Track 1 Data/Mode 1, 103001136 bytes, MD5 161db5cf79a46eed7c6aeb57acedcd8d; header 'SEGA SEGASATURN', 'T-1217G V1.002'."
+   },
+   {
+    "url": "http://redump.org/disc/3669/",
+    "fact": "Saturn Cyberbots, serial T-1216G, Edition Limited Edition, ring 'T-1217GP-01438 1M2'; Track 1 has the same size and MD5 161db5cf79a46eed7c6aeb57acedcd8d as disc 58190."
+   },
+   {
+    "url": "https://raw.githubusercontent.com/libretro/libretro-database/master/metadat/redump/Sega%20-%20Saturn.dat",
+    "fact": "Entry 'Cyberbots - Fullmetal Madness (Japan) (2M)', serial T-1217G, Track 01 md5 161DB5CF79A46EED7C6AEB57ACEDCD8D."
+   },
+   {
+    "url": "https://raw.githubusercontent.com/RetroAchievements/rcheevos/develop/src/hash/rc_hash.c",
+    "fact": "Lines 980-985: 'case RC_CONSOLE_SEGA_CD: case RC_CONSOLE_SATURN:' then 'return rc_hash_sega_cd(hash, iterator);' (.m3u goes to the playlist path); the 'handles both Sega CD and Saturn' comments are ASSERTs at lines 1093, 1109 and 1174."
+   },
+   {
+    "url": "https://raw.githubusercontent.com/RetroAchievements/rcheevos/develop/src/hash/rc_hash_disc.c",
+    "fact": "rc_hash_sega_cd: uint8_t buffer[512]; rc_cd_open_track(iterator, 1); rc_cd_read_sector(..., 0, buffer, sizeof(buffer)); checks 'SEGA SEGASATURN '; returns rc_hash_buffer(hash, buffer, sizeof(buffer), iterator)."
+   },
+   {
+    "url": "https://raw.githubusercontent.com/RetroAchievements/rcheevos/develop/src/hash/rc_cdreader.c",
+    "fact": "sector_header_size is set to 16, 24, 0 or 8 depending on format, and added to the read offset, so reads return user data."
+   },
+   {
+    "url": "https://api.github.com/repos/RetroAchievements/rcheevos/commits?sha=develop&path=src/hash/rc_hash_disc.c&per_page=1",
+    "fact": "Latest develop commit touching rc_hash_disc.c: 50de7c62dbf96e7d2e2f3ffcbaf6c6ba94bad9e2, 2026-11-05T15:56:51Z."
+   }
+  ],
+  "open": "RA's own hash list for game 9742 is still unread, because the site returns 403 to automated fetches and I did not log in or bypass it. So official RA support for 37674ab0fe794821dfd080116e1a10ba is UNKNOWN, with only a third-party mirror dated 2026-03-02 as evidence. That mirror may leave out unlinked hashes. Two links are inferred rather than stated by a source: that the mirror's '(1M)' label means Redump's 1M2-mastering Limited Edition disc, and that the hashes match. The hash match follows from the identical Track 01 MD5 on Redump discs 3669 and 58190. The live achievement count was not read; 25 is the 2024 figure. Smallest next check: the user opens https://retroachievements.org/game/9742/hashes in a normal browser and looks for 37674ab0fe794821dfd080116e1a10ba."
+ }
+}

@@ -2770,6 +2770,13 @@ Known so far (facts and their confidence):
   SSP (Recommended)"); a read-only RetroAchievements lookup ("Yes, look it
   up (Recommended)"); the real-Saturn test deferred ("Defer the hardware
   test (Recommended)").
+- **Research (2026-11-06, `research/notes/rel002_research.json`):** RA game
+  9742 (25 achievements); a mirror of RA's hash lists has our sector-0 hash
+  `37674ab0…` (both Redump pressings share Track 01); the patched image
+  keeps it. SSP: the open-source applier cannot add files; the official
+  patcher's handling of new files is UNKNOWN. To settle with the user when
+  this task is unblocked: SSP (official patcher only, after a controlled
+  test, or none), and whether to check the achievements still trigger.
 
 ### REL-003 - Release zips, README and checks
 

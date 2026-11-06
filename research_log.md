@@ -2805,3 +2805,28 @@ a read-only RetroAchievements lookup; the real-Saturn test deferred.
 - Read-only research (RetroAchievements listing; whether the Sega Saturn
   Patcher can add files) runs in a background workflow; results below when
   they arrive.
+
+### REL-002 research results (same day)
+
+Read-only (no login, download or install); each answer checked by an
+independent verifier; sources in `research/notes/rel002_research.json`.
+
+- **RetroAchievements:** game 9742 is Cyberbots (Saturn), with 25
+  achievements in a 2024 archive of its page (the live site is behind a bot
+  check, not bypassed). RA's own hash list was not readable; a third-party
+  mirror of RA hash lists (dated 2026-03-02) maps game 9742 to exactly
+  `37674AB0FE794821DFD080116E1A10BA`, our sector-0 hash, labelled "(1M)".
+  Redump's two pressings (58190 "2M", 3669 "1M") have the same Track 01
+  (MD5 `161db5cf…`), so the hash is the same for both. rcheevos (develop,
+  `src/hash/rc_hash_disc.c`, `rc_hash_sega_cd`, used for Saturn) hashes
+  the first 512 user-data bytes of track 1 sector 0, as `make_patch`
+  computes. So the patched image should keep RA's hash (SUPPORTED;
+  CONFIRMED only by reading RA's own list). Whether the achievements'
+  memory conditions still work on the patched game is UNKNOWN.
+- **SSP:** the open-source applier (saturn-patcher-egui) cannot add files
+  or change sizes (CONFIRMED from its source). The official Sega Saturn
+  Patcher is closed source and rebuilds the image; the only evidence of a
+  "new file" entry is the MSHvSF decompile (HYPOTHESIS for Cyberbots); how
+  it places new files is UNKNOWN. An SSP for this image is therefore not
+  possible for egui users and unproven for the official patcher; the user
+  decides when `REL-002` is unblocked.
