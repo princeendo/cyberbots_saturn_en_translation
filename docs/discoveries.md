@@ -1174,3 +1174,20 @@ Reproduce: `research/experiments/EXP-0062/README.md`, "Procedure".
   game's directory entry pointed at it, loaded byte for byte (Mednafen).
 
 Reproduce: `research/experiments/EXP-0063/README.md`, "Procedure".
+
+## D-057: RAM free for new code, and the VDP1 command list's open end (`OPT-003`, `EXP-0064`)
+
+- **Unused once `CYBER.BIN` runs:** `0x06055424`-`0x06055824` (1,024 zero
+  bytes inside `CYBER.BIN`'s file, offsets `0x48424`-`0x48824`; loaded with
+  it at boot) and `0x060DF8A8`-`0x060E0EA4` (5,628 bytes above its linker
+  end). No master-CPU access and no `0xA5` canary change in 174 segments
+  (an arcade session and ending checkpoints, cart in), none in a cold boot
+  without a cart into a versus fight, and no static path (three independent
+  reviews: literals, load destinations, DMA, indexed tables).
+- **Not free:** `0x060E32E4`-`0x060E8000` is the VDP1 command list's tail:
+  commands are appended at `0x060CE668` from `0x060E1000` with no bound and
+  DMA'd to VDP1 each frame (`0x0600FF7C`); the game's high-water mark
+  (`0x06047D30`) reached `0x2300`, the census edge. The zero runs from
+  `0x06008000` to `0x0600D000` are task and interrupt stacks.
+
+Reproduce: `research/experiments/EXP-0064/README.md`, "Procedure".

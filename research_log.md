@@ -2693,3 +2693,34 @@ committed, or touched the sibling repositories.
 
 Checks: ruff, ruff format (282 files), mypy (82 files), pytest (234
 passed).
+
+## 2026-11-06 — OPT-003: free RAM for the switch's code (EXP-0064)
+
+User request (verbatim): "Begin OPT-003 and any other tasks you can do in
+parallel." Then: "Please present me with any questions and otherwise
+continue." One cold boot, asked first: "Yes, run it (Recommended)".
+
+- Census over 174 states: 28 constant WRAM-H runs, none in WRAM-L.
+- Watches (canary + logs, addresses rebuilt from instructions), a cold boot
+  without a cart into a versus fight, and a three-lens static review with a
+  judge (background workflow): two ranges unused once `CYBER.BIN` runs —
+  `0x06055424`-`0x06055824` (1,024 bytes in `CYBER.BIN`'s file) and
+  `0x060DF8A8`-`0x060E0EA4` (5,628 bytes). D-057.
+
+Disproven or failed (do not retry):
+- **`0x060E32E4`-`0x060E8000` is not free:** the VDP1 command list grows
+  into it without a bound; the census edge was the busiest frame recorded
+  (`0x06047D30`). Constant-in-every-state is not proof; the review caught
+  what the CPU logs could not (SCU DMA reads).
+- **Mednafen's breakpoint log has no access address:** rebuild it from the
+  instruction at PC and the logged registers (`attribute.py`); read the
+  instruction while the same code is loaded (overlays change).
+- **Large watched ranges with a polled flag inside** produced over a million
+  hits and a 300 s timeout; exclude known variables (`0x060DF8A4`).
+- **One Mednafen per home:** a second instance in the same home times out on
+  start; a cold boot in the pad-key home can run beside a silent-home run.
+- **Screenshot comparison between runs is not repeatable** (two identical
+  control passes differ in 64 of 174 segments); do not use it as evidence.
+- A `session.launch` that fails leaves Mednafen running (check `ps`).
+
+Checks: ruff, ruff format, mypy, pytest (below).

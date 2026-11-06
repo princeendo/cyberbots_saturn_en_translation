@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-06: Free RAM proven** (`OPT-003`, `EXP-0064`, D-057): 1,024 bytes inside `CYBER.BIN` (loaded with it) and 5,628 bytes above its BSS are unused once the program runs (logs, canaries, a cold boot, an independent review); the largest zero range is the VDP1 command list's open tail and is not free. `OPT-004` (the switch's design, with the user) is `READY`; option A of `OPT-002` is the one that fits.
 - **2026-11-06: README layout and release tools** (`DOC-004`, `REL-001`, in parallel with `OPT-003`): the README follows MSHvSF's sections with placeholders; XvSF's `make_patch`, `make_ssp`, `make_zips` and `check_zips` are ported with provenance, Cyberbots parameters and synthetic tests. Phase R written up; `REL-002`-`REL-004` wait for `OPT-006`, the release-timing rule and the user.
 - **2026-11-06: Storage and switch points found** (`OPT-002`, `EXP-0063`, D-056): the katakana set is 30,838 bytes; Track 01 has 150 unused sectors at its end, and a file placed there loads through the game's own loader; the game finds files by name, with room for more. The art goes in at two sites (after the `SELECT.VAD` load and after the `PL3F_0.BIN` load). Recommended for `OPT-004`: small files in the tail, loaded per screen. `OPT-003` (free RAM for the hooks) is `READY`.
 - **2026-11-06: Options screen and save mapped** (`OPT-001`, `EXP-0062`, D-055): the menu prints C strings from `OPDEMO.BIN`; its settings are a 16-byte block (`0x060D9290`) saved in `CYBERBOTS01` with a byte sum; bytes +5-15 are unused, and one set there is saved and loaded at boot (one cold boot). A ninth row fits with EXIT moved down a row. `OPT-002` and `OPT-003` are `READY`.
@@ -2526,7 +2527,7 @@ Known so far (facts and their confidence):
 
 ### OPT-003 - Free RAM for the switch's code
 
-- **Status:** `READY`
+- **Status:** `DONE` (2026-11-06, `EXP-0064`, D-057)
 - **Milestone:** Names switch (`OPT-001`)
 - **Dependencies:** LOC-006.
 - **Blockers:** None.
@@ -2543,13 +2544,27 @@ Known so far (facts and their confidence):
     `docs/discoveries.md`.
 - **Notes:** XvSF lesson 13. A range used by the BIOS or by the CD block is
   excluded, not risked.
+- **Done:** 2026-11-06 (`EXP-0064`, D-057).
+  - **Candidates:** 28 constant WRAM-H runs over 174 states (none in
+    WRAM-L); 19 watched, including six zero runs inside `CYBER.BIN`.
+  - **Proof:** per-segment logs (addresses rebuilt from each instruction),
+    `0xA5` canaries and a cold boot with no cart into a versus fight (asked
+    first: "Yes, run it (Recommended)"), plus an independent static review
+    (literals, loads, DMA, indexed tables). Unused once `CYBER.BIN` runs:
+    `0x06055424`-`0x06055824` (1,024 bytes inside `CYBER.BIN`'s file, loaded
+    with it) and `0x060DF8A8`-`0x060E0EA4` (5,628 bytes). Rejected: the
+    VDP1 command list's open tail `0x060E32E4`-`0x060E8000` (the largest
+    zero run), task and interrupt stacks, BSS, a boot load buffer.
+  - **Result:** D-057, CONFIRMED. No 31 KB of free RAM, so `OPT-002`'s
+    option B is out. The screenshot comparison was uninformative (two
+    identical control runs differ).
 
 ### OPT-004 - The switch, decided with the user
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** Names switch (`OPT-001`)
 - **Dependencies:** OPT-001, OPT-002, OPT-003.
-- **Blockers:** `OPT-001`-`OPT-003`.
+- **Blockers:** None (the user's answers).
 - **Objective:** Put the switch's design to the user with the facts.
 - **Acceptance criteria:**
   - **Choices put to the user** (multiple choice, one recommended): where
@@ -2747,6 +2762,6 @@ and `docs/lessons_from_xvsf.md`.
 | UI-003 | after M8, user request | Other UI text (select, continue, ranking, options): find the arcade English by tracing the arcade code. |
 | TXT-002 | after M8, user request | Rare, random, or region-gated text: trace every reader of every text table. |
 | LOC-001 | after REF-007 | `DONE` (2026-11-06, Phase O: `LOC-001`-`LOC-006` and the gate extension). |
-| OPT-001 | after LOC-001, user decision 2026-11-02 | Phase P (`OPT-001`-`OPT-006`): `OPT-001`, `OPT-002` `DONE` (2026-11-06); `OPT-003` `READY`. |
+| OPT-001 | after LOC-001, user decision 2026-11-02 | Phase P (`OPT-001`-`OPT-006`): `OPT-001`-`OPT-003` `DONE` (2026-11-06); `OPT-004` (the user's choices) `READY`. |
 | SPECIAL-001 | M9, user approval | Boss and hidden pilots, alternate routes, unlocks. Secondary sources (`docs/references.md`) say the console ports add four pilots (Chiyomaru Kagura, Tessan Hagure, Princess Devilotte, SHADE) with no arcade English, and an Akuma-mech code; their lines need recorded new translations under the user's policy. Size: Saturn lines 899-1850 (952 lines, about half the script) have no arcade counterpart (D-011). Among the arcade pilots' stories only line 258 is Saturn-only (line 34 is dead data); the earlier count of 74 came from REF-006's reader bug (`EXP-0023`). |
 | REL-001 | after M5 | Phase R (`REL-001`-`REL-004`): `REL-001` (tool port) `DONE` (2026-11-06); `REL-002`-`REL-004` `BLOCKED` on `OPT-006`, the release-timing rule and the user. |
