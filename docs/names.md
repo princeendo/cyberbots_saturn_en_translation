@@ -165,3 +165,19 @@ Heard by the user, one clip at a time:
 No announcer calls a name. Names are heard only inside voiced Japanese
 lines, in their Japanese readings of the same names, so they cannot
 disagree with Latin art; no voice change is planned.
+
+## Latin Name Art, Decided (`LOC-004`, `EXP-0059`)
+
+The user's choices (2026-11-06), from samples drawn into the real screens:
+the arcade dialogue letters inside the Saturn's own banners; case as the US
+arcade (pilots mixed case, `SHADE` and the mechs in capitals); the mech
+model codes kept, placed right after each name; "Devilotte" for her. The
+spellings are in `data/translations/name_art.json`:
+
+- Pilots: Jin, Santana, Mary, Arieta, Gawaine, Bao&Mao, Devilotte,
+  Chiyomaru, SHADE.
+- Mechs: BLODIA, B·SWORDSMAN, B·RIOT, REPTOS, R·LIGHTNING, R·JACKAL, FORDY,
+  F·TALANTURA, F·KILLER BEE, GULDIN, G·VICE, G·CYCLONE, GAITS, HELION,
+  WARLOCK, SUPER-8 (each with its Saturn model code).
+
+Tessan has no name art; his romanization belongs to `SPECIAL-001`.

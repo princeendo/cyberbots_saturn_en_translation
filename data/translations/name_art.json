@@ -1,0 +1,110 @@
+{
+ "description": "LOC-004 (EXP-0059): the approved Latin name art for the pilot select (bank 56, SELECT.VAD) and the VS screen (bank 63, PL3F_0.BIN). New art, approved by the user on 2026-11-06 under GATE-TRANSLATION (name-art extension). Letters: the arcade dialogue letters (EXP-0025), 16 rows, 8-pixel advance, centred in the Saturn's own banners (the bar kept); two added glyphs, '&' and the raised dot '·'. Case as the US arcade's name art (cybotsu, EXP-0056). Mech model codes kept from the Saturn art, placed right after the name.",
+ "approved": "2026-11-06, the user: \"Arcade letters in the banners (Recommended)\", \"As the US arcade (Recommended)\", \"Keep, moved after the name (Recommended)\", \"Devilotte (Recommended)\"",
+ "style": {
+  "font": "arcade dialogue letters (local/layout001/font/arcade_font.json), plus '&' and '·' (EXP-0059/banner.py)",
+  "pilot_colours": "banner palette 0x61E0/0x41E0: letters 15/1/2/3, shadow 5, bar 6",
+  "mech_colours": "palette 0x41C0: letters 15/1/2/3, shadow 5, bar 6; model code pixels (indices 10-12) kept",
+  "model_code": "kept, placed right after the name"
+ },
+ "pilots": {
+  "frames_select": "0x14-0x1C",
+  "frames_vs": "0x02-0x0A",
+  "names": [
+   "Jin",
+   "Santana",
+   "Mary",
+   "Arieta",
+   "Gawaine",
+   "Bao&Mao",
+   "Devilotte",
+   "Chiyomaru",
+   "SHADE"
+  ],
+  "sources": {
+   "Jin": "US arcade art",
+   "Santana": "US arcade art",
+   "Mary": "US arcade art",
+   "Arieta": "US arcade art",
+   "Gawaine": "US arcade art",
+   "Bao&Mao": "US arcade art",
+   "SHADE": "US arcade art",
+   "Devilotte": "arcade English text (speaker label); the Saturn art reads 'Princess Devilot'",
+   "Chiyomaru": "arcade English text"
+  }
+ },
+ "mechs": {
+  "frames_vs": "0x0C-0x1B",
+  "names": [
+   [
+    "BLODIA",
+    "BX-02"
+   ],
+   [
+    "B·SWORDSMAN",
+    "BX-04S"
+   ],
+   [
+    "B·RIOT",
+    "BX-07S"
+   ],
+   [
+    "REPTOS",
+    "RF-004"
+   ],
+   [
+    "R·LIGHTNING",
+    "RF-009"
+   ],
+   [
+    "R·JACKAL",
+    "RF-027"
+   ],
+   [
+    "FORDY",
+    "F7100"
+   ],
+   [
+    "F·TALANTURA",
+    "F7202"
+   ],
+   [
+    "F·KILLER BEE",
+    "F7900J"
+   ],
+   [
+    "GULDIN",
+    "GP-N1"
+   ],
+   [
+    "G·VICE",
+    "GP-V4"
+   ],
+   [
+    "G·CYCLONE",
+    "GP-02"
+   ],
+   [
+    "GAITS",
+    "P-10033"
+   ],
+   [
+    "HELION",
+    "UVA-02"
+   ],
+   [
+    "WARLOCK",
+    "X-0"
+   ],
+   [
+    "SUPER-8",
+    "S-008"
+   ]
+  ],
+  "sources": "BLODIA, REPTOS, FORDY, GULDIN, R·LIGHTNING: US arcade art; the rest: the Saturn art's prefix letter plus the game's own Latin list in CYBER.BIN (EXP-0056), as R·LIGHTNING shows the pattern"
+ },
+ "not_on_name_art": {
+  "Tessan": "no name art on these screens (EXP-0056); his romanization is SPECIAL-001's"
+ },
+ "build_switch": "tools.text.dialogue --name-art latin (named by the agent; Latin is the default; the katakana stays available for OPT-001)"
+}

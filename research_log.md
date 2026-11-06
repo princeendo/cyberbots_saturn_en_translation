@@ -2514,3 +2514,20 @@ Notes (do not retry):
 - `-qtrecord` files are about 8.5 MB a second; cut clips and delete them.
 - `ffmpeg -sseof` is an input option: place it before `-i`.
 - `drive.py shot` fails if the screenshot name exists; use new names.
+
+## 2026-11-06 — LOC-004: the user's plan for the name art (EXP-0059)
+
+User request (verbatim): "Start LOC-004". Samples drawn on the real select
+and VS screens from saved states (no key, no cold boot); three sheets sent.
+
+Decisions, verbatim: "Arcade letters in the banners (Recommended)", "As
+the US arcade (Recommended)", "Keep, moved after the name (Recommended)",
+"Devilotte (Recommended)". Spellings: `data/translations/name_art.json`.
+
+Notes (do not retry):
+- Name parts can be drawn flipped (select: vertical; VS mech right part:
+  horizontal); read the flip bits from the command word.
+- On the VS screen, write the WRAM-H copy (`0x060F0000` up), not VDP1
+  VRAM `0x10000` up: it is refreshed every frame.
+- Colour variants of the pilot banner look alike (pale yellow is the
+  lightest colour).

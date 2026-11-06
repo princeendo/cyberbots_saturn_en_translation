@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-06: `GATE-TRANSLATION` extended to the name art** (`LOC-004`, `EXP-0059`): from samples drawn into the real screens, the user chose the arcade letters in the Saturn banners, the US arcade's case, the mech model codes kept after each name, and "Devilotte". Spellings in `data/translations/name_art.json`. `LOC-005` (the build) is `READY`.
 - **2026-11-06: names in voice checked** (`LOC-003`, `EXP-0058`): the user heard eight clips, one at a time. No announcer calls a name (select, VS, round start, win); names are spoken only inside voiced Japanese lines ("jin" in Jin's narration), so nothing in voice conflicts with Latin art. One cold boot covered the pilot pick (the user: "Run one more cold boot"). `LOC-004` (your plan per surface) is `READY`.
 - **2026-11-06: name-art storage found** (`LOC-002`, `EXP-0057`, D-052): select names are raw art in `SELECT.VAD`, VS names compressed records in `PL3F_0.BIN` (confirmed by a marked test image read from saved states). No Latin pilot or mech name exists in either bank (every frame drawn); versus mode uses the same art (one cold boot, the user: "Yes, run it now (Recommended)"). Room: Latin select names fit in place; VS names need compression or more space; neither file can also keep the katakana for `OPT-001`. `LOC-003` (voice) is `READY`; `LOC-004` waits on it.
 - **2026-11-06: name-art census done** (`LOC-001`, `EXP-0056`, D-051): name art appears only on the pilot select (9 pilot names) and the VS screen (9 pilot and 16 mech names); every other screen seen is Latin or nameless. Each name was shown on the real screen by a RAM write from a saved state (no key). The US arcade uses Latin in mixed case for pilots and capitals for mechs and SHADE. Versus mode's own screens were not reached (carried to `LOC-002`). `LOC-002` (storage, Latin art) and `LOC-003` (voice) are `READY`.
@@ -2035,7 +2036,7 @@ boot_warnings.json` in the arcade letters and the Japanese colours. It is
 ## Phase O: Name Art (`LOC-001`)
 
 The user asked for these tasks (verbatim, 2026-11-06): "Write up LOC-001".
-`LOC-001` to `LOC-003` are done (2026-11-06). The order is:
+`LOC-001` to `LOC-004` are done (2026-11-06). The order is:
 
 1. `LOC-001` (census of every name-art surface, and what the US arcade
    shows on each);
@@ -2230,7 +2231,7 @@ Known so far (facts and their confidence):
 
 ### LOC-004 - The user's plan for each name surface
 
-- **Status:** `READY`
+- **Status:** `DONE` (2026-11-06, `EXP-0059`)
 - **Milestone:** Name art (`LOC-001`)
 - **Dependencies:** LOC-001, LOC-002, LOC-003.
 - **Blockers:** None.
@@ -2251,10 +2252,59 @@ Known so far (facts and their confidence):
   - **Build switch:** the build option for the Latin art is named (for
     example `dialogue.py --name-art latin`); Latin is the default, and the
     katakana stays available for `OPT-001`.
+- **Done:** 2026-11-06 (`EXP-0059`).
+  - **Options and costs:** pointing at existing Latin art is not possible
+    (none exists, D-052). Put to the user, with samples drawn into the real
+    select and VS screens beside the US arcade's: the arcade letters in the
+    banners, new katakana-style lettering, or keeping the katakana.
+  - **Romanization:** none needed for name art: every pilot and mech on
+    these screens has an English spelling (US arcade art, the arcade
+    English text, or the game's Latin list); Tessan has no name art and
+    stays with `SPECIAL-001`.
+  - **Gate:** below, and in `docs/localization_policy.md` and
+    `docs/names.md`; spellings in `data/translations/name_art.json`.
+  - **Build switch:** `tools.text.dialogue --name-art latin` (named by the
+    agent); Latin is the default and the katakana stays available for
+    `OPT-001` (which still needs storage for a second set, D-052).
+
+### GATE-TRANSLATION extension for the name art
+
+- **Status:** `DONE` (2026-11-06)
+- **Scope:** the pilot names on the pilot select and the pilot and mech
+  names on the VS screen (D-051, D-052).
+- **Asked** (2026-11-06), after three sample sheets were sent (the VS
+  screen: US arcade, Saturn now, Saturn with Latin names; the select
+  banners in Latin; long mech names against the model code), and the
+  user's answers, verbatim:
+  - "No Latin version of the pilot or mech name art exists on the disc, so
+    it has to be made (new art, recorded like a new translation). The
+    samples I just sent set the names in the game's own arcade letters
+    (the font the English story uses) inside the Saturn's red and blue
+    name banners. Which lettering should the select and VS name art use?"
+    → "Arcade letters in the banners (Recommended)"
+  - "Which capitalization? The US arcade writes pilots in mixed case
+    ("Jin", "Bao&Mao") but the boss "SHADE" and all mechs in capitals; the
+    game's own Latin lists in the program are all capitals." → "As the US
+    arcade (Recommended)"
+  - "The Saturn shows a model code beside each mech name ("BX-02", already
+    in Latin); the US arcade shows none. Longer names (R·LIGHTNING,
+    F·KILLER BEE) run into the code where it sits now (third sheet). Keep
+    the codes?" → "Keep, moved after the name (Recommended)"
+  - "Spellings where the US arcade has no name art: Chiyomaru and
+    Devilotte come from the arcade's English text, and the mech variants
+    follow the Saturn's prefix letter plus the game's own Latin list
+    (B·SWORDSMAN, B·RIOT, R·JACKAL, F·TALANTURA, F·KILLER BEE, G·VICE,
+    G·CYCLONE), as the US arcade's R·LIGHTNING does. The Saturn's Devilotte
+    art says "Princess Devilot". Which name for her?" → "Devilotte
+    (Recommended)"
+
+So `LOC-005` builds the 9 pilot names (select and VS) and 16 mech names
+from `data/translations/name_art.json`. It is `READY`; the VS records'
+room (D-052) is its first problem.
 
 ### LOC-005 - Build the Latin name art
 
-- **Status:** `BACKLOG`
+- **Status:** `READY`
 - **Milestone:** Name art (`LOC-001`)
 - **Dependencies:** LOC-004.
 - **Blockers:** None.
@@ -2308,7 +2358,7 @@ and `docs/lessons_from_xvsf.md`.
 | UI-002 | after M8, user request | Attract and opening text (`OPDEMO*`, `STDEM*.PIR`, `VADEM*.MAC`, `STDEMO.*` are candidates): layer, container, codecs, oracles. |
 | UI-003 | after M8, user request | Other UI text (select, continue, ranking, options): find the arcade English by tracing the arcade code. |
 | TXT-002 | after M8, user request | Rare, random, or region-gated text: trace every reader of every text table. |
-| LOC-001 | after REF-007 | Phase O (`LOC-001`-`LOC-006`): `LOC-001`-`LOC-003` `DONE` (2026-11-06); `LOC-004` `READY`. |
+| LOC-001 | after REF-007 | Phase O (`LOC-001`-`LOC-006`): `LOC-001`-`LOC-004` and the gate extension `DONE` (2026-11-06); `LOC-005` `READY`. |
 | OPT-001 | after LOC-001, user decision 2026-11-02 | An Options-screen switch for the name art, Latin by default, in an expanded Options screen if needed. Model: MSHvSF `OPT-003` (a proven home for new code), `OPT-004` (EXTRA OPTIONS sub-menu), `OPT-005` (names switch); XvSF `LOC-009`/`LOC-010`. Prove free RAM by read/write logs before placing code (XvSF's first toggle hung the title). |
 | SPECIAL-001 | M9, user approval | Boss and hidden pilots, alternate routes, unlocks. Secondary sources (`docs/references.md`) say the console ports add four pilots (Chiyomaru Kagura, Tessan Hagure, Princess Devilotte, SHADE) with no arcade English, and an Akuma-mech code; their lines need recorded new translations under the user's policy. Size: Saturn lines 899-1850 (952 lines, about half the script) have no arcade counterpart (D-011). Among the arcade pilots' stories only line 258 is Saturn-only (line 34 is dead data); the earlier count of 74 came from REF-006's reader bug (`EXP-0023`). |
 | REL-001 | after M5 | Copy XvSF `make_patch`/`make_ssp` (with the RetroAchievements header guard) and parameterize the source folder, manifest and author; xdelta and SSP; release zips via promoted `make_zips`/`check_zips`. Patches are Release assets only, never committed. |
