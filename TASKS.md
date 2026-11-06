@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-06: Names switch play-checked; Phase P done** (`OPT-006`, `EXP-0066`): two cold boots with real presses set `JAPANESE` (katakana on pilot select, `SET UP`, VS), kept it across a power cycle, and set `ENGLISH` (Latin again); new reference `opt006_names_switch.json`; all earlier references match. `REL-002` now waits only on the release-timing rule (every open task done or deferred by the user) and the user; the UI tasks start on request.
 - **2026-11-06: Names switch built** (`OPT-005`, `EXP-0065`, D-058): `--names-switch` adds the `EXTRA OPTIONS` sub-menu (layout: title and rows up two lines, the user's choice) and the katakana tail files; from saved states the menu works and each setting shows its art on the pilot select and VS screens. `OPT-006` (cold-boot play check, with presses) is `READY`.
 - **2026-11-06: Names switch decided** (`OPT-004`): an `EXTRA OPTIONS` sub-menu reached from a 9th OPTION MODE row (rows moved up a line), holding `NAMES  ENGLISH / JAPANESE`, saved; katakana in new tail files; SSP checked in `REL-002`. Answers verbatim in `docs/localization_policy.md`. `OPT-005` (build) is `READY`.
 - **2026-11-06: Free RAM proven** (`OPT-003`, `EXP-0064`, D-057): 1,024 bytes inside `CYBER.BIN` (loaded with it) and 5,628 bytes above its BSS are unused once the program runs (logs, canaries, a cold boot, an independent review); the largest zero range is the VDP1 command list's open tail and is not free. `OPT-004` (the switch's design, with the user) is `READY`; option A of `OPT-002` is the one that fits.
@@ -2642,7 +2643,7 @@ Known so far (facts and their confidence):
 
 ### OPT-006 - Verify and register
 
-- **Status:** `READY`
+- **Status:** `DONE` (2026-11-06, `EXP-0066`)
 - **Milestone:** Names switch (`OPT-001`)
 - **Dependencies:** OPT-005.
 - **Blockers:** None.
@@ -2656,6 +2657,17 @@ Known so far (facts and their confidence):
     references still match.
   - **Coverage and README:** `docs/coverage_exceptions.md`, "What's
     Changed" and the build command.
+- **Done:** 2026-11-06 (`EXP-0066`).
+  - **Play check:** two cold boots, asked first ("Yes, run both
+    (Recommended)"): boot 1 set `JAPANESE` with real presses (Up, A,
+    Right, Start, Start) and showed katakana on the pilot select, `SET UP`
+    and VS; boot 2, from boot 1's save, showed `JAPANESE` kept, set
+    `ENGLISH` (Left) and showed Latin on the same screens. Both saves
+    valid.
+  - **Regression:** new reference `data/regression/opt006_names_switch.json`
+    (rebuilds and matches); all eight earlier references match.
+  - **Coverage and README:** `docs/coverage_exceptions.md` ("The Names
+    Switch"), README "What's Changed" and the build command.
 
 ## Phase R: Release (`REL-001`)
 
@@ -2729,8 +2741,8 @@ Known so far (facts and their confidence):
 - **Status:** `BLOCKED`
 - **Milestone:** Release (`REL-001`)
 - **Dependencies:** REL-001, OPT-006; the release-timing rule.
-- **Blockers:** `OPT-006` (the final image is the names-switch build); every
-  open task done or deferred by the user by name.
+- **Blockers:** every open task done or deferred by the user by name
+  (the release-timing rule); `OPT-006` is done (2026-11-06).
 - **Objective:** xdelta and SSP patches that turn the untouched source into
   the final registered image, proven by applying them.
 - **Acceptance criteria:**
@@ -2804,6 +2816,6 @@ and `docs/lessons_from_xvsf.md`.
 | UI-003 | after M8, user request | Other UI text (select, continue, ranking, options): find the arcade English by tracing the arcade code. |
 | TXT-002 | after M8, user request | Rare, random, or region-gated text: trace every reader of every text table. |
 | LOC-001 | after REF-007 | `DONE` (2026-11-06, Phase O: `LOC-001`-`LOC-006` and the gate extension). |
-| OPT-001 | after LOC-001, user decision 2026-11-02 | Phase P (`OPT-001`-`OPT-006`): `OPT-001`-`OPT-005` `DONE` (2026-11-06); `OPT-006` (play check) `READY`. |
+| OPT-001 | after LOC-001, user decision 2026-11-02 | `DONE` (2026-11-06, Phase P: `OPT-001`-`OPT-006`). |
 | SPECIAL-001 | M9, user approval | Boss and hidden pilots, alternate routes, unlocks. Secondary sources (`docs/references.md`) say the console ports add four pilots (Chiyomaru Kagura, Tessan Hagure, Princess Devilotte, SHADE) with no arcade English, and an Akuma-mech code; their lines need recorded new translations under the user's policy. Size: Saturn lines 899-1850 (952 lines, about half the script) have no arcade counterpart (D-011). Among the arcade pilots' stories only line 258 is Saturn-only (line 34 is dead data); the earlier count of 74 came from REF-006's reader bug (`EXP-0023`). |
-| REL-001 | after M5 | Phase R (`REL-001`-`REL-004`): `REL-001` (tool port) `DONE` (2026-11-06); `REL-002`-`REL-004` `BLOCKED` on `OPT-006`, the release-timing rule and the user. |
+| REL-001 | after M5 | Phase R (`REL-001`-`REL-004`): `REL-001` (tool port) `DONE` (2026-11-06); `REL-002`-`REL-004` `BLOCKED` on the release-timing rule and the user (`OPT-006` done 2026-11-06). |

@@ -1,0 +1,379 @@
+{
+ "boot1": {
+  "bkr_in": "None",
+  "presses": [
+   "start",
+   "start",
+   "start",
+   "down",
+   "down",
+   "a",
+   "up",
+   "a",
+   "right",
+   "start",
+   "start",
+   "down",
+   "a",
+   "right",
+   "right",
+   "a",
+   "p2a",
+   "a",
+   "p2a",
+   "a",
+   "p2a",
+   "start"
+  ],
+  "looks": {
+   "sel-a": {
+    "frame": 11469,
+    "counts": {
+     "built-select": 0,
+     "katakana-select": 2,
+     "built-vs": 0,
+     "katakana-vs": 1
+    }
+   },
+   "sel-b": {
+    "frame": 11788,
+    "counts": {
+     "built-select": 0,
+     "katakana-select": 0,
+     "built-vs": 0,
+     "katakana-vs": 2
+    }
+   },
+   "setup": {
+    "frame": 14608,
+    "counts": {
+     "built-select": 0,
+     "katakana-select": 0,
+     "built-vs": 0,
+     "katakana-vs": 2
+    }
+   },
+   "vs-10": {
+    "frame": 15421,
+    "counts": {
+     "built-select": 0,
+     "katakana-select": 0,
+     "built-vs": 0,
+     "katakana-vs": 6
+    }
+   },
+   "vs-11": {
+    "frame": 15465,
+    "counts": {
+     "built-select": 0,
+     "katakana-select": 0,
+     "built-vs": 0,
+     "katakana-vs": 6
+    }
+   },
+   "vs-12": {
+    "frame": 15508,
+    "counts": {
+     "built-select": 0,
+     "katakana-select": 0,
+     "built-vs": 0,
+     "katakana-vs": 0
+    }
+   },
+   "vs-7": {
+    "frame": 15262,
+    "counts": {
+     "built-select": 0,
+     "katakana-select": 0,
+     "built-vs": 0,
+     "katakana-vs": 0
+    }
+   },
+   "vs-8": {
+    "frame": 15336,
+    "counts": {
+     "built-select": 0,
+     "katakana-select": 0,
+     "built-vs": 0,
+     "katakana-vs": 6
+    }
+   },
+   "vs-9": {
+    "frame": 15378,
+    "counts": {
+     "built-select": 0,
+     "katakana-select": 0,
+     "built-vs": 0,
+     "katakana-vs": 6
+    }
+   }
+  },
+  "read": {
+   "opt1": "OPTION MODE, new layout, EXTRA OPTIONS row",
+   "opt2": "cursor on EXTRA OPTIONS after Up",
+   "sub1": "EXTRA OPTIONS: NAMES, ENGLISH selected",
+   "sub2": "JAPANESE selected after Right",
+   "opt3": "back in OPTION MODE, cursor on EXTRA OPTIONS",
+   "sel-b": "pilot select: Santana | Arieta (katakana)",
+   "setup": "SET UP: katakana names",
+   "vs-9": "VS: katakana BLODIA banners, Santana | Arieta"
+  },
+  "screens_sha256": {
+   "opt1": "96b14a7c1659210b5a9e5afd5e508c1c4fe129c32252ae9cb88df7f32e92d12d",
+   "opt2": "b5722f3a61470526c68b0d6978e8ea393ae9dd905eaa22d523c949d6793e70c1",
+   "sub1": "021f42bd8ff7b36ed0b516ffbb35ea1ae47fb281cdf054cee0b752c7f8c05b8d",
+   "sub2": "3da842639aa0ac579501d77556d40160747451a07341c8053a3e132676355358",
+   "opt3": "b5722f3a61470526c68b0d6978e8ea393ae9dd905eaa22d523c949d6793e70c1",
+   "sel-b": "5f0585ff33d0733abfee93a95c0f89b27de89120a7e456b3262b535155321cda",
+   "setup": "b51ee89cd264b955aae1ea6116bb5af39022fd9d0b9deaed12aa73dcb8d72326",
+   "vs-9": "bfad9dbf7c1ea774ef55245ba1f38f37b08b1ffab57e452bb81c50ead7101f4d"
+  },
+  "look_screens": {
+   "sel-a": "pilot select",
+   "sel-b": "pilot select",
+   "setup": "SET UP",
+   "vs-7": "transition",
+   "vs-8": "VS",
+   "vs-9": "VS",
+   "vs-10": "VS",
+   "vs-11": "VS",
+   "vs-12": "after VS"
+  }
+ },
+ "boot2": {
+  "bkr_in": "local/opt006/save1/Cyberbots - Fullmetal Madness (Japan) (2M).650c6e0581d4608078997260d2fddca0.bkr",
+  "presses": [
+   "start",
+   "start",
+   "down",
+   "down",
+   "a",
+   "up",
+   "a",
+   "left",
+   "start",
+   "start",
+   "down",
+   "a",
+   "right",
+   "a",
+   "p2a",
+   "a",
+   "p2a",
+   "a",
+   "p2a",
+   "start",
+   "p2a",
+   "start",
+   "start"
+  ],
+  "looks": {
+   "sel-a": {
+    "frame": 10559,
+    "counts": {
+     "built-select": 0,
+     "katakana-select": 0,
+     "built-vs": 2,
+     "katakana-vs": 0
+    }
+   },
+   "sel-b": {
+    "frame": 10727,
+    "counts": {
+     "built-select": 0,
+     "katakana-select": 0,
+     "built-vs": 2,
+     "katakana-vs": 0
+    }
+   },
+   "setup": {
+    "frame": 13621,
+    "counts": {
+     "built-select": 0,
+     "katakana-select": 0,
+     "built-vs": 1,
+     "katakana-vs": 0
+    }
+   },
+   "setup2": {
+    "frame": 15212,
+    "counts": {
+     "built-select": 0,
+     "katakana-select": 0,
+     "built-vs": 2,
+     "katakana-vs": 0
+    }
+   },
+   "vs-10": {
+    "frame": 14206,
+    "counts": {
+     "built-select": 0,
+     "katakana-select": 0,
+     "built-vs": 1,
+     "katakana-vs": 0
+    }
+   },
+   "vs-11": {
+    "frame": 14249,
+    "counts": {
+     "built-select": 0,
+     "katakana-select": 0,
+     "built-vs": 1,
+     "katakana-vs": 0
+    }
+   },
+   "vs-8": {
+    "frame": 14110,
+    "counts": {
+     "built-select": 0,
+     "katakana-select": 0,
+     "built-vs": 1,
+     "katakana-vs": 0
+    }
+   },
+   "vs-9": {
+    "frame": 14159,
+    "counts": {
+     "built-select": 0,
+     "katakana-select": 0,
+     "built-vs": 1,
+     "katakana-vs": 0
+    }
+   },
+   "vs2-10": {
+    "frame": 15822,
+    "counts": {
+     "built-select": 0,
+     "katakana-select": 0,
+     "built-vs": 2,
+     "katakana-vs": 0
+    }
+   },
+   "vs2-11": {
+    "frame": 15883,
+    "counts": {
+     "built-select": 0,
+     "katakana-select": 0,
+     "built-vs": 2,
+     "katakana-vs": 0
+    }
+   },
+   "vs2-7": {
+    "frame": 15654,
+    "counts": {
+     "built-select": 0,
+     "katakana-select": 0,
+     "built-vs": 2,
+     "katakana-vs": 0
+    }
+   },
+   "vs2-8": {
+    "frame": 15732,
+    "counts": {
+     "built-select": 0,
+     "katakana-select": 0,
+     "built-vs": 2,
+     "katakana-vs": 0
+    }
+   },
+   "vs2-9": {
+    "frame": 15776,
+    "counts": {
+     "built-select": 0,
+     "katakana-select": 0,
+     "built-vs": 2,
+     "katakana-vs": 0
+    }
+   },
+   "vs3-10": {
+    "frame": 17185,
+    "counts": {
+     "built-select": 0,
+     "katakana-select": 0,
+     "built-vs": 6,
+     "katakana-vs": 0
+    }
+   },
+   "vs3-11": {
+    "frame": 17228,
+    "counts": {
+     "built-select": 0,
+     "katakana-select": 0,
+     "built-vs": 6,
+     "katakana-vs": 0
+    }
+   },
+   "vs3-7": {
+    "frame": 17024,
+    "counts": {
+     "built-select": 0,
+     "katakana-select": 0,
+     "built-vs": 6,
+     "katakana-vs": 0
+    }
+   },
+   "vs3-8": {
+    "frame": 17067,
+    "counts": {
+     "built-select": 0,
+     "katakana-select": 0,
+     "built-vs": 6,
+     "katakana-vs": 0
+    }
+   },
+   "vs3-9": {
+    "frame": 17141,
+    "counts": {
+     "built-select": 0,
+     "katakana-select": 0,
+     "built-vs": 6,
+     "katakana-vs": 0
+    }
+   }
+  },
+  "read": {
+   "sub-kept": "EXTRA OPTIONS: JAPANESE selected (kept from boot 1's save)",
+   "sub-eng": "ENGLISH selected after Left",
+   "sel-b": "pilot select: Mary | Arieta (Latin)",
+   "setup2": "SET UP: Mary | Arieta (Latin)",
+   "vs3-9": "VS: BLODIA BX-02 x2, Mary | Arieta (Latin)"
+  },
+  "screens_sha256": {
+   "sub-kept": "3da842639aa0ac579501d77556d40160747451a07341c8053a3e132676355358",
+   "sub-eng": "021f42bd8ff7b36ed0b516ffbb35ea1ae47fb281cdf054cee0b752c7f8c05b8d",
+   "sel-b": "2cd21de9c5d22f543f288fb1ab254874281d4a00eee7f11649b06e90ca36f360",
+   "setup2": "509d276dccc09e49df93189442f3fe8dbc750ca829e2cde64165817b22713066",
+   "vs3-9": "2016f2130aae4540a334e4c0189d76c6738d146e6baf85dfe1c4455efe356aaf"
+  },
+  "look_screens": {
+   "sel-a": "pilot select",
+   "sel-b": "pilot select",
+   "setup": "MACHINE SELECT",
+   "vs-8": "MACHINE SELECT",
+   "vs-9": "MACHINE SELECT",
+   "vs-10": "MACHINE SELECT",
+   "vs-11": "MACHINE SELECT",
+   "setup2": "SET UP",
+   "vs2-7": "SET UP",
+   "vs2-8": "SET UP",
+   "vs2-9": "SET UP",
+   "vs2-10": "SET UP",
+   "vs3-7": "VS",
+   "vs3-8": "VS",
+   "vs3-9": "VS",
+   "vs3-10": "VS",
+   "vs3-11": "VS"
+  }
+ },
+ "save_after_boot1": {
+  "settings": "03000000010100000000000000000000",
+  "sum": "06fa",
+  "sum_ok": true
+ },
+ "save_after_boot2": {
+  "settings": "03000000010000000000000000000000",
+  "sum": "06f9",
+  "sum_ok": true
+ },
+ "boot2_settings_after_boot_check": "03000000010100000000000000000000 (frame 2034; inline agent read, not scripted)"
+}

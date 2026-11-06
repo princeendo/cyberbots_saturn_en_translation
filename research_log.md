@@ -2764,3 +2764,27 @@ Failed or corrected (do not retry):
   goes black.
 
 Checks: ruff, ruff format, mypy, pytest (below).
+
+## 2026-11-06 — OPT-006: play check of the names switch (EXP-0066)
+
+User request (verbatim): "Start OPT-006". Two cold boots, asked first: "Yes,
+run both (Recommended)". 17:10-17:21 local.
+
+- Boot 1: Up, A, Right, Start, Start in OPTION MODE set `JAPANESE` and saved
+  it; versus mode showed katakana on the pilot select, `SET UP` and VS.
+- Boot 2 (boot 1's save): `JAPANESE` kept; Left set `ENGLISH`; Latin on the
+  same screens. Both saves valid (sums `06fa`, `06f9`).
+- New reference `opt006_names_switch.json`; it and the eight earlier ones
+  rebuild and match.
+
+Notes (do not retry):
+- **Mednafen names the backup file by the disc's identity:** the built
+  image's is `…650c6e05….bkr`, not the original's `…ee043c21….bkr`; keep the
+  file's name when carrying a save between boots (`EXP-0066/boot.py`).
+- **The user's own keystrokes can mix in** during a pad-key boot (the user
+  said so mid-run): check the screen, not the press log; one Start at
+  `SET UP` had to be sent again.
+- Presses during a screen's entrance are still dropped (player 2's variant
+  confirm); screenshot, then press once more.
+
+Checks: ruff, ruff format, mypy, pytest (below).

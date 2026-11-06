@@ -139,6 +139,17 @@ spellings, model codes after the mech names, "Devilotte".
 On the cold boots no katakana name part was on any screen checked
 (`EXP-0061/play.json`).
 
+### The Names Switch (`OPT-001`-`OPT-006`)
+
+`EXTRA OPTIONS` (a new OPTION MODE row) holds `NAMES  ENGLISH / JAPANESE`
+(D-058). With `JAPANESE`, the original katakana art is back on the pilot
+select, `SET UP` and VS screens (all the names above); with `ENGLISH` (the
+default, and after `DATA RESET`) the Latin art. Seen on two cold boots
+(`EXP-0066`): katakana on all three screens after choosing `JAPANESE`, the
+choice kept after a power cycle, Latin again after choosing `ENGLISH`.
+The menu's new words (`EXTRA OPTIONS`, `NAMES`, `ENGLISH`, `JAPANESE`) are
+a new translation approved at the gate (`OPT-004`).
+
 ### Excluded, With Evidence
 
 | What | Evidence | Why |

@@ -38,7 +38,12 @@ In the current development build (not released):
 - **Pilot and mech names** on the pilot-select, `SET UP` and VS screens:
   Latin art in the arcade's letters, spelled as the US arcade (Devilotte
   for the Saturn-only princess), with each mech's model code after its name
-  (`LOC-001`). A switch back to the katakana is planned (`OPT-001`).
+  (`LOC-001`).
+- **Names switch:** OPTION MODE has a new row, `EXTRA OPTIONS`, with
+  `NAMES  ENGLISH / JAPANESE`. `JAPANESE` puts the original katakana name
+  art back on those screens; the choice is saved with the other options,
+  and `ENGLISH` is the default (`OPT-001`). OPTION MODE's title and rows
+  sit two lines higher to make room.
 
 **Still Japanese:**
 
@@ -102,11 +107,11 @@ Extract the files of track 01 (the track is only read):
 Not yet (`REL-001`). The current development image is built with:
 
 ```bash
-./invenv.sh python -m tools.text.dialogue --roster data/text/m5_roster.json --indent --rank staying --max-sacrifice 160 --task END-023 --font local/layout001/font/arcade_font.json --driver local/mame_src/cps2.cpp --rompath local/arcade --out build/loc005/a --endings data/text/m8_endings.json --ending-record-dir local/loc005/rec-a --boot-warnings data/translations/boot_warnings.json --name-art data/translations/name_art.json
+./invenv.sh python -m tools.text.dialogue --roster data/text/m5_roster.json --indent --rank staying --max-sacrifice 160 --task END-023 --font local/layout001/font/arcade_font.json --driver local/mame_src/cps2.cpp --rompath local/arcade --out build/opt005/a --endings data/text/m8_endings.json --ending-record-dir local/opt005/rec-a --boot-warnings data/translations/boot_warnings.json --name-art data/translations/name_art.json --names-switch data/translations/names_switch.json
 ```
 
 Its expected hashes are in
-[data/regression/loc005_name_art.json](data/regression/loc005_name_art.json).
+[data/regression/opt006_names_switch.json](data/regression/opt006_names_switch.json).
 
 ### Build Options
 

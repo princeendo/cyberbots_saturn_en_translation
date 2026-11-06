@@ -118,7 +118,7 @@ C="build/opt005/a/image/Cyberbots - Fullmetal Madness (Japan) (2M).cue"; S=local
   | VS (6448) | 6 Latin parts | 12 katakana parts |
 
   The counts equal `LOC-006`'s checker on `build/loc005/a` (1, 6) and on
-  the untouched image (2, 12). Read on screen: "Jin" / ジン; BLODIA,
+  the untouched image (2, 12). Read on screen: "Jin" / its katakana; BLODIA,
   R·LIGHTNING, Jin, SHADE / their katakana banners.
 
 ### Saves (`saves.json`)
