@@ -3153,3 +3153,15 @@ reference. Phase T is complete. Also corrected the outline rows for
 Next: `SPECIAL-001` (outline only; the user's approval is needed to write
 it up), then `REL-002`.
 Checks: `ruff check .` passed; `pytest -q` 262 passed (docs-only change).
+
+## 2026-11-07 — SPECIAL-001 written up (Phase U)
+
+User request (verbatim): "Write up SPECIAL-001". Rule 24 requires an
+explicit permission for special cases; this request is it. Phase U in
+`TASKS.md`: `SPECIAL-010` (census and routes) `READY`; `SPECIAL-011`-`018`
+`BLOCKED` in order (official-English trace, the user's decisions, drafts
+for lists 6, 8 and 7, capacity, build, play check). Inputs gathered from
+D-026, D-030, D-031, D-046, D-047, D-062, `pilot_census.json`,
+`name_art.json`, `docs/names.md` and `docs/references.md`; nothing new
+measured. No experiment.
+Checks: `ruff check .` passed; `pytest -q` 262 passed (docs-only change).

@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-07: SPECIAL-001 written up (Phase U).** At the user's request ("Write up SPECIAL-001"), which is rule 24's permission: `SPECIAL-010` (census and routes, `READY`), `SPECIAL-011` (no official English, by code), `SPECIAL-012` (the user's translation decisions), `SPECIAL-013`-`015` (drafts per list, approved), `SPECIAL-016` (capacity), `SPECIAL-017` (build), `SPECIAL-018` (play check and reference). Nothing started.
 - **2026-11-07: TXT-013 closed unused; Phase T done.** No rare text needs a change (D-063, D-064), so no build; the latest image is still `ui007_ui_text.json`. Of the work the user wanted before release (`UI-001`-`UI-003`, `TXT-002`, `SPECIAL-001`), only `SPECIAL-001` remains: it is outline only and needs the user's approval to be written up. `REL-002`-`REL-004` stay `BLOCKED` on it.
 - **2026-11-07: TXT-012 closed with evidence**: no rare path shows Japanese on the Saturn (D-063, D-064), so no question and no gate extension (`docs/localization_policy.md`, "Rare Text, Closed With Evidence"). `TXT-013` is `READY`; by its criteria it closes unused.
 - **2026-11-07: TXT-011 done** (`EXP-0075`, D-064): the arcade's one rare path forced in MAME. ROM flags `0x55B`/`0x561` (location test, show version; off in retail) replace the ending with a thank-you screen: Japanese per ending in `cybotsj`, one English "coming soon" message in `cybotsu`. The Saturn has none of those lines; its list 10 is a dead leftover, and every Saturn box without a path is dead. D-063 corrected. `TXT-012` is `READY` (expected to close with this evidence).
@@ -3493,6 +3494,214 @@ readers. Text that only the Saturn-only pilots (lists 6-8) show belongs to
   still rebuild, a new reference. Closes unused if `TXT-012` changes
   nothing.
 
+## Phase U: The Saturn-Only Pilots (`SPECIAL-001`)
+
+The user asked for this phase (verbatim, 2026-11-07): "Write up
+SPECIAL-001". That request is the explicit permission `AGENTS.md` rule 24
+requires for special cases. It is the last item the user wants done before
+any release ("Do them first", 2026-11-06, `REL-002`). The outline row:
+"Boss and hidden pilots, alternate routes, unlocks."
+
+What is known (each to be re-checked where a task says so):
+
+- **Who.** Pilot lists 6-8 match no arcade pilot (D-026). The name art
+  (`LOC-004`) has nine pilots; the last three are Devilotte, Chiyomaru and
+  SHADE. List 6 is one move left of Jin, list 8 two moves left (D-031);
+  list 7 was not reached from the select screen (`EXP-0033`). Tessan has
+  no name art (`docs/names.md`). Secondary sources name four console-only
+  pilots and an Akuma-mech code (`docs/references.md`); none of that is a
+  Cyberbots fact yet.
+- **Text** (`data/text/pilot_census.json`, D-030, D-046, D-062):
+
+  | Surface | List 6 | List 7 | List 8 |
+  | --- | --- | --- | --- |
+  | Story boxes (lines) | 119 (244) | 103 (198) | 117 (196) |
+  | Win quotes | boxes 1023-1044 (lines 1790-1821), quote-table rows 6-8 | | |
+  | VS captions | boxes 1045-1071 (27), deferred here by the user (`UI-005`) | | |
+  | Ending | 114 lines in all, drawn with `KANJI.BIN`, not `SE.DAT` (D-046, D-047) | | |
+
+- **No official English.** The arcade has six pilots; none of these lines
+  pairs with an arcade slot of its own (`pilot_census.json`; one list-6 line
+  pairs elsewhere). Policy: a recorded new translation, translator named,
+  approved by the user surface by surface; absence of official English is
+  shown by tracing the arcade code, not only by a data search
+  (`docs/localization_policy.md`, 2026-11-02).
+- **Debts to these pilots' Japanese, settled here:** some of their
+  Japanese lines show wrong glyphs today, from the story's 153 sacrificed
+  codes (M5's 152 and M8's `0x8CF7`, line 1052) and the 13 caption codes
+  that each touch one of their lines (`UI-006`). Once those lines are
+  English, the wrong glyphs are no longer shown.
+
+Order (one investigation `IN_PROGRESS` at a time; the drafts are not
+experiments but still go one list at a time):
+
+1. `SPECIAL-010`: census and routes: who each list is, how each is
+   reached (list 7 and any unlock), every surface each shows.
+2. `SPECIAL-011`: proof that no official English exists, by the arcade's
+   code.
+3. `SPECIAL-012`: the user's translation decisions (a gate extension).
+4. `SPECIAL-013`-`SPECIAL-015`: drafts per list, each approved by the user.
+5. `SPECIAL-016`: capacity and room for all approved English.
+6. `SPECIAL-017`: the build, checked from saved states.
+7. `SPECIAL-018`: cold-boot play checks (asked first) and the new
+   reference. Then `REL-002` is unblocked.
+
+### SPECIAL-010 - Census and routes of the Saturn-only pilots
+
+- **Status:** `READY`
+- **Milestone:** M9 (`SPECIAL-001`)
+- **Dependencies:** M8, `TXT-010` (done).
+- **Blockers:** None.
+- **Objective:** Know who lists 6-8 are, how a player reaches each, and
+  every surface each shows, before anything is translated.
+- **Acceptance criteria:**
+  - **Identity:** each list's pilot and mech from the screens (name art,
+    portraits, speaker labels), agent-read, with screenshot hashes.
+    Whether a fourth console-only pilot (Tessan) has a list, a select
+    entry or only appearances in others' stories.
+  - **Routes:** how list 7 is selected (select-screen position, a code, an
+    unlock condition or a saved flag), found in the select code and shown
+    by forcing the deciding value from a saved state; the same for the
+    Akuma-mech code (does it show any text?). Cold boots only if a state
+    cannot show it, asked first with the key sequence.
+  - **Surfaces:** per list, every story scene, win quote, VS caption,
+    ending scene, cast-roll and credit item, and any other text (versus
+    mode, continue screens), each box with its path, reconciled with
+    `reachability.json` (D-063). Voiced lines (ending audio tracks
+    `DE_END*`, `SYE_END*`, `TI_END*`) recorded as audio, not text.
+  - **Outputs:** `data/text/special_census.json` (numbers only) and a D-entry.
+- **Notes:** Nothing is changed. Story scenes can be forced as in `RE-005`
+  (`EXP-0033`); endings from the `END-001` checkpoint (`EXP-0049`).
+
+### SPECIAL-011 - Show that no official English exists
+
+- **Status:** `BLOCKED`
+- **Milestone:** M9 (`SPECIAL-001`)
+- **Dependencies:** SPECIAL-010.
+- **Blockers:** `SPECIAL-010`.
+- **Objective:** Prove, by the arcade's code, which of these lines have an
+  official English counterpart and which need a new translation.
+- **Acceptance criteria:**
+  - The arcade's pilot count and the bounds of its per-pilot tables (story
+    lists, quote table, ending dispatch) from code in `cybotsu` and
+    `cybotsj`: no slot is posted for a pilot beyond 5 (D-064 and D-063
+    cover the rare paths).
+  - Every line of `SPECIAL-010`'s census compared with every arcade
+    Japanese record (`tools.text.arcade_pairing` map): exact and edited
+    matches listed. A match whose slot the arcade really posts keeps that
+    slot's official English (for example SHADE's or Devilotte's lines as a
+    guest in an arcade pilot's story); the rest are new translations.
+  - Shared speaker names and shared lines (boxes another list also shows)
+    listed with what they already show.
+  - A D-entry; `docs/coverage_exceptions.md` updated.
+
+### SPECIAL-012 - The user's decisions for the new translation
+
+- **Status:** `BLOCKED`
+- **Milestone:** M9 (`SPECIAL-001`)
+- **Dependencies:** SPECIAL-011.
+- **Blockers:** `SPECIAL-011`.
+- **Objective:** The user decides how the new translation is made and
+  reviewed.
+- **Acceptance criteria:** multiple-choice questions, one option
+  recommended, answers verbatim in `docs/localization_policy.md` as a
+  `GATE-TRANSLATION` extension. At least:
+  - scope: which lists and surfaces (story, win quotes, the 27 captions,
+    endings, anything `SPECIAL-010` adds);
+  - translator and register (the agent, as for the captions and boot
+    warnings; matching the arcade English's tone);
+  - names and terms the arcade never wrote (Tessan's romanization, titles,
+    mech names in text), against `docs/names.md`;
+  - how drafts are reviewed (the user does not read Japanese): for example
+    a page per list with each box's English beside a literal gloss, and
+    what an approval covers;
+  - whether lines shared with the roster may change.
+- **Notes:** Glosses and Japanese are never committed; approved English is
+  (as `data/translations/vs_captions.json`).
+
+### SPECIAL-013 - Draft and approve list 6
+
+- **Status:** `BLOCKED`
+- **Milestone:** M9 (`SPECIAL-001`)
+- **Dependencies:** SPECIAL-012.
+- **Blockers:** `SPECIAL-012`.
+- **Objective:** An approved English text for every list-6 surface the user
+  put in scope.
+- **Acceptance criteria:**
+  - Each box drafted within the box rules (`LAYOUT-001`: rows of up to 32
+    characters, 4 rows, 60 glyph cells; captions one row of 26; endings
+    timed by `END-011`'s rule), checked by a script, with the source
+    line hashes recorded.
+  - Reviewed as `SPECIAL-012` decided; the user's approval verbatim, with
+    any changes asked for applied and re-approved.
+  - `data/translations/special_list6.json` (English, box numbers, source
+    hashes; translator named).
+
+### SPECIAL-014 - Draft and approve list 8
+
+- **Status:** `BLOCKED`
+- **Milestone:** M9 (`SPECIAL-001`)
+- **Dependencies:** SPECIAL-013.
+- **Blockers:** `SPECIAL-013`.
+- **Objective and criteria:** as `SPECIAL-013`, for list 8;
+  `data/translations/special_list8.json`.
+
+### SPECIAL-015 - Draft and approve list 7
+
+- **Status:** `BLOCKED`
+- **Milestone:** M9 (`SPECIAL-001`)
+- **Dependencies:** SPECIAL-014.
+- **Blockers:** `SPECIAL-014`.
+- **Objective and criteria:** as `SPECIAL-013`, for list 7 and whatever
+  `SPECIAL-010` finds only an unlock reaches;
+  `data/translations/special_list7.json`.
+- **Notes:** Last because its route is the least known.
+
+### SPECIAL-016 - Capacity and room for the whole script
+
+- **Status:** `BLOCKED`
+- **Milestone:** M9 (`SPECIAL-001`)
+- **Dependencies:** SPECIAL-015.
+- **Blockers:** `SPECIAL-015`.
+- **Objective:** Show that all approved English (roster, endings,
+  captions and lists 6-8) fits the codes and bytes, or put the trade-off to
+  the user.
+- **Acceptance criteria:**
+  - Pairs needed against codes: the story table (`KANJI.BIN`, 1,222 codes,
+    which lists 6-8's endings also use, D-047), `END.BIN`'s and
+    `VICTORY.BIN`'s tables; which sacrificed codes return once no shown
+    line is Japanese; the 13 caption codes and `0x8CF7` settled.
+  - Bytes needed against room in each file's line area (D-046's method).
+  - Ending timing for lists 6-8 under the `END-011` rule.
+  - A D-entry; any shortfall asked as a multiple-choice question.
+
+### SPECIAL-017 - Build and check from saved states
+
+- **Status:** `BLOCKED`
+- **Milestone:** M9 (`SPECIAL-001`)
+- **Dependencies:** SPECIAL-016.
+- **Blockers:** `SPECIAL-016`.
+- **Objective:** One image with every approved surface of lists 6-8 in
+  English, on top of the UI build.
+- **Acceptance criteria:** as `UI-006`: two builds identical; every
+  change recorded (original and new bytes, purpose); every changed box
+  seen drawing as predicted from saved states (forced scenes and endings),
+  agent-reviewed; the roster, endings, captions, signs and names switch
+  unchanged where not meant to change; all earlier references rebuild.
+
+### SPECIAL-018 - Play check and register
+
+- **Status:** `BLOCKED`
+- **Milestone:** M9 (`SPECIAL-001`)
+- **Dependencies:** SPECIAL-017.
+- **Blockers:** `SPECIAL-017`.
+- **Objective:** The built image checked from cold boots and registered.
+- **Acceptance criteria:** cold boots (asked first, with the key sequence)
+  reaching each of lists 6-8's story in English, and list 7 by its real
+  route; agent-reviewed screenshots; a new reference in
+  `data/regression/`. Then `SPECIAL-001` is done and `REL-002` is
+  unblocked.
+
 ## Later Milestones (outline only)
 
 Placeholders so the order is visible. Each becomes a full task, with its own
@@ -3511,5 +3720,5 @@ and `docs/lessons_from_xvsf.md`.
 | TXT-002 | after M8, user request | Phase T (`TXT-010`-`TXT-013`), written up 2026-11-07; `DONE` (2026-11-07): `TXT-010`, `TXT-011` (EXP-0074, EXP-0075; D-063, D-064), `TXT-012` closed with evidence, `TXT-013` closed unused. |
 | LOC-001 | after REF-007 | `DONE` (2026-11-06, Phase O: `LOC-001`-`LOC-006` and the gate extension). |
 | OPT-001 | after LOC-001, user decision 2026-11-02 | `DONE` (2026-11-06, Phase P: `OPT-001`-`OPT-006`). |
-| SPECIAL-001 | M9, user approval | Boss and hidden pilots, alternate routes, unlocks. Secondary sources (`docs/references.md`) say the console ports add four pilots (Chiyomaru Kagura, Tessan Hagure, Princess Devilotte, SHADE) with no arcade English, and an Akuma-mech code; their lines need recorded new translations under the user's policy. Size: Saturn lines 899-1850 (952 lines, about half the script) have no arcade counterpart (D-011). Among the arcade pilots' stories only line 258 is Saturn-only (line 34 is dead data); the earlier count of 74 came from REF-006's reader bug (`EXP-0023`). |
+| SPECIAL-001 | M9, user approval | Phase U (`SPECIAL-010`-`SPECIAL-018`), written up 2026-11-07 at the user's request; `SPECIAL-010` `READY`. Lists 6-8 (Devilotte, Chiyomaru, SHADE by the name art): 339 story boxes, 22 win quotes, 27 captions, three endings, with no arcade English (D-026, D-030, D-046). |
 | REL-001 | after M5 | Phase R (`REL-001`-`REL-004`): `REL-001` (tool port) `DONE` (2026-11-06); `REL-002`-`REL-004` `BLOCKED`: the user wants `UI-001`-`UI-003`, `TXT-002` and `SPECIAL-001` done first (2026-11-06). |
