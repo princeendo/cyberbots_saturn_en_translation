@@ -1,0 +1,54 @@
+{
+ "state": "local/ui002/s2/signs.mcs",
+ "state_sha256": "70323b74b264d350c9b696e7b7507aadd2b6c46749a72e43e7b9e1a418f282a4",
+ "cue": "local/disc_images/cyberbots_saturn_jp_2m/Cyberbots - Fullmetal Madness (Japan) (2M).cue",
+ "frames": 2,
+ "variants": [
+  {
+   "variant": 0,
+   "fills": [],
+   "shot_sha256": "c1127fb3a59c2f938ebd7d6c81b30570e19ad910db1a92fcc0ba92c3f135856a",
+   "dumps": []
+  },
+  {
+   "variant": 1,
+   "fills": [
+    {
+     "space": "vdp2vram",
+     "offset": "0x38280",
+     "length": 128,
+     "byte": "00",
+     "before_sha256": "e9f0c0fb352b08d5fb181ad935b336afce2eb67e3d80ad8155b3b50a230e2997"
+    }
+   ],
+   "shot_sha256": "df7bea981b61bba0247d2f8672c7c6c2a6b09fc120c8e257c1449af0a844c8d2",
+   "dumps": [],
+   "differs_from_control": {
+    "pixels": 140,
+    "box": [
+     56,
+     71,
+     45,
+     55
+    ]
+   }
+  },
+  {
+   "variant": 2,
+   "fills": [
+    {
+     "space": "workramh",
+     "offset": "0xFFFFF",
+     "length": 1,
+     "byte": "00",
+     "before_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    }
+   ],
+   "shot_sha256": "c1127fb3a59c2f938ebd7d6c81b30570e19ad910db1a92fcc0ba92c3f135856a",
+   "dumps": [],
+   "differs_from_control": {
+    "pixels": 0
+   }
+  }
+ ]
+}

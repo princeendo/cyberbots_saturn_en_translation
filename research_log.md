@@ -2933,3 +2933,37 @@ Notes (do not retry):
 
 Checks: `ruff check .`, `ruff format --check .` (306 files), `mypy` (86
 files), `pytest -q` (252 passed) all clean; `mypy` on `EXP-0069` clean.
+
+## 2026-11-06 — UI-002: the ruined-city signs' layer, storage and arcade version (EXP-0070)
+
+User request (verbatim): "Start UI-002". No cold boot, no keys: saved-state
+Mednafen runs, one test image under `build/ui002/sign`, headless MAME.
+
+- Saturn: checkpoints at the city demo; NBG2 identified from the state's
+  VDP2 registers and an offline render; zeroing one 128-byte block at VRAM
+  `0x38280` changed only white-banner pixels; a one-byte test image of
+  `ST00_FNT.BIN` (`0x1F20D`) changed exactly two pixels. Raw, no codec.
+- Arcade: tile RAM of both sets at attract frame 1500 differs in 19 cells
+  and 17 palette words. The map copier reads list `0x0BC27E` (US) or
+  `0x0BBF0A` (Japan); both programs hold both lists. Region tests at
+  `0x18832` (map list, stage 0) and `0x156B6` (three US palettes); forcing
+  both made each set's tile RAM equal the other's.
+
+Notes (do not retry):
+- **`run`, `loadstate`, `pause` as separate agent exchanges are not
+  deterministic**: frames pass in between, and runs of one state differ
+  across the screen. Send `loadstate` and `pause` in one exchange
+  (`EXP-0070` `probe.py`). Earlier tools (`EXP-0067` `captions.py`,
+  `EXP-0069` `caption_room.py`) use the old way; their prompt-blink
+  differences are explained by this. Their conclusions rest on the caption
+  band, which this does not change.
+- **`savestate` is refused while halted**; run, then save (the saved frame
+  is then a few frames later than the halt).
+- **CPS2 data inside the encrypted range** (for example `0x3BCC`) reads as
+  garbage in MAME's `dasm` listing; read it from the program image
+  (`tools.reference.cybots_text.build_program`).
+- **The stage's `ST00_FNT.BIN` overwrites part of `FIX.BIN`'s VRAM**; do not
+  compare `FIX.BIN` against VRAM during a fight.
+
+Checks: `ruff check .`, `ruff format --check .` (309 files), `mypy` (86
+files), `pytest -q` (252 passed) all clean; `mypy` on `EXP-0070` clean.

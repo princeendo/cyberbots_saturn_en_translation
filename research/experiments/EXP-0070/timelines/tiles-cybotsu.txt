@@ -1,0 +1,6 @@
+# EXP-0070 (UI-002): cybotsu attract, no input; the city demo's tile RAM and CPS-A registers at frame 1500
+1500 snap
+1500 dump 0x900000 0x93FFFF local/ui002/mame/cybotsu-1500/vram.bin
+1500 share :cps_a_regs local/ui002/mame/cybotsu-1500/cps_a.bin
+1500 share :cps_b_regs local/ui002/mame/cybotsu-1500/cps_b.bin
+1501 exit

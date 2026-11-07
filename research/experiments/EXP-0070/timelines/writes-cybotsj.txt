@@ -1,0 +1,4 @@
+# EXP-0070 (UI-002): cybotsj attract, no input; who writes the sign's tile cell 0x90F58C and palette word 0x900310
+1 logwrites 0x90F58C local/ui002/mame/cybotsj-writes/cell.txt
+1 logwrites 0x900310 local/ui002/mame/cybotsj-writes/pal.txt
+1501 exit

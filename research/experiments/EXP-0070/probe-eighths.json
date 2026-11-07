@@ -1,0 +1,192 @@
+{
+ "state": "local/ui002/s1/city.mcs",
+ "state_sha256": "19eb4a15259f9c611a7b4ba304db89036c9593eaf831b65d220c3a41ad567698",
+ "cue": "local/disc_images/cyberbots_saturn_jp_2m/Cyberbots - Fullmetal Madness (Japan) (2M).cue",
+ "frames": 120,
+ "variants": [
+  {
+   "variant": 0,
+   "fills": [],
+   "shot_sha256": "ac7e27835fce50fae17e37555328fdee20c4bf0168474fcad409fa98b0fefdfc",
+   "dumps": []
+  },
+  {
+   "variant": 1,
+   "fills": [
+    {
+     "space": "vdp2vram",
+     "offset": "0x19000",
+     "length": 40064,
+     "byte": "00",
+     "before_sha256": "ae175f5b279aeb196690c236d86d5dc8d6c2bf6400bed3965b7f2c2d194295e5"
+    }
+   ],
+   "shot_sha256": "330084a9ac51aeaf4224f001281a75ed5720b0c55ce8f139a46bb34b841cbe10",
+   "dumps": [],
+   "differs_from_control": {
+    "pixels": 2654,
+    "box": [
+     137,
+     225,
+     8,
+     221
+    ]
+   }
+  },
+  {
+   "variant": 2,
+   "fills": [
+    {
+     "space": "vdp2vram",
+     "offset": "0x22C80",
+     "length": 40064,
+     "byte": "00",
+     "before_sha256": "ee32557f108d3b1899e9cf66705d23515a88ffc145b0c2c14fc89843ac76d991"
+    }
+   ],
+   "shot_sha256": "b930d2edd593bb0304495aeaeb0d445ea43af5354df2d9ecfcf127c9f229e246",
+   "dumps": [],
+   "differs_from_control": {
+    "pixels": 5757,
+    "box": [
+     194,
+     278,
+     8,
+     142
+    ]
+   }
+  },
+  {
+   "variant": 3,
+   "fills": [
+    {
+     "space": "vdp2vram",
+     "offset": "0x2C900",
+     "length": 40064,
+     "byte": "00",
+     "before_sha256": "a6191925bb391d6dfae49212599b2f2384462b22fdb645337d78ca16dfac6773"
+    }
+   ],
+   "shot_sha256": "7f60a8dbd7df9cd1abf32eb20788d9b8cbbd7fcb7dfa17f3cf1d3b502bddfb35",
+   "dumps": [],
+   "differs_from_control": {
+    "pixels": 256,
+    "box": [
+     0,
+     3,
+     8,
+     71
+    ]
+   }
+  },
+  {
+   "variant": 4,
+   "fills": [
+    {
+     "space": "vdp2vram",
+     "offset": "0x36580",
+     "length": 40064,
+     "byte": "00",
+     "before_sha256": "94e5b66f29ac5bc3965d1f068396a2a597fbb20ff37ef6b7254f88629d4cab4b"
+    }
+   ],
+   "shot_sha256": "8295f72cc34c6bc4a3ec1624e1a6863a99ce08c6a8fd281e848bd347c47acc1a",
+   "dumps": [],
+   "differs_from_control": {
+    "pixels": 30573,
+    "box": [
+     0,
+     323,
+     8,
+     183
+    ]
+   }
+  },
+  {
+   "variant": 5,
+   "fills": [
+    {
+     "space": "vdp2vram",
+     "offset": "0x40200",
+     "length": 40064,
+     "byte": "00",
+     "before_sha256": "c6a215ece8a337a8d74456d4b39c934fb20f2c92ebc48e7568409ab408d197c0"
+    }
+   ],
+   "shot_sha256": "3813acec152a2bcbf5c6acf2e6da69d4938298db1ae5722e498477aa268d99d3",
+   "dumps": [],
+   "differs_from_control": {
+    "pixels": 11538,
+    "box": [
+     0,
+     323,
+     88,
+     231
+    ]
+   }
+  },
+  {
+   "variant": 6,
+   "fills": [
+    {
+     "space": "vdp2vram",
+     "offset": "0x49E80",
+     "length": 40064,
+     "byte": "00",
+     "before_sha256": "3820d24c089d74fb6b3aa4904206e250c7698b0b7f882482cd120f3e1c68325d"
+    }
+   ],
+   "shot_sha256": "761d17305874681acd10a6654313b012bdfda7f9ae70217492ab9c565f52cda2",
+   "dumps": [],
+   "differs_from_control": {
+    "pixels": 3395,
+    "box": [
+     308,
+     351,
+     8,
+     228
+    ]
+   }
+  },
+  {
+   "variant": 7,
+   "fills": [
+    {
+     "space": "vdp2vram",
+     "offset": "0x53B00",
+     "length": 40064,
+     "byte": "00",
+     "before_sha256": "61cafd72bb93175b8130f7f88c1b945b8beb2ded10619adb3d4e89a4e267f137"
+    }
+   ],
+   "shot_sha256": "0700393ebb9bae3a6cfe45ee0bb7590e32b1b47c64bf15a083fb0e8d438476a5",
+   "dumps": [],
+   "differs_from_control": {
+    "pixels": 892,
+    "box": [
+     0,
+     351,
+     214,
+     231
+    ]
+   }
+  },
+  {
+   "variant": 8,
+   "fills": [
+    {
+     "space": "vdp2vram",
+     "offset": "0x5D780",
+     "length": 40064,
+     "byte": "00",
+     "before_sha256": "4546f97140365b8dd0dea3a44618c57960ba9ee4d4b43f3c72c3b3809b46242d"
+    }
+   ],
+   "shot_sha256": "ac7e27835fce50fae17e37555328fdee20c4bf0168474fcad409fa98b0fefdfc",
+   "dumps": [],
+   "differs_from_control": {
+    "pixels": 0
+   }
+  }
+ ]
+}

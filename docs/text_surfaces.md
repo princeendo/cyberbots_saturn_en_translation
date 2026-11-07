@@ -33,7 +33,7 @@ surface.
 | Game over, initials | After the countdown | English | — | `f00025276.png` (`88577c3e…9c4e`), `f00025813.png` (`299f26f9…db6c`) |
 | `OPTION MODE` | Title menu | English (`DIFFICULTY`, `TIME LIMIT`, `SHORT CUT`, `SOUND`, `SOUND TEST`, `DATA RESET`, `KEY CONFIG`, `3M RAM MODE`, `PRESS START TO EXIT`) | — | `f00027081.png` (`02f4218a…270f`) |
 | `RANKING` | Attract | English | — | `emu003/boot1/frames/118.png` |
-| Stage backgrounds | Fights, attract | Japanese signage painted into the art of the ruined-city stage (the first attract demo); none seen in the other stages played or demoed (`EXP-0067`) | `cybotsj`: the same signs; **`cybotsu`: the same signs blank** (`EXP-0067`) | `local/ui001/attract/scenes/` (cold boot), `EXP-0067` |
+| Stage backgrounds | Fights, attract | Japanese signage painted into the art of the ruined-city stage (the first attract demo): three signs, NBG2 tiles of `ST00_FNT.BIN` (D-061); none seen in the other stages played or demoed (`EXP-0067`) | `cybotsj`: the same signs; **`cybotsu`: the same signs blank**, chosen by its region byte; no English (D-061) | `local/ui001/attract/scenes/` (cold boot), `EXP-0067` |
 
 ## Jin's Ending (`EXP-0037`)
 
@@ -184,3 +184,13 @@ Renders are local only (`EXP-0068` `render.py`, `grid.py`). Tile `n` of a
 | Room | One row; 13 cells inside the fixed banner from the current start (x 96), or 26 Latin characters with pair glyphs (D-024); extra record entries do not show |
 | Arcade English | None: `cybotsu` skips the caption by region (`0x0D43E`) and its drawer reads only the Japanese table; English slots 494-551 point to one non-caption record (both sets) |
 | Other creators | Type `0x35` is also created at `0x04BDF6` and `0x04C2C0` (no region test); when they run is UNKNOWN |
+
+## Ruined-City Signs: Storage and Room (`UI-002`, `EXP-0070`)
+
+| What | Fact |
+| --- | --- |
+| Layer | VDP2 NBG2 (16 × 16 blocks of 4 bpp cells, map `0x7A000`), confirmed by a one-block VRAM change |
+| Stored as | Raw tiles of `ST00_FNT.BIN`, copied to VDP2 `0x19000`; no codec; confirmed by a one-byte test image (two pixels changed) |
+| Signs | Red vertical banner (6 blocks), white vertical banner with a small sign (8), horizontal sale sign (10); offsets in `EXP-0070` `signs.json` |
+| Room | Same-size splices of those blocks; 16-colour palettes `0x41`/`0x42`; banners about 11-16 pixels wide and 85-112 high, the sale sign about 75 × 17 |
+| Arcade | `cybotsj` the same; `cybotsu` blanks them by region (other map blocks and palettes, `0x18832`, `0x156B6`); no English |

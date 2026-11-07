@@ -1,0 +1,4 @@
+# EXP-0070 (UI-002): cybotsj attract, no input; who writes the map list pointer (object 0xFFECDA + 0x32)
+1 logwrites 0xFFED0C local/ui002/mame/cybotsj-list/hi.txt
+1 logwrites 0xFFED0E local/ui002/mame/cybotsj-list/lo.txt
+1501 exit

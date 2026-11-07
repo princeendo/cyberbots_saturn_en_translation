@@ -1,0 +1,2 @@
+# EXP-0070 (UI-002): cybotsj attract, no input; log the scroll-map blocks copied up to the city demo
+1501 exit

@@ -1,0 +1,6 @@
+# EXP-0070 (UI-002): cybotsu attract, no input; city-stage region branches forced (jpboth)
+1 debug bpset 18838,1,{pc=1883c;g}
+1 debug bpset 156ba,1,{pc=156fa;g}
+1500 snap
+1500 dump 0x900000 0x93FFFF local/ui002/mame/cybotsu-jpboth/vram.bin
+1501 exit

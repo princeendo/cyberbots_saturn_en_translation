@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-06: UI-002 done: the ruined-city signs** (`EXP-0070`, D-061): three signs are raw NBG2 tiles of `ST00_FNT.BIN` (24 blocks, same-size splices); a one-byte test image changed exactly two pixels. Both arcade sets hold both building versions, and the US program blanks the signs by its region byte (map blocks and palettes; forced both ways): no English. `UI-005` (your plan for the captions and signs) is `READY`.
 - **2026-11-06: UI-003 done: the VS captions** (`EXP-0069`, D-060): on the Saturn a caption is one `STG0AS.BIN` line in a fixed banner, one row of 13 cells (26 characters with pair glyphs). Both arcade sets create it only when the region byte is Japan (forced both ways in MAME), its drawer has only the Japanese table, and the English slots 494-551 hold one shared non-caption record: there is no official English for the captions. `UI-002` (attract: the city signs) is next; then `UI-005` (your plan).
 - **2026-11-06: UI-001 done: the English art in the fonts** (`UI-001` part 2, `EXP-0068`, D-059): the menu font is `FIX.BIN` (ASCII-indexed, VDP2 `0x0`) and has `t`-`z` (one tile blanked, one string rewritten, from a saved state). `KEND_1.BIN` is type 2: all 29 cast-roll records decode byte for byte to the game's shadow. Every UI store is listed in `docs/text_surfaces.md`, "English Art In The Fonts"; the unknown-format stores are listed with their loads. Correction to D-052: bank 56 holds a small Latin list of the four base bodies. `UI-002` and `UI-003` are `READY` (one at a time).
 - **2026-11-06: UI census** (`UI-001` part 1, `EXP-0067`): outside the story and endings the current image shows Japanese only on the VS chapter captions (five with one wrong glyph each, accepted at M5) and in the ruined-city stage's signs, which the US arcade shows blank. No attract or menu text is Japanese. Part 2 (the English art in the fonts) is next.
@@ -2746,8 +2747,8 @@ Known so far (facts and their confidence):
 - **Status:** `BLOCKED`
 - **Milestone:** Release (`REL-001`)
 - **Dependencies:** REL-001, OPT-006; the release-timing rule.
-- **Blockers:** `UI-002`, `TXT-002`, `SPECIAL-001` (the user, 2026-11-06:
-  "Do them first"); `OPT-006`, `UI-001` and `UI-003` are done.
+- **Blockers:** `TXT-002`, `SPECIAL-001` (the user, 2026-11-06: "Do them
+  first"); `OPT-006` and `UI-001`-`UI-003` are done.
 - **Objective:** xdelta and SSP patches that turn the untouched source into
   the final registered image, proven by applying them.
 - **Acceptance criteria:**
@@ -3167,7 +3168,8 @@ Known so far (facts and their confidence):
 
 ### UI-002 - Attract and opening text: storage and oracle
 
-- **Status:** `READY`
+- **Status:** `DONE`
+- **Done:** 2026-11-06 (`EXP-0070`, D-061). The only attract item is the ruined-city stage's signs. Layer: VDP2 NBG2 (map `0x7A000`), confirmed by zeroing one block at VRAM `0x38280` from a saved state. Container: `ST00_FNT.BIN`, loaded raw to VDP2 `0x19000` (load log `EXP-0067`; VRAM equals the file byte for byte); a one-byte test image (`0x1F20D`) changed exactly two pixels. Codec: none. Room: 24 raw blocks (two banners and a sale sign; `signs.json`), same-size splices, palettes `0x41`/`0x42`. Oracle: both arcade sets hold both versions; for stage 0 the US program picks blank-sign map blocks (`0x18832`) and palettes (`0x156B6`) by its region byte, confirmed by forcing both branches in both sets (tile RAM then equal word for word). No official English.
 - **Milestone:** UI text and art (`UI-001`)
 - **Dependencies:** UI-001.
 - **Blockers:** None (`UI-001` done). It runs one at a time with `UI-003`
@@ -3243,10 +3245,10 @@ Known so far (facts and their confidence):
 
 ### UI-005 - The user's plan for each UI surface
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** UI text and art (`UI-001`)
 - **Dependencies:** UI-001, UI-002, UI-003.
-- **Blockers:** `UI-002` (`UI-001` and `UI-003` are done).
+- **Blockers:** None (`UI-001`-`UI-003` are done).
 - **Objective:** The user decides, surface by surface, what each remaining
   Japanese surface becomes.
 - **Acceptance criteria:**

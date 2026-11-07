@@ -1,0 +1,19 @@
+{
+ "state": "local/ref005/session/states/f00025772.mcs",
+ "state_sha256": "d674ce63730c715d7063ead64b9889c259814c7d6b1acd844d4f067843ed0edf",
+ "cue": "build/ui002/sign/Cyberbots - Fullmetal Madness (Japan) (2M).cue",
+ "frames": 5530,
+ "variants": [
+  {
+   "variant": 0,
+   "fills": [],
+   "shot_sha256": "e56a6c6d9c44f1e4482e6c90717e42e2e2fc0ab2b1e407ad06a00c980a1ffa39",
+   "dumps": [
+    {
+     "file": "v00_vdp2vram_19000.bin",
+     "sha256": "047e62b363b9c2217ca110d3954773cae0671db2035807af2714e47a8d0e8887"
+    }
+   ]
+  }
+ ]
+}

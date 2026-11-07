@@ -1258,3 +1258,24 @@ Reproduce: `research/experiments/EXP-0068/README.md`, "Procedure".
   one two-line record that is not a caption.
 
 Reproduce: `research/experiments/EXP-0069/README.md`, "Procedure".
+
+## D-061: The ruined-city signs are raw NBG2 tiles of `ST00_FNT.BIN`; the US arcade blanks them by region (`UI-002`, `EXP-0070`)
+
+- **Saturn.** `ST00_FNT.BIN` is copied raw to VDP2 VRAM `0x19000` (VRAM
+  equals the file byte for byte at the sign). The signs (a red vertical
+  banner, a white vertical banner with a small sign, a horizontal sale
+  sign) are 24 of NBG2's 16 × 16, 4 bpp blocks (map `0x7A000`, palettes
+  `0x41`/`0x42`); NBG2 stores its blocks column by column without reuse.
+  Block offsets: `EXP-0070` `signs.json`.
+- **Controlled changes.** From a saved state, zeroing the block at VRAM
+  `0x38280` changed only white-banner pixels; a test image from the
+  untouched source with `ST00_FNT.BIN` byte `0x1F20D` changed showed
+  exactly two different pixels, in the white banner.
+- **Arcade.** Both sets hold both versions of the building. For stage 0,
+  when the region byte `0xFF80A0` is not 0, the map selector (`0x18832`
+  `cybotsu`) uses a block list with blank-sign blocks, and the stage set-up
+  (`0x156B6`) loads three US palette blocks. Forcing both branches made
+  each set's tile RAM equal the other's, word for word. The US version has
+  no English, only blank signs.
+
+Reproduce: `research/experiments/EXP-0070/README.md`, "Procedure".

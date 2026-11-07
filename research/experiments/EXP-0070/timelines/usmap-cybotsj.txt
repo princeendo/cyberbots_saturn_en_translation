@@ -1,0 +1,5 @@
+# EXP-0070 (UI-002): cybotsj attract, no input; city-stage region branches forced (usmap)
+1 debug bpset 18820,1,{pc=18822;g}
+1500 snap
+1500 dump 0x900000 0x93FFFF local/ui002/mame/cybotsj-usmap/vram.bin
+1501 exit

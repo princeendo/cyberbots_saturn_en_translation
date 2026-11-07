@@ -1,0 +1,257 @@
+{
+ "store": "ST00_FNT.BIN",
+ "loaded_to": "VDP2 VRAM 0x19000 (raw, 320,512 bytes)",
+ "layer": "NBG2, 2x2-cell (16 x 16) blocks of 4 bpp 8 x 8 cells, 128 bytes a block; map at VRAM 0x7A000",
+ "file_sha256": "73811b549b1451625b0b3bba01fec83231a1821042f05711034b26b9ae6e0997",
+ "signs": [
+  {
+   "sign": "red vertical banner",
+   "plane_pixels": [
+    448,
+    463,
+    240,
+    335
+   ],
+   "blocks": [
+    {
+     "plane_block": [
+      28,
+      15
+     ],
+     "vram": "0x28D00",
+     "file_offset": "0x0FD00",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      28,
+      16
+     ],
+     "vram": "0x37200",
+     "file_offset": "0x1E200",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      28,
+      17
+     ],
+     "vram": "0x37280",
+     "file_offset": "0x1E280",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      28,
+      18
+     ],
+     "vram": "0x37300",
+     "file_offset": "0x1E300",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      28,
+      19
+     ],
+     "vram": "0x37380",
+     "file_offset": "0x1E380",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      28,
+      20
+     ],
+     "vram": "0x37400",
+     "file_offset": "0x1E400",
+     "pattern_word0": "0x0041"
+    }
+   ]
+  },
+  {
+   "sign": "white vertical banner with the small sign under it",
+   "plane_pixels": [
+    480,
+    495,
+    224,
+    351
+   ],
+   "blocks": [
+    {
+     "plane_block": [
+      30,
+      14
+     ],
+     "vram": "0x28E80",
+     "file_offset": "0x0FE80",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      30,
+      15
+     ],
+     "vram": "0x28F00",
+     "file_offset": "0x0FF00",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      30,
+      16
+     ],
+     "vram": "0x38100",
+     "file_offset": "0x1F100",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      30,
+      17
+     ],
+     "vram": "0x38180",
+     "file_offset": "0x1F180",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      30,
+      18
+     ],
+     "vram": "0x38200",
+     "file_offset": "0x1F200",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      30,
+      19
+     ],
+     "vram": "0x38280",
+     "file_offset": "0x1F280",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      30,
+      20
+     ],
+     "vram": "0x38300",
+     "file_offset": "0x1F300",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      30,
+      21
+     ],
+     "vram": "0x38380",
+     "file_offset": "0x1F380",
+     "pattern_word0": "0x0041"
+    }
+   ]
+  },
+  {
+   "sign": "horizontal sale sign",
+   "plane_pixels": [
+    416,
+    495,
+    400,
+    431
+   ],
+   "blocks": [
+    {
+     "plane_block": [
+      26,
+      25
+     ],
+     "vram": "0x36780",
+     "file_offset": "0x1D780",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      26,
+      26
+     ],
+     "vram": "0x36800",
+     "file_offset": "0x1D800",
+     "pattern_word0": "0x0042"
+    },
+    {
+     "plane_block": [
+      27,
+      25
+     ],
+     "vram": "0x36F00",
+     "file_offset": "0x1DF00",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      27,
+      26
+     ],
+     "vram": "0x36F80",
+     "file_offset": "0x1DF80",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      28,
+      25
+     ],
+     "vram": "0x37680",
+     "file_offset": "0x1E680",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      28,
+      26
+     ],
+     "vram": "0x37700",
+     "file_offset": "0x1E700",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      29,
+      25
+     ],
+     "vram": "0x37E00",
+     "file_offset": "0x1EE00",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      29,
+      26
+     ],
+     "vram": "0x37E80",
+     "file_offset": "0x1EE80",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      30,
+      25
+     ],
+     "vram": "0x38580",
+     "file_offset": "0x1F580",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      30,
+      26
+     ],
+     "vram": "0x38600",
+     "file_offset": "0x1F600",
+     "pattern_word0": "0x0041"
+    }
+   ]
+  }
+ ]
+}
