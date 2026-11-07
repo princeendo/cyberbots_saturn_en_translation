@@ -3339,3 +3339,18 @@ Notes:
   SHADE 20): a route that should win a fight must hold the vitality at the
   pilot's own step.
 Checks: `ruff check .` passed; `pytest -q` 267 passed.
+
+## 2026-11-07 — REL-002: the release patch built, applied and booted (EXP-0084)
+
+User request (verbatim): "Start REL-002". Asked: SSP "xdelta only
+(Recommended)"; RetroAchievements "Record as untested (Recommended)"; the
+cold boot "Yes, run it now (Recommended)". The xdelta patch (265,407 bytes)
+built twice identically; plain `xdelta3 -d` on an untouched Track 01 gives
+the reference `f6789cae…`; header MD5 `37674ab0…` unchanged; the patched
+disc boots to the title with no input. `release/rel002_xdelta.json`.
+`REL-003` is `READY`.
+
+Notes:
+- **`attract.py`'s recording is 10560x480 per frame** (Mednafen's
+  `-qtrecord`); scale frames to 352x240 to read them.
+Checks: `ruff check .` passed; `pytest -q` 267 passed.
