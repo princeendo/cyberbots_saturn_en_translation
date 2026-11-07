@@ -33,7 +33,7 @@ surface.
 | Game over, initials | After the countdown | English | — | `f00025276.png` (`88577c3e…9c4e`), `f00025813.png` (`299f26f9…db6c`) |
 | `OPTION MODE` | Title menu | English (`DIFFICULTY`, `TIME LIMIT`, `SHORT CUT`, `SOUND`, `SOUND TEST`, `DATA RESET`, `KEY CONFIG`, `3M RAM MODE`, `PRESS START TO EXIT`) | — | `f00027081.png` (`02f4218a…270f`) |
 | `RANKING` | Attract | English | — | `emu003/boot1/frames/118.png` |
-| Stage backgrounds | Fights, attract | Japanese signage painted into the art | Same art in the arcade | many |
+| Stage backgrounds | Fights, attract | Japanese signage painted into the art of the ruined-city stage (the first attract demo); none seen in the other stages played or demoed (`EXP-0067`) | `cybotsj`: the same signs; **`cybotsu`: the same signs blank** (`EXP-0067`) | `local/ui001/attract/scenes/` (cold boot), `EXP-0067` |
 
 ## Jin's Ending (`EXP-0037`)
 
@@ -112,8 +112,6 @@ Each needs its own capture before it can be ruled in or out.
 | Surface | Why expected | Lead |
 | --- | --- | --- |
 | Console-only pilots' stories | Four pilots added on consoles | Saturn lines from 1141 on name Chiyomaru and Tessan (D-011) |
-| `KEY CONFIG`, `SOUND TEST`, `DATA RESET` sub-screens | Option rows | — |
-| Attract or opening text not in the first two minutes | `OPDEMO*`, `STDEM*`, `VADEM*` files | `UI-002` |
 | A second route through the same pilot, other pilots' scenes | The arcade script branches by pilot | `RE-002` |
 
 ## Summary
@@ -125,3 +123,21 @@ on the pilot select and VS screens, (4) the versus-mode win quote
 the cast roll's names and one QSound line (`EXP-0037`). Menus, HUD,
 banners, scores, continue, credits,
 game over and options are already English.
+
+## Census (`UI-001`, `EXP-0067`)
+
+The current image (`data/regression/opt006_names_switch.json`), outside the
+story dialogue and endings. Records: `research/experiments/EXP-0067/`.
+
+| Surface | When shown | Text on the Saturn (current image) | Arcade | Evidence |
+| --- | --- | --- | --- | --- |
+| Attract loop (boot, CAPCOM logo, intro, blueprint parade, title, demo blueprints, `NOW LOADING`, demo fight, `RANKING`) | No input, about every 5,530-5,860 frames; six demo pairs in rotation | English (part labels, HUD, banners, ranking `CAP`/`COM`/`CP`/`SYS`/`TEM`); Japanese only in the city stage's art (row above) | Both sets English, with a QSound screen; `cybotsu` adds an FBI screen and region warnings | cold boot `attract_loads.json`; long run `attract_long.json`; `arcade_attract.json` |
+| `KEY CONFIG` | Options, row 6 | English | — | `screens.json` |
+| `SOUND TEST`, `DATA RESET` | Options rows 4, 5 | No screen of their own (code: a sound, or `0x060372A4`); SUPPORTED | — | `EXP-0062` |
+| Versus `RESULT` | After a versus match | English | — | `screens.json` |
+| `EXTRA OPTIONS`, versus select, `SET UP`, VS | Options; versus mode | English (names per the switch) | — | `EXP-0066` |
+| VS chapter captions | Before each arcade-mode fight | Japanese; all 81 forced (boxes 496-549, 1045-1071); five (512, 539, 1052, 1053, 1070) draw one English pair glyph each (the M5 trade-off) | `cybotsj` the same; `cybotsu` none | `captions.json` |
+
+Files the outline guessed for attract text (`STDEM*`, `VADEM*`, `STDEMO.*`,
+`OPDEMO_0.BIN`) and `CYB_ABS.TXT` do not load in the boot or the attract.
+

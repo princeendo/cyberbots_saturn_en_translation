@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-06: UI census** (`UI-001` part 1, `EXP-0067`): outside the story and endings the current image shows Japanese only on the VS chapter captions (five with one wrong glyph each, accepted at M5) and in the ruined-city stage's signs, which the US arcade shows blank. No attract or menu text is Japanese. Part 2 (the English art in the fonts) is next.
 - **2026-11-06: Phase S written up (UI text and art)**: `UI-001` (census of the remaining Japanese UI with both arcades, and the English art already in the fonts) is `READY`; `UI-002` (attract), `UI-003` (other UI, VS captions), `UI-005` (the user's plan; a gate extension), `UI-006` (build) and `UI-007` (verify) follow. Drafted, then every fact checked against its source by an independent reviewer.
 - **2026-11-06: Release decisions** (`REL-002`, asked on "Start REL-002"): the user wants `UI-001`, `UI-002`, `UI-003`, `TXT-002` and `SPECIAL-001` done before any release ("Do them first"), so `REL-002` stays `BLOCKED`; xdelta first with SSP researched; a read-only RetroAchievements lookup; the hardware test deferred. Next: write up the UI tasks (outline items, "after M8, user request").
 - **2026-11-06: Names switch play-checked; Phase P done** (`OPT-006`, `EXP-0066`): two cold boots with real presses set `JAPANESE` (katakana on pilot select, `SET UP`, VS), kept it across a power cycle, and set `ENGLISH` (Latin again); new reference `opt006_names_switch.json`; all earlier references match. `REL-002` now waits only on the release-timing rule (every open task done or deferred by the user) and the user; the UI tasks start on request.
@@ -3060,7 +3061,7 @@ Known so far (facts and their confidence):
 
 ### UI-001 - Census of the remaining Japanese UI, and the English art already in the fonts
 
-- **Status:** `READY`
+- **Status:** `IN_PROGRESS` (part 1, the census, done 2026-11-06, `EXP-0067`; part 2, the font inventory, next)
 - **Milestone:** UI text and art (`UI-001`)
 - **Dependencies:** OPT-006 (done; the current image), LOC-006 (done).
 - **Blockers:** None.
@@ -3151,6 +3152,15 @@ Known so far (facts and their confidence):
     closes on that evidence and the user is told.
   - Methods: XvSF `UI-005` and the `CAP-001` census, MSHvSF `EXP-0053`,
     lesson 6 (all HYPOTHESIS for Cyberbots).
+- **Part 1 done** (2026-11-06, `EXP-0067`): a recorded no-input cold boot
+  (asked first: "Yes, run it now (Recommended)") and an eight-cycle run from
+  state 25772 (six demo pairs, then two repeated cycles); the 484 session
+  shots, `KEY CONFIG`, versus `RESULT`, all 81 VS captions forced on the
+  current image; both arcade sets' attract in MAME. Japanese left: the VS
+  captions (five draw one English pair glyph each, the M5 trade-off) and the
+  ruined-city stage's signs (Japanese in `cybotsj`, **blank in
+  `cybotsu`**). The outline's attract candidates and `CYB_ABS.TXT` never
+  load. `docs/text_surfaces.md` ("Census") updated.
 
 ### UI-002 - Attract and opening text: storage and oracle
 

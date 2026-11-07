@@ -1,0 +1,436 @@
+{
+ "cybotsu": {
+  "screens": [
+   {
+    "name": "power-on garbage",
+    "first": 30,
+    "last": 30
+   },
+   {
+    "name": "black",
+    "first": 60,
+    "last": 60
+   },
+   {
+    "name": "version / region ID",
+    "first": 90,
+    "last": 270
+   },
+   {
+    "name": "region warning (only at power-on, not repeated in the loop)",
+    "first": 300,
+    "last": 450
+   },
+   {
+    "name": "black, then Q Sound fade-in",
+    "first": 480,
+    "last": 510
+   },
+   {
+    "name": "Q Sound / Virtual Audio",
+    "first": 540,
+    "last": 960
+   },
+   {
+    "name": "mech schematic, P1 of demo A",
+    "first": 990,
+    "last": 1140
+   },
+   {
+    "name": "mech schematic, P2 of demo A",
+    "first": 1170,
+    "last": 1320
+   },
+   {
+    "name": "demo fight A (CPU vs CPU, cut off at about timer 85, no KO)",
+    "first": 1350,
+    "last": 2370
+   },
+   {
+    "name": "black",
+    "first": 2400,
+    "last": 2400
+   },
+   {
+    "name": "FBI 'Winners Don't Use Drugs'",
+    "first": 2430,
+    "last": 2520
+   },
+   {
+    "name": "ranking (draws in at 2580, then full)",
+    "first": 2580,
+    "last": 2730
+   },
+   {
+    "name": "intro: Blodia on blue band",
+    "first": 2760,
+    "last": 2850
+   },
+   {
+    "name": "intro: pilot portraits in hexagons on green streaks",
+    "first": 2880,
+    "last": 3060
+   },
+   {
+    "name": "intro: Jin close-up",
+    "first": 3090,
+    "last": 3270
+   },
+   {
+    "name": "intro: dark starfield / black",
+    "first": 3300,
+    "last": 3360
+   },
+   {
+    "name": "intro: Blodia close-up pans",
+    "first": 3390,
+    "last": 3570
+   },
+   {
+    "name": "intro: battle montage across stages (one black frame at 3720)",
+    "first": 3600,
+    "last": 4020
+   },
+   {
+    "name": "intro: Blodia head close-up",
+    "first": 4050,
+    "last": 4200
+   },
+   {
+    "name": "logo letters flying in, then grey flash",
+    "first": 4230,
+    "last": 4260
+   },
+   {
+    "name": "title",
+    "first": 4290,
+    "last": 4590
+   },
+   {
+    "name": "parental advisory",
+    "first": 4650,
+    "last": 4890
+   },
+   {
+    "name": "mech schematic, P1 of demo B",
+    "first": 4920,
+    "last": 5070
+   },
+   {
+    "name": "mech schematic, P2 of demo B",
+    "first": 5100,
+    "last": 5250
+   },
+   {
+    "name": "demo fight B",
+    "first": 5280,
+    "last": 6480
+   },
+   {
+    "name": "black, then Q Sound (next cycle)",
+    "first": 6510,
+    "last": 6540
+   }
+  ],
+  "representative_sha256": [
+   "588eb5c5d8c3f3625c851ca914f6e2bc4b10a38c2d09cf8788145d986e09ae7c",
+   "97780af9720038bd28b7d0ad6e727c62e2c30489d61e4a8892b2bbcc568bcee0",
+   "998d52b42bc92ae6e43cbabdbf5a8c9cf8c8043267317aa3be7a7a1d4f904cf3",
+   "a53c179f17a175b94dfe0b9e78fd746b4727716c2ce683a302ec5ab5b91db882",
+   "f48c403ae9ba8fa682ec11479284fbacf402d77416919008b14623a0c75a601a",
+   "66f7ecec65ff1e2bfc6d728a368ac49abb52343df3d98cebb16fb90ba4e7340d",
+   "16423e85ab0980012154ee675d6a1a851266731b070ead5ff03f4aee5ff0fab1",
+   "90df0fac8a7c0981c8d6378925271694053416ec88c1c4b029e0eb85846d4961",
+   "e98ab9bcc4a0c861ba3a52cac866d412c4b459d8bb017200d32184afc4127623",
+   "eff844c2e7bde57bf1fe2ed6489610ade0d32e537a0201bd1d55adf2f2e53a8a",
+   "d3fb266363c45c819ae9dae0bd194d71f49715b434512507e9110c49f8976033",
+   "df202ac9b89146e246845388872e958fa2317ee4046b867578a37ee6ce7d61ce",
+   "66c22f7ee84f1346276589f3b419563d8bda85ce0d564e6b78197c102af3a3a8",
+   "20fb47970284741e566e4855f3c120dbeeb3dd92cebe9809942744198d788246",
+   "b103b107872a103b6bd242660a5e6b2193d03956916813ea6b67d79912e04a0c",
+   "54f9dbcd5831a3b90c0297eb8271bc25a6c488ad7cc65c98f29bb1fdbd07b78a",
+   "89315498946d03b8457515b1e7121020882d41350c50388512baf33d992de85b",
+   "642274b84ae295d5748972744714d1852b0a77507fc7a7d45b1d3420ecb67529",
+   "150d81523474a98680582e4c35237b5fe9a4d21c83ed36461e83c27c32cd3d26",
+   "bc7be38b36dca9a7316092454a6fa170dd3718ceda2391917be9dff614a2fb66",
+   "3b2b7a173c2a2169ed74e3893fe82b71162e148cfb66870a8853c57a2843ffcd",
+   "cc15712843e87077f5ed5f6dd0f95f5519e5c60c218a68cd53f89598c4808588",
+   "71d2928095fbb7bc0c8d16fc9ee24571780c02267c992471957291429f40f9e1",
+   "9111d747225e434c704d0d2df35dff0a731d3132ab8b4fa841a449fb54c11b35",
+   "646514ece29c107dc36a9cec7a5ebfee473702b60cf9e62ddaf9cb4621974f18",
+   "54f9143e7a40d8fa54b6b6b9bb9f69419127b4d9a6e265870348bde3a7b1e8d1",
+   "ddcc1ebb87ff9c0657cf913c4e9e75564d70d28cdf70be52da3287bb6dde1112",
+   "a5802c7156d11a142cbf064f7de2a7b432abb7a1d39cfda061ca7736cd1e9511",
+   "c7a334580c76437cfa5413e9698d53dda85598dfe89302d127403d93acda8925",
+   "06982685e6e88861e5baf54e55e170ad81e36880a42ec7861d4bbd1a3ead1134",
+   "c33d66bcd7959a73d9db1a1fa7c15c3728f8fe82498df9248f2d499d0856ede5",
+   "ddd025cd393f3b23ced35a848dd136f780afad75c7d100c9db6f44b01c86770f",
+   "a2c189ed102c98788bd78ac9a3cc3c1c665905257b8a5ca8c7b36233a3250bfd",
+   "892d3b6825587d85f3210e2ab0a40af0f6887575401e473f829695f9bf96f844",
+   "daf8041f8dd1263985b8060609b5ac243e206221ac3b206b46850bfbf677ac38",
+   "bb9c0cb0fc58221313e23751369d8b1657d2ce4c462b0232b661546eed4ebd56",
+   "1ce7c84848ec27c5c73aef9554a36bbba44b414b2124227f08f55ca5d166b1ef",
+   "b69db3a08afb5c6f8ca20c3d8b15dea924a0bacfd572387b78e44ba543222b5a",
+   "f00a0013832b6867571eb697e080a7d6234f3f964a69ccee0d3d1681a354fc1e",
+   "7a6f4d6af1a50212a71852f035fe7ff3b03e47eaeacb5598f539404b6200542d",
+   "6566c6d438cb9d4978e69422eaf8f6dba0f59e3f3c202d430bbe4db3172b8a8e"
+  ]
+ },
+ "cybotsj": {
+  "screens": [
+   {
+    "name": "Boot garbage",
+    "first": 30,
+    "last": 30
+   },
+   {
+    "name": "Black",
+    "first": 60,
+    "last": 60
+   },
+   {
+    "name": "Region/version screen",
+    "first": 90,
+    "last": 240
+   },
+   {
+    "name": "Region warning",
+    "first": 300,
+    "last": 450
+   },
+   {
+    "name": "QSound / Capcom",
+    "first": 510,
+    "last": 960
+   },
+   {
+    "name": "Demo 1 schematic A (red mech)",
+    "first": 990,
+    "last": 1140
+   },
+   {
+    "name": "Demo 1 schematic B (white mech)",
+    "first": 1170,
+    "last": 1320
+   },
+   {
+    "name": "Demo 1 fight: BLODIA vs REPTOS, city stage",
+    "first": 1350,
+    "last": 2370
+   },
+   {
+    "name": "Ranking",
+    "first": 2430,
+    "last": 2580
+   },
+   {
+    "name": "Intro: Blodia 3D close-ups",
+    "first": 2610,
+    "last": 2730
+   },
+   {
+    "name": "Intro: pilot portraits (5 hexagons)",
+    "first": 2760,
+    "last": 2880
+   },
+   {
+    "name": "Intro: pilot portraits (2 hexagons)",
+    "first": 2910,
+    "last": 2970
+   },
+   {
+    "name": "Intro: Jin streak",
+    "first": 3000,
+    "last": 3120
+   },
+   {
+    "name": "Intro: starfield/line flash",
+    "first": 3150,
+    "last": 3180
+   },
+   {
+    "name": "Intro: Blodia 3D close-ups 2",
+    "first": 3240,
+    "last": 3390
+   },
+   {
+    "name": "Intro: fight montage",
+    "first": 3450,
+    "last": 3870
+   },
+   {
+    "name": "Intro: CYBERBOTS letters assembling over Blodia",
+    "first": 3900,
+    "last": 4050
+   },
+   {
+    "name": "Intro: white flash",
+    "first": 4080,
+    "last": 4080
+   },
+   {
+    "name": "Title",
+    "first": 4110,
+    "last": 4470
+   },
+   {
+    "name": "Demo 2 schematic A (blue hover mech)",
+    "first": 4500,
+    "last": 4650
+   },
+   {
+    "name": "Demo 2 schematic B (yellow tank mech)",
+    "first": 4680,
+    "last": 4800
+   },
+   {
+    "name": "Demo 2 fight: KILLER BEE vs LIGHTNING, desert BOTS stage",
+    "first": 4860,
+    "last": 6060
+   },
+   {
+    "name": "Demo 3 schematic A (purple walker)",
+    "first": 6630,
+    "last": 6750
+   },
+   {
+    "name": "Demo 3 schematic B (pink mech)",
+    "first": 6780,
+    "last": 6930
+   },
+   {
+    "name": "Demo 3 fight: JACKAL vs FORDY, space-station stage",
+    "first": 6960,
+    "last": 7980
+   },
+   {
+    "name": "Demo 4 schematic A (green tank)",
+    "first": 10110,
+    "last": 10260
+   },
+   {
+    "name": "Demo 4 schematic B (olive drill walker)",
+    "first": 10290,
+    "last": 10410
+   },
+   {
+    "name": "Demo 4 fight: SWORDSMAN vs CYCLONE, TOWN-3 hangar stage",
+    "first": 10470,
+    "last": 11490
+   },
+   {
+    "name": "Demo 5 schematic A (gold rocket-arm mech)",
+    "first": 12030,
+    "last": 12180
+   },
+   {
+    "name": "Demo 5 schematic B (brown claw tank)",
+    "first": 12210,
+    "last": 12360
+   },
+   {
+    "name": "Demo 5 fight: RIOT vs VISE, forest/pylon stage",
+    "first": 12390,
+    "last": 13410
+   },
+   {
+    "name": "Demo 6 schematic A (orange claw walker)",
+    "first": 15540,
+    "last": 15690
+   },
+   {
+    "name": "Demo 6 schematic B (blue mech)",
+    "first": 15720,
+    "last": 15840
+   },
+   {
+    "name": "Demo 6 fight: TARANTULA vs GULDIN, night airship stage",
+    "first": 15900,
+    "last": 16920
+   }
+  ],
+  "representative_sha256": [
+   "d1592075c958c5a9db49c28a9840c8d830105ed713e96e053b1dd4aa0ea93f61",
+   "c5191679044026e5f7a44977d58c75d584e9b5795a77c7a5cf4638e699b89765",
+   "6beae25dba436685994f249ec06dc124de1125227a9febb39604c12e832b3e73",
+   "87055374092772830518571d86f95e25da83d54c74f9008bc25fd4ce6c881f65",
+   "51f407f6b2ee8be44efde278270a971edb9cb00c5e6db2550182d0bf77c3e7a9",
+   "b89aff73e2cd96a88b0bc2e6132116b81deee6216d6a1c564443e2a17604820c",
+   "debfc14b2242e8cfc815f720656c7da9a30e614c47cf50b817b2795da8b84b34",
+   "7f70e21cc9b24a59dae5e9ae2c99acc08f4dab93528e531b80fb176e3f87aa6a",
+   "f997d1eebc4d764bdf6c3870923e1b9d4017863e13037138619b6515e24b0900",
+   "16f043aa51e0ea334fce15840e88c8dfa735404346c43b4b7299d30b4d79e42f",
+   "9ebe31e0fba8a78f2c5d7df4556fe7896be001799b780b5ca634e8a0eef524a4",
+   "a96a521ca22c81f1729477e4111da7c8d6b9630d2dc074094b87341f784b67dd",
+   "156477e6ee2d71993b3a11661217deb29bccea70d69acad1a5cb614986cfe4ca",
+   "276a0b8b6613f12128f4db6abe6c800b1d742519109a2e428f15d28d39aeafb2",
+   "5a052c584be31d3573cd6367ab46c3a4d44e9dc9ff31af507323970a70a47810",
+   "0c63489405b48f6286cea28a5ba9ddeb116f24b2c05e0307960f28bdaf272523",
+   "16f93384799040c008f274d07d1fab454d372ea7ddfa31addcfec8a9ade81155",
+   "31ebbf9ff6fe2b70350878f7ad954c27c3a417666701a4591d7e55b680ef5dca",
+   "eab0ddab4c2735a8342e7540c93430228e8991c7ecef9132cf476ba51c4288c0",
+   "765ae67eff31b581001f2084f64a3290b961bbc1f47afeec7f3efe0e47e8ef01",
+   "f13b5daa3a5b06cd18e4a8418f765ee3d0e3a8519e7be03f516ec2fa6de0d50d",
+   "0ffb2646dbf4c89faf04307330f3bed05ba3de249aee07e030c37a7cdae9c5c1",
+   "beff431d4209b948f85933c95181c5183275eaba24179f7918d4650c62baf165",
+   "60df903db8c298d061a6975b088c1f991bc2c490444151b5d1a73242dbf9d4b4",
+   "8c54b587def9517b737c933b7f2164671c82591e5e0c948d82c932d313390960",
+   "07cce1cdc57aff230710e969ba96def6541bf582fdcb3e15821f87cc8a85e9c0",
+   "1c726c29f4ef0e0e07f704081c02b6c4d43af2a01f265a975c0c59af1b11617d",
+   "478ef6f6c730000c4c1035a59b3f23eddc5ebfff2a18cc7533a88644fe2e8b45",
+   "46e9dc232ee856f9ba1d62b821ac68b2b278756a069bf81564b9f28d345916d9",
+   "1e2e76703594e507cd97845d9b9d57f00f6027a57d8d2ac4382eaeaf74155ab9",
+   "c3efc5261a5c18e70535c05f2b93e85f21829aa0abad010c6f5580abf7f167ee",
+   "9cf674eee8502bc5e2d8557aef89e590903efcc547340e85388ca6b402d7612e",
+   "72bed64e5cc7184a5694fc236716794d043fcb491f59ec28f942b707edca9b49"
+  ]
+ },
+ "cycles": {
+  "cybotsu": {
+   "qsound_starts": [
+    540,
+    6570,
+    12420,
+    18270,
+    24300,
+    30150,
+    36000
+   ],
+   "lengths": [
+    6030,
+    5850,
+    5850,
+    6030,
+    5850,
+    5850
+   ],
+   "demo_rotation_frames": 17730
+  },
+  "cybotsj": {
+   "qsound_starts": [
+    540,
+    6150,
+    11580,
+    16980,
+    22620,
+    28020,
+    33450,
+    39060,
+    44490
+   ],
+   "lengths": [
+    5610,
+    5430,
+    5400,
+    5640,
+    5400,
+    5430,
+    5610,
+    5430
+   ],
+   "demo_rotation_frames": "16440-16470"
+  }
+ },
+ "japanese_seen": "Only the city stage's background signs in the BLODIA vs REPTOS demo: Japanese in cybotsj, blank in cybotsu (frames f01500 of each, checked by the agent); every overlay and screen text is English",
+ "note": "Screen names and frames only; transcriptions are kept locally (local/ui001/arcade/reports.json)"
+}

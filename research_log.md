@@ -2843,3 +2843,31 @@ plus the English art in the fonts) is `READY`; `UI-002`, `UI-003`, `UI-005`
 (gate), `UI-006` (build), `UI-007` (verify) follow. The policy row "Caption,
 UI-art and attract style" now names `UI-005`. No experiment, no emulator
 run.
+
+## 2026-11-06 — UI-001 part 1: census of the remaining Japanese UI (EXP-0067)
+
+User request (verbatim): "Start UI-001". One no-input cold boot, asked
+first: "Yes, run it now (Recommended)".
+
+- Attract: cold boot recorded (every frame) with a load log; five cycles,
+  then 48,000 frames from state 25772 (eight cycles, six demo pairs). Only
+  Japanese: the ruined-city stage's signs; `cybotsj` the same, `cybotsu`
+  blank.
+- Session shots, `KEY CONFIG`, versus `RESULT`: English. All 81 VS captions
+  forced: the mapping holds; five (512, 539, 1052, 1053, 1070) draw an
+  English pair glyph, the M5 trade-off.
+- MAME: both sets' attract (6 and 8 cycles), all English but that stage art.
+
+Notes (do not retry):
+- **Logging the CD command routine** (`0x0603D18C`/`0x0603D194`) over a long
+  run logs millions of polls (2.7 GB); `agent.events()` cannot read that
+  into memory. Decode the log by streaming, or log the named open only.
+- **`-qtrecord` makes 10,560 × 480 frames** (about 5.5 GB for 32,000
+  frames); scale before scene detection. ffmpeg here has no `drawtext`, and
+  `-vsync` is now `-fps_mode`.
+- **Scene detection misses fades** (logo, title, loading, ranking); sample
+  every 15th frame as well.
+- **Writing the whole `OPDEMO.BIN` into a running Options state hangs a
+  fade**; open `KEY CONFIG` with the menu state writes alone.
+- The arcade's US stage art differs from the Japanese: compare both sets'
+  frames before calling art "shared".
