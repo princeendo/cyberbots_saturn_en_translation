@@ -3215,3 +3215,15 @@ Notes (do not retry):
 
 Checks: below.
 Checks: `ruff check .` passed; `ruff format --check .` 330 files formatted; `mypy` no issues in 90 files (and `official.py` alone: none); `pytest -q` 262 passed.
+
+## 2026-11-07 — SPECIAL-012: the user's translation decisions
+
+User request (verbatim): "Start SPECIAL-012". Four multiple-choice
+questions (verbatim in `docs/localization_policy.md`, "Saturn-Only Pilots,
+Decided"). Answers: "All of it (Recommended)", "Claude, arcade tone
+(Recommended)", "Page per pilot, gloss beside (Recommended)", "US Capcom
+conventions (Recommended)". The shared lines' handling follows the
+2026-11-02 official-English rule (not asked). A `GATE-TRANSLATION` row
+added; each pilot's English goes on the disc only after approval.
+`SPECIAL-013` (list 6) is `READY`.
+Checks: `ruff check .` passed; `pytest -q` 262 passed (docs-only change).

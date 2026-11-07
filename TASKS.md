@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-07: SPECIAL-012 done**: the user chose a new translation of all the Saturn-only pilots' text and the mech-16 name art, by Claude in the arcade's tone, reviewed per pilot on pages with a literal gloss, new names by US Capcom conventions (`docs/localization_policy.md`, "Saturn-Only Pilots, Decided"). `SPECIAL-013` (list 6, Devilotte) is `READY`.
 - **2026-11-07: SPECIAL-011 done** (`EXP-0077`, D-066): the arcade's code has six pilots only, and no arcade record is a counterpart of any Saturn-only box (0 of 259; Jin's control 61 of 61). The three lines with official English are already English on the disc; 806 lines need a new translation. `SPECIAL-012` (the user's decisions) is `READY`.
 - **2026-11-07: SPECIAL-010 done** (`EXP-0076`, D-065): lists 6-8 are Devilotte, Chiyomaru (with Tessan in his story) and SHADE, all selectable from the start (list 7 is three left of Jin, which `EXP-0033` never tried). The "Akuma mech code" is an earned unlock (finish endings at difficulty 3+), adding a mech with kanji VS name art. Their text: 339 story boxes, 22 win quotes, 27 captions, 59 ending boxes, about 9,500 characters. `SPECIAL-011` is `READY`.
 - **2026-11-07: SPECIAL-001 written up (Phase U).** At the user's request ("Write up SPECIAL-001"), which is rule 24's permission: `SPECIAL-010` (census and routes, `READY`), `SPECIAL-011` (no official English, by code), `SPECIAL-012` (the user's translation decisions), `SPECIAL-013`-`015` (drafts per list, approved), `SPECIAL-016` (capacity), `SPECIAL-017` (build), `SPECIAL-018` (play check and reference). Nothing started.
@@ -3601,7 +3602,8 @@ experiments but still go one list at a time):
 
 ### SPECIAL-012 - The user's decisions for the new translation
 
-- **Status:** `READY`
+- **Status:** `DONE`
+- **Done:** 2026-11-07. The user's answers, verbatim: "All of it (Recommended)" (story, quotes, captions, endings and the mech-16 name art), "Claude, arcade tone (Recommended)", "Page per pilot, gloss beside (Recommended)", "US Capcom conventions (Recommended)". Recorded in `docs/localization_policy.md`, "Saturn-Only Pilots, Decided", and as a `GATE-TRANSLATION` row (each pilot's English goes on the disc only after its page is approved).
 - **Milestone:** M9 (`SPECIAL-001`)
 - **Dependencies:** SPECIAL-011 (done).
 - **Blockers:** None.
@@ -3627,10 +3629,10 @@ experiments but still go one list at a time):
 
 ### SPECIAL-013 - Draft and approve list 6
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M9 (`SPECIAL-001`)
-- **Dependencies:** SPECIAL-012.
-- **Blockers:** `SPECIAL-012`.
+- **Dependencies:** SPECIAL-012 (done).
+- **Blockers:** None.
 - **Objective:** An approved English text for every list-6 surface the user
   put in scope.
 - **Acceptance criteria:**
@@ -3638,8 +3640,11 @@ experiments but still go one list at a time):
     characters, 4 rows, 60 glyph cells; captions one row of 26; endings
     timed by `END-011`'s rule), checked by a script, with the source
     line hashes recorded.
-  - Reviewed as `SPECIAL-012` decided; the user's approval verbatim, with
-    any changes asked for applied and re-approved.
+  - Reviewed as `SPECIAL-012` decided: one page for the pilot with each
+    box's draft beside a literal gloss and adaptation notes (kept under
+    `local/`, never committed); the user's approval verbatim, with any
+    changes asked for applied and re-approved; new names follow US Capcom
+    conventions and are listed on the page.
   - `data/translations/special_list6.json` (English, box numbers, source
     hashes; translator named).
 
@@ -3726,5 +3731,5 @@ and `docs/lessons_from_xvsf.md`.
 | TXT-002 | after M8, user request | Phase T (`TXT-010`-`TXT-013`), written up 2026-11-07; `DONE` (2026-11-07): `TXT-010`, `TXT-011` (EXP-0074, EXP-0075; D-063, D-064), `TXT-012` closed with evidence, `TXT-013` closed unused. |
 | LOC-001 | after REF-007 | `DONE` (2026-11-06, Phase O: `LOC-001`-`LOC-006` and the gate extension). |
 | OPT-001 | after LOC-001, user decision 2026-11-02 | `DONE` (2026-11-06, Phase P: `OPT-001`-`OPT-006`). |
-| SPECIAL-001 | M9, user approval | Phase U (`SPECIAL-010`-`SPECIAL-018`), written up 2026-11-07 at the user's request; `SPECIAL-010`, `SPECIAL-011` `DONE`; `SPECIAL-012` `READY`. Lists 6-8 (Devilotte, Chiyomaru, SHADE by the name art): 339 story boxes, 22 win quotes, 27 captions, three endings, with no arcade English (D-026, D-030, D-046). |
+| SPECIAL-001 | M9, user approval | Phase U (`SPECIAL-010`-`SPECIAL-018`), written up 2026-11-07 at the user's request; `SPECIAL-010`-`SPECIAL-012` `DONE`; `SPECIAL-013` `READY`. Lists 6-8 (Devilotte, Chiyomaru, SHADE by the name art): 339 story boxes, 22 win quotes, 27 captions, three endings, with no arcade English (D-026, D-030, D-046). |
 | REL-001 | after M5 | Phase R (`REL-001`-`REL-004`): `REL-001` (tool port) `DONE` (2026-11-06); `REL-002`-`REL-004` `BLOCKED`: the user wants `UI-001`-`UI-003`, `TXT-002` and `SPECIAL-001` done first (2026-11-06). |
