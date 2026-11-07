@@ -1,0 +1,1044 @@
+{
+ "task": "SPECIAL-015",
+ "pilot": "Chiyomaru",
+ "list": 7,
+ "translator": "Claude (agent), new translation from the Saturn Japanese in the US arcade's tone; no official English exists (D-066)",
+ "approved": "2026-11-07, the user: \"Approve all (Recommended)\"; Mary's rank \"Lieutenant (Recommended)\"; decisions in docs/localization_policy.md \"Saturn-Only Pilots, Decided\"",
+ "source": {
+  "STG0AS.BIN": "3fabb4dbb9d08b2de570467414d653c9e6f0d72cf8ee4f72ecbb1683df77ac45",
+  "END.BIN": "a4868d8d39f657cb2e924c5e3d0467cc4f7fe83b9375e2a2ffbd7dd21281f3fa",
+  "boxes": "data/text/special_census.json (list 7)"
+ },
+ "rules": "dialogue boxes: tools.text.dialogue.wrap, at most 3 rows and 60 cells; captions one row of at most 26 characters; arcade pair-font characters only (EXP-0078 check_drafts.py); box 1072 is the shared blank box (English empty)",
+ "names": [
+  {
+   "english": "Chiyomaru",
+   "romanized_source": "Chiyomaru",
+   "rule": "as the US arcade English and the name art"
+  },
+  {
+   "english": "Tessan",
+   "romanized_source": "Tessan, the genius strategist",
+   "rule": "plain romanization (SPECIAL-012)"
+  },
+  {
+   "english": "Tatsunoshin",
+   "romanized_source": "Tatsunoshin, Chiyomaru's late father",
+   "rule": "plain romanization"
+  },
+  {
+   "english": "Lieutenant Mary",
+   "romanized_source": "Marii shoui",
+   "rule": "Mary as the US arcade English; rank as the Saturn Japanese, the user's choice \"Lieutenant (Recommended)\""
+  },
+  {
+   "english": "GOD",
+   "romanized_source": "GOD",
+   "rule": "written in English in the Japanese"
+  },
+  {
+   "english": "Earth Corps",
+   "romanized_source": "Rengou / Koronii Rengoukoku",
+   "rule": "the US arcade's term"
+  },
+  {
+   "english": "the Resistance",
+   "romanized_source": "Rejisutansu",
+   "rule": "the katakana is English already"
+  },
+  {
+   "english": "cyberbot",
+   "romanized_source": "VA",
+   "rule": "the US arcade's word for the machines"
+  }
+ ],
+ "boxes": [
+  {
+   "section": "story",
+   "scene": 0,
+   "box": 747,
+   "speaker": "Narration",
+   "english": "Earth, weakened by the Earth Corps' economic sanctions."
+  },
+  {
+   "section": "story",
+   "scene": 0,
+   "box": 748,
+   "speaker": "Narration",
+   "english": "Some years after the death of Tatsunoshin, leader of the Resistance that fought back..."
+  },
+  {
+   "section": "story",
+   "scene": 0,
+   "box": 749,
+   "speaker": "Narration",
+   "english": "his son Chiyomaru went to see Tessan, genius strategist and his father's right hand."
+  },
+  {
+   "section": "story",
+   "scene": 1,
+   "box": 750,
+   "speaker": "Tessan",
+   "english": "...Come as often as you like, my answer is the same. My only lord was Tatsunoshin."
+  },
+  {
+   "section": "story",
+   "scene": 1,
+   "box": 751,
+   "speaker": "Tessan",
+   "english": "Only son or not, I will not serve a second master!"
+  },
+  {
+   "section": "story",
+   "scene": 1,
+   "box": 752,
+   "speaker": "Chiyomaru",
+   "english": "...You are a coward!"
+  },
+  {
+   "section": "story",
+   "scene": 1,
+   "box": 753,
+   "speaker": "Tessan",
+   "english": "! What!?"
+  },
+  {
+   "section": "story",
+   "scene": 1,
+   "box": 754,
+   "speaker": "Chiyomaru",
+   "english": "With such talent, you'd play the hermit instead of helping the people!?"
+  },
+  {
+   "section": "story",
+   "scene": 1,
+   "box": 755,
+   "speaker": "Chiyomaru",
+   "english": "I do not ask it for my sake."
+  },
+  {
+   "section": "story",
+   "scene": 1,
+   "box": 756,
+   "speaker": "Chiyomaru",
+   "english": "Rise again for all the people suffering under the Earth Corps' tyranny!!"
+  },
+  {
+   "section": "story",
+   "scene": 1,
+   "box": 757,
+   "speaker": "Tessan",
+   "english": "Don't lecture me, boy! If you preach a great cause, then show me your resolve!!"
+  },
+  {
+   "section": "story",
+   "scene": 2,
+   "box": 758,
+   "speaker": "Tessan",
+   "english": "Splendidly done...!"
+  },
+  {
+   "section": "story",
+   "scene": 2,
+   "box": 759,
+   "speaker": "Chiyomaru",
+   "english": "Tessan...!"
+  },
+  {
+   "section": "story",
+   "scene": 2,
+   "box": 760,
+   "speaker": "Tessan",
+   "english": "Say no more! For now, my life is yours, Lord Chiyomaru."
+  },
+  {
+   "section": "story",
+   "scene": 2,
+   "box": 761,
+   "speaker": "Chiyomaru",
+   "english": "...Thank you."
+  },
+  {
+   "section": "story",
+   "scene": 3,
+   "box": 762,
+   "speaker": "Chiyomaru",
+   "english": "...That is our deployment. Let no one drop their guard! All hands, battle stations!"
+  },
+  {
+   "section": "story",
+   "scene": 3,
+   "box": 763,
+   "speaker": "Chiyomaru",
+   "english": "Will this do, Tessan?"
+  },
+  {
+   "section": "story",
+   "scene": 3,
+   "box": 764,
+   "speaker": "Tessan",
+   "english": "Justice is on our side! Show them the might of the Resistance!"
+  },
+  {
+   "section": "story",
+   "scene": 4,
+   "box": 765,
+   "speaker": "Gawaine",
+   "english": "You... You're Tatsunoshin's son...!"
+  },
+  {
+   "section": "story",
+   "scene": 4,
+   "box": 766,
+   "speaker": "Chiyomaru",
+   "english": "Gawaine... I didn't want us to meet like this."
+  },
+  {
+   "section": "story",
+   "scene": 4,
+   "box": 767,
+   "speaker": "Gawaine",
+   "english": "Such is the way of war. Have at you!"
+  },
+  {
+   "section": "story",
+   "scene": 5,
+   "box": 768,
+   "speaker": "Gawaine",
+   "english": "You've grown... Heh. You truly are Tatsunoshin's son."
+  },
+  {
+   "section": "story",
+   "scene": 5,
+   "box": 769,
+   "speaker": "Gawaine",
+   "english": "Your father and I were rivals for many years... We tried to kill each other many times."
+  },
+  {
+   "section": "story",
+   "scene": 5,
+   "box": 770,
+   "speaker": "Gawaine",
+   "english": "Falling to his son is a fine end... Be a good leader. Farewell!"
+  },
+  {
+   "section": "story",
+   "scene": 5,
+   "box": 771,
+   "speaker": "Chiyomaru",
+   "english": "Gawaine!!"
+  },
+  {
+   "section": "story",
+   "scene": 5,
+   "box": 772,
+   "speaker": "Tessan",
+   "english": "...Bah. That man is no easy prey. I doubt he would die so easily."
+  },
+  {
+   "section": "story",
+   "scene": 5,
+   "box": 773,
+   "speaker": "Chiyomaru",
+   "english": "I hope you're right..."
+  },
+  {
+   "section": "story",
+   "scene": 5,
+   "box": 774,
+   "speaker": "A Resistance soldier, by radio",
+   "english": "\"Lord Chiyomaru! The Earth Corps is falling back!\""
+  },
+  {
+   "section": "story",
+   "scene": 5,
+   "box": 775,
+   "speaker": "Chiyomaru",
+   "english": "Don't pursue them! ...Well done, everyone."
+  },
+  {
+   "section": "story",
+   "scene": 6,
+   "box": 776,
+   "speaker": "Chiyomaru, thinking",
+   "english": "\"We drove them off for now, but the Earth Corps will regroup and strike again...\"",
+   "note": "Thoughts in brackets become quoted thoughts: the font has no brackets."
+  },
+  {
+   "section": "story",
+   "scene": 6,
+   "box": 777,
+   "speaker": "Chiyomaru, thinking",
+   "english": "\"When they do, can I lead the Resistance to victory...?\""
+  },
+  {
+   "section": "story",
+   "scene": 6,
+   "box": 778,
+   "speaker": "Jin",
+   "english": "Long time no see, Chiyomaru!"
+  },
+  {
+   "section": "story",
+   "scene": 6,
+   "box": 779,
+   "speaker": "Chiyomaru",
+   "english": "Jin Saotome! What are you doing here...!?"
+  },
+  {
+   "section": "story",
+   "scene": 6,
+   "box": 780,
+   "speaker": "Jin",
+   "english": "Good to see you again! Now, let's fight!!"
+  },
+  {
+   "section": "story",
+   "scene": 7,
+   "box": 781,
+   "speaker": "Chiyomaru",
+   "english": "Saotome... Did you sense what was troubling me...?"
+  },
+  {
+   "section": "story",
+   "scene": 7,
+   "box": 782,
+   "speaker": "Chiyomaru",
+   "english": "I understand what you were telling me!"
+  },
+  {
+   "section": "story",
+   "scene": 7,
+   "box": 783,
+   "speaker": "Jin",
+   "english": "Heh, I lost. Back to square one with my training."
+  },
+  {
+   "section": "story",
+   "scene": 7,
+   "box": 784,
+   "speaker": "Jin",
+   "english": "See you, Chiyomaru! Let's meet again someday, somewhere out in space!"
+  },
+  {
+   "section": "story",
+   "scene": 7,
+   "box": 785,
+   "speaker": "Chiyomaru",
+   "english": "...Thank you, Saotome. I will not falter again!"
+  },
+  {
+   "section": "story",
+   "scene": 8,
+   "box": 786,
+   "speaker": "An Earth Corps officer",
+   "english": "Damn Resistance, their lines have no gaps... Their new leader is good."
+  },
+  {
+   "section": "story",
+   "scene": 8,
+   "box": 787,
+   "speaker": "A soldier, by radio",
+   "english": "\"The samples are all loaded out!\""
+  },
+  {
+   "section": "story",
+   "scene": 8,
+   "box": 788,
+   "speaker": "An Earth Corps officer",
+   "english": "Good. We're done here. Blow up the facility!"
+  },
+  {
+   "section": "story",
+   "scene": 8,
+   "box": 789,
+   "speaker": "Chiyomaru",
+   "english": "You'd take the whole city with it!?"
+  },
+  {
+   "section": "story",
+   "scene": 8,
+   "box": 790,
+   "speaker": "Chiyomaru",
+   "english": "How could you...! Is your talk of keeping Earth's peace just for show!?"
+  },
+  {
+   "section": "story",
+   "scene": 8,
+   "box": 791,
+   "speaker": "An Earth Corps officer",
+   "english": "How naive, boy!"
+  },
+  {
+   "section": "story",
+   "scene": 9,
+   "box": 792,
+   "speaker": "An Earth Corps officer",
+   "english": "Tch, I slipped up... But I've bought enough time."
+  },
+  {
+   "section": "story",
+   "scene": 10,
+   "box": 793,
+   "speaker": "Chiyomaru",
+   "english": "!? No...!!"
+  },
+  {
+   "section": "story",
+   "scene": 10,
+   "box": 794,
+   "speaker": "Chiyomaru",
+   "english": "Is this... Is this how you do things!? Is THIS the world you want...!?"
+  },
+  {
+   "section": "story",
+   "scene": 10,
+   "box": 795,
+   "speaker": "SHADE",
+   "english": "...Mission complete. Returning to base."
+  },
+  {
+   "section": "story",
+   "scene": 10,
+   "box": 796,
+   "speaker": "Chiyomaru",
+   "english": "...Damn it!"
+  },
+  {
+   "section": "story",
+   "scene": 10,
+   "box": 797,
+   "speaker": "Tessan",
+   "english": "We must withdraw too. ...There is nothing left here."
+  },
+  {
+   "section": "story",
+   "scene": 11,
+   "box": 798,
+   "speaker": "A Resistance soldier",
+   "english": "Tessan, sir! There's a letter on Lord Chiyomaru's desk...!"
+  },
+  {
+   "section": "story",
+   "scene": 11,
+   "box": 799,
+   "speaker": "Chiyomaru's letter",
+   "english": "\"I no longer have the confidence to lead the Resistance...\""
+  },
+  {
+   "section": "story",
+   "scene": 11,
+   "box": 800,
+   "speaker": "A Resistance soldier",
+   "english": "Tessan, sir!!"
+  },
+  {
+   "section": "story",
+   "scene": 11,
+   "box": 801,
+   "speaker": "Tessan",
+   "english": "Leave him be. As he is now, it makes no difference whether he is here or not."
+  },
+  {
+   "section": "story",
+   "scene": 11,
+   "box": 802,
+   "speaker": "Tessan, thinking",
+   "english": "\"He cannot serve the cause if he can't overcome this. Open your eyes, Lord Chiyomaru!\""
+  },
+  {
+   "section": "story",
+   "scene": 12,
+   "box": 803,
+   "speaker": "Chiyomaru",
+   "english": "Ah, this is... where Father and I used to train... I've wandered so far..."
+  },
+  {
+   "section": "story",
+   "scene": 12,
+   "box": 804,
+   "speaker": "Chiyomaru",
+   "english": "! Who's there!?"
+  },
+  {
+   "section": "story",
+   "scene": 12,
+   "box": 805,
+   "speaker": "Santana",
+   "english": "You're Chiyomaru, right? Then let's have ourselves a match!!"
+  },
+  {
+   "section": "story",
+   "scene": 13,
+   "box": 806,
+   "speaker": "Santana",
+   "english": "Okay, okay, you win! No wonder old man Gawaine thinks so highly of you."
+  },
+  {
+   "section": "story",
+   "scene": 13,
+   "box": 807,
+   "speaker": "Chiyomaru",
+   "english": "! Gawaine!? He's alive!?"
+  },
+  {
+   "section": "story",
+   "scene": 13,
+   "box": 808,
+   "speaker": "Santana",
+   "english": "He asked me to check on you, but you're doing fine. By the way, I've got a hot tip."
+  },
+  {
+   "section": "story",
+   "scene": 13,
+   "box": 809,
+   "speaker": "Santana",
+   "english": "Word is the Earth Corps has a \"bio-weapon\" lab in the next town. Watch yourself!"
+  },
+  {
+   "section": "story",
+   "scene": 13,
+   "box": 810,
+   "speaker": "Chiyomaru",
+   "english": "A \"bio-weapon\"...!?"
+  },
+  {
+   "section": "story",
+   "scene": 13,
+   "box": 811,
+   "speaker": "Santana",
+   "english": "Hey, no need to thank me. The old man paid me plenty up front. See ya!"
+  },
+  {
+   "section": "story",
+   "scene": 14,
+   "box": 812,
+   "speaker": "Chiyomaru",
+   "english": "So this is the town..."
+  },
+  {
+   "section": "story",
+   "scene": 14,
+   "box": 813,
+   "speaker": "Chiyomaru",
+   "english": "What does it matter... The Earth Corps, the Resistance..."
+  },
+  {
+   "section": "story",
+   "scene": 14,
+   "box": 814,
+   "speaker": "Arieta",
+   "english": "Are you all alone too...?"
+  },
+  {
+   "section": "story",
+   "scene": 14,
+   "box": 815,
+   "speaker": "Chiyomaru",
+   "english": "! ...Who are you?"
+  },
+  {
+   "section": "story",
+   "scene": 14,
+   "box": 816,
+   "speaker": "Arieta",
+   "english": "I'm Arieta... That's what they call me..."
+  },
+  {
+   "section": "story",
+   "scene": 14,
+   "box": 817,
+   "speaker": "Chiyomaru",
+   "english": "It's dangerous to be out here alone. Do you live in this town?"
+  },
+  {
+   "section": "story",
+   "scene": 14,
+   "box": 818,
+   "speaker": "Arieta",
+   "english": "I don't know... anything. My head... My head hurts...!!"
+  },
+  {
+   "section": "story",
+   "scene": 14,
+   "box": 819,
+   "speaker": "Chiyomaru",
+   "english": "Hey! Arieta!?"
+  },
+  {
+   "section": "story",
+   "scene": 14,
+   "box": 820,
+   "speaker": "Chiyomaru",
+   "english": "!! Arieta!?"
+  },
+  {
+   "section": "story",
+   "scene": 14,
+   "box": 821,
+   "speaker": "Chiyomaru",
+   "english": "Did you summon a cyberbot!?"
+  },
+  {
+   "section": "story",
+   "scene": 15,
+   "box": 822,
+   "speaker": "An Earth Corps scientist",
+   "english": "Damn it, my precious test subject...!"
+  },
+  {
+   "section": "story",
+   "scene": 15,
+   "box": 823,
+   "speaker": "Chiyomaru",
+   "english": "A \"bio-weapon\"... It can't be...!"
+  },
+  {
+   "section": "story",
+   "scene": 15,
+   "box": 824,
+   "speaker": "Chiyomaru",
+   "english": "...Arieta...!!"
+  },
+  {
+   "section": "story",
+   "scene": 16,
+   "box": 825,
+   "speaker": "Chiyomaru",
+   "english": "I'm sorry I worried you, Tessan."
+  },
+  {
+   "section": "story",
+   "scene": 16,
+   "box": 826,
+   "speaker": "Tessan",
+   "english": "Not at all! We stand ready, every one of us."
+  },
+  {
+   "section": "story",
+   "scene": 16,
+   "box": 827,
+   "speaker": "Chiyomaru",
+   "english": "All ships, launch! Target: the Earth Corps' final weapon! Justice is on our side!!"
+  },
+  {
+   "section": "story",
+   "scene": 16,
+   "box": 828,
+   "speaker": "Chiyomaru",
+   "english": "Watch me, Arieta. So your tragedy never happens again, I'll end this war here!"
+  },
+  {
+   "section": "story",
+   "scene": 17,
+   "box": 829,
+   "speaker": "An Earth Corps officer",
+   "english": "Have the Resistance sniffed out our final weapon...!?"
+  },
+  {
+   "section": "story",
+   "scene": 17,
+   "box": 830,
+   "speaker": "An Earth Corps officer",
+   "english": "Send out SHADE! Use him to hold them off!"
+  },
+  {
+   "section": "story",
+   "scene": 17,
+   "box": 831,
+   "speaker": "Chiyomaru",
+   "english": "! Something's coming...!"
+  },
+  {
+   "section": "story",
+   "scene": 18,
+   "box": 832,
+   "speaker": "Lieutenant Mary",
+   "english": "SHADE is down!? They broke through so fast... Fine, I'll go myself!"
+  },
+  {
+   "section": "story",
+   "scene": 18,
+   "box": 833,
+   "speaker": "A commander, by radio",
+   "english": "\"That's enough, Lieutenant Mary. Fall back.\""
+  },
+  {
+   "section": "story",
+   "scene": 18,
+   "box": 834,
+   "speaker": "Lieutenant Mary",
+   "english": "Sir!?"
+  },
+  {
+   "section": "story",
+   "scene": 18,
+   "box": 835,
+   "speaker": "A commander, by radio",
+   "english": "\"We are deploying GOD. Pull your unit back as well.\""
+  },
+  {
+   "section": "story",
+   "scene": 18,
+   "box": 836,
+   "speaker": "Lieutenant Mary",
+   "english": "GOD!? But it isn't finished yet..."
+  },
+  {
+   "section": "story",
+   "scene": 18,
+   "box": 837,
+   "speaker": "A commander, by radio",
+   "english": "\"You have done well. Get some rest.\""
+  },
+  {
+   "section": "story",
+   "scene": 18,
+   "box": 838,
+   "speaker": "Lieutenant Mary",
+   "english": "But...!!"
+  },
+  {
+   "section": "story",
+   "scene": 19,
+   "box": 839,
+   "speaker": "A Resistance soldier, by radio",
+   "english": "\"Lord Chiyomaru, we've boarded the final weapon! Now we... Wh-what is that!?\""
+  },
+  {
+   "section": "story",
+   "scene": 19,
+   "box": 840,
+   "speaker": "A Resistance soldier, by radio",
+   "english": "\"Aaaaaaaarrgh!!\""
+  },
+  {
+   "section": "story",
+   "scene": 19,
+   "box": 841,
+   "speaker": "Chiyomaru",
+   "english": "What happened!?"
+  },
+  {
+   "section": "story",
+   "scene": 19,
+   "box": 842,
+   "speaker": "Tessan",
+   "english": "That must be their trump card... the final weapon's brain, from the reports."
+  },
+  {
+   "section": "story",
+   "scene": 19,
+   "box": 843,
+   "speaker": "Chiyomaru",
+   "english": "!! Raaaaaaahh!!"
+  },
+  {
+   "section": "story",
+   "scene": 20,
+   "box": 844,
+   "speaker": "A Resistance soldier",
+   "english": "Lord Chiyomaru, the final weapon is ours!"
+  },
+  {
+   "section": "story",
+   "scene": 20,
+   "box": 845,
+   "speaker": "Chiyomaru",
+   "english": "Yes! Well done, everyone!"
+  },
+  {
+   "section": "story",
+   "scene": 20,
+   "box": 846,
+   "speaker": "Tessan",
+   "english": "Lord Chiyomaru!!"
+  },
+  {
+   "section": "story",
+   "scene": 20,
+   "box": 847,
+   "speaker": "Tessan",
+   "english": "The power station that fed the final weapon has left orbit and is falling!!"
+  },
+  {
+   "section": "story",
+   "scene": 20,
+   "box": 848,
+   "speaker": "Tessan",
+   "english": "If it hits the Earth... it will be a catastrophe!"
+  },
+  {
+   "section": "story",
+   "scene": 20,
+   "box": 849,
+   "speaker": "Chiyomaru",
+   "english": "What!?"
+  },
+  {
+   "section": "win_quotes",
+   "box": 1030,
+   "speaker": "Chiyomaru",
+   "english": "Do you have any ideals?"
+  },
+  {
+   "section": "win_quotes",
+   "box": 1031,
+   "speaker": "Chiyomaru",
+   "english": "Might alone does not make right!"
+  },
+  {
+   "section": "win_quotes",
+   "box": 1032,
+   "speaker": "Chiyomaru",
+   "english": "What a waste of time that was."
+  },
+  {
+   "section": "win_quotes",
+   "box": 1033,
+   "speaker": "Chiyomaru",
+   "english": "For now, I simply walk the path I believe in."
+  },
+  {
+   "section": "win_quotes",
+   "box": 1034,
+   "speaker": "Chiyomaru",
+   "english": "I won't let the hopes of thousands of comrades go to waste!!"
+  },
+  {
+   "section": "win_quotes",
+   "box": 1035,
+   "speaker": "Chiyomaru",
+   "english": "Fool!"
+  },
+  {
+   "section": "win_quotes",
+   "box": 1036,
+   "speaker": "Chiyomaru",
+   "english": "There is much to be done... I cannot die yet."
+  },
+  {
+   "section": "win_quotes",
+   "box": 1037,
+   "speaker": "Chiyomaru",
+   "english": "You have great power. But what of your heart?"
+  },
+  {
+   "section": "captions",
+   "stage": 0,
+   "box": 1054,
+   "english": "Heir to a Dream"
+  },
+  {
+   "section": "captions",
+   "stage": 1,
+   "box": 1055,
+   "english": "Law of the Battlefield"
+  },
+  {
+   "section": "captions",
+   "stage": 2,
+   "box": 1056,
+   "english": "Duel in the Deep"
+  },
+  {
+   "section": "captions",
+   "stage": 3,
+   "box": 1057,
+   "english": "Ideals and Reality"
+  },
+  {
+   "section": "captions",
+   "stage": 4,
+   "box": 1058,
+   "english": "A Heart Gone Astray"
+  },
+  {
+   "section": "captions",
+   "stage": 5,
+   "box": 1059,
+   "english": "And This Is Fate"
+  },
+  {
+   "section": "captions",
+   "stage": 6,
+   "box": 1060,
+   "english": "The Final Showdown"
+  },
+  {
+   "section": "captions",
+   "stage": 7,
+   "box": 1061,
+   "english": "Shining Darkness"
+  },
+  {
+   "section": "captions",
+   "stage": 8,
+   "box": 1062,
+   "english": "Between Stars and Earth"
+  },
+  {
+   "section": "ending",
+   "box": 857,
+   "speaker": "An Earth Corps officer",
+   "english": "Heh... But no one can control the station from outside now. It can't be stopped!"
+  },
+  {
+   "section": "ending",
+   "box": 858,
+   "speaker": "An Earth Corps officer",
+   "english": "I win."
+  },
+  {
+   "section": "ending",
+   "box": 859,
+   "speaker": "Tessan",
+   "english": "Even with every ship and cyberbot pushing, we cannot stop it... We are beaten."
+  },
+  {
+   "section": "ending",
+   "box": 860,
+   "speaker": "Chiyomaru",
+   "english": "Ugh...! ...All hands, abandon ship!!"
+  },
+  {
+   "section": "ending",
+   "box": 861,
+   "speaker": "A Resistance soldier",
+   "english": "And you, Lord Chiyomaru!?"
+  },
+  {
+   "section": "ending",
+   "box": 862,
+   "speaker": "Chiyomaru",
+   "english": "I'll stay and steer its fall to wherever it will do the least harm..."
+  },
+  {
+   "section": "ending",
+   "box": 863,
+   "speaker": "Chiyomaru",
+   "english": "I'm sorry, Tessan. There's no time to get you out..."
+  },
+  {
+   "section": "ending",
+   "box": 864,
+   "speaker": "Tessan",
+   "english": "Too late for that. My life has been yours for a long time now!"
+  },
+  {
+   "section": "ending",
+   "box": 865,
+   "speaker": "An Earth Corps officer",
+   "english": "It's useless. I told you, ideals can't change reality!"
+  },
+  {
+   "section": "ending",
+   "box": 866,
+   "speaker": "Chiyomaru",
+   "english": "Even if I fall, my comrades will carry on the dream..."
+  },
+  {
+   "section": "ending",
+   "box": 867,
+   "speaker": "Chiyomaru",
+   "english": "Whatever happens, I believe in humanity! I believe in the human heart!!"
+  },
+  {
+   "section": "ending",
+   "box": 868,
+   "speaker": "An Earth Corps officer",
+   "english": "......!"
+  },
+  {
+   "section": "ending",
+   "box": 869,
+   "speaker": "Tessan",
+   "english": "One minute until the hull reaches its heat limit...!"
+  },
+  {
+   "section": "ending",
+   "box": 870,
+   "speaker": "Chiyomaru",
+   "english": "...Is this the end!?"
+  },
+  {
+   "section": "ending",
+   "box": 871,
+   "speaker": "Jin",
+   "english": "Don't give up!"
+  },
+  {
+   "section": "ending",
+   "box": 872,
+   "speaker": "Chiyomaru",
+   "english": "!! What!?"
+  },
+  {
+   "section": "ending",
+   "box": 873,
+   "speaker": "Gawaine",
+   "english": "He's right. You must not give up!"
+  },
+  {
+   "section": "ending",
+   "box": 874,
+   "speaker": "Santana",
+   "english": "Tch, I had a bad feeling about this! My brand-new booster's ruined! Just my luck!!"
+  },
+  {
+   "section": "ending",
+   "box": 875,
+   "speaker": "Arieta",
+   "english": "Are you okay...?"
+  },
+  {
+   "section": "ending",
+   "box": 876,
+   "speaker": "Chiyomaru",
+   "english": "Saotome! Gawaine! Arieta... Everyone...!!"
+  },
+  {
+   "section": "ending",
+   "box": 877,
+   "speaker": "Resistance soldiers, by radio",
+   "english": "\"Lord Chiyomaru! We're with you too!\""
+  },
+  {
+   "section": "ending",
+   "box": 1072,
+   "speaker": "(blank box)",
+   "english": "",
+   "note": "The blank box shared with the roster endings; it stays blank."
+  },
+  {
+   "section": "ending",
+   "box": 878,
+   "speaker": "A Resistance soldier, by radio",
+   "english": "\"Everyone, follow meeee!!\""
+  },
+  {
+   "section": "ending",
+   "box": 879,
+   "speaker": "An Earth Corps officer",
+   "english": "...Im-impossible...!!"
+  },
+  {
+   "section": "ending",
+   "box": 880,
+   "speaker": "Narration",
+   "english": "2100 A.D... The Earth Corps and the Resistance signed a peace treaty."
+  },
+  {
+   "section": "ending",
+   "box": 881,
+   "speaker": "Narration",
+   "english": "Chiyomaru took high office in the new government, still fighting for a world at peace."
+  },
+  {
+   "section": "ending",
+   "box": 882,
+   "speaker": "Narration",
+   "english": "Mary Miyabi vanished after the war. No one knows where she went..."
+  }
+ ]
+}

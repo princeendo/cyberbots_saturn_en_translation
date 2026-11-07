@@ -207,3 +207,7 @@ no arcade counterpart and no name in `LOC-004`'s art.
 
 SHADE's name as a man (アイヒマン, never written in the arcade English) is
 **Aichmann** in the English, the user's choice (`SPECIAL-014`, 2026-11-07).
+Chiyomaru's story (`SPECIAL-015`): **Tessan** and **Tatsunoshin**
+(Chiyomaru's late father) by plain romanization; Mary is "Lieutenant Mary"
+there, as the Saturn Japanese (the user's choice; the arcade calls her
+captain elsewhere).

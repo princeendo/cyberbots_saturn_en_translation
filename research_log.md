@@ -3259,3 +3259,16 @@ spells "Eichmann"). `data/translations/special_list8.json`; 0 failures.
 `check_drafts.py` and `review.py` now accept `official_slot` boxes; list 6
 rechecked unchanged.
 Checks: `ruff check .` passed; `ruff format --check .` 334 files formatted; `mypy` no issues in 90 files; `pytest -q` 262 passed.
+
+## 2026-11-07 — SPECIAL-015: Chiyomaru's English drafted and approved (EXP-0080)
+
+User request (verbatim): "Start SPECIAL-015". List 7 read privately; 147
+boxes drafted (1072 the shared blank); 0 fit failures on the first check;
+local review page sent. Answers: "Approve all (Recommended)"; Mary's rank
+"Lieutenant (Recommended)". `data/translations/special_list7.json`. All
+three Saturn-only pilots now have approved English; `SPECIAL-016` is
+`READY` (it also carries the mech-16 name, box 974's own record, and the
+unchanged 1072/601/605).
+
+Checks: below.
+Checks: `ruff check .` passed; `ruff format --check .` 335 files formatted; `mypy` no issues in 90 files; `pytest -q` 262 passed.

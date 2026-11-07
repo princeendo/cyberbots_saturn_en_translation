@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-07: SPECIAL-015 done** (`EXP-0080`): Chiyomaru's 147 boxes translated, fit-checked and approved ("Approve all (Recommended)"; Mary's rank "Lieutenant (Recommended)"): `data/translations/special_list7.json`. All three Saturn-only pilots now have approved English. `SPECIAL-016` (capacity and room) is `READY`.
 - **2026-11-07: SPECIAL-014 done** (`EXP-0079`): SHADE's 148 new boxes translated, fit-checked and approved ("Approve all (Recommended)"; his name as a man "Aichmann (Recommended)"), two speaker names kept official: `data/translations/special_list8.json`. `SPECIAL-015` (list 7, Chiyomaru) is `READY`.
 - **2026-11-07: SPECIAL-013 done** (`EXP-0078`): Devilotte's 150 boxes translated, fit-checked and approved by the user ("Approve all (Recommended)"; "Ambassador Hell (Recommended)"): `data/translations/special_list6.json`. `SPECIAL-014` (list 8, SHADE) is `READY`.
 - **2026-11-07: SPECIAL-012 done**: the user chose a new translation of all the Saturn-only pilots' text and the mech-16 name art, by Claude in the arcade's tone, reviewed per pilot on pages with a literal gloss, new names by US Capcom conventions (`docs/localization_policy.md`, "Saturn-Only Pilots, Decided"). `SPECIAL-013` (list 6, Devilotte) is `READY`.
@@ -3663,7 +3664,8 @@ experiments but still go one list at a time):
 
 ### SPECIAL-015 - Draft and approve list 7
 
-- **Status:** `READY`
+- **Status:** `DONE`
+- **Done:** 2026-11-07 (`EXP-0080`). 147 boxes (146 with text, the shared blank 1072), all within 3 rows and 44 cells on the first check; reviewed on a local gloss page. The user's answers, verbatim: "Approve all (Recommended)" and, for Mary's rank, "Lieutenant (Recommended)". `data/translations/special_list7.json`. No other text is reached only by an unlock (D-065).
 - **Milestone:** M9 (`SPECIAL-001`)
 - **Dependencies:** SPECIAL-014 (done).
 - **Blockers:** None.
@@ -3674,10 +3676,10 @@ experiments but still go one list at a time):
 
 ### SPECIAL-016 - Capacity and room for the whole script
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M9 (`SPECIAL-001`)
-- **Dependencies:** SPECIAL-015.
-- **Blockers:** `SPECIAL-015`.
+- **Dependencies:** SPECIAL-015 (done).
+- **Blockers:** None.
 - **Objective:** Show that all approved English (roster, endings,
   captions and lists 6-8) fits the codes and bytes, or put the trade-off to
   the user.
@@ -3689,6 +3691,11 @@ experiments but still go one list at a time):
   - Bytes needed against room in each file's line area (D-046's method).
   - Ending timing for lists 6-8 under the `END-011` rule.
   - A D-entry; any shortfall asked as a multiple-choice question.
+- **Also from `SPECIAL-010`-`015`:** the mech-16 VS name art (in scope,
+  `SPECIAL-012`; its English name by US Capcom conventions still to be
+  drafted and approved); box 974's own record (it shares Japanese line 661
+  with a roster box); the blank box 1072 and the official names 601/605
+  unchanged.
 
 ### SPECIAL-017 - Build and check from saved states
 
@@ -3735,5 +3742,5 @@ and `docs/lessons_from_xvsf.md`.
 | TXT-002 | after M8, user request | Phase T (`TXT-010`-`TXT-013`), written up 2026-11-07; `DONE` (2026-11-07): `TXT-010`, `TXT-011` (EXP-0074, EXP-0075; D-063, D-064), `TXT-012` closed with evidence, `TXT-013` closed unused. |
 | LOC-001 | after REF-007 | `DONE` (2026-11-06, Phase O: `LOC-001`-`LOC-006` and the gate extension). |
 | OPT-001 | after LOC-001, user decision 2026-11-02 | `DONE` (2026-11-06, Phase P: `OPT-001`-`OPT-006`). |
-| SPECIAL-001 | M9, user approval | Phase U (`SPECIAL-010`-`SPECIAL-018`), written up 2026-11-07 at the user's request; `SPECIAL-010`-`SPECIAL-014` `DONE`; `SPECIAL-015` `READY`. Lists 6-8 (Devilotte, Chiyomaru, SHADE by the name art): 339 story boxes, 22 win quotes, 27 captions, three endings, with no arcade English (D-026, D-030, D-046). |
+| SPECIAL-001 | M9, user approval | Phase U (`SPECIAL-010`-`SPECIAL-018`), written up 2026-11-07 at the user's request; `SPECIAL-010`-`SPECIAL-015` `DONE`; `SPECIAL-016` `READY`. Lists 6-8 (Devilotte, Chiyomaru, SHADE by the name art): 339 story boxes, 22 win quotes, 27 captions, three endings, with no arcade English (D-026, D-030, D-046). |
 | REL-001 | after M5 | Phase R (`REL-001`-`REL-004`): `REL-001` (tool port) `DONE` (2026-11-06); `REL-002`-`REL-004` `BLOCKED`: the user wants `UI-001`-`UI-003`, `TXT-002` and `SPECIAL-001` done first (2026-11-06). |
