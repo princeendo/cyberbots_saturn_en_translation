@@ -3193,3 +3193,25 @@ Notes (do not retry):
   or clearing `+0x2E0` from a mid-screen state shows the mech but an empty
   fifth label box.
 Checks: `ruff check .` passed; `ruff format --check .` 328 files formatted; `mypy` no issues in 90 files; `pytest -q` 262 passed.
+
+## 2026-11-07 — SPECIAL-011: no official English for the Saturn-only pilots (EXP-0077)
+
+User request (verbatim): "Start SPECIAL-011". Static work only.
+
+- Arcade bounds (both sets): select ring of pilots 0-5 at `0xCE00`;
+  eight scene lists (6 pilots, quotes, thank-you); six ending dispatches.
+- Matching all 809 Saturn-only lines against all 624 Japanese records:
+  one exact (661, shared), 67 partial (short phrases); boxes 0 of 259
+  match, control 61 of 61 (Jin). Three lines already English on the disc;
+  806 need a new translation.
+
+Notes (do not retry):
+- **`difflib.SequenceMatcher(None, text)` sets sequence `a`;** with
+  `set_seq1` the compared sequence was then empty and every ratio 0. Pass
+  the fixed text as `b` (`SequenceMatcher(None, (), text)`). The first run
+  reported "no matches" for this reason; the control caught it.
+- **A whole-table search finds partial matches by chance** on short lines
+  (0.6-0.91); judge counterparts by whole boxes, with a control.
+
+Checks: below.
+Checks: `ruff check .` passed; `ruff format --check .` 330 files formatted; `mypy` no issues in 90 files (and `official.py` alone: none); `pytest -q` 262 passed.

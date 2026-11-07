@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-07: SPECIAL-011 done** (`EXP-0077`, D-066): the arcade's code has six pilots only, and no arcade record is a counterpart of any Saturn-only box (0 of 259; Jin's control 61 of 61). The three lines with official English are already English on the disc; 806 lines need a new translation. `SPECIAL-012` (the user's decisions) is `READY`.
 - **2026-11-07: SPECIAL-010 done** (`EXP-0076`, D-065): lists 6-8 are Devilotte, Chiyomaru (with Tessan in his story) and SHADE, all selectable from the start (list 7 is three left of Jin, which `EXP-0033` never tried). The "Akuma mech code" is an earned unlock (finish endings at difficulty 3+), adding a mech with kanji VS name art. Their text: 339 story boxes, 22 win quotes, 27 captions, 59 ending boxes, about 9,500 characters. `SPECIAL-011` is `READY`.
 - **2026-11-07: SPECIAL-001 written up (Phase U).** At the user's request ("Write up SPECIAL-001"), which is rule 24's permission: `SPECIAL-010` (census and routes, `READY`), `SPECIAL-011` (no official English, by code), `SPECIAL-012` (the user's translation decisions), `SPECIAL-013`-`015` (drafts per list, approved), `SPECIAL-016` (capacity), `SPECIAL-017` (build), `SPECIAL-018` (play check and reference). Nothing started.
 - **2026-11-07: TXT-013 closed unused; Phase T done.** No rare text needs a change (D-063, D-064), so no build; the latest image is still `ui007_ui_text.json`. Of the work the user wanted before release (`UI-001`-`UI-003`, `TXT-002`, `SPECIAL-001`), only `SPECIAL-001` remains: it is outline only and needs the user's approval to be written up. `REL-002`-`REL-004` stay `BLOCKED` on it.
@@ -3577,7 +3578,8 @@ experiments but still go one list at a time):
 
 ### SPECIAL-011 - Show that no official English exists
 
-- **Status:** `READY`
+- **Status:** `DONE`
+- **Done:** 2026-11-07 (`EXP-0077`, D-066). The arcade has six pilots in its select ring (`0xCE00`), scene lists, quote table and ending dispatch, in both sets. Of the Saturn-only pilots' 809 lines, only line 661 and the ending speaker names (`END.BIN` 1006, 1010) have official English, all already English on the disc; no multi-line box (0 of 259) matches an arcade record, while all 61 of Jin's do (control). 806 lines (about 9,470 characters) need a new translation (`data/text/special_official.json`).
 - **Milestone:** M9 (`SPECIAL-001`)
 - **Dependencies:** SPECIAL-010 (done).
 - **Blockers:** None.
@@ -3599,10 +3601,10 @@ experiments but still go one list at a time):
 
 ### SPECIAL-012 - The user's decisions for the new translation
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M9 (`SPECIAL-001`)
-- **Dependencies:** SPECIAL-011.
-- **Blockers:** `SPECIAL-011`.
+- **Dependencies:** SPECIAL-011 (done).
+- **Blockers:** None.
 - **Objective:** The user decides how the new translation is made and
   reviewed.
 - **Acceptance criteria:** multiple-choice questions, one option
@@ -3724,5 +3726,5 @@ and `docs/lessons_from_xvsf.md`.
 | TXT-002 | after M8, user request | Phase T (`TXT-010`-`TXT-013`), written up 2026-11-07; `DONE` (2026-11-07): `TXT-010`, `TXT-011` (EXP-0074, EXP-0075; D-063, D-064), `TXT-012` closed with evidence, `TXT-013` closed unused. |
 | LOC-001 | after REF-007 | `DONE` (2026-11-06, Phase O: `LOC-001`-`LOC-006` and the gate extension). |
 | OPT-001 | after LOC-001, user decision 2026-11-02 | `DONE` (2026-11-06, Phase P: `OPT-001`-`OPT-006`). |
-| SPECIAL-001 | M9, user approval | Phase U (`SPECIAL-010`-`SPECIAL-018`), written up 2026-11-07 at the user's request; `SPECIAL-010` `DONE`, `SPECIAL-011` `READY`. Lists 6-8 (Devilotte, Chiyomaru, SHADE by the name art): 339 story boxes, 22 win quotes, 27 captions, three endings, with no arcade English (D-026, D-030, D-046). |
+| SPECIAL-001 | M9, user approval | Phase U (`SPECIAL-010`-`SPECIAL-018`), written up 2026-11-07 at the user's request; `SPECIAL-010`, `SPECIAL-011` `DONE`; `SPECIAL-012` `READY`. Lists 6-8 (Devilotte, Chiyomaru, SHADE by the name art): 339 story boxes, 22 win quotes, 27 captions, three endings, with no arcade English (D-026, D-030, D-046). |
 | REL-001 | after M5 | Phase R (`REL-001`-`REL-004`): `REL-001` (tool port) `DONE` (2026-11-06); `REL-002`-`REL-004` `BLOCKED`: the user wants `UI-001`-`UI-003`, `TXT-002` and `SPECIAL-001` done first (2026-11-06). |

@@ -34,7 +34,7 @@ Win quotes: the 46 boxes that the quote table's rows 0-5 reach
 
 | What | Boxes / lines | Evidence | Why |
 | --- | --- | --- | --- |
-| Pilot lists 6-8 (Saturn-only pilots: list 6 Devilotte, one move left of Jin; list 7 Chiyomaru, three left; list 8 SHADE, two left; `EXP-0076`, D-065) | 339 story boxes; lines 1020-1215, 1249-1445, 1510-1751 and others | `data/text/pilot_census.json` (no line paired with an arcade slot); cold boots `left1`, `left2` (`EXP-0033`) | No official English; special cases (rule 24, `SPECIAL-001`) |
+| Pilot lists 6-8 (Saturn-only pilots: list 6 Devilotte, one move left of Jin; list 7 Chiyomaru, three left; list 8 SHADE, two left; `EXP-0076`, D-065) | 339 story boxes; lines 1020-1215, 1249-1445, 1510-1751 and others | `data/text/pilot_census.json` (no line paired with an arcade slot); cold boots `left1`, `left2` (`EXP-0033`); no arcade counterpart except three shared lines (`EXP-0077`, D-066) | No official English; special cases (rule 24, `SPECIAL-001`) |
 | Their win quotes (quote-table rows 6-8) | boxes 1023-1044, lines 1790-1821 | D-030 | Same |
 | Ending scenes of every list | each list's posts in `data/text/ending_posts.json` (replaces `ending_scenes_by_number`, which listed unposted scenes) | `END.BIN`'s routine for the winner's pilot posts them (`EXP-0039`, D-036) | M6-M8 (rule 23) |
 | List 10 | 7 scenes of speaker-name boxes 602-605 and 609 (lines 1007-1010, 1014) | No Saturn file holds a list-10 post; the arcade's list 7 is the same and is posted at `0x6319C` (`EXP-0033`) | Never shown by the Saturn as far as the code shows |

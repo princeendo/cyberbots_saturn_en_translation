@@ -1382,3 +1382,21 @@ Reproduce: `research/experiments/EXP-0075/README.md`, "Procedure".
   with the roster.
 
 Reproduce: `research/experiments/EXP-0076/README.md`, "Procedure".
+
+## D-066: No official English for the Saturn-only pilots beyond three shared lines (`SPECIAL-011`, `EXP-0077`)
+
+- **Six pilots in the arcade** (both sets): the pilot select steps through
+  a ring of pilots 0-5 (`(left, right)` pairs at `0xCE00`, read by
+  `0xCD80`-`0xCDB8`); the scene scripts have eight lists (pilots 0-5, the
+  48 win-quote scenes of 6 pilots, the thank-you screen); six ending
+  dispatches (D-037); quotes for pilots 0-5 (D-030).
+- **No counterpart.** Of the Saturn-only pilots' 809 lines, one matches an
+  arcade line exactly (661, shared with the roster) and 67 partly, all short
+  phrases inside unrelated arcade lines. No multi-line box (0 of 259)
+  matches an arcade record line for line, while all 61 of Jin's do.
+- Only `STG0AS.BIN` line 661 and `END.BIN` lines 1006/1010 (speaker names
+  of boxes 601/605) have official English, and they are English on the disc
+  already. The other 806 lines need a new translation.
+  `data/text/special_official.json`.
+
+Reproduce: `research/experiments/EXP-0077/README.md`, "Procedure".
