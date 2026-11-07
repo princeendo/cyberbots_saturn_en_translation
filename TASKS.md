@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-07: TXT-002 written up (Phase T) and TXT-010 done** (`EXP-0074`, D-063): every box classified by how the game reaches it. The Saturn's scripts never branch; only 12 boxes have no path (none shown). In the arcade each region reads only its own table, the story posting has no region or random condition, and a third reader is a test-mode viewer. One lead: the US arcade's slot 609, a "coming soon" style message behind list 7 scene 6. `TXT-011` (force it) is `READY`.
 - **2026-11-07: UI-007 done: the UI build play-checked and registered** (`EXP-0073`): three cold boots with real presses (your "Yes, run all 3"): English attract with blank signs; `SIGNS` set to `ENGLISH`, saved and kept after a power cycle (English signs in the attract); Jin's VS caption in English. New reference `ui007_ui_text.json`; the README's build command now produces it. Phase S is done; `REL-002` waits on `TXT-002` and `SPECIAL-001`.
 - **2026-11-07: UI-006 done: English captions and the SIGNS setting built** (`EXP-0072`, D-062): the 54 approved captions in the story font (13 codes from pilots 6-8's lines, your choice), and `EXTRA OPTIONS` → `SIGNS` (`BLANK` default, `ENGLISH`, `JAPANESE`, saved) loading the chosen city signs over the stage tiles. Checked from saved states (VRAM byte for byte, every caption's cells, the menu drawn, its input logic on an interpreter); you approved the art and menu. All nine earlier references still rebuild. `UI-007` (cold-boot play check with presses, then the regression reference) is `READY`.
 - **2026-11-06: UI-005 done: your plan for the captions and signs** (`EXP-0071`): from samples beside both arcades you chose English captions (54 drafts approved, centred; pilots 6-8 with `SPECIAL-001`) and a new saved `SIGNS` setting in `EXTRA OPTIONS` (`BLANK` default, `ENGLISH`, `JAPANESE`; tail file). Verbatim in `docs/localization_policy.md`. `UI-006` (build) is `READY`.
@@ -3372,6 +3373,116 @@ Known so far (facts and their confidence):
     power cycle, and the city signs in each setting.
   - Stages 15 and 16 also use `ST00_FNT.BIN`; reach one if the run allows.
 
+## Phase T: Rare, Random And Region-Gated Text (`TXT-002`)
+
+The user asked for this phase (verbatim, 2026-11-07): "Start TXT-002". The
+outline row: "Rare, random, or region-gated text: trace every reader of
+every text table." It is one of the items the user wants done before any
+release ("Do them first", 2026-11-06, `REL-002`). The method is the
+playbook's step 7 (`docs/playbook_from_mshvsf.md`): in MSHvSF, records
+that ordinary play almost never showed (a 1-in-64 roll, Japanese region
+only) were found only by tracing every reader with MAME read taps and the
+decrypted opcodes, then forcing the rolls. Nothing in that note is a fact
+about Cyberbots.
+
+Starting points (2026-11-07, a quick count from `STG0AS.BIN`, to be
+checked): of 1,074 box records, about 983 are reached through the eleven
+pilot lists' scene scripts and 81 are captions; 11 of the 318 scene scripts
+are in no pilot list and reach about 303 boxes no list reaches; 10 boxes
+(63, 283, 290, 335, 494-495, 552-553, 938, 1073) have no reference at all.
+
+Scope: the six arcade pilots' text, the shared text and every table's
+readers. Text that only the Saturn-only pilots (lists 6-8) show belongs to
+`SPECIAL-001` (rule 24); this phase only records it. The order is:
+
+1. `TXT-010`: the census of every text table and every reader, both
+   machines. Nothing is changed.
+2. `TXT-011`: each rare, random or gated path forced and seen, with the
+   arcade's English found by code.
+3. `TXT-012`: the user's plan for any Japanese found (a gate extension).
+4. `TXT-013`: build and verify, only if `TXT-012` changes anything.
+
+### TXT-010 - Census of the text tables and their readers
+
+- **Status:** `DONE`
+- **Done:** 2026-11-07 (`EXP-0074`, D-063). Saturn: the interpreter never jumps; 913 boxes posted, 81 captions, 68 win quotes; no path for box 555 (an unpicked win quote), box 609 (list 10, never posted) and 10 boxes in no scene or table (`data/text/reachability.json`). The scene table has 313 entries, not 335 (D-021 corrected). Arcade: three readers per set (caption, dialogue by region, a test-mode viewer); in play each set reads only its own table; no region test or random call in the story posting code. Lead for `TXT-011`: the US slot 609 (list 7 scene 6) holds a "coming soon" style message.
+- **Milestone:** Rare text (`TXT-002`)
+- **Dependencies:** UI-007 (done; the current image `ui007_ui_text.json`).
+- **Blockers:** None.
+- **Objective:** Know every place text is stored, every routine that reads
+  it, and, for every box and line, how (or whether) the game reaches it.
+- **Acceptance criteria:**
+  - **Saturn stores:** every text store on the disc, found by the script
+    census (`data/text/script_census.json`), the ASCII lists (`CYBER.BIN`,
+    `OPDEMO.BIN`, `KEND.BIN`) and the art already in `docs/text_surfaces.md`,
+    each with its file, offset and size.
+  - **Saturn reachability:** every box (1,074) and every line of the script
+    copies classified, with evidence: seen in a recorded run (cited); posted
+    by a known path (the poster, its message and its condition); in a scene
+    script no pilot list holds (the poster found, or none); a caption; or no
+    reader. The posters of scene messages (callers of `0x0606DBEA` and every
+    other route to the scene queue, `END.BIN` and `VICTORY.BIN` included)
+    are listed with the condition that sends each (stage, story flag,
+    random value, region, mode).
+  - **Arcade readers:** every routine that reads the Japanese, US English or
+    Spanish dialogue tables, found by MAME read taps over recorded runs of
+    both sets and by the decrypted listings' literals, each with its branch
+    conditions (region byte, random rolls, mode, loss or win).
+  - **Output:** `data/text/reachability.json` (numbers only: boxes, lines,
+    scripts, posters, conditions; no text), and a "Rare And Gated Text"
+    section in `docs/text_surfaces.md`.
+- **Notes:**
+  - Static first; saved-state runs and headless MAME as needed; no cold
+    boot unless asked.
+  - A data search alone never shows that a path is absent.
+
+### TXT-011 - Force each rare path
+
+- **Status:** `READY`
+- **Milestone:** Rare text (`TXT-002`)
+- **Dependencies:** TXT-010 (done).
+- **Blockers:** None.
+- **Objective:** See every box and slot that only a rare, random or gated
+  path shows, on both machines.
+- **Acceptance criteria:**
+  - Each such path forced on the Saturn from saved states (a RAM write of
+    the deciding value) and its boxes shown, with screenshot hashes and
+    whether they are Japanese or English on the current image.
+  - The same choice forced in `cybotsu` and `cybotsj` (MAME, headless), the
+    US English transcribed by slot (no text committed).
+  - Boxes with no reader recorded as dead with the evidence.
+- **Notes:** Lists 6-8 only observed (`SPECIAL-001`).
+- **Targets from `TXT-010`:** the arcade's list 7 scene 6 (US slot 609, a
+  "coming soon" style message; find the object that posts list 7 at
+  `0x631AC` and force its index in both sets); the Saturn boxes with no
+  path (555, 609 and the ten in `reachability.json`) recorded as dead with
+  `TXT-010`'s evidence, plus a check of any Saturn reader of list 10.
+
+### TXT-012 - The user's plan for rare text
+
+- **Status:** `BLOCKED`
+- **Milestone:** Rare text (`TXT-002`)
+- **Dependencies:** TXT-011.
+- **Blockers:** `TXT-011`.
+- **Objective:** The user decides what each rare Japanese surface becomes.
+- **Acceptance criteria:** multiple-choice questions with one option
+  recommended; answers verbatim in `docs/localization_policy.md` as a
+  `GATE-TRANSLATION` extension. Closes with evidence if `TXT-011` finds no
+  Japanese the current image shows.
+
+### TXT-013 - Build and verify rare-text changes
+
+- **Status:** `BLOCKED`
+- **Milestone:** Rare text (`TXT-002`)
+- **Dependencies:** TXT-012.
+- **Blockers:** `TXT-012`.
+- **Objective:** Build what `TXT-012` decides, check it from saved states
+  and on cold boots (asked first), and register the image.
+- **Acceptance criteria:** as `UI-006`/`UI-007`: two builds identical,
+  every change recorded, each changed surface seen, all earlier references
+  still rebuild, a new reference. Closes unused if `TXT-012` changes
+  nothing.
+
 ## Later Milestones (outline only)
 
 Placeholders so the order is visible. Each becomes a full task, with its own
@@ -3387,7 +3498,7 @@ and `docs/lessons_from_xvsf.md`.
 | UI-001 | after M8, user request | Phase S (`UI-001`-`UI-003`, `UI-005`-`UI-007`), written up 2026-11-06; `UI-001` `READY`. |
 | UI-002 | after M8, user request | Phase S (`UI-001`-`UI-003`, `UI-005`-`UI-007`), written up 2026-11-06; `BLOCKED` on `UI-001`. |
 | UI-003 | after M8, user request | Phase S (`UI-001`-`UI-003`, `UI-005`-`UI-007`), written up 2026-11-06; `BLOCKED` on `UI-001`. |
-| TXT-002 | after M8, user request | Rare, random, or region-gated text: trace every reader of every text table. |
+| TXT-002 | after M8, user request | Phase T (`TXT-010`-`TXT-013`), written up 2026-11-07; `TXT-010` `DONE`, `TXT-011` `READY`. |
 | LOC-001 | after REF-007 | `DONE` (2026-11-06, Phase O: `LOC-001`-`LOC-006` and the gate extension). |
 | OPT-001 | after LOC-001, user decision 2026-11-02 | `DONE` (2026-11-06, Phase P: `OPT-001`-`OPT-006`). |
 | SPECIAL-001 | M9, user approval | Boss and hidden pilots, alternate routes, unlocks. Secondary sources (`docs/references.md`) say the console ports add four pilots (Chiyomaru Kagura, Tessan Hagure, Princess Devilotte, SHADE) with no arcade English, and an Akuma-mech code; their lines need recorded new translations under the user's policy. Size: Saturn lines 899-1850 (952 lines, about half the script) have no arcade counterpart (D-011). Among the arcade pilots' stories only line 258 is Saturn-only (line 34 is dead data); the earlier count of 74 came from REF-006's reader bug (`EXP-0023`). |

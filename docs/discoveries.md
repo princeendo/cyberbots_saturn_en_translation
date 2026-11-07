@@ -357,6 +357,10 @@ They show boxes 0-62: Saturn lines 0-120, except the dead line 34, all in
 Writing the scene byte right after it is set shows any chosen scene: three
 forced scenes drew exactly their predicted cells.
 
+(Correction, `EXP-0074`: the scene table has 313 entries, ending at the
+list table `0x060AAD24`; the 335 used in tools runs 22 words past it. The
+boxes found are unchanged.)
+
 Reproduce: `research/experiments/EXP-0022/README.md`, "Procedure".
 
 ## D-022: Jin's story pairs box for slot with the arcade English (`PAIR-001`, `EXP-0023`)
@@ -1309,3 +1313,19 @@ Reproduce: `research/experiments/EXP-0070/README.md`, "Procedure".
   them through its cache, so agent writes do not simulate presses.
 
 Reproduce: `research/experiments/EXP-0072/README.md`, "Procedure".
+
+## D-063: Every box classified by how it is reached; the arcade's dialogue readers (`TXT-010`, `EXP-0074`)
+
+- The Saturn's scene interpreter (`0x0606E230`) never jumps, so a posted
+  scene shows all its boxes. Of 1,074 boxes, 913 are in scenes known paths
+  post, 81 are captions, 68 win quotes; box 555 (a win-quote scene
+  `VICTORY.BIN`'s table never picks), box 609 (list 10, which nothing
+  posts) and 10 boxes in no scene or table (63, 283, 290, 335, 494, 495,
+  552, 553, 938, 1073) have no path. `data/text/reachability.json`.
+- In play, `cybotsu` reads only its English dialogue table and `cybotsj`
+  only its Japanese one (read taps: `0x11F6A`/`0x12014` and
+  `0x11E7A`/`0x11F0E`, plus the caption at `0x116E8`). A third reader,
+  `0x97236`, draws any slot of any table from two variables; it is not
+  reached in play.
+
+Reproduce: `research/experiments/EXP-0074/README.md`, "Procedure".

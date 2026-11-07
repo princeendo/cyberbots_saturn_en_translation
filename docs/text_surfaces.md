@@ -203,3 +203,13 @@ Renders are local only (`EXP-0068` `render.py`, `grid.py`). Tile `n` of a
 | Ruined-city signs | `EXTRA OPTIONS` → `SIGNS`: `BLANK` (default, as the US arcade), `ENGLISH` (`SALE`, `BAZAAR`, `BARGAIN SALE`), `JAPANESE` (the original), saved |
 
 Cold-boot play check: `UI-007` (`EXP-0073`): the attract in English with blank signs; `SIGNS` set with real presses, saved and kept after a power cycle (English signs in the attract); Jin's first VS caption in English.
+
+## Rare And Gated Text (`TXT-010`, `EXP-0074`, D-063)
+
+| What | Path | Saturn | Arcade |
+| --- | --- | --- | --- |
+| Boxes 63, 283, 290, 335, 494, 495, 552, 553, 938, 1073 | none (no scene, caption or quote table) | never shown | slots exist; read only by the test viewer, if at all |
+| Box 555 (a win quote) | list 9 scene 1, never picked by `VICTORY.BIN`'s table | never shown | — |
+| Box 609 (a speaker name) | list 10, never posted on the Saturn | never shown | list 7 scene 6; the US slot 609 holds a "coming soon" style message: `TXT-011` |
+| Region-gated surfaces | — | — | the dialogue table (by region), the VS caption (Japan only, D-060), the city signs (D-061) |
+| Test-mode message viewer (`0x97236`) | the arcade's test menu | — | any slot, any language; not reached in play |

@@ -3071,3 +3071,32 @@ Notes (do not retry):
 
 Checks: `ruff check .`, `ruff format --check .` (321 files), `mypy` (90
 files), `pytest -q` (262 passed) all clean.
+
+## 2026-11-07 — TXT-002 written up; TXT-010: census of text tables and readers (EXP-0074)
+
+User request (verbatim): "Start TXT-002". The outline row had no criteria,
+so Phase T (`TXT-010`-`TXT-013`) was written first, then `TXT-010` run.
+No cold boot, no keys; two headless MAME runs.
+
+- Saturn: scripts parsed to their end words; the interpreter never jumps;
+  every box classified (913 posted, 81 captions, 68 quotes, 12 with no
+  path). The scene table has 313 entries; the 335 in the tools ran into the
+  list table (a first count therefore showed 11 bogus "orphan scripts").
+- Arcade: three readers per set by literals; read taps over a run in each
+  set: each reads only its own table. Posting code: no region test, no
+  random routine found.
+- Lead: US slot 609 holds a "coming soon" style message where the Saturn
+  and Japan have a speaker name (list 7 scene 6).
+
+Notes (do not retry):
+- **Parse scene scripts to `0xE000`**, not to the next script's start: the
+  scan otherwise reads following data as boxes (a "box" 28,252 appeared).
+- **The scene count is 313**: `SCENE_COUNT = 335` (dialogue.py, EXP-0022)
+  runs into the list heads; harmless for the builds (it only bounds scans),
+  left unchanged so outputs stay identical.
+- **`grep` with an `awk` range whose end never matches dumps the whole
+  listing** (6 MB); use line numbers.
+
+Checks: below.
+`ruff check .` passed; `ruff format --check .` 323 files formatted; `mypy`
+no issues in 90 files; `pytest -q` 262 passed.

@@ -1,0 +1,9 @@
+# EXP-0074 (TXT-010): cybotsu; coin, start, two presses, run on; log reads of the three dialogue tables' pointers (624 slots each)
+1 logreads 0x0A310A 0x0A3AC9 local/txt010/mame/cybotsu/reads-ja.txt
+1 logreads 0x0AB956 0x0AC315 local/txt010/mame/cybotsu/reads-es.txt
+1 logreads 0x0B33AA 0x0B3D69 local/txt010/mame/cybotsu/reads-en.txt
+600 press 8 Coin 1
+720 press 8 1 Player Start
+1020 press 8 P1 Button 1
+1320 press 8 P1 Button 1
+9001 exit
