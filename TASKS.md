@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-07: SPECIAL-010 done** (`EXP-0076`, D-065): lists 6-8 are Devilotte, Chiyomaru (with Tessan in his story) and SHADE, all selectable from the start (list 7 is three left of Jin, which `EXP-0033` never tried). The "Akuma mech code" is an earned unlock (finish endings at difficulty 3+), adding a mech with kanji VS name art. Their text: 339 story boxes, 22 win quotes, 27 captions, 59 ending boxes, about 9,500 characters. `SPECIAL-011` is `READY`.
 - **2026-11-07: SPECIAL-001 written up (Phase U).** At the user's request ("Write up SPECIAL-001"), which is rule 24's permission: `SPECIAL-010` (census and routes, `READY`), `SPECIAL-011` (no official English, by code), `SPECIAL-012` (the user's translation decisions), `SPECIAL-013`-`015` (drafts per list, approved), `SPECIAL-016` (capacity), `SPECIAL-017` (build), `SPECIAL-018` (play check and reference). Nothing started.
 - **2026-11-07: TXT-013 closed unused; Phase T done.** No rare text needs a change (D-063, D-064), so no build; the latest image is still `ui007_ui_text.json`. Of the work the user wanted before release (`UI-001`-`UI-003`, `TXT-002`, `SPECIAL-001`), only `SPECIAL-001` remains: it is outline only and needs the user's approval to be written up. `REL-002`-`REL-004` stay `BLOCKED` on it.
 - **2026-11-07: TXT-012 closed with evidence**: no rare path shows Japanese on the Saturn (D-063, D-064), so no question and no gate extension (`docs/localization_policy.md`, "Rare Text, Closed With Evidence"). `TXT-013` is `READY`; by its criteria it closes unused.
@@ -3548,7 +3549,8 @@ experiments but still go one list at a time):
 
 ### SPECIAL-010 - Census and routes of the Saturn-only pilots
 
-- **Status:** `READY`
+- **Status:** `DONE`
+- **Done:** 2026-11-07 (`EXP-0076`, D-065). List 6 Devilotte, list 7 Chiyomaru (Tessan is a character in his story, not a pilot), list 8 SHADE: all on the select ring from the start (list 7 is three left of Jin; cursor `+0x2E2`, ring table `0x060643C0`), routes forced from state 4138. Unlocks are earned, not typed: finishing endings at difficulty 3+ sets saved bytes `0x060D9306`-`930A`, giving these pilots a free mech choice and five more bodies, the last an Akuma-like mech with kanji VS name art (`G-18EX`). Text: 339 story boxes, 22 win quotes, 27 captions, three endings (59 boxes), about 9,500 characters (`data/text/special_census.json`). Open: the unlocked machine-select label, `0x060CFF01`'s meaning, ending voices (`docs/known_unknowns.md`).
 - **Milestone:** M9 (`SPECIAL-001`)
 - **Dependencies:** M8, `TXT-010` (done).
 - **Blockers:** None.
@@ -3575,10 +3577,10 @@ experiments but still go one list at a time):
 
 ### SPECIAL-011 - Show that no official English exists
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M9 (`SPECIAL-001`)
-- **Dependencies:** SPECIAL-010.
-- **Blockers:** `SPECIAL-010`.
+- **Dependencies:** SPECIAL-010 (done).
+- **Blockers:** None.
 - **Objective:** Prove, by the arcade's code, which of these lines have an
   official English counterpart and which need a new translation.
 - **Acceptance criteria:**
@@ -3616,6 +3618,8 @@ experiments but still go one list at a time):
     a page per list with each box's English beside a literal gloss, and
     what an approval covers;
   - whether lines shared with the roster may change.
+  - from `SPECIAL-010`: the mech-16 kanji name art (VS screen) and
+    Tessan's romanization.
 - **Notes:** Glosses and Japanese are never committed; approved English is
   (as `data/translations/vs_captions.json`).
 
@@ -3720,5 +3724,5 @@ and `docs/lessons_from_xvsf.md`.
 | TXT-002 | after M8, user request | Phase T (`TXT-010`-`TXT-013`), written up 2026-11-07; `DONE` (2026-11-07): `TXT-010`, `TXT-011` (EXP-0074, EXP-0075; D-063, D-064), `TXT-012` closed with evidence, `TXT-013` closed unused. |
 | LOC-001 | after REF-007 | `DONE` (2026-11-06, Phase O: `LOC-001`-`LOC-006` and the gate extension). |
 | OPT-001 | after LOC-001, user decision 2026-11-02 | `DONE` (2026-11-06, Phase P: `OPT-001`-`OPT-006`). |
-| SPECIAL-001 | M9, user approval | Phase U (`SPECIAL-010`-`SPECIAL-018`), written up 2026-11-07 at the user's request; `SPECIAL-010` `READY`. Lists 6-8 (Devilotte, Chiyomaru, SHADE by the name art): 339 story boxes, 22 win quotes, 27 captions, three endings, with no arcade English (D-026, D-030, D-046). |
+| SPECIAL-001 | M9, user approval | Phase U (`SPECIAL-010`-`SPECIAL-018`), written up 2026-11-07 at the user's request; `SPECIAL-010` `DONE`, `SPECIAL-011` `READY`. Lists 6-8 (Devilotte, Chiyomaru, SHADE by the name art): 339 story boxes, 22 win quotes, 27 captions, three endings, with no arcade English (D-026, D-030, D-046). |
 | REL-001 | after M5 | Phase R (`REL-001`-`REL-004`): `REL-001` (tool port) `DONE` (2026-11-06); `REL-002`-`REL-004` `BLOCKED`: the user wants `UI-001`-`UI-003`, `TXT-002` and `SPECIAL-001` done first (2026-11-06). |

@@ -110,7 +110,7 @@ MAME 0.289 headless runs. Screenshot hashes: `EXP-0056/census.json`.
 | Devilotte | デビロット姫 ("Princess Devilot") | none (not an arcade pilot) | none |
 | Chiyomaru | 千代丸 (kanji, as art) | none | `CHIYOMARU` |
 | Shade | シェイド | `SHADE` (VS, as the boss) | `SHADE` |
-| Tessan | not on the select grid or a VS screen seen | none | none |
+| Tessan | not on the select grid or a VS screen seen; a character in Chiyomaru's (list 7) story (`EXP-0076`) | none | none |
 
 The Saturn's grid shows these nine; the select and VS banks hold no tenth
 name.
@@ -192,3 +192,15 @@ per pilot, two per mech: name, then model code). All 34 names were seen on
 screen from saved states. The katakana art is replaced, not kept; a
 switchable Japanese version (`OPT-001`) needs storage of its own. The
 cold-boot play check is `LOC-006`.
+
+### Saturn-only pilots and the unlock mech (`SPECIAL-010`, `EXP-0076`)
+
+| List | Pilot (name art) | Select | Fixed mech until unlocked |
+| --- | --- | --- | --- |
+| 6 | Devilotte (デビロット姫) | one left of Jin | mech 12 |
+| 7 | Chiyomaru (千代丸) | three left of Jin | mech 13 |
+| 8 | SHADE (シェイド) | two left of Jin | mech 11 |
+
+Mech 16, unlocked in play (body 8), is an Akuma-like mech; its VS name is
+kanji art with the model code `G-18EX` (probably 豪鬼號, agent-read). It has
+no arcade counterpart and no name in `LOC-004`'s art.

@@ -3165,3 +3165,31 @@ D-026, D-030, D-031, D-046, D-047, D-062, `pilot_census.json`,
 `name_art.json`, `docs/names.md` and `docs/references.md`; nothing new
 measured. No experiment.
 Checks: `ruff check .` passed; `pytest -q` 262 passed (docs-only change).
+
+## 2026-11-07 — SPECIAL-010: census and routes of the Saturn-only pilots (EXP-0076)
+
+User request (verbatim): "Start SPECIAL-010". Saved states in the silent
+home only; no cold boot, no keys.
+
+- The select cursor (`+0x2E2`, not found by EXP-0056) and the ring table
+  `0x060643C0`: list 7 is three moves left of Jin, unlocked from the start.
+  Forced on screen: 6 Devilotte, 7 Chiyomaru, 8 SHADE (agent-read).
+- Routes from state 4138 (pilot bytes): lists 6, 7, 8 post scene 18, 0, 0
+  and stage groups 54, 63, 72; Jin's control matches D-031; list 7 repeated.
+  List 7's narration introduces Tessan.
+- Unlocks (code): saved bytes `0x060D9306`-`930A` from `END.BIN` at
+  difficulty 3+; free mech choice for pilots 6-8 and bodies 4-8. Mech 16
+  forced: an Akuma-like mech with kanji VS name art, outside LOC-004.
+- Census: `data/text/special_census.json` (339 story boxes, 22 quotes,
+  27 captions, 59 ending boxes; about 9,500 characters).
+
+Notes (do not retry):
+- **"List 7 not played" was a route gap, not a lock**: EXP-0033 tried
+  only one and two left moves.
+- **The fighter record's `+0x2D2` alone does not move the select cursor**
+  (EXP-0056); the cursor is `+0x2E2`. At state 4138 both bytes together
+  choose the story.
+- **Machine select's labels are drawn at screen entry**: forcing the body
+  or clearing `+0x2E0` from a mid-screen state shows the mech but an empty
+  fifth label box.
+Checks: `ruff check .` passed; `ruff format --check .` 328 files formatted; `mypy` no issues in 90 files; `pytest -q` 262 passed.

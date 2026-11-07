@@ -1353,3 +1353,32 @@ in the object's creator `0xEC78`; see D-064.)
   constant. Saturn box 609 is arcade slot 618, which no arcade scene opens.
 
 Reproduce: `research/experiments/EXP-0075/README.md`, "Procedure".
+
+## D-065: The Saturn-only pilots: who, how they are reached, the unlocks, and their text (`SPECIAL-010`, `EXP-0076`)
+
+- **Select ring.** The pilot cursor is the player record's `+0x2E2`
+  (player 1 `0x060D02BE`); Left and Right follow nine (left, right) pairs
+  at `STG0A.BIN` `0x060643C0`, one ring 0, 2, 1, 4, 5, 3, 7, 8, 6. Bottom
+  row: lists 7, 8, 6. List 7 is three moves left of Jin. No pilot is locked.
+- **Who** (forced on the select screen, agent-read): list 6 Princess
+  Devilot (Devilotte), list 7 Chiyomaru, list 8 SHADE. List 7's opening
+  narration names Tessan, a character of Chiyomaru's story, not a pilot.
+- **Route.** From REF-005 state 4138, setting player 1's pilot bytes
+  (`0x060D02B2`, `0x060D02BE`) to 6, 7 or 8 posts list 6 scene 18, list 7
+  scene 0 or list 8 scene 0, and the stage byte reads 54, 63 or 72; list
+  7's run repeated with identical screenshots.
+- **Unlocks** (code): five saved bytes `0x060D9306`-`0x060D930A`, set by
+  `END.BIN` (`0x060601C8`) when an ending finishes at difficulty 3 or
+  higher (by pilot 6, 7, 8; all three; and with `0x060CFF01` = 0), fill
+  the word table `0x060D9230`. A set word gives that Saturn-only pilot a
+  free machine choice (otherwise mechs 12, 13, 11 are fixed) and adds a
+  body to machine select; body 8 is mech 16, an Akuma-like mech whose VS
+  name is kanji art with the model code `G-18EX` (forced; not in
+  `LOC-004`'s sixteen).
+- **Text** (`data/text/special_census.json`): 339 story boxes (636 lines),
+  22 win quotes (32 lines), 27 VS captions and three endings (59 boxes,
+  114 lines in `END.BIN`); about 9,500 Japanese characters. All reachable;
+  one story line (661) and the ending boxes 1072, 601 and 605 are shared
+  with the roster.
+
+Reproduce: `research/experiments/EXP-0076/README.md`, "Procedure".
