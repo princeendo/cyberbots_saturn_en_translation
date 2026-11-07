@@ -77,7 +77,7 @@ Each is put to the user when its task has the evidence.
 | Roster and exceptions for M5 | `RE-005` |
 | Ending layout and labels | `END-001`, `END-002` |
 | ~~Name-variant delivery~~ Decided 2026-11-02: an Options-screen toggle (above) | — |
-| Caption, UI-art and attract style | `UI-005` (with the facts from `UI-001`-`UI-003`) |
+| ~~Caption, UI-art and attract style~~ Decided 2026-11-06 (`UI-005`, "UI Text and Art, Decided") | — |
 
 ## Translation Gates
 
@@ -110,6 +110,27 @@ answers verbatim. The new menu words (`EXTRA OPTIONS`, `NAMES`, `ENGLISH`,
 | Entry row | "The sub-menu needs one entry row on OPTION MODE itself, which has no free line. Where should that entry go?" → "Rows up one line (Recommended)" | OPTION MODE's rows and `PRESS START TO EXIT` move up one text row (8 pixels); the entry is a 9th row. |
 | Sub-menu name | "What should the entry and the sub-menu be called? (On it: the NAMES row, then a way back, in the same style as KEY CONFIG's own screen.)" → "EXTRA OPTIONS (Recommended)" | The entry row and the sub-menu's title read `EXTRA OPTIONS`. |
 | Layout (2026-11-06, `OPT-005`) | "OPTION MODE layout: moving the rows up one line frees only one line, and the EXTRA OPTIONS row plus the usual blank line before PRESS START TO EXIT need two. (Correction: EXIT one line lower sits 13 pixels above the bottom of the picture, not 4 as I said before.) Which layout?" → "Title and rows up two lines (Recommended)" | Supersedes "Rows up one line": the OPTION MODE title moves from text row 4 to 2, the rows to 6, 8, … 18, `3M RAM MODE` to 20, `EXTRA OPTIONS` at 22, `PRESS START TO EXIT` stays at 24. The earlier "4 pixels" figure in the "Entry row" question was wrong (it described two lines lower). |
+
+## UI Text and Art, Decided (2026-11-06, `UI-005`, `GATE-TRANSLATION` extension)
+
+Asked after `UI-001`-`UI-003` (D-059, D-060, D-061), with rendered samples
+beside both arcades (`EXP-0071`: Saturn captions as now, with no caption,
+and in English, centred and left-aligned; the city signs as now, blank,
+and with English lettering). Neither surface has official English. Questions
+and answers verbatim. This also settles "Caption, UI-art and attract style".
+
+| Topic | Question (verbatim) → answer (verbatim) | Decision |
+| --- | --- | --- |
+| VS captions | "VS chapter captions (one per arcade-mode fight; 54 for the six arcade pilots) have no official English: the US arcade skips the caption entirely, and its English slots hold one unrelated line. What should the Saturn show? (Samples: captions sheet.)" → "Translate them (Recommended)" | The 54 captions of pilots 0-5 get a new English translation (one row, at most 26 characters, the story's arcade-letter pair glyphs). Font room is measured before the build; if it falls short, the user is asked again. |
+| City signs | "Ruined-city stage signs (a red banner, a white banner with a small sign, and a sale sign; attract demo and fights) have no official English: the US arcade blanks them. What should the Saturn show? (Samples: signs sheet.)" → "Let's make it part of the extra options. Choices are blank, English, and Japanese (blank is the default)." | A new `EXTRA OPTIONS` setting chooses the signs: blank (as the US arcade; the default), English lettering, or the Japanese art. |
+| Pilots 6-8's captions | "Pilots 6-8 (the console-only pilots) have 27 more captions with no arcade counterpart. Handle them here with the others, or with SPECIAL-001 (the console-only pilots' task)?" → "With SPECIAL-001 (Recommended)" | Boxes 1045-1071 are decided with `SPECIAL-001`; until then they stay as they are. |
+| Names switch | "Should these caption and sign changes apply under both settings of the NAMES switch (ENGLISH and JAPANESE)?" → "Both settings (Recommended)" | Captions and signs do not depend on `NAMES`. |
+| Caption text | "Do you approve the 54 draft English VS captions listed in data/translations/vs_captions.json (for example Jin's: 'A Mystery Cyborg Appears', 'A Warrior's Past', 'Get the Booster!')? Use Other to name any you want changed." → "Approve the drafts (Recommended)" | `data/translations/vs_captions.json` is the approved new translation (translator: Claude, the agent). |
+| Caption layout | "How should an English caption sit in its banner? (Samples: the captions sheet's third row, centred on the left, left-aligned on the right.)" → "Centred (Recommended)" | Leading spaces centre each caption in the banner's 26 character places. |
+| Signs row | "The new EXTRA OPTIONS row for the city signs: what should it say? It uses the menu's own font, under the NAMES row." → "SIGNS BLANK/ENGLISH/JAPANESE (Recommended)" | Row `SIGNS` under `NAMES`, values `BLANK` (default), `ENGLISH`, `JAPANESE` (new menu words by the agent, approved). |
+| Sign words | "For the signs' ENGLISH setting, which words? (Sample: signs sheet, right.) The red banner reads 'red-tag sale', the white one 'Summer Leisure Bazaar', the facade 'Big Bargain Sale'; vertical banners fit about 5-6 stacked letters." → "SALE / BAZAAR / BARGAIN SALE (Recommended)" | Red banner `SALE`, white banner `BAZAAR` (stacked arcade capitals in the writing colours), facade `BARGAIN SALE` (small capitals along its slope); the small sign under the white banner is blanked. |
+| Saving | "Should the SIGNS choice be saved with the other options? A second spare byte of the game's own settings block works as NAMES does: 0 would mean BLANK, so old saves, no save and DATA RESET all give BLANK." → "Save it (Recommended)" | Kept in the settings block's spare byte `0x060D9296`, saved with the other options; 0 = `BLANK`. |
+| Storage | "Where should the three sign versions live? The disc's stage file can hold only one version (BLANK, the default); the other two (about 3 KB each) must be stored elsewhere and copied over the stage's tiles when it loads, in the attract demo and in fights." → "Tail file, as NAMES (Recommended)" | `ST00_FNT.BIN` on the disc holds the blank signs; one new file in track 01's free end sectors holds the English and Japanese sign blocks, copied over the stage tiles after `ST00_FNT.BIN` loads when `SIGNS` is not `BLANK`. |
 
 ## Release Decisions (2026-11-06, `REL-002`)
 

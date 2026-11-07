@@ -2967,3 +2967,32 @@ Notes (do not retry):
 
 Checks: `ruff check .`, `ruff format --check .` (309 files), `mypy` (86
 files), `pytest -q` (252 passed) all clean; `mypy` on `EXP-0070` clean.
+
+## 2026-11-06 — UI-005: the user's plan for the captions and signs (EXP-0071)
+
+User request (verbatim): "Start UI-005". No cold boot, no keys.
+
+- Samples from saved states (`EXP-0071` `samples.py`): captions as now,
+  with no caption (reader returns at once), and in English (pair glyphs,
+  centred and left-aligned); the city signs as now, blank, and lettered
+  (offline store renders plus live shots). Two sheets with both arcades
+  went to the user.
+- Decisions (verbatim in `docs/localization_policy.md`, "UI Text and Art,
+  Decided"): translate the 54 captions (the agent's drafts approved,
+  centred), pilots 6-8 with `SPECIAL-001`; the signs become a saved
+  `EXTRA OPTIONS` setting `SIGNS` (`BLANK` default, `ENGLISH` with `SALE`,
+  `BAZAAR`, `BARGAIN SALE`, `JAPANESE`), stored in a tail file; both apply
+  under either `NAMES` setting. The signs answer was the user's own words
+  (Other), not one of the offered options.
+
+Notes (do not retry):
+- **FIX.BIN's small capitals use colour 5 for ink and F for shadow**;
+  drawing every non-zero pixel as ink fills the letters (`S` looks like
+  `8`).
+- **Live sign samples at this camera hide the banners' tops and the HUD
+  covers their middles**; render the store offline from the state's VRAM
+  for review.
+
+Checks: `ruff check .`, `ruff format --check .` (311 files), `mypy` (86
+files), `pytest -q` (252 passed) all clean; `samples.py` rerun: all nine
+shots identical.

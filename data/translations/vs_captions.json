@@ -1,0 +1,395 @@
+{
+ "task": "UI-005",
+ "surface": "VS chapter captions, pilots 0-5 (boxes 496-549; EXP-0069)",
+ "translator": "Claude (agent), new translation from the Saturn Japanese; no official English exists (D-060)",
+ "approved": "2026-11-06, the user: \"Translate them (Recommended)\", \"Approve the drafts (Recommended)\", \"Centred (Recommended)\", \"With SPECIAL-001 (Recommended)\" (pilots 6-8), \"Both settings (Recommended)\"; docs/localization_policy.md \"UI Text and Art, Decided\"",
+ "source": {
+  "file": "STG0AS.BIN",
+  "sha256": "3fabb4dbb9d08b2de570467414d653c9e6f0d72cf8ee4f72ecbb1683df77ac45",
+  "lines": "EXP-0069 captions_table.json"
+ },
+ "room": "one row, 13 cells, two letters a cell: at most 26 characters (D-060)",
+ "layout": "centred: leading spaces, (26 - characters) // 2",
+ "names_switch": "the same under NAMES ENGLISH and JAPANESE",
+ "not_here": "boxes 1045-1071 (pilots 6-8): SPECIAL-001",
+ "captions": [
+  {
+   "box": 496,
+   "pilot": "Jin",
+   "stage": 0,
+   "english": "A Mystery Cyborg Appears",
+   "characters": 24
+  },
+  {
+   "box": 497,
+   "pilot": "Jin",
+   "stage": 1,
+   "english": "A Warrior's Past",
+   "characters": 16
+  },
+  {
+   "box": 498,
+   "pilot": "Jin",
+   "stage": 2,
+   "english": "Allied Forces Approach",
+   "characters": 22
+  },
+  {
+   "box": 499,
+   "pilot": "Jin",
+   "stage": 3,
+   "english": "Get the Booster!",
+   "characters": 16
+  },
+  {
+   "box": 500,
+   "pilot": "Jin",
+   "stage": 4,
+   "english": "Rogue VA: Save the Girl",
+   "characters": 23
+  },
+  {
+   "box": 501,
+   "pilot": "Jin",
+   "stage": 5,
+   "english": "Super-8 Crashes In!",
+   "characters": 19
+  },
+  {
+   "box": 502,
+   "pilot": "Jin",
+   "stage": 6,
+   "english": "Battle of the Great Fleet",
+   "characters": 25
+  },
+  {
+   "box": 503,
+   "pilot": "Jin",
+   "stage": 7,
+   "english": "Showdown: Final Weapon",
+   "characters": 22
+  },
+  {
+   "box": 504,
+   "pilot": "Jin",
+   "stage": 8,
+   "english": "The Truth Revealed",
+   "characters": 18
+  },
+  {
+   "box": 505,
+   "pilot": "Mary",
+   "stage": 0,
+   "english": "A Man of Mystery",
+   "characters": 16
+  },
+  {
+   "box": 506,
+   "pilot": "Mary",
+   "stage": 1,
+   "english": "An Unexpected Enemy",
+   "characters": 19
+  },
+  {
+   "box": 507,
+   "pilot": "Mary",
+   "stage": 2,
+   "english": "Enter the Arch-Villain!",
+   "characters": 23
+  },
+  {
+   "box": 508,
+   "pilot": "Mary",
+   "stage": 3,
+   "english": "Reunion with a Veteran",
+   "characters": 22
+  },
+  {
+   "box": 509,
+   "pilot": "Mary",
+   "stage": 4,
+   "english": "Wandering Energy",
+   "characters": 16
+  },
+  {
+   "box": 510,
+   "pilot": "Mary",
+   "stage": 5,
+   "english": "Defection... and Resolve",
+   "characters": 24
+  },
+  {
+   "box": 511,
+   "pilot": "Mary",
+   "stage": 6,
+   "english": "The Black Pursuer",
+   "characters": 17
+  },
+  {
+   "box": 512,
+   "pilot": "Mary",
+   "stage": 7,
+   "english": "Twisted Power",
+   "characters": 13
+  },
+  {
+   "box": 513,
+   "pilot": "Mary",
+   "stage": 8,
+   "english": "Countdown",
+   "characters": 9
+  },
+  {
+   "box": 514,
+   "pilot": "Santana",
+   "stage": 0,
+   "english": "Let's Do This!",
+   "characters": 14
+  },
+  {
+   "box": 515,
+   "pilot": "Santana",
+   "stage": 1,
+   "english": "Gimme a Break!",
+   "characters": 14
+  },
+  {
+   "box": 516,
+   "pilot": "Santana",
+   "stage": 2,
+   "english": "The Name's Santana!",
+   "characters": 19
+  },
+  {
+   "box": 517,
+   "pilot": "Santana",
+   "stage": 3,
+   "english": "Bring It On!",
+   "characters": 12
+  },
+  {
+   "box": 518,
+   "pilot": "Santana",
+   "stage": 4,
+   "english": "So You Showed Up!",
+   "characters": 17
+  },
+  {
+   "box": 519,
+   "pilot": "Santana",
+   "stage": 5,
+   "english": "What Are These Guys!?",
+   "characters": 21
+  },
+  {
+   "box": 520,
+   "pilot": "Santana",
+   "stage": 6,
+   "english": "Try and Stop Me!",
+   "characters": 16
+  },
+  {
+   "box": 521,
+   "pilot": "Santana",
+   "stage": 7,
+   "english": "You're the Last One!",
+   "characters": 20
+  },
+  {
+   "box": 522,
+   "pilot": "Santana",
+   "stage": 8,
+   "english": "I'll Blow You Away!",
+   "characters": 19
+  },
+  {
+   "box": 523,
+   "pilot": "Arieta",
+   "stage": 0,
+   "english": "Where the Escape Leads",
+   "characters": 22
+  },
+  {
+   "box": 524,
+   "pilot": "Arieta",
+   "stage": 1,
+   "english": "A Cornered Girl",
+   "characters": 15
+  },
+  {
+   "box": 525,
+   "pilot": "Arieta",
+   "stage": 2,
+   "english": "Colosseum: A Sudden Foe",
+   "characters": 23
+  },
+  {
+   "box": 526,
+   "pilot": "Arieta",
+   "stage": 3,
+   "english": "Colosseum: A Sudden Foe 2",
+   "characters": 25
+  },
+  {
+   "box": 527,
+   "pilot": "Arieta",
+   "stage": 4,
+   "english": "The Lost Heart",
+   "characters": 14
+  },
+  {
+   "box": 528,
+   "pilot": "Arieta",
+   "stage": 5,
+   "english": "Sync: Mystery Energy",
+   "characters": 20
+  },
+  {
+   "box": 529,
+   "pilot": "Arieta",
+   "stage": 6,
+   "english": "Carve Out Your Fate",
+   "characters": 19
+  },
+  {
+   "box": 530,
+   "pilot": "Arieta",
+   "stage": 7,
+   "english": "The Final Weapon's Truth",
+   "characters": 24
+  },
+  {
+   "box": 531,
+   "pilot": "Arieta",
+   "stage": 8,
+   "english": "Face \"Sorrow\" Head-On!",
+   "characters": 22
+  },
+  {
+   "box": 532,
+   "pilot": "Gawaine",
+   "stage": 0,
+   "english": "War Breaks Out Again",
+   "characters": 20
+  },
+  {
+   "box": 533,
+   "pilot": "Gawaine",
+   "stage": 1,
+   "english": "Showdown at High Noon",
+   "characters": 21
+  },
+  {
+   "box": 534,
+   "pilot": "Gawaine",
+   "stage": 2,
+   "english": "Devilotte Is Here!",
+   "characters": 18
+  },
+  {
+   "box": 535,
+   "pilot": "Gawaine",
+   "stage": 3,
+   "english": "The Resistance's Plan?",
+   "characters": 22
+  },
+  {
+   "box": 536,
+   "pilot": "Gawaine",
+   "stage": 4,
+   "english": "The Entranced Girl",
+   "characters": 18
+  },
+  {
+   "box": 537,
+   "pilot": "Gawaine",
+   "stage": 5,
+   "english": "Young Warriors",
+   "characters": 14
+  },
+  {
+   "box": 538,
+   "pilot": "Gawaine",
+   "stage": 6,
+   "english": "Machine Warrior",
+   "characters": 15
+  },
+  {
+   "box": 539,
+   "pilot": "Gawaine",
+   "stage": 7,
+   "english": "Colossal Malice",
+   "characters": 15
+  },
+  {
+   "box": 540,
+   "pilot": "Gawaine",
+   "stage": 8,
+   "english": "Father and Son",
+   "characters": 14
+  },
+  {
+   "box": 541,
+   "pilot": "Bao and Mao",
+   "stage": 0,
+   "english": "A Big Battle Right Away!",
+   "characters": 24
+  },
+  {
+   "box": 542,
+   "pilot": "Bao and Mao",
+   "stage": 1,
+   "english": "Meeting a Girl",
+   "characters": 14
+  },
+  {
+   "box": 543,
+   "pilot": "Bao and Mao",
+   "stage": 2,
+   "english": "Kids' Showdown",
+   "characters": 14
+  },
+  {
+   "box": 544,
+   "pilot": "Bao and Mao",
+   "stage": 3,
+   "english": "Street Fight",
+   "characters": 12
+  },
+  {
+   "box": 545,
+   "pilot": "Bao and Mao",
+   "stage": 4,
+   "english": "Evil Hands Draw Near!?",
+   "characters": 22
+  },
+  {
+   "box": 546,
+   "pilot": "Bao and Mao",
+   "stage": 5,
+   "english": "The Man Who Came to Steal",
+   "characters": 25
+  },
+  {
+   "box": 547,
+   "pilot": "Bao and Mao",
+   "stage": 6,
+   "english": "Another Kids' Showdown",
+   "characters": 22
+  },
+  {
+   "box": 548,
+   "pilot": "Bao and Mao",
+   "stage": 7,
+   "english": "Protect Big Sis!",
+   "characters": 16
+  },
+  {
+   "box": 549,
+   "pilot": "Bao and Mao",
+   "stage": 8,
+   "english": "The Real Villain",
+   "characters": 16
+  }
+ ]
+}

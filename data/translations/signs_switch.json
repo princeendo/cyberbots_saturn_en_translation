@@ -1,0 +1,28 @@
+{
+ "task": "UI-005",
+ "approved": "2026-11-06, docs/localization_policy.md \"UI Text and Art, Decided\": \"Let's make it part of the extra options. Choices are blank, English, and Japanese (blank is the default).\", \"SIGNS BLANK/ENGLISH/JAPANESE (Recommended)\", \"SALE / BAZAAR / BARGAIN SALE (Recommended)\", \"Save it (Recommended)\", \"Tail file, as NAMES (Recommended)\", \"Both settings (Recommended)\"",
+ "menu": {
+  "sub_menu": "EXTRA OPTIONS",
+  "row": "SIGNS",
+  "after_row": "NAMES",
+  "values": [
+   "BLANK",
+   "ENGLISH",
+   "JAPANESE"
+  ]
+ },
+ "default": "BLANK",
+ "setting_byte": "0x060D9296",
+ "saved": true,
+ "zero_means": "BLANK",
+ "signs": "the ruined-city stage's NBG2 signs in ST00_FNT.BIN (D-061; EXP-0070 signs.json)",
+ "english": {
+  "red banner": "SALE",
+  "white banner": "BAZAAR",
+  "small sign under the white banner": "(blank)",
+  "facade sale sign": "BARGAIN SALE"
+ },
+ "english_style": "banners: the arcade's dialogue capitals stacked, in the signs' writing colours; facade: small capitals along its slope (EXP-0071 sample)",
+ "storage": "ST00_FNT.BIN on the disc holds BLANK; one new track-01 tail file holds the ENGLISH and JAPANESE sign blocks, copied over the stage tiles after ST00_FNT.BIN loads when SIGNS is not BLANK",
+ "names_switch": "independent of NAMES"
+}

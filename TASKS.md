@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-06: UI-005 done: your plan for the captions and signs** (`EXP-0071`): from samples beside both arcades you chose English captions (54 drafts approved, centred; pilots 6-8 with `SPECIAL-001`) and a new saved `SIGNS` setting in `EXTRA OPTIONS` (`BLANK` default, `ENGLISH`, `JAPANESE`; tail file). Verbatim in `docs/localization_policy.md`. `UI-006` (build) is `READY`.
 - **2026-11-06: UI-002 done: the ruined-city signs** (`EXP-0070`, D-061): three signs are raw NBG2 tiles of `ST00_FNT.BIN` (24 blocks, same-size splices); a one-byte test image changed exactly two pixels. Both arcade sets hold both building versions, and the US program blanks the signs by its region byte (map blocks and palettes; forced both ways): no English. `UI-005` (your plan for the captions and signs) is `READY`.
 - **2026-11-06: UI-003 done: the VS captions** (`EXP-0069`, D-060): on the Saturn a caption is one `STG0AS.BIN` line in a fixed banner, one row of 13 cells (26 characters with pair glyphs). Both arcade sets create it only when the region byte is Japan (forced both ways in MAME), its drawer has only the Japanese table, and the English slots 494-551 hold one shared non-caption record: there is no official English for the captions. `UI-002` (attract: the city signs) is next; then `UI-005` (your plan).
 - **2026-11-06: UI-001 done: the English art in the fonts** (`UI-001` part 2, `EXP-0068`, D-059): the menu font is `FIX.BIN` (ASCII-indexed, VDP2 `0x0`) and has `t`-`z` (one tile blanked, one string rewritten, from a saved state). `KEND_1.BIN` is type 2: all 29 cast-roll records decode byte for byte to the game's shadow. Every UI store is listed in `docs/text_surfaces.md`, "English Art In The Fonts"; the unknown-format stores are listed with their loads. Correction to D-052: bank 56 holds a small Latin list of the four base bodies. `UI-002` and `UI-003` are `READY` (one at a time).
@@ -3245,7 +3246,8 @@ Known so far (facts and their confidence):
 
 ### UI-005 - The user's plan for each UI surface
 
-- **Status:** `READY`
+- **Status:** `DONE`
+- **Done:** 2026-11-06 (`EXP-0071` samples; answers verbatim in `docs/localization_policy.md`, "UI Text and Art, Decided"). Captions: translated, the agent's 54 drafts approved and centred (`data/translations/vs_captions.json`); pilots 6-8's 27 with `SPECIAL-001`. Signs: a new `EXTRA OPTIONS` row `SIGNS` (`BLANK` default, `ENGLISH` `SALE`/`BAZAAR`/`BARGAIN SALE`, `JAPANESE`), saved in `0x060D9296`, other versions in a tail file (`data/translations/signs_switch.json`). Both apply under either `NAMES` setting. Style settled (centred pair glyphs; stacked arcade capitals).
 - **Milestone:** UI text and art (`UI-001`)
 - **Dependencies:** UI-001, UI-002, UI-003.
 - **Blockers:** None (`UI-001`-`UI-003` are done).
@@ -3278,16 +3280,17 @@ Known so far (facts and their confidence):
 
 ### GATE-TRANSLATION extension for the UI text and art
 
-- **Status:** `BLOCKED` (on `UI-005`)
-- **Scope:** set by `UI-005` from the surfaces found in `UI-001`-`UI-003`.
-- **Asked:** not yet.
+- **Status:** `DONE`
+- **Scope:** the VS captions of pilots 0-5 and the ruined-city signs.
+- **Asked:** 2026-11-06, with `UI-005`; answers verbatim in
+  `docs/localization_policy.md`, "UI Text and Art, Decided".
 
 ### UI-006 - Build the UI changes
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** UI text and art (`UI-001`)
-- **Dependencies:** UI-005 and its gate extension.
-- **Blockers:** `UI-005`.
+- **Dependencies:** UI-005 and its gate extension (done).
+- **Blockers:** None.
 - **Objective:** The current image with every decided UI change, built
   from the untouched source.
 - **Acceptance criteria:**
@@ -3315,6 +3318,21 @@ Known so far (facts and their confidence):
     ranges proven by logs (the `OPT-003` method).
   - Saved states can show stale fonts, so every changed screen is checked
     again on a cold boot in `UI-007`.
+  - **Decided scope** (`UI-005`, 2026-11-06):
+    - **Captions:** the 54 approved English captions
+      (`data/translations/vs_captions.json`), centred, as story pair glyphs
+      in each box's line. First measure the font room (pairs already in the
+      build, codes freed by the Japanese captions, free codes); if they do
+      not fit, ask the user before building. Boxes 494-495 share or copy
+      box 496's text; 1045-1071 are left to `SPECIAL-001`.
+    - **Signs:** `ST00_FNT.BIN` built with the signs blank (the final art,
+      shown to the user); a tail file with the `ENGLISH` and `JAPANESE` sign
+      blocks (`data/translations/signs_switch.json`); a hook after each
+      `ST00_FNT.BIN` load (attract and fights, found by a load log) that
+      copies the chosen blocks when byte `0x060D9296` is not 0; the `SIGNS`
+      row under `NAMES` in `EXTRA OPTIONS`. Hook RAM and tail sectors are
+      proven as `OPT-002`/`OPT-003` did (a design step inside this task).
+    - Both under either `NAMES` setting.
 
 ### UI-007 - Verify and register
 
