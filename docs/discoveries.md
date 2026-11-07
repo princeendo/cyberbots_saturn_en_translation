@@ -1418,3 +1418,21 @@ Reproduce: `research/experiments/EXP-0077/README.md`, "Procedure".
   (`CYBER.BIN` `0x38C60`).
 
 Reproduce: `research/experiments/EXP-0081/README.md`, "Procedure".
+
+## D-068: The Saturn-only pilots in English: built and seen from saved states (`SPECIAL-017`, `EXP-0082`)
+
+- `tools.text.dialogue --special ... --special-mech ... --max-sacrifice 330`
+  builds lists 6-8's approved English into the UI image (two builds
+  identical; the ten earlier references rebuild unchanged). 326 Japanese
+  codes are taken, none shown.
+- From saved states, every box draws its predicted cells: lists 6-8's 71
+  story scenes (339 boxes), 68 win quotes, 81 captions and all nine endings;
+  the roster's story and quote predictions are unchanged.
+- Lists 6-8's own ending boxes must use story-font codes only: the roster's
+  endings draw the same `END.BIN` codes from `SE.DAT`.
+- The unlock mech's VS name is frame `0x79` (mech table `0x06087A1C`, entry
+  16), whose frame-table end is a 0 terminator; it draws with another
+  palette than the sixteen mech names (white = index 1, light blue = 2,
+  shadow = 7, bar = 6). Under NAMES JAPANESE the original kanji return.
+
+Reproduce: `research/experiments/EXP-0082/README.md`, "Procedure".

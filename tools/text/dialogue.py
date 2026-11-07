@@ -106,6 +106,7 @@ ROW_CHARS = 32
 MAX_ROWS = 3
 MAX_CELLS = 60
 SPACE_CODE = 0x8140
+MECH16_FRAME = 0x79  # the unlock mech's VS name frame (mech table 0x06087A1C)
 NEW_CODE_FIRST = 0xF040  # user-defined Shift-JIS area: never a table code here
 FILES = Path("local/extracted/saturn_jp")
 LISTING = Path("references/saturn_jp/iso_listing.json")
@@ -295,6 +296,84 @@ def shift_rows(rows: Sequence[str]) -> list[str]:
             return [v[c] for v, c in zip(variants, choice, strict=True)]
 
 
+def shift_rows_fixed(rows: Sequence[str], fixed: set[str]) -> list[str]:
+    """``shift_rows`` for rows added to a build whose other rows are set.
+
+    SPECIAL-017: the Saturn-only pilots' new rows are indented by half a cell
+    where that adds fewer pairs, counting ``fixed`` (the roster's pairs) as
+    already paid, so the roster's rows and codes stay as they were.
+    """
+    variants = [[r, " " + r if len(r) < ROW_CHARS else r] for r in rows]
+
+    def ps(row: str) -> set[str]:
+        return {p for p in pairs.split_pairs(row) if p != "  "}
+
+    choice = [0] * len(rows)
+    count: Counter[str] = Counter()
+    for v in variants:
+        count.update(ps(v[0]))
+    while True:
+        changed = 0
+        for i, v in enumerate(variants):
+            count.subtract(ps(v[choice[i]]))
+            cost = [
+                sum(1 for p in ps(x) if p not in fixed and count[p] <= 0) for x in v
+            ]
+            new = 0 if cost[0] <= cost[1] else 1
+            changed += new != choice[i]
+            choice[i] = new
+            count.update(ps(v[new]))
+        if not changed:
+            return [v[c] for v, c in zip(variants, choice, strict=True)]
+
+
+def special_boxes(
+    docs: Sequence[Mapping[str, object]],
+    box_lines: Mapping[int, Sequence[int]],
+    section: str,
+) -> list[Box]:
+    """New-translation boxes of one section (SPECIAL-013-015 files).
+
+    Boxes that keep official English (``official_slot``) or stay blank are
+    left out. ``slot`` is -1: no arcade record. Each must fit the box rules.
+    """
+    out: list[Box] = []
+    for doc in docs:
+        for b in doc["boxes"]:  # type: ignore[attr-defined]
+            if b["section"] != section or b.get("official_slot") is not None:
+                continue
+            if not b["english"]:
+                continue
+            rows = wrap(b["english"])
+            if len(rows) > MAX_ROWS or cells_of(rows) > MAX_CELLS:
+                raise SystemExit(f"special box {b['box']}: {len(rows)} rows")
+            out.append(Box(int(b["box"]), -1, tuple(box_lines[b["box"]]), tuple(rows)))
+    return out
+
+
+def stg_box_lines(stg: bytes) -> dict[int, list[int]]:
+    """Box -> the `STG0AS.BIN` lines its record points to."""
+
+    def u16(a: int) -> int:
+        return int.from_bytes(stg[a - BASE : a - BASE + 2], "big")
+
+    def u32(a: int) -> int:
+        return int.from_bytes(stg[a - BASE : a - BASE + 4], "big")
+
+    address_line = {BASE + off: i for i, (off, _) in enumerate(line_table())}
+    out: dict[int, list[int]] = {}
+    for box in range(1074):
+        entry = u32(RECORDS + 4 * box) + 8
+        while True:
+            line = address_line.get(u32(entry))
+            if line is not None:
+                out.setdefault(box, []).append(line)
+            if u16(entry + 4) != 0xFFFF:
+                break
+            entry += 8
+    return out
+
+
 def rank_codes(
     candidates: Sequence[int],
     table: Sequence[int],
@@ -424,6 +503,34 @@ def build(args: argparse.Namespace) -> int:
         for b in boxes + quotes:
             if cells_of(b.rows) > MAX_CELLS:
                 raise SystemExit(f"box {b.box}: {cells_of(b.rows)} cells after indent")
+    # SPECIAL-017: the Saturn-only pilots' approved new translation.
+    special_docs = [json.loads(path.read_text()) for path in args.special]
+    if special_docs:
+        lines_of = stg_box_lines(bytes(stg))
+        fixed_pairs = set(wanted_pairs(boxes + quotes))
+        new_story = special_boxes(special_docs, lines_of, "story")
+        new_quotes = special_boxes(special_docs, lines_of, "win_quotes")
+        if args.indent:
+            shifted_new = iter(
+                shift_rows_fixed(
+                    [r for b in new_story + new_quotes for r in b.rows], fixed_pairs
+                )
+            )
+            new_story, new_quotes = (
+                [
+                    Box(
+                        b.box, b.slot, b.lines, tuple(next(shifted_new) for _ in b.rows)
+                    )
+                    for b in group
+                ]
+                for group in (new_story, new_quotes)
+            )
+        for b in new_story + new_quotes:
+            if cells_of(b.rows) > MAX_CELLS:
+                raise SystemExit(f"special box {b.box}: too many cells after indent")
+            pilot_of_box[b.box] = -1
+        boxes += new_story
+        quotes += new_quotes
 
     # Which boxes each scene shows, for every pilot.
     starts = sorted({u32(SCENE_SCRIPTS + 4 * k) for k in range(SCENE_COUNT)})
@@ -566,6 +673,14 @@ def build(args: argparse.Namespace) -> int:
     caption_approved = (
         json.loads(args.vs_captions.read_text()) if args.vs_captions else None
     )
+    if caption_approved is not None and special_docs:  # SPECIAL-017
+        caption_approved = dict(caption_approved)
+        caption_approved["captions"] = list(caption_approved["captions"]) + [
+            {"box": int(b["box"]), "english": b["english"]}
+            for doc in special_docs
+            for b in doc["boxes"]
+            if b["section"] == "captions"
+        ]
     all_captions = {u16(CAPTIONS + 2 * k) for k in range(PILOTS * 10)} - {0}
     caption_costs: list[dict[str, object]] = []
 
@@ -769,17 +884,23 @@ def build(args: argparse.Namespace) -> int:
             prediction.append(
                 {"box": b.box, "cells": [hashlib.sha256(c).hexdigest() for c in drawn]}
             )
-            en = english_records[b.slot]
             out_entry: dict[str, object] = {
                 "box": b.box,
                 "slot": b.slot,
                 "saturn_lines": list(b.lines),
-                "english_record": f"0x{en.address:06X}",
-                "english_sha256": hashlib.sha256(en.codes).hexdigest(),
-                "rows": len(b.rows),
-                "cells": len(drawn),
-                "row_addresses": [f"0x{p:08X}" for p in pointers],
             }
+            if b.slot >= 0:
+                en = english_records[b.slot]
+                out_entry["english_record"] = f"0x{en.address:06X}"
+                out_entry["english_sha256"] = hashlib.sha256(en.codes).hexdigest()
+            else:
+                out_entry["english"] = "new translation (SPECIAL-013-015)"
+                out_entry["rows_sha256"] = hashlib.sha256(
+                    "\n".join(b.rows).encode()
+                ).hexdigest()
+            out_entry["rows"] = len(b.rows)
+            out_entry["cells"] = len(drawn)
+            out_entry["row_addresses"] = [f"0x{p:08X}" for p in pointers]
             if name != "STG0AS.BIN":
                 out_entry["file"] = name
             record_out.append(out_entry)
@@ -854,6 +975,25 @@ def build(args: argparse.Namespace) -> int:
             )
             + "\n"
         )
+    if special_docs:
+        (out / "special_records.json").write_text(
+            json.dumps(
+                {
+                    "task": args.task,
+                    "sources": [
+                        {
+                            "file": str(path),
+                            "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+                        }
+                        for path in args.special
+                    ],
+                    "summary": summary,
+                    "boxes": [r for r in record_out if int(str(r["slot"])) < 0],
+                },
+                indent=1,
+            )
+            + "\n"
+        )
     print(json.dumps(summary))
     extra: list[str] = []
     if args.ending or args.endings:
@@ -878,6 +1018,7 @@ def build(args: argparse.Namespace) -> int:
                 kanji_spare=[
                     c for c in rare if c not in sacrificed and c not in codes.values()
                 ],
+                special=special_docs,
             )
             if built.kanji_glyphs:  # END-023: glyphs lists 6-8 need in KANJI.BIN
                 kan_cells = kanji.decode(bytes(kan))
@@ -1020,6 +1161,27 @@ def build(args: argparse.Namespace) -> int:
                 }
             )
         )
+    if special_docs:  # SPECIAL-016: all Japanese codes taken, within the cap
+        kanji_extra = (
+            getattr(built, "kanji_glyphs", {}) if (args.ending or args.endings) else {}
+        )
+        caption_taken = len(compiled.new_pairs) if caption_approved is not None else 0
+        total = len(sacrificed) + len(kanji_extra) + caption_taken
+        budget_out = {
+            "story_sacrificed": len(sacrificed),
+            "ending_kanji_codes": len(kanji_extra),
+            "caption_codes": caption_taken,
+            "total": total,
+            "approved": args.max_sacrifice,
+        }
+        (out / "special_budget.json").write_text(
+            json.dumps(budget_out, indent=1) + "\n"
+        )
+        print(json.dumps({"special_budget": budget_out}))
+        if total > args.max_sacrifice:
+            raise BudgetExceeded(
+                f"{total} Japanese codes taken, {args.max_sacrifice} approved"
+            )
     if args.boot_warnings:
         from tools.text import boot_warnings
 
@@ -1052,7 +1214,15 @@ def build(args: argparse.Namespace) -> int:
             name: bytes(checked(name))
             for name in ("SELECT.VAD", "STG0A.BIN", "PL3F_0.BIN", "STG0AS.BIN")
         }
-        art = name_art.build(approved_names, name_art.load_font(args.font), originals)
+        extra_mechs: list[tuple[str, str, int]] = []
+        if args.special_mech:  # SPECIAL-016: the unlock mech's name, frame 0x79
+            mech = json.loads(args.special_mech.read_text())
+            extra_mechs.append(
+                (mech["english"], mech["model_code"].split()[0], MECH16_FRAME)
+            )
+        art = name_art.build(
+            approved_names, name_art.load_font(args.font), originals, extra_mechs
+        )
         for name, data in art.files.items():
             (out / name).write_bytes(data)
             extra += ["--file", f"{name};1", "--data", str(out / name)]
@@ -1271,6 +1441,20 @@ def main(argv: Sequence[str] | None = None) -> int:
         help="codes the captions may take from shown Japanese lines"
         " (UI-006: 13, the user's approval)",
     )
+    parser.add_argument(
+        "--special",
+        type=Path,
+        action="append",
+        default=[],
+        help="an approved new translation of a Saturn-only pilot"
+        " (SPECIAL-017; data/translations/special_list6.json etc.)",
+    )
+    parser.add_argument(
+        "--special-mech",
+        type=Path,
+        help="the unlock mech's approved VS name (SPECIAL-016;"
+        " data/translations/special_mech.json; needs --name-art)",
+    )
     parser.add_argument("--font", type=Path, required=True)
     parser.add_argument("--driver", type=Path, required=True)
     parser.add_argument("--rompath", type=Path, required=True)
@@ -1298,6 +1482,8 @@ def main(argv: Sequence[str] | None = None) -> int:
         parser.error("--pairing or --roster is required")
     if args.names_switch and not args.name_art:
         parser.error("--names-switch needs --name-art")
+    if args.special_mech and not args.name_art:
+        parser.error("--special-mech needs --name-art")
     if args.signs_switch and not args.names_switch:
         parser.error("--signs-switch needs --names-switch")
     return build(args)

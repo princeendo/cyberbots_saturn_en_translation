@@ -3293,3 +3293,31 @@ Notes:
 
 Checks: below.
 Checks: `ruff check .` passed; `ruff format --check .` 337 files formatted; `mypy` no issues in 90 files; `pytest -q` 262 passed.
+
+## 2026-11-07 — SPECIAL-017: the Saturn-only pilots' English built and checked (EXP-0082)
+
+User request (verbatim): "Start SPECIAL-017". Build options `--special`,
+`--special-mech` added (old behaviour unchanged: all ten references rebuild).
+Two identical builds; checks from saved states all pass (story 71/71 scenes,
+quotes 68/68, captions 81/81, all nine endings, roster samples, mech 16 under
+both NAMES settings). No cold boot, no key.
+
+Notes (do not retry):
+- **Parallel Mednafen runs need `MEDNAFEN_ALLOWMULTI=1`**: without it only
+  one ran and the others waited silently.
+- **Mech 16's VS name is frame `0x79`, not `0x1C`** (`0x1C` is a 5-part
+  portrait); the frame table ends at it with a 0, so read its parts to the
+  last-part flag. It draws with another palette: the sixteen's indices gave
+  dark red letters.
+- **A built image from REF-005 state 4138 hangs at the VS screen** unless the
+  build's `CYBER.BIN` changes and the extended directory are written in (the
+  names switch's hooks), as `EXP-0072/check_signs.py` does.
+- **`f0858bda…` is a black frame**, not a VS screen.
+- **Ending close words can come before a box's last cell is typed**: judge a
+  box up to the later of its close and the next box's opening.
+- **Lists 6-8's own ending boxes must not share `SE.DAT` allocation**: one
+  `END.BIN` code means a story-font pair in lists 6-8 and an `SE.DAT` pair in
+  the roster's endings.
+
+Checks: below.
+Checks: `ruff check .` passed; `ruff format --check .` all formatted; `mypy` no issues in 91 files; `pytest -q` 267 passed (5 new in `tests/unit/test_special.py`).

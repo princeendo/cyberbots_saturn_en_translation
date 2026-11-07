@@ -1,0 +1,195 @@
+{
+ "re003_jin": {
+  "exit": 0,
+  "matches": {
+   "STG0AS.BIN": true,
+   "KANJI.BIN": true,
+   "Cyberbots - Fullmetal Madness (Japan) (2M) (Track 01).bin": true,
+   "prediction.json": true
+  },
+  "all": true
+ },
+ "re007_jin_santana": {
+  "exit": 0,
+  "matches": {
+   "STG0AS.BIN": true,
+   "KANJI.BIN": true,
+   "Cyberbots - Fullmetal Madness (Japan) (2M) (Track 01).bin": true,
+   "Cyberbots - Fullmetal Madness (Japan) (2M).cue": true,
+   "prediction.json": true
+  },
+  "all": true
+ },
+ "re008_roster": {
+  "exit": 0,
+  "matches": {
+   "STG0AS.BIN": true,
+   "KANJI.BIN": true,
+   "VICTORY.BIN": true,
+   "Cyberbots - Fullmetal Madness (Japan) (2M) (Track 01).bin": true,
+   "Cyberbots - Fullmetal Madness (Japan) (2M).cue": true,
+   "prediction.json": true,
+   "changes.json": true
+  },
+  "all": true
+ },
+ "end010_jin_ending": {
+  "exit": 0,
+  "matches": {
+   "STG0AS.BIN": true,
+   "KANJI.BIN": true,
+   "VICTORY.BIN": true,
+   "END.BIN": true,
+   "SE.DAT": true,
+   "KEND_1.BIN": true,
+   "QSD.PIX": true,
+   "Cyberbots - Fullmetal Madness (Japan) (2M) (Track 01).bin": true,
+   "Cyberbots - Fullmetal Madness (Japan) (2M).cue": true,
+   "prediction.json": true,
+   "changes.json": true,
+   "ending_prediction.json": true,
+   "ending_changes.json": true
+  },
+  "all": true
+ },
+ "end011_jin_timing": {
+  "exit": 0,
+  "matches": {
+   "STG0AS.BIN": true,
+   "KANJI.BIN": true,
+   "VICTORY.BIN": true,
+   "END.BIN": true,
+   "SE.DAT": true,
+   "KEND_1.BIN": true,
+   "QSD.PIX": true,
+   "Cyberbots - Fullmetal Madness (Japan) (2M) (Track 01).bin": true,
+   "Cyberbots - Fullmetal Madness (Japan) (2M).cue": true,
+   "prediction.json": true,
+   "changes.json": true,
+   "ending_prediction.json": true,
+   "ending_changes.json": true,
+   "ending_timing.json": true
+  },
+  "all": true
+ },
+ "end023_roster_endings": {
+  "exit": 0,
+  "matches": {
+   "STG0AS.BIN": true,
+   "KANJI.BIN": true,
+   "VICTORY.BIN": true,
+   "END.BIN": true,
+   "SE.DAT": true,
+   "KEND_1.BIN": true,
+   "QSD.PIX": true,
+   "Cyberbots - Fullmetal Madness (Japan) (2M) (Track 01).bin": true,
+   "Cyberbots - Fullmetal Madness (Japan) (2M).cue": true,
+   "prediction.json": true,
+   "changes.json": true,
+   "ending_prediction.json": true,
+   "ending_changes.json": true,
+   "ending_timing.json": true
+  },
+  "all": true
+ },
+ "boot004_boot_warnings": {
+  "exit": 0,
+  "matches": {
+   "STG0AS.BIN": true,
+   "KANJI.BIN": true,
+   "VICTORY.BIN": true,
+   "END.BIN": true,
+   "SE.DAT": true,
+   "KEND_1.BIN": true,
+   "QSD.PIX": true,
+   "WARNING0.PIX": true,
+   "WARNING1.PIX": true,
+   "WARNING2.PIX": true,
+   "WARNING3.PIX": true,
+   "WARNING4.PIX": true,
+   "Cyberbots - Fullmetal Madness (Japan) (2M) (Track 01).bin": true,
+   "Cyberbots - Fullmetal Madness (Japan) (2M).cue": true
+  },
+  "all": true
+ },
+ "loc005_name_art": {
+  "exit": 0,
+  "matches": {
+   "STG0AS.BIN": true,
+   "KANJI.BIN": true,
+   "VICTORY.BIN": true,
+   "END.BIN": true,
+   "SE.DAT": true,
+   "KEND_1.BIN": true,
+   "QSD.PIX": true,
+   "WARNING0.PIX": true,
+   "WARNING1.PIX": true,
+   "WARNING2.PIX": true,
+   "WARNING3.PIX": true,
+   "WARNING4.PIX": true,
+   "SELECT.VAD": true,
+   "STG0A.BIN": true,
+   "PL3F_0.BIN": true,
+   "Cyberbots - Fullmetal Madness (Japan) (2M) (Track 01).bin": true,
+   "Cyberbots - Fullmetal Madness (Japan) (2M).cue": true
+  },
+  "all": true
+ },
+ "opt006_names_switch": {
+  "exit": 0,
+  "matches": {
+   "STG0AS.BIN": true,
+   "KANJI.BIN": true,
+   "VICTORY.BIN": true,
+   "END.BIN": true,
+   "SE.DAT": true,
+   "KEND_1.BIN": true,
+   "QSD.PIX": true,
+   "WARNING0.PIX": true,
+   "WARNING1.PIX": true,
+   "WARNING2.PIX": true,
+   "WARNING3.PIX": true,
+   "WARNING4.PIX": true,
+   "SELECT.VAD": true,
+   "STG0A.BIN": true,
+   "PL3F_0.BIN": true,
+   "CYBER.BIN": true,
+   "OPDEMO.BIN": true,
+   "Cyberbots - Fullmetal Madness (Japan) (2M) (Track 01).bin": true,
+   "Cyberbots - Fullmetal Madness (Japan) (2M).cue": true
+  },
+  "all": true
+ },
+ "ui007_ui_text": {
+  "exit": 0,
+  "matches": {
+   "STG0AS.BIN": true,
+   "KANJI.BIN": true,
+   "VICTORY.BIN": true,
+   "END.BIN": true,
+   "SE.DAT": true,
+   "KEND_1.BIN": true,
+   "QSD.PIX": true,
+   "WARNING0.PIX": true,
+   "WARNING1.PIX": true,
+   "WARNING2.PIX": true,
+   "WARNING3.PIX": true,
+   "WARNING4.PIX": true,
+   "SELECT.VAD": true,
+   "STG0A.BIN": true,
+   "PL3F_0.BIN": true,
+   "CYBER.BIN": true,
+   "OPDEMO.BIN": true,
+   "ST00_FNT.BIN": true,
+   "Cyberbots - Fullmetal Madness (Japan) (2M) (Track 01).bin": true,
+   "Cyberbots - Fullmetal Madness (Japan) (2M).cue": true,
+   "prediction.json": true,
+   "changes.json": true,
+   "ending_prediction.json": true,
+   "ending_changes.json": true,
+   "ending_timing.json": true
+  },
+  "all": true
+ },
+ "ok": true
+}

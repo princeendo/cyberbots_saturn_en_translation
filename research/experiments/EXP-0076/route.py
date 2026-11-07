@@ -3,7 +3,7 @@
 Run from the repository root (offline; the silent home, patched build D-007):
 
     ./invenv.sh python research/experiments/EXP-0076/route.py OUT PILOT \\
-        [--frames 3000] [--shots 300] [--write ADDR=HEX ...]
+        [--frames 3000] [--shots 300] [--write ADDR=HEX ...] [--cue CUE]
 
 State 4138 is the machine select after Jin and BLODIA were chosen in the
 REF-005 session, before the story's first post. Loaded and halted in one
@@ -52,9 +52,10 @@ def main() -> int:
     p.add_argument("--frames", type=int, default=3000)
     p.add_argument("--shots", type=int, default=300)
     p.add_argument("--write", action="append", default=[])
+    p.add_argument("--cue", type=Path, default=session.UNTOUCHED)
     a = p.parse_args()
     out: Path = a.out
-    session.launch(STATE, out, session.UNTOUCHED)
+    session.launch(STATE, out, a.cue)
     agent = session.agent_of(out)
     report: dict[str, Any] = {"state": str(STATE), "pilot": a.pilot}
     try:

@@ -166,6 +166,33 @@ def frame_parts(table: bytes, table_offset: int, frames: int, frame: int) -> ran
     return range(first, last)
 
 
+# Frames outside the sixteen, with their own layout (SPECIAL-017, EXP-0082):
+# frame -> (origin y of their parts, their model code's colours -> the
+# sixteen's code colours, the finished art's colours -> the frame's own).
+# Frame 0x79 draws with another palette: measured on screen (EXP-0082
+# palette.py), the sixteen's white face 15, light-blue edge 1, shadow 5 and
+# bar 6 are its 1, 2, 7 and 6; its model code keeps its own 11-13.
+EXTRA_FRAMES: dict[int, tuple[int, dict[int, int], dict[int, int]]] = {
+    0x79: (
+        0,
+        {11: 10, 12: 11, 13: 12},
+        {15: 1, 1: 2, 2: 3, 3: 4, 5: 7, 6: 6, 10: 11, 11: 12, 12: 13},
+    ),
+}
+
+
+def parts_of(table: bytes, pl: bytes, frame: int) -> range:
+    """A VS frame's parts; for a frame whose table end is a 0 terminator
+    (frame 0x79, mech 16: EXP-0081), up to its part with ``LAST_PART``."""
+    found = frame_parts(table, VS_FRAME_TABLE, VS_FRAMES, frame)
+    if len(found):
+        return found
+    p = first = word(table, VS_FRAME_TABLE + 2 * (frame - 1))
+    while not word(pl, VS_PART_SIZE * p + 2) & LAST_PART:
+        p += 1
+    return range(first, p + 1)
+
+
 def build_select(
     names: Sequence[str], font: boot_warnings.Font, vad: bytes, stg0a: bytes
 ) -> tuple[bytes, bytes, list[dict[str, Any]], dict[str, Any]]:
@@ -226,7 +253,7 @@ def compose(
 ) -> tuple[Grid, int]:
     """A frame's original art as displayed, and its left screen x."""
     parts = []
-    for p in frame_parts(frames_table, VS_FRAME_TABLE, VS_FRAMES, frame):
+    for p in parts_of(frames_table, pl, frame):
         w0, w1, w2 = (word(pl, VS_PART_SIZE * p + 2 * i) for i in range(3))
         offset = (((w1 & 1) << 16) | w2) * 4
         width, height = pattern_t2.size_of(pl[offset : offset + 2])
@@ -266,7 +293,10 @@ def build_vs(
     font: boot_warnings.Font,
     pl: bytes,
     stg0as: bytes,
+    extra: Sequence[tuple[str, str, int]] = (),
 ) -> tuple[bytes, list[dict[str, Any]], dict[str, Any]]:
+    """``extra`` (SPECIAL-017): more mechs as (name, code text, frame), such
+    as the unlock mech 16 (frame 0x79), built as the sixteen."""
     out = bytearray(pl)
     blank = pattern_t2.encode(bytes(4), 8, 1)
     records: list[bytes] = [blank]
@@ -277,8 +307,16 @@ def build_vs(
         letters(grid, font, name, (120 - 8 * len(name)) // 2)
         records.append(pattern_t2.encode(pack(stored(grid, 3)), 120, HEIGHT))
         placement[frame] = [len(records) - 1]
-    for (name, code_text), frame in zip(mechs, VS_MECHS, strict=True):
-        original, _left = compose(pl, stg0as, frame, 15)
+    mech_frames = [*zip(mechs, VS_MECHS, strict=True)] + [
+        ((name, code_text), frame) for name, code_text, frame in extra
+    ]
+    for (name, code_text), frame in mech_frames:
+        if frame in EXTRA_FRAMES:
+            origin, remap, _ = EXTRA_FRAMES[frame]
+            raw, _left = compose(pl, stg0as, frame, origin)
+            original = [[remap.get(v, 0) for v in row] for row in raw]
+        else:
+            original, _left = compose(pl, stg0as, frame, 15)
         code = code_of(original)
         width = 8 * len(name) + 3 + len(code[0])
         if width > 144:
@@ -289,11 +327,23 @@ def build_vs(
             for cx, v in enumerate(row):
                 if v:
                     grid[y][x + cx] = v
-        left_half = [row[:72] for row in grid]
-        right_half = [row[72:] for row in grid]
-        records.append(pattern_t2.encode(pack(stored(left_half, 0)), 72, HEIGHT))
-        records.append(pattern_t2.encode(pack(stored(right_half, 3)), 72, HEIGHT))
-        placement[frame] = [len(records) - 2, len(records) - 1]
+        if frame in EXTRA_FRAMES:  # its own parts' x and flips, in part order
+            colours = EXTRA_FRAMES[frame][2]
+            grid = [[colours.get(v, v) for v in row] for row in grid]
+            parts = list(parts_of(stg0as, pl, frame))
+            xs = [s16(word(pl, VS_PART_SIZE * q)) >> 6 for q in parts]
+            placement[frame] = []
+            for q, x in zip(parts, xs, strict=True):
+                flips = (word(pl, VS_PART_SIZE * q + 2) >> 2) & 3
+                half = [row[x - min(xs) : x - min(xs) + 72] for row in grid]
+                records.append(pattern_t2.encode(pack(stored(half, flips)), 72, HEIGHT))
+                placement[frame].append(len(records) - 1)
+        else:
+            left_half = [row[:72] for row in grid]
+            right_half = [row[72:] for row in grid]
+            records.append(pattern_t2.encode(pack(stored(left_half, 0)), 72, HEIGHT))
+            records.append(pattern_t2.encode(pack(stored(right_half, 3)), 72, HEIGHT))
+            placement[frame] = [len(records) - 2, len(records) - 1]
         report["mechs"][name] = {"code_width_px": len(code[0]), "banner_px": width}
     # Records of the kept frames, copied unchanged.
     all_offsets = sorted(
@@ -344,12 +394,18 @@ def build_vs(
         )
 
     first_part = last_part = None
-    for frame in [*VS_PILOTS, *VS_MECHS]:
-        parts = list(frame_parts(stg0as, VS_FRAME_TABLE, VS_FRAMES, frame))
-        first_part = parts[0] if first_part is None else min(first_part, parts[0])
-        last_part = parts[-1] if last_part is None else max(last_part, parts[-1])
-        templates: list[tuple[int, int]] = (
-            [VS_PILOT_TEMPLATE] if frame in VS_PILOTS else list(VS_MECH_TEMPLATE)
+    extra_frames = [frame for _, _, frame in extra]
+    for frame in [*VS_PILOTS, *VS_MECHS, *extra_frames]:
+        parts = list(parts_of(stg0as, pl, frame))
+        if frame not in extra_frames:
+            first_part = parts[0] if first_part is None else min(first_part, parts[0])
+            last_part = parts[-1] if last_part is None else max(last_part, parts[-1])
+        templates: list[tuple[int, int] | None] = (
+            [VS_PILOT_TEMPLATE]
+            if frame in VS_PILOTS
+            else [None, None]
+            if frame in EXTRA_FRAMES
+            else list(VS_MECH_TEMPLATE)
         )
         for n, p in enumerate(parts):
             if n < len(placement[frame]):
@@ -382,6 +438,16 @@ def build_vs(
             "what": "VS name frames' parts (bank 63), and frame 0x0B's",
         },
     ]
+    for frame in extra_frames:
+        parts = list(parts_of(stg0as, pl, frame))
+        changes.append(
+            {
+                "file": "PL3F_0.BIN",
+                "start": VS_PART_SIZE * parts[0],
+                "end": VS_PART_SIZE * (parts[-1] + 1),
+                "what": f"VS frame {frame:#04x}'s parts (SPECIAL-017)",
+            }
+        )
     return bytes(out), changes, report
 
 
@@ -389,6 +455,7 @@ def build(
     approved: Mapping[str, Any],
     font: boot_warnings.Font,
     originals: Mapping[str, bytes],
+    extra_mechs: Sequence[tuple[str, str, int]] = (),
 ) -> Built:
     pilots = approved["pilots"]["names"]
     mechs = [tuple(m) for m in approved["mechs"]["names"]]
@@ -396,7 +463,12 @@ def build(
         pilots, font, originals["SELECT.VAD"], originals["STG0A.BIN"]
     )
     pl, vs_changes, vs_report = build_vs(
-        pilots, mechs, font, originals["PL3F_0.BIN"], originals["STG0AS.BIN"]
+        pilots,
+        mechs,
+        font,
+        originals["PL3F_0.BIN"],
+        originals["STG0AS.BIN"],
+        extra_mechs,
     )
     files = {"SELECT.VAD": vad, "STG0A.BIN": stg0a, "PL3F_0.BIN": pl}
     changes = sel_changes + vs_changes

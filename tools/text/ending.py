@@ -155,6 +155,7 @@ class EndingBuild:
     timing: list[dict[str, Any]] = field(default_factory=list)
     records: dict[int, dict[str, Any]] = field(default_factory=dict)
     kanji_glyphs: dict[int, str] = field(default_factory=dict)
+    special_boxes: list[dict[str, Any]] = field(default_factory=list)
 
 
 def end_lines() -> list[tuple[int, int]]:
@@ -246,6 +247,7 @@ def compile_endings(
     observed: bool = False,
     story_codes: Mapping[str, int] | None = None,
     kanji_spare: Sequence[int] = (),
+    special: Sequence[Mapping[str, Any]] = (),
 ) -> EndingBuild:
     """Several endings in one allocation, one room and one font (END-023).
 
@@ -268,6 +270,15 @@ def compile_endings(
     returned in ``kanji_glyphs`` for the caller to draw into `KANJI.BIN`. Of
     each box's row variants (as built, plain, indented), the one needing the
     fewest such pairs is used.
+
+    ``special`` (SPECIAL-017) holds the Saturn-only pilots' approved new
+    translations: their ending boxes are drawn with `KANJI.BIN` only, so each
+    pair takes the story's code (or a ``kanji_spare`` code, as above) and is
+    kept out of the `SE.DAT` allocation; a code below ``NEW_CODE_FIRST`` is
+    in `END.BIN`'s table already (its table equals the story's there,
+    EXP-0081). Each box's rows are as wrapped or indented by half a cell,
+    whichever needs fewer new pairs (plain on a tie); the lists are retimed
+    by END-011's rule with ``SURFACES_OTHERS``.
     """
     pairings = [json.loads(p.read_text()) for p in pairing_paths]
     overrides = dict(overrides or {})
@@ -315,6 +326,9 @@ def compile_endings(
 
     lines = end_lines()
     box_lines = record_lines(bytes(end), lines)
+    special_list = (
+        dialogue.special_boxes(special, box_lines, "ending") if special else []
+    )
     for b in boxes:
         if list(b.lines) != box_lines[b.box]:
             raise SystemExit(f"box {b.box}: pairing lines differ from END.BIN's record")
@@ -326,7 +340,7 @@ def compile_endings(
         for path in (SURFACES, SURFACES_OTHERS):
             for lst in json.loads(path.read_text())["lists"]:
                 posted |= {o["box"] for o in lst["openings"]}
-    ours = {b.box for b in boxes}
+    ours = {b.box for b in boxes} | {b.box for b in special_list}
     own, unshown = free_lines(box_lines, posted, ours)
     room = spans(lines, own) + spans(lines, unshown)
 
@@ -389,9 +403,28 @@ def compile_endings(
                     if p != "  ":
                         fixed[p] = extra[p] if p in extra else story_codes[p]
             swapped.append(dialogue.Box(b.box, b.slot, b.lines, chosen))
-        build_kanji = {code: p for p, code in extra.items()}
         boxes = swapped
         wanted = dialogue.wanted_pairs(boxes)
+        # SPECIAL-017: the Saturn-only lists' own boxes, KANJI.BIN only.
+        chosen_special: list[dialogue.Box] = []
+        for b in special_list:
+            plain = tuple(r.lstrip(" ") for r in b.rows)
+            variants = [
+                plain,
+                tuple(" " + r if len(r) < dialogue.ROW_CHARS else r for r in plain),
+            ]
+            fresh = [len({p for p in lacking(v) if p not in extra}) for v in variants]
+            pick = variants[0] if fresh[0] <= fresh[1] else variants[1]
+            if dialogue.cells_of(pick) > dialogue.MAX_CELLS:
+                pick = variants[0]
+            for p in lacking(pick):
+                if p not in extra:
+                    if not spare:
+                        raise SystemExit(f"box {b.box}: no spare KANJI.BIN code")
+                    extra[p] = spare.pop(0)
+            chosen_special.append(dialogue.Box(b.box, b.slot, b.lines, pick))
+        special_list = chosen_special
+        build_kanji = {code: p for p, code in extra.items()}
     try:
         rest, new, _ = dialogue.allocate_codes(
             [p for p in wanted if p not in fixed],
@@ -440,12 +473,27 @@ def compile_endings(
                 }
             )
 
-    all_rows = [dialogue.row_bytes(r, codes) for b in boxes for r in b.rows]
+    kcodes: dict[str, int] = {}
+    if special_list:
+        assert story_codes is not None
+        kcodes = {
+            p: extra[p] if p in extra else story_codes[p]
+            for b in special_list
+            for r in b.rows
+            for p in pairs.split_pairs(r)
+            if p != "  "
+        }
+        missing = sorted({c for c in kcodes.values() if c not in table})
+        if missing:
+            raise SystemExit(f"special ending codes not in END.BIN's table: {missing}")
+    all_rows = [dialogue.row_bytes(r, codes) for b in boxes for r in b.rows] + [
+        dialogue.row_bytes(r, kcodes) for b in special_list for r in b.rows
+    ]
     offsets = iter(dialogue.place(all_rows, [(s, e) for s, e in room]))
     data_rows = iter(all_rows)
     out_boxes: list[dict[str, Any]] = []
     placed: list[tuple[int, int]] = []
-    for b in boxes:
+    for b in [*boxes, *special_list]:
         pointers = []
         for _ in b.rows:
             off, data = next(offsets), next(data_rows)
@@ -473,6 +521,37 @@ def compile_endings(
                 "what": f"box {b.box} record",
             }
         )
+        if b.slot < 0:  # SPECIAL-017: drawn from KANJI.BIN's pair glyphs
+            drawn = [
+                pairs.render_pair(font, p)  # type: ignore[arg-type]
+                for r in b.rows
+                for p in pairs.split_pairs(r)
+                if p != "  "
+            ]
+            build.prediction.append(
+                {
+                    "box": b.box,
+                    "font": "KANJI.BIN",
+                    "cells": [hashlib.sha256(c).hexdigest() for c in drawn],
+                }
+            )
+            build.special_boxes.append(
+                {
+                    "box": b.box,
+                    "english": "new translation (SPECIAL-013-015)",
+                    "saturn_lines": list(b.lines),
+                    "rows": len(b.rows),
+                    "cells": len(drawn),
+                    "codes": [
+                        f"0x{kcodes[p]:04X}"
+                        for r in b.rows
+                        for p in pairs.split_pairs(r)
+                        if p != "  "
+                    ],
+                    "row_addresses": [f"0x{q:08X}" for q in pointers],
+                }
+            )
+            continue
         drawn = [
             cells[table.index(codes[p])]
             for r in b.rows
@@ -561,6 +640,23 @@ def compile_endings(
             if len(pairings) > 1:
                 timing_rows = [{"list": n} | row for row in timing_rows]
             build.timing += timing_rows
+        if special_list:  # SPECIAL-017: lists 6-8, the same rule
+            others = {
+                int(x["list"]): x
+                for x in json.loads(SURFACES_OTHERS.read_text())["lists"]
+            }
+            special_cells = {
+                b.box: sum(len(pairs.split_pairs(r)) for r in b.rows)
+                for b in special_list
+            }
+            for n in sorted(others):
+                retimed = ending_timing.retime(
+                    end, n, others[n], special_cells, japanese
+                )
+                build.changes += retimed.changes
+                build.timing += [
+                    {"list": n} | row for row in retimed.boxes + retimed.waits
+                ]
 
     used_room = sum(len(r) for r in all_rows)
     own_spans = spans(lines, own)

@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-07: SPECIAL-017 done** (`EXP-0082`, D-068): the Saturn-only pilots' English is built into the UI image (`build/sp017/a`, Track 01 `f6789cae…`) and every new box, quote, caption and ending box was seen drawing as predicted from saved states; the roster is unchanged in content; ZERO-AKUMA shows on the VS screen. `SPECIAL-018` (cold boots, asked first, and the new reference) is `READY`.
 - **2026-11-07: SPECIAL-016 done** (`EXP-0081`, D-067): all English fits: 657 story-font pairs in 1,246 usable codes (no shown Japanese remains), room in every file, ending timing for lists 6-8. The user approved box 879 "WHAT!?", a code cap of 330 and mech 16's name ZERO-AKUMA. `SPECIAL-017` (the build) is `READY`.
 - **2026-11-07: SPECIAL-015 done** (`EXP-0080`): Chiyomaru's 147 boxes translated, fit-checked and approved ("Approve all (Recommended)"; Mary's rank "Lieutenant (Recommended)"): `data/translations/special_list7.json`. All three Saturn-only pilots now have approved English. `SPECIAL-016` (capacity and room) is `READY`.
 - **2026-11-07: SPECIAL-014 done** (`EXP-0079`): SHADE's 148 new boxes translated, fit-checked and approved ("Approve all (Recommended)"; his name as a man "Aichmann (Recommended)"), two speaker names kept official: `data/translations/special_list8.json`. `SPECIAL-015` (list 7, Chiyomaru) is `READY`.
@@ -3701,7 +3702,8 @@ experiments but still go one list at a time):
 
 ### SPECIAL-017 - Build and check from saved states
 
-- **Status:** `READY`
+- **Status:** `DONE`
+- **Done:** 2026-11-07 (`EXP-0082`, D-068). Two identical builds (Track 01 `f6789cae…`), the ten earlier references unchanged, 326 of 330 codes. From saved states: lists 6-8's 71 story scenes (339 boxes), 68 win quotes, 81 captions and all nine endings drew their predicted cells; roster predictions unchanged (one scene per roster pilot forced); ZERO-AKUMA G-18EX on the VS screen (kanji under NAMES JAPANESE), in frame `0x79`'s own palette.
 - **Milestone:** M9 (`SPECIAL-001`)
 - **Dependencies:** SPECIAL-016 (done).
 - **Blockers:** None.
@@ -3721,10 +3723,10 @@ experiments but still go one list at a time):
 
 ### SPECIAL-018 - Play check and register
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** M9 (`SPECIAL-001`)
-- **Dependencies:** SPECIAL-017.
-- **Blockers:** `SPECIAL-017`.
+- **Dependencies:** SPECIAL-017 (done).
+- **Blockers:** None.
 - **Objective:** The built image checked from cold boots and registered.
 - **Acceptance criteria:** cold boots (asked first, with the key sequence)
   reaching each of lists 6-8's story in English, and list 7 by its real
@@ -3750,5 +3752,5 @@ and `docs/lessons_from_xvsf.md`.
 | TXT-002 | after M8, user request | Phase T (`TXT-010`-`TXT-013`), written up 2026-11-07; `DONE` (2026-11-07): `TXT-010`, `TXT-011` (EXP-0074, EXP-0075; D-063, D-064), `TXT-012` closed with evidence, `TXT-013` closed unused. |
 | LOC-001 | after REF-007 | `DONE` (2026-11-06, Phase O: `LOC-001`-`LOC-006` and the gate extension). |
 | OPT-001 | after LOC-001, user decision 2026-11-02 | `DONE` (2026-11-06, Phase P: `OPT-001`-`OPT-006`). |
-| SPECIAL-001 | M9, user approval | Phase U (`SPECIAL-010`-`SPECIAL-018`), written up 2026-11-07 at the user's request; `SPECIAL-010`-`SPECIAL-016` `DONE`; `SPECIAL-017` `READY`. Lists 6-8 (Devilotte, Chiyomaru, SHADE by the name art): 339 story boxes, 22 win quotes, 27 captions, three endings, with no arcade English (D-026, D-030, D-046). |
+| SPECIAL-001 | M9, user approval | Phase U (`SPECIAL-010`-`SPECIAL-018`), written up 2026-11-07 at the user's request; `SPECIAL-010`-`SPECIAL-017` `DONE`; `SPECIAL-018` `READY`. Lists 6-8 (Devilotte, Chiyomaru, SHADE by the name art): 339 story boxes, 22 win quotes, 27 captions, three endings, with no arcade English (D-026, D-030, D-046). |
 | REL-001 | after M5 | Phase R (`REL-001`-`REL-004`): `REL-001` (tool port) `DONE` (2026-11-06); `REL-002`-`REL-004` `BLOCKED`: the user wants `UI-001`-`UI-003`, `TXT-002` and `SPECIAL-001` done first (2026-11-06). |
