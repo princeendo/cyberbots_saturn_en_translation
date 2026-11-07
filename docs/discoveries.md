@@ -1329,3 +1329,27 @@ Reproduce: `research/experiments/EXP-0072/README.md`, "Procedure".
   reached in play.
 
 Reproduce: `research/experiments/EXP-0074/README.md`, "Procedure".
+
+(Correction, `EXP-0075`: the arcade's list 7 is the location-test
+thank-you screen, not speaker names, and a region test does pick its scene,
+in the object's creator `0xEC78`; see D-064.)
+
+## D-064: The arcade's only rare text is a location-test thank-you screen behind ROM flags; the Saturn dropped it (`TXT-011`, `EXP-0075`)
+
+- ROM bytes `0x55B` and `0x561` (0 in `cybotsu` and `cybotsj`) are build
+  flags: set either one in MAME's ROM region and the boot banner adds `LOCA
+  TEST VERSION` or `SHOW VERSION`, and after the last fight the game skips
+  the ending (`0xE464`) for a `THANK YOU FOR PLAYING!` screen (`0xEA42` ->
+  `0xEB5A`). Byte `0x55A` is the region byte, copied to `0xFF80A0` at boot.
+- On that screen the object type `0x93` posts list 7: scene 6 (slot 609)
+  when the region byte is non-zero, else the scene for the ending number
+  (scenes 0-5 all open slots 602-605). Forced in both sets on Jin's route:
+  `cybotsu` opens 609 (one English "coming soon" message), `cybotsj` opens
+  602-605 (a Japanese thank-you message) or, with the index set to 6, 609.
+  The English and Spanish tables point slots 601-609 at one record.
+- None of those Japanese lines is a Saturn line. The Saturn's list 10 opens
+  the same box numbers (602-605, 609), which on the Saturn are speaker
+  names (arcade 610-623, nine numbers down); no Saturn file posts it by
+  constant. Saturn box 609 is arcade slot 618, which no arcade scene opens.
+
+Reproduce: `research/experiments/EXP-0075/README.md`, "Procedure".

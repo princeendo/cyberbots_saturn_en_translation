@@ -133,3 +133,11 @@ scene 6 (slot 609). `TXT-011` forces it.
 - The test viewer is not reached; whether the Saturn has one was not
   searched beyond the box tables.
 - `SPECIAL-001`'s lists 6-8 were classified but not examined further.
+
+## Correction (`EXP-0075`, D-064)
+
+List 7 is not the speaker names: it is the location-test thank-you screen,
+which only ROM flags `0x55B`/`0x561` reach. The region test that sends the
+US set to scene 6 (slot 609) is in the list 7 object's creator (`0xEC78`),
+not in the posting code. The speaker names are slots 610-623, posted by
+the ending scripts. The lead is closed by `TXT-011`.

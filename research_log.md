@@ -3100,3 +3100,37 @@ Notes (do not retry):
 Checks: below.
 `ruff check .` passed; `ruff format --check .` 323 files formatted; `mypy`
 no issues in 90 files; `pytest -q` 262 passed.
+
+## 2026-11-07 — TXT-011: the rare paths forced (EXP-0075)
+
+User request (verbatim): "Start TXT-011". Headless MAME only; no cold
+boot, no keys.
+
+- The list 7 object (type `0x93`) is created at `0xEC72` (`0xEC5A` in
+  `cybotsj`) inside `0xEB5A`, which runs only when ROM byte `0x55B` or
+  `0x561` is set. Those bytes are 0 in both retail sets; with either one
+  set (written into the ROM region by `rom_flag.lua`), the banner shows
+  `LOCA TEST VERSION` / `SHOW VERSION` and the ending is replaced by a
+  thank-you screen. US: slot 609 (601-609 share one English record);
+  Japan: 602-605 per ending number, 609 for index 6.
+- 14 runs (`flag-*`, `title-*`), one repeated byte for byte.
+- Saturn: no list-10 post by constant; list 10 = list 7's copy over
+  speaker-name boxes; box 609 = arcade 618, opened by no arcade scene. The
+  thank-you lines are not Saturn lines (best ratio 0.68; 609's 0.84 is an
+  ordinary story line).
+- **Correction to TXT-010:** list 7 is not speaker names, and the region
+  test choosing its scene is in the creator (`0xEC78`), not the poster.
+  D-063, EXP-0074 and text_surfaces amended.
+
+Notes (do not retry):
+- **MAME debugger `b@` cannot set ROM bytes**; write the `:maincpu` region
+  from Lua before the first frame (`rom_flag.lua`), and check the program
+  space reads it back.
+- **List 7 has 7 scenes**: reading an 8th runs into the scripts' data.
+- **Static analysis of the poster alone missed the gate**: the condition was
+  in the creator of the posting object, two levels up. Trace object
+  creators, not only posts.
+
+Checks: `ruff check .` passed; `ruff format --check .` 325 files formatted;
+`mypy` no issues in 90 files (and `thanks.py` alone: no issues); `pytest
+-q` 262 passed.

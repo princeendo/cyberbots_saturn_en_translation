@@ -204,12 +204,16 @@ Renders are local only (`EXP-0068` `render.py`, `grid.py`). Tile `n` of a
 
 Cold-boot play check: `UI-007` (`EXP-0073`): the attract in English with blank signs; `SIGNS` set with real presses, saved and kept after a power cycle (English signs in the attract); Jin's first VS caption in English.
 
-## Rare And Gated Text (`TXT-010`, `EXP-0074`, D-063)
+## Rare And Gated Text (`TXT-010`, `TXT-011`, `EXP-0074`, `EXP-0075`, D-063, D-064)
 
 | What | Path | Saturn | Arcade |
 | --- | --- | --- | --- |
 | Boxes 63, 283, 290, 335, 494, 495, 552, 553, 938, 1073 | none (no scene, caption or quote table) | never shown | slots exist; read only by the test viewer, if at all |
 | Box 555 (a win quote) | list 9 scene 1, never picked by `VICTORY.BIN`'s table | never shown | — |
-| Box 609 (a speaker name) | list 10, never posted on the Saturn | never shown | list 7 scene 6; the US slot 609 holds a "coming soon" style message: `TXT-011` |
-| Region-gated surfaces | — | — | the dialogue table (by region), the VS caption (Japan only, D-060), the city signs (D-061) |
+| Box 609 (a speaker name) | list 10, never posted on the Saturn | never shown | its twin, slot 618, is opened by no scene (`EXP-0075`) |
+| Thank-you screen, slots 602-605 and 609 (D-064) | — (the Saturn has no such lines; its list 10 is a leftover copy) | — | ROM flag `0x55B` or `0x561` only (location test, show version); Japanese per ending number, or the US set's one English message |
+| `LOCA TEST VERSION`, `SHOW VERSION` | — | — | boot banner, the same flags; ASCII |
+| Region-gated surfaces | — | — | the dialogue table (by region), the VS caption (Japan only, D-060), the city signs (D-061), the thank-you screen's scene (D-064) |
 | Test-mode message viewer (`0x97236`) | the arcade's test menu | — | any slot, any language; not reached in play |
+
+No rare path shows Japanese on the Saturn: every Saturn box without a path is dead (`EXP-0075`).
