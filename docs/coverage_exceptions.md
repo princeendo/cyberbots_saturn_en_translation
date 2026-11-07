@@ -180,3 +180,13 @@ Decided at the `UI-005` gate (2026-11-06, `docs/localization_policy.md`,
 | VS captions of pilots 6-8 (boxes 1045-1071) | No arcade slot (D-060) | The user: "With SPECIAL-001 (Recommended)" |
 | One wrong English pair glyph in each of 12 lines of pilots 6-8 (lines 1054, 1117, 1187, 1217, 1247, 1335, 1352, 1433, 1590, 1693, 1762, 1837) | `EXP-0072` `caption_changes.json` | The captions' codes; the user: "Take the 13 codes (Recommended)"; until `SPECIAL-001` |
 | Skyline boards on the city stage's NBG3 | About 5 pixels high, not readable (`EXP-0070`) | Not text that can be read |
+
+## Saturn-Only Pilots (`SPECIAL-001`)
+
+Lists 6-8 (Devilotte, Chiyomaru, SHADE), excluded from the M5 roster
+above, are now in English (`SPECIAL-013`-`018`, D-065-D-068): a new
+translation by Claude approved by the user per pilot
+(`data/translations/special_list{6,7,8}.json`), with their story, win
+quotes, VS captions and endings, and the unlock mech's VS name
+(`special_mech.json`). Kept official: `STG0AS.BIN` line 661 and the ending
+names 601/605 (D-066). Still never shown: the dead boxes of D-063.

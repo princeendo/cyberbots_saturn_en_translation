@@ -1436,3 +1436,4 @@ Reproduce: `research/experiments/EXP-0081/README.md`, "Procedure".
   shadow = 7, bar = 6). Under NAMES JAPANESE the original kanji return.
 
 Reproduce: `research/experiments/EXP-0082/README.md`, "Procedure".
+Cold-boot play check: `SPECIAL-018` (`EXP-0083`): Devilotte, SHADE and Chiyomaru (three left of Jin) each played their story in English; registered as `data/regression/special018_saturn_only.json`.

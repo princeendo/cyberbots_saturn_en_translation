@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-07: SPECIAL-018 done; SPECIAL-001 complete** (`EXP-0083`): cold boots of the built image played Devilotte's, SHADE's and Chiyomaru's stories in English (Chiyomaru by his real route, three left of Jin); registered as `data/regression/special018_saturn_only.json`. Every item the user wanted before a release is done, so `REL-002` (release patches) is `READY`.
 - **2026-11-07: SPECIAL-017 done** (`EXP-0082`, D-068): the Saturn-only pilots' English is built into the UI image (`build/sp017/a`, Track 01 `f6789cae…`) and every new box, quote, caption and ending box was seen drawing as predicted from saved states; the roster is unchanged in content; ZERO-AKUMA shows on the VS screen. `SPECIAL-018` (cold boots, asked first, and the new reference) is `READY`.
 - **2026-11-07: SPECIAL-016 done** (`EXP-0081`, D-067): all English fits: 657 story-font pairs in 1,246 usable codes (no shown Japanese remains), room in every file, ending timing for lists 6-8. The user approved box 879 "WHAT!?", a code cap of 330 and mech 16's name ZERO-AKUMA. `SPECIAL-017` (the build) is `READY`.
 - **2026-11-07: SPECIAL-015 done** (`EXP-0080`): Chiyomaru's 147 boxes translated, fit-checked and approved ("Approve all (Recommended)"; Mary's rank "Lieutenant (Recommended)"): `data/translations/special_list7.json`. All three Saturn-only pilots now have approved English. `SPECIAL-016` (capacity and room) is `READY`.
@@ -2760,11 +2761,12 @@ Known so far (facts and their confidence):
 
 ### REL-002 - Build and verify the release patches
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** Release (`REL-001`)
 - **Dependencies:** REL-001, OPT-006; the release-timing rule.
-- **Blockers:** `TXT-002`, `SPECIAL-001` (the user, 2026-11-06: "Do them
-  first"); `OPT-006` and `UI-001`-`UI-003` are done.
+- **Blockers:** None (`TXT-002`, `SPECIAL-001`, `OPT-006` and
+  `UI-001`-`UI-003`, the items the user wanted first, are done; the final
+  reference is `data/regression/special018_saturn_only.json`).
 - **Objective:** xdelta and SSP patches that turn the untouched source into
   the final registered image, proven by applying them.
 - **Acceptance criteria:**
@@ -3723,7 +3725,8 @@ experiments but still go one list at a time):
 
 ### SPECIAL-018 - Play check and register
 
-- **Status:** `READY`
+- **Status:** `DONE`
+- **Done:** 2026-11-07 (`EXP-0083`). Three cold boots (asked first: "Yes, run all 3 (Recommended)"): Devilotte, SHADE and Chiyomaru (three left of Jin, list 7's real route) each played their story in English, agent-reviewed; Chiyomaru won his first fight and his next stage showed English too. Registered as `data/regression/special018_saturn_only.json` (rebuilds byte for byte). `SPECIAL-001` is done; `REL-002` is unblocked.
 - **Milestone:** M9 (`SPECIAL-001`)
 - **Dependencies:** SPECIAL-017 (done).
 - **Blockers:** None.
@@ -3752,5 +3755,5 @@ and `docs/lessons_from_xvsf.md`.
 | TXT-002 | after M8, user request | Phase T (`TXT-010`-`TXT-013`), written up 2026-11-07; `DONE` (2026-11-07): `TXT-010`, `TXT-011` (EXP-0074, EXP-0075; D-063, D-064), `TXT-012` closed with evidence, `TXT-013` closed unused. |
 | LOC-001 | after REF-007 | `DONE` (2026-11-06, Phase O: `LOC-001`-`LOC-006` and the gate extension). |
 | OPT-001 | after LOC-001, user decision 2026-11-02 | `DONE` (2026-11-06, Phase P: `OPT-001`-`OPT-006`). |
-| SPECIAL-001 | M9, user approval | Phase U (`SPECIAL-010`-`SPECIAL-018`), written up 2026-11-07 at the user's request; `SPECIAL-010`-`SPECIAL-017` `DONE`; `SPECIAL-018` `READY`. Lists 6-8 (Devilotte, Chiyomaru, SHADE by the name art): 339 story boxes, 22 win quotes, 27 captions, three endings, with no arcade English (D-026, D-030, D-046). |
-| REL-001 | after M5 | Phase R (`REL-001`-`REL-004`): `REL-001` (tool port) `DONE` (2026-11-06); `REL-002`-`REL-004` `BLOCKED`: the user wants `UI-001`-`UI-003`, `TXT-002` and `SPECIAL-001` done first (2026-11-06). |
+| SPECIAL-001 | M9, user approval | Phase U (`SPECIAL-010`-`SPECIAL-018`), written up 2026-11-07 at the user's request; `DONE` (2026-11-07): `SPECIAL-010`-`SPECIAL-018`; lists 6-8 in English, `data/regression/special018_saturn_only.json`. Lists 6-8 (Devilotte, Chiyomaru, SHADE by the name art): 339 story boxes, 22 win quotes, 27 captions, three endings, with no arcade English (D-026, D-030, D-046). |
+| REL-001 | after M5 | Phase R (`REL-001`-`REL-004`): `REL-001` (tool port) `DONE` (2026-11-06); `REL-002` `READY` (2026-11-07: the items the user wanted first are done); `REL-003`, `REL-004` `BLOCKED` in order. |

@@ -1,0 +1,150 @@
+{
+ "task": "SPECIAL-018",
+ "image": "build/sp017/a (Track 01 f6789cae74814ab82d8060db3b50a99906b668bacfe950d1e0850ac4d01d25e0)",
+ "boots": {
+  "devilotte": {
+   "moves": "left",
+   "key_events": 6,
+   "keys": [
+    [
+     "start",
+     3663
+    ],
+    [
+     "a",
+     3921
+    ],
+    [
+     "left",
+     4820
+    ],
+    [
+     "a",
+     5098
+    ],
+    [
+     "a",
+     5568
+    ],
+    [
+     "a",
+     5792
+    ]
+   ],
+   "story_posts": [
+    18,
+    0
+   ],
+   "stage_groups_seen": [
+    54
+   ],
+   "polls": 705,
+   "reviewed_shots": {
+    "p0005": "608753394d3b24c42fd628ca46223638c06ca904370c81e37a6ad2d60e325118",
+    "p0025": "333ea3bf85b465696f66f4ee177cc658042e628a57944206d820125a2e54655c"
+   }
+  },
+  "shade": {
+   "moves": "left,left",
+   "key_events": 7,
+   "keys": [
+    [
+     "start",
+     3736
+    ],
+    [
+     "a",
+     3996
+    ],
+    [
+     "left",
+     4888
+    ],
+    [
+     "left",
+     5160
+    ],
+    [
+     "a",
+     5432
+    ],
+    [
+     "a",
+     5896
+    ],
+    [
+     "a",
+     6111
+    ]
+   ],
+   "story_posts": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "stage_groups_seen": [
+    72
+   ],
+   "polls": 704,
+   "reviewed_shots": {
+    "p0005": "4ec84956dc74fb4f59f7577bf321ea6bab2f648ed997a3e22fc922146760aed0"
+   }
+  },
+  "chiyomaru": {
+   "moves": "left,left,left",
+   "key_events": 8,
+   "keys": [
+    [
+     "start",
+     3636
+    ],
+    [
+     "a",
+     3899
+    ],
+    [
+     "left",
+     4806
+    ],
+    [
+     "left",
+     5087
+    ],
+    [
+     "left",
+     5373
+    ],
+    [
+     "a",
+     5658
+    ],
+    [
+     "a",
+     6133
+    ],
+    [
+     "a",
+     6361
+    ]
+   ],
+   "story_posts": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "stage_groups_seen": [
+    63,
+    64
+   ],
+   "polls": 210,
+   "reviewed_shots": {
+    "p0008": "e3f1cf9c1763bfe028c13f785d4a74022d274b6e7eebddc77b1de0aa69cb5016",
+    "p0020": "7660eebc10190a0f8e8f57b7b6f725166d1afcff97bcd3418c415c4aac5d3085",
+    "p0180": "626c6aed94f604ee961dc244f296ffd03b897ebcd5db8bc0fd8a1fe4d0a2eda6"
+   }
+  }
+ }
+}

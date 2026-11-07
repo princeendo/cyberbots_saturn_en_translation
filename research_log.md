@@ -3321,3 +3321,21 @@ Notes (do not retry):
 
 Checks: below.
 Checks: `ruff check .` passed; `ruff format --check .` all formatted; `mypy` no issues in 91 files; `pytest -q` 267 passed (5 new in `tests/unit/test_special.py`).
+
+## 2026-11-07 — SPECIAL-018: cold-boot play check; SPECIAL-001 complete (EXP-0083)
+
+User request (verbatim): "Start SPECIAL-018". Three cold boots, asked first
+("Yes, run all 3 (Recommended)"); single presses only. Devilotte, SHADE and
+Chiyomaru (three left) showed their stories in English; Chiyomaru won his
+first fight (held in RAM) and his next stage showed English too.
+Devilotte's and SHADE's first fights were lost: `play_route.py` holds the
+fight only at step 14, theirs are at 13 and 20. One SHADE press was refused
+(Mednafen not in front), after the pilot was picked; harmless. New reference
+`data/regression/special018_saturn_only.json`, rebuilt with every hash
+equal. `REL-002` is now `READY`.
+
+Notes:
+- **Fight steps differ by pilot** (Jin 14, Chiyomaru 14, Devilotte 13,
+  SHADE 20): a route that should win a fight must hold the vitality at the
+  pilot's own step.
+Checks: `ruff check .` passed; `pytest -q` 267 passed.
