@@ -1,0 +1,1081 @@
+{
+ "task": "SPECIAL-014",
+ "pilot": "SHADE",
+ "list": 8,
+ "translator": "Claude (agent), new translation from the Saturn Japanese in the US arcade's tone; no official English exists (D-066)",
+ "approved": "2026-11-07, the user: \"Approve all (Recommended)\"; SHADE's name \"Aichmann (Recommended)\"; decisions in docs/localization_policy.md \"Saturn-Only Pilots, Decided\"",
+ "source": {
+  "STG0AS.BIN": "3fabb4dbb9d08b2de570467414d653c9e6f0d72cf8ee4f72ecbb1683df77ac45",
+  "END.BIN": "a4868d8d39f657cb2e924c5e3d0467cc4f7fe83b9375e2a2ffbd7dd21281f3fa",
+  "boxes": "data/text/special_census.json (list 8)"
+ },
+ "rules": "dialogue boxes: tools.text.dialogue.wrap, at most 3 rows and 60 cells; captions one row of at most 26 characters; arcade pair-font characters only (EXP-0078 check_drafts.py); boxes with official_slot keep their official English (D-066)",
+ "names": [
+  {
+   "english": "Aichmann",
+   "romanized_source": "Aihiman, SHADE's name as a man",
+   "rule": "the user's choice, 2026-11-07: \"Aichmann (Recommended)\" (sounds like the katakana, avoids the Eichmann association)"
+  },
+  {
+   "english": "Ken Saotome",
+   "romanized_source": "Ken Saotome, Jin's father",
+   "rule": "as the US arcade English (Ken)"
+  },
+  {
+   "english": "Captain Gawaine",
+   "romanized_source": "Gawein taichou",
+   "rule": "as the US arcade English"
+  },
+  {
+   "english": "Earth Corps",
+   "romanized_source": "Rengou / Koronii Rengoukoku-gun",
+   "rule": "the US arcade's term"
+  },
+  {
+   "english": "Samurai Warrior",
+   "romanized_source": "Samurai Woriaa, Jin's ring name",
+   "rule": "the katakana is English already"
+  },
+  {
+   "english": "the Resistance",
+   "romanized_source": "Rejisutansu",
+   "rule": "the katakana is English already"
+  },
+  {
+   "english": "Chiyomaru",
+   "romanized_source": "Chiyomaru",
+   "rule": "as the US arcade English and the name art"
+  },
+  {
+   "english": "cyberbot",
+   "romanized_source": "VA",
+   "rule": "the US arcade's word for the machines"
+  }
+ ],
+ "boxes": [
+  {
+   "section": "story",
+   "scene": 0,
+   "box": 615,
+   "speaker": "Narration",
+   "english": "Earth Corps, Cyberbot Platoon One. That day, a secret mock battle tested a new machine."
+  },
+  {
+   "section": "story",
+   "scene": 0,
+   "box": 616,
+   "speaker": "Narration",
+   "english": "But then, something no one expected happened."
+  },
+  {
+   "section": "story",
+   "scene": 0,
+   "box": 617,
+   "speaker": "Narration",
+   "english": "The new cyberbot suddenly went berserk and began destroying its own side's machines."
+  },
+  {
+   "section": "story",
+   "scene": 1,
+   "box": 618,
+   "speaker": "A platoon pilot",
+   "english": "Damn it, wasn't this just a drill!? If only Aichmann were here...!"
+  },
+  {
+   "section": "story",
+   "scene": 1,
+   "box": 619,
+   "speaker": "A platoon pilot",
+   "english": "Wh-what IS this thing...!! C-Captaaain!!"
+  },
+  {
+   "section": "story",
+   "scene": 2,
+   "box": 620,
+   "speaker": "Captain Gawaine",
+   "english": "This can't be... All this from a single cyberbot...!!"
+  },
+  {
+   "section": "story",
+   "scene": 2,
+   "box": 621,
+   "speaker": "A platoon pilot",
+   "english": "Here it comes! ...Waaaahh!!"
+  },
+  {
+   "section": "story",
+   "scene": 3,
+   "box": 622,
+   "speaker": "Captain Gawaine",
+   "english": "!! Those moves...!"
+  },
+  {
+   "section": "story",
+   "scene": 3,
+   "box": 623,
+   "speaker": "Captain Gawaine",
+   "english": "It can't be... Aichmann, is that you!? It is, isn't it!?"
+  },
+  {
+   "section": "story",
+   "scene": 3,
+   "box": 624,
+   "speaker": "SHADE",
+   "english": "......"
+  },
+  {
+   "section": "story",
+   "scene": 3,
+   "box": 625,
+   "speaker": "Captain Gawaine",
+   "english": "Aichmann...! What have they done to you!?"
+  },
+  {
+   "section": "story",
+   "scene": 3,
+   "box": 626,
+   "speaker": "Captain Gawaine",
+   "english": "You can't stop yourself, can you!? Hold on! I'll stop you!!"
+  },
+  {
+   "section": "story",
+   "scene": 4,
+   "box": 627,
+   "speaker": "Captain Gawaine",
+   "english": "Gahh..."
+  },
+  {
+   "section": "story",
+   "scene": 4,
+   "box": 628,
+   "speaker": "SHADE",
+   "english": "Target destroyed."
+  },
+  {
+   "section": "story",
+   "scene": 4,
+   "box": 629,
+   "speaker": "Captain Gawaine",
+   "english": "!! E-Aichmann...!! I'm sorry... I couldn't stop you..."
+  },
+  {
+   "section": "story",
+   "scene": 5,
+   "box": 630,
+   "speaker": "An officer",
+   "english": "...What a disaster!! Get the survivors out, now!! The exercise is over!!"
+  },
+  {
+   "section": "story",
+   "scene": 6,
+   "box": 631,
+   "speaker": "A scientist",
+   "english": "No, SHADE performed beyond expectations... The experiment was a success."
+  },
+  {
+   "section": "story",
+   "scene": 6,
+   "box": 632,
+   "speaker": "An official",
+   "english": "Splendid."
+  },
+  {
+   "section": "story",
+   "scene": 6,
+   "box": 633,
+   "speaker": "An official",
+   "english": "We'll approve the extra budget you requested. Finish it as soon as you can..."
+  },
+  {
+   "section": "story",
+   "scene": 7,
+   "box": 634,
+   "speaker": "Narration",
+   "english": "One year later..."
+  },
+  {
+   "section": "story",
+   "scene": 7,
+   "box": 635,
+   "speaker": "Announcer",
+   "english": "And now, at last, tonight's main event!"
+  },
+  {
+   "section": "story",
+   "scene": 7,
+   "box": 636,
+   "speaker": "Announcer",
+   "english": "Our 15th champion, 98 straight wins and unbeaten! The Samurai Warrior, Jin Saotome!!"
+  },
+  {
+   "section": "story",
+   "scene": 7,
+   "box": 637,
+   "speaker": "Announcer",
+   "english": "His opponent, the mystery apostle of darkness, SHADE! Every foe scrapped in 3 seconds!"
+  },
+  {
+   "section": "story",
+   "scene": 7,
+   "box": 638,
+   "speaker": "An official",
+   "english": "Data collection is going well, I see. ...Tell me, is SHADE conscious at all?"
+  },
+  {
+   "section": "story",
+   "scene": 7,
+   "box": 639,
+   "speaker": "A scientist",
+   "english": "Of course not. The human brain is just an organic part. It's a weapon, nothing more."
+  },
+  {
+   "section": "story",
+   "scene": 7,
+   "box": 640,
+   "speaker": "SHADE",
+   "english": "...Saotome..."
+  },
+  {
+   "section": "story",
+   "scene": 7,
+   "box": 641,
+   "speaker": "Jin",
+   "english": "?"
+  },
+  {
+   "section": "story",
+   "scene": 7,
+   "box": 642,
+   "speaker": "SHADE",
+   "english": "Ken Saotome...?"
+  },
+  {
+   "section": "story",
+   "scene": 7,
+   "box": 643,
+   "speaker": "Jin",
+   "english": "What!? How do you know my father's name...!?"
+  },
+  {
+   "section": "story",
+   "scene": 7,
+   "box": 644,
+   "speaker": "Announcer",
+   "english": "READY..."
+  },
+  {
+   "section": "story",
+   "scene": 7,
+   "box": 645,
+   "speaker": "Jin",
+   "english": "Never mind. I'll beat you down first, then ask questions!"
+  },
+  {
+   "section": "story",
+   "scene": 7,
+   "box": 646,
+   "speaker": "Announcer",
+   "english": "GO!!"
+  },
+  {
+   "section": "story",
+   "scene": 8,
+   "box": 647,
+   "speaker": "Jin",
+   "english": "...Now I get it...! You're Aichmann... the one who killed my father...!!"
+  },
+  {
+   "section": "story",
+   "scene": 8,
+   "box": 648,
+   "speaker": "SHADE",
+   "english": "...Aichmann?"
+  },
+  {
+   "section": "story",
+   "scene": 8,
+   "box": 649,
+   "speaker": "Jin",
+   "english": "Someday I'll beat you! And I'll avenge my father...!"
+  },
+  {
+   "section": "story",
+   "scene": 8,
+   "box": 650,
+   "speaker": "A scientist",
+   "english": "Don't you talk to SHADE! SHADE, we're pulling out!"
+  },
+  {
+   "section": "story",
+   "scene": 8,
+   "box": 651,
+   "speaker": "SHADE",
+   "english": "...Understood."
+  },
+  {
+   "section": "story",
+   "scene": 9,
+   "box": 652,
+   "speaker": "A scientist",
+   "english": "......Next, we begin collecting real combat data."
+  },
+  {
+   "section": "story",
+   "scene": 9,
+   "box": 653,
+   "speaker": "An official",
+   "english": "Good. I expect great things."
+  },
+  {
+   "section": "story",
+   "scene": 10,
+   "box": 654,
+   "speaker": "A lieutenant",
+   "english": "So, the Resistance has been smoked out."
+  },
+  {
+   "section": "story",
+   "scene": 10,
+   "box": 655,
+   "speaker": "A soldier",
+   "english": "Lieutenant, are we really using THAT?"
+  },
+  {
+   "section": "story",
+   "scene": 10,
+   "box": 656,
+   "speaker": "A lieutenant",
+   "english": "...Those are our orders. SHADE, launch."
+  },
+  {
+   "section": "story",
+   "scene": 10,
+   "box": 657,
+   "speaker": "SHADE",
+   "english": "Understood."
+  },
+  {
+   "section": "story",
+   "scene": 10,
+   "box": 658,
+   "speaker": "A soldier",
+   "english": "...Damn robot!"
+  },
+  {
+   "section": "story",
+   "scene": 11,
+   "box": 659,
+   "speaker": "Santana",
+   "english": "Whoa, you gotta be kidding! I'm just an info broker... Like you'd listen. Jeez!"
+  },
+  {
+   "section": "story",
+   "scene": 11,
+   "box": 660,
+   "speaker": "SHADE",
+   "english": "Target acquired."
+  },
+  {
+   "section": "story",
+   "scene": 12,
+   "box": 661,
+   "speaker": "Santana",
+   "english": "Stop! Don't kill meee!! ...Wait, aren't you Aichmann!?"
+  },
+  {
+   "section": "story",
+   "scene": 12,
+   "box": 662,
+   "speaker": "Santana",
+   "english": "Of all the people to come back and haunt...!! Please, just rest in peace!!"
+  },
+  {
+   "section": "story",
+   "scene": 12,
+   "box": 663,
+   "speaker": "SHADE",
+   "english": "...Aichmann..."
+  },
+  {
+   "section": "story",
+   "scene": 12,
+   "box": 664,
+   "speaker": "A lieutenant",
+   "english": "Well done, SHADE. Fall back."
+  },
+  {
+   "section": "story",
+   "scene": 12,
+   "box": 665,
+   "speaker": "SHADE",
+   "english": "Understood."
+  },
+  {
+   "section": "story",
+   "scene": 13,
+   "box": 666,
+   "speaker": "A lieutenant",
+   "english": "\"Well done,\" I said... To a weapon. A robot."
+  },
+  {
+   "section": "story",
+   "scene": 13,
+   "box": 667,
+   "speaker": "A scientist",
+   "english": "As you can see, SHADE's results are outstanding."
+  },
+  {
+   "section": "story",
+   "scene": 13,
+   "box": 668,
+   "speaker": "An official",
+   "english": "We are well satisfied with the results."
+  },
+  {
+   "section": "story",
+   "scene": 13,
+   "box": 669,
+   "speaker": "An official",
+   "english": "Keep the mass-production line on schedule."
+  },
+  {
+   "section": "story",
+   "scene": 14,
+   "box": 670,
+   "speaker": "SHADE",
+   "english": "........"
+  },
+  {
+   "section": "story",
+   "scene": 14,
+   "box": 671,
+   "speaker": "SHADE (memory: Jin)",
+   "english": "You're Aichmann... You killed my father!!",
+   "note": "SHADE replays what others said to him."
+  },
+  {
+   "section": "story",
+   "scene": 14,
+   "box": 672,
+   "speaker": "SHADE (memory: Santana)",
+   "english": "Aren't you Aichmann!? Of all the people to come back and haunt...!"
+  },
+  {
+   "section": "story",
+   "scene": 14,
+   "box": 673,
+   "speaker": "A scientist",
+   "english": "Impossible! SHADE is gone!? He can't act on his own!! What on earth...!?"
+  },
+  {
+   "section": "story",
+   "scene": 15,
+   "box": 674,
+   "speaker": "SHADE",
+   "english": "Data search... \"Aichmann\"... Searching..."
+  },
+  {
+   "section": "story",
+   "scene": 15,
+   "box": 675,
+   "speaker": "SHADE",
+   "english": "!! ...\"Deceased\"...!!"
+  },
+  {
+   "section": "story",
+   "scene": 16,
+   "box": 676,
+   "speaker": "A guard",
+   "english": "What are you doing there!? This data bank is off-limits... !! You're...!?"
+  },
+  {
+   "section": "story",
+   "scene": 16,
+   "box": 677,
+   "speaker": "SHADE",
+   "english": "!!"
+  },
+  {
+   "section": "story",
+   "scene": 17,
+   "box": 678,
+   "speaker": "SHADE",
+   "english": "......"
+  },
+  {
+   "section": "story",
+   "scene": 17,
+   "box": 679,
+   "speaker": "A lieutenant",
+   "english": "Ugh... SHADE, why...?"
+  },
+  {
+   "section": "story",
+   "scene": 18,
+   "box": 680,
+   "speaker": "An officer",
+   "english": "!! The Resistance!? What are the patrols doing!!"
+  },
+  {
+   "section": "story",
+   "scene": 18,
+   "box": 681,
+   "speaker": "Tessan",
+   "english": "So that's the Earth Corps' secret weapon! Perfect. Let's take it!",
+   "note": "Speaker inferred: Chiyomaru's party (Chiyomaru is named in the next scene)."
+  },
+  {
+   "section": "story",
+   "scene": 18,
+   "box": 682,
+   "speaker": "SHADE",
+   "english": "...I... I am not... a \"weapon\"...!"
+  },
+  {
+   "section": "story",
+   "scene": 19,
+   "box": 683,
+   "speaker": "Tessan",
+   "english": "So this is the secret weapon's power...!"
+  },
+  {
+   "section": "story",
+   "scene": 19,
+   "box": 684,
+   "speaker": "Tessan",
+   "english": "Lord Chiyomaru, we must fall back for now."
+  },
+  {
+   "section": "story",
+   "scene": 19,
+   "box": 685,
+   "speaker": "Chiyomaru",
+   "english": "It can't be helped..."
+  },
+  {
+   "section": "story",
+   "scene": 20,
+   "box": 686,
+   "speaker": "Captain Gawaine",
+   "english": "SHADE... What will you do now?",
+   "note": "Speaker uncertain; could be another former comrade."
+  },
+  {
+   "section": "story",
+   "scene": 20,
+   "box": 687,
+   "speaker": "SHADE",
+   "english": "......"
+  },
+  {
+   "section": "story",
+   "scene": 21,
+   "box": 688,
+   "speaker": "A scientist",
+   "english": "No, this is... This should never have happened...!"
+  },
+  {
+   "section": "story",
+   "scene": 21,
+   "box": 689,
+   "speaker": "An official",
+   "english": "Spare me your excuses. You have disappointed me."
+  },
+  {
+   "section": "story",
+   "scene": 21,
+   "box": 690,
+   "speaker": "A scientist",
+   "english": "Please, wait! This must be some kind of...!!"
+  },
+  {
+   "section": "story",
+   "scene": 22,
+   "box": 691,
+   "speaker": "Bao",
+   "english": "What do we do!? We got dragged into something awful!"
+  },
+  {
+   "section": "story",
+   "scene": 22,
+   "box": 692,
+   "speaker": "Mao",
+   "english": "Big brother, I'm scared!"
+  },
+  {
+   "section": "story",
+   "scene": 22,
+   "box": 693,
+   "speaker": "Bao",
+   "english": "It's okay, leave it to your big brother... ? What's that?"
+  },
+  {
+   "section": "story",
+   "scene": 23,
+   "box": 694,
+   "speaker": "Mao",
+   "english": "It's coming this way!"
+  },
+  {
+   "section": "story",
+   "scene": 23,
+   "box": 695,
+   "speaker": "Bao",
+   "english": "Damn it, bring it on!!"
+  },
+  {
+   "section": "story",
+   "scene": 24,
+   "box": 696,
+   "speaker": "Bao",
+   "english": "...Why aren't you killing us?"
+  },
+  {
+   "section": "story",
+   "scene": 24,
+   "box": 697,
+   "speaker": "SHADE",
+   "english": "Are you hurt?"
+  },
+  {
+   "section": "story",
+   "scene": 24,
+   "box": 698,
+   "speaker": "Bao",
+   "english": "...Who are you? Aren't you a soldier?"
+  },
+  {
+   "section": "story",
+   "scene": 24,
+   "box": 699,
+   "speaker": "SHADE",
+   "english": "I am Aichmann. Not a robot... and not a man."
+  },
+  {
+   "section": "story",
+   "scene": 24,
+   "box": 700,
+   "speaker": "Mao",
+   "english": "Mister... you look sad."
+  },
+  {
+   "section": "story",
+   "scene": 25,
+   "box": 701,
+   "speaker": "Captain Gawaine",
+   "english": "Aichmann!"
+  },
+  {
+   "section": "story",
+   "scene": 25,
+   "box": 702,
+   "speaker": "SHADE",
+   "english": "Who's there...? Gawaine... Captain Gawaine?"
+  },
+  {
+   "section": "story",
+   "scene": 25,
+   "box": 703,
+   "speaker": "Captain Gawaine",
+   "english": "So you have your memory back. But the man you seek is not here."
+  },
+  {
+   "section": "story",
+   "scene": 25,
+   "box": 704,
+   "speaker": "SHADE",
+   "english": "He is... Saotome is here. I know it..."
+  },
+  {
+   "section": "story",
+   "scene": 25,
+   "box": 705,
+   "speaker": "Captain Gawaine",
+   "english": "And when you find him?"
+  },
+  {
+   "section": "story",
+   "scene": 25,
+   "box": 706,
+   "speaker": "SHADE",
+   "english": "I fight him. That is why I exist now... Something inside me says so."
+  },
+  {
+   "section": "story",
+   "scene": 25,
+   "box": 707,
+   "speaker": "Captain Gawaine",
+   "english": "Then all the more reason I can't let you. If you meet, one of you will surely die."
+  },
+  {
+   "section": "story",
+   "scene": 25,
+   "box": 708,
+   "speaker": "SHADE",
+   "english": "I am a lifeless machine. Death means nothing to me, Captain Gawaine."
+  },
+  {
+   "section": "story",
+   "scene": 25,
+   "box": 709,
+   "speaker": "Captain Gawaine",
+   "english": "Aichmann... Then I have no choice."
+  },
+  {
+   "section": "story",
+   "scene": 26,
+   "box": 710,
+   "speaker": "Captain Gawaine",
+   "english": "...So I couldn't stop you after all..."
+  },
+  {
+   "section": "story",
+   "scene": 26,
+   "box": 711,
+   "speaker": "SHADE",
+   "english": "Farewell, Captain Gawaine. When red blood still ran in my veins, you were my pride."
+  },
+  {
+   "section": "story",
+   "scene": 27,
+   "box": 712,
+   "speaker": "Captain Gawaine",
+   "english": "Aichmann... You damned fool...!"
+  },
+  {
+   "section": "story",
+   "scene": 28,
+   "box": 713,
+   "speaker": "SHADE",
+   "english": "Saotome! Jin Saotome!!"
+  },
+  {
+   "section": "story",
+   "scene": 28,
+   "box": 714,
+   "speaker": "Jin",
+   "english": "!! SHADE... No, Aichmann!!"
+  },
+  {
+   "section": "story",
+   "scene": 28,
+   "box": 715,
+   "speaker": "SHADE",
+   "english": "I have come to settle this."
+  },
+  {
+   "section": "story",
+   "scene": 28,
+   "box": 716,
+   "speaker": "Jin",
+   "english": "Yeah, I've been waiting... But it looks like that'll have to wait."
+  },
+  {
+   "section": "story",
+   "scene": 29,
+   "box": 717,
+   "speaker": "SHADE's copy",
+   "english": "\"Death... destruction...\""
+  },
+  {
+   "section": "story",
+   "scene": 29,
+   "box": 718,
+   "speaker": "Jin",
+   "english": "What's that? ...A copy of you?"
+  },
+  {
+   "section": "story",
+   "scene": 29,
+   "box": 719,
+   "speaker": "SHADE",
+   "english": "So it seems... Leave this one to me."
+  },
+  {
+   "section": "story",
+   "scene": 29,
+   "box": 720,
+   "speaker": "Jin",
+   "english": "You planning to die?"
+  },
+  {
+   "section": "story",
+   "scene": 29,
+   "box": 721,
+   "speaker": "SHADE",
+   "english": "I won't die. Not until I settle things with you."
+  },
+  {
+   "section": "story",
+   "scene": 29,
+   "box": 722,
+   "speaker": "Jin",
+   "english": "Good answer. See you later, then!"
+  },
+  {
+   "section": "story",
+   "scene": 29,
+   "box": 723,
+   "speaker": "SHADE's copy",
+   "english": "...All things... into chaos..."
+  },
+  {
+   "section": "story",
+   "scene": 29,
+   "box": 724,
+   "speaker": "SHADE",
+   "english": "Come on, brother!"
+  },
+  {
+   "section": "story",
+   "scene": 30,
+   "box": 725,
+   "speaker": "SHADE",
+   "english": "Is it over...? Where's Jin?"
+  },
+  {
+   "section": "story",
+   "scene": 31,
+   "box": 726,
+   "speaker": "Jin",
+   "english": "So you came, Aichmann."
+  },
+  {
+   "section": "story",
+   "scene": 31,
+   "box": 727,
+   "speaker": "SHADE",
+   "english": "Yes..."
+  },
+  {
+   "section": "story",
+   "scene": 31,
+   "box": 728,
+   "speaker": "Jin",
+   "english": "I told you once I'd beat you."
+  },
+  {
+   "section": "story",
+   "scene": 31,
+   "box": 729,
+   "speaker": "SHADE",
+   "english": "I remember... Machines don't forget. Now I will fight you, with all I have...!"
+  },
+  {
+   "section": "story",
+   "scene": 31,
+   "box": 730,
+   "speaker": "Jin",
+   "english": "...Here I come!!"
+  },
+  {
+   "section": "story",
+   "scene": 31,
+   "box": 731,
+   "speaker": "SHADE",
+   "english": "...Come!!"
+  },
+  {
+   "section": "win_quotes",
+   "box": 1023,
+   "speaker": "SHADE",
+   "english": "-- Mission complete --"
+  },
+  {
+   "section": "win_quotes",
+   "box": 1024,
+   "speaker": "SHADE",
+   "english": "Data collection complete. Destroying target."
+  },
+  {
+   "section": "win_quotes",
+   "box": 1025,
+   "speaker": "SHADE",
+   "english": "............"
+  },
+  {
+   "section": "win_quotes",
+   "box": 1026,
+   "speaker": "SHADE",
+   "english": "My name is SHADE. The \"shadow\" of the man I once was."
+  },
+  {
+   "section": "win_quotes",
+   "box": 1027,
+   "speaker": "SHADE",
+   "english": "Who are you? Why do you torment me?"
+  },
+  {
+   "section": "win_quotes",
+   "box": 1028,
+   "speaker": "SHADE",
+   "english": "Pain, even loneliness, mean nothing to this body now."
+  },
+  {
+   "section": "win_quotes",
+   "box": 1029,
+   "speaker": "SHADE",
+   "english": "A body with red blood in its veins... Go now."
+  },
+  {
+   "section": "captions",
+   "stage": 0,
+   "box": 1045,
+   "english": "Born of Darkness..."
+  },
+  {
+   "section": "captions",
+   "stage": 1,
+   "box": 1046,
+   "english": "Duel"
+  },
+  {
+   "section": "captions",
+   "stage": 2,
+   "box": 1047,
+   "english": "Memory"
+  },
+  {
+   "section": "captions",
+   "stage": 3,
+   "box": 1048,
+   "english": "Awakening"
+  },
+  {
+   "section": "captions",
+   "stage": 4,
+   "box": 1049,
+   "english": "Something at Stake"
+  },
+  {
+   "section": "captions",
+   "stage": 5,
+   "box": 1050,
+   "english": "Heart"
+  },
+  {
+   "section": "captions",
+   "stage": 6,
+   "box": 1051,
+   "english": "The Beginning of the End"
+  },
+  {
+   "section": "captions",
+   "stage": 7,
+   "box": 1052,
+   "english": "Mirror Image"
+  },
+  {
+   "section": "captions",
+   "stage": 8,
+   "box": 1053,
+   "english": "...Back to Darkness"
+  },
+  {
+   "section": "ending",
+   "box": 732,
+   "speaker": "Jin",
+   "english": "...I lose! Go on, finish me off."
+  },
+  {
+   "section": "ending",
+   "box": 733,
+   "speaker": "SHADE",
+   "english": "I am... not SHADE... Not a weapon made by the Earth Corps..."
+  },
+  {
+   "section": "ending",
+   "box": 734,
+   "speaker": "SHADE",
+   "english": "But in the end, I could not become Aichmann again either..."
+  },
+  {
+   "section": "ending",
+   "box": 735,
+   "speaker": "SHADE",
+   "english": "Fragments of memory remain, but the man called Aichmann is no longer here."
+  },
+  {
+   "section": "ending",
+   "box": 736,
+   "speaker": "SHADE",
+   "english": "I can't even remember Ken Saotome's face anymore..."
+  },
+  {
+   "section": "ending",
+   "box": 737,
+   "speaker": "Jin",
+   "english": "Aichmann..."
+  },
+  {
+   "section": "ending",
+   "box": 738,
+   "speaker": "SHADE",
+   "english": "Then who am I? Not man, not robot. Just short-lived organic parts and machinery..."
+  },
+  {
+   "section": "ending",
+   "box": 739,
+   "speaker": "SHADE",
+   "english": "But when I fought you, I could be myself..."
+  },
+  {
+   "section": "ending",
+   "box": 740,
+   "speaker": "Jin",
+   "english": "Aichmann!!"
+  },
+  {
+   "section": "ending",
+   "box": 741,
+   "speaker": "SHADE",
+   "english": "Don't call me that. I am SHADE. ...Remember me, the warrior who fought you..."
+  },
+  {
+   "section": "ending",
+   "box": 742,
+   "speaker": "Jin",
+   "english": "Aichmann... SHAAAAADE!!"
+  },
+  {
+   "section": "ending",
+   "box": 601,
+   "official_slot": 610,
+   "speaker": "Speaker name",
+   "english": null,
+   "note": "Official US arcade English (slot 610), on the disc since M8; not changed."
+  },
+  {
+   "section": "ending",
+   "box": 743,
+   "speaker": "Jin",
+   "english": "Say, Gawaine... Should I cry for him?"
+  },
+  {
+   "section": "ending",
+   "box": 605,
+   "official_slot": 614,
+   "speaker": "Speaker name",
+   "english": null,
+   "note": "Official US arcade English (slot 614), on the disc since M8; not changed."
+  },
+  {
+   "section": "ending",
+   "box": 744,
+   "speaker": "Gawaine",
+   "english": "Do whatever you think is right."
+  },
+  {
+   "section": "ending",
+   "box": 745,
+   "speaker": "Jin",
+   "english": "...No, I won't. He... he was a warrior."
+  },
+  {
+   "section": "ending",
+   "box": 746,
+   "speaker": "Jin",
+   "english": "He fought to the very end. He was my greatest rival... So long, SHADE!"
+  }
+ ]
+}

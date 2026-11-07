@@ -3248,3 +3248,14 @@ Notes:
 
 Checks: below.
 Checks: `ruff check .` passed; `ruff format --check .` 333 files formatted; `mypy` no issues in 90 files (EXP-0078 scripts alone: none); `pytest -q` 262 passed.
+
+## 2026-11-07 — SPECIAL-014: SHADE's English drafted and approved (EXP-0079)
+
+User request (verbatim): "Start SPECIAL-014". List 8 read privately;
+148 boxes drafted (2 speaker names kept official), 3 shortened after the
+first check; local review page sent. Answers: "Approve all (Recommended)";
+SHADE's name as a man "Aichmann (Recommended)" (asked because the katakana
+spells "Eichmann"). `data/translations/special_list8.json`; 0 failures.
+`check_drafts.py` and `review.py` now accept `official_slot` boxes; list 6
+rechecked unchanged.
+Checks: `ruff check .` passed; `ruff format --check .` 334 files formatted; `mypy` no issues in 90 files; `pytest -q` 262 passed.

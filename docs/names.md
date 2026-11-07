@@ -204,3 +204,6 @@ cold-boot play check is `LOC-006`.
 Mech 16, unlocked in play (body 8), is an Akuma-like mech; its VS name is
 kanji art with the model code `G-18EX` (probably 豪鬼號, agent-read). It has
 no arcade counterpart and no name in `LOC-004`'s art.
+
+SHADE's name as a man (アイヒマン, never written in the arcade English) is
+**Aichmann** in the English, the user's choice (`SPECIAL-014`, 2026-11-07).

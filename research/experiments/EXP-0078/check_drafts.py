@@ -6,7 +6,9 @@ Run from the repository root (offline):
         [--list 6] [--out OUT.json]
 
 DRAFTS is a JSON file with ``boxes``: ``section`` (story, win_quotes,
-captions, ending), ``box`` and ``english`` (other keys ignored). Checks:
+captions, ending), ``box`` and ``english`` (other keys ignored). A box with
+``official_slot`` keeps its official arcade English (already on the disc,
+D-066) and has ``english`` null: it counts for coverage only. Checks:
 
 - **Coverage:** exactly the boxes ``data/text/special_census.json`` lists
   for the list and section (`SPECIAL-010`), each once.
@@ -63,6 +65,10 @@ def main() -> int:
             dupes = sorted({b for b in got if got.count(b) > 1})
             failures.append(f"{section}: missing {missing} extra {extra} twice {dupes}")
     for b in drafts["boxes"]:
+        if b.get("official_slot") is not None:
+            if b.get("english") is not None:
+                failures.append(f"box {b['box']}: official and new English both set")
+            continue
         text = b["english"]
         bad = sorted(set(text) - ALLOWED)
         if bad:

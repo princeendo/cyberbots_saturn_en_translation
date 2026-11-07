@@ -85,3 +85,9 @@ translation in `data/translations/special_list6.json`.
   `SPECIAL-016` and the boxes are seen on screen only after `SPECIAL-017`.
 - Speakers on the page are inferred from context (the boxes carry
   portraits, not names); a wrong guess does not change the English.
+
+## Later change
+
+`EXP-0079` taught both scripts boxes that keep official English
+(`official_slot`); their hashes are now `d76bd0d5…` and `92c4c33e…`. List 6's
+check output is unchanged (`fit_list6.json` `547b9c6c…`).

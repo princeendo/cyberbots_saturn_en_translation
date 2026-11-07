@@ -1,0 +1,1446 @@
+{
+ "list": 8,
+ "boxes": [
+  {
+   "section": "story",
+   "box": 615,
+   "rows": [
+    "Earth Corps, Cyberbot Platoon",
+    "One. That day, a secret mock",
+    "battle tested a new machine."
+   ],
+   "row_count": 3,
+   "cells": 43
+  },
+  {
+   "section": "story",
+   "box": 616,
+   "rows": [
+    "But then, something no one",
+    "expected happened."
+   ],
+   "row_count": 2,
+   "cells": 22
+  },
+  {
+   "section": "story",
+   "box": 617,
+   "rows": [
+    "The new cyberbot suddenly went",
+    "berserk and began destroying its",
+    "own side's machines."
+   ],
+   "row_count": 3,
+   "cells": 41
+  },
+  {
+   "section": "story",
+   "box": 618,
+   "rows": [
+    "Damn it, wasn't this just a",
+    "drill!? If only Aichmann were",
+    "here...!"
+   ],
+   "row_count": 3,
+   "cells": 33
+  },
+  {
+   "section": "story",
+   "box": 619,
+   "rows": [
+    "Wh-what IS this thing...!!",
+    "C-Captaaain!!"
+   ],
+   "row_count": 2,
+   "cells": 20
+  },
+  {
+   "section": "story",
+   "box": 620,
+   "rows": [
+    "This can't be... All this from a",
+    "single cyberbot...!!"
+   ],
+   "row_count": 2,
+   "cells": 26
+  },
+  {
+   "section": "story",
+   "box": 621,
+   "rows": [
+    "Here it comes! ...Waaaahh!!"
+   ],
+   "row_count": 1,
+   "cells": 14
+  },
+  {
+   "section": "story",
+   "box": 622,
+   "rows": [
+    "!! Those moves...!"
+   ],
+   "row_count": 1,
+   "cells": 9
+  },
+  {
+   "section": "story",
+   "box": 623,
+   "rows": [
+    "It can't be... Aichmann, is that",
+    "you!? It is, isn't it!?"
+   ],
+   "row_count": 2,
+   "cells": 28
+  },
+  {
+   "section": "story",
+   "box": 624,
+   "rows": [
+    "......"
+   ],
+   "row_count": 1,
+   "cells": 3
+  },
+  {
+   "section": "story",
+   "box": 625,
+   "rows": [
+    "Aichmann...! What have they done",
+    "to you!?"
+   ],
+   "row_count": 2,
+   "cells": 20
+  },
+  {
+   "section": "story",
+   "box": 626,
+   "rows": [
+    "You can't stop yourself, can",
+    "you!? Hold on! I'll stop you!!"
+   ],
+   "row_count": 2,
+   "cells": 29
+  },
+  {
+   "section": "story",
+   "box": 627,
+   "rows": [
+    "Gahh..."
+   ],
+   "row_count": 1,
+   "cells": 4
+  },
+  {
+   "section": "story",
+   "box": 628,
+   "rows": [
+    "Target destroyed."
+   ],
+   "row_count": 1,
+   "cells": 9
+  },
+  {
+   "section": "story",
+   "box": 629,
+   "rows": [
+    "!! E-Aichmann...!! I'm sorry...",
+    "I couldn't stop you..."
+   ],
+   "row_count": 2,
+   "cells": 27
+  },
+  {
+   "section": "story",
+   "box": 630,
+   "rows": [
+    "...What a disaster!! Get the",
+    "survivors out, now!! The",
+    "exercise is over!!"
+   ],
+   "row_count": 3,
+   "cells": 35
+  },
+  {
+   "section": "story",
+   "box": 631,
+   "rows": [
+    "No, SHADE performed beyond",
+    "expectations... The experiment",
+    "was a success."
+   ],
+   "row_count": 3,
+   "cells": 35
+  },
+  {
+   "section": "story",
+   "box": 632,
+   "rows": [
+    "Splendid."
+   ],
+   "row_count": 1,
+   "cells": 5
+  },
+  {
+   "section": "story",
+   "box": 633,
+   "rows": [
+    "We'll approve the extra budget",
+    "you requested. Finish it as soon",
+    "as you can..."
+   ],
+   "row_count": 3,
+   "cells": 38
+  },
+  {
+   "section": "story",
+   "box": 634,
+   "rows": [
+    "One year later..."
+   ],
+   "row_count": 1,
+   "cells": 9
+  },
+  {
+   "section": "story",
+   "box": 635,
+   "rows": [
+    "And now, at last, tonight's main",
+    "event!"
+   ],
+   "row_count": 2,
+   "cells": 19
+  },
+  {
+   "section": "story",
+   "box": 636,
+   "rows": [
+    "Our 15th champion, 98 straight",
+    "wins and unbeaten! The Samurai",
+    "Warrior, Jin Saotome!!"
+   ],
+   "row_count": 3,
+   "cells": 41
+  },
+  {
+   "section": "story",
+   "box": 637,
+   "rows": [
+    "His opponent, the mystery",
+    "apostle of darkness, SHADE!",
+    "Every foe scrapped in 3 seconds!"
+   ],
+   "row_count": 3,
+   "cells": 43
+  },
+  {
+   "section": "story",
+   "box": 638,
+   "rows": [
+    "Data collection is going well, I",
+    "see. ...Tell me, is SHADE",
+    "conscious at all?"
+   ],
+   "row_count": 3,
+   "cells": 38
+  },
+  {
+   "section": "story",
+   "box": 639,
+   "rows": [
+    "Of course not. The human brain",
+    "is just an organic part. It's a",
+    "weapon, nothing more."
+   ],
+   "row_count": 3,
+   "cells": 42
+  },
+  {
+   "section": "story",
+   "box": 640,
+   "rows": [
+    "...Saotome..."
+   ],
+   "row_count": 1,
+   "cells": 7
+  },
+  {
+   "section": "story",
+   "box": 641,
+   "rows": [
+    "?"
+   ],
+   "row_count": 1,
+   "cells": 1
+  },
+  {
+   "section": "story",
+   "box": 642,
+   "rows": [
+    "Ken Saotome...?"
+   ],
+   "row_count": 1,
+   "cells": 8
+  },
+  {
+   "section": "story",
+   "box": 643,
+   "rows": [
+    "What!? How do you know my",
+    "father's name...!?"
+   ],
+   "row_count": 2,
+   "cells": 22
+  },
+  {
+   "section": "story",
+   "box": 644,
+   "rows": [
+    "READY..."
+   ],
+   "row_count": 1,
+   "cells": 4
+  },
+  {
+   "section": "story",
+   "box": 645,
+   "rows": [
+    "Never mind. I'll beat you down",
+    "first, then ask questions!"
+   ],
+   "row_count": 2,
+   "cells": 28
+  },
+  {
+   "section": "story",
+   "box": 646,
+   "rows": [
+    "GO!!"
+   ],
+   "row_count": 1,
+   "cells": 2
+  },
+  {
+   "section": "story",
+   "box": 647,
+   "rows": [
+    "...Now I get it...! You're",
+    "Aichmann... the one who killed",
+    "my father...!!"
+   ],
+   "row_count": 3,
+   "cells": 35
+  },
+  {
+   "section": "story",
+   "box": 648,
+   "rows": [
+    "...Aichmann?"
+   ],
+   "row_count": 1,
+   "cells": 6
+  },
+  {
+   "section": "story",
+   "box": 649,
+   "rows": [
+    "Someday I'll beat you! And I'll",
+    "avenge my father...!"
+   ],
+   "row_count": 2,
+   "cells": 26
+  },
+  {
+   "section": "story",
+   "box": 650,
+   "rows": [
+    "Don't you talk to SHADE! SHADE,",
+    "we're pulling out!"
+   ],
+   "row_count": 2,
+   "cells": 25
+  },
+  {
+   "section": "story",
+   "box": 651,
+   "rows": [
+    "...Understood."
+   ],
+   "row_count": 1,
+   "cells": 7
+  },
+  {
+   "section": "story",
+   "box": 652,
+   "rows": [
+    "......Next, we begin collecting",
+    "real combat data."
+   ],
+   "row_count": 2,
+   "cells": 25
+  },
+  {
+   "section": "story",
+   "box": 653,
+   "rows": [
+    "Good. I expect great things."
+   ],
+   "row_count": 1,
+   "cells": 14
+  },
+  {
+   "section": "story",
+   "box": 654,
+   "rows": [
+    "So, the Resistance has been",
+    "smoked out."
+   ],
+   "row_count": 2,
+   "cells": 20
+  },
+  {
+   "section": "story",
+   "box": 655,
+   "rows": [
+    "Lieutenant, are we really using",
+    "THAT?"
+   ],
+   "row_count": 2,
+   "cells": 19
+  },
+  {
+   "section": "story",
+   "box": 656,
+   "rows": [
+    "...Those are our orders. SHADE,",
+    "launch."
+   ],
+   "row_count": 2,
+   "cells": 20
+  },
+  {
+   "section": "story",
+   "box": 657,
+   "rows": [
+    "Understood."
+   ],
+   "row_count": 1,
+   "cells": 6
+  },
+  {
+   "section": "story",
+   "box": 658,
+   "rows": [
+    "...Damn robot!"
+   ],
+   "row_count": 1,
+   "cells": 7
+  },
+  {
+   "section": "story",
+   "box": 659,
+   "rows": [
+    "Whoa, you gotta be kidding! I'm",
+    "just an info broker... Like",
+    "you'd listen. Jeez!"
+   ],
+   "row_count": 3,
+   "cells": 40
+  },
+  {
+   "section": "story",
+   "box": 660,
+   "rows": [
+    "Target acquired."
+   ],
+   "row_count": 1,
+   "cells": 8
+  },
+  {
+   "section": "story",
+   "box": 661,
+   "rows": [
+    "Stop! Don't kill meee!! ...Wait,",
+    "aren't you Aichmann!?"
+   ],
+   "row_count": 2,
+   "cells": 27
+  },
+  {
+   "section": "story",
+   "box": 662,
+   "rows": [
+    "Of all the people to come back",
+    "and haunt...!! Please, just rest",
+    "in peace!!"
+   ],
+   "row_count": 3,
+   "cells": 36
+  },
+  {
+   "section": "story",
+   "box": 663,
+   "rows": [
+    "...Aichmann..."
+   ],
+   "row_count": 1,
+   "cells": 7
+  },
+  {
+   "section": "story",
+   "box": 664,
+   "rows": [
+    "Well done, SHADE. Fall back."
+   ],
+   "row_count": 1,
+   "cells": 14
+  },
+  {
+   "section": "story",
+   "box": 665,
+   "rows": [
+    "Understood."
+   ],
+   "row_count": 1,
+   "cells": 6
+  },
+  {
+   "section": "story",
+   "box": 666,
+   "rows": [
+    "\"Well done,\" I said... To a",
+    "weapon. A robot."
+   ],
+   "row_count": 2,
+   "cells": 22
+  },
+  {
+   "section": "story",
+   "box": 667,
+   "rows": [
+    "As you can see, SHADE's results",
+    "are outstanding."
+   ],
+   "row_count": 2,
+   "cells": 24
+  },
+  {
+   "section": "story",
+   "box": 668,
+   "rows": [
+    "We are well satisfied with the",
+    "results."
+   ],
+   "row_count": 2,
+   "cells": 19
+  },
+  {
+   "section": "story",
+   "box": 669,
+   "rows": [
+    "Keep the mass-production line on",
+    "schedule."
+   ],
+   "row_count": 2,
+   "cells": 21
+  },
+  {
+   "section": "story",
+   "box": 670,
+   "rows": [
+    "........"
+   ],
+   "row_count": 1,
+   "cells": 4
+  },
+  {
+   "section": "story",
+   "box": 671,
+   "rows": [
+    "You're Aichmann... You killed my",
+    "father!!"
+   ],
+   "row_count": 2,
+   "cells": 20
+  },
+  {
+   "section": "story",
+   "box": 672,
+   "rows": [
+    "Aren't you Aichmann!? Of all the",
+    "people to come back and",
+    "haunt...!"
+   ],
+   "row_count": 3,
+   "cells": 33
+  },
+  {
+   "section": "story",
+   "box": 673,
+   "rows": [
+    "Impossible! SHADE is gone!? He",
+    "can't act on his own!! What on",
+    "earth...!?"
+   ],
+   "row_count": 3,
+   "cells": 35
+  },
+  {
+   "section": "story",
+   "box": 674,
+   "rows": [
+    "Data search... \"Aichmann\"...",
+    "Searching..."
+   ],
+   "row_count": 2,
+   "cells": 20
+  },
+  {
+   "section": "story",
+   "box": 675,
+   "rows": [
+    "!! ...\"Deceased\"...!!"
+   ],
+   "row_count": 1,
+   "cells": 11
+  },
+  {
+   "section": "story",
+   "box": 676,
+   "rows": [
+    "What are you doing there!? This",
+    "data bank is off-limits... !!",
+    "You're...!?"
+   ],
+   "row_count": 3,
+   "cells": 37
+  },
+  {
+   "section": "story",
+   "box": 677,
+   "rows": [
+    "!!"
+   ],
+   "row_count": 1,
+   "cells": 1
+  },
+  {
+   "section": "story",
+   "box": 678,
+   "rows": [
+    "......"
+   ],
+   "row_count": 1,
+   "cells": 3
+  },
+  {
+   "section": "story",
+   "box": 679,
+   "rows": [
+    "Ugh... SHADE, why...?"
+   ],
+   "row_count": 1,
+   "cells": 11
+  },
+  {
+   "section": "story",
+   "box": 680,
+   "rows": [
+    "!! The Resistance!? What are the",
+    "patrols doing!!"
+   ],
+   "row_count": 2,
+   "cells": 24
+  },
+  {
+   "section": "story",
+   "box": 681,
+   "rows": [
+    "So that's the Earth Corps'",
+    "secret weapon! Perfect. Let's",
+    "take it!"
+   ],
+   "row_count": 3,
+   "cells": 32
+  },
+  {
+   "section": "story",
+   "box": 682,
+   "rows": [
+    "...I... I am not... a",
+    "\"weapon\"...!"
+   ],
+   "row_count": 2,
+   "cells": 17
+  },
+  {
+   "section": "story",
+   "box": 683,
+   "rows": [
+    "So this is the secret weapon's",
+    "power...!"
+   ],
+   "row_count": 2,
+   "cells": 20
+  },
+  {
+   "section": "story",
+   "box": 684,
+   "rows": [
+    "Lord Chiyomaru, we must fall",
+    "back for now."
+   ],
+   "row_count": 2,
+   "cells": 21
+  },
+  {
+   "section": "story",
+   "box": 685,
+   "rows": [
+    "It can't be helped..."
+   ],
+   "row_count": 1,
+   "cells": 11
+  },
+  {
+   "section": "story",
+   "box": 686,
+   "rows": [
+    "SHADE... What will you do now?"
+   ],
+   "row_count": 1,
+   "cells": 15
+  },
+  {
+   "section": "story",
+   "box": 687,
+   "rows": [
+    "......"
+   ],
+   "row_count": 1,
+   "cells": 3
+  },
+  {
+   "section": "story",
+   "box": 688,
+   "rows": [
+    "No, this is... This should never",
+    "have happened...!"
+   ],
+   "row_count": 2,
+   "cells": 25
+  },
+  {
+   "section": "story",
+   "box": 689,
+   "rows": [
+    "Spare me your excuses. You have",
+    "disappointed me."
+   ],
+   "row_count": 2,
+   "cells": 24
+  },
+  {
+   "section": "story",
+   "box": 690,
+   "rows": [
+    "Please, wait! This must be some",
+    "kind of...!!"
+   ],
+   "row_count": 2,
+   "cells": 22
+  },
+  {
+   "section": "story",
+   "box": 691,
+   "rows": [
+    "What do we do!? We got dragged",
+    "into something awful!"
+   ],
+   "row_count": 2,
+   "cells": 26
+  },
+  {
+   "section": "story",
+   "box": 692,
+   "rows": [
+    "Big brother, I'm scared!"
+   ],
+   "row_count": 1,
+   "cells": 12
+  },
+  {
+   "section": "story",
+   "box": 693,
+   "rows": [
+    "It's okay, leave it to your big",
+    "brother... ? What's that?"
+   ],
+   "row_count": 2,
+   "cells": 29
+  },
+  {
+   "section": "story",
+   "box": 694,
+   "rows": [
+    "It's coming this way!"
+   ],
+   "row_count": 1,
+   "cells": 11
+  },
+  {
+   "section": "story",
+   "box": 695,
+   "rows": [
+    "Damn it, bring it on!!"
+   ],
+   "row_count": 1,
+   "cells": 11
+  },
+  {
+   "section": "story",
+   "box": 696,
+   "rows": [
+    "...Why aren't you killing us?"
+   ],
+   "row_count": 1,
+   "cells": 15
+  },
+  {
+   "section": "story",
+   "box": 697,
+   "rows": [
+    "Are you hurt?"
+   ],
+   "row_count": 1,
+   "cells": 7
+  },
+  {
+   "section": "story",
+   "box": 698,
+   "rows": [
+    "...Who are you? Aren't you a",
+    "soldier?"
+   ],
+   "row_count": 2,
+   "cells": 18
+  },
+  {
+   "section": "story",
+   "box": 699,
+   "rows": [
+    "I am Aichmann. Not a robot...",
+    "and not a man."
+   ],
+   "row_count": 2,
+   "cells": 22
+  },
+  {
+   "section": "story",
+   "box": 700,
+   "rows": [
+    "Mister... you look sad."
+   ],
+   "row_count": 1,
+   "cells": 12
+  },
+  {
+   "section": "story",
+   "box": 701,
+   "rows": [
+    "Aichmann!"
+   ],
+   "row_count": 1,
+   "cells": 5
+  },
+  {
+   "section": "story",
+   "box": 702,
+   "rows": [
+    "Who's there...? Gawaine...",
+    "Captain Gawaine?"
+   ],
+   "row_count": 2,
+   "cells": 21
+  },
+  {
+   "section": "story",
+   "box": 703,
+   "rows": [
+    "So you have your memory back.",
+    "But the man you seek is not",
+    "here."
+   ],
+   "row_count": 3,
+   "cells": 32
+  },
+  {
+   "section": "story",
+   "box": 704,
+   "rows": [
+    "He is... Saotome is here. I know",
+    "it..."
+   ],
+   "row_count": 2,
+   "cells": 19
+  },
+  {
+   "section": "story",
+   "box": 705,
+   "rows": [
+    "And when you find him?"
+   ],
+   "row_count": 1,
+   "cells": 11
+  },
+  {
+   "section": "story",
+   "box": 706,
+   "rows": [
+    "I fight him. That is why I exist",
+    "now... Something inside me says",
+    "so."
+   ],
+   "row_count": 3,
+   "cells": 34
+  },
+  {
+   "section": "story",
+   "box": 707,
+   "rows": [
+    "Then all the more reason I can't",
+    "let you. If you meet, one of you",
+    "will surely die."
+   ],
+   "row_count": 3,
+   "cells": 40
+  },
+  {
+   "section": "story",
+   "box": 708,
+   "rows": [
+    "I am a lifeless machine. Death",
+    "means nothing to me, Captain",
+    "Gawaine."
+   ],
+   "row_count": 3,
+   "cells": 33
+  },
+  {
+   "section": "story",
+   "box": 709,
+   "rows": [
+    "Aichmann... Then I have no",
+    "choice."
+   ],
+   "row_count": 2,
+   "cells": 17
+  },
+  {
+   "section": "story",
+   "box": 710,
+   "rows": [
+    "...So I couldn't stop you after",
+    "all..."
+   ],
+   "row_count": 2,
+   "cells": 19
+  },
+  {
+   "section": "story",
+   "box": 711,
+   "rows": [
+    "Farewell, Captain Gawaine. When",
+    "red blood still ran in my veins,",
+    "you were my pride."
+   ],
+   "row_count": 3,
+   "cells": 41
+  },
+  {
+   "section": "story",
+   "box": 712,
+   "rows": [
+    "Aichmann... You damned fool...!"
+   ],
+   "row_count": 1,
+   "cells": 16
+  },
+  {
+   "section": "story",
+   "box": 713,
+   "rows": [
+    "Saotome! Jin Saotome!!"
+   ],
+   "row_count": 1,
+   "cells": 11
+  },
+  {
+   "section": "story",
+   "box": 714,
+   "rows": [
+    "!! SHADE... No, Aichmann!!"
+   ],
+   "row_count": 1,
+   "cells": 13
+  },
+  {
+   "section": "story",
+   "box": 715,
+   "rows": [
+    "I have come to settle this."
+   ],
+   "row_count": 1,
+   "cells": 14
+  },
+  {
+   "section": "story",
+   "box": 716,
+   "rows": [
+    "Yeah, I've been waiting... But",
+    "it looks like that'll have to",
+    "wait."
+   ],
+   "row_count": 3,
+   "cells": 33
+  },
+  {
+   "section": "story",
+   "box": 717,
+   "rows": [
+    "\"Death... destruction...\""
+   ],
+   "row_count": 1,
+   "cells": 13
+  },
+  {
+   "section": "story",
+   "box": 718,
+   "rows": [
+    "What's that? ...A copy of you?"
+   ],
+   "row_count": 1,
+   "cells": 15
+  },
+  {
+   "section": "story",
+   "box": 719,
+   "rows": [
+    "So it seems... Leave this one to",
+    "me."
+   ],
+   "row_count": 2,
+   "cells": 18
+  },
+  {
+   "section": "story",
+   "box": 720,
+   "rows": [
+    "You planning to die?"
+   ],
+   "row_count": 1,
+   "cells": 10
+  },
+  {
+   "section": "story",
+   "box": 721,
+   "rows": [
+    "I won't die. Not until I settle",
+    "things with you."
+   ],
+   "row_count": 2,
+   "cells": 24
+  },
+  {
+   "section": "story",
+   "box": 722,
+   "rows": [
+    "Good answer. See you later,",
+    "then!"
+   ],
+   "row_count": 2,
+   "cells": 17
+  },
+  {
+   "section": "story",
+   "box": 723,
+   "rows": [
+    "...All things... into chaos..."
+   ],
+   "row_count": 1,
+   "cells": 15
+  },
+  {
+   "section": "story",
+   "box": 724,
+   "rows": [
+    "Come on, brother!"
+   ],
+   "row_count": 1,
+   "cells": 9
+  },
+  {
+   "section": "story",
+   "box": 725,
+   "rows": [
+    "Is it over...? Where's Jin?"
+   ],
+   "row_count": 1,
+   "cells": 14
+  },
+  {
+   "section": "story",
+   "box": 726,
+   "rows": [
+    "So you came, Aichmann."
+   ],
+   "row_count": 1,
+   "cells": 11
+  },
+  {
+   "section": "story",
+   "box": 727,
+   "rows": [
+    "Yes..."
+   ],
+   "row_count": 1,
+   "cells": 3
+  },
+  {
+   "section": "story",
+   "box": 728,
+   "rows": [
+    "I told you once I'd beat you."
+   ],
+   "row_count": 1,
+   "cells": 15
+  },
+  {
+   "section": "story",
+   "box": 729,
+   "rows": [
+    "I remember... Machines don't",
+    "forget. Now I will fight you,",
+    "with all I have...!"
+   ],
+   "row_count": 3,
+   "cells": 39
+  },
+  {
+   "section": "story",
+   "box": 730,
+   "rows": [
+    "...Here I come!!"
+   ],
+   "row_count": 1,
+   "cells": 8
+  },
+  {
+   "section": "story",
+   "box": 731,
+   "rows": [
+    "...Come!!"
+   ],
+   "row_count": 1,
+   "cells": 5
+  },
+  {
+   "section": "win_quotes",
+   "box": 1023,
+   "rows": [
+    "-- Mission complete --"
+   ],
+   "row_count": 1,
+   "cells": 11
+  },
+  {
+   "section": "win_quotes",
+   "box": 1024,
+   "rows": [
+    "Data collection complete.",
+    "Destroying target."
+   ],
+   "row_count": 2,
+   "cells": 22
+  },
+  {
+   "section": "win_quotes",
+   "box": 1025,
+   "rows": [
+    "............"
+   ],
+   "row_count": 1,
+   "cells": 6
+  },
+  {
+   "section": "win_quotes",
+   "box": 1026,
+   "rows": [
+    "My name is SHADE. The \"shadow\"",
+    "of the man I once was."
+   ],
+   "row_count": 2,
+   "cells": 26
+  },
+  {
+   "section": "win_quotes",
+   "box": 1027,
+   "rows": [
+    "Who are you? Why do you torment",
+    "me?"
+   ],
+   "row_count": 2,
+   "cells": 18
+  },
+  {
+   "section": "win_quotes",
+   "box": 1028,
+   "rows": [
+    "Pain, even loneliness, mean",
+    "nothing to this body now."
+   ],
+   "row_count": 2,
+   "cells": 27
+  },
+  {
+   "section": "win_quotes",
+   "box": 1029,
+   "rows": [
+    "A body with red blood in its",
+    "veins... Go now."
+   ],
+   "row_count": 2,
+   "cells": 22
+  },
+  {
+   "section": "captions",
+   "box": 1045,
+   "rows": [
+    "Born of Darkness..."
+   ],
+   "row_count": 1,
+   "cells": 10
+  },
+  {
+   "section": "captions",
+   "box": 1046,
+   "rows": [
+    "Duel"
+   ],
+   "row_count": 1,
+   "cells": 2
+  },
+  {
+   "section": "captions",
+   "box": 1047,
+   "rows": [
+    "Memory"
+   ],
+   "row_count": 1,
+   "cells": 3
+  },
+  {
+   "section": "captions",
+   "box": 1048,
+   "rows": [
+    "Awakening"
+   ],
+   "row_count": 1,
+   "cells": 5
+  },
+  {
+   "section": "captions",
+   "box": 1049,
+   "rows": [
+    "Something at Stake"
+   ],
+   "row_count": 1,
+   "cells": 9
+  },
+  {
+   "section": "captions",
+   "box": 1050,
+   "rows": [
+    "Heart"
+   ],
+   "row_count": 1,
+   "cells": 3
+  },
+  {
+   "section": "captions",
+   "box": 1051,
+   "rows": [
+    "The Beginning of the End"
+   ],
+   "row_count": 1,
+   "cells": 12
+  },
+  {
+   "section": "captions",
+   "box": 1052,
+   "rows": [
+    "Mirror Image"
+   ],
+   "row_count": 1,
+   "cells": 6
+  },
+  {
+   "section": "captions",
+   "box": 1053,
+   "rows": [
+    "...Back to Darkness"
+   ],
+   "row_count": 1,
+   "cells": 10
+  },
+  {
+   "section": "ending",
+   "box": 732,
+   "rows": [
+    "...I lose! Go on, finish me off."
+   ],
+   "row_count": 1,
+   "cells": 16
+  },
+  {
+   "section": "ending",
+   "box": 733,
+   "rows": [
+    "I am... not SHADE... Not a",
+    "weapon made by the Earth",
+    "Corps..."
+   ],
+   "row_count": 3,
+   "cells": 29
+  },
+  {
+   "section": "ending",
+   "box": 734,
+   "rows": [
+    "But in the end, I could not",
+    "become Aichmann again either..."
+   ],
+   "row_count": 2,
+   "cells": 30
+  },
+  {
+   "section": "ending",
+   "box": 735,
+   "rows": [
+    "Fragments of memory remain, but",
+    "the man called Aichmann is no",
+    "longer here."
+   ],
+   "row_count": 3,
+   "cells": 37
+  },
+  {
+   "section": "ending",
+   "box": 736,
+   "rows": [
+    "I can't even remember Ken",
+    "Saotome's face anymore..."
+   ],
+   "row_count": 2,
+   "cells": 26
+  },
+  {
+   "section": "ending",
+   "box": 737,
+   "rows": [
+    "Aichmann..."
+   ],
+   "row_count": 1,
+   "cells": 6
+  },
+  {
+   "section": "ending",
+   "box": 738,
+   "rows": [
+    "Then who am I? Not man, not",
+    "robot. Just short-lived organic",
+    "parts and machinery..."
+   ],
+   "row_count": 3,
+   "cells": 41
+  },
+  {
+   "section": "ending",
+   "box": 739,
+   "rows": [
+    "But when I fought you, I could",
+    "be myself..."
+   ],
+   "row_count": 2,
+   "cells": 21
+  },
+  {
+   "section": "ending",
+   "box": 740,
+   "rows": [
+    "Aichmann!!"
+   ],
+   "row_count": 1,
+   "cells": 5
+  },
+  {
+   "section": "ending",
+   "box": 741,
+   "rows": [
+    "Don't call me that. I am SHADE.",
+    "...Remember me, the warrior who",
+    "fought you..."
+   ],
+   "row_count": 3,
+   "cells": 39
+  },
+  {
+   "section": "ending",
+   "box": 742,
+   "rows": [
+    "Aichmann... SHAAAAADE!!"
+   ],
+   "row_count": 1,
+   "cells": 12
+  },
+  {
+   "section": "ending",
+   "box": 743,
+   "rows": [
+    "Say, Gawaine... Should I cry for",
+    "him?"
+   ],
+   "row_count": 2,
+   "cells": 18
+  },
+  {
+   "section": "ending",
+   "box": 744,
+   "rows": [
+    "Do whatever you think is right."
+   ],
+   "row_count": 1,
+   "cells": 16
+  },
+  {
+   "section": "ending",
+   "box": 745,
+   "rows": [
+    "...No, I won't. He... he was a",
+    "warrior."
+   ],
+   "row_count": 2,
+   "cells": 19
+  },
+  {
+   "section": "ending",
+   "box": 746,
+   "rows": [
+    "He fought to the very end. He",
+    "was my greatest rival... So",
+    "long, SHADE!"
+   ],
+   "row_count": 3,
+   "cells": 35
+  }
+ ]
+}

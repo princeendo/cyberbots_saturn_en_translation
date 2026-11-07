@@ -8,7 +8,8 @@ DRAFTS is the pilot's local drafts file (``boxes`` with section, scene or
 stage, box, speaker, gloss, english, note; ``names``). The page shows the
 new names, then every box in play order with its speaker, the English as
 the game wraps it (``tools.text.dialogue.wrap``; captions as one row), the
-literal gloss and any note. It holds glosses of the game's Japanese, so it
+literal gloss and any note; a box with ``official_slot`` is shown as kept
+official English. It holds glosses of the game's Japanese, so it
 is written under ``local/`` only and never committed (`SPECIAL-012`).
 """
 
@@ -85,9 +86,12 @@ def main() -> int:
             if section == "story" and key != group:
                 out.append(f"<h3>Scene {key}</h3>")
                 group = key
-            rows = (
-                [b["english"]] if section == "captions" else dialogue.wrap(b["english"])
-            )
+            if b.get("official_slot") is not None:
+                rows = [f"(official arcade English, slot {b['official_slot']})"]
+            elif section == "captions":
+                rows = [b["english"]]
+            else:
+                rows = dialogue.wrap(b["english"])
             who = b.get("speaker") or (
                 f"Stage {b['stage'] + 1}" if "stage" in b else ""
             )
