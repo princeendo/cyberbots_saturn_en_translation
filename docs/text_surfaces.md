@@ -202,4 +202,4 @@ Renders are local only (`EXP-0068` `render.py`, `grid.py`). Tile `n` of a
 | VS chapter captions, pilots 0-5 | English (54, approved new translation), centred; 13 shown lines of pilots 6-8 each show one wrong English pair glyph (the user's choice); pilots 6-8's captions stay Japanese until `SPECIAL-001` |
 | Ruined-city signs | `EXTRA OPTIONS` → `SIGNS`: `BLANK` (default, as the US arcade), `ENGLISH` (`SALE`, `BAZAAR`, `BARGAIN SALE`), `JAPANESE` (the original), saved |
 
-Cold-boot play check: `UI-007`.
+Cold-boot play check: `UI-007` (`EXP-0073`): the attract in English with blank signs; `SIGNS` set with real presses, saved and kept after a power cycle (English signs in the attract); Jin's first VS caption in English.

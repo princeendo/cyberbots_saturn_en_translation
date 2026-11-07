@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-07: UI-007 done: the UI build play-checked and registered** (`EXP-0073`): three cold boots with real presses (your "Yes, run all 3"): English attract with blank signs; `SIGNS` set to `ENGLISH`, saved and kept after a power cycle (English signs in the attract); Jin's VS caption in English. New reference `ui007_ui_text.json`; the README's build command now produces it. Phase S is done; `REL-002` waits on `TXT-002` and `SPECIAL-001`.
 - **2026-11-07: UI-006 done: English captions and the SIGNS setting built** (`EXP-0072`, D-062): the 54 approved captions in the story font (13 codes from pilots 6-8's lines, your choice), and `EXTRA OPTIONS` → `SIGNS` (`BLANK` default, `ENGLISH`, `JAPANESE`, saved) loading the chosen city signs over the stage tiles. Checked from saved states (VRAM byte for byte, every caption's cells, the menu drawn, its input logic on an interpreter); you approved the art and menu. All nine earlier references still rebuild. `UI-007` (cold-boot play check with presses, then the regression reference) is `READY`.
 - **2026-11-06: UI-005 done: your plan for the captions and signs** (`EXP-0071`): from samples beside both arcades you chose English captions (54 drafts approved, centred; pilots 6-8 with `SPECIAL-001`) and a new saved `SIGNS` setting in `EXTRA OPTIONS` (`BLANK` default, `ENGLISH`, `JAPANESE`; tail file). Verbatim in `docs/localization_policy.md`. `UI-006` (build) is `READY`.
 - **2026-11-06: UI-002 done: the ruined-city signs** (`EXP-0070`, D-061): three signs are raw NBG2 tiles of `ST00_FNT.BIN` (24 blocks, same-size splices); a one-byte test image changed exactly two pixels. Both arcade sets hold both building versions, and the US program blanks the signs by its region byte (map blocks and palettes; forced both ways): no English. `UI-005` (your plan for the captions and signs) is `READY`.
@@ -3338,7 +3339,8 @@ Known so far (facts and their confidence):
 
 ### UI-007 - Verify and register
 
-- **Status:** `READY`
+- **Status:** `DONE`
+- **Done:** 2026-11-07 (`EXP-0073`). Three cold boots, asked first ("Yes, run all 3 (Recommended)"): an attract cycle every frame recorded, English, blank signs, no `ZSIGNS` load; real presses set `SIGNS` to `ENGLISH` (saved, `00 01`) and reached Jin's VS screen with the English caption; after a power cycle the save kept `ENGLISH`, the attract's city demo had the English sign slice in VRAM and on screen, and Down/Right/Right/Left stepped `JAPANESE`, `BLANK`, `JAPANESE` (saved `00 02`). New reference `data/regression/ui007_ui_text.json` (Track 01 `1feadd13…655b`) rebuilds byte for byte; the nine earlier ones rebuilt unchanged (`EXP-0072`). README, coverage register and text surfaces updated. `UI-001`-`UI-003` were already removed from `REL-002`'s blockers.
 - **Milestone:** UI text and art (`UI-001`)
 - **Dependencies:** UI-006 (done).
 - **Blockers:** None.

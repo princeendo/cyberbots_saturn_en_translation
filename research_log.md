@@ -3043,3 +3043,31 @@ Notes (do not retry):
   two pixels); `EXP-0072` `store_blocks.json` covers the store front.
 - **A first check run wrote no code table** (captions) and a first build
   counted staying lines after the story rows had been written; both fixed.
+
+## 2026-11-07 — UI-007: cold-boot play check and registration (EXP-0073)
+
+User request (verbatim): "Start UI-007". Three cold boots, asked first: "Yes,
+run all 3 (Recommended)". During boot B the user was using another
+application and presses could not bring Mednafen forward; asked, the user:
+"Go ahead, I'll step away (Recommended)".
+
+- Boot A: 7,600 frames recorded; loads equal `EXP-0067`'s; no `ZSIGNS` load;
+  English throughout, blank banners in the city demo.
+- Boot B: Down/Right set `SIGNS` `ENGLISH`, saved (`00 01`); Jin's VS caption
+  in English on the cold boot.
+- Boot C (boot B's save): `ENGLISH` kept; attract city signs English (VRAM
+  equal to `ZSIGNS1.BIN`); Right, Right, Left stepped `JAPANESE`, `BLANK`,
+  `JAPANESE`; saved `00 02`.
+- `ui007_ui_text.json` registered and rebuilt equal.
+
+Notes (do not retry):
+- **The title menu never returns to the attract**: to see the city signs
+  after changing `SIGNS`, power-cycle with the save (the first attract demo
+  is the city).
+- **Watch for the wanted VRAM slice, not any known one**: the previous
+  city load's tiles stay in VRAM.
+- **Presses fail while the user works in another app**: ask before
+  continuing rather than retrying.
+
+Checks: `ruff check .`, `ruff format --check .` (321 files), `mypy` (90
+files), `pytest -q` (262 passed) all clean.

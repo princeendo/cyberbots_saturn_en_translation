@@ -44,18 +44,27 @@ In the current development build (not released):
   art back on those screens; the choice is saved with the other options,
   and `ENGLISH` is the default (`OPT-001`). OPTION MODE's title and rows
   sit two lines higher to make room.
+- **VS chapter captions** (the banner before each arcade-mode fight) of
+  the six arcade pilots: a new translation, approved by the user, in the
+  story's letters (`UI-003`, `UI-006`). The US arcade showed none.
+- **City signs** in the ruined-city stage: `EXTRA OPTIONS` also has
+  `SIGNS  BLANK / ENGLISH / JAPANESE`. `BLANK` (the default) shows the
+  signs without writing, as the US arcade does; `ENGLISH` letters them
+  `SALE`, `BAZAAR` and `BARGAIN SALE`; `JAPANESE` keeps the original. The
+  choice is saved (`UI-002`, `UI-006`).
 
 **Still Japanese:**
 
 - The Saturn-only pilots' stories, win quotes and endings (lists 6-8; no
   official English, `SPECIAL-001`).
-- The VS screen's chapter captions (no official English shown by the US
-  arcade).
+- The Saturn-only pilots' VS chapter captions (`SPECIAL-001`); 12 lines
+  of those pilots' Japanese each show one wrong English glyph until then
+  (the captions' font codes, the user's choice).
 - Six story-only name banners in the VS bank, in katakana or kanji, whose
   screen is not known (`LOC-006`; listed in the coverage register).
-- Surfaces not yet surveyed: attract and opening text (`UI-002`), option
-  sub-screens and other UI text (`UI-003`), rare or region-gated text
-  (`TXT-002`). The register is
+- Surfaces not yet surveyed: rare or region-gated text (`TXT-002`). The
+  attract, menus and other UI were surveyed in `UI-001`-`UI-003`. The
+  register is
   [docs/coverage_exceptions.md](docs/coverage_exceptions.md).
 
 ## Patch Files
@@ -107,11 +116,11 @@ Extract the files of track 01 (the track is only read):
 Not yet (`REL-001`). The current development image is built with:
 
 ```bash
-./invenv.sh python -m tools.text.dialogue --roster data/text/m5_roster.json --indent --rank staying --max-sacrifice 160 --task END-023 --font local/layout001/font/arcade_font.json --driver local/mame_src/cps2.cpp --rompath local/arcade --out build/opt005/a --endings data/text/m8_endings.json --ending-record-dir local/opt005/rec-a --boot-warnings data/translations/boot_warnings.json --name-art data/translations/name_art.json --names-switch data/translations/names_switch.json
+./invenv.sh python -m tools.text.dialogue --roster data/text/m5_roster.json --indent --rank staying --max-sacrifice 160 --task END-023 --font local/layout001/font/arcade_font.json --driver local/mame_src/cps2.cpp --rompath local/arcade --out build/ui006/b --endings data/text/m8_endings.json --ending-record-dir local/ui006/rec-b --boot-warnings data/translations/boot_warnings.json --name-art data/translations/name_art.json --names-switch data/translations/names_switch.json --signs-switch data/translations/signs_switch.json --vs-captions data/translations/vs_captions.json --caption-touch 13
 ```
 
 Its expected hashes are in
-[data/regression/opt006_names_switch.json](data/regression/opt006_names_switch.json).
+[data/regression/ui007_ui_text.json](data/regression/ui007_ui_text.json).
 
 ### Build Options
 

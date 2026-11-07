@@ -170,8 +170,8 @@ Decided at the `UI-005` gate (2026-11-06, `docs/localization_policy.md`,
 
 | Surface | Now | Seen |
 | --- | --- | --- |
-| VS captions, pilots 0-5 (boxes 496-549) | English, centred (`data/translations/vs_captions.json`) | all 54 from a saved state (`EXP-0072`) |
-| Ruined-city signs (`ST00_FNT.BIN`) | `SIGNS` setting: `BLANK` default, `ENGLISH`, `JAPANESE` (`data/translations/signs_switch.json`) | VRAM equal to each version from the attract state (`EXP-0072`) |
+| VS captions, pilots 0-5 (boxes 496-549) | English, centred (`data/translations/vs_captions.json`) | all 54 from a saved state (`EXP-0072`); Jin's first on a cold boot (`EXP-0073`) |
+| Ruined-city signs (`ST00_FNT.BIN`) | `SIGNS` setting: `BLANK` default, `ENGLISH`, `JAPANESE` (`data/translations/signs_switch.json`) | VRAM equal to each version from the attract state (`EXP-0072`); on cold boots `BLANK` and, after a power cycle with the saved setting, `ENGLISH`; the setting changed with real presses (`EXP-0073`) |
 
 ### Excluded, With Evidence
 

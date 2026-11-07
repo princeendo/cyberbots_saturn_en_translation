@@ -1,0 +1,294 @@
+{
+ "build_track01": "1feadd132299e797292c0e8e5615e9024feb802893906cc376acfdbabb82655b",
+ "boot_a": {
+  "frames": 7600,
+  "named_opens": [
+   [
+    1330,
+    "SDDRVS1.TSK"
+   ],
+   [
+    1347,
+    "FIX.BIN"
+   ],
+   [
+    1377,
+    "OPDEMO.BIN"
+   ],
+   [
+    1431,
+    "OPS0_0.BIN"
+   ],
+   [
+    1542,
+    "OPS0_1.BIN"
+   ],
+   [
+    1652,
+    "CAPCOM.PIX"
+   ],
+   [
+    1807,
+    "OPS10.PIX"
+   ],
+   [
+    1839,
+    "OPS00.PIX"
+   ],
+   [
+    4008,
+    "OPS00.PIX"
+   ],
+   [
+    4462,
+    "M3CB00A.BIN"
+   ],
+   [
+    4508,
+    "M3CB01B.BIN"
+   ],
+   [
+    4535,
+    "STG00.BIN"
+   ],
+   [
+    4792,
+    "ST00_FNT.BIN"
+   ],
+   [
+    4865,
+    "ST00_SPR.BIN"
+   ],
+   [
+    4891,
+    "PL11_0.BIN"
+   ],
+   [
+    4957,
+    "PL13_0.BIN"
+   ],
+   [
+    4994,
+    "M3PL00_0.BIN"
+   ],
+   [
+    5104,
+    "M3PL00_1.BIN"
+   ],
+   [
+    5137,
+    "M3PL01_0.BIN"
+   ],
+   [
+    5246,
+    "M3PL01_1.BIN"
+   ],
+   [
+    6356,
+    "OPDEMO.BIN"
+   ],
+   [
+    6419,
+    "OPS0_0.BIN"
+   ],
+   [
+    6531,
+    "OPS0_1.BIN"
+   ],
+   [
+    6638,
+    "OPS0_0.BIN"
+   ],
+   [
+    6747,
+    "OPS0_1.BIN"
+   ],
+   [
+    6849,
+    "FIX.BIN"
+   ],
+   [
+    6874,
+    "RANKBG.PIX"
+   ],
+   [
+    7163,
+    "CAPCOM.PIX"
+   ],
+   [
+    7324,
+    "OPS10.PIX"
+   ],
+   [
+    7356,
+    "OPS00.PIX"
+   ]
+  ],
+  "zsigns_loaded": false,
+  "video_sha256": "e61aa572a35fb63f3eeebbf8065070ed4e5850b1d10d0cc657bdf5844a53ac55"
+ },
+ "boot_b": {
+  "presses": [
+   [
+    4227,
+    "start"
+   ],
+   [
+    5836,
+    "start"
+   ],
+   [
+    7319,
+    "start"
+   ],
+   [
+    7778,
+    "down"
+   ],
+   [
+    12854,
+    "down"
+   ],
+   [
+    13258,
+    "down"
+   ],
+   [
+    13405,
+    "a"
+   ],
+   [
+    13936,
+    "up"
+   ],
+   [
+    14081,
+    "a"
+   ],
+   [
+    14636,
+    "down"
+   ],
+   [
+    14782,
+    "right"
+   ],
+   [
+    15481,
+    "start"
+   ],
+   [
+    15751,
+    "start"
+   ],
+   [
+    43148,
+    "a"
+   ],
+   [
+    44461,
+    "a"
+   ],
+   [
+    45099,
+    "a"
+   ],
+   [
+    45784,
+    "a"
+   ]
+  ],
+  "shots": {
+   "t11": "ef6a0febc58a05e10bb04719ae471fe4b56ee1565a97ccb4145b26798343e868",
+   "t12": "c3760e6d3a088693f4d33f9e1e47f907ad9085ef4d06421c9da6bf7862f7486b",
+   "t13": "bfa4c2d279854818e1f893ca24f18de7dd8fcca82137eae5a1ed9fbd23b7e681",
+   "t15": "ac13dfe8f25d937390ab5502bc88885c0e9465b91f4ed379b94d19dee3cbaa4f",
+   "t18": "4edbc41f344288ccbb0a96722c7495b5607bd160e9a5ddc6c429ac136d33e00e",
+   "vs-caption": "f0858bda6c535ff0619c61598b8e4b972eb40f2802648c1b75e004562e900ef6"
+  },
+  "settings_after_leaving": "0001 (NAMES ENGLISH, SIGNS ENGLISH), read in RAM",
+  "save_sha256": "a0adefeab69870ed266182ecc87fb609754aac60a37d0a7bd9c144262b9642a0"
+ },
+ "boot_c": {
+  "presses": [
+   [
+    6755,
+    "start"
+   ],
+   [
+    7497,
+    "start"
+   ],
+   [
+    8184,
+    "start"
+   ],
+   [
+    8711,
+    "start"
+   ],
+   [
+    8918,
+    "down"
+   ],
+   [
+    9064,
+    "down"
+   ],
+   [
+    9208,
+    "a"
+   ],
+   [
+    9711,
+    "up"
+   ],
+   [
+    9843,
+    "a"
+   ],
+   [
+    10419,
+    "down"
+   ],
+   [
+    10552,
+    "right"
+   ],
+   [
+    10682,
+    "right"
+   ],
+   [
+    10814,
+    "left"
+   ],
+   [
+    11371,
+    "start"
+   ],
+   [
+    11628,
+    "start"
+   ]
+  ],
+  "attract_signs": {
+   "flags": "0001",
+   "match": [
+    "ZSIGNS1",
+    "4900"
+   ]
+  },
+  "shots": {
+   "city-ZSIGNS1-10": "851c17a033501cf0e53a958a2de5999481590e6c22a806babd8c96a5ddcfdb16",
+   "c9": "c9b37c1ba9d98d37e1cad837f976ba1aca63fe6740f55aab2242929a3564457b",
+   "c10": "bfa4c2d279854818e1f893ca24f18de7dd8fcca82137eae5a1ed9fbd23b7e681",
+   "c11": "e9a140b789f7eac259659859a47967c0a2f0631694176f3febfc2e5d4060fef3",
+   "c12": "c3760e6d3a088693f4d33f9e1e47f907ad9085ef4d06421c9da6bf7862f7486b",
+   "c13": "e9a140b789f7eac259659859a47967c0a2f0631694176f3febfc2e5d4060fef3",
+   "c15": "ac13dfe8f25d937390ab5502bc88885c0e9465b91f4ed379b94d19dee3cbaa4f"
+  },
+  "settings_after_leaving": "0002 (NAMES ENGLISH, SIGNS JAPANESE), read in RAM",
+  "save_sha256": "880160e1ed3f02fdda39e50fd34c4cfd4455dff668f214a636329b371a579a15"
+ }
+}
