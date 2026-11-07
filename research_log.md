@@ -3365,3 +3365,12 @@ zip and an unchanged patch record. Docs: `release/README.md`,
 `release/RELEASING.md`, `release/notes_v0.1.0.md`, the top-level README.
 `REL-004` (publish) is `READY` and waits on the user's approval.
 Checks: `ruff check .` passed; `ruff format --check .` 349 files formatted; `mypy` no issues in 91 files; `pytest -q` 269 passed.
+
+## 2026-11-07 — REL-004: approval and tag
+
+User request (verbatim): "Start REL-004". Asked; answer "Approve as is
+(Recommended)" (0.1.0, the notes, the one zip `b0188f0e…`), recorded in
+`docs/localization_policy.md`. History scan: no `.bin`/`.png`/`.mcs`/
+`.xdelta`/`.zip` or similar in any commit; largest blob 361 KB (JSON). Tag
+`v0.1.0` pushed; the Release itself is created by the user on github.com
+(`gh` here is the work account).

@@ -2843,6 +2843,10 @@ Known so far (facts and their confidence):
   - **History:** no patch, zip, image or game data in git history
     (rule 21 exception: Release assets only).
 - **Notes:** Nothing is published without the user's go-ahead.
+- **Approval (2026-11-07, verbatim):** "Approve as is (Recommended)": version
+  0.1.0, `release/notes_v0.1.0.md`, the one zip `b0188f0e…`. History
+  checked: no game-file type in any commit; the largest blob is a 361 KB JSON
+  record. Tag `v0.1.0` pushed; the GitHub Release is the user's step.
 
 ## Phase S: UI Text And Art (`UI-001`)
 
