@@ -26,15 +26,21 @@ Edition disc 3669 shares its track 01).
 | File | Size (bytes) | SHA-256 |
 | --- | ---: | --- |
 | `cyberbots_saturn_en_0.1.0_xdelta.zip` | 245,322 | `b0188f0e3baf7d93608e1c923f153bbb315d5308760762fc1c9505034775154c` |
+| `cyberbots_saturn_en_0.1.0_ssp.zip` (untested) | 196,460 | `df1a7a8bed26af63978c93eb6160a2896bb76438aced9eeccddc25d1c0cf8b4d` |
 
-The zip holds the patch and a `README.txt` with the source and target
-hashes. Only track 01 changes.
+Each zip holds one patch and a `README.txt` with the source and target
+hashes. Only track 01 changes. Use the xdelta patch if you can.
 
 ## Apply
 
 See [`release/README.md`](https://github.com/princeendo/cyberbots_saturn_en_translation/blob/main/release/README.md):
-xdelta3, or any VCDIFF patcher, on the original track 01. There is no `.ssp`
-patch, because the English image adds files to track 01.
+xdelta3, or any VCDIFF patcher, on the original track 01 (tested).
+
+The `.ssp` patch is **untested**: it is for the official Sega Saturn Patcher
+(Windows) only. The English image adds four files to track 01, and the
+open-source Saturn patcher (saturn-patcher-egui) cannot add files, so with
+it the `NAMES` and `SIGNS` settings would fail. The `.ssp`'s content was
+checked against the English image, but no patcher has applied it.
 
 ## Known Limits
 

@@ -1,0 +1,191 @@
+{
+ "tool": "tools.disc.make_ssp",
+ "reference": "data/regression/special018_saturn_only.json",
+ "ra_md5": "37674ab0fe794821dfd080116e1a10ba",
+ "ssp_version": "1.3.7760.32512",
+ "patch": "cyberbots_en.ssp",
+ "patch_size": 197313,
+ "patch_sha256": "509accc5143bdf6d71767301a6da7dbaecb270d8b2f466cda8ad77f3047d3470",
+ "component": "Cyberbots - Fullmetal Madness (Japan) (2M) (Track 01).bin",
+ "source_sha256": "758fa7956aa6139460c391ec5225e69cc9cde13dfe2281e8c544e594d201dbd1",
+ "target_sha256": "f6789cae74814ab82d8060db3b50a99906b668bacfe950d1e0850ac4d01d25e0",
+ "deterministic": true,
+ "round_trip": true,
+ "round_trip_kind": "rebuild_check: ._DFR applied, ._NEW written at the built positions, the built root directory copied (the entries are complete; no patcher's layout is tested)",
+ "new_files": [
+  {
+   "name": "ZNAMES1.BIN",
+   "lsn": 43643,
+   "size": 8640,
+   "target_sha256": "395dcd83d648b53b446e1f11a70af703698c8ecf3d00b274eb76295fca97c699",
+   "new_stored_size": 2487
+  },
+  {
+   "name": "ZNAMES2.BIN",
+   "lsn": 43648,
+   "size": 38700,
+   "target_sha256": "b7a901c2d948ae9bc027764ed2a98c86effd71ce61cdaaf2a89227c3cf69f9a0",
+   "new_stored_size": 21716
+  },
+  {
+   "name": "ZSIGNS1.BIN",
+   "lsn": 43667,
+   "size": 63872,
+   "target_sha256": "b17b6d473cd80b8ca817cf3c028d735f9737b491f3f3105fc08122a2426dcd7d",
+   "new_stored_size": 28360
+  },
+  {
+   "name": "ZSIGNS2.BIN",
+   "lsn": 43699,
+   "size": 63872,
+   "target_sha256": "9f50ff21b2aac8329d296ec982bb6babcc17214947194d3114aceaac0ec80560",
+   "new_stored_size": 29067
+  }
+ ],
+ "files": [
+  {
+   "name": "CYBER.BIN",
+   "lsn": 164,
+   "size": 331376,
+   "source_md5": "d1c7da0e0bbdc38f546bd4c9f27c7880",
+   "target_sha256": "2af277dfb9fd7192322effd1a4db89a2b15b964b5cae6308ad667dbafd4af35b",
+   "dfr_stored_size": 1164
+  },
+  {
+   "name": "SELECT.VAD",
+   "lsn": 2108,
+   "size": 379488,
+   "source_md5": "d9e61a87283570a96f8d316b7a992a20",
+   "target_sha256": "02070298d238281639e1cf02d5f444ca82dea8c73c50c633a9c090f1c1a00740",
+   "dfr_stored_size": 2245
+  },
+  {
+   "name": "OPDEMO.BIN",
+   "lsn": 3785,
+   "size": 48776,
+   "source_md5": "dcd4334d0368622cbe6d10611fa9a36b",
+   "target_sha256": "70d3cb7616e30c5fb8d202194437643405258e26ee5335d4a39a415c15a2e9c9",
+   "dfr_stored_size": 272
+  },
+  {
+   "name": "SE.DAT",
+   "lsn": 4524,
+   "size": 524288,
+   "source_md5": "4c385024e4b98e603c316491d06d1892",
+   "target_sha256": "4c96e9a798986895938fbd1656d6b71eb0c3d62c5cb923ac14af80a3790026c5",
+   "dfr_stored_size": 14273
+  },
+  {
+   "name": "KANJI.BIN",
+   "lsn": 4780,
+   "size": 163840,
+   "source_md5": "2cc79eb3ab8a48b8b9c36892643ee790",
+   "target_sha256": "f8d2a891af2d33196b5d1eb7e5f97b7ca36cf8cf8eb588c7cd1cab238a208466",
+   "dfr_stored_size": 23676
+  },
+  {
+   "name": "PL3F_0.BIN",
+   "lsn": 5176,
+   "size": 333536,
+   "source_md5": "9728cd0115df8a17b7b9e6c930428ffe",
+   "target_sha256": "d0dd08b043875588b3a0c1567cccb00ac3790a193e0781ff5a11e2e4d876cfd6",
+   "dfr_stored_size": 6130
+  },
+  {
+   "name": "ST00_FNT.BIN",
+   "lsn": 20202,
+   "size": 320512,
+   "source_md5": "7b84a111ade78ea9ec96a04e64457d75",
+   "target_sha256": "4ecae226bc5acb3feff79e173ba9bb01d92de7634de8688bef000e1be4dfb008",
+   "dfr_stored_size": 1089
+  },
+  {
+   "name": "STG0A.BIN",
+   "lsn": 22478,
+   "size": 121708,
+   "source_md5": "684dc6eba526437ae8ba6f16bc045c2b",
+   "target_sha256": "52e6ac38312dcf4ca6d2d26238c30f89a37068aeb965b50044e203c855b20c62",
+   "dfr_stored_size": 182
+  },
+  {
+   "name": "STG0AS.BIN",
+   "lsn": 22538,
+   "size": 320724,
+   "source_md5": "601347f4af9fc85c493fc6e5b698369d",
+   "target_sha256": "87589daf595410626e02e2d5ebef9e73fe122af8d51f324c874d6e5455719e61",
+   "dfr_stored_size": 24271
+  },
+  {
+   "name": "VICTORY.BIN",
+   "lsn": 22743,
+   "size": 125444,
+   "source_md5": "2d8f8e6b31bbab7ee72ff6b445d4d9f8",
+   "target_sha256": "78722d0126fe05de9f4b3cf6c1757d0808d8cadfe9cafe2be3b1f25a959b3fa1",
+   "dfr_stored_size": 2899
+  },
+  {
+   "name": "WARNING0.PIX",
+   "lsn": 23947,
+   "size": 122880,
+   "source_md5": "4a65b512ed315e22fdfcfc4509d372a1",
+   "target_sha256": "66c4d4b2c7868f343316fac37a4dac54cf30d42a3ddc4341ec3dd792d3176627",
+   "dfr_stored_size": 4125
+  },
+  {
+   "name": "WARNING1.PIX",
+   "lsn": 24007,
+   "size": 122880,
+   "source_md5": "21e08339934874bb367d8df9fbcc9172",
+   "target_sha256": "538c49028ccc6afa5b054098dbfc93c9d43362a51cec82cd5a102bea5834c05a",
+   "dfr_stored_size": 5097
+  },
+  {
+   "name": "WARNING2.PIX",
+   "lsn": 24067,
+   "size": 122880,
+   "source_md5": "645aabaacdd09b5ee85bb7d5608dacd1",
+   "target_sha256": "580ef4d18ef75843e61ee6d49839bd29c9ec15cd66e826e27d88bb0c42f61997",
+   "dfr_stored_size": 4661
+  },
+  {
+   "name": "WARNING3.PIX",
+   "lsn": 24127,
+   "size": 122880,
+   "source_md5": "8d9a378eac8cfba5d356bb677a45adb5",
+   "target_sha256": "75c696a64207721fea2df177355be32d295e34a7ee82f2fe6c6d675f60a7881b",
+   "dfr_stored_size": 5202
+  },
+  {
+   "name": "WARNING4.PIX",
+   "lsn": 24187,
+   "size": 131072,
+   "source_md5": "cdb57bd415532f18b9010b566b792d1a",
+   "target_sha256": "29da7ffce0e94a6ca5255639ff7e5fbf8f466736e18b9b42aa3218b4900e92c6",
+   "dfr_stored_size": 6574
+  },
+  {
+   "name": "END.BIN",
+   "lsn": 24475,
+   "size": 318440,
+   "source_md5": "7c5d442595062369f64a8e946eb13565",
+   "target_sha256": "a08d45a3c4716ada6034058ec5ea3e29755822232992eb62ecf34e8212f271d1",
+   "dfr_stored_size": 7992
+  },
+  {
+   "name": "KEND_1.BIN",
+   "lsn": 24887,
+   "size": 266152,
+   "source_md5": "1703b5a473f445f6a1636b76529bb454",
+   "target_sha256": "83eff89c112efc7ef0f7f1f58bd39ee2d8257949c32c8a2ff61c039abe4d2413",
+   "dfr_stored_size": 194
+  },
+  {
+   "name": "QSD.PIX",
+   "lsn": 43579,
+   "size": 131072,
+   "source_md5": "ca5e81975678e2cf51118862f2d1f00e",
+   "target_sha256": "e37dc053e396c78adacf7bb8c25a38c9423f5d47fc0e06594795a35121c7a42f",
+   "dfr_stored_size": 310
+  }
+ ]
+}

@@ -18,8 +18,8 @@ See [docs/playbook_from_mshvsf.md](docs/playbook_from_mshvsf.md) and
 
 ## Download
 
-Version 0.1.0, as a GitHub Release asset (an xdelta patch for track 01):
-what it changes, how to apply it and its known limits are in
+Version 0.1.0, as GitHub Release assets (an xdelta patch for track 01, and
+an untested `.ssp` patch): what it changes, how to apply it and its known limits are in
 [release/README.md](release/README.md) and
 [release/notes_v0.1.0.md](release/notes_v0.1.0.md).
 
@@ -50,11 +50,14 @@ register is [docs/coverage_exceptions.md](docs/coverage_exceptions.md).
 
 ## Patch Files
 
-One xdelta (VCDIFF) patch for track 01 of the image named in
+Two patches for track 01 of the image named in
 [references/saturn_jp/README.md](references/saturn_jp/README.md), published
-as a GitHub Release asset only. There is no `.ssp` patch: the English image
-adds files to track 01, which the open-source Saturn patcher cannot do
-(`REL-002`).
+as GitHub Release assets only:
+
+- an xdelta (VCDIFF) patch, tested (`REL-002`);
+- a Sega Saturn Patcher `.ssp` patch, **untested**, for the official
+  patcher only: the English image adds files to track 01, which the
+  open-source Saturn patcher cannot do (`EXP-0086`).
 
 ### Applying a Patch
 

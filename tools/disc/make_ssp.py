@@ -34,9 +34,23 @@ area; it is left out, so the image keeps its own and no boot code is shipped.
 
 Cyberbots-specific and untested: 61 of the disc's directory entries point at
 audio tracks, not track 01 (D-002); they are listed in ``driveOrder.txt``
-like any other entry. How the official patcher rebuilds them is UNKNOWN. An
-``.ssp`` cannot add or move files (``changed_files`` refuses a changed
-directory), so a build that adds files to track 01 needs another route.
+like any other entry. How the official patcher rebuilds them is UNKNOWN. By
+default an ``.ssp`` cannot add or move files (``changed_files`` refuses a
+changed directory).
+
+``--add-new`` (Cyberbots ``REL-004``, the user: "I actually want to create
+the SSP patch. I know we can't test it fully. But let's try it anyway."):
+files the built track 01 adds in the root directory (the NAMES and SIGNS
+tail files) become ``NAME._NEW`` entries holding the whole file, the entry
+kind MSHvSF's decompile of the official patcher lists as "new file"
+(``EXP-0084``); ``driveOrder.txt`` lists the built track's entries. How the
+official patcher places a ``._NEW`` file is UNKNOWN, and
+``saturn-patcher-egui`` ignores ``._NEW`` (it cannot add files), so such a
+patch is for the official patcher only and untested. In place of the
+in-place apply check, ``rebuild_check`` proves the entries are complete:
+the source with every ``._DFR`` applied, every ``._NEW`` file written at
+its built position and the built root directory sectors copied must equal
+the built track.
 
 Each ``._DFR`` is made by ``bsdiff40`` below, a pure-Python bsdiff 4 scan
 (no new dependency) whose output any BSDIFF40 bspatch applies.
@@ -365,6 +379,134 @@ def changed_files(source: Path, built: Path) -> list[FileChange]:
     return changes
 
 
+def changed_and_new_files(
+    source: Path, built: Path
+) -> tuple[list[FileChange], list[FileChange], list[int]]:
+    """(changed files, new root files, root directory LSNs) for ``--add-new``.
+
+    Every source entry must be in the built listing unchanged; the built
+    listing may add root files only. A differing sector must belong to a
+    changed or new file, or to the root directory.
+    """
+    old_listing = entries(source)
+    new_listing = entries(built)
+    key = [(e.path, e.lsn, e.size_bytes, e.flags) for e in old_listing]
+    built_keys = {(e.path, e.lsn, e.size_bytes, e.flags) for e in new_listing}
+    if not set(key) <= built_keys:
+        raise ValueError("a source entry moved or changed size; an .ssp cannot move")
+    added = [
+        e for e in new_listing if (e.path, e.lsn, e.size_bytes, e.flags) not in key
+    ]
+    for entry in added:
+        if entry.is_dir or "/" in entry.path:
+            raise ValueError(f"{entry.path}: only new root files are supported")
+    with built.open("rb") as stream:
+        volume = primary_volume(Track(stream, built.stat().st_size))
+    root_lsn, root_size = int(str(volume["root_lsn"])), int(str(volume["root_size"]))
+    root = list(range(root_lsn, root_lsn + (root_size + USER_DATA - 1) // USER_DATA))
+    owner: dict[int, Entry] = {}
+    for entry in new_listing:
+        if not entry.is_dir:
+            for i in range((entry.size_bytes + USER_DATA - 1) // USER_DATA):
+                owner[entry.lsn + i] = entry
+    touched: dict[str, Entry] = {}
+    with source.open("rb") as a, built.open("rb") as b:
+        lsn = 0
+        while chunk_a := a.read(RAW_SECTOR * 512):
+            chunk_b = b.read(len(chunk_a))
+            for offset in range(0, len(chunk_a), RAW_SECTOR):
+                index = lsn + offset // RAW_SECTOR
+                if (
+                    chunk_a[offset : offset + RAW_SECTOR]
+                    != chunk_b[offset : offset + RAW_SECTOR]
+                ):
+                    owned = owner.get(index)
+                    if owned is None:
+                        if index in root:
+                            continue
+                        raise ValueError(f"LSN {index} differs outside any file")
+                    touched[owned.path] = owned
+            lsn += len(chunk_a) // RAW_SECTOR
+        if b.read(1):
+            raise ValueError("the tracks differ in length")
+    new_paths = {e.path for e in added}
+    changes: list[FileChange] = []
+    new_files: list[FileChange] = []
+    with source.open("rb") as a, built.open("rb") as b:
+        track_a = Track(a, source.stat().st_size)
+        track_b = Track(b, built.stat().st_size)
+        for entry in sorted(touched.values(), key=lambda e: e.lsn):
+            if "/" in entry.path:
+                raise ValueError(f"{entry.path}: only root files are supported")
+            data = track_b.read(entry.lsn, entry.size_bytes)
+            if entry.path in new_paths:
+                new_files.append(
+                    FileChange(disc_name(entry), entry.lsn, entry.size_bytes, b"", data)
+                )
+            else:
+                old = track_a.read(entry.lsn, entry.size_bytes)
+                changes.append(
+                    FileChange(disc_name(entry), entry.lsn, entry.size_bytes, old, data)
+                )
+    missing = new_paths - {e.path for e in added if e.path in touched}
+    for entry in added:
+        if entry.path in missing:  # a new file whose sectors equal the source's
+            with built.open("rb") as b:
+                data = Track(b, built.stat().st_size).read(entry.lsn, entry.size_bytes)
+            new_files.append(
+                FileChange(disc_name(entry), entry.lsn, entry.size_bytes, b"", data)
+            )
+    return changes, sorted(new_files, key=lambda c: c.lsn), root
+
+
+def read_new(ssp: bytes) -> dict[str, bytes]:
+    """The ``._NEW`` entries of an ``.ssp``, by file name."""
+    with zipfile.ZipFile(io.BytesIO(ssp)) as archive:
+        return {
+            n.removesuffix("._NEW"): archive.read(n)
+            for n in archive.namelist()
+            if n.endswith("._NEW")
+        }
+
+
+def rebuild_check(ssp: bytes, source: Path, built: Path, target: Path) -> bool:
+    """Whether the ``.ssp``'s entries fully describe ``built`` (``--add-new``).
+
+    ``target``: ``source`` with every ``._DFR`` applied in place, every
+    ``._NEW`` file written at its position in ``built``, and ``built``'s root
+    directory sectors copied. True when it equals ``built``. This checks the
+    patch's content, not how any patcher lays the files out.
+    """
+    md5, patches = read_ssp(ssp)
+    added = read_new(ssp)
+    old_files = {disc_name(e): e for e in entries(source) if not e.is_dir}
+    new_files = {disc_name(e): e for e in entries(built) if not e.is_dir}
+    replacements = []
+    with source.open("rb") as stream:
+        track = Track(stream, source.stat().st_size)
+        for name, patch in sorted(patches.items()):
+            entry = old_files[name]
+            old = track.read(entry.lsn, entry.size_bytes)
+            if hashlib.md5(old).hexdigest().upper() != md5[name]:
+                raise ValueError(f"{name}: the source file's MD5 does not match")
+            replacements.append((entry.lsn, entry.size_bytes, bspatch(old, patch)))
+    for name, data in sorted(added.items()):
+        entry = new_files[name]
+        replacements.append((entry.lsn, entry.size_bytes, data))
+    replace_files(source, target, replacements)
+    with built.open("rb") as stream:
+        volume = primary_volume(Track(stream, built.stat().st_size))
+    root_lsn, root_size = int(str(volume["root_lsn"])), int(str(volume["root_size"]))
+    with built.open("rb") as b, target.open("r+b") as t:
+        for index in range(
+            root_lsn, root_lsn + (root_size + USER_DATA - 1) // USER_DATA
+        ):
+            b.seek(index * RAW_SECTOR)
+            t.seek(index * RAW_SECTOR)
+            t.write(b.read(RAW_SECTOR))
+    return sha256_file(target) == sha256_file(built)
+
+
 def drive_order(listing: Sequence[Entry]) -> str:
     """``driveOrder.txt``: entries by extent, as the official patcher lists them.
 
@@ -382,8 +524,12 @@ def build_ssp(
     listing: Sequence[Entry],
     meta: dict[str, str],
     image: str = IMAGE,
+    new: Sequence[FileChange] = (),
 ) -> bytes:
-    """The .ssp bytes; identical inputs give identical bytes."""
+    """The .ssp bytes; identical inputs give identical bytes.
+
+    ``new``: files to add (``--add-new``), stored whole as ``NAME._NEW``.
+    """
     md5 = "".join(
         f"{c.name.upper()}:{hashlib.md5(c.old).hexdigest().upper()}\r\n"
         for c in changes
@@ -401,6 +547,7 @@ def build_ssp(
         ]
     )
     members = [(f"{c.name.upper()}._DFR", bsdiff40(c.old, c.new)) for c in changes]
+    members += [(f"{c.name.upper()}._NEW", c.new) for c in new]
     members += [
         ("version.txt", f"{SSP_VERSION}\r\n".encode("ascii")),
         ("readme.txt", readme.encode("ascii")),
@@ -466,6 +613,12 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument("--author", default=AUTHOR, help="meta.txt Author")
     parser.add_argument("--url", default=URL, help="meta.txt URL; Contact adds /issues")
     parser.add_argument("--image", default=IMAGE, help="source image named in readme")
+    parser.add_argument(
+        "--add-new",
+        action="store_true",
+        help="write files the build adds as ._NEW entries (official patcher only;"
+        " untested)",
+    )
     args = parser.parse_args(argv)
 
     out_dir = checked_out_dir(parser, args.out_dir)
@@ -483,19 +636,26 @@ def main(argv: Sequence[str] | None = None) -> int:
         "Description": args.description,
         "Contact": args.url + "/issues",
     }
+    new: list[FileChange] = []
     try:
-        changes = changed_files(source[track01], built[track01])
+        if args.add_new:
+            changes, new, _ = changed_and_new_files(source[track01], built[track01])
+        else:
+            changes = changed_files(source[track01], built[track01])
     except ValueError as error:
         parser.error(str(error))
-    listing = entries(source[track01])
-    ssp = build_ssp(changes, listing, meta, args.image)
-    deterministic = ssp == build_ssp(changes, listing, meta, args.image)
+    listing = entries(built[track01] if args.add_new else source[track01])
+    ssp = build_ssp(changes, listing, meta, args.image, new)
+    deterministic = ssp == build_ssp(changes, listing, meta, args.image, new)
     out_dir.mkdir(parents=True, exist_ok=True)
     patch = out_dir / f"{args.stem}.ssp"
     patch.write_bytes(ssp)
     check = out_dir / f"{args.stem}.ssp.applied.bin"
-    apply_ssp(ssp, source[track01], check)
-    round_trip = sha256_file(check) == target_sha256
+    if args.add_new:
+        round_trip = rebuild_check(ssp, source[track01], built[track01], check)
+    else:
+        apply_ssp(ssp, source[track01], check)
+        round_trip = sha256_file(check) == target_sha256
     check.unlink()
     if not (deterministic and round_trip):
         parser.error(f"{patch.name}: {deterministic=} {round_trip=}")
@@ -514,6 +674,23 @@ def main(argv: Sequence[str] | None = None) -> int:
         "target_sha256": target_sha256,
         "deterministic": deterministic,
         "round_trip": round_trip,
+        "round_trip_kind": (
+            "rebuild_check: ._DFR applied, ._NEW written at the built positions,"
+            " the built root directory copied (the entries are complete; no"
+            " patcher's layout is tested)"
+            if args.add_new
+            else "apply_ssp: ._DFR applied in place"
+        ),
+        "new_files": [
+            {
+                "name": c.name,
+                "lsn": c.lsn,
+                "size": c.size,
+                "target_sha256": hashlib.sha256(c.new).hexdigest(),
+                "new_stored_size": sizes[f"{c.name.upper()}._NEW"],
+            }
+            for c in new
+        ],
         "files": [
             {
                 "name": c.name,

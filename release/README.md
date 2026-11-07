@@ -8,10 +8,11 @@ how to apply it, and how to rebuild it from this repository.
 game-derived data, which this project never commits (`AGENTS.md` rule 21).
 They are published as GitHub Release assets.
 
-[`cyberbots_en.json`](cyberbots_en.json) is the patch's record (hashes,
-sizes, xdelta3 version and flags), and
-[`rel002_xdelta.json`](rel002_xdelta.json) the checks it passed: metadata
-only.
+[`cyberbots_en.json`](cyberbots_en.json) is the xdelta patch's record
+(hashes, sizes, xdelta3 version and flags), and
+[`rel002_xdelta.json`](rel002_xdelta.json) the checks it passed.
+[`cyberbots_en.ssp.json`](cyberbots_en.ssp.json) is the `.ssp` patch's
+record. All three are metadata only.
 
 ## What the Patch Changes
 
@@ -82,12 +83,24 @@ xdelta3 -d -s "Cyberbots - Fullmetal Madness (Japan) (2M) (Track 01).bin" \
 The game needs the same hardware as the original. It was played in Mednafen
 (`ss.cart auto`).
 
-### No .ssp patch
+### The .ssp patch (untested)
 
-There is no Sega Saturn Patcher (`.ssp`) patch. The English image adds four
-files to track 01 (the `NAMES` and `SIGNS` settings' data). The open-source
-patcher cannot add files, and whether the official one can is unknown, so
-only the xdelta patch is offered.
+`cyberbots_saturn_en_0.1.0_ssp.zip` holds a Sega Saturn Patcher patch,
+`cyberbots_en.ssp`. **Use the xdelta patch if you can.** The `.ssp` has
+not been applied by any patcher:
+
+- The English image adds four files to track 01 (`ZNAMES1.BIN`,
+  `ZNAMES2.BIN`, `ZSIGNS1.BIN`, `ZSIGNS2.BIN`: the `NAMES` and `SIGNS`
+  settings' data). The `.ssp` carries them as new-file (`._NEW`) entries.
+- Only the official Sega Saturn Patcher (Windows) may add files. Whether it
+  reads these entries, and whether its rebuilt disc boots, is unknown. Its
+  output will probably not have the SHA-256 above, because it lays the
+  files out itself.
+- The open-source `saturn-patcher-egui` cannot add files. With it the
+  `NAMES` and `SIGNS` settings would fail.
+
+What was checked: the `.ssp` builds the same twice, and its entries
+together give exactly the English track 01 (`EXP-0086`).
 
 ## Known Limits
 
@@ -114,8 +127,14 @@ the arcade glyph capture; see the top-level [`README.md`](../README.md),
 ./invenv.sh python -m tools.disc.make_patch --built-dir build/regress/special018_saturn_only/image \
   --reference data/regression/special018_saturn_only.json --stem cyberbots_en \
   --out-dir build/release/patch --record release/cyberbots_en.json
-# 3. The zip, and a check that applies the patch from it.
-./invenv.sh python -m tools.release.make_zips 0.1.0 build/release/v0.1.0 --kinds xdelta \
+# 3. The .ssp patch (the added files as ._NEW entries), checked against the build.
+./invenv.sh python -m tools.disc.make_ssp --built-dir build/regress/special018_saturn_only/image \
+  --reference data/regression/special018_saturn_only.json --stem cyberbots_en \
+  --out-dir build/release/patch --release-version 0.1.0 --add-new \
+  --description "English translation (all pilots, endings, UI; NAMES and SIGNS settings)" \
+  --record release/cyberbots_en.ssp.json
+# 4. The zips, and a check that applies the xdelta patch from its zip.
+./invenv.sh python -m tools.release.make_zips 0.1.0 build/release/v0.1.0 \
   --patches build/release --variant cyberbots_en patch \
   "English translation (all pilots, endings, UI; NAMES and SIGNS settings)"
 ./invenv.sh python -m tools.release.check_zips 0.1.0 build/release/v0.1.0 local/rel/v0.1.0-check \
@@ -123,4 +142,6 @@ the arcade glyph capture; see the top-level [`README.md`](../README.md),
 ```
 
 Every step refuses a source or build whose hashes differ from the records.
+`check_zips` cannot apply an `.ssp` that adds files; `make_ssp`'s rebuild
+check (its record's `round_trip`) covers it instead.
 The full procedure for publishing is [`RELEASING.md`](RELEASING.md).

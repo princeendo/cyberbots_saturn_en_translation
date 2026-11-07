@@ -14,7 +14,9 @@ HYPOTHESIS until validated on Cyberbots (``AGENTS.md`` rules 13 and 26).
 
 Prints the source track's SHA-256, then one line per patch: its file name and
 the patched track's SHA-256. xdelta patches go through ``xdelta3 -d``, ``.ssp``
-patches through ``tools.disc.make_ssp.apply_ssp``.
+patches through ``tools.disc.make_ssp.apply_ssp``. An ``.ssp`` that adds files
+(``._NEW`` entries, ``make_ssp --add-new``; Cyberbots ``REL-004``) is refused:
+``apply_ssp`` cannot add files, and only ``make_ssp``'s rebuild check covers it.
 
 Run from the repository root, for example:
 
@@ -31,7 +33,7 @@ from collections.abc import Sequence
 from pathlib import Path
 
 from tools.disc.make_patch import SOURCE_DIR, TRACK01, decode
-from tools.disc.make_ssp import apply_ssp
+from tools.disc.make_ssp import apply_ssp, read_new
 from tools.disc.patch_image import REPO_ROOT, sha256_file
 from tools.release.make_zips import KINDS, PREFIX
 
@@ -63,6 +65,8 @@ def check_zips(
         decode(xdelta, source, patch, out)
         results.append((patch.name, sha256_file(out)))
     for patch in sorted((work / "unz" / "ssp").glob("*.ssp")):
+        if read_new(patch.read_bytes()):
+            raise ValueError(f"{patch.name} adds files; apply_ssp cannot check it")
         apply_ssp(patch.read_bytes(), source, out)
         results.append((patch.name, sha256_file(out)))
     out.unlink(missing_ok=True)

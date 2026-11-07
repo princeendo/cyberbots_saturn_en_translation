@@ -18,6 +18,7 @@ from pathlib import Path
 
 import pytest
 
+from tests.unit.test_iso9660 import dir_record, raw_sector
 from tests.unit.test_patch_image import valid_image
 from tools.disc.iso9660 import RAW_SECTOR
 from tools.disc.make_ssp import (
@@ -28,14 +29,18 @@ from tools.disc.make_ssp import (
     bsdiff40,
     bspatch,
     build_ssp,
+    changed_and_new_files,
     changed_files,
     drive_order,
     entries,
     offtin,
     offtout,
+    read_new,
     read_ssp,
+    rebuild_check,
 )
 from tools.disc.patch_image import replace_file
+from tools.disc.sector import regenerate
 
 META = {
     "Name": "Test",
@@ -182,3 +187,69 @@ def test_readme_names_the_cyberbots_image_or_the_given_one(tmp_path: Path) -> No
     text = zipfile.ZipFile(io.BytesIO(other)).read("readme.txt")
     assert b"Other (Japan). Source" in text
     assert b"X-Men" not in text
+
+
+def with_new_file(source: Path, target: Path, new_name: bytes = b"C.BIN;1") -> None:
+    """``source`` with A.BIN changed and a new root file at LSN 23 (REL-004)."""
+    raw = bytearray(source.read_bytes())
+    root = (
+        dir_record(b"\x00", 18, 2048, 2)
+        + dir_record(b"\x01", 18, 2048, 2)
+        + dir_record(b"A.BIN;1", 20, 5, 0)
+        + dir_record(new_name, 23, 3, 0)
+        + dir_record(b"SUB", 19, 2048, 2)
+    )
+    for lsn, user in ((18, root), (20, b"HELLO"), (23, b"NEW")):
+        raw[lsn * RAW_SECTOR : (lsn + 1) * RAW_SECTOR] = regenerate(
+            raw_sector(lsn, user)
+        )
+    target.write_bytes(bytes(raw))
+
+
+def test_add_new_writes_new_entries_and_rebuilds_the_track(tmp_path: Path) -> None:
+    source = tmp_path / "source.bin"
+    source.write_bytes(valid_image())
+    built = tmp_path / "built.bin"
+    with_new_file(source, built)
+    with pytest.raises(ValueError, match="directory listings differ"):
+        changed_files(source, built)
+    changes, new, root = changed_and_new_files(source, built)
+    assert [(c.name, c.new) for c in changes] == [("A.BIN", b"HELLO")]
+    assert [(c.name, c.lsn, c.new) for c in new] == [("C.BIN", 23, b"NEW")]
+    assert root == [18]
+    ssp = build_ssp(changes, entries(built), META, new=new)
+    assert ssp == build_ssp(changes, entries(built), META, new=new)
+    names = zipfile.ZipFile(io.BytesIO(ssp)).namelist()
+    assert names[:2] == ["A.BIN._DFR", "C.BIN._NEW"]
+    assert read_new(ssp) == {"C.BIN": b"NEW"}
+    assert set(read_ssp(ssp)[0]) == {"A.BIN"}  # changes.md5: ._DFR files only
+    drive = zipfile.ZipFile(io.BytesIO(ssp)).read("driveOrder.txt")
+    assert b"C.BIN,3,0\r\n" in drive
+    assert rebuild_check(ssp, source, built, tmp_path / "rebuilt.bin")
+
+
+def test_rebuild_check_fails_without_the_new_entry(tmp_path: Path) -> None:
+    source = tmp_path / "source.bin"
+    source.write_bytes(valid_image())
+    built = tmp_path / "built.bin"
+    with_new_file(source, built)
+    changes, _, _ = changed_and_new_files(source, built)
+    ssp = build_ssp(changes, entries(built), META)
+    assert not rebuild_check(ssp, source, built, tmp_path / "rebuilt.bin")
+
+
+def test_add_new_refuses_a_moved_source_entry(tmp_path: Path) -> None:
+    source = tmp_path / "source.bin"
+    source.write_bytes(valid_image())
+    built = tmp_path / "built.bin"
+    raw = bytearray(source.read_bytes())
+    root = (
+        dir_record(b"\x00", 18, 2048, 2)
+        + dir_record(b"\x01", 18, 2048, 2)
+        + dir_record(b"A.BIN;1", 23, 5, 0)
+        + dir_record(b"SUB", 19, 2048, 2)
+    )
+    raw[18 * RAW_SECTOR : 19 * RAW_SECTOR] = regenerate(raw_sector(18, root))
+    built.write_bytes(bytes(raw))
+    with pytest.raises(ValueError, match="moved"):
+        changed_and_new_files(source, built)

@@ -3374,3 +3374,28 @@ User request (verbatim): "Start REL-004". Asked; answer "Approve as is
 `.xdelta`/`.zip` or similar in any commit; largest blob 361 KB (JSON). Tag
 `v0.1.0` pushed; the Release itself is created by the user on github.com
 (`gh` here is the work account).
+
+## 2026-11-07 — REL-004: an SSP patch that adds files (EXP-0086)
+
+User request (verbatim): "I actually want to create the SSP patch. I know we
+can't test it fully. But let's try it anyway." This reverses `REL-002`'s
+"xdelta only (Recommended)". `make_ssp --add-new` writes the four added root
+files as `._NEW` entries (whole files), takes `driveOrder.txt` from the
+built listing, and checks the patch by rebuilding the built track (the
+`._DFR`s applied, the `._NEW` files written at their built LSNs, the built
+root directory copied). `cyberbots_en.ssp` (197,313 bytes, `509accc5…`)
+built twice identically; `rebuild_check` true; independently, macOS
+`bspatch` turns all 18 source files into the built ones, the 18 MD5s match
+and the 4 `._NEW` match the built files. Its zip (`df1a7a8b…`, 196,460
+bytes) built twice identically; the xdelta zip is still `b0188f0e…`. Asked
+how to ship it, as the v0.1.0 tag is already pushed: "Add to v0.1.0
+(Recommended)". Notes, `release/README.md`, `RELEASING.md` and the README
+updated; record `release/cyberbots_en.ssp.json`.
+
+Notes:
+- **Untested by any patcher.** Only the official Sega Saturn Patcher may
+  read `._NEW`; `saturn-patcher-egui` ignores it, which would leave the
+  NAMES and SIGNS files missing.
+- **`check_zips` refuses an `.ssp` with `._NEW`** (`apply_ssp` works in
+  place and cannot add files); the release check keeps `--kinds xdelta`.
+Checks: `ruff check .` passed; `ruff format --check .` 350 files formatted; `mypy` no issues in 91 files; `pytest -q` 273 passed.

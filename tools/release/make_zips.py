@@ -60,6 +60,13 @@ APPLY = {
         "(saturn-patcher-egui). The official Sega Saturn Patcher rebuilds the",
         "disc instead; see the full instructions.",
     ],
+    # An .ssp with ._NEW entries (make_ssp --add-new; Cyberbots REL-004).
+    "ssp_new": [
+        "With the official Sega Saturn Patcher (Windows) only; untested.",
+        "The patch adds files to track 01, which saturn-patcher-egui cannot do.",
+        "The patcher rebuilds the disc; its result may not have the SHA-256",
+        "above. See the full instructions.",
+    ],
 }
 
 
@@ -96,7 +103,10 @@ def add(bundle: zipfile.ZipFile, name: str, data: bytes, when: DateTime) -> None
     bundle.writestr(info, data)
 
 
-def readme(release: Release, kind: str, rows: Sequence[str], source: str) -> str:
+def readme(
+    release: Release, kind: str, rows: Sequence[str], source: str, apply: str = ""
+) -> str:
+    """``apply``: the ``APPLY`` key, when not ``kind``."""
     return "\n".join(
         [
             f"{release.title} {release.version}",
@@ -110,8 +120,18 @@ def readme(release: Release, kind: str, rows: Sequence[str], source: str) -> str
             "",
             *rows,
             "Apply:",
-            *(f"  {line.format(track01=release.track01)}" for line in APPLY[kind]),
-            "Then put the patched file in place of track 01, under the same name.",
+            *(
+                f"  {line.format(track01=release.track01)}"
+                for line in APPLY[apply or kind]
+            ),
+            *(
+                []
+                if apply == "ssp_new"
+                else [
+                    "Then put the patched file in place of track 01,"
+                    " under the same name."
+                ]
+            ),
             "",
             "Full instructions, the change list and known limits:",
             f"  {release.repo}/blob/main/release/README.md",
@@ -144,7 +164,8 @@ def make_zips(
     """Write one zip per kind under ``out``; returns their paths.
 
     ``kinds`` (Cyberbots ``REL-003``): the formats to zip; the release is
-    xdelta only (the user, ``REL-002``: "xdelta only (Recommended)").
+    xdelta only (the user, ``REL-002``: "xdelta only (Recommended)"); since
+    ``REL-004`` both (the user: "I actually want to create the SSP patch.").
     """
     if not kinds or any(k not in KINDS for k in kinds):
         raise ValueError(f"kinds must be some of {KINDS}: {list(kinds)}")
@@ -155,17 +176,22 @@ def make_zips(
         rows: list[str] = []
         files: list[Path] = []
         sources: set[str] = set()
+        apply = kind
         for variant in variants:
             patch = patch_record(records, variant.stem, kind)
             sources.add(str(patch["source_sha256"]))
             path = patches / variant.build / str(patch["patch"])
             if path.stat().st_size != patch["patch_size"]:
                 raise ValueError(f"{path}: size differs from its record")
+            adds = bool(patch.get("new_files"))
+            if adds:
+                apply = "ssp_new"
             rows += [
                 variant.label,
                 f"  {patch['patch']} ({patch['patch_size']:,} bytes)",
                 f"  file SHA-256:     {patch['patch_sha256']}",
-                f"  patched track 01: {patch['target_sha256']}",
+                f"  {'built track 01:  ' if adds else 'patched track 01:'} "
+                f"{patch['target_sha256']}",
                 "",
             ]
             files.append(path)
@@ -173,7 +199,7 @@ def make_zips(
             raise ValueError(f"the variants' source tracks differ: {sorted(sources)}")
         name = out / release.zip_name(kind)
         with zipfile.ZipFile(name, "w") as bundle:
-            text = readme(release, kind, rows, sources.pop())
+            text = readme(release, kind, rows, sources.pop(), apply)
             add(bundle, "README.txt", text.encode(), when)
             for path in files:
                 add(bundle, path.name, path.read_bytes(), when)

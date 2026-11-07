@@ -16,9 +16,15 @@ from pathlib import Path
 
 import pytest
 
+from tests.unit.test_make_ssp import with_new_file
 from tests.unit.test_patch_image import valid_image
 from tools.disc.make_patch import encode
-from tools.disc.make_ssp import build_ssp, changed_files, entries
+from tools.disc.make_ssp import (
+    build_ssp,
+    changed_and_new_files,
+    changed_files,
+    entries,
+)
 from tools.disc.patch_image import replace_file
 from tools.release import check_zips, make_zips
 from tools.release.make_zips import Release, Variant
@@ -188,3 +194,38 @@ def test_unknown_kind_is_refused(tmp_path: Path) -> None:
             patches,
             kinds=("ips",),
         )
+
+
+def test_an_ssp_that_adds_files_names_the_official_patcher(tmp_path: Path) -> None:
+    # Cyberbots REL-004: an .ssp with ._NEW entries (make_ssp --add-new).
+    source, records, patches = release_tree(tmp_path, xdelta=False)
+    built = tmp_path / "built2.bin"
+    with_new_file(source, built)
+    changes, new, _ = changed_and_new_files(source, built)
+    spatch = patches / "b" / "v.ssp"
+    spatch.write_bytes(build_ssp(changes, entries(built), META, new=new))
+    record = json.loads((records / "v.ssp.json").read_text())
+    record |= {
+        "patch_size": spatch.stat().st_size,
+        "patch_sha256": sha(spatch.read_bytes()),
+        "target_sha256": sha(built.read_bytes()),
+        "new_files": [{"name": "C.BIN"}],
+    }
+    (records / "v.ssp.json").write_text(json.dumps(record))
+    zips = tmp_path / "zips"
+    make_zips.make_zips(
+        Release("0.0.1"),
+        [Variant("v", "b", "x")],
+        zips,
+        records,
+        patches,
+        kinds=("ssp",),
+    )
+    with zipfile.ZipFile(zips / "cyberbots_saturn_en_0.0.1_ssp.zip") as bundle:
+        text = bundle.read("README.txt").decode()
+    assert "official Sega Saturn Patcher (Windows) only; untested" in text
+    assert "in place of track 01" not in text
+    assert f"built track 01:   {sha(built.read_bytes())}" in text
+    assert "saturn-patcher v" not in text
+    with pytest.raises(ValueError, match="adds files"):
+        check_zips.check_zips(zips, "0.0.1", source, tmp_path / "w", kinds=("ssp",))

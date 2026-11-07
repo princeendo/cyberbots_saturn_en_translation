@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-07: an SSP patch after all** (`REL-004`, `EXP-0086`): on the user's request ("I actually want to create the SSP patch. I know we can't test it fully. But let's try it anyway.") `make_ssp --add-new` writes the four added files as `._NEW` entries. `cyberbots_en.ssp` (`509accc5…`) builds twice identically and describes the built track completely; no patcher has applied it (official patcher only). Its zip (`df1a7a8b…`) joins the v0.1.0 release ("Add to v0.1.0 (Recommended)"); the xdelta zip is unchanged. The user publishes both.
 - **2026-11-07: REL-003 done** (`EXP-0085`): the 0.1.0 zip (`b0188f0e…`) is reproducible and checks against the reference; the release docs and the top-level README are written. `REL-004` (tag and publish) is `READY`.
 - **2026-11-07: REL-002 done** (`EXP-0084`): the xdelta patch from the final reference builds byte-identically, applies with plain `xdelta3` to the reference's Track 01, keeps the RetroAchievements header hash, and the patched disc boots to the title. xdelta only (the image adds files an SSP applier can't); achievement triggering recorded as untested. `REL-003` (zips, README, checks) is `READY`.
 - **2026-11-07: SPECIAL-018 done; SPECIAL-001 complete** (`EXP-0083`): cold boots of the built image played Devilotte's, SHADE's and Chiyomaru's stories in English (Chiyomaru by his real route, three left of Jin); registered as `data/regression/special018_saturn_only.json`. Every item the user wanted before a release is done, so `REL-002` (release patches) is `READY`.
@@ -2833,8 +2834,9 @@ Known so far (facts and their confidence):
 - **Dependencies:** REL-003 (done).
 - **Blockers:** the user's explicit approval (asked, answer recorded
   verbatim with the date).
-- **Objective:** A GitHub Release with the zip as its asset (xdelta only,
-  `REL-002`: one zip, `b0188f0e…`).
+- **Objective:** A GitHub Release with the zips as its assets: the xdelta
+  zip (`b0188f0e…`) and, since 2026-11-07, the SSP zip (`df1a7a8b…`,
+  `EXP-0086`).
 - **Acceptance criteria:**
   - **Approval:** the user approves the version, the notes and the asset
     list, verbatim, in `docs/localization_policy.md`.
@@ -2847,6 +2849,12 @@ Known so far (facts and their confidence):
   0.1.0, `release/notes_v0.1.0.md`, the one zip `b0188f0e…`. History
   checked: no game-file type in any commit; the largest blob is a 361 KB JSON
   record. Tag `v0.1.0` pushed; the GitHub Release is the user's step.
+- **SSP added (2026-11-07, verbatim):** the user: "I actually want to create
+  the SSP patch. I know we can't test it fully. But let's try it anyway."
+  Built with `make_ssp --add-new` (`EXP-0086`, untested by any patcher).
+  Packaging: "Add to v0.1.0 (Recommended)": the release gets
+  `cyberbots_saturn_en_0.1.0_ssp.zip` (196,460 bytes, `df1a7a8b…`) beside
+  the xdelta zip; notes updated on `main`, tag unchanged.
 
 ## Phase S: UI Text And Art (`UI-001`)
 
