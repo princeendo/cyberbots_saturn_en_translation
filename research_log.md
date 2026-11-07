@@ -3227,3 +3227,24 @@ conventions (Recommended)". The shared lines' handling follows the
 added; each pilot's English goes on the disc only after approval.
 `SPECIAL-013` (list 6) is `READY`.
 Checks: `ruff check .` passed; `pytest -q` 262 passed (docs-only change).
+
+## 2026-11-07 — SPECIAL-013: Devilotte's English drafted and approved (EXP-0078)
+
+User request (verbatim): "Start SPECIAL-013". List 6's Japanese read
+privately; 150 boxes drafted by Claude in the arcade's tone (terms from the
+US arcade English: "Earth Corps", "cyberbot", "mistress"); a local review
+page with glosses sent to the user. Answers: "Approve all (Recommended)";
+"Ambassador Hell (Recommended)". Approved English in
+`data/translations/special_list6.json`; 0 fit failures (4 boxes shortened
+from 4 rows).
+
+Notes:
+- **The arcade font has no heart, bracket or asterisk**: drop hearts, turn
+  bracketed asides into quotes; check drafts with `check_drafts.py` before
+  the review page.
+- **Box 974 shares Japanese line 661 with a roster box**, whose official
+  English is unrelated to Devilotte's scene; the build must give box 974 its
+  own rows and leave line 661 alone.
+
+Checks: below.
+Checks: `ruff check .` passed; `ruff format --check .` 333 files formatted; `mypy` no issues in 90 files (EXP-0078 scripts alone: none); `pytest -q` 262 passed.
