@@ -3,7 +3,7 @@
  "pilot": "Chiyomaru",
  "list": 7,
  "translator": "Claude (agent), new translation from the Saturn Japanese in the US arcade's tone; no official English exists (D-066)",
- "approved": "2026-11-07, the user: \"Approve all (Recommended)\"; Mary's rank \"Lieutenant (Recommended)\"; decisions in docs/localization_policy.md \"Saturn-Only Pilots, Decided\"",
+ "approved": "2026-11-07, the user: \"Approve all (Recommended)\"; Mary's rank \"Lieutenant (Recommended)\"; decisions in docs/localization_policy.md \"Saturn-Only Pilots, Decided\"; box 879 changed to \"WHAT!?\" for timing (SPECIAL-016, the user's choice)",
  "source": {
   "STG0AS.BIN": "3fabb4dbb9d08b2de570467414d653c9e6f0d72cf8ee4f72ecbb1683df77ac45",
   "END.BIN": "a4868d8d39f657cb2e924c5e3d0467cc4f7fe83b9375e2a2ffbd7dd21281f3fa",
@@ -1020,7 +1020,8 @@
    "section": "ending",
    "box": 879,
    "speaker": "An Earth Corps officer",
-   "english": "...Im-impossible...!!"
+   "english": "WHAT!?",
+   "note": "Changed in SPECIAL-016 for timing (open 57 frames): the user's choice \"\\\"WHAT!?\\\" (Recommended)\"; approved first as \"...Im-impossible...!!\"."
   },
   {
    "section": "ending",

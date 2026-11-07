@@ -3272,3 +3272,24 @@ unchanged 1072/601/605).
 
 Checks: below.
 Checks: `ruff check .` passed; `ruff format --check .` 335 files formatted; `mypy` no issues in 90 files; `pytest -q` 262 passed.
+
+## 2026-11-07 — SPECIAL-016: codes, room and timing for the whole script (EXP-0081)
+
+User request (verbatim): "Start SPECIAL-016". `capacity.py` reproduces the
+build's roster pairs (487), rows (897) and caption pairs (23), then adds
+lists 6-8: 657 pairs, 1,246 usable codes once no shown Japanese stays, 322
+sacrifices (none visible). Room spare in all files (`STG0AS.BIN` 7,072
+bytes). Timing: list 7's box 879 (57-frame window) failed the 42-frame
+hold. Asked three questions; answers: "\"WHAT!?\" (Recommended)", "Approve
+up to 330 (Recommended)", "ZERO-AKUMA (Recommended)". The mech's own Latin
+name, ZERO-GOUKI, is in `CYBER.BIN`'s mech list (`0x38C60`); its kanji were
+unreadable in screenshots.
+
+Notes:
+- **`END.BIN`'s table lacks the story's last 6 added codes** (19 vs 25):
+  the build must add them before lists 6-8's endings may use them.
+- **Short ending windows limit English length**: at 3 frames a glyph, a
+  57-frame window allows 3 cells for a 42-frame hold.
+
+Checks: below.
+Checks: `ruff check .` passed; `ruff format --check .` 337 files formatted; `mypy` no issues in 90 files; `pytest -q` 262 passed.

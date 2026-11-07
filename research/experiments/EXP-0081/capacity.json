@@ -1,0 +1,108 @@
+{
+ "task": "SPECIAL-016",
+ "controls": {
+  "roster_pairs": 487,
+  "roster_pairs_build": 487,
+  "roster_rows": 897,
+  "roster_rows_build": 897,
+  "caption_new_pairs": 23,
+  "caption_new_pairs_build": 23,
+  "name_pairs_not_in_story": 2
+ },
+ "new": {
+  "per_list": {
+   "6": {
+    "boxes": 141,
+    "rows": 291,
+    "pairs": 483,
+    "pairs_new_to_disc": 95,
+    "max_cells": 46
+   },
+   "7": {
+    "boxes": 137,
+    "rows": 265,
+    "pairs": 444,
+    "pairs_new_to_disc": 72,
+    "max_cells": 44
+   },
+   "8": {
+    "boxes": 139,
+    "rows": 248,
+    "pairs": 444,
+    "pairs_new_to_disc": 81,
+    "max_cells": 43
+   }
+  },
+  "captions": 27,
+  "pairs_new_to_disc": 145,
+  "pairs_total_on_disc": 657,
+  "ending_pairs_6_8": 347
+ },
+ "story_font": {
+  "table_codes": 1222,
+  "unused_codes": 310,
+  "new_slots": 25,
+  "shown_boxes_staying_japanese": [],
+  "their_lines": [],
+  "codes_they_keep": 0,
+  "codes_usable": 1246,
+  "pairs_needed": 657,
+  "spare": 589,
+  "sacrifice_needed": 322,
+  "sacrifice_now_on_disc": 166
+ },
+ "end_table": {
+  "untouched_equal": true,
+  "built_lengths": [
+   1247,
+   1241
+  ],
+  "built_common_prefix": 1241
+ },
+ "room": {
+  "STG0AS.BIN": {
+   "room": 50108,
+   "roster_story": 23904,
+   "captions": 2032,
+   "new_story": 17100,
+   "spare": 7072
+  },
+  "VICTORY.BIN": {
+   "room": 50084,
+   "roster_quotes": 1324,
+   "new_quotes": 924,
+   "spare": 47836
+  },
+  "END.BIN": {
+   "room": 50896,
+   "roster_endings_built": 4980,
+   "new_endings": 2848,
+   "spare": 43068
+  }
+ },
+ "timing": {
+  "6": {
+   "ok": true,
+   "boxes_timed": 15,
+   "min_hold_frames": 165,
+   "slowed": [],
+   "changes": 26
+  },
+  "7": {
+   "ok": true,
+   "boxes_timed": 26,
+   "min_hold_frames": 42,
+   "slowed": [
+    878
+   ],
+   "changes": 45
+  },
+  "8": {
+   "ok": true,
+   "boxes_timed": 15,
+   "min_hold_frames": 192,
+   "slowed": [],
+   "changes": 29
+  }
+ }
+}

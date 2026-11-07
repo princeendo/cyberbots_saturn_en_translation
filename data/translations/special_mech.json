@@ -1,0 +1,10 @@
+{
+ "task": "SPECIAL-016",
+ "surface": "VS-screen mech name art, frame 0x1C (mech 16, body 8: the unlockable Akuma-like mech; EXP-0076)",
+ "source": "kanji art; the game's own Latin mech list in CYBER.BIN (0x38C60) calls it ZERO-GOUKI",
+ "english": "ZERO-AKUMA",
+ "model_code": "G-18EX (kept, after the name, as the other mechs)",
+ "rule": "US Capcom conventions: Akuma for Gouki (SPECIAL-012)",
+ "approved": "2026-11-07, the user: \"ZERO-AKUMA (Recommended)\"",
+ "style": "as data/translations/name_art.json's mechs (LOC-004)"
+}

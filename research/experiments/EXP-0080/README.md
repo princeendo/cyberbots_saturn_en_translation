@@ -76,3 +76,9 @@ blank. With lists 6 and 8, every Saturn-only pilot's text is translated.
 - Speakers on the page are inferred from context (the officers and
   soldiers are unnamed). The English does not depend on them.
 - Glyph pairs and room: `SPECIAL-016`; on screen: `SPECIAL-017`.
+
+## Later change
+
+`SPECIAL-016` (`EXP-0081`): box 879 is open for only 57 frames; the approved
+line would hold 18. The user chose "\"WHAT!?\" (Recommended)"; the file and
+`fit_list7.json` (`f09e767f…`) were updated.

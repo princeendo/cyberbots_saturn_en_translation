@@ -1400,3 +1400,21 @@ Reproduce: `research/experiments/EXP-0076/README.md`, "Procedure".
   `data/text/special_official.json`.
 
 Reproduce: `research/experiments/EXP-0077/README.md`, "Procedure".
+
+## D-067: The whole English script fits the story font, the room and the ending timing (`SPECIAL-016`, `EXP-0081`)
+
+- With lists 6-8 in English, no shown box of the story font stays Japanese,
+  so all 1,246 codes (1,221 plus 25 table slots) are usable: the script
+  needs 657 pairs (487 roster, 23 captions, 145 more for lists 6-8, names),
+  322 of them on codes of Japanese characters, none visible. The roster's
+  pairs, rows and caption pairs reproduce the build's counts exactly.
+- Room: `STG0AS.BIN` 50,108 bytes for 43,036 of rows (7,072 spare);
+  `VICTORY.BIN` and `END.BIN` over 40 KB spare each.
+- `END.BIN`'s code table equals the story's except the story's last 6 added
+  codes, which the build must add if lists 6-8's endings use them.
+- `END-011`'s timing rule holds for lists 6-8's endings (shortest hold 42
+  frames) after box 879's line was shortened (the user's choice).
+- The unlockable mech 16 is ZERO-GOUKI in the game's own Latin list
+  (`CYBER.BIN` `0x38C60`).
+
+Reproduce: `research/experiments/EXP-0081/README.md`, "Procedure".
