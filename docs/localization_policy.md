@@ -134,6 +134,18 @@ and answers verbatim. This also settles "Caption, UI-art and attract style".
 | Caption codes (2026-11-06, `UI-006`) | "The 54 English captions need 23 pair glyphs the story font lacks; only 10 codes are free without touching Japanese that stays on screen. The next 13 cheapest codes each appear in one line of the console-only pilots (6-8, still Japanese until SPECIAL-001): 12 lines (11 story boxes, 1 pilot-7 caption) would each show one wrong English glyph, as M5 accepted for its 5 captions. How should I proceed?" → "Take the 13 codes (Recommended)" | The captions take 23 Japanese codes: 10 no shown line uses, and 13 that each touch one shown line of pilots 6-8 (lines 1054, 1117, 1187, 1217, 1247, 1335, 1352, 1433, 1590, 1693 twice, 1762, 1837), listed in `EXP-0072` `caption_changes.json` (`--caption-touch 13`). |
 | Sign art and menu (2026-11-07, `UI-006`) | "Do you approve the final city-sign art (sent: JAPANESE as now, BLANK the default, ENGLISH with SALE / BAZAAR / BARGAIN SALE) and the EXTRA OPTIONS screen with its SIGNS row?" → "Approve both (Recommended)" | The built art (`EXP-0072`) and the two-row sub-menu are kept. (The pictures reached the user just after the answer, through a sending error, and were then sent.) |
 
+## Rare Text, Closed With Evidence (2026-11-07, `TXT-012`)
+
+`TXT-012` was to ask what each rare Japanese surface becomes. `TXT-010`
+and `TXT-011` (D-063, D-064) found none that the current image shows, so
+there is no question to ask and no `GATE-TRANSLATION` extension. The user
+closed the task: "Close TXT-012".
+
+| Rare text | Evidence | Decision |
+| --- | --- | --- |
+| Saturn boxes 63, 283, 290, 335, 494, 495, 552, 553, 555, 609, 938, 1073 | No scene, caption table or quote table reaches them; the script interpreter never jumps (D-063); list 10 has no post (D-064) | None: dead text, left unchanged |
+| The arcade's location-test thank-you screen and banner | Behind ROM flags that are off in retail sets; the Saturn has none of its lines (D-064) | None: not on the Saturn |
+
 ## Release Decisions (2026-11-06, `REL-002`)
 
 Asked when the user said "Start REL-002". Questions and answers verbatim.

@@ -3134,3 +3134,12 @@ Notes (do not retry):
 Checks: `ruff check .` passed; `ruff format --check .` 325 files formatted;
 `mypy` no issues in 90 files (and `thanks.py` alone: no issues); `pytest
 -q` 262 passed.
+
+## 2026-11-07 — TXT-012 closed with evidence
+
+User request (verbatim): "Close TXT-012". No experiment: `TXT-011`
+(D-064) found no rare Japanese the current image shows, the case the
+task's criteria close without a question. Recorded in
+`docs/localization_policy.md` ("Rare Text, Closed With Evidence") and
+`TASKS.md`; `TXT-013` is `READY` and, by its criteria, closes unused.
+Checks: `ruff check .` passed; `ruff format --check .` 325 files formatted; `mypy` no issues in 90 files; `pytest -q` 262 passed.
