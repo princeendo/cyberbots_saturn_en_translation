@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-06: UI-003 done: the VS captions** (`EXP-0069`, D-060): on the Saturn a caption is one `STG0AS.BIN` line in a fixed banner, one row of 13 cells (26 characters with pair glyphs). Both arcade sets create it only when the region byte is Japan (forced both ways in MAME), its drawer has only the Japanese table, and the English slots 494-551 hold one shared non-caption record: there is no official English for the captions. `UI-002` (attract: the city signs) is next; then `UI-005` (your plan).
 - **2026-11-06: UI-001 done: the English art in the fonts** (`UI-001` part 2, `EXP-0068`, D-059): the menu font is `FIX.BIN` (ASCII-indexed, VDP2 `0x0`) and has `t`-`z` (one tile blanked, one string rewritten, from a saved state). `KEND_1.BIN` is type 2: all 29 cast-roll records decode byte for byte to the game's shadow. Every UI store is listed in `docs/text_surfaces.md`, "English Art In The Fonts"; the unknown-format stores are listed with their loads. Correction to D-052: bank 56 holds a small Latin list of the four base bodies. `UI-002` and `UI-003` are `READY` (one at a time).
 - **2026-11-06: UI census** (`UI-001` part 1, `EXP-0067`): outside the story and endings the current image shows Japanese only on the VS chapter captions (five with one wrong glyph each, accepted at M5) and in the ruined-city stage's signs, which the US arcade shows blank. No attract or menu text is Japanese. Part 2 (the English art in the fonts) is next.
 - **2026-11-06: Phase S written up (UI text and art)**: `UI-001` (census of the remaining Japanese UI with both arcades, and the English art already in the fonts) is `READY`; `UI-002` (attract), `UI-003` (other UI, VS captions), `UI-005` (the user's plan; a gate extension), `UI-006` (build) and `UI-007` (verify) follow. Drafted, then every fact checked against its source by an independent reviewer.
@@ -2745,8 +2746,8 @@ Known so far (facts and their confidence):
 - **Status:** `BLOCKED`
 - **Milestone:** Release (`REL-001`)
 - **Dependencies:** REL-001, OPT-006; the release-timing rule.
-- **Blockers:** `UI-002`, `UI-003`, `TXT-002`, `SPECIAL-001` (the user,
-  2026-11-06: "Do them first"); `OPT-006` and `UI-001` are done.
+- **Blockers:** `UI-002`, `TXT-002`, `SPECIAL-001` (the user, 2026-11-06:
+  "Do them first"); `OPT-006`, `UI-001` and `UI-003` are done.
 - **Objective:** xdelta and SSP patches that turn the untouched source into
   the final registered image, proven by applying them.
 - **Acceptance criteria:**
@@ -3203,7 +3204,8 @@ Known so far (facts and their confidence):
 
 ### UI-003 - Other UI text: storage and the arcade English
 
-- **Status:** `READY`
+- **Status:** `DONE`
+- **Done:** 2026-11-06 (`EXP-0069`, D-060). The only surface in scope is the VS caption (the city signs, found in the attract, are `UI-002`'s). Saturn: one `STG0AS.BIN` line per box (83 boxes' records and offsets in `captions_table.json`); a one-code RAM change altered only the caption's first cell; room is one row of 13 cells in a fixed banner (26 characters with pair glyphs), extra rows do not show. Arcade (both sets, the same pilot and stage): the VS setup (`0x0D436`) creates the caption only when the region byte `0xFF80A0` is 0 and `0xFF6A30` ≠ 3; forcing that branch drew the Japanese caption in `cybotsu` and removed it in `cybotsj`; the drawer reads only the Japanese table. The English slots 494-551 point to one non-caption record in both sets: no official English. Two other creators of the caption object are UNKNOWN (`docs/known_unknowns.md`).
 - **Milestone:** UI text and art (`UI-001`)
 - **Dependencies:** UI-001.
 - **Blockers:** None (`UI-001` done). It runs one at a time with `UI-002`.
@@ -3244,7 +3246,7 @@ Known so far (facts and their confidence):
 - **Status:** `BLOCKED`
 - **Milestone:** UI text and art (`UI-001`)
 - **Dependencies:** UI-001, UI-002, UI-003.
-- **Blockers:** `UI-001`, `UI-002`, `UI-003`.
+- **Blockers:** `UI-002` (`UI-001` and `UI-003` are done).
 - **Objective:** The user decides, surface by surface, what each remaining
   Japanese surface becomes.
 - **Acceptance criteria:**

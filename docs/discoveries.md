@@ -183,7 +183,8 @@ slots, not 494: `find_tables` stops at 494. Slots 494-623 follow Saturn
 lines from 899 at a fixed offset (slot k = line k + 405; 79 exact matches in
 slots 494-600), and the US table has English in all 130. So part of the
 range 899-1850 does have arcade counterparts: VS captions and versus win
-quotes (D-029). Lines from 1029 on are not matched.
+quotes (D-029). Lines from 1029 on are not matched. (Correction, D-060: the VS
+captions' slots 494-551 hold one shared record, not caption English.)
 
 **Corrected 2026-11-04 (`EXP-0035`):** line 258 is not Saturn-only. It is
 slot 140's second line with its punctuation changed, too short for the
@@ -505,6 +506,8 @@ states). The load script that names it is at `0x0604C320`.
 The arcade Japanese and US dialogue tables (`0x0A30F6`, `0x0B33AA`) have 624
 pointers. Slots 494-623 follow the Saturn lines from 899 (slot k = line k +
 405); line 959 is slot 558. The US set has English in all 130 slots.
+(Correction, D-060: slots 494-551 all point to one record, which is not
+caption English.)
 
 **Corrected 2026-11-04 (`EXP-0032`):** the offset is not constant: slot 494
 is line 899 (+405), slot 558 line 959 (+401), slot 600 line 1005 (+405).
@@ -1234,3 +1237,24 @@ Reproduce: `research/experiments/EXP-0065/README.md`, "Procedure".
   banners are still katakana only.
 
 Reproduce: `research/experiments/EXP-0068/README.md`, "Procedure".
+
+## D-060: The VS caption: one row in a fixed banner; the US arcade skips it by region and has no English for it (`UI-003`, `EXP-0069`)
+
+- **Saturn storage.** Each caption box (`0x0609CC22`[pilot × 10 + stage])
+  has one record entry and the header `0000 0080 0058 0010`; its line is
+  `STG0AS.BIN` text (box 496: `0x0607526C`, file `0x1526C`, 12 cells), in
+  the story's font and code table. From a saved state, replacing the line's
+  first code in RAM changed only the caption's first cell.
+- **Room.** The banner is fixed art about 222 pixels wide; the text starts at
+  x 96 in 14-pixel cells, so 13 cells fit inside it (a 16-cell line draws
+  past its right edge). Records with two or four entries show only the first
+  row (four entries: pixel-identical to the control).
+- **Arcade.** In both `cybotsu` and `cybotsj` the VS setup at `0x0D436`
+  creates the caption object (type `0x35`) only when `0xFF6A30` ≠ 3 and the
+  region byte `0xFF80A0` is 0. Its drawer (`0x116F2` `cybotsu`, `0x116DA`
+  `cybotsj`) reads only the Japanese table. Forcing the branch drew the
+  Japanese caption in `cybotsu` and removed it in `cybotsj`.
+- **No official English.** In both sets, English slots 494-551 all point to
+  one two-line record that is not a caption.
+
+Reproduce: `research/experiments/EXP-0069/README.md`, "Procedure".

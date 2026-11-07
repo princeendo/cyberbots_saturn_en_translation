@@ -1,0 +1,12 @@
+# EXP-0069 (UI-003): cybotsj, the caption branch at 0xD442 forced to hide the caption (PC set to 0xd454)
+1 logreads 0x0A30F6 0x0A3AB5 local/ui003/mame/cybotsj-hide/reads-ja-pointers.txt
+1 debug bpset d442,1,{pc=d454;g}
+600 press 8 Coin 1
+720 press 8 1 Player Start
+1020 press 8 P1 Button 1
+1320 press 8 P1 Button 1
+3900 snap
+3960 snap
+4020 snap
+4080 snap
+4081 exit

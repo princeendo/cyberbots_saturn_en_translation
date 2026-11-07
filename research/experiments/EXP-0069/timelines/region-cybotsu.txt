@@ -1,0 +1,9 @@
+# EXP-0069 (UI-003): cybotsu to the first VS screen; log reads of the region byte (0xFF80A0) and the Japanese table's pointers
+1 logreads 0x0A310A 0x0A3AC9 local/ui003/mame/cybotsu-region/reads-ja-pointers.txt
+3000 logreads 0xFF80A0 0xFF80A1 local/ui003/mame/cybotsu-region/reads-region.txt
+600 press 8 Coin 1
+720 press 8 1 Player Start
+1020 press 8 P1 Button 1
+1320 press 8 P1 Button 1
+3960 snap
+4001 exit

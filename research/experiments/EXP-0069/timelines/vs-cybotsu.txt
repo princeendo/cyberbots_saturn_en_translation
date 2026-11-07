@@ -1,0 +1,58 @@
+# EXP-0069 (UI-003): cybotsu arcade mode to the first VS screen; log reads of the Japanese dialogue table's pointers
+1 logreads 0x0A310A 0x0A3AC9 local/ui003/mame/cybotsu/reads-ja-pointers.txt
+600 press 8 Coin 1
+720 press 8 1 Player Start
+1020 press 8 P1 Button 1
+1320 press 8 P1 Button 1
+3000 snap
+3060 snap
+3120 snap
+3180 snap
+3240 snap
+3300 snap
+3360 snap
+3420 snap
+3480 snap
+3540 snap
+3600 snap
+3660 snap
+3720 snap
+3780 snap
+3840 snap
+3900 snap
+3960 snap
+4020 snap
+4080 snap
+4140 snap
+4200 snap
+4260 snap
+4320 snap
+4380 snap
+4440 snap
+4500 snap
+4560 snap
+4620 snap
+4680 snap
+4740 snap
+4800 snap
+4860 snap
+4920 snap
+4980 snap
+5040 snap
+5100 snap
+5160 snap
+5220 snap
+5280 snap
+5340 snap
+5400 snap
+5460 snap
+5520 snap
+5580 snap
+5640 snap
+5700 snap
+5760 snap
+5820 snap
+5880 snap
+5940 snap
+6000 snap
+6001 exit

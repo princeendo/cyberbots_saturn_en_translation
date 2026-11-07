@@ -2900,3 +2900,36 @@ Notes (do not retry):
 
 Checks: `ruff check .`, `ruff format --check .` (303 files), `mypy` (86
 files) and `pytest -q` (252 passed) all clean.
+
+## 2026-11-06 — UI-003: the VS captions' storage, room and arcade English (EXP-0069)
+
+User request (verbatim): "Start UI-003". No cold boot; headless MAME runs
+of both arcade sets and one saved-state Mednafen run.
+
+- Scope: the only Japanese surface `UI-001` found outside the attract and
+  the endings is the VS caption; the city signs (seen in the attract) are
+  left to `UI-002`.
+- Arcade: the same VS screen (Jin, Blodia vs Shade, R-Lightning) in both
+  sets; `cybotsj` reads the caption's Japanese pointer (box 496), `cybotsu`
+  never reads that table. The VS setup at `0x0D436` creates the caption
+  object only if the region byte is 0 and `0xFF6A30` ≠ 3. Forced with a
+  breakpoint at `0x0D442`: `cybotsu` drew the Japanese caption, `cybotsj`
+  lost it.
+- English slots 494-551 point to one record in both sets (a two-line
+  dialogue-style line): no caption English. D-029's "English in all 130
+  slots" corrected.
+- Saturn: one-code change altered only the first cell; room one row, 13
+  cells inside the banner; two- and four-entry records show one row.
+
+Notes (do not retry):
+- **`logreads` needs a word-aligned end address** (`0xFF80A0 0xFF80A1`);
+  a byte range fails with a Lua error and logs nothing.
+- **The CPS2 program listing must come from MAME's `dasm`**; the raw
+  `maincpu` regions are encrypted, so byte searches for code fail there.
+- **Region tests at `0x62BFA` and `0x62CA4`** pick the VS name art, not the
+  caption.
+- **The blinking `PRESS START`** differs between Saturn runs of one state;
+  diff the caption band, not the whole screen.
+
+Checks: `ruff check .`, `ruff format --check .` (306 files), `mypy` (86
+files), `pytest -q` (252 passed) all clean; `mypy` on `EXP-0069` clean.

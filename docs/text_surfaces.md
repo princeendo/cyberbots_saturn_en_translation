@@ -22,7 +22,7 @@ surface.
 | `PILOT SELECT` grid (10 portraits) | Mode start | English label; **pilot name as Japanese katakana art** under the portrait | The US arcade shows the name in Latin art (D-013) | `f00003026.png` (`41e1e675…a874`) |
 | `MACHINE SELECT`, `BODY TYPE` | After pilot select | English (mech names `BLODIA`, `REPTOS`, `FORDY`, `GULDIN`) | — | `f00003264.png` (`f12cd48e…6eee`) |
 | **Story dialogue boxes** | Introduction, before and after each fight | **Japanese**, typed out; Saturn script lines (D-008) | Yes for paired lines (D-011) | intro `f00004959.png` (`fbdcff49…5603`); pre-fight `f00005632.png` (`f4ef1367…a27f`); post-fight `f00013887.png` (`1c56587b…bf91`) |
-| **VS screen chapter caption** | Before each fight | **Japanese** box, e.g. Saturn lines 899 and 900 | **No**: the Japanese arcade shows the same caption, the US arcade none (`EXP-0012`); the box is `0x0609CC22`[pilot × 10 + stage] (`STG0AS.BIN`), the arcade's `0x62D9A` table the same: boxes 494-549, and 1045-1071 for pilots 6-8 (`EXP-0032`); the US set has English records for these slots but the US arcade shows none | `f00006717.png` (`578caa24…565a`), `f00015684.png` (`f9868e50…cd04`) |
+| **VS screen chapter caption** | Before each fight | **Japanese** box, e.g. Saturn lines 899 and 900 | **No**: the Japanese arcade shows the same caption, the US arcade none (`EXP-0012`); the box is `0x0609CC22`[pilot × 10 + stage] (`STG0AS.BIN`), the arcade's `0x62D9A` table the same: boxes 494-549, and 1045-1071 for pilots 6-8 (`EXP-0032`); the US arcade skips the caption on its region byte, and its English slots 494-551 hold one shared non-caption record: **no official English** (D-060) | `f00006717.png` (`578caa24…565a`), `f00015684.png` (`f9868e50…cd04`) |
 | **VS screen names** | Before each fight | **Pilot and mech names as Japanese katakana art** (both sides) | The US arcade shows them in Latin art (D-013) | as above |
 | Fight HUD | Fights | English (`BOOST`, `POWER`, mech names, score, timer) | — | `f00008156.png` (`15f29d0a…f689`) |
 | Fight banners | Fights | English (`PHASE 1`, `PROCEED`, `GO!`, `FIGHT!`, `N HIT COMBO!`) | — | many |
@@ -136,7 +136,7 @@ story dialogue and endings. Records: `research/experiments/EXP-0067/`.
 | `SOUND TEST`, `DATA RESET` | Options rows 4, 5 | No screen of their own (code: a sound, or `0x060372A4`); SUPPORTED | — | `EXP-0062` |
 | Versus `RESULT` | After a versus match | English | — | `screens.json` |
 | `EXTRA OPTIONS`, versus select, `SET UP`, VS | Options; versus mode | English (names per the switch) | — | `EXP-0066` |
-| VS chapter captions | Before each arcade-mode fight | Japanese; all 81 forced (boxes 496-549, 1045-1071); five (512, 539, 1052, 1053, 1070) draw one English pair glyph each (the M5 trade-off) | `cybotsj` the same; `cybotsu` none | `captions.json` |
+| VS chapter captions | Before each arcade-mode fight | Japanese; all 81 forced (boxes 496-549, 1045-1071); five (512, 539, 1052, 1053, 1070) draw one English pair glyph each (the M5 trade-off) | `cybotsj` the same; `cybotsu` none: it skips creating the caption outside Japan (`0x0D43E`), and has no English for it (D-060, `EXP-0069`) | `captions.json` |
 
 Files the outline guessed for attract text (`STDEM*`, `VADEM*`, `STDEMO.*`,
 `OPDEMO_0.BIN`) and `CYB_ABS.TXT` do not load in the boot or the attract.
@@ -174,3 +174,13 @@ Renders are local only (`EXP-0068` `render.py`, `grid.py`). Tile `n` of a
 | `QSD.PIX`, `WARNINGn.PIX` | the same (D-041, D-049) | — | English already, or built in English (`END-010`, `BOOT-004`) | — |
 | `ST00`-`ST0A_FNT.BIN` (VDP2 `0x19000`) | 4 bpp 8×8 tiles | — | Stage backgrounds; text readable only through the stage maps. The city signs (Japanese) are in `ST00_FNT.BIN` or `ST00_SPR.BIN` (SUPPORTED: the first demo loads them) | — |
 | `OPS0_0/1.BIN` (WRAM-L), `ST0n_SPR.BIN` (VDP1 `0x20000`), `PL11_0.BIN` (VDP1 `0x38000`), `PL13_0.BIN` (`0x060A6800`), `M3PL*`, `M3CB*` | UNKNOWN; loaded raw by `0x060385A0`, readers not traced | — | Not decoded; must be decoded before any task draws on them | — |
+
+## VS Captions: Storage and Room (`UI-003`, `EXP-0069`)
+
+| What | Fact |
+| --- | --- |
+| Drawn by | Reader `0x0606CAE8` (`STG0AS.BIN`), box routine `0x0606E6E0`, typing routine `0x0606E5C0` (D-020) |
+| Stored as | One `STG0AS.BIN` line per box, story codes (D-019); records and file offsets of all 83 boxes in `EXP-0069` `captions_table.json`; box 496's line at file `0x1526C` (CONFIRMED by a one-cell RAM change) |
+| Room | One row; 13 cells inside the fixed banner from the current start (x 96), or 26 Latin characters with pair glyphs (D-024); extra record entries do not show |
+| Arcade English | None: `cybotsu` skips the caption by region (`0x0D43E`) and its drawer reads only the Japanese table; English slots 494-551 point to one non-caption record (both sets) |
+| Other creators | Type `0x35` is also created at `0x04BDF6` and `0x04C2C0` (no region test); when they run is UNKNOWN |
