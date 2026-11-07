@@ -1,0 +1,757 @@
+{
+ "source": "EXP-0070 nbg2.py render of local/ui002/s2/signs.mcs (NBG2, map 0x7A000): the store front's blocks, plane columns 26-31, rows 14-27, that lie in ST00_FNT.BIN",
+ "signs": [
+  {
+   "sign": "store front",
+   "blocks": [
+    {
+     "plane_block": [
+      26,
+      14
+     ],
+     "vram": "0x28B00",
+     "file_offset": "0x0FB00",
+     "pattern_word0": "0x005E"
+    },
+    {
+     "plane_block": [
+      26,
+      15
+     ],
+     "vram": "0x28B80",
+     "file_offset": "0x0FB80",
+     "pattern_word0": "0x005E"
+    },
+    {
+     "plane_block": [
+      26,
+      16
+     ],
+     "vram": "0x36300",
+     "file_offset": "0x1D300",
+     "pattern_word0": "0x005E"
+    },
+    {
+     "plane_block": [
+      26,
+      17
+     ],
+     "vram": "0x36380",
+     "file_offset": "0x1D380",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      26,
+      18
+     ],
+     "vram": "0x36400",
+     "file_offset": "0x1D400",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      26,
+      19
+     ],
+     "vram": "0x36480",
+     "file_offset": "0x1D480",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      26,
+      20
+     ],
+     "vram": "0x36500",
+     "file_offset": "0x1D500",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      26,
+      21
+     ],
+     "vram": "0x36580",
+     "file_offset": "0x1D580",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      26,
+      22
+     ],
+     "vram": "0x36600",
+     "file_offset": "0x1D600",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      26,
+      23
+     ],
+     "vram": "0x36680",
+     "file_offset": "0x1D680",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      26,
+      24
+     ],
+     "vram": "0x36700",
+     "file_offset": "0x1D700",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      26,
+      25
+     ],
+     "vram": "0x36780",
+     "file_offset": "0x1D780",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      26,
+      26
+     ],
+     "vram": "0x36800",
+     "file_offset": "0x1D800",
+     "pattern_word0": "0x0042"
+    },
+    {
+     "plane_block": [
+      26,
+      27
+     ],
+     "vram": "0x36880",
+     "file_offset": "0x1D880",
+     "pattern_word0": "0x0042"
+    },
+    {
+     "plane_block": [
+      27,
+      14
+     ],
+     "vram": "0x28C00",
+     "file_offset": "0x0FC00",
+     "pattern_word0": "0x005E"
+    },
+    {
+     "plane_block": [
+      27,
+      15
+     ],
+     "vram": "0x28C80",
+     "file_offset": "0x0FC80",
+     "pattern_word0": "0x005E"
+    },
+    {
+     "plane_block": [
+      27,
+      16
+     ],
+     "vram": "0x36A80",
+     "file_offset": "0x1DA80",
+     "pattern_word0": "0x005E"
+    },
+    {
+     "plane_block": [
+      27,
+      17
+     ],
+     "vram": "0x36B00",
+     "file_offset": "0x1DB00",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      27,
+      18
+     ],
+     "vram": "0x36B80",
+     "file_offset": "0x1DB80",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      27,
+      19
+     ],
+     "vram": "0x36C00",
+     "file_offset": "0x1DC00",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      27,
+      20
+     ],
+     "vram": "0x36C80",
+     "file_offset": "0x1DC80",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      27,
+      21
+     ],
+     "vram": "0x36D00",
+     "file_offset": "0x1DD00",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      27,
+      22
+     ],
+     "vram": "0x36D80",
+     "file_offset": "0x1DD80",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      27,
+      23
+     ],
+     "vram": "0x36E00",
+     "file_offset": "0x1DE00",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      27,
+      24
+     ],
+     "vram": "0x36E80",
+     "file_offset": "0x1DE80",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      27,
+      25
+     ],
+     "vram": "0x36F00",
+     "file_offset": "0x1DF00",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      27,
+      26
+     ],
+     "vram": "0x36F80",
+     "file_offset": "0x1DF80",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      27,
+      27
+     ],
+     "vram": "0x37000",
+     "file_offset": "0x1E000",
+     "pattern_word0": "0x0042"
+    },
+    {
+     "plane_block": [
+      28,
+      15
+     ],
+     "vram": "0x28D00",
+     "file_offset": "0x0FD00",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      28,
+      16
+     ],
+     "vram": "0x37200",
+     "file_offset": "0x1E200",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      28,
+      17
+     ],
+     "vram": "0x37280",
+     "file_offset": "0x1E280",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      28,
+      18
+     ],
+     "vram": "0x37300",
+     "file_offset": "0x1E300",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      28,
+      19
+     ],
+     "vram": "0x37380",
+     "file_offset": "0x1E380",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      28,
+      20
+     ],
+     "vram": "0x37400",
+     "file_offset": "0x1E400",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      28,
+      21
+     ],
+     "vram": "0x37480",
+     "file_offset": "0x1E480",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      28,
+      22
+     ],
+     "vram": "0x37500",
+     "file_offset": "0x1E500",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      28,
+      23
+     ],
+     "vram": "0x37580",
+     "file_offset": "0x1E580",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      28,
+      24
+     ],
+     "vram": "0x37600",
+     "file_offset": "0x1E600",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      28,
+      25
+     ],
+     "vram": "0x37680",
+     "file_offset": "0x1E680",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      28,
+      26
+     ],
+     "vram": "0x37700",
+     "file_offset": "0x1E700",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      28,
+      27
+     ],
+     "vram": "0x37780",
+     "file_offset": "0x1E780",
+     "pattern_word0": "0x0042"
+    },
+    {
+     "plane_block": [
+      29,
+      14
+     ],
+     "vram": "0x28D80",
+     "file_offset": "0x0FD80",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      29,
+      15
+     ],
+     "vram": "0x28E00",
+     "file_offset": "0x0FE00",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      29,
+      16
+     ],
+     "vram": "0x37980",
+     "file_offset": "0x1E980",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      29,
+      17
+     ],
+     "vram": "0x37A00",
+     "file_offset": "0x1EA00",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      29,
+      18
+     ],
+     "vram": "0x37A80",
+     "file_offset": "0x1EA80",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      29,
+      19
+     ],
+     "vram": "0x37B00",
+     "file_offset": "0x1EB00",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      29,
+      20
+     ],
+     "vram": "0x37B80",
+     "file_offset": "0x1EB80",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      29,
+      21
+     ],
+     "vram": "0x37C00",
+     "file_offset": "0x1EC00",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      29,
+      22
+     ],
+     "vram": "0x37C80",
+     "file_offset": "0x1EC80",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      29,
+      23
+     ],
+     "vram": "0x37D00",
+     "file_offset": "0x1ED00",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      29,
+      24
+     ],
+     "vram": "0x37D80",
+     "file_offset": "0x1ED80",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      29,
+      25
+     ],
+     "vram": "0x37E00",
+     "file_offset": "0x1EE00",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      29,
+      26
+     ],
+     "vram": "0x37E80",
+     "file_offset": "0x1EE80",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      29,
+      27
+     ],
+     "vram": "0x37F00",
+     "file_offset": "0x1EF00",
+     "pattern_word0": "0x0042"
+    },
+    {
+     "plane_block": [
+      30,
+      14
+     ],
+     "vram": "0x28E80",
+     "file_offset": "0x0FE80",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      30,
+      15
+     ],
+     "vram": "0x28F00",
+     "file_offset": "0x0FF00",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      30,
+      16
+     ],
+     "vram": "0x38100",
+     "file_offset": "0x1F100",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      30,
+      17
+     ],
+     "vram": "0x38180",
+     "file_offset": "0x1F180",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      30,
+      18
+     ],
+     "vram": "0x38200",
+     "file_offset": "0x1F200",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      30,
+      19
+     ],
+     "vram": "0x38280",
+     "file_offset": "0x1F280",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      30,
+      20
+     ],
+     "vram": "0x38300",
+     "file_offset": "0x1F300",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      30,
+      21
+     ],
+     "vram": "0x38380",
+     "file_offset": "0x1F380",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      30,
+      22
+     ],
+     "vram": "0x38400",
+     "file_offset": "0x1F400",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      30,
+      23
+     ],
+     "vram": "0x38480",
+     "file_offset": "0x1F480",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      30,
+      24
+     ],
+     "vram": "0x38500",
+     "file_offset": "0x1F500",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      30,
+      25
+     ],
+     "vram": "0x38580",
+     "file_offset": "0x1F580",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      30,
+      26
+     ],
+     "vram": "0x38600",
+     "file_offset": "0x1F600",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      30,
+      27
+     ],
+     "vram": "0x38680",
+     "file_offset": "0x1F680",
+     "pattern_word0": "0x0042"
+    },
+    {
+     "plane_block": [
+      31,
+      14
+     ],
+     "vram": "0x28F80",
+     "file_offset": "0x0FF80",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      31,
+      15
+     ],
+     "vram": "0x29000",
+     "file_offset": "0x10000",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      31,
+      16
+     ],
+     "vram": "0x38880",
+     "file_offset": "0x1F880",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      31,
+      17
+     ],
+     "vram": "0x38900",
+     "file_offset": "0x1F900",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      31,
+      18
+     ],
+     "vram": "0x38980",
+     "file_offset": "0x1F980",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      31,
+      19
+     ],
+     "vram": "0x38A00",
+     "file_offset": "0x1FA00",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      31,
+      20
+     ],
+     "vram": "0x38A80",
+     "file_offset": "0x1FA80",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      31,
+      21
+     ],
+     "vram": "0x38B00",
+     "file_offset": "0x1FB00",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      31,
+      22
+     ],
+     "vram": "0x38B80",
+     "file_offset": "0x1FB80",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      31,
+      23
+     ],
+     "vram": "0x38C00",
+     "file_offset": "0x1FC00",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      31,
+      24
+     ],
+     "vram": "0x38C80",
+     "file_offset": "0x1FC80",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      31,
+      25
+     ],
+     "vram": "0x38D00",
+     "file_offset": "0x1FD00",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      31,
+      26
+     ],
+     "vram": "0x38D80",
+     "file_offset": "0x1FD80",
+     "pattern_word0": "0x0041"
+    },
+    {
+     "plane_block": [
+      31,
+      27
+     ],
+     "vram": "0x38E00",
+     "file_offset": "0x1FE00",
+     "pattern_word0": "0x0042"
+    }
+   ]
+  }
+ ]
+}

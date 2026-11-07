@@ -1,0 +1,714 @@
+{
+ "approved_sha256": "2dee6620b8ad68114b410cb93e15962742166065596e27a0f7d970ba8031c6e0",
+ "code_range": [
+  "0x06055424",
+  "0x06055818"
+ ],
+ "labels": {
+  "A_done": "0x060556AE",
+  "B_done": "0x06055688",
+  "B_ret": "0x0605568A",
+  "C_copy": "0x060556C2",
+  "C_init": "0x060556CC",
+  "L_byte": "0x060555F8",
+  "L_byte2": "0x060555FC",
+  "L_city": "0x0605575C",
+  "L_clear": "0x06055610",
+  "L_cursor": "0x060555D4",
+  "L_div": "0x0605574C",
+  "L_edaa2": "0x06055614",
+  "L_fade": "0x060555EC",
+  "L_fadein": "0x0605560C",
+  "L_fadeout": "0x06055608",
+  "L_flag": "0x06055720",
+  "L_fnt": "0x06055758",
+  "L_init": "0x0605573C",
+  "L_keycfg": "0x060555E0",
+  "L_loader": "0x0605571C",
+  "L_pad1": "0x060555F0",
+  "L_pad2": "0x060555F4",
+  "L_poll": "0x06055724",
+  "L_print": "0x060555D8",
+  "L_ptab": "0x06055738",
+  "L_row": "0x06055600",
+  "L_s_blank": "0x06055630",
+  "L_s_eng": "0x06055624",
+  "L_s_exit": "0x06055618",
+  "L_s_extra": "0x0605561C",
+  "L_s_jpn": "0x06055628",
+  "L_s_names": "0x06055620",
+  "L_s_signs": "0x0605562C",
+  "L_sdest": "0x06055764",
+  "L_selname": "0x06055728",
+  "L_sflag": "0x06055750",
+  "L_size1": "0x06055734",
+  "L_size2": "0x06055748",
+  "L_sound": "0x06055604",
+  "L_ssize": "0x06055768",
+  "L_stage": "0x06055754",
+  "L_state": "0x060555E8",
+  "L_sub": "0x060555E4",
+  "L_title": "0x060555DC",
+  "L_vram": "0x06055730",
+  "L_wraml": "0x06055744",
+  "L_zn1": "0x0605572C",
+  "L_zn2": "0x06055740",
+  "L_zs1": "0x06055760",
+  "S_blank": "0x0605565F",
+  "S_done": "0x0605570E",
+  "S_eng": "0x06055648",
+  "S_extra": "0x06055634",
+  "S_jpn": "0x06055650",
+  "S_load": "0x06055704",
+  "S_names": "0x06055642",
+  "S_signs": "0x06055659",
+  "W_exit": "0x060555CC",
+  "W_left": "0x060555D2",
+  "W_tog": "0x060555CE",
+  "W_ud": "0x060555D0",
+  "draw": "0x06055544",
+  "draw_ret": "0x060554D2",
+  "extra": "0x06055464",
+  "hookA": "0x06055690",
+  "hookB": "0x06055668",
+  "hookC": "0x060556B4",
+  "hookS": "0x060556D2",
+  "leave": "0x060554DC",
+  "no_ud": "0x0605549E",
+  "pads": "0x0605547A",
+  "parts": "0x0605576C",
+  "pv": "0x06055536",
+  "pv1": "0x0605553E",
+  "ret": "0x060554D6",
+  "s_zn1": "0x060557E8",
+  "s_zn2": "0x060557F4",
+  "s_zs1": "0x06055800",
+  "s_zs2": "0x0605580C",
+  "sg": "0x060554BA",
+  "sg1": "0x060554C8",
+  "sg2": "0x060554D0",
+  "state3": "0x06055456",
+  "sub0": "0x060554FC",
+  "sub1": "0x0605550C",
+  "th1": "0x0605543A",
+  "title_hook": "0x06055424"
+ },
+ "changes": [
+  {
+   "file": "CYBER.BIN",
+   "offset": "0x48424",
+   "address": "0x06055424",
+   "original": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+   "new": "4f222f462f562f662f76d069600288088d01e61fe614e406e516d777d065400b000967f666f665f664f64f26d062402b0009d05f600288088902d060402b0009d15f6011880089478801894d4f22d05e600020088b2dd15d6211d15d6311223b622d93a122388b2793a022388905d15b6010ca012100a01a0009939622388916d156601020088b06d1526010200800292100a00c0009d1506010938822388d0170017001e30330328b0070fd2100b03700094f26000b0009d049e409e500400be600d048400be401d13ee2012121d13ce2002121afed0009e2012121d13fe2002120d040402be4014f22d037600020088bdfd03e400b0009d03d400b0009b00f0009d039400be401d12de2022121afd0000930108d01e61fe614d226422b00094f222fe62fd62fc6de22dd2adc2bd022e408e504e678d730400b000960c0e100e406d72ebfe5e50860c0e101e406d72ebfdfe50a60d0e100e415d729bfd9e50860d0e101e41ed727bfd3e50884d1e100e40ed726bfcde50a84d1e101e415d720bfc7e50a84d1e102e41ed71ebfc1e50ae40ce518e61fd7174e0b00096cf66df66ef64f26000b00090900c600300040000606be8c0602a82a0602a76606063fd0060cfee4060cfee0060cfea0060cc016060cc026060d9295060d9296060e0ea00602b9160602c4740602c3ce0602aad40602eda206065b2406055634060556420605564806055650060556590605565f4558545241204f5054494f4e53004e414d455300454e474c495348004a4150414e455345005349474e5300424c414e4b000000004f22d02e400b00092008890ad12a601020088905d430d531d631d026400b0009e0014f26000b00094f22d425d021400b0009d121601020088905d422d522d623d01c400b00094f26000b0009d11a601020088907c72bd11ee21f6306421021328ffb7104d21b422b00094f22d21d420b00092f062f562f66d11b601020088912d11a611261124108d219312c6112d21931208b08d41888028b00740cd517d618d204420b000966f665f660f64f26000b00090009060385a0060d929506038e9c06046398060557e825c37840000021c00607ca1806060000060557f4202000900000972c06039228060d9296060d91980605dadc060463e00605580025e28d000000f9800a10f19dfc405e100810f59dfc425e900d10f09dfc4e5f600f100a9dfd4c60500209009dfc4c60680510001dfc4060b80110f19dfd4860500209009dfc4c60680510f59dfc4a60c80610f09dfc4e61280f10f09dfc4e62180f10f19dfc4263080f10f09dfc4e63f80f10f19dfc4264e80f10f09dfc4e65d80f10000a5a4e414d4553312e42494e005a4e414d4553322e42494e005a5349474e53312e42494e005a5349474e53322e42494e00",
+   "purpose": "new code (D-057 range)"
+  },
+  {
+   "file": "CYBER.BIN",
+   "offset": "0x2BDA0",
+   "address": "0x06038DA0",
+   "original": "06060000",
+   "new": "060556b4",
+   "purpose": "literal of 0x06038C9E: STG0A init -> hook C"
+  },
+  {
+   "file": "CYBER.BIN",
+   "offset": "0x2BDC0",
+   "address": "0x06038DC0",
+   "original": "06046398",
+   "new": "06055690",
+   "purpose": "literal of 0x06038CD4: SELECT.VAD name -> hook A"
+  },
+  {
+   "file": "CYBER.BIN",
+   "offset": "0x2BCD6",
+   "address": "0x06038CD6",
+   "original": "bc63",
+   "new": "440b",
+   "purpose": "bsr 0x060385A0 -> jsr @r4 (hook A)"
+  },
+  {
+   "file": "CYBER.BIN",
+   "offset": "0x2B628",
+   "address": "0x06038628",
+   "original": "06039228",
+   "new": "060556d2",
+   "purpose": "literal of 0x060385E0: the stage-tile loader's division -> hook S"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x023CA",
+   "address": "0x060623CA",
+   "original": "e508",
+   "new": "e506",
+   "purpose": "DIFFICULTY label: row 8 -> 6"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x023DE",
+   "address": "0x060623DE",
+   "original": "e50a",
+   "new": "e508",
+   "purpose": "TIME LIMIT label: row 10 -> 8"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x023F2",
+   "address": "0x060623F2",
+   "original": "e50c",
+   "new": "e50a",
+   "purpose": "SHORT CUT label: row 12 -> 10"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02406",
+   "address": "0x06062406",
+   "original": "e50e",
+   "new": "e50c",
+   "purpose": "SOUND label: row 14 -> 12"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x0241A",
+   "address": "0x0606241A",
+   "original": "e510",
+   "new": "e50e",
+   "purpose": "SOUND TEST label: row 16 -> 14"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x0242E",
+   "address": "0x0606242E",
+   "original": "e512",
+   "new": "e510",
+   "purpose": "DATA RESET label: row 18 -> 16"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02442",
+   "address": "0x06062442",
+   "original": "e514",
+   "new": "e512",
+   "purpose": "KEY CONFIG. label: row 20 -> 18"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x0245E",
+   "address": "0x0606245E",
+   "original": "e516",
+   "new": "e514",
+   "purpose": "3M RAM MODE label: row 22 -> 20"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x024B4",
+   "address": "0x060624B4",
+   "original": "e508",
+   "new": "e506",
+   "purpose": "difficulty scale: row 8 -> 6"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x024C6",
+   "address": "0x060624C6",
+   "original": "e508",
+   "new": "e506",
+   "purpose": "star bar, empty stars: row 8 -> 6"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x024DE",
+   "address": "0x060624DE",
+   "original": "e508",
+   "new": "e506",
+   "purpose": "star bar, filled stars: row 8 -> 6"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02502",
+   "address": "0x06062502",
+   "original": "e50a",
+   "new": "e508",
+   "purpose": "TIME LIMIT ON: row 10 -> 8"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x0251A",
+   "address": "0x0606251A",
+   "original": "e50a",
+   "new": "e508",
+   "purpose": "TIME LIMIT OFF: row 10 -> 8"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02530",
+   "address": "0x06062530",
+   "original": "e50c",
+   "new": "e50a",
+   "purpose": "SHORT CUT ON: row 12 -> 10"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02544",
+   "address": "0x06062544",
+   "original": "e50c",
+   "new": "e50a",
+   "purpose": "SHORT CUT OFF: row 12 -> 10"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02552",
+   "address": "0x06062552",
+   "original": "e50e",
+   "new": "e50c",
+   "purpose": "SOUND STEREO: row 14 -> 12"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02568",
+   "address": "0x06062568",
+   "original": "e50e",
+   "new": "e50c",
+   "purpose": "SOUND MONAURAL: row 14 -> 12"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02584",
+   "address": "0x06062584",
+   "original": "e510",
+   "new": "e50e",
+   "purpose": "SOUND TEST number: row 16 -> 14"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x025D2",
+   "address": "0x060625D2",
+   "original": "e512",
+   "new": "e510",
+   "purpose": "DATA RESET PRESS A+B+C: row 18 -> 16"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x025E0",
+   "address": "0x060625E0",
+   "original": "e514",
+   "new": "e512",
+   "purpose": "KEY CONFIG PRESS A or C: row 20 -> 18"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02604",
+   "address": "0x06062604",
+   "original": "e516",
+   "new": "e514",
+   "purpose": "3M RAM MODE ON: row 22 -> 20"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x0261A",
+   "address": "0x0606261A",
+   "original": "e516",
+   "new": "e514",
+   "purpose": "3M RAM MODE OFF: row 22 -> 20"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x023AA",
+   "address": "0x060623AA",
+   "original": "e504",
+   "new": "e502",
+   "purpose": "OPTION MODE title: row 4 -> 2"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02470",
+   "address": "0x06062470",
+   "original": "0602a766",
+   "new": "06055424",
+   "purpose": "literal of the title call -> title hook"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02B3C",
+   "address": "0x06062B3C",
+   "original": "06063fd0",
+   "new": "06055456",
+   "purpose": "literal of state 3 -> trampoline"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x027E6",
+   "address": "0x060627E6",
+   "original": "a14a",
+   "new": "a118",
+   "purpose": "dispatch default (cursor 8) -> the KEY CONFIG handler"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02A84",
+   "address": "0x06062A84",
+   "original": "2d32",
+   "new": "6020",
+   "purpose": "cursor wrap"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02A86",
+   "address": "0x06062A86",
+   "original": "6020",
+   "new": "4311",
+   "purpose": "cursor wrap"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02A88",
+   "address": "0x06062A88",
+   "original": "600c",
+   "new": "8d01",
+   "purpose": "cursor wrap"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02A8A",
+   "address": "0x06062A8A",
+   "original": "8801",
+   "new": "e108",
+   "purpose": "cursor wrap"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02A8C",
+   "address": "0x06062A8C",
+   "original": "8b1a",
+   "new": "6313",
+   "purpose": "cursor wrap"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02A8E",
+   "address": "0x06062A8E",
+   "original": "61d2",
+   "new": "3317",
+   "purpose": "cursor wrap"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02A90",
+   "address": "0x06062A90",
+   "original": "4111",
+   "new": "8b00",
+   "purpose": "cursor wrap"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02A92",
+   "address": "0x06062A92",
+   "original": "8d01",
+   "new": "e300",
+   "purpose": "cursor wrap"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02A94",
+   "address": "0x06062A94",
+   "original": "e407",
+   "new": "2008",
+   "purpose": "cursor wrap"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02A96",
+   "address": "0x06062A96",
+   "original": "2d42",
+   "new": "8b18",
+   "purpose": "cursor wrap"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02A98",
+   "address": "0x06062A98",
+   "original": "62d2",
+   "new": "6033",
+   "purpose": "cursor wrap"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02A9A",
+   "address": "0x06062A9A",
+   "original": "3247",
+   "new": "8807",
+   "purpose": "cursor wrap"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02A9C",
+   "address": "0x06062A9C",
+   "original": "891a",
+   "new": "8b15",
+   "purpose": "cursor wrap"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02A9E",
+   "address": "0x06062A9E",
+   "original": "a01b",
+   "new": "a011",
+   "purpose": "cursor wrap"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02AA0",
+   "address": "0x06062AA0",
+   "original": "0009",
+   "new": "4b11",
+   "purpose": "cursor wrap"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02AC4",
+   "address": "0x06062AC4",
+   "original": "61d2",
+   "new": "8d01",
+   "purpose": "cursor wrap"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02AC6",
+   "address": "0x06062AC6",
+   "original": "4111",
+   "new": "e308",
+   "purpose": "cursor wrap"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02AC8",
+   "address": "0x06062AC8",
+   "original": "8d01",
+   "new": "e306",
+   "purpose": "cursor wrap"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02ACA",
+   "address": "0x06062ACA",
+   "original": "e406",
+   "new": "6091",
+   "purpose": "cursor wrap"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02ACC",
+   "address": "0x06062ACC",
+   "original": "2d42",
+   "new": "8802",
+   "purpose": "cursor wrap"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02ACE",
+   "address": "0x06062ACE",
+   "original": "62d2",
+   "new": "8b03",
+   "purpose": "cursor wrap"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02AD0",
+   "address": "0x06062AD0",
+   "original": "3247",
+   "new": "2d32",
+   "purpose": "cursor wrap"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02AD2",
+   "address": "0x06062AD2",
+   "original": "8b01",
+   "new": "0009",
+   "purpose": "cursor wrap"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02AD4",
+   "address": "0x06062AD4",
+   "original": "e100",
+   "new": "0009",
+   "purpose": "cursor wrap"
+  },
+  {
+   "file": "OPDEMO.BIN",
+   "offset": "0x02AD6",
+   "address": "0x06062AD6",
+   "original": "2d12",
+   "new": "0009",
+   "purpose": "cursor wrap"
+  },
+  {
+   "file": "STG0AS.BIN",
+   "offset": "0x006C0",
+   "address": "0x060606C0",
+   "original": "06038e9c",
+   "new": "06055668",
+   "purpose": "literal of 0x060605BA: VS poll -> hook B"
+  }
+ ],
+ "added_files": [
+  {
+   "name": "ZNAMES1.BIN;1",
+   "lsn": 43643,
+   "size_bytes": 8640,
+   "sectors": 5,
+   "directory_lsn": 27,
+   "sha256": "395dcd83d648b53b446e1f11a70af703698c8ecf3d00b274eb76295fca97c699"
+  },
+  {
+   "name": "ZNAMES2.BIN;1",
+   "lsn": 43648,
+   "size_bytes": 38700,
+   "sectors": 19,
+   "directory_lsn": 27,
+   "sha256": "b7a901c2d948ae9bc027764ed2a98c86effd71ce61cdaaf2a89227c3cf69f9a0"
+  },
+  {
+   "name": "ZSIGNS1.BIN;1",
+   "lsn": 43667,
+   "size_bytes": 63872,
+   "sectors": 32,
+   "directory_lsn": 27,
+   "sha256": "b17b6d473cd80b8ca817cf3c028d735f9737b491f3f3105fc08122a2426dcd7d"
+  },
+  {
+   "name": "ZSIGNS2.BIN;1",
+   "lsn": 43699,
+   "size_bytes": 63872,
+   "sectors": 32,
+   "directory_lsn": 27,
+   "sha256": "9f50ff21b2aac8329d296ec982bb6babcc17214947194d3114aceaac0ec80560"
+  }
+ ],
+ "verification": {
+  "listed": [
+   {
+    "name": "ZNAMES1.BIN;1",
+    "lsn": 43643,
+    "size": 8640,
+    "record_index": 327
+   },
+   {
+    "name": "ZNAMES2.BIN;1",
+    "lsn": 43648,
+    "size": 38700,
+    "record_index": 328
+   },
+   {
+    "name": "ZSIGNS1.BIN;1",
+    "lsn": 43667,
+    "size": 63872,
+    "record_index": 329
+   },
+   {
+    "name": "ZSIGNS2.BIN;1",
+    "lsn": 43699,
+    "size": 63872,
+    "record_index": 330
+   }
+  ],
+  "differing_sectors": [
+   27,
+   43643,
+   43644,
+   43645,
+   43646,
+   43647,
+   43648,
+   43649,
+   43650,
+   43651,
+   43652,
+   43653,
+   43654,
+   43655,
+   43656,
+   43657,
+   43658,
+   43659,
+   43660,
+   43661,
+   43662,
+   43663,
+   43664,
+   43665,
+   43666,
+   43667,
+   43668,
+   43669,
+   43670,
+   43671,
+   43672,
+   43673,
+   43674,
+   43675,
+   43676,
+   43677,
+   43678,
+   43679,
+   43680,
+   43681,
+   43682,
+   43683,
+   43684,
+   43685,
+   43686,
+   43687,
+   43688,
+   43689,
+   43690,
+   43691,
+   43692,
+   43693,
+   43694,
+   43695,
+   43696,
+   43697,
+   43698,
+   43699,
+   43700,
+   43701,
+   43702,
+   43703,
+   43704,
+   43705,
+   43706,
+   43707,
+   43708,
+   43709,
+   43710,
+   43711,
+   43712,
+   43713,
+   43714,
+   43715,
+   43716,
+   43717,
+   43718,
+   43719,
+   43720,
+   43721,
+   43722,
+   43723,
+   43724,
+   43725,
+   43726,
+   43727,
+   43728,
+   43729,
+   43730
+  ],
+  "existing_records_unchanged": 327,
+  "records": 331,
+  "last_record": {
+   "name": "ZSIGNS2.BIN;1",
+   "record_index": 330
+  }
+ },
+ "track01_sha256": "1feadd132299e797292c0e8e5615e9024feb802893906cc376acfdbabb82655b"
+}

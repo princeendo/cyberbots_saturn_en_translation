@@ -147,3 +147,39 @@ def test_title_and_entry_must_match() -> None:
     words = {"menu": {**WORDS["menu"], "title": "OTHER"}}
     with pytest.raises(ValueError):
         ns.build(originals(), words)
+
+
+SIGNS = {"menu": {"row": "SIGNS", "values": ["BLANK", "ENGLISH", "JAPANESE"]}}
+
+
+def signs_originals() -> dict[str, bytes]:
+    files = originals()
+    cyber = bytearray(files["CYBER.BIN"])
+    put32(cyber, ns.CYBER_BASE, ns.DIVIDE_LITERAL, ns.DIVIDE)
+    files["CYBER.BIN"] = bytes(cyber)
+    return files
+
+
+def test_signs_row_and_hook_fit_and_are_wired() -> None:
+    slices = (bytes([1]) * ns.SIGN_SIZE, bytes([2]) * ns.SIGN_SIZE)
+    built = ns.build(signs_originals(), WORDS, SIGNS, slices)
+    start, end = built.code_range
+    assert start == ns.FREE[0] and end <= ns.FREE[1]
+    cyber = built.files["CYBER.BIN"]
+    literal = struct.unpack_from(">I", cyber, ns.DIVIDE_LITERAL - ns.CYBER_BASE)[0]
+    assert literal == built.labels["hookS"]
+    names = [name for name, _ in built.tail]
+    assert names == ["ZNAMES1.BIN;1", "ZNAMES2.BIN;1", "ZSIGNS1.BIN;1", "ZSIGNS2.BIN;1"]
+    assert built.tail[2][1] == slices[0] and built.tail[3][1] == slices[1]
+    o = built.labels["s_zs1"] - ns.CYBER_BASE
+    assert cyber[o : o + 24] == b"ZSIGNS1.BIN\0ZSIGNS2.BIN\0"
+    # the names-only build is unchanged by the option
+    plain = ns.build(originals(), WORDS)
+    assert "hookS" not in plain.labels
+
+
+def test_signs_need_words_and_slices_of_the_right_size() -> None:
+    with pytest.raises(ValueError):
+        ns.build(signs_originals(), WORDS, SIGNS, None)
+    with pytest.raises(ValueError):
+        ns.build(signs_originals(), WORDS, SIGNS, (b"x", b"y"))

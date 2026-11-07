@@ -194,3 +194,12 @@ Renders are local only (`EXP-0068` `render.py`, `grid.py`). Tile `n` of a
 | Signs | Red vertical banner (6 blocks), white vertical banner with a small sign (8), horizontal sale sign (10); offsets in `EXP-0070` `signs.json` |
 | Room | Same-size splices of those blocks; 16-colour palettes `0x41`/`0x42`; banners about 11-16 pixels wide and 85-112 high, the sale sign about 75 × 17 |
 | Arcade | `cybotsj` the same; `cybotsu` blanks them by region (other map blocks and palettes, `0x18832`, `0x156B6`); no English |
+
+## Built (`UI-006`, `EXP-0072`)
+
+| Surface | Now |
+| --- | --- |
+| VS chapter captions, pilots 0-5 | English (54, approved new translation), centred; 13 shown lines of pilots 6-8 each show one wrong English pair glyph (the user's choice); pilots 6-8's captions stay Japanese until `SPECIAL-001` |
+| Ruined-city signs | `EXTRA OPTIONS` → `SIGNS`: `BLANK` (default, as the US arcade), `ENGLISH` (`SALE`, `BAZAAR`, `BARGAIN SALE`), `JAPANESE` (the original), saved |
+
+Cold-boot play check: `UI-007`.

@@ -3016,3 +3016,30 @@ Notes (do not retry):
   (lists 6-8 with `KANJI.BIN`).
 - **A caption check from a saved state needs the built code table in RAM**
   (`0x060AAD7C`), or pairs on the story's new codes draw blank.
+
+## 2026-11-07 — UI-006 part 2: the SIGNS setting built (EXP-0072)
+
+User request (verbatim): "Start UI-006" (continued). No cold boot, no keys.
+
+- Stage tiles: `0x060385FA` → `0x060385BA` loads `ST0n_FNT.BIN` by the
+  table `0x0605DADC`; hook S replaces its division call's literal
+  `0x06038628` and loads the chosen sign slice (63,872 bytes, 32 sectors)
+  to VDP2 `0x28D00` when `SIGNS` is 1 or 2 and the file is `ST00_FNT.BIN`.
+- Menu: two rows in 1,012 of 1,024 bytes (the draw's row moves into the
+  `bsr` delay slots; `SIGNS` read as the byte after `NAMES`).
+- Checks: directory 331 entries; menu drawn for six combinations; input
+  logic 108/108 on an interpreter (names-only control 60/108); VRAM equal to
+  each version; another stage no load; names counts equal `EXP-0065`'s; two
+  builds identical; nine references unchanged. The user approved the art
+  and menu ("Approve both (Recommended)"; the pictures were sent just after
+  the answer because of a path error, then sent).
+
+Notes (do not retry):
+- **Agent writes cannot simulate pad presses**: the CPU reads `0x060CC016`
+  and the raw buffer through its cache. On-hit writes also land an
+  instruction or two after the hit.
+- **`savestate` is refused while halted**; run, then save.
+- **EXP-0070's sign map missed block column 29** (the white banner's left
+  two pixels); `EXP-0072` `store_blocks.json` covers the store front.
+- **A first check run wrote no code table** (captions) and a first build
+  counted staying lines after the story rows had been written; both fixed.

@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-07: UI-006 done: English captions and the SIGNS setting built** (`EXP-0072`, D-062): the 54 approved captions in the story font (13 codes from pilots 6-8's lines, your choice), and `EXTRA OPTIONS` → `SIGNS` (`BLANK` default, `ENGLISH`, `JAPANESE`, saved) loading the chosen city signs over the stage tiles. Checked from saved states (VRAM byte for byte, every caption's cells, the menu drawn, its input logic on an interpreter); you approved the art and menu. All nine earlier references still rebuild. `UI-007` (cold-boot play check with presses, then the regression reference) is `READY`.
 - **2026-11-06: UI-005 done: your plan for the captions and signs** (`EXP-0071`): from samples beside both arcades you chose English captions (54 drafts approved, centred; pilots 6-8 with `SPECIAL-001`) and a new saved `SIGNS` setting in `EXTRA OPTIONS` (`BLANK` default, `ENGLISH`, `JAPANESE`; tail file). Verbatim in `docs/localization_policy.md`. `UI-006` (build) is `READY`.
 - **2026-11-06: UI-002 done: the ruined-city signs** (`EXP-0070`, D-061): three signs are raw NBG2 tiles of `ST00_FNT.BIN` (24 blocks, same-size splices); a one-byte test image changed exactly two pixels. Both arcade sets hold both building versions, and the US program blanks the signs by its region byte (map blocks and palettes; forced both ways): no English. `UI-005` (your plan for the captions and signs) is `READY`.
 - **2026-11-06: UI-003 done: the VS captions** (`EXP-0069`, D-060): on the Saturn a caption is one `STG0AS.BIN` line in a fixed banner, one row of 13 cells (26 characters with pair glyphs). Both arcade sets create it only when the region byte is Japan (forced both ways in MAME), its drawer has only the Japanese table, and the English slots 494-551 hold one shared non-caption record: there is no official English for the captions. `UI-002` (attract: the city signs) is next; then `UI-005` (your plan).
@@ -3287,7 +3288,8 @@ Known so far (facts and their confidence):
 
 ### UI-006 - Build the UI changes
 
-- **Status:** `IN_PROGRESS` (captions built and checked 2026-11-06, `EXP-0072`; the SIGNS setting next)
+- **Status:** `DONE`
+- **Done:** 2026-11-07 (`EXP-0072`, D-062), from saved states, no cold boot, no keys. Captions: `--vs-captions --caption-touch 13`; 23 new pairs (10 free codes, 13 touching one shown line each of pilots 6-8, the user's choice); only caption ranges change; 54 of 54 draw their predicted cells. SIGNS: `--signs-switch`; the disc's `ST00_FNT.BIN` blank (26 blocks), `ZSIGNS1.BIN`/`ZSIGNS2.BIN` (English, Japanese slices) in the tail; hook S on the stage-tile loader's division literal (`0x06038628`); a two-row sub-menu (1,012 of 1,024 free bytes). The directory lists the four tail files; the city's VRAM slice equals each version byte for byte; another stage loads nothing; the menu draws every row and value; its input logic passes 108 of 108 on an interpreter (the names-only handler fails 48). The user approved the art and menu: "Approve both (Recommended)". Two builds identical (Track 01 `1feadd13…655b`); every change in `changes.json`; all nine earlier references rebuild unchanged; the names switch's checks equal `EXP-0065`'s.
 - **Milestone:** UI text and art (`UI-001`)
 - **Dependencies:** UI-005 and its gate extension (done).
 - **Blockers:** None.
@@ -3336,10 +3338,10 @@ Known so far (facts and their confidence):
 
 ### UI-007 - Verify and register
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** UI text and art (`UI-001`)
-- **Dependencies:** UI-006.
-- **Blockers:** `UI-006`.
+- **Dependencies:** UI-006 (done).
+- **Blockers:** None.
 - **Objective:** Play-check the UI changes and lock the build.
 - **Acceptance criteria:**
   - **Play check:** cold boots of the built image, asked first and driven
@@ -3359,6 +3361,14 @@ Known so far (facts and their confidence):
     `REL-002`'s blockers.
 - **Notes:** The image commit pushes after the agent's play checks pass
   (user rule, 2026-11-02).
+  - The build is `build/ui006/b` (`EXP-0072`, the README's command plus
+    `--signs-switch data/translations/signs_switch.json --vs-captions
+    data/translations/vs_captions.json --caption-touch 13`).
+  - The `SIGNS` row's presses (Down to SIGNS; Right and Left through its
+    three values) are the first real presses of that code: agent writes
+    cannot simulate pads (D-062). Its setting must be seen kept after a
+    power cycle, and the city signs in each setting.
+  - Stages 15 and 16 also use `ST00_FNT.BIN`; reach one if the run allows.
 
 ## Later Milestones (outline only)
 

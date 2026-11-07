@@ -1267,6 +1267,8 @@ Reproduce: `research/experiments/EXP-0069/README.md`, "Procedure".
   sign) are 24 of NBG2's 16 × 16, 4 bpp blocks (map `0x7A000`, palettes
   `0x41`/`0x42`); NBG2 stores its blocks column by column without reuse.
   Block offsets: `EXP-0070` `signs.json`.
+  (Correction, D-062: the white banner's left edge is in block column 29
+  too; the art changes 26 blocks, `EXP-0072` `store_blocks.json`.)
 - **Controlled changes.** From a saved state, zeroing the block at VRAM
   `0x38280` changed only white-banner pixels; a test image from the
   untouched source with `ST00_FNT.BIN` byte `0x1F20D` changed showed
@@ -1279,3 +1281,31 @@ Reproduce: `research/experiments/EXP-0069/README.md`, "Procedure".
   no English, only blank signs.
 
 Reproduce: `research/experiments/EXP-0070/README.md`, "Procedure".
+
+## D-062: The UI build: English captions and the SIGNS setting (`UI-006`, `EXP-0072`)
+
+- **Captions.** `tools.text.dialogue --vs-captions --caption-touch 13`
+  adds the 54 approved captions after the story, quotes and endings (their
+  outputs unchanged): 23 new pairs (37 centred; half-cell shifts reuse
+  pairs), on 10 codes no shown Japanese line uses and 13 that touch one
+  shown line each of pilots 6-8 (the user's choice). The code table cannot
+  grow: the lookup `0x0606E9E8` scans 39 rows. From a saved state each
+  caption drew exactly its predicted glyph cells (54 of 54).
+- **Stage tiles.** `0x060385FA` names the stage's tile file from the table
+  `0x0605DADC` (`ST00_FNT.BIN` for stages 0, 15, 16) and loads it through
+  `0x060385BA` (fights and attract `0x0603875C`, pilot select
+  `0x06038CBA`); its division call (`0x060385E2`, literal `0x06038628`) runs
+  with the file in VRAM.
+- **SIGNS.** Hook S on that literal loads `ZSIGNS1.BIN` (ENGLISH) or
+  `ZSIGNS2.BIN` (JAPANESE), each the 63,872-byte sign slice of
+  `ST00_FNT.BIN`, to VDP2 `0x28D00` when `0x060D9296` is 1 or 2 and the file
+  is `ST00_FNT.BIN`; the disc's `ST00_FNT.BIN` holds the blank signs. From
+  the attract state, the city's VRAM slice equals each version byte for
+  byte; another stage loads nothing. The `EXTRA OPTIONS` sub-menu has two
+  rows (cursor byte `0x060E0EA0`); its input logic passes 108 of 108 cases
+  on an interpreter, and its drawing was checked for every row and value.
+- **Pad words** (`0x060CC00E`/`0x060CC01E` blocks, from the raw buffer at
+  `*0x060CC008`): current `+4`, previous `+6`, pressed `+8`. The CPU reads
+  them through its cache, so agent writes do not simulate presses.
+
+Reproduce: `research/experiments/EXP-0072/README.md`, "Procedure".

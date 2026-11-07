@@ -1074,6 +1074,46 @@ def build(args: argparse.Namespace) -> int:
     if args.names_switch:
         from tools.text import names_switch
 
+        signs_words = None
+        sign_slices = None
+        if args.signs_switch:  # UI-006: the SIGNS row and the city signs
+            from tools.text import city_signs
+
+            signs_words = json.loads(args.signs_switch.read_text())
+            fnt = bytes(checked("ST00_FNT.BIN"))
+            sign_art = city_signs.build(
+                fnt,
+                signs_words,
+                font,
+                bytes(checked("FIX.BIN")),
+            )
+            lo, hi = city_signs.SLICE
+            sign_slices = (sign_art.english[lo:hi], fnt[lo:hi])
+            (out / "ST00_FNT.BIN").write_bytes(sign_art.blank)
+            extra += ["--file", "ST00_FNT.BIN;1", "--data", str(out / "ST00_FNT.BIN")]
+            (out / "signs_changes.json").write_text(
+                json.dumps(
+                    {
+                        "approved_sha256": hashlib.sha256(
+                            args.signs_switch.read_bytes()
+                        ).hexdigest(),
+                        "source_sha256": hashlib.sha256(fnt).hexdigest(),
+                        "blank_sha256": hashlib.sha256(sign_art.blank).hexdigest(),
+                        "english_slice_sha256": hashlib.sha256(
+                            sign_slices[0]
+                        ).hexdigest(),
+                        "japanese_slice_sha256": hashlib.sha256(
+                            sign_slices[1]
+                        ).hexdigest(),
+                        "slice": [f"0x{lo:05X}", f"0x{hi:05X}"],
+                        "changed_blocks": [
+                            f"0x{o:05X}" for o in sign_art.changed_blocks
+                        ],
+                    },
+                    indent=1,
+                )
+                + "\n"
+            )
         switch = names_switch.build(
             {
                 name: bytes(checked(name))
@@ -1087,6 +1127,8 @@ def build(args: argparse.Namespace) -> int:
                 )
             },
             json.loads(args.names_switch.read_text()),
+            signs_words,
+            sign_slices,
         )
         for name, data in switch.files.items():
             (out / name).write_bytes(data)
@@ -1211,6 +1253,12 @@ def main(argv: Sequence[str] | None = None) -> int:
         "data/translations/names_switch.json)",
     )
     parser.add_argument(
+        "--signs-switch",
+        type=Path,
+        help="the EXTRA OPTIONS SIGNS row and the city signs (UI-006; needs"
+        " --names-switch; data/translations/signs_switch.json)",
+    )
+    parser.add_argument(
         "--vs-captions",
         type=Path,
         help="approved English VS captions"
@@ -1250,6 +1298,8 @@ def main(argv: Sequence[str] | None = None) -> int:
         parser.error("--pairing or --roster is required")
     if args.names_switch and not args.name_art:
         parser.error("--names-switch needs --name-art")
+    if args.signs_switch and not args.names_switch:
+        parser.error("--signs-switch needs --names-switch")
     return build(args)
 
 

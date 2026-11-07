@@ -1,0 +1,113 @@
+{
+ "build": "build/ui006/b",
+ "boot": {
+  "entries_326_330": [
+   "WARNING4.PIX",
+   "ZNAMES1.BIN",
+   "ZNAMES2.BIN",
+   "ZSIGNS1.BIN",
+   "ZSIGNS2.BIN"
+  ],
+  "end_flags": [
+   0,
+   0,
+   0,
+   0,
+   1
+  ],
+  "directory_count": 331,
+  "cyber_changes_in_ram": true,
+  "ok": true
+ },
+ "menu": [
+  {
+   "step": "open",
+   "row": 0,
+   "names": 0,
+   "signs": 0,
+   "state_word": 3,
+   "shot": "ef6a0febc58a05e10bb04719ae471fe4b56ee1565a97ccb4145b26798343e868"
+  },
+  {
+   "step": "row1-names0-signs0",
+   "row": 1,
+   "names": 0,
+   "signs": 0,
+   "state_word": 3,
+   "shot": "c3760e6d3a088693f4d33f9e1e47f907ad9085ef4d06421c9da6bf7862f7486b"
+  },
+  {
+   "step": "row1-names0-signs1",
+   "row": 1,
+   "names": 0,
+   "signs": 1,
+   "state_word": 3,
+   "shot": "bfa4c2d279854818e1f893ca24f18de7dd8fcca82137eae5a1ed9fbd23b7e681"
+  },
+  {
+   "step": "row1-names0-signs2",
+   "row": 1,
+   "names": 0,
+   "signs": 2,
+   "state_word": 3,
+   "shot": "e9a140b789f7eac259659859a47967c0a2f0631694176f3febfc2e5d4060fef3"
+  },
+  {
+   "step": "row0-names1-signs2",
+   "row": 0,
+   "names": 1,
+   "signs": 2,
+   "state_word": 3,
+   "shot": "f3d773da4bb00c573f03a462681a004f01a0e38517852a27d7ec09313aa7e789"
+  },
+  {
+   "step": "row0-names0-signs0",
+   "row": 0,
+   "names": 0,
+   "signs": 0,
+   "state_word": 3,
+   "shot": "ef6a0febc58a05e10bb04719ae471fe4b56ee1565a97ccb4145b26798343e868"
+  }
+ ],
+ "signs": {
+  "0": {
+   "hook_runs": 1,
+   "loads": 0,
+   "slice_matches": {
+    "0": true,
+    "1": false,
+    "2": false
+   },
+   "ok": true,
+   "shot": "8ea95c342a6a604fa1e06cfcffd5a6528b9f5791107972ba2d46c64894d106c3"
+  },
+  "1": {
+   "hook_runs": 1,
+   "loads": 1,
+   "slice_matches": {
+    "0": false,
+    "1": true,
+    "2": false
+   },
+   "ok": true,
+   "shot": "52abef49a711564f8416a7a62c44ea6244ab9f2b7a780ae38fe0935aa638a859"
+  },
+  "2": {
+   "hook_runs": 1,
+   "loads": 1,
+   "slice_matches": {
+    "0": false,
+    "1": false,
+    "2": true
+   },
+   "ok": true,
+   "shot": "52abef49a711564f8416a7a62c44ea6244ab9f2b7a780ae38fe0935aa638a859"
+  }
+ },
+ "other_stage": {
+  "hook_runs": 1,
+  "loads": 0,
+  "stage_index_word": "00000001",
+  "shot": "4eef7d9238c8b05545fb71cb23da879324530d5739ff305a611219296809e3a3"
+ }
+}

@@ -40,7 +40,7 @@ Win quotes: the 46 boxes that the quote table's rows 0-5 reach
 | List 10 | 7 scenes of speaker-name boxes 602-605 and 609 (lines 1007-1010, 1014) | No Saturn file holds a list-10 post; the arcade's list 7 is the same and is posted at `0x6319C` (`EXP-0033`) | Never shown by the Saturn as far as the code shows |
 | Mary's and Gawaine's scene 15 | none of their own: the same boxes as scene 14 | Scene 15 is not in either pilot's block; Mary's scene 15 is scene 14's script, Gawaine's a copy of it | Nothing to translate beyond scene 14 |
 | Win-quote box 555 (line 956) | 1 box | No quote-table entry names scene 1 (D-030) | Never shown |
-| VS-screen chapter captions | boxes 494-549 (lines 899-952) | `STG0AS.BIN` `0x0606CAE8` (`EXP-0032`) | A separate surface; the US arcade shows none (`EXP-0012`); outside M5 unless the user adds it |
+| VS-screen chapter captions | boxes 494-549 (lines 899-952) | `STG0AS.BIN` `0x0606CAE8` (`EXP-0032`) | A separate surface, outside M5; translated in `UI-006` (see "UI Text and Art") |
 
 ### For the Gate
 
@@ -160,3 +160,23 @@ a new translation approved at the gate (`OPT-004`).
 | The VS mech table's 17th entry (frame `0x1C`) | Draws a portrait, not a name (`EXP-0056`) | No name art |
 | `MACHINE SELECT`, `BODY TYPE`, the fight HUD, the versus `RESULT` tally, the cast roll | Latin already (`EXP-0056`, D-040) | Nothing to change |
 | The second row of the select grid (Devilotte, Chiyomaru, Shade) on a cold boot | A down press did not move either cursor there (`EXP-0061`) | Their names were seen from saved states only (`EXP-0060`); how the row is reached is not known (`SPECIAL-001`) |
+
+## UI Text and Art
+
+Decided at the `UI-005` gate (2026-11-06, `docs/localization_policy.md`,
+"UI Text and Art, Decided"); built in `UI-006` (`EXP-0072`, D-062).
+
+### In Scope
+
+| Surface | Now | Seen |
+| --- | --- | --- |
+| VS captions, pilots 0-5 (boxes 496-549) | English, centred (`data/translations/vs_captions.json`) | all 54 from a saved state (`EXP-0072`) |
+| Ruined-city signs (`ST00_FNT.BIN`) | `SIGNS` setting: `BLANK` default, `ENGLISH`, `JAPANESE` (`data/translations/signs_switch.json`) | VRAM equal to each version from the attract state (`EXP-0072`) |
+
+### Excluded, With Evidence
+
+| What | Evidence | Why |
+| --- | --- | --- |
+| VS captions of pilots 6-8 (boxes 1045-1071) | No arcade slot (D-060) | The user: "With SPECIAL-001 (Recommended)" |
+| One wrong English pair glyph in each of 12 lines of pilots 6-8 (lines 1054, 1117, 1187, 1217, 1247, 1335, 1352, 1433, 1590, 1693, 1762, 1837) | `EXP-0072` `caption_changes.json` | The captions' codes; the user: "Take the 13 codes (Recommended)"; until `SPECIAL-001` |
+| Skyline boards on the city stage's NBG3 | About 5 pixels high, not readable (`EXP-0070`) | Not text that can be read |

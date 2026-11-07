@@ -45,6 +45,17 @@ SELECT_RANGE = (0x17840, 0x19A00)
 PARTS_RANGE = (0x1CA18, 0x1CA94)
 VS_RANGE = (0x90, 0x97BC)
 TAIL_NAMES = ("ZNAMES1.BIN", "ZNAMES2.BIN")
+# The SIGNS row (UI-006, the user's design in "UI Text and Art, Decided").
+FLAG2 = 0x060D9296  # 0 BLANK (default), 1 ENGLISH, 2 JAPANESE; saved (D-055)
+ROW_BYTE = 0x060E0EA0  # the sub-menu's cursor row; D-057's free range, not saved
+SIGN_NAMES = ("ZSIGNS1.BIN", "ZSIGNS2.BIN")  # ENGLISH, JAPANESE (12-byte names)
+SIGN_DEST = 0x25E00000 + 0x28D00  # VDP2 VRAM of ST00_FNT.BIN's sign slice
+DIVIDE = 0x06039228  # the division helper the stage-tile loader calls (D-061)
+DIVIDE_LITERAL = 0x06038628  # its literal, read only by 0x060385E0
+STAGE_PTR = 0x060D9198  # -> the stage index the tile loader uses
+FNT_TABLE = 0x0605DADC  # stage index -> tile file name
+CITY_FNT = 0x060463E0  # "ST00_FNT.BIN"
+SIGN_SIZE = 0x1F680 - 0x0FD00  # tools.text.city_signs.SLICE
 
 # OPTION MODE's text-row immediates (mov #row,r5) in OPDEMO.BIN's draw
 # routine 0x060623A4-0x0606262F; each moves up two rows.
@@ -373,8 +384,283 @@ def menu_code(origin: int, words: dict[str, Any]) -> Assembler:
     return a
 
 
-def hook_code(origin: int, parts: bytes) -> Assembler:
-    """Hooks A (select art), B (VS records) and C (select part table)."""
+def menu_code_signs(
+    origin: int, words: dict[str, Any], signs: dict[str, Any]
+) -> Assembler:
+    """``menu_code`` with a second row, ``SIGNS`` (UI-006).
+
+    Up/Down move the cursor row (``ROW_BYTE``, reset to 0 on entry); on the
+    NAMES row Right/Left/A/C toggle ``FLAG``; on the SIGNS row Right/A/C
+    step ``FLAG2`` 0 -> 1 -> 2 -> 0 and Left steps back; Start/B leave. The
+    cursor row's label is drawn in colour 31, the other in 20; each row's
+    current value in 31, the others in 20.
+    """
+    a = Assembler(origin)
+    r = a.op
+    a.label("title_hook")
+    for w in (0x4F22, 0x2F46, 0x2F56, 0x2F66, 0x2F76):  # push pr, r4-r7
+        r(w)
+    a.mov_l_label("L_cursor", 0)
+    r(0x6002)  # mov.l @r0,r0
+    r(0x8808)  # cmp/eq #8,r0
+    a.branch("bt/s", "th1")
+    r(0xE61F)
+    r(0xE614)
+    a.label("th1")
+    r(0xE406)
+    r(0xE500 | EXTRA_ROW)
+    a.mov_l_label("L_s_extra", 7)
+    a.mov_l_label("L_print", 0)
+    r(0x400B)
+    r(0x0009)
+    for w in (0x67F6, 0x66F6, 0x65F6, 0x64F6, 0x4F26):
+        r(w)
+    a.mov_l_label("L_title", 0)
+    r(0x402B)
+    r(0x0009)
+    a.label("state3")
+    a.mov_l_label("L_cursor", 0)
+    r(0x6002)
+    r(0x8808)
+    a.branch("bt", "extra")
+    a.mov_l_label("L_keycfg", 0)
+    r(0x402B)
+    r(0x0009)
+    a.label("extra")
+    a.mov_l_label("L_sub", 1)
+    r(0x6011)  # mov.w @r1,r0
+    r(0x8800)
+    a.branch("bt", "sub0")
+    r(0x8801)
+    a.branch("bt", "sub1")
+    r(0x4F22)  # sub2: input
+    a.mov_l_label("L_fade", 0)
+    r(0x6000)
+    r(0x2008)
+    a.branch("bf", "ret")
+    a.label("pads")  # the pad read (UI-006 checks simulate presses here)
+    a.mov_l_label("L_pad1", 1)
+    r(0x6211)
+    a.mov_l_label("L_pad2", 1)
+    r(0x6311)
+    r(0x223B)  # or r3,r2
+    r(0x622D)  # extu.w r2,r2
+    a.mov_w_label("W_exit", 3)
+    r(0x2238)  # tst r3,r2 (Start|B)
+    a.branch("bf", "leave")
+    a.mov_w_label("W_ud", 3)
+    r(0x2238)  # Up|Down
+    a.branch("bt", "no_ud")
+    a.mov_l_label("L_row", 1)
+    r(0x6010)  # mov.b @r1,r0
+    r(0xCA01)  # xor #1,r0
+    r(0x2100)  # mov.b r0,@r1
+    a.branch("bra", "draw_ret")
+    r(0x0009)
+    a.label("no_ud")
+    a.mov_w_label("W_tog", 3)
+    r(0x2238)  # Right|Left|A|C
+    a.branch("bt", "draw_ret")
+    a.mov_l_label("L_row", 1)
+    r(0x6010)
+    r(0x2008)
+    a.branch("bf", "sg")
+    a.mov_l_label("L_byte", 1)
+    for w in (0x6010, 0x2008, 0x0029, 0x2100):  # names = (names == 0)
+        r(w)
+    a.branch("bra", "draw_ret")
+    r(0x0009)
+    a.label("sg")
+    a.mov_l_label("L_byte2", 1)
+    r(0x6010)  # mov.b @r1,r0
+    a.mov_w_label("W_left", 3)
+    r(0x2238)  # tst r3,r2
+    a.branch("bt/s", "sg1")
+    r(0x7001)  # add #1,r0 (always)
+    r(0x7001)  # Left: one more, so 2 in all (= -1 mod 3)
+    a.label("sg1")
+    r(0xE303)  # mov #3,r3
+    r(0x3032)  # cmp/hs r3,r0
+    a.branch("bf", "sg2")
+    r(0x70FD)  # add #-3,r0
+    a.label("sg2")
+    r(0x2100)  # mov.b r0,@r1
+    a.label("draw_ret")
+    _bsr(a, "draw")
+    r(0x0009)
+    a.label("ret")
+    r(0x4F26)
+    r(0x000B)
+    r(0x0009)
+    a.label("leave")
+    a.mov_l_label("L_sound", 0)
+    for w in (0xE409, 0xE500, 0x400B, 0xE600):  # sound(9,0,0)
+        r(w)
+    a.mov_l_label("L_fadeout", 0)
+    r(0x400B)
+    r(0xE401)
+    a.mov_l_label("L_state", 1)
+    r(0xE201)
+    r(0x2121)
+    a.mov_l_label("L_sub", 1)
+    r(0xE200)
+    r(0x2121)
+    a.branch("bra", "ret")
+    r(0x0009)
+    a.label("sub0")  # substate = 1, cursor row 0, start the fade-out
+    r(0xE201)
+    r(0x2121)
+    a.mov_l_label("L_row", 1)
+    r(0xE200)
+    r(0x2120)  # mov.b r2,@r1
+    a.mov_l_label("L_fadeout", 0)
+    r(0x402B)
+    r(0xE401)
+    a.label("sub1")
+    r(0x4F22)
+    a.mov_l_label("L_fade", 0)
+    r(0x6000)
+    r(0x2008)
+    a.branch("bf", "ret")
+    a.mov_l_label("L_clear", 0)
+    r(0x400B)
+    r(0x0009)
+    a.mov_l_label("L_edaa2", 0)
+    r(0x400B)
+    r(0x0009)
+    _bsr(a, "draw")
+    r(0x0009)
+    a.mov_l_label("L_fadein", 0)
+    r(0x400B)
+    r(0xE401)
+    a.mov_l_label("L_sub", 1)
+    r(0xE202)
+    r(0x2121)
+    a.branch("bra", "ret")
+    r(0x0009)
+    # pv: print string r7 at (r4, r5) in 31 if r0 == r1, else 20 (tail call).
+    a.label("pv")
+    r(0x3010)  # cmp/eq r1,r0
+    a.branch("bt/s", "pv1")
+    r(0xE61F)
+    r(0xE614)
+    a.label("pv1")
+    a.mov_l_label("L_print", 2)
+    r(0x422B)  # jmp @r2
+    r(0x0009)
+    a.label("draw")
+    for w in (0x4F22, 0x2FE6, 0x2FD6, 0x2FC6):  # push pr, r14, r13, r12
+        r(w)
+    a.mov_l_label("L_print", 14)
+    a.mov_l_label("L_byte", 13)
+    a.mov_l_label("L_row", 12)
+    a.mov_l_label("L_title", 0)
+    for w in (0xE408, 0xE504, 0xE678):  # title: x 8, row 4, colour 120
+        r(w)
+    a.mov_l_label("L_s_extra", 7)
+    r(0x400B)
+    r(0x0009)
+    # Row labels: 31 on the cursor row. Each call's row goes in the bsr's
+    # delay slot.
+    for row_index, row, label in ((0, 8, "L_s_names"), (1, 10, "L_s_signs")):
+        r(0x60C0)  # mov.b @r12,r0
+        r(0xE100 | row_index)  # mov #index,r1
+        r(0xE406)  # x 6
+        a.mov_l_label(label, 7)
+        _bsr(a, "pv")
+        r(0xE500 | row)
+    # NAMES values (row 8): ENGLISH 0, JAPANESE 1.
+    for index, x, label in ((0, 21, "L_s_eng"), (1, 30, "L_s_jpn")):
+        r(0x60D0)  # mov.b @r13,r0
+        r(0xE100 | index)
+        r(0xE400 | x)
+        a.mov_l_label(label, 7)
+        _bsr(a, "pv")
+        r(0xE508)
+    # SIGNS values (row 10): BLANK 0, ENGLISH 1, JAPANESE 2. FLAG2 is the
+    # byte after FLAG: mov.b @(1,r13),r0.
+    if FLAG2 != FLAG + 1:
+        raise ValueError("SIGNS is read as the byte after NAMES")
+    for index, x, label in (
+        (0, 14, "L_s_blank"),
+        (1, 21, "L_s_eng"),
+        (2, 30, "L_s_jpn"),
+    ):
+        r(0x84D1)  # mov.b @(1,r13),r0
+        r(0xE100 | index)
+        r(0xE400 | x)
+        a.mov_l_label(label, 7)
+        _bsr(a, "pv")
+        r(0xE50A)
+    for w in (0xE40C, 0xE518, 0xE61F):  # PRESS START TO EXIT: x 12, row 24, 31
+        r(w)
+    a.mov_l_label("L_s_exit", 7)
+    r(0x4E0B)
+    r(0x0009)
+    for w in (0x6CF6, 0x6DF6, 0x6EF6, 0x4F26, 0x000B, 0x0009):
+        r(w)
+    a.label("W_exit")
+    a.word(0x0900)  # Start | B
+    a.label("W_tog")
+    a.word(0xC600)  # Right | Left | A | C
+    a.label("W_ud")
+    a.word(0x3000)  # Down | Up
+    a.label("W_left")
+    a.word(0x4000)  # Left
+    a.align4()
+    for name, v in (
+        ("L_cursor", 0x0606BE8C),
+        ("L_print", 0x0602A82A),
+        ("L_title", 0x0602A766),
+        ("L_keycfg", 0x06063FD0),
+        ("L_sub", 0x060CFEE4),
+        ("L_state", 0x060CFEE0),
+        ("L_fade", 0x060CFEA0),
+        ("L_pad1", 0x060CC016),
+        ("L_pad2", 0x060CC026),
+        ("L_byte", FLAG),
+        ("L_byte2", FLAG2),
+        ("L_row", ROW_BYTE),
+        ("L_sound", 0x0602B916),
+        ("L_fadeout", 0x0602C474),
+        ("L_fadein", 0x0602C3CE),
+        ("L_clear", 0x0602AAD4),
+        ("L_edaa2", 0x0602EDA2),
+        ("L_s_exit", 0x06065B24),
+    ):
+        a.label(name)
+        a.long(v)
+    for name in (
+        "L_s_extra",
+        "L_s_names",
+        "L_s_eng",
+        "L_s_jpn",
+        "L_s_signs",
+        "L_s_blank",
+    ):
+        a.label(name)
+        a.long("S" + name[3:])
+    menu = words["menu"]
+    sm = signs["menu"]
+    if sm["values"][1:] != menu["values"]:
+        raise ValueError("SIGNS shares ENGLISH and JAPANESE with NAMES")
+    for name, text in (
+        ("S_extra", menu["entry"]),
+        ("S_names", menu["row"]),
+        ("S_eng", menu["values"][0]),
+        ("S_jpn", menu["values"][1]),
+        ("S_signs", sm["row"]),
+        ("S_blank", sm["values"][0]),
+    ):
+        a.label(name)
+        a.data(text.encode("ascii") + b"\0")
+    a.align4()
+    return a
+
+
+def hook_code(origin: int, parts: bytes, signs: bool = False) -> Assembler:
+    """Hooks A (select art), B (VS records) and C (select part table); with
+    ``signs``, hook S (the city signs, UI-006)."""
     a = Assembler(origin)
     a.label("hookB")  # wraps the VS poll; returns its result, 1 when done
     a.push_pr()
@@ -437,6 +723,51 @@ def hook_code(origin: int, parts: bytes) -> Assembler:
     a.mov_l_label("L_init", 2)
     a.op(0x422B)  # jmp @r2: PR untouched, init returns to the caller
     a.nop()
+    if signs:
+        # Hook S: replaces the division helper the stage-tile loader calls
+        # once ST0n_FNT.BIN is in VDP2 VRAM (0x060385E2, r0 = 4, r1 = the
+        # dividend); returns its quotient with r5 and r6 kept. When SIGNS is
+        # not BLANK and the stage's tile file is ST00_FNT.BIN, the sign slice
+        # of the chosen version is loaded over the stage tiles.
+        a.label("hookS")
+        a.push_pr()
+        a.mov_l_label("L_div", 2)
+        a.jsr(2)
+        a.nop()
+        a.op(0x2F06)  # push r0, r5, r6
+        a.op(0x2F56)
+        a.op(0x2F66)
+        a.mov_l_label("L_sflag", 1)
+        a.mov_b_load(1, 0)
+        a.tst(0, 0)
+        a.branch("bt", "S_done")
+        a.mov_l_label("L_stage", 1)
+        a.mov_l_load(1, 1)
+        a.mov_l_load(1, 1)
+        a.op(0x4108)  # shll2 r1
+        a.mov_l_label("L_fnt", 2)
+        a.add(2, 1)
+        a.mov_l_load(1, 1)
+        a.mov_l_label("L_city", 2)
+        a.cmp_eq(2, 1)
+        a.branch("bf", "S_done")
+        a.mov_l_label("L_zs1", 4)
+        a.op(0x8802)  # cmp/eq #2,r0
+        a.branch("bf", "S_load")
+        a.add_imm(12, 4)  # the second name
+        a.label("S_load")
+        a.mov_l_label("L_sdest", 5)
+        a.mov_l_label("L_ssize", 6)
+        a.mov_l_label("L_loader", 2)
+        a.jsr(2)
+        a.nop()
+        a.label("S_done")
+        a.op(0x66F6)  # pop r6, r5, r0
+        a.op(0x65F6)
+        a.op(0x60F6)
+        a.pop_pr()
+        a.rts()
+        a.nop()
     a.align4()
     for name, v in (
         ("L_loader", 0x060385A0),
@@ -454,17 +785,40 @@ def hook_code(origin: int, parts: bytes) -> Assembler:
     ):
         a.label(name)
         a.long(v)
+    if signs:
+        for name, v in (
+            ("L_div", DIVIDE),
+            ("L_sflag", FLAG2),
+            ("L_stage", STAGE_PTR),
+            ("L_fnt", FNT_TABLE),
+            ("L_city", CITY_FNT),
+            ("L_zs1", "s_zs1"),
+            ("L_sdest", SIGN_DEST),
+            ("L_ssize", SIGN_SIZE),
+        ):
+            a.label(name)
+            a.long(v)
     a.label("parts")
     a.data(parts)
     a.label("s_zn1")
     a.data(TAIL_NAMES[0].encode() + b"\0")
     a.label("s_zn2")
     a.data(TAIL_NAMES[1].encode() + b"\0")
+    if signs:
+        a.label("s_zs1")
+        a.data(SIGN_NAMES[0].encode() + b"\0")
+        a.label("s_zs2")
+        a.data(SIGN_NAMES[1].encode() + b"\0")
     a.align4()
     return a
 
 
-def build(originals: dict[str, bytes], words: dict[str, Any]) -> Built:
+def build(
+    originals: dict[str, bytes],
+    words: dict[str, Any],
+    signs: dict[str, Any] | None = None,
+    sign_slices: tuple[bytes, bytes] | None = None,
+) -> Built:
     """CYBER.BIN and OPDEMO.BIN with the switch, the STG0AS patch, the tail files.
 
     ``originals``: the untouched CYBER.BIN, OPDEMO.BIN, STG0AS.BIN, STG0A.BIN,
@@ -475,11 +829,19 @@ def build(originals: dict[str, bytes], words: dict[str, Any]) -> Built:
         raise ValueError("the sub-menu's title and its entry row share one string")
     changes: list[dict[str, Any]] = []
     parts = originals["STG0A.BIN"][PARTS_RANGE[0] : PARTS_RANGE[1]]
-    m = menu_code(FREE[0], words)
+    if (signs is None) != (sign_slices is None):
+        raise ValueError("the SIGNS row needs its words and its two slices")
+    if sign_slices and any(len(x) != SIGN_SIZE for x in sign_slices):
+        raise ValueError("a sign slice is not the stage tiles' slice size")
+    m = (
+        menu_code(FREE[0], words)
+        if signs is None
+        else menu_code_signs(FREE[0], words, signs)
+    )
     menu_bytes = m.assemble()
     menu_bytes += bytes(-len(menu_bytes) % 4)  # the hooks start 4-byte aligned
     hooks_origin = FREE[0] + len(menu_bytes)
-    h = hook_code(hooks_origin, parts)
+    h = hook_code(hooks_origin, parts, signs=signs is not None)
     hook_bytes = h.assemble()
     hook_bytes += bytes(-len(hook_bytes) % 4)
     end = hooks_origin + len(hook_bytes)
@@ -504,6 +866,13 @@ def build(originals: dict[str, bytes], words: dict[str, Any]) -> Built:
         "literal of 0x06038CD4: SELECT.VAD name -> hook A",
     )
     cy.word(0x06038CD6, 0xBC63, 0x440B, "bsr 0x060385A0 -> jsr @r4 (hook A)")
+    if signs is not None:
+        cy.long(
+            DIVIDE_LITERAL,
+            DIVIDE,
+            labels["hookS"],
+            "literal of 0x060385E0: the stage-tile loader's division -> hook S",
+        )
 
     op = _Patcher("OPDEMO.BIN", originals["OPDEMO.BIN"], OVERLAY_BASE, changes)
     for address, purpose in ROWS.items():
@@ -557,6 +926,8 @@ def build(originals: dict[str, bytes], words: dict[str, Any]) -> Built:
         ),
         (TAIL_NAMES[1] + ";1", originals["PL3F_0.BIN"][VS_RANGE[0] : VS_RANGE[1]]),
     ]
+    if sign_slices is not None:
+        tail += [(SIGN_NAMES[k] + ";1", sign_slices[k]) for k in range(2)]
     return Built(
         files={"CYBER.BIN": bytes(cy.buf), "OPDEMO.BIN": bytes(op.buf)},
         stg0as=(o, old, new),

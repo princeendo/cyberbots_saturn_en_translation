@@ -1,0 +1,1627 @@
+{
+ "build_cyber_sha256": "2af277dfb9fd7192322effd1a4db89a2b15b964b5cae6308ad667dbafd4af35b",
+ "cases": 108,
+ "passed": 108,
+ "results": [
+  {
+   "row": 0,
+   "names": 0,
+   "signs": 0,
+   "button": "none",
+   "got": {
+    "row": 0,
+    "names": 0,
+    "signs": 0,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 0,
+   "signs": 0,
+   "button": "Up",
+   "got": {
+    "row": 1,
+    "names": 0,
+    "signs": 0,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 0,
+   "signs": 0,
+   "button": "Down",
+   "got": {
+    "row": 1,
+    "names": 0,
+    "signs": 0,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 0,
+   "signs": 0,
+   "button": "Left",
+   "got": {
+    "row": 0,
+    "names": 1,
+    "signs": 0,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 0,
+   "signs": 0,
+   "button": "Right",
+   "got": {
+    "row": 0,
+    "names": 1,
+    "signs": 0,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 0,
+   "signs": 0,
+   "button": "A",
+   "got": {
+    "row": 0,
+    "names": 1,
+    "signs": 0,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 0,
+   "signs": 0,
+   "button": "C",
+   "got": {
+    "row": 0,
+    "names": 1,
+    "signs": 0,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 0,
+   "signs": 0,
+   "button": "Start",
+   "got": {
+    "row": 0,
+    "names": 0,
+    "signs": 0,
+    "state": 1,
+    "sub": 0
+   },
+   "ok": true,
+   "redrawn": false
+  },
+  {
+   "row": 0,
+   "names": 0,
+   "signs": 0,
+   "button": "B",
+   "got": {
+    "row": 0,
+    "names": 0,
+    "signs": 0,
+    "state": 1,
+    "sub": 0
+   },
+   "ok": true,
+   "redrawn": false
+  },
+  {
+   "row": 0,
+   "names": 0,
+   "signs": 1,
+   "button": "none",
+   "got": {
+    "row": 0,
+    "names": 0,
+    "signs": 1,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 0,
+   "signs": 1,
+   "button": "Up",
+   "got": {
+    "row": 1,
+    "names": 0,
+    "signs": 1,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 0,
+   "signs": 1,
+   "button": "Down",
+   "got": {
+    "row": 1,
+    "names": 0,
+    "signs": 1,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 0,
+   "signs": 1,
+   "button": "Left",
+   "got": {
+    "row": 0,
+    "names": 1,
+    "signs": 1,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 0,
+   "signs": 1,
+   "button": "Right",
+   "got": {
+    "row": 0,
+    "names": 1,
+    "signs": 1,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 0,
+   "signs": 1,
+   "button": "A",
+   "got": {
+    "row": 0,
+    "names": 1,
+    "signs": 1,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 0,
+   "signs": 1,
+   "button": "C",
+   "got": {
+    "row": 0,
+    "names": 1,
+    "signs": 1,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 0,
+   "signs": 1,
+   "button": "Start",
+   "got": {
+    "row": 0,
+    "names": 0,
+    "signs": 1,
+    "state": 1,
+    "sub": 0
+   },
+   "ok": true,
+   "redrawn": false
+  },
+  {
+   "row": 0,
+   "names": 0,
+   "signs": 1,
+   "button": "B",
+   "got": {
+    "row": 0,
+    "names": 0,
+    "signs": 1,
+    "state": 1,
+    "sub": 0
+   },
+   "ok": true,
+   "redrawn": false
+  },
+  {
+   "row": 0,
+   "names": 0,
+   "signs": 2,
+   "button": "none",
+   "got": {
+    "row": 0,
+    "names": 0,
+    "signs": 2,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 0,
+   "signs": 2,
+   "button": "Up",
+   "got": {
+    "row": 1,
+    "names": 0,
+    "signs": 2,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 0,
+   "signs": 2,
+   "button": "Down",
+   "got": {
+    "row": 1,
+    "names": 0,
+    "signs": 2,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 0,
+   "signs": 2,
+   "button": "Left",
+   "got": {
+    "row": 0,
+    "names": 1,
+    "signs": 2,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 0,
+   "signs": 2,
+   "button": "Right",
+   "got": {
+    "row": 0,
+    "names": 1,
+    "signs": 2,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 0,
+   "signs": 2,
+   "button": "A",
+   "got": {
+    "row": 0,
+    "names": 1,
+    "signs": 2,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 0,
+   "signs": 2,
+   "button": "C",
+   "got": {
+    "row": 0,
+    "names": 1,
+    "signs": 2,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 0,
+   "signs": 2,
+   "button": "Start",
+   "got": {
+    "row": 0,
+    "names": 0,
+    "signs": 2,
+    "state": 1,
+    "sub": 0
+   },
+   "ok": true,
+   "redrawn": false
+  },
+  {
+   "row": 0,
+   "names": 0,
+   "signs": 2,
+   "button": "B",
+   "got": {
+    "row": 0,
+    "names": 0,
+    "signs": 2,
+    "state": 1,
+    "sub": 0
+   },
+   "ok": true,
+   "redrawn": false
+  },
+  {
+   "row": 0,
+   "names": 1,
+   "signs": 0,
+   "button": "none",
+   "got": {
+    "row": 0,
+    "names": 1,
+    "signs": 0,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 1,
+   "signs": 0,
+   "button": "Up",
+   "got": {
+    "row": 1,
+    "names": 1,
+    "signs": 0,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 1,
+   "signs": 0,
+   "button": "Down",
+   "got": {
+    "row": 1,
+    "names": 1,
+    "signs": 0,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 1,
+   "signs": 0,
+   "button": "Left",
+   "got": {
+    "row": 0,
+    "names": 0,
+    "signs": 0,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 1,
+   "signs": 0,
+   "button": "Right",
+   "got": {
+    "row": 0,
+    "names": 0,
+    "signs": 0,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 1,
+   "signs": 0,
+   "button": "A",
+   "got": {
+    "row": 0,
+    "names": 0,
+    "signs": 0,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 1,
+   "signs": 0,
+   "button": "C",
+   "got": {
+    "row": 0,
+    "names": 0,
+    "signs": 0,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 1,
+   "signs": 0,
+   "button": "Start",
+   "got": {
+    "row": 0,
+    "names": 1,
+    "signs": 0,
+    "state": 1,
+    "sub": 0
+   },
+   "ok": true,
+   "redrawn": false
+  },
+  {
+   "row": 0,
+   "names": 1,
+   "signs": 0,
+   "button": "B",
+   "got": {
+    "row": 0,
+    "names": 1,
+    "signs": 0,
+    "state": 1,
+    "sub": 0
+   },
+   "ok": true,
+   "redrawn": false
+  },
+  {
+   "row": 0,
+   "names": 1,
+   "signs": 1,
+   "button": "none",
+   "got": {
+    "row": 0,
+    "names": 1,
+    "signs": 1,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 1,
+   "signs": 1,
+   "button": "Up",
+   "got": {
+    "row": 1,
+    "names": 1,
+    "signs": 1,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 1,
+   "signs": 1,
+   "button": "Down",
+   "got": {
+    "row": 1,
+    "names": 1,
+    "signs": 1,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 1,
+   "signs": 1,
+   "button": "Left",
+   "got": {
+    "row": 0,
+    "names": 0,
+    "signs": 1,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 1,
+   "signs": 1,
+   "button": "Right",
+   "got": {
+    "row": 0,
+    "names": 0,
+    "signs": 1,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 1,
+   "signs": 1,
+   "button": "A",
+   "got": {
+    "row": 0,
+    "names": 0,
+    "signs": 1,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 1,
+   "signs": 1,
+   "button": "C",
+   "got": {
+    "row": 0,
+    "names": 0,
+    "signs": 1,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 1,
+   "signs": 1,
+   "button": "Start",
+   "got": {
+    "row": 0,
+    "names": 1,
+    "signs": 1,
+    "state": 1,
+    "sub": 0
+   },
+   "ok": true,
+   "redrawn": false
+  },
+  {
+   "row": 0,
+   "names": 1,
+   "signs": 1,
+   "button": "B",
+   "got": {
+    "row": 0,
+    "names": 1,
+    "signs": 1,
+    "state": 1,
+    "sub": 0
+   },
+   "ok": true,
+   "redrawn": false
+  },
+  {
+   "row": 0,
+   "names": 1,
+   "signs": 2,
+   "button": "none",
+   "got": {
+    "row": 0,
+    "names": 1,
+    "signs": 2,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 1,
+   "signs": 2,
+   "button": "Up",
+   "got": {
+    "row": 1,
+    "names": 1,
+    "signs": 2,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 1,
+   "signs": 2,
+   "button": "Down",
+   "got": {
+    "row": 1,
+    "names": 1,
+    "signs": 2,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 1,
+   "signs": 2,
+   "button": "Left",
+   "got": {
+    "row": 0,
+    "names": 0,
+    "signs": 2,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 1,
+   "signs": 2,
+   "button": "Right",
+   "got": {
+    "row": 0,
+    "names": 0,
+    "signs": 2,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 1,
+   "signs": 2,
+   "button": "A",
+   "got": {
+    "row": 0,
+    "names": 0,
+    "signs": 2,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 1,
+   "signs": 2,
+   "button": "C",
+   "got": {
+    "row": 0,
+    "names": 0,
+    "signs": 2,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 0,
+   "names": 1,
+   "signs": 2,
+   "button": "Start",
+   "got": {
+    "row": 0,
+    "names": 1,
+    "signs": 2,
+    "state": 1,
+    "sub": 0
+   },
+   "ok": true,
+   "redrawn": false
+  },
+  {
+   "row": 0,
+   "names": 1,
+   "signs": 2,
+   "button": "B",
+   "got": {
+    "row": 0,
+    "names": 1,
+    "signs": 2,
+    "state": 1,
+    "sub": 0
+   },
+   "ok": true,
+   "redrawn": false
+  },
+  {
+   "row": 1,
+   "names": 0,
+   "signs": 0,
+   "button": "none",
+   "got": {
+    "row": 1,
+    "names": 0,
+    "signs": 0,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 0,
+   "signs": 0,
+   "button": "Up",
+   "got": {
+    "row": 0,
+    "names": 0,
+    "signs": 0,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 0,
+   "signs": 0,
+   "button": "Down",
+   "got": {
+    "row": 0,
+    "names": 0,
+    "signs": 0,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 0,
+   "signs": 0,
+   "button": "Left",
+   "got": {
+    "row": 1,
+    "names": 0,
+    "signs": 2,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 0,
+   "signs": 0,
+   "button": "Right",
+   "got": {
+    "row": 1,
+    "names": 0,
+    "signs": 1,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 0,
+   "signs": 0,
+   "button": "A",
+   "got": {
+    "row": 1,
+    "names": 0,
+    "signs": 1,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 0,
+   "signs": 0,
+   "button": "C",
+   "got": {
+    "row": 1,
+    "names": 0,
+    "signs": 1,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 0,
+   "signs": 0,
+   "button": "Start",
+   "got": {
+    "row": 1,
+    "names": 0,
+    "signs": 0,
+    "state": 1,
+    "sub": 0
+   },
+   "ok": true,
+   "redrawn": false
+  },
+  {
+   "row": 1,
+   "names": 0,
+   "signs": 0,
+   "button": "B",
+   "got": {
+    "row": 1,
+    "names": 0,
+    "signs": 0,
+    "state": 1,
+    "sub": 0
+   },
+   "ok": true,
+   "redrawn": false
+  },
+  {
+   "row": 1,
+   "names": 0,
+   "signs": 1,
+   "button": "none",
+   "got": {
+    "row": 1,
+    "names": 0,
+    "signs": 1,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 0,
+   "signs": 1,
+   "button": "Up",
+   "got": {
+    "row": 0,
+    "names": 0,
+    "signs": 1,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 0,
+   "signs": 1,
+   "button": "Down",
+   "got": {
+    "row": 0,
+    "names": 0,
+    "signs": 1,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 0,
+   "signs": 1,
+   "button": "Left",
+   "got": {
+    "row": 1,
+    "names": 0,
+    "signs": 0,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 0,
+   "signs": 1,
+   "button": "Right",
+   "got": {
+    "row": 1,
+    "names": 0,
+    "signs": 2,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 0,
+   "signs": 1,
+   "button": "A",
+   "got": {
+    "row": 1,
+    "names": 0,
+    "signs": 2,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 0,
+   "signs": 1,
+   "button": "C",
+   "got": {
+    "row": 1,
+    "names": 0,
+    "signs": 2,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 0,
+   "signs": 1,
+   "button": "Start",
+   "got": {
+    "row": 1,
+    "names": 0,
+    "signs": 1,
+    "state": 1,
+    "sub": 0
+   },
+   "ok": true,
+   "redrawn": false
+  },
+  {
+   "row": 1,
+   "names": 0,
+   "signs": 1,
+   "button": "B",
+   "got": {
+    "row": 1,
+    "names": 0,
+    "signs": 1,
+    "state": 1,
+    "sub": 0
+   },
+   "ok": true,
+   "redrawn": false
+  },
+  {
+   "row": 1,
+   "names": 0,
+   "signs": 2,
+   "button": "none",
+   "got": {
+    "row": 1,
+    "names": 0,
+    "signs": 2,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 0,
+   "signs": 2,
+   "button": "Up",
+   "got": {
+    "row": 0,
+    "names": 0,
+    "signs": 2,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 0,
+   "signs": 2,
+   "button": "Down",
+   "got": {
+    "row": 0,
+    "names": 0,
+    "signs": 2,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 0,
+   "signs": 2,
+   "button": "Left",
+   "got": {
+    "row": 1,
+    "names": 0,
+    "signs": 1,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 0,
+   "signs": 2,
+   "button": "Right",
+   "got": {
+    "row": 1,
+    "names": 0,
+    "signs": 0,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 0,
+   "signs": 2,
+   "button": "A",
+   "got": {
+    "row": 1,
+    "names": 0,
+    "signs": 0,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 0,
+   "signs": 2,
+   "button": "C",
+   "got": {
+    "row": 1,
+    "names": 0,
+    "signs": 0,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 0,
+   "signs": 2,
+   "button": "Start",
+   "got": {
+    "row": 1,
+    "names": 0,
+    "signs": 2,
+    "state": 1,
+    "sub": 0
+   },
+   "ok": true,
+   "redrawn": false
+  },
+  {
+   "row": 1,
+   "names": 0,
+   "signs": 2,
+   "button": "B",
+   "got": {
+    "row": 1,
+    "names": 0,
+    "signs": 2,
+    "state": 1,
+    "sub": 0
+   },
+   "ok": true,
+   "redrawn": false
+  },
+  {
+   "row": 1,
+   "names": 1,
+   "signs": 0,
+   "button": "none",
+   "got": {
+    "row": 1,
+    "names": 1,
+    "signs": 0,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 1,
+   "signs": 0,
+   "button": "Up",
+   "got": {
+    "row": 0,
+    "names": 1,
+    "signs": 0,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 1,
+   "signs": 0,
+   "button": "Down",
+   "got": {
+    "row": 0,
+    "names": 1,
+    "signs": 0,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 1,
+   "signs": 0,
+   "button": "Left",
+   "got": {
+    "row": 1,
+    "names": 1,
+    "signs": 2,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 1,
+   "signs": 0,
+   "button": "Right",
+   "got": {
+    "row": 1,
+    "names": 1,
+    "signs": 1,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 1,
+   "signs": 0,
+   "button": "A",
+   "got": {
+    "row": 1,
+    "names": 1,
+    "signs": 1,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 1,
+   "signs": 0,
+   "button": "C",
+   "got": {
+    "row": 1,
+    "names": 1,
+    "signs": 1,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 1,
+   "signs": 0,
+   "button": "Start",
+   "got": {
+    "row": 1,
+    "names": 1,
+    "signs": 0,
+    "state": 1,
+    "sub": 0
+   },
+   "ok": true,
+   "redrawn": false
+  },
+  {
+   "row": 1,
+   "names": 1,
+   "signs": 0,
+   "button": "B",
+   "got": {
+    "row": 1,
+    "names": 1,
+    "signs": 0,
+    "state": 1,
+    "sub": 0
+   },
+   "ok": true,
+   "redrawn": false
+  },
+  {
+   "row": 1,
+   "names": 1,
+   "signs": 1,
+   "button": "none",
+   "got": {
+    "row": 1,
+    "names": 1,
+    "signs": 1,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 1,
+   "signs": 1,
+   "button": "Up",
+   "got": {
+    "row": 0,
+    "names": 1,
+    "signs": 1,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 1,
+   "signs": 1,
+   "button": "Down",
+   "got": {
+    "row": 0,
+    "names": 1,
+    "signs": 1,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 1,
+   "signs": 1,
+   "button": "Left",
+   "got": {
+    "row": 1,
+    "names": 1,
+    "signs": 0,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 1,
+   "signs": 1,
+   "button": "Right",
+   "got": {
+    "row": 1,
+    "names": 1,
+    "signs": 2,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 1,
+   "signs": 1,
+   "button": "A",
+   "got": {
+    "row": 1,
+    "names": 1,
+    "signs": 2,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 1,
+   "signs": 1,
+   "button": "C",
+   "got": {
+    "row": 1,
+    "names": 1,
+    "signs": 2,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 1,
+   "signs": 1,
+   "button": "Start",
+   "got": {
+    "row": 1,
+    "names": 1,
+    "signs": 1,
+    "state": 1,
+    "sub": 0
+   },
+   "ok": true,
+   "redrawn": false
+  },
+  {
+   "row": 1,
+   "names": 1,
+   "signs": 1,
+   "button": "B",
+   "got": {
+    "row": 1,
+    "names": 1,
+    "signs": 1,
+    "state": 1,
+    "sub": 0
+   },
+   "ok": true,
+   "redrawn": false
+  },
+  {
+   "row": 1,
+   "names": 1,
+   "signs": 2,
+   "button": "none",
+   "got": {
+    "row": 1,
+    "names": 1,
+    "signs": 2,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 1,
+   "signs": 2,
+   "button": "Up",
+   "got": {
+    "row": 0,
+    "names": 1,
+    "signs": 2,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 1,
+   "signs": 2,
+   "button": "Down",
+   "got": {
+    "row": 0,
+    "names": 1,
+    "signs": 2,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 1,
+   "signs": 2,
+   "button": "Left",
+   "got": {
+    "row": 1,
+    "names": 1,
+    "signs": 1,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 1,
+   "signs": 2,
+   "button": "Right",
+   "got": {
+    "row": 1,
+    "names": 1,
+    "signs": 0,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 1,
+   "signs": 2,
+   "button": "A",
+   "got": {
+    "row": 1,
+    "names": 1,
+    "signs": 0,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 1,
+   "signs": 2,
+   "button": "C",
+   "got": {
+    "row": 1,
+    "names": 1,
+    "signs": 0,
+    "state": 3,
+    "sub": 2
+   },
+   "ok": true,
+   "redrawn": true
+  },
+  {
+   "row": 1,
+   "names": 1,
+   "signs": 2,
+   "button": "Start",
+   "got": {
+    "row": 1,
+    "names": 1,
+    "signs": 2,
+    "state": 1,
+    "sub": 0
+   },
+   "ok": true,
+   "redrawn": false
+  },
+  {
+   "row": 1,
+   "names": 1,
+   "signs": 2,
+   "button": "B",
+   "got": {
+    "row": 1,
+    "names": 1,
+    "signs": 2,
+    "state": 1,
+    "sub": 0
+   },
+   "ok": true,
+   "redrawn": false
+  }
+ ]
+}
