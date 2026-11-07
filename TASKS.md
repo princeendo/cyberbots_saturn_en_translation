@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-07: REL-003 done** (`EXP-0085`): the 0.1.0 zip (`b0188f0e…`) is reproducible and checks against the reference; the release docs and the top-level README are written. `REL-004` (tag and publish) is `READY`.
 - **2026-11-07: REL-002 done** (`EXP-0084`): the xdelta patch from the final reference builds byte-identically, applies with plain `xdelta3` to the reference's Track 01, keeps the RetroAchievements header hash, and the patched disc boots to the title. xdelta only (the image adds files an SSP applier can't); achievement triggering recorded as untested. `REL-003` (zips, README, checks) is `READY`.
 - **2026-11-07: SPECIAL-018 done; SPECIAL-001 complete** (`EXP-0083`): cold boots of the built image played Devilotte's, SHADE's and Chiyomaru's stories in English (Chiyomaru by his real route, three left of Jin); registered as `data/regression/special018_saturn_only.json`. Every item the user wanted before a release is done, so `REL-002` (release patches) is `READY`.
 - **2026-11-07: SPECIAL-017 done** (`EXP-0082`, D-068): the Saturn-only pilots' English is built into the UI image (`build/sp017/a`, Track 01 `f6789cae…`) and every new box, quote, caption and ending box was seen drawing as predicted from saved states; the roster is unchanged in content; ZERO-AKUMA shows on the VS screen. `SPECIAL-018` (cold boots, asked first, and the new reference) is `READY`.
@@ -2805,7 +2806,8 @@ Known so far (facts and their confidence):
 
 ### REL-003 - Release zips, README and checks
 
-- **Status:** `READY`
+- **Status:** `DONE`
+- **Done:** 2026-11-07 (`EXP-0085`). `cyberbots_saturn_en_0.1.0_xdelta.zip` (245,322 bytes, `b0188f0e…`), built twice identically and again by the documented commands; `check_zips --kinds xdelta --expect f6789cae…` passes. `--kinds` added to `make_zips`/`check_zips` (xdelta only, the user's choice). Docs: `release/README.md`, `release/RELEASING.md`, `release/notes_v0.1.0.md`, the top-level README.
 - **Milestone:** Release (`REL-001`)
 - **Dependencies:** REL-002 (done).
 - **Blockers:** None.
@@ -2826,12 +2828,13 @@ Known so far (facts and their confidence):
 
 ### REL-004 - Publish
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** Release (`REL-001`)
-- **Dependencies:** REL-003.
-- **Blockers:** `REL-003`; the user's explicit approval (asked, answer
-  recorded verbatim with the date).
-- **Objective:** A GitHub Release with the zips as assets.
+- **Dependencies:** REL-003 (done).
+- **Blockers:** the user's explicit approval (asked, answer recorded
+  verbatim with the date).
+- **Objective:** A GitHub Release with the zip as its asset (xdelta only,
+  `REL-002`: one zip, `b0188f0e…`).
 - **Acceptance criteria:**
   - **Approval:** the user approves the version, the notes and the asset
     list, verbatim, in `docs/localization_policy.md`.
@@ -3761,4 +3764,4 @@ and `docs/lessons_from_xvsf.md`.
 | LOC-001 | after REF-007 | `DONE` (2026-11-06, Phase O: `LOC-001`-`LOC-006` and the gate extension). |
 | OPT-001 | after LOC-001, user decision 2026-11-02 | `DONE` (2026-11-06, Phase P: `OPT-001`-`OPT-006`). |
 | SPECIAL-001 | M9, user approval | Phase U (`SPECIAL-010`-`SPECIAL-018`), written up 2026-11-07 at the user's request; `DONE` (2026-11-07): `SPECIAL-010`-`SPECIAL-018`; lists 6-8 in English, `data/regression/special018_saturn_only.json`. Lists 6-8 (Devilotte, Chiyomaru, SHADE by the name art): 339 story boxes, 22 win quotes, 27 captions, three endings, with no arcade English (D-026, D-030, D-046). |
-| REL-001 | after M5 | Phase R (`REL-001`-`REL-004`): `REL-001` (tool port) `DONE` (2026-11-06); `REL-002` `DONE` (2026-11-07, xdelta only); `REL-003` `READY`, `REL-004` `BLOCKED`. |
+| REL-001 | after M5 | Phase R (`REL-001`-`REL-004`): `REL-001` (tool port) `DONE` (2026-11-06); `REL-002`, `REL-003` `DONE` (2026-11-07, xdelta only; zip `b0188f0e…`); `REL-004` `READY`. |

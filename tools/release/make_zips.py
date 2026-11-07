@@ -139,12 +139,19 @@ def make_zips(
     records: Path = RECORDS_DIR,
     patches: Path = PATCHES_DIR,
     date: str = DATE,
+    kinds: Sequence[str] = KINDS,
 ) -> list[Path]:
-    """Write one zip per kind under ``out``; returns their paths."""
+    """Write one zip per kind under ``out``; returns their paths.
+
+    ``kinds`` (Cyberbots ``REL-003``): the formats to zip; the release is
+    xdelta only (the user, ``REL-002``: "xdelta only (Recommended)").
+    """
+    if not kinds or any(k not in KINDS for k in kinds):
+        raise ValueError(f"kinds must be some of {KINDS}: {list(kinds)}")
     when = stamp(date)
     out.mkdir(parents=True, exist_ok=True)
     written = []
-    for kind in KINDS:
+    for kind in kinds:
         rows: list[str] = []
         files: list[Path] = []
         sources: set[str] = set()
@@ -194,6 +201,9 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument("--track01", default=TRACK01)
     parser.add_argument("--repo", default=URL)
     parser.add_argument("--prefix", default=PREFIX, help="zip file name prefix")
+    parser.add_argument(
+        "--kinds", nargs="+", default=list(KINDS), choices=KINDS, help="formats to zip"
+    )
     args = parser.parse_args(argv)
     build_root = (REPO_ROOT / "build").resolve()
     if build_root not in args.out.resolve().parents:
@@ -203,7 +213,13 @@ def main(argv: Sequence[str] | None = None) -> int:
     )
     variants = [Variant(*v) for v in args.variant]
     for name in make_zips(
-        release, variants, args.out, args.records, args.patches, args.date
+        release,
+        variants,
+        args.out,
+        args.records,
+        args.patches,
+        args.date,
+        args.kinds,
     ):
         print(name)
     return 0

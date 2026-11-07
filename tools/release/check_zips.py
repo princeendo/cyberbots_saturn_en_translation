@@ -45,14 +45,16 @@ def check_zips(
     work: Path,
     prefix: str = PREFIX,
     xdelta: str = "xdelta3",
+    kinds: Sequence[str] = KINDS,
 ) -> list[tuple[str, str]]:
     """(patch file name, patched track SHA-256) for every patch in the zips.
 
     ``work`` is replaced; the caller checks that it is safe to replace.
+    ``kinds``: the formats released (Cyberbots ``REL-003``: xdelta only).
     """
     if work.exists():
         shutil.rmtree(work)
-    for kind in KINDS:
+    for kind in kinds:
         with zipfile.ZipFile(zips / f"{prefix}_{version}_{kind}.zip") as bundle:
             bundle.extractall(work / "unz" / kind)
     out = work / "out.bin"
@@ -80,6 +82,9 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument(
         "--expect", help="SHA-256 every patched track must have; exit 1 otherwise"
     )
+    parser.add_argument(
+        "--kinds", nargs="+", default=list(KINDS), choices=KINDS, help="formats"
+    )
     args = parser.parse_args(argv)
     work = args.work.resolve()
     roots = [(REPO_ROOT / r).resolve() for r in WORK_ROOTS]
@@ -89,7 +94,13 @@ def main(argv: Sequence[str] | None = None) -> int:
         parser.error(f"{args.xdelta} not found; install xdelta3")
     print(sha256_file(args.source))
     results = check_zips(
-        args.zips, args.version, args.source, work, args.prefix, args.xdelta
+        args.zips,
+        args.version,
+        args.source,
+        work,
+        args.prefix,
+        args.xdelta,
+        args.kinds,
     )
     for name, digest in results:
         print(name, digest)

@@ -1,10 +1,9 @@
 # Cyberbots: Fullmetal Madness (Saturn): English Translation
 
-This repository will build an English patch for the Japanese Sega Saturn
+This repository builds an English patch for the Japanese Sega Saturn
 release of **Cyberbots: Fullmetal Madness** (Capcom, 1997, T-1217G). Wherever
-an official English text exists, the patch is meant to use it: the arcade
-release's English. Where none exists, it will use a new translation, marked as
-such. The full policy, as the user decided it, is in
+an official English text exists, the patch uses it: the arcade release's
+English. Where none exists, it uses a new translation, marked as such. The full policy, as the user decided it, is in
 [docs/localization_policy.md](docs/localization_policy.md).
 
 The repository holds the tools, the translation data, and the expected hashes.
@@ -19,70 +18,53 @@ See [docs/playbook_from_mshvsf.md](docs/playbook_from_mshvsf.md) and
 
 ## Download
 
-Nothing is released yet (`REL-001`). Work in progress is tracked in "Current
-State" in [TASKS.md](TASKS.md).
+Version 0.1.0, as a GitHub Release asset (an xdelta patch for track 01):
+what it changes, how to apply it and its known limits are in
+[release/README.md](release/README.md) and
+[release/notes_v0.1.0.md](release/notes_v0.1.0.md).
 
 ## What's Changed
 
-In the current development build (not released):
+In 0.1.0:
 
-- **Story dialogue** of the six arcade pilots (Jin, Santana, Mary, Arieta,
-  Gawaine, Bao and Mao) and their **versus win quotes**: the official US
-  arcade English (M5).
-- **Endings** of those six pilots: the official US arcade English, with
-  the cast roll's Japanese names hidden and the QSound notice's Japanese
-  line removed (M8).
-- **Boot warnings** (damaged save, unformatted memory, no room to save): a
-  new translation, approved by the user, in the arcade's letters
-  (`UI-004`).
+- **Story dialogue, versus win quotes and endings** of the six arcade pilots
+  (Jin, Santana, Mary, Arieta, Gawaine, Bao and Mao): the official US arcade
+  English (M5, M8), with the cast roll's Japanese names hidden and the
+  QSound notice's Japanese line removed.
+- **The Saturn-only pilots** (Devilotte, Chiyomaru, SHADE): stories, win
+  quotes, VS captions and endings in a new translation by Claude, approved
+  by the user pilot by pilot (`SPECIAL-001`).
+- **VS chapter captions** of every pilot and the **boot warnings**: new
+  English, approved by the user (`UI-006`, `UI-004`).
 - **Pilot and mech names** on the pilot-select, `SET UP` and VS screens:
-  Latin art in the arcade's letters, spelled as the US arcade (Devilotte
-  for the Saturn-only princess), with each mech's model code after its name
-  (`LOC-001`).
-- **Names switch:** OPTION MODE has a new row, `EXTRA OPTIONS`, with
-  `NAMES  ENGLISH / JAPANESE`. `JAPANESE` puts the original katakana name
-  art back on those screens; the choice is saved with the other options,
-  and `ENGLISH` is the default (`OPT-001`). OPTION MODE's title and rows
-  sit two lines higher to make room.
-- **VS chapter captions** (the banner before each arcade-mode fight) of
-  the six arcade pilots: a new translation, approved by the user, in the
-  story's letters (`UI-003`, `UI-006`). The US arcade showed none.
-- **City signs** in the ruined-city stage: `EXTRA OPTIONS` also has
-  `SIGNS  BLANK / ENGLISH / JAPANESE`. `BLANK` (the default) shows the
-  signs without writing, as the US arcade does; `ENGLISH` letters them
-  `SALE`, `BAZAAR` and `BARGAIN SALE`; `JAPANESE` keeps the original. The
-  choice is saved (`UI-002`, `UI-006`).
+  Latin art in the arcade's letters, including the unlockable mech
+  ZERO-AKUMA (`LOC-001`, `SPECIAL-017`).
+- **`EXTRA OPTIONS`** in OPTION MODE, saved with the other options:
+  `NAMES  ENGLISH / JAPANESE` (the original name art) and
+  `SIGNS  BLANK / ENGLISH / JAPANESE` (the ruined-city shop signs; `BLANK`,
+  the default, as the US arcade) (`OPT-001`, `UI-002`).
 
-**Still Japanese:**
-
-- The Saturn-only pilots' stories, win quotes and endings (lists 6-8; no
-  official English, `SPECIAL-001`).
-- The Saturn-only pilots' VS chapter captions (`SPECIAL-001`); 12 lines
-  of those pilots' Japanese each show one wrong English glyph until then
-  (the captions' font codes, the user's choice).
-- Six story-only name banners in the VS bank, in katakana or kanji, whose
-  screen is not known (`LOC-006`; listed in the coverage register).
-- Surfaces not yet surveyed: rare or region-gated text (`TXT-002`). The
-  attract, menus and other UI were surveyed in `UI-001`-`UI-003`. The
-  register is
-  [docs/coverage_exceptions.md](docs/coverage_exceptions.md).
+**Still Japanese:** six story-only name banners in the VS bank whose screen
+was never found (`LOC-006`), and text the game never shows (`TXT-010`). The
+register is [docs/coverage_exceptions.md](docs/coverage_exceptions.md).
 
 ## Patch Files
 
-Not yet (`REL-001`). Releases will be xdelta and Sega Saturn Patcher (`.ssp`)
-patches for track 01 of the image named in
-[references/saturn_jp/README.md](references/saturn_jp/README.md), published as
-GitHub Release assets only.
+One xdelta (VCDIFF) patch for track 01 of the image named in
+[references/saturn_jp/README.md](references/saturn_jp/README.md), published
+as a GitHub Release asset only. There is no `.ssp` patch: the English image
+adds files to track 01, which the open-source Saturn patcher cannot do
+(`REL-002`).
 
 ### Applying a Patch
 
-Not yet (`REL-001`). The tools, the steps and the patched-track hashes will be
-listed here with the first release.
+The steps, the tested tools and the patched-track hash are in
+[release/README.md](release/README.md), "Apply the Patch".
 
 ## Build the Patch
 
-There is no patch yet (`REL-001`). The current development image is built
-from the untouched source, with the game data under the ignored paths below.
+The release image is built from the untouched source, with the game data
+under the ignored paths below.
 
 ### Files You Need
 
@@ -113,19 +95,21 @@ Extract the files of track 01 (the track is only read):
 
 ### Build the Release Patches
 
-Not yet (`REL-001`). The current development image is built with:
+The release image (regression reference
+[data/regression/special018_saturn_only.json](data/regression/special018_saturn_only.json)):
 
 ```bash
-./invenv.sh python -m tools.text.dialogue --roster data/text/m5_roster.json --indent --rank staying --max-sacrifice 160 --task END-023 --font local/layout001/font/arcade_font.json --driver local/mame_src/cps2.cpp --rompath local/arcade --out build/ui006/b --endings data/text/m8_endings.json --ending-record-dir local/ui006/rec-b --boot-warnings data/translations/boot_warnings.json --name-art data/translations/name_art.json --names-switch data/translations/names_switch.json --signs-switch data/translations/signs_switch.json --vs-captions data/translations/vs_captions.json --caption-touch 13
+./invenv.sh python -m tools.text.dialogue --roster data/text/m5_roster.json --indent --rank staying --max-sacrifice 330 --task SPECIAL-017 --font local/layout001/font/arcade_font.json --driver local/mame_src/cps2.cpp --rompath local/arcade --out build/sp017/a --endings data/text/m8_endings.json --ending-record-dir local/sp017/rec-a --boot-warnings data/translations/boot_warnings.json --name-art data/translations/name_art.json --names-switch data/translations/names_switch.json --signs-switch data/translations/signs_switch.json --vs-captions data/translations/vs_captions.json --caption-touch 13 --special data/translations/special_list6.json --special data/translations/special_list7.json --special data/translations/special_list8.json --special-mech data/translations/special_mech.json
 ```
 
-Its expected hashes are in
-[data/regression/ui007_ui_text.json](data/regression/ui007_ui_text.json).
+The patch, its zip and the checks: [release/README.md](release/README.md),
+"Rebuild the Patch", and [release/RELEASING.md](release/RELEASING.md).
 
 ### Build Options
 
-Not yet (`REL-001`). The options and the release images that use them will be
-listed here.
+Each option adds one approved part to the image; the earlier regression
+references in `data/regression/` show which options each build used
+(`data/regression/README.md`).
 
 ## Development
 

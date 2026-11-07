@@ -153,3 +153,38 @@ def test_check_zips_refuses_a_work_folder_outside_build_or_local(
     with pytest.raises(SystemExit):
         check_zips.main(["0", str(tmp_path), str(tmp_path / "work")])
     assert "work folder must be under" in capsys.readouterr().err
+
+
+@pytest.mark.skipif(shutil.which("xdelta3") is None, reason="needs xdelta3")
+def test_xdelta_only_release(tmp_path: Path) -> None:
+    # Cyberbots REL-003: the user chose "xdelta only (Recommended)".
+    source, records, patches = release_tree(tmp_path)
+    (records / "v.ssp.json").unlink()  # no SSP record needed
+    zips = tmp_path / "zips"
+    written = make_zips.make_zips(
+        Release("0.0.1"),
+        [Variant("v", "b", "x")],
+        zips,
+        records,
+        patches,
+        kinds=("xdelta",),
+    )
+    assert [p.name for p in written] == ["cyberbots_saturn_en_0.0.1_xdelta.zip"]
+    target = json.loads((records / "v.json").read_text())["patches"][0]
+    results = check_zips.check_zips(
+        zips, "0.0.1", source, tmp_path / "work", kinds=("xdelta",)
+    )
+    assert results == [("v.Track01.xdelta", target["target_sha256"])]
+
+
+def test_unknown_kind_is_refused(tmp_path: Path) -> None:
+    _, records, patches = release_tree(tmp_path, xdelta=False)
+    with pytest.raises(ValueError, match="kinds"):
+        make_zips.make_zips(
+            Release("0.0.1"),
+            [Variant("v", "b", "x")],
+            tmp_path / "z",
+            records,
+            patches,
+            kinds=("ips",),
+        )

@@ -3354,3 +3354,14 @@ Notes:
 - **`attract.py`'s recording is 10560x480 per frame** (Mednafen's
   `-qtrecord`); scale frames to 352x240 to read them.
 Checks: `ruff check .` passed; `pytest -q` 267 passed.
+
+## 2026-11-07 — REL-003: the release zip, its check and the docs (EXP-0085)
+
+User request (verbatim): "Start REL-003". `--kinds` added to `make_zips`
+and `check_zips` (default unchanged; 2 new tests). The 0.1.0 zip
+(`b0188f0e…`, 245,322 bytes) built twice identically; `check_zips --expect
+f6789cae…` passes; the documented route from a clean rebuild gives the same
+zip and an unchanged patch record. Docs: `release/README.md`,
+`release/RELEASING.md`, `release/notes_v0.1.0.md`, the top-level README.
+`REL-004` (publish) is `READY` and waits on the user's approval.
+Checks: `ruff check .` passed; `ruff format --check .` 349 files formatted; `mypy` no issues in 91 files; `pytest -q` 269 passed.
