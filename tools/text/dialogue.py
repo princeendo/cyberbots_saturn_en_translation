@@ -369,6 +369,7 @@ def build(args: argparse.Namespace) -> int:
     program = build_program([p for p in archives if p.exists()], romset)
     font = pairs.load_arcade_font(args.font)
     stg, kan = checked("STG0AS.BIN"), checked("KANJI.BIN")
+    stg_source = bytes(stg)  # the Japanese lines, before any row is written
 
     def u16(a: int) -> int:
         return int.from_bytes(stg[a - BASE : a - BASE + 2], "big")
@@ -562,6 +563,80 @@ def build(args: argparse.Namespace) -> int:
                 vic_room[-1][1] = span[1]
             else:
                 vic_room.append(span)
+    caption_approved = (
+        json.loads(args.vs_captions.read_text()) if args.vs_captions else None
+    )
+    all_captions = {u16(CAPTIONS + 2 * k) for k in range(PILOTS * 10)} - {0}
+    caption_costs: list[dict[str, object]] = []
+
+    def caption_inputs(
+        used: set[int],
+    ) -> tuple[list[int], list[list[int]], list[int], list[int]]:
+        """(codes no shown Japanese line uses, in sacrifice order; the captions'
+        own line spans; their lines; then codes shown lines use, cheapest
+        first)."""
+        assert caption_approved is not None
+        mine = {int(c["box"]) for c in caption_approved["captions"]}
+        own = sorted({n for b in mine for n in box_lines.get(b, [])})
+        shown = {n for b in active | all_captions for n in box_lines.get(b, [])}
+        staying: Counter[int] = Counter()
+        for n in shown - replaced - set(own):
+            off, length = lines[n]
+            staying.update(codes_in(stg_source[off : off + length]))
+        free_codes = [
+            c
+            for c in table
+            if c not in unused
+            and c not in kept_codes
+            and c != SPACE_CODE
+            and c not in used
+            and not staying[c]
+        ]
+        ranked = rank_codes(free_codes, table, line_counts, staying)
+        costly = rank_codes(
+            [
+                c
+                for c in table
+                if c not in unused
+                and c not in kept_codes
+                and c != SPACE_CODE
+                and c not in used
+                and staying[c]
+            ],
+            table,
+            line_counts,
+            staying,
+        )
+        shown_staying = sorted(shown - replaced - set(own))
+        caption_costs.clear()
+        for c in costly[:40]:
+            caption_costs.append(
+                {
+                    "code": f"0x{c:04X}",
+                    "shown_lines": [
+                        n
+                        for n in shown_staying
+                        if c
+                        in codes_in(stg_source[lines[n][0] : lines[n][0] + lines[n][1]])
+                    ],
+                }
+            )
+        users_of: dict[int, set[int]] = {}
+        for b, ns in box_lines.items():
+            for n in ns:
+                users_of.setdefault(n, set()).add(b)
+        spans: list[list[int]] = []
+        for n in own:
+            if users_of.get(n, set()) - mine - {494, 495}:
+                continue  # another box shows it: it keeps its bytes
+            off, length = lines[n]
+            span = [off, off + ((length + 1 + 3) & ~3)]
+            if spans and spans[-1][1] == span[0]:
+                spans[-1][1] = span[1]
+            else:
+                spans.append(span)
+        return ranked, spans, own, costly
+
     budget = {
         "pilots": [str(p) for p in args.pairing],
         "quote_boxes": len(quotes),
@@ -585,6 +660,21 @@ def build(args: argparse.Namespace) -> int:
         "kept_lines": kept,
         "dead_lines": dead,
     }
+    if caption_approved is not None:
+        from tools.text import vs_captions
+
+        story_pairs = dict.fromkeys(wanted, 0)
+        cap_rows = vs_captions.caption_rows(caption_approved, story_pairs)
+        # the story's sacrifices and the next code (the endings', END-023)
+        cap_free, cap_spans, _, _ = caption_inputs(set(rare[: needed + 1]))
+        budget["captions"] = {
+            "boxes": len(cap_rows),
+            "new_pairs": len(vs_captions.new_pairs(cap_rows, story_pairs)),
+            "codes_no_shown_line_keeps": len(cap_free),
+            "touch_approved": args.caption_touch,
+            "own_room_bytes": sum(e - s for s, e in cap_spans),
+            "next_codes_shown_lines": caption_costs,
+        }
     if args.budget:
         print(json.dumps(budget))
         return 0
@@ -851,6 +941,85 @@ def build(args: argparse.Namespace) -> int:
             (out / name).write_bytes(data)
         for name in ("END.BIN", "SE.DAT", *sorted(built.images)):
             extra += ["--file", f"{name};1", "--data", str(out / name)]
+    if caption_approved is not None:
+        from tools.text import vs_captions
+
+        used = set(codes.values()) | set(sacrificed) | set(new)
+        if args.ending or args.endings:
+            used |= set(getattr(built, "kanji_glyphs", {}) or {})
+        cap_free, cap_spans, cap_lines, cap_costly = caption_inputs(used)
+        cap_rows = vs_captions.caption_rows(caption_approved, codes)
+        needed_caps = len(vs_captions.new_pairs(cap_rows, codes))
+        touch = max(0, needed_caps - len(cap_free))
+        if touch > args.caption_touch:
+            raise BudgetExceeded(
+                f"captions: {needed_caps} codes needed, {len(cap_free)} free,"
+                f" {touch} would touch shown lines, {args.caption_touch} approved"
+            )
+        cap_free = cap_free + cap_costly[:touch]
+        cap_room = vs_captions.leftover(group_rows["STG0AS.BIN"], room) + cap_spans
+        kan_cells = kanji.decode(bytes(kan))
+        compiled = vs_captions.compile_captions(
+            caption_approved,
+            stg,
+            kan_cells,
+            table,
+            codes,
+            font,
+            cap_free,
+            cap_room,
+            SPACE_CODE,
+        )
+        kan[:] = kanji.encode(kan_cells)
+        (out / "KANJI.BIN").write_bytes(kan)
+        (out / "STG0AS.BIN").write_bytes(stg)
+        cap_changes = list(compiled.changes)
+        for code in compiled.new_pairs.values():
+            for tile in kanji.tiles(table.index(code)):
+                cap_changes.append(
+                    {
+                        "file": "KANJI.BIN",
+                        "start": tile * kanji.TILE_BYTES,
+                        "end": (tile + 1) * kanji.TILE_BYTES,
+                        "what": f"glyph {table.index(code)} tile (caption pair)",
+                    }
+                )
+        (out / "caption_changes.json").write_text(
+            json.dumps(
+                {
+                    "approved_sha256": hashlib.sha256(
+                        args.vs_captions.read_bytes()
+                    ).hexdigest(),
+                    "boxes": len(compiled.rows),
+                    "new_pairs": len(compiled.new_pairs),
+                    "sacrificed": [
+                        {
+                            "code": f"0x{c:04X}",
+                            "glyph": table.index(c),
+                            "lines": line_counts[c],
+                        }
+                        for c in compiled.new_pairs.values()
+                    ],
+                    "replaced_lines": cap_lines,
+                    "touched_codes": caption_costs[:touch],
+                    "rows": {
+                        str(b): f"0x{BASE + o:08X}" for b, o in compiled.placed.items()
+                    },
+                    "ranges": cap_changes,
+                    "prediction": compiled.prediction,
+                },
+                indent=1,
+            )
+            + "\n"
+        )
+        print(
+            json.dumps(
+                {
+                    "captions": len(compiled.rows),
+                    "caption_new_pairs": len(compiled.new_pairs),
+                }
+            )
+        )
     if args.boot_warnings:
         from tools.text import boot_warnings
 
@@ -1040,6 +1209,19 @@ def main(argv: Sequence[str] | None = None) -> int:
         type=Path,
         help="the EXTRA OPTIONS names switch (OPT-005; needs --name-art; "
         "data/translations/names_switch.json)",
+    )
+    parser.add_argument(
+        "--vs-captions",
+        type=Path,
+        help="approved English VS captions"
+        " (UI-006; data/translations/vs_captions.json)",
+    )
+    parser.add_argument(
+        "--caption-touch",
+        type=int,
+        default=0,
+        help="codes the captions may take from shown Japanese lines"
+        " (UI-006: 13, the user's approval)",
     )
     parser.add_argument("--font", type=Path, required=True)
     parser.add_argument("--driver", type=Path, required=True)

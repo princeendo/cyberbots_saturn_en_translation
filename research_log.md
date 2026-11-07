@@ -2996,3 +2996,23 @@ Notes (do not retry):
 Checks: `ruff check .`, `ruff format --check .` (311 files), `mypy` (86
 files), `pytest -q` (252 passed) all clean; `samples.py` rerun: all nine
 shots identical.
+
+## 2026-11-06 — UI-006 part 1: the English VS captions built (EXP-0072)
+
+User request (verbatim): "Start UI-006". No cold boot.
+
+- Budget: the story uses all 310 free codes, 25 new and 152 sacrificed; the
+  captions need 37 new pairs centred, 23 with half-cell shifts; only 10
+  codes are free of shown Japanese lines. The table cannot grow (the lookup
+  `0x0606E9E8` is hard-coded to 39 rows; data follows the table). Asked;
+  the user: "Take the 13 codes (Recommended)": 12 lines of pilots 6-8 show
+  one wrong glyph each until `SPECIAL-001`.
+- `--vs-captions` / `--caption-touch 13` build: only caption ranges change;
+  54 of 54 captions draw their predicted cells from state 6448.
+
+Notes (do not retry):
+- **Count staying Japanese from the untouched `STG0AS.BIN`**: the story
+  rows overwrite dead ending lines, but `END.BIN`'s copies still show them
+  (lists 6-8 with `KANJI.BIN`).
+- **A caption check from a saved state needs the built code table in RAM**
+  (`0x060AAD7C`), or pairs on the story's new codes draw blank.

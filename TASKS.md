@@ -3287,7 +3287,7 @@ Known so far (facts and their confidence):
 
 ### UI-006 - Build the UI changes
 
-- **Status:** `READY`
+- **Status:** `IN_PROGRESS` (captions built and checked 2026-11-06, `EXP-0072`; the SIGNS setting next)
 - **Milestone:** UI text and art (`UI-001`)
 - **Dependencies:** UI-005 and its gate extension (done).
 - **Blockers:** None.
