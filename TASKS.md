@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-07: TXT-013 closed unused; Phase T done.** No rare text needs a change (D-063, D-064), so no build; the latest image is still `ui007_ui_text.json`. Of the work the user wanted before release (`UI-001`-`UI-003`, `TXT-002`, `SPECIAL-001`), only `SPECIAL-001` remains: it is outline only and needs the user's approval to be written up. `REL-002`-`REL-004` stay `BLOCKED` on it.
 - **2026-11-07: TXT-012 closed with evidence**: no rare path shows Japanese on the Saturn (D-063, D-064), so no question and no gate extension (`docs/localization_policy.md`, "Rare Text, Closed With Evidence"). `TXT-013` is `READY`; by its criteria it closes unused.
 - **2026-11-07: TXT-011 done** (`EXP-0075`, D-064): the arcade's one rare path forced in MAME. ROM flags `0x55B`/`0x561` (location test, show version; off in retail) replace the ending with a thank-you screen: Japanese per ending in `cybotsj`, one English "coming soon" message in `cybotsu`. The Saturn has none of those lines; its list 10 is a dead leftover, and every Saturn box without a path is dead. D-063 corrected. `TXT-012` is `READY` (expected to close with this evidence).
 - **2026-11-07: TXT-002 written up (Phase T) and TXT-010 done** (`EXP-0074`, D-063): every box classified by how the game reaches it. The Saturn's scripts never branch; only 12 boxes have no path (none shown). In the arcade each region reads only its own table, the story posting has no region or random condition, and a third reader is a test-mode viewer. One lead: the US arcade's slot 609, a "coming soon" style message behind list 7 scene 6. `TXT-011` (force it) is `READY`.
@@ -3480,7 +3481,8 @@ readers. Text that only the Saturn-only pilots (lists 6-8) show belongs to
 
 ### TXT-013 - Build and verify rare-text changes
 
-- **Status:** `READY`
+- **Status:** `DONE`
+- **Done:** 2026-11-07, closed unused, as its criteria say when `TXT-012` changes nothing: no build, no new reference; the UI build (`ui007_ui_text.json`) stays the latest image. The user's words: "Close TXT-013". Phase T is complete.
 - **Milestone:** Rare text (`TXT-002`)
 - **Dependencies:** TXT-012 (done; changes nothing).
 - **Blockers:** None.
@@ -3503,10 +3505,10 @@ and `docs/lessons_from_xvsf.md`.
 | END-010 | M7 | `DONE` (2026-11-05, Phase L); follow-up `END-011` (`BACKLOG`). |
 | END-020 | M8 | `DONE` (2026-11-05, Phase M: `END-020`-`END-023`, with `END-011`); M8 confirmed. |
 | UI-004 | after M5, early | `DONE` (2026-11-06, Phase N: `BOOT-001`-`BOOT-005` and the gate extension). |
-| UI-001 | after M8, user request | Phase S (`UI-001`-`UI-003`, `UI-005`-`UI-007`), written up 2026-11-06; `UI-001` `READY`. |
-| UI-002 | after M8, user request | Phase S (`UI-001`-`UI-003`, `UI-005`-`UI-007`), written up 2026-11-06; `BLOCKED` on `UI-001`. |
-| UI-003 | after M8, user request | Phase S (`UI-001`-`UI-003`, `UI-005`-`UI-007`), written up 2026-11-06; `BLOCKED` on `UI-001`. |
-| TXT-002 | after M8, user request | Phase T (`TXT-010`-`TXT-013`), written up 2026-11-07; `TXT-010`-`TXT-012` `DONE`; `TXT-013` `READY` (closes unused). |
+| UI-001 | after M8, user request | `DONE` (2026-11-07, Phase S: `UI-001`-`UI-003`, `UI-005`-`UI-007`). |
+| UI-002 | after M8, user request | `DONE` (2026-11-07, Phase S: `UI-001`-`UI-003`, `UI-005`-`UI-007`). |
+| UI-003 | after M8, user request | `DONE` (2026-11-07, Phase S: `UI-001`-`UI-003`, `UI-005`-`UI-007`). |
+| TXT-002 | after M8, user request | Phase T (`TXT-010`-`TXT-013`), written up 2026-11-07; `DONE` (2026-11-07): `TXT-010`, `TXT-011` (EXP-0074, EXP-0075; D-063, D-064), `TXT-012` closed with evidence, `TXT-013` closed unused. |
 | LOC-001 | after REF-007 | `DONE` (2026-11-06, Phase O: `LOC-001`-`LOC-006` and the gate extension). |
 | OPT-001 | after LOC-001, user decision 2026-11-02 | `DONE` (2026-11-06, Phase P: `OPT-001`-`OPT-006`). |
 | SPECIAL-001 | M9, user approval | Boss and hidden pilots, alternate routes, unlocks. Secondary sources (`docs/references.md`) say the console ports add four pilots (Chiyomaru Kagura, Tessan Hagure, Princess Devilotte, SHADE) with no arcade English, and an Akuma-mech code; their lines need recorded new translations under the user's policy. Size: Saturn lines 899-1850 (952 lines, about half the script) have no arcade counterpart (D-011). Among the arcade pilots' stories only line 258 is Saturn-only (line 34 is dead data); the earlier count of 74 came from REF-006's reader bug (`EXP-0023`). |

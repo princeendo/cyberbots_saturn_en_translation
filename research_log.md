@@ -3143,3 +3143,13 @@ task's criteria close without a question. Recorded in
 `docs/localization_policy.md` ("Rare Text, Closed With Evidence") and
 `TASKS.md`; `TXT-013` is `READY` and, by its criteria, closes unused.
 Checks: `ruff check .` passed; `ruff format --check .` 325 files formatted; `mypy` no issues in 90 files; `pytest -q` 262 passed.
+
+## 2026-11-07 — TXT-013 closed unused; Phase T done
+
+User request (verbatim): "Close TXT-013". `TXT-012` changed nothing, the
+case in which `TXT-013`'s criteria close it unused: no build, no new
+reference. Phase T is complete. Also corrected the outline rows for
+`UI-001`-`UI-003` (still said `READY`/`BLOCKED`; Phase S was done).
+Next: `SPECIAL-001` (outline only; the user's approval is needed to write
+it up), then `REL-002`.
+Checks: `ruff check .` passed; `pytest -q` 262 passed (docs-only change).
