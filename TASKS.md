@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-06: Phase S written up (UI text and art)**: `UI-001` (census of the remaining Japanese UI with both arcades, and the English art already in the fonts) is `READY`; `UI-002` (attract), `UI-003` (other UI, VS captions), `UI-005` (the user's plan; a gate extension), `UI-006` (build) and `UI-007` (verify) follow. Drafted, then every fact checked against its source by an independent reviewer.
 - **2026-11-06: Release decisions** (`REL-002`, asked on "Start REL-002"): the user wants `UI-001`, `UI-002`, `UI-003`, `TXT-002` and `SPECIAL-001` done before any release ("Do them first"), so `REL-002` stays `BLOCKED`; xdelta first with SSP researched; a read-only RetroAchievements lookup; the hardware test deferred. Next: write up the UI tasks (outline items, "after M8, user request").
 - **2026-11-06: Names switch play-checked; Phase P done** (`OPT-006`, `EXP-0066`): two cold boots with real presses set `JAPANESE` (katakana on pilot select, `SET UP`, VS), kept it across a power cycle, and set `ENGLISH` (Latin again); new reference `opt006_names_switch.json`; all earlier references match. `REL-002` now waits only on the release-timing rule (every open task done or deferred by the user) and the user; the UI tasks start on request.
 - **2026-11-06: Names switch built** (`OPT-005`, `EXP-0065`, D-058): `--names-switch` adds the `EXTRA OPTIONS` sub-menu (layout: title and rows up two lines, the user's choice) and the katakana tail files; from saved states the menu works and each setting shows its art on the pilot select and VS screens. `OPT-006` (cold-boot play check, with presses) is `READY`.
@@ -2813,6 +2814,518 @@ Known so far (facts and their confidence):
     (rule 21 exception: Release assets only).
 - **Notes:** Nothing is published without the user's go-ahead.
 
+## Phase S: UI Text And Art (`UI-001`)
+
+The user asked for these tasks (verbatim, 2026-11-06): "Write up UI tasks".
+The user's decision behind them (2026-11-06, `REL-002`, verbatim in
+`docs/localization_policy.md`, "Release Decisions"): "Do them first". No
+release goes out until `UI-001`, `UI-002`, `UI-003`, `TXT-002` and
+`SPECIAL-001` are done. The three outline rows become the tasks below.
+`UI-004` is done (Phase N). The order is:
+
+1. `UI-001`: a census of every remaining Japanese UI surface, with what both
+   arcade sets show at the same points, then the English art already in
+   every font. Nothing is changed before it is done.
+2. `UI-002` (attract and opening text: layer, container, codecs, oracle)
+   and `UI-003` (other UI text: storage, and the arcade English found by
+   tracing the arcade code). They are independent but run one at a time,
+   because only one experiment is `IN_PROGRESS` at a time. Either task closes
+   with evidence if `UI-001` finds no Japanese in its scope.
+3. `UI-005`: the user's plan for each surface. It is a gate extension for any
+   text without official English and for any art change, and it settles the
+   open "Caption, UI-art and attract style" decision. That row of
+   `docs/localization_policy.md` ("Deferred To Evidence") now names
+   `UI-001` and `UI-002` as its deciding tasks, so it is updated to `UI-005`
+   when this phase is added.
+4. `UI-006`: the build, from the untouched source, on top of the names-switch
+   image.
+5. `UI-007`: verify and register. This closes `UI-001`-`UI-003` and removes
+   them from `REL-002`'s blockers.
+
+`TXT-002` and `SPECIAL-001` stay outside this phase. The siblings are a
+method only (rule 13): MSHvSF `UI-001`-`UI-007`, and XvSF Phase Q
+(`CAP-001`/`002`, `HINT-001`/`002`, `NOCH-001`) and its `UI-005` survey.
+
+Known so far (facts and their confidence):
+- **Already English** (D-012, `EXP-0001`, `EXP-0011`, `docs/text_surfaces.md`
+  "Seen"; CONFIRMED for the screens seen):
+  - BIOS, SEGA licence, Capcom logo and `NOW LOADING`;
+  - the intro's mech schematics, with English part labels (the arcade
+    attract has the same screens);
+  - the title with `PRESS START BUTTON`, the copyright line (`EXP-0001`) and
+    the title menu;
+  - `PILOT SELECT`, `MACHINE SELECT` and `BODY TYPE`;
+  - the HUD, fight banners and round end;
+  - the bonus tally, `CONTINUE?` with its countdown, game over, initials
+    and the versus `RESULT` tally (`EXP-0031`);
+  - the `OPTION MODE` rows (eight with a RAM cart, including `3M RAM MODE`;
+    D-055);
+  - the `RANKING` title. Whether its names are English was not checked
+    (`docs/names.md`).
+
+  This project's builds also put into English:
+  - the roster endings' dialogue (D-042, D-047), with the cast roll's
+    Japanese names hidden (D-040). The credits and the thank-you screen were
+    already English (D-035);
+  - the QSound notice, with its Japanese line erased (D-041);
+  - the boot warnings (D-048 to D-050);
+  - the name art and `EXTRA OPTIONS` (D-053, D-054, D-058; `EXTRA OPTIONS`
+    was seen on the `EXP-0066` cold boots).
+- **Japanese, not yet handled:**
+  - **VS chapter caption.** A Japanese box shows on the VS screen before
+    each fight (D-012, CONFIRMED; lines 899 and 900 seen).
+    - The reader is `STG0AS.BIN` `0x0606CAE8`. It shows box
+      `0x0609CC22`[pilot × 10 + stage], from player block `+0x2D2` and
+      `+0x2E3`.
+    - Boxes 494-549 (lines 899-952) are for pilots 0-5. Boxes 1045-1071 are
+      for pilots 6-8.
+    - This mapping is SUPPORTED, by code plus lines 899 and 900 seen
+      (`EXP-0032`). It is not CONFIRMED.
+
+    The Japanese arcade shows the same caption. The US arcade shows none
+    (`EXP-0012`), although the US set has English records in slots 494-549
+    (D-029: all 130 slots 494-623).
+    - The arcade's reader `0x62D4C` uses the same table (`0x62D9A`). It
+      draws from the Japanese table only (`0x116F2`). This is SUPPORTED, by
+      code (`EXP-0032`).
+    - The arcade table has 624 slots (D-009, D-029), so boxes 1045-1071 have
+      no arcade slot.
+    - Versus mode's VS screen shows no chapter caption (`EXP-0057`).
+    - The caption is excluded from M5 (`docs/coverage_exceptions.md`).
+    - Only captions 899 and 900 have been seen (`docs/known_unknowns.md`).
+  - **Stage signage:** Japanese painted into the stage backgrounds. The
+    arcade has the same art (`docs/text_surfaces.md`).
+  - **Story-only name banners:** bank-63 frames `0x74`-`0x79` and `0x70`,
+    never seen on screen. Their owners are `TXT-002` and `SPECIAL-001`, not
+    this phase (`docs/coverage_exceptions.md`, `EXP-0057`).
+  - **`CYB_ABS.TXT`:** the ISO 9660 abstract file, 11 Japanese lines (a
+    product description), "presumably never shown in game". This is a
+    HYPOTHESIS from the static first look (`SESSION-0001`,
+    `research_log.md`).
+- **Never seen:**
+  - **Options sub-screens.**
+    - The `KEY CONFIG` screen (menu state 3, `0x06063FD0`, `EXP-0062`) has
+      not been captured.
+    - It is unknown what `SOUND TEST` and `DATA RESET` show when used.
+      `SOUND TEST`'s value is a `%02d` number. `DATA RESET` (A+B+C) calls
+      `0x060372A4`. Whether either one opens a screen is UNKNOWN.
+  - **The attract loop past two minutes.**
+    - The no-input cold-boot captures took one frame a second for 120 s
+      (119 frames): three boots in `EXP-0001` and four cart settings in
+      `EXP-0002`. They showed no Japanese except the stage signage.
+    - `REF-005`'s rule, sampling "at least every frame of the shortest
+      event", was never applied to a whole cycle.
+    - A 12,000-frame no-input run from attract state 25772 (`EXP-0031`)
+      showed the intro, ranking, Capcom logo, title and two demo fights
+      (stages 00 and 01). It was not an inventory of text.
+    - In XvSF, a 16-frame attract flash was missed by a 20-frame sample
+      (lesson 6; HYPOTHESIS here).
+  - **Versus mode text.**
+    - `CYBER.BIN` holds the strings `SET UP`, `HANDICAP` and `ROUNDS` beside
+      Latin pilot and mech lists (`docs/known_unknowns.md`, `EXP-0056`).
+    - The `EXP-0057` and `EXP-0061` cold boots looked at versus mode's
+      select, `SET UP` and VS screens for name art. `EXP-0057` also noted
+      Latin labels and no chapter caption there.
+    - No screen was read in full for other text.
+    - `REF-005` has no versus-mode state. The `EXP-0032` states
+      (`local/win002/*/post.mcs`) are at the `VICTORY!` screen.
+- **Options screen** (D-055, `EXP-0062`, CONFIRMED on the untouched image):
+  - `OPDEMO.BIN` is the overlay at `0x06060000` during the title, attract
+    and options. The evidence is the `EXP-0037` load log ("Ranking and the
+    attract loop") and the 2026-11-06 `OPT-002` log notes: the overlay is
+    resident up to the select.
+  - Labels and values are C strings at file `0x59E8`-`0x5B58`. Labels are
+    printed by `0x0602A82A` at x 6, rows 8-20. Text row r is at screenshot
+    y = 8r + 12.
+  - In the current image the rows are two text rows higher, and
+    `EXTRA OPTIONS` is at row 22 (D-058).
+  - The print routine drew `A`-`Z`, `0`-`9`, `&`, `-` and `a`-`s`. Those
+    were the test strings written over a label. `t`-`z` were not tested.
+  - Which font it draws from is UNKNOWN.
+  - A read-only byte scan of the extracted `OPDEMO.BIN`, made during this
+    write-up and not recorded elsewhere, found ASCII strings from about
+    `0x5934` to `0x5C89`:
+    - before the recorded range: file names (`OPS0_0.BIN`, `OPS0_1.BIN`,
+      `CAPCOM.PIX`, `OPS10.PIX`, `OPS00.PIX`, `RANKBG.PIX`) and the title
+      menu labels;
+    - inside it: `KEY CONFIG.`, `PLAYER 1`/`2`, `ATTACK1`, `ATTACK2`,
+      `BOOST`, `WEAPON`, `PRESS A+B+C` and `PRESS A or C`;
+    - after it: `RANKING`, `%c%c%c`, `win`/`wins`, 17 mech names and a
+      `Max Hit Combo :` label.
+
+    No Japanese is among them. Which screen draws each string is a
+    HYPOTHESIS.
+- **Fonts and art stores:**
+  - CONFIRMED where cited:
+    - `KANJI.BIN`, the story font (D-019, D-023), and its copy in `SE.DAT`
+      (D-035);
+    - `FIX.BIN`, ASCII-indexed small characters (D-035). Its comma and
+      apostrophe render as dots: an observation from an offline render in
+      `EXP-0053`, not a D-entry;
+    - name banks 56 (`SELECT.VAD`) and 63 (`PL3F_0.BIN`, type-2). Every
+      frame was drawn, and neither holds a Latin pilot or mech name (D-052).
+      Their Latin art is bank 56's labels `PILOT SELECT`, `MACHINE SELECT`,
+      `BODY TYPE`, `1P` and `2P`, and bank 63's "G.O.D." banner (frame
+      `0x0B`, where shown UNKNOWN) (`EXP-0057`);
+    - `KEND_1.BIN`'s Latin cast-roll names (bank 16, odd frames, colour
+      `0x41E0`; D-040);
+    - the `WARNINGn.PIX` and `QSD.PIX` pictures (D-049, D-035).
+  - Other Latin text not seen drawn: `CYBER.BIN`'s lists of 8 pilots and 17
+    mechs (`EXP-0056`, `EXP-0057`), and the `OPDEMO.BIN` strings above.
+  - `KEND_1.BIN`'s pixel format is listed as not decoded
+    (`docs/known_unknowns.md`, `docs/text_surfaces.md`). Its decoder is the
+    type-2 routine `0x0601446C` (D-035, D-053), so `pattern_t2.py` may read
+    it (HYPOTHESIS).
+  - Not looked at, contents and formats UNKNOWN:
+    - the eleven `ST00_FNT.BIN`-`ST0A_FNT.BIN` files (`ST09_FNT.BIN` loads
+      for the cast roll, D-034; `ST0A_FNT.BIN` at the pilot select,
+      `EXP-0063`);
+    - `RANKBG.PIX`, `CAPCOM.PIX`, `OPS00.PIX`, `OPS10.PIX`, `OPS0_0.BIN`,
+      `OPS0_1.BIN` (all loaded for the ranking and attract loop, `EXP-0037`)
+      and `SCR*.PIX` (14 files);
+    - `SEL00.BIN`, `LOGO.CPK`, `CONTI_0.BIN` (loaded at continue,
+      `EXP-0031`) and `OPDEMO_0.BIN`.
+  - The `SESSION-0001` static Shift-JIS scan (all 264 extracted files; runs
+    of 4+ characters with at least 3 kana) found Japanese sentences only in
+    `END.BIN`, `VICTORY.BIN`, `STG0AS.BIN` and `CYB_ABS.TXT` (HYPOTHESIS:
+    static, not tested at run time). Other Japanese is therefore graphics,
+    another encoding, or short strings below the scan's thresholds.
+- **Attract and opening containers:**
+  - `STDEMO.CMN`, `STDEMO.MAP` and `STDEMn.PIR` load in the endings (D-034,
+    `EXP-0037`; `EXP-0046` in `docs/text_surfaces.md`). Their format is not
+    decoded.
+  - The load script at `0x0604C320` names `VICTORY.BIN`, `VRAM00.DAT` and
+    `VADEMC`-`VADEME.MAC`. This is a static observation (`EXP-0031` in
+    `research_log.md`; D-029 gives only the address). Nothing refers to the
+    sequence's address directly.
+  - The formats and layers of `VADEM*.MAC` (18 files) and `OPDEMO_0.BIN` are
+    UNKNOWN.
+  - That any of these files holds attract text is only the outline's guess.
+    The files known to load in the ranking and attract loop are
+    `OPDEMO.BIN`, `OPS0_*`, `RANKBG.PIX`, `CAPCOM.PIX` and `OPS*0.PIX`
+    (`EXP-0037`).
+- **Arcade oracle:**
+  - Five sets and `qsound.zip` are verified in MAME 0.289
+    (`references/arcade/README.md`). That the decrypted bootlegs `cybotsud`
+    and `cybotsjd` have the same code as the originals is a HYPOTHESIS.
+    Their dialogue tables are identical (D-009).
+  - 150 s of `cybotsu` attract showed logos, warnings, mech schematics,
+    demo fights and rankings, and never read the dialogue tables
+    (`EXP-0009` run 1).
+  - The program image holds a few ASCII strings: `VS DEMO STAGE`, `WON LOST
+    CONTINUE ENDING`, RAM-test messages and the region list
+    (`references/arcade/README.md`), plus service-menu strings
+    (`EXP-0053`).
+  - The arcade has no save message (`EXP-0053`, string search).
+  - Where the arcade keeps its select, continue, ranking or option text is
+    UNKNOWN (not traced yet).
+- **Tools:**
+  - `EXP-0062`: `session.py` (a paused session from a state; `--cue` for a
+    built image, the untouched image by default), `watch.py`.
+  - `EXP-0063`: `probe.py loads`, which logs the named loader `0x060385A0`
+    and the open-by-name `0x06038E40` with name, destination, maximum and
+    PR.
+  - `EXP-0031`: `loads.py`, which logs every CD Play Disc command, so it
+    also catches reads that bypass the named loader, such as `KANJI.BIN`'s
+    copy loop `0x06041FB4` (D-019).
+  - `EXP-0061`: `look.py`, which classifies the name art on the live screen.
+  - `EXP-0056`: `poke.py`, RAM writes from a state followed by screenshots.
+  - Text and art: `tools/text/pattern_t2.py`, `tools/text/boot_warnings.py`,
+    `tools/font/kanji.py`, `EXP-0059` `banner.py`.
+  - MAME: `tools/reference/mame_timeline.lua` (with the timelines from
+    `EXP-0009` and `EXP-0040`).
+  - `tools/sh2/disasm.py`.
+- **Local evidence:**
+  - `local/ref005/session/` is present: 484 shots and 166 states, with state
+    27173 on the Options screen and 25772 in the attract. These states hold
+    the untouched image's RAM.
+  - Versus-mode screenshots are in `local/loc002/versus/` (`EXP-0057`) and
+    `local/loc006/versus/` (`EXP-0061`).
+  - `local/emu003/` (the `EXP-0001` attract frames that
+    `docs/text_surfaces.md` cites) and `local/win001/` are not on this
+    machine. The census therefore captures afresh.
+- **Policy** (`docs/localization_policy.md`):
+  - Official English is used. Fixes are opt-in.
+  - Text with no official English gets a recorded new translation, approved
+    surface by surface.
+  - Absence of official English is shown by tracing the arcade code, not
+    only by a data search.
+  - New art is new work, approved like a new translation (the `LOC-004`
+    precedent).
+- **Run rules:**
+  - Cold boots run only with the user present, and are asked first.
+  - The agent drives the play checks and reviews the screenshots.
+  - No key loops. Long key sequences are asked first.
+  - MAME runs headless.
+
+### UI-001 - Census of the remaining Japanese UI, and the English art already in the fonts
+
+- **Status:** `READY`
+- **Milestone:** UI text and art (`UI-001`)
+- **Dependencies:** OPT-006 (done; the current image), LOC-006 (done).
+- **Blockers:** None.
+- **Objective:** Before anything is changed, know every place where the
+  current image still shows Japanese outside the story dialogue and the
+  endings, what both arcade sets show there, and what English art the game
+  already holds.
+- **Acceptance criteria:**
+  - **Attract:** cold boots of the current image
+    (`data/regression/opt006_names_switch.json`) with no input, asked first.
+    - Capture every frame (`REF-005`'s rule) from power-on through at least
+      three full attract cycles, and continue until two cycles in a row add
+      no new screen.
+    - For each screen, record its first and last frame, its screenshot
+      SHA-256, and a transcription of any text.
+    - Record differences between cycles (demo stage, ranking contents) as
+      such.
+    - Record the number of cycles watched.
+  - **Menus and modes:** from saved states first (`EXP-0062` `session.py`
+    with `--cue` on the current image; state 27173; the `EXP-0032` versus
+    states).
+    - A state holds the untouched image's RAM, so a screen counts for the
+      current image only after its files are read again from the current
+      image (shown in the load log) or on a cold boot.
+    - A cold boot with the user present is used only where no state reaches
+      a screen.
+    - Each screen is read for kana, kanji and romanised Japanese.
+    - The screens are:
+      - `KEY CONFIG`;
+      - `SOUND TEST` while it is used;
+      - `DATA RESET`, with any prompt it shows;
+      - `EXTRA OPTIONS` (already seen on the `EXP-0066` cold boots; cite
+        those);
+      - versus mode's select, `SET UP` (`HANDICAP`, `ROUNDS`), VS and
+        `RESULT` (the existing `EXP-0057`/`EXP-0061` screenshots are
+        reviewed first);
+      - continue, game over, `RANKING` with its names, and initials.
+  - **VS captions:** every caption box for pilots 0-5 (494-549) shown on a
+    VS screen by forcing the pilot and stage bytes (player block `+0x2D2`,
+    `+0x2E3`, `EXP-0032`) from a saved state, with its screenshot hash. This
+    also confirms the reader's mapping, which is SUPPORTED today.
+    - Boxes 1045-1071 belong to the Saturn-only pilots 6-8 (rule 24,
+      `SPECIAL-001`). This task permits only observing them, with no change.
+    - If a box cannot be shown, the reason is recorded.
+  - **Unseen files:** load logs over the census runs list each file loaded
+    on each screen. They come from `EXP-0063` `probe.py loads` together with
+    `EXP-0031` `loads.py` (CD Play Disc commands), because some reads bypass
+    the named loader.
+    - Each candidate file is marked as loaded (and when) or not loaded:
+      `CYB_ABS.TXT` and the attract candidates (`OPDEMO*`, `OPS*`,
+      `RANKBG.PIX`, `CAPCOM.PIX`, `STDEM*`, `VADEM*`, `STDEMO.*`).
+  - **Both arcade conventions:** for each surface found, what `cybotsu` (US)
+    and `cybotsj` (Japan) show at the same point of the game in MAME 0.289,
+    headless: the text there, or "no such screen".
+    - Attract screens are paired by sequence position and neighbouring
+      screens, never by frame number.
+    - "No such screen" and "no English" stay HYPOTHESIS until `UI-002` or
+      `UI-003` traces the arcade code.
+  - **English art in the fonts:** a full inventory, made before any task
+    draws or edits art.
+    - Every font and art store that the load logs show on a UI screen is
+      covered, plus the stores listed above.
+    - Each store is rendered in full where its format is decoded (D-019,
+      D-035, D-049, D-052, D-053). `KEND_1.BIN` counts as decoded only after
+      a decode matches the game's shadow byte for byte.
+    - Every piece of English or Latin art is listed with its store, index or
+      offset, size and colours. That includes bank 56's labels, "G.O.D." and
+      the cast roll's Latin names.
+    - A store with an unknown format is listed as UNKNOWN, with its reader
+      if found. It must be decoded before any later task draws on it.
+    - The font source of the menu print routine (`0x0602A82A`) is found,
+      and whether it has `t`-`z`.
+  - **Output:**
+    - `docs/text_surfaces.md` gains one row per surface (screen, frame, hash,
+      Japanese or English, storage if known, what the US and Japanese
+      arcades show) and an "English Art In The Fonts" table.
+    - The two UI rows of "Not Seen Yet" (the option sub-screens; attract or
+      opening text) are replaced. The console-only pilots' row and the
+      second-route row stay with `SPECIAL-001` and `RE-002`.
+    - Unobserved cells are UNKNOWN.
+- **Notes:**
+  - This task observes only. It changes nothing on the disc.
+  - It is two experiments, run one after the other: first the census, then
+    the font inventory.
+  - Each cold boot is asked first, one at a time, with its run length and
+    frame count stated.
+  - If the census finds no Japanese in the attract or opening, `UI-002`
+    closes on that evidence and the user is told.
+  - Methods: XvSF `UI-005` and the `CAP-001` census, MSHvSF `EXP-0053`,
+    lesson 6 (all HYPOTHESIS for Cyberbots).
+
+### UI-002 - Attract and opening text: storage and oracle
+
+- **Status:** `BLOCKED`
+- **Milestone:** UI text and art (`UI-001`)
+- **Dependencies:** UI-001.
+- **Blockers:** `UI-001`. It also runs one at a time with `UI-003` (one
+  experiment `IN_PROGRESS`).
+- **Objective:** For each Japanese attract or opening item that `UI-001`
+  found, find the layer, the container and the codec, and the arcade's
+  English.
+- **Acceptance criteria:**
+  - **Layer:** for each item, the VDP1 or VDP2 layer and the VRAM address.
+    This is CONFIRMED from a saved state at the item (near 25772, or a state
+    saved during `UI-001`) by a one-variable RAM change seen on screen.
+  - **Container and codec:**
+    - The file and offset are found by a load log, or by the SCU DMA
+      registers, never by file name or a data search.
+    - They are CONFIRMED by a test image from the untouched source that
+      changes one byte and changes only that item.
+    - A decoder is trusted only after it reproduces RAM byte for byte.
+  - **Oracle:**
+    - `cybotsu` and `cybotsj` are checked at the same sequence position, and
+      the US English is transcribed.
+    - Absence of English is shown by tracing the arcade's attract code (MAME
+      read taps), not by a snapshot alone.
+  - **Room:** for each item: size, colours, storage, and stream budget, and
+    whether a change can be spliced in rather than re-compressed.
+- **Notes:**
+  - If `UI-001` found no such item, this task closes on that evidence.
+  - The candidates (`OPDEMO*`, `STDEM*.PIR`, `VADEM*.MAC`, `STDEMO.*`) come
+    from the outline and are unverified. `STDEM*` and `STDEMO.*` are known
+    to load in the endings (D-034, `EXP-0037`, `EXP-0046`). `OPDEMO.BIN`,
+    `OPS*`, `RANKBG.PIX` and `CAPCOM.PIX` load in the ranking and attract
+    loop (`EXP-0037`).
+  - The siblings' attract layers and codecs differed from each other
+    (`docs/lessons_from_xvsf.md`), so none is assumed here.
+
+### UI-003 - Other UI text: storage and the arcade English
+
+- **Status:** `BLOCKED`
+- **Milestone:** UI text and art (`UI-001`)
+- **Dependencies:** UI-001.
+- **Blockers:** `UI-001`. It also runs one at a time with `UI-002`.
+- **Objective:** For each Japanese surface that `UI-001` found outside the
+  attract (menus and sub-screens, versus mode, continue, ranking, the VS
+  captions, any other), find where it is stored and drawn, and the arcade's
+  English, by tracing its code.
+- **Acceptance criteria:**
+  - **Location:** the drawing routine, the string or art, and the file and
+    offset. Each is CONFIRMED by a controlled change that alters only that
+    surface.
+  - **Arcade English by code trace:**
+    - The arcade routine that draws the same screen is found in MAME with
+      read taps, in `cybotsu` and then separately in `cybotsj`, because
+      their programs differ.
+    - The same choice is forced on both machines.
+    - Any region branch is recorded.
+    - A data search alone never shows that English is absent.
+  - **VS captions:**
+    - With read taps, confirm what hides the caption on the US arcade.
+      `EXP-0032` read from code that the reader `0x62D4C` draws from the
+      Japanese table only (`0x116F2`); this is SUPPORTED. Confirm whether
+      the reader runs in `cybotsu`, and any region branch around it.
+    - Check whether the US English records at slots 494-549 are complete.
+      Boxes 1045-1071 have no arcade slot (624 slots, D-009, D-029).
+    - Measure each record against the Saturn caption box's room.
+  - **Room:** the room each surface gives an English version: the menu
+    font's glyphs, cells and rows, or, for art, size and colours.
+  - **Output:** the `docs/text_surfaces.md` rows are completed.
+- **Notes:**
+  - The arcade program's ASCII strings (`WON LOST CONTINUE ENDING`, `VS DEMO
+    STAGE`) are leads only.
+  - In both siblings, "no official English" concluded from a data search
+    proved wrong (playbook "Pitfalls"; HYPOTHESIS here).
+
+### UI-005 - The user's plan for each UI surface
+
+- **Status:** `BLOCKED`
+- **Milestone:** UI text and art (`UI-001`)
+- **Dependencies:** UI-001, UI-002, UI-003.
+- **Blockers:** `UI-001`, `UI-002`, `UI-003`.
+- **Objective:** The user decides, surface by surface, what each remaining
+  Japanese surface becomes.
+- **Acceptance criteria:**
+  - **Options and costs:** for each surface, a multiple-choice question
+    with one option recommended. Rendered samples are shown beside both
+    arcades. The options are:
+    - official English, where `UI-002` or `UI-003` found it;
+    - English art already in the fonts (`UI-001`), reused;
+    - new text or new art: a recorded new translation, with the translator
+      named and the source hashes kept;
+    - keep the Japanese, recorded as an exception (for example, art the
+      arcade shares, such as the stage signage).
+  - **Style:** the open decision "Caption, UI-art and attract style"
+    (lettering, colours, layout), chosen from rendered samples.
+  - **VS captions:**
+    - Show the US records, follow the US arcade (no caption), or keep the
+      Japanese.
+    - Whether pilots 6-8's captions (boxes 1045-1071, no arcade slot) are
+      done here or with `SPECIAL-001`.
+  - **Name variants:** whether each change applies under both settings of
+    the names switch.
+  - **Gate:** the answers, verbatim and dated, as a `GATE-TRANSLATION`
+    extension (below) and in `docs/localization_policy.md`. New English goes
+    in `data/translations/`, with no Japanese committed.
+- **Notes:** No build before this gate. Precedents: `BOOT-003`, `LOC-004`,
+  `OPT-004`.
+
+### GATE-TRANSLATION extension for the UI text and art
+
+- **Status:** `BLOCKED` (on `UI-005`)
+- **Scope:** set by `UI-005` from the surfaces found in `UI-001`-`UI-003`.
+- **Asked:** not yet.
+
+### UI-006 - Build the UI changes
+
+- **Status:** `BLOCKED`
+- **Milestone:** UI text and art (`UI-001`)
+- **Dependencies:** UI-005 and its gate extension.
+- **Blockers:** `UI-005`.
+- **Objective:** The current image with every decided UI change, built
+  from the untouched source.
+- **Acceptance criteria:**
+  - **Generator:** scripts make each change from the approved data, with
+    format checks against `UI-002` and `UI-003`. No game art is committed
+    (rule 21). Scripts, tests and the approved English are committed.
+  - **Build:**
+    - The options are added to the current build, together with the
+      `opt006` options.
+    - Two builds are identical.
+    - Every changed range is listed with its original and new bytes
+      (rule 12).
+    - Every changed file fits its sectors, and 0 sectors are invalid.
+  - **Screens:** every changed surface is shown from saved states, or by a
+    cold boot (asked first) only where no state reaches it. The agent checks
+    each one against the generated data, under both names-switch settings
+    where they differ.
+  - **No other change:** apart from the decided ranges, the image equals
+    `data/regression/opt006_names_switch.json`'s.
+- **Notes:**
+  - New code goes only in RAM proven free: what D-058's code
+    (`0x06055424`-`0x06055708`) left of D-057's ranges, that is
+    `0x06055708`-`0x06055824` (284 bytes, inside `CYBER.BIN`) and
+    `0x060DF8A8`-`0x060E0EA4` (5,628 bytes, filled at run time), or new
+    ranges proven by logs (the `OPT-003` method).
+  - Saved states can show stale fonts, so every changed screen is checked
+    again on a cold boot in `UI-007`.
+
+### UI-007 - Verify and register
+
+- **Status:** `BLOCKED`
+- **Milestone:** UI text and art (`UI-001`)
+- **Dependencies:** UI-006.
+- **Blockers:** `UI-006`.
+- **Objective:** Play-check the UI changes and lock the build.
+- **Acceptance criteria:**
+  - **Play check:** cold boots of the built image, asked first and driven
+    by the agent:
+    - one full attract cycle, captured every frame;
+    - each changed menu or screen, reached by pad keys. The key sequence is
+      stated when asking, with no loops;
+    - each names-switch setting, where a change differs between them.
+  - **Regression:** a new reference in `data/regression/`, and all nine
+    earlier references are rebuilt and still match.
+  - **Coverage and docs:**
+    - `docs/coverage_exceptions.md` lists every UI surface left in Japanese,
+      with the user's reason.
+    - `docs/text_surfaces.md` is updated.
+    - README: "What's Changed", "Still Japanese" and the build command.
+  - **Outline:** `UI-001`-`UI-003` are marked done and removed from
+    `REL-002`'s blockers.
+- **Notes:** The image commit pushes after the agent's play checks pass
+  (user rule, 2026-11-02).
+
 ## Later Milestones (outline only)
 
 Placeholders so the order is visible. Each becomes a full task, with its own
@@ -2825,9 +3338,9 @@ and `docs/lessons_from_xvsf.md`.
 | END-010 | M7 | `DONE` (2026-11-05, Phase L); follow-up `END-011` (`BACKLOG`). |
 | END-020 | M8 | `DONE` (2026-11-05, Phase M: `END-020`-`END-023`, with `END-011`); M8 confirmed. |
 | UI-004 | after M5, early | `DONE` (2026-11-06, Phase N: `BOOT-001`-`BOOT-005` and the gate extension). |
-| UI-001 | after M8, user request | UI art: inventory English art already in every font before drawing anything. |
-| UI-002 | after M8, user request | Attract and opening text (`OPDEMO*`, `STDEM*.PIR`, `VADEM*.MAC`, `STDEMO.*` are candidates): layer, container, codecs, oracles. |
-| UI-003 | after M8, user request | Other UI text (select, continue, ranking, options): find the arcade English by tracing the arcade code. |
+| UI-001 | after M8, user request | Phase S (`UI-001`-`UI-003`, `UI-005`-`UI-007`), written up 2026-11-06; `UI-001` `READY`. |
+| UI-002 | after M8, user request | Phase S (`UI-001`-`UI-003`, `UI-005`-`UI-007`), written up 2026-11-06; `BLOCKED` on `UI-001`. |
+| UI-003 | after M8, user request | Phase S (`UI-001`-`UI-003`, `UI-005`-`UI-007`), written up 2026-11-06; `BLOCKED` on `UI-001`. |
 | TXT-002 | after M8, user request | Rare, random, or region-gated text: trace every reader of every text table. |
 | LOC-001 | after REF-007 | `DONE` (2026-11-06, Phase O: `LOC-001`-`LOC-006` and the gate extension). |
 | OPT-001 | after LOC-001, user decision 2026-11-02 | `DONE` (2026-11-06, Phase P: `OPT-001`-`OPT-006`). |

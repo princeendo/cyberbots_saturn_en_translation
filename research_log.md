@@ -2830,3 +2830,16 @@ independent verifier; sources in `research/notes/rel002_research.json`.
   it places new files is UNKNOWN. An SSP for this image is therefore not
   possible for egui users and unproven for the official patcher; the user
   decides when `REL-002` is unblocked.
+
+## 2026-11-06 — Phase S written up (UI text and art)
+
+User request (verbatim): "Write up UI tasks". A background workflow
+gathered the Cyberbots facts and the siblings' UI method (read-only),
+drafted the phase, and an independent reviewer checked every fact against
+its source (22 corrections: confidence labels, citations, a wrong claim that
+the builds translated the credits, the menu font's untested `t`-`z`, the
+caption boxes 1045-1071 having no arcade slot, and others). `UI-001` (census
+plus the English art in the fonts) is `READY`; `UI-002`, `UI-003`, `UI-005`
+(gate), `UI-006` (build), `UI-007` (verify) follow. The policy row "Caption,
+UI-art and attract style" now names `UI-005`. No experiment, no emulator
+run.

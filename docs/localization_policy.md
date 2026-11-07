@@ -77,7 +77,7 @@ Each is put to the user when its task has the evidence.
 | Roster and exceptions for M5 | `RE-005` |
 | Ending layout and labels | `END-001`, `END-002` |
 | ~~Name-variant delivery~~ Decided 2026-11-02: an Options-screen toggle (above) | — |
-| Caption, UI-art and attract style | `UI-001`, `UI-002` |
+| Caption, UI-art and attract style | `UI-005` (with the facts from `UI-001`-`UI-003`) |
 
 ## Translation Gates
 
