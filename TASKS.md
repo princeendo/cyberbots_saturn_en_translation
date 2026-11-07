@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-06: UI-001 done: the English art in the fonts** (`UI-001` part 2, `EXP-0068`, D-059): the menu font is `FIX.BIN` (ASCII-indexed, VDP2 `0x0`) and has `t`-`z` (one tile blanked, one string rewritten, from a saved state). `KEND_1.BIN` is type 2: all 29 cast-roll records decode byte for byte to the game's shadow. Every UI store is listed in `docs/text_surfaces.md`, "English Art In The Fonts"; the unknown-format stores are listed with their loads. Correction to D-052: bank 56 holds a small Latin list of the four base bodies. `UI-002` and `UI-003` are `READY` (one at a time).
 - **2026-11-06: UI census** (`UI-001` part 1, `EXP-0067`): outside the story and endings the current image shows Japanese only on the VS chapter captions (five with one wrong glyph each, accepted at M5) and in the ruined-city stage's signs, which the US arcade shows blank. No attract or menu text is Japanese. Part 2 (the English art in the fonts) is next.
 - **2026-11-06: Phase S written up (UI text and art)**: `UI-001` (census of the remaining Japanese UI with both arcades, and the English art already in the fonts) is `READY`; `UI-002` (attract), `UI-003` (other UI, VS captions), `UI-005` (the user's plan; a gate extension), `UI-006` (build) and `UI-007` (verify) follow. Drafted, then every fact checked against its source by an independent reviewer.
 - **2026-11-06: Release decisions** (`REL-002`, asked on "Start REL-002"): the user wants `UI-001`, `UI-002`, `UI-003`, `TXT-002` and `SPECIAL-001` done before any release ("Do them first"), so `REL-002` stays `BLOCKED`; xdelta first with SSP researched; a read-only RetroAchievements lookup; the hardware test deferred. Next: write up the UI tasks (outline items, "after M8, user request").
@@ -2744,8 +2745,8 @@ Known so far (facts and their confidence):
 - **Status:** `BLOCKED`
 - **Milestone:** Release (`REL-001`)
 - **Dependencies:** REL-001, OPT-006; the release-timing rule.
-- **Blockers:** `UI-001`, `UI-002`, `UI-003`, `TXT-002`, `SPECIAL-001`
-  (the user, 2026-11-06: "Do them first"); `OPT-006` is done.
+- **Blockers:** `UI-002`, `UI-003`, `TXT-002`, `SPECIAL-001` (the user,
+  2026-11-06: "Do them first"); `OPT-006` and `UI-001` are done.
 - **Objective:** xdelta and SSP patches that turn the untouched source into
   the final registered image, proven by applying them.
 - **Acceptance criteria:**
@@ -3061,7 +3062,8 @@ Known so far (facts and their confidence):
 
 ### UI-001 - Census of the remaining Japanese UI, and the English art already in the fonts
 
-- **Status:** `IN_PROGRESS` (part 1, the census, done 2026-11-06, `EXP-0067`; part 2, the font inventory, next)
+- **Status:** `DONE`
+- **Done:** 2026-11-06. Part 1 (`EXP-0067`): the census; Japanese remains only in the VS captions (five with one pair glyph, the M5 trade-off) and the ruined-city stage's signs (`cybotsj` the same, `cybotsu` blank); every attract and menu screen is English; the outline's attract candidates never load. Part 2 (`EXP-0068`, D-059): the menu font is `FIX.BIN` with `t`-`z`; `KEND_1.BIN` decodes byte for byte (type 2); the inventory is the "English Art In The Fonts" table of `docs/text_surfaces.md`, with the unknown-format stores listed UNKNOWN.
 - **Milestone:** UI text and art (`UI-001`)
 - **Dependencies:** OPT-006 (done; the current image), LOC-006 (done).
 - **Blockers:** None.
@@ -3164,11 +3166,11 @@ Known so far (facts and their confidence):
 
 ### UI-002 - Attract and opening text: storage and oracle
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** UI text and art (`UI-001`)
 - **Dependencies:** UI-001.
-- **Blockers:** `UI-001`. It also runs one at a time with `UI-003` (one
-  experiment `IN_PROGRESS`).
+- **Blockers:** None (`UI-001` done). It runs one at a time with `UI-003`
+  (one experiment `IN_PROGRESS`).
 - **Objective:** For each Japanese attract or opening item that `UI-001`
   found, find the layer, the container and the codec, and the arcade's
   English.
@@ -3201,10 +3203,10 @@ Known so far (facts and their confidence):
 
 ### UI-003 - Other UI text: storage and the arcade English
 
-- **Status:** `BLOCKED`
+- **Status:** `READY`
 - **Milestone:** UI text and art (`UI-001`)
 - **Dependencies:** UI-001.
-- **Blockers:** `UI-001`. It also runs one at a time with `UI-002`.
+- **Blockers:** None (`UI-001` done). It runs one at a time with `UI-002`.
 - **Objective:** For each Japanese surface that `UI-001` found outside the
   attract (menus and sub-screens, versus mode, continue, ranking, the VS
   captions, any other), find where it is stored and drawn, and the arcade's

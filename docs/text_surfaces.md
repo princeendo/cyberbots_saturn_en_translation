@@ -141,3 +141,36 @@ story dialogue and endings. Records: `research/experiments/EXP-0067/`.
 Files the outline guessed for attract text (`STDEM*`, `VADEM*`, `STDEMO.*`,
 `OPDEMO_0.BIN`) and `CYB_ABS.TXT` do not load in the boot or the attract.
 
+
+## English Art In The Fonts (`UI-001`, `EXP-0068`)
+
+Every store the UI screens load (`EXP-0067` load log, D-052) and the stores
+`UI-001` named. "Colours" are the 4-bit indices used (palettes not read).
+Renders are local only (`EXP-0068` `render.py`, `grid.py`). Tile `n` of a
+4 bpp store is at byte `32 * n`.
+
+| Store (loaded to) | Format | Range | Contents | Colours |
+| --- | --- | --- | --- | --- |
+| `FIX.BIN` (VDP2 `0x0`) | 4 bpp 8×8 tiles, ASCII-indexed (D-035; menu print `0x0602A82A`, `EXP-0068`) | 32-127 | The small ASCII font: upper and lower case (`t`-`z` drawn), digits, punctuation; comma and apostrophe are dots | 0-5, F |
+| | | 128-511 | Further small Latin glyph sets, half-glyphs and button fragments | all 16 |
+| | | 512-639 | Gauge and arrow art, no letters | 0-5, 8, B, D, F |
+| | | 640-1023 | A 16×16 Latin font (digits, `A`-`Z`), two styles | 0-5, F |
+| | | 1024-1087 | Gauge pieces; the copyright line's letter set; score digits | 0, 1, 3, 4, 9, A, D-F |
+| | | 1088-1279 | The fight HUD's `POWER` labels (several palettes) and win marks | all 16 |
+| | | 1280-1535 | Sixteen mech name plates (Latin), bright and dim versions | 0, 1, 3, 4, A-C |
+| | | 1536-1663 | Large banners: unidentified grey art (1536-1567, 1600-1631; layout not assembled) and the new-challenger banner in two styles | 0, 6-B |
+| | | 1664-1791 | Result labels (total, energy, time, bonus) | 0-7, 9-C, F |
+| | | 1792-2047 | Digit sets | 0, 1, 3, 4, 6, 7, F |
+| | | 2048-4095 | 16×16 Latin fonts in several palettes; small button labels | 0-5, F |
+| | | 4096-6143 | Fight HUD parts, with the boost and arm-weapon labels | all 16 |
+| | | 6144-9983 | Pilot portrait strips, no text | all 16 |
+| `KANJI.BIN` (VDP2 `0x40000`) | D-019 glyphs | 23-58 | Full-width digits (23-32) and capitals `A`-`Z` (33-58); no lower case. The current image adds the English pair glyphs (D-024) | — |
+| `SELECT.VAD` (VDP1 `0x20000`), bank 56 | raw 4 bpp parts (D-052) | patterns 395-396, 400, 401-424, 428-429 | The labels pilot select, body type, `1P`/`2P`, machine select (`EXP-0057`) | not read |
+| | | pattern 399 (`0x39460`, 48×106, frame `0x35`) | The four base bodies' names, a Latin list in a small plain font, stored mirrored (`EXP-0068`; corrects D-052's "no Latin mech name") | not read |
+| `PL3F_0.BIN`, bank 63 | type 2 (D-053) | frame `0x0B` | A Latin "G.O.D." banner; where shown UNKNOWN (`EXP-0057`) | not read |
+| `KEND_1.BIN` (WRAM-L `0x00280000`), bank 16 | type 2: all 29 cast-roll records decode byte for byte to the game's shadow (`EXP-0068`) | the 13 records of odd frames `0x1B7`-`0x1C9` (`shadow.json`) | The cast roll's Latin names, 40-120 × 8-16 | colour `0x41E0` (D-040) |
+| `CAPCOM.PIX` (VDP2 `0x20000`) | 512-wide 8 bpp bitmap (D-049's format) | 352 × 224 | The Latin company logo | 103 indices |
+| `OPS00.PIX`, `OPS10.PIX`, `RANKBG.PIX` | the same | 384 × 224-256 | Backgrounds, no text | 5, 16, 8 indices |
+| `QSD.PIX`, `WARNINGn.PIX` | the same (D-041, D-049) | — | English already, or built in English (`END-010`, `BOOT-004`) | — |
+| `ST00`-`ST0A_FNT.BIN` (VDP2 `0x19000`) | 4 bpp 8×8 tiles | — | Stage backgrounds; text readable only through the stage maps. The city signs (Japanese) are in `ST00_FNT.BIN` or `ST00_SPR.BIN` (SUPPORTED: the first demo loads them) | — |
+| `OPS0_0/1.BIN` (WRAM-L), `ST0n_SPR.BIN` (VDP1 `0x20000`), `PL11_0.BIN` (VDP1 `0x38000`), `PL13_0.BIN` (`0x060A6800`), `M3PL*`, `M3CB*` | UNKNOWN; loaded raw by `0x060385A0`, readers not traced | — | Not decoded; must be decoded before any task draws on them | — |

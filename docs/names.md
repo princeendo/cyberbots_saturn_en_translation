@@ -138,8 +138,9 @@ are matched to their Latin names by reading the art.
 | Versus mode select, `SET UP`, VS | the same banks | — | none |
 
 Latin names that do exist elsewhere: the cast roll's (`KEND_1.BIN`, its own
-small style, D-040) and `CYBER.BIN`'s plain-text lists (8 pilots, 17 mechs;
-not seen drawn). Bank 63 also holds a Latin banner "G.O.D." (frame `0x0B`)
+small style, D-040; type 2, D-059), `CYBER.BIN`'s plain-text lists (8
+pilots, 17 mechs; not seen drawn), bank 56's `BODY TYPE` list of the four
+base bodies (D-059), and `FIX.BIN`'s sixteen mech name plates (`EXP-0068`). Bank 63 also holds a Latin banner "G.O.D." (frame `0x0B`)
 and a third banner style for story-only characters (frames `0x74`-`0x79`);
 where these show is not known.
 

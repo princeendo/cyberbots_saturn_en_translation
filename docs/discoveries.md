@@ -1088,6 +1088,8 @@ Reproduce: `research/experiments/EXP-0056/README.md`, "Procedure".
   game from saved states before the loads, changed exactly those names.
 - Every frame of both banks was drawn (149 and 122): neither holds a Latin
   version of any pilot or mech name. Versus mode uses the same art.
+  (Correction, D-059: bank 56 also holds a small Latin list of the four
+  base bodies, the `BODY TYPE` panel's pattern `0x39460`.)
 - Room: `SELECT.VAD` is full but for 1,440 bytes of slack; `PL3F_0.BIN` has
   288. The VS names take 20,804 bytes compressed (26,188 raw).
 
@@ -1212,3 +1214,23 @@ Reproduce: `research/experiments/EXP-0064/README.md`, "Procedure".
   the pilot select and VS screens; saves with and without the byte load.
 
 Reproduce: `research/experiments/EXP-0065/README.md`, "Procedure".
+
+## D-059: The menu font is `FIX.BIN`; `KEND_1.BIN` is type 2; bank 56's Latin body list (`UI-001`, `EXP-0068`)
+
+- **Menu font.** The menu print routine (`0x0602A82A`) draws `FIX.BIN`'s
+  ASCII-indexed tiles (loaded raw to VDP2 VRAM `0x0`, 32 bytes a tile). From
+  the Options state, zeroing tile `0x44` removed every small `D` of
+  `OPTION MODE` and nothing else; a menu string rewritten to
+  `tuvwxyz?!.,:'/()+=` drew those characters (comma and apostrophe as dots).
+- **`KEND_1.BIN`.** Bank 16's cast-roll frames `0x1B6`-`0x1C9` use 29
+  records. Each decodes with `tools/text/pattern_t2.py` (D-053), and each
+  decoded picture is found byte for byte in the game's sprite shadow
+  (WRAM-H `0x060E0000`+) during the roll. 13 are the Latin names (odd
+  frames), 16 the Japanese names.
+- **Bank 56** (`SELECT.VAD`) holds one Latin mech list: pattern `0x39460`
+  (48 × 106, frame `0x35`, the `BODY TYPE` panel, stored mirrored) lists the
+  four base bodies in a small plain font. This corrects D-052's "neither
+  holds a Latin version of any pilot or mech name" for bank 56; the VS name
+  banners are still katakana only.
+
+Reproduce: `research/experiments/EXP-0068/README.md`, "Procedure".

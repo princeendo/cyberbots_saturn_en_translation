@@ -112,6 +112,8 @@ versus mode, asked first: "Yes, run it now (Recommended)".
 - **Bank 56** (all 149 frames, 628 patterns, `bank56.py`): no Latin pilot
   or mech name. Its only Latin is the labels `PILOT SELECT`, `MACHINE
   SELECT`, `BODY TYPE`, `1P`, `2P`.
+  (Correction, `EXP-0068`: pattern `0x39460`, frame `0x35`, is also Latin,
+  a small list of the four base bodies.)
 - **Bank 63** (all 122 frames drawn on the VS screen, one run each): no
   Latin version of the nine pilot or sixteen mech names. Frame `0x0B` is a
   Latin pilot-style banner reading "G.O.D."; frames `0x74`-`0x79` are a

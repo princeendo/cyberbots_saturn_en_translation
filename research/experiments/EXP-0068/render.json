@@ -1,0 +1,110 @@
+{
+ "FIX.BIN": {
+  "kind": "4bpp tiles",
+  "tiles": 9984,
+  "size": 319488,
+  "sha256": "7e1dd2aa077359c65da5311c6167d6c35ab7256e9a520c9f950b47e20f81e1b1"
+ },
+ "ST00_FNT.BIN": {
+  "kind": "4bpp tiles",
+  "tiles": 10016,
+  "size": 320512,
+  "sha256": "73811b549b1451625b0b3bba01fec83231a1821042f05711034b26b9ae6e0997"
+ },
+ "ST01_FNT.BIN": {
+  "kind": "4bpp tiles",
+  "tiles": 11768,
+  "size": 376576,
+  "sha256": "4b32d67dd175dd5ce0f88bb3754a000d7fe2243b62f687ae1700d08fb2253453"
+ },
+ "ST02_FNT.BIN": {
+  "kind": "4bpp tiles",
+  "tiles": 13072,
+  "size": 418304,
+  "sha256": "c5d95a77abaeac3595e738984c962ba002e5e77d88b59e12169f1392b75c459c"
+ },
+ "ST03_FNT.BIN": {
+  "kind": "4bpp tiles",
+  "tiles": 12820,
+  "size": 410240,
+  "sha256": "3da740154fc40a8e05ebead5431e083f3de6680e3d608077cf1a3d785938ef2c"
+ },
+ "ST04_FNT.BIN": {
+  "kind": "4bpp tiles",
+  "tiles": 9940,
+  "size": 318080,
+  "sha256": "b2ad19efae7987d1b58d8bc075eee9ff008f2c7bbef7bec0e461bbee071cba28"
+ },
+ "ST05_FNT.BIN": {
+  "kind": "4bpp tiles",
+  "tiles": 10608,
+  "size": 339456,
+  "sha256": "6bba47b01779b33ca6b5b96a8666b34d5c11186e61fd7ba804e67655a6447671"
+ },
+ "ST06_FNT.BIN": {
+  "kind": "4bpp tiles",
+  "tiles": 12844,
+  "size": 411008,
+  "sha256": "105f88224b35b04cd05d2a629602a26e967bc12e686703dc75ac803281327a6e"
+ },
+ "ST07_FNT.BIN": {
+  "kind": "4bpp tiles",
+  "tiles": 11788,
+  "size": 377216,
+  "sha256": "4dc165e2cd15c9ee6b394cd55226fc2c4d4e088c490f17ef30f42e2fc4a86fec"
+ },
+ "ST08_FNT.BIN": {
+  "kind": "4bpp tiles",
+  "tiles": 11092,
+  "size": 354944,
+  "sha256": "e36b17a0690eae013701f6d6b719d1903b6db7a93d9996e4c6d14cc72034191a"
+ },
+ "ST09_FNT.BIN": {
+  "kind": "4bpp tiles",
+  "tiles": 7108,
+  "size": 227456,
+  "sha256": "225d28073fa2be01cfa16307cda3c26d3d97366d6f5c8dd33ed233cf312a58ba"
+ },
+ "ST0A_FNT.BIN": {
+  "kind": "4bpp tiles",
+  "tiles": 2312,
+  "size": 73984,
+  "sha256": "bc64c7dff69d1af6c0ea03c2dd6795e792bb54fce384fa9e38d22857e3337690"
+ },
+ "KANJI.BIN": {
+  "kind": "kanji glyphs (D-019)",
+  "glyphs": 1280,
+  "size": 163840,
+  "sha256": "898de5bc4696451cd34b6e1a7df5bfa912f54058abd38d0cd5e04f0f54463f86"
+ },
+ "KANJI.BIN-current": {
+  "kind": "kanji glyphs (D-019)",
+  "glyphs": 1280,
+  "size": 163840,
+  "sha256": "e164e96c116625b471b325ac19324a867cec45b6e2fbcd5a88e1df228d5ad5bb"
+ },
+ "CAPCOM.PIX": {
+  "kind": "512-wide 8bpp bitmap (tried)",
+  "rows": 256,
+  "size": 131072,
+  "sha256": "e51fd915fc591f67dc895498acf40c74e8ab55f0736894986212e095f73f9911"
+ },
+ "OPS00.PIX": {
+  "kind": "512-wide 8bpp bitmap (tried)",
+  "rows": 256,
+  "size": 131072,
+  "sha256": "20954f692e32759a412407bab3c28032fb712005f551bd5dd8e34a7c178f1a6d"
+ },
+ "OPS10.PIX": {
+  "kind": "512-wide 8bpp bitmap (tried)",
+  "rows": 256,
+  "size": 131072,
+  "sha256": "796554311c3bff4bef8cccd4871fda550ec5517b69ae11f13c59d8518f9490c2"
+ },
+ "RANKBG.PIX": {
+  "kind": "512-wide 8bpp bitmap (tried)",
+  "rows": 256,
+  "size": 131072,
+  "sha256": "d392aa61c2c6815d85c65c2f9357e82f4d4b3df269fbaba7ba53c5e99edbf606"
+ }
+}

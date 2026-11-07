@@ -2871,3 +2871,32 @@ Notes (do not retry):
   fade**; open `KEY CONFIG` with the menu state writes alone.
 - The arcade's US stage art differs from the Japanese: compare both sets'
   frames before calling art "shared".
+
+## 2026-11-06 — UI-001 part 2: the English art in the fonts (EXP-0068)
+
+User request (verbatim): "Start part 2". No cold boot; two saved-state
+runs (silent home, no keys), the rest offline.
+
+- Menu font: blanking `FIX.BIN` tile `0x44` in VDP2 VRAM removed every
+  small `D` of `OPTION MODE`; a rewritten menu string drew `t`-`z`. The
+  print routine's font is `FIX.BIN`.
+- `KEND_1.BIN`: bank 16's 29 cast-roll records decode with
+  `pattern_t2.decode`, and each decoded picture is in the sprite shadow
+  byte for byte during the roll (`shadow.py`, 15 dumps). Type 2.
+- Rendered `FIX.BIN`, `ST00`-`ST0A_FNT.BIN`, `KANJI.BIN` (both), the four
+  attract `*.PIX`, and bank 56; read with 4× gridded crops. The inventory is
+  in `docs/text_surfaces.md`.
+- New: bank 56's pattern `0x39460` (frame `0x35`, `BODY TYPE`) is a Latin
+  list of the four base bodies; `EXP-0057` and D-052 had said bank 56 holds
+  no Latin mech name. Corrected with notes (D-052, `EXP-0057`, D-059).
+
+Notes (do not retry):
+- **A pre-roll state's shadow does not hold the names yet**; run the roll
+  (the names appear between 450 and 1,800 frames after `s06450`).
+- **Bank 16's frame table ends with 0** after frame `0x1C9`; a fallback
+  range read past it gives a non-record ("type 0" at `0x70000`).
+- **Stage `*_FNT` stores** cannot be read for text from a tile sheet; the
+  signs need the stage maps or a VRAM test (`docs/known_unknowns.md`).
+
+Checks: `ruff check .`, `ruff format --check .` (303 files), `mypy` (86
+files) and `pytest -q` (252 passed) all clean.
