@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-07: REL-004 done; 0.1.0 is published** (https://github.com/princeendo/cyberbots_saturn_en_translation/releases/tag/v0.1.0): the two assets' sizes and SHA-256 digests (public API) equal the local zips, and the release text equals `release/notes_v0.1.0.md`. The README links the release. No task is `READY`; open questions are in `docs/known_unknowns.md` (an official-patcher test of the `.ssp` needs Windows and your approval).
 - **2026-11-07: an SSP patch after all** (`REL-004`, `EXP-0086`): on the user's request ("I actually want to create the SSP patch. I know we can't test it fully. But let's try it anyway.") `make_ssp --add-new` writes the four added files as `._NEW` entries. `cyberbots_en.ssp` (`509accc5…`) builds twice identically and describes the built track completely; no patcher has applied it (official patcher only). Its zip (`df1a7a8b…`) joins the v0.1.0 release ("Add to v0.1.0 (Recommended)"); the xdelta zip is unchanged. The user publishes both.
 - **2026-11-07: REL-003 done** (`EXP-0085`): the 0.1.0 zip (`b0188f0e…`) is reproducible and checks against the reference; the release docs and the top-level README are written. `REL-004` (tag and publish) is `READY`.
 - **2026-11-07: REL-002 done** (`EXP-0084`): the xdelta patch from the final reference builds byte-identically, applies with plain `xdelta3` to the reference's Track 01, keeps the RetroAchievements header hash, and the patched disc boots to the title. xdelta only (the image adds files an SSP applier can't); achievement triggering recorded as untested. `REL-003` (zips, README, checks) is `READY`.
@@ -2829,7 +2830,13 @@ Known so far (facts and their confidence):
 
 ### REL-004 - Publish
 
-- **Status:** `READY`
+- **Status:** `DONE`
+- **Done:** 2026-11-07. The user published the GitHub Release "0.1.0: first
+  English release" from tag `v0.1.0` (`412c93d`). The public API lists two
+  assets whose size and `sha256:` digest equal the local zips:
+  `cyberbots_saturn_en_0.1.0_xdelta.zip` (245,322, `b0188f0e…`) and
+  `cyberbots_saturn_en_0.1.0_ssp.zip` (196,460, `df1a7a8b…`). The release
+  text equals `release/notes_v0.1.0.md`. The README links the release.
 - **Milestone:** Release (`REL-001`)
 - **Dependencies:** REL-003 (done).
 - **Blockers:** the user's explicit approval (asked, answer recorded

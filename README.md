@@ -18,7 +18,7 @@ See [docs/playbook_from_mshvsf.md](docs/playbook_from_mshvsf.md) and
 
 ## Download
 
-Version 0.1.0, as GitHub Release assets (an xdelta patch for track 01, and
+[Version 0.1.0](https://github.com/princeendo/cyberbots_saturn_en_translation/releases/tag/v0.1.0), as GitHub Release assets (an xdelta patch for track 01, and
 an untested `.ssp` patch): what it changes, how to apply it and its known limits are in
 [release/README.md](release/README.md) and
 [release/notes_v0.1.0.md](release/notes_v0.1.0.md).

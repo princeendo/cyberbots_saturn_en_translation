@@ -3399,3 +3399,16 @@ Notes:
 - **`check_zips` refuses an `.ssp` with `._NEW`** (`apply_ssp` works in
   place and cannot add files); the release check keeps `--kinds xdelta`.
 Checks: `ruff check .` passed; `ruff format --check .` 350 files formatted; `mypy` no issues in 91 files; `pytest -q` 273 passed.
+
+## 2026-11-07 — REL-004: 0.1.0 published and checked
+
+User message (verbatim): "It's published". The public API
+(`/repos/princeendo/cyberbots_saturn_en_translation/releases/tags/v0.1.0`,
+unauthenticated) shows the release "0.1.0: first English release" by
+`princeendo`, not a draft, tag `v0.1.0` → `412c93d`, with two assets:
+`cyberbots_saturn_en_0.1.0_ssp.zip` 196,460 bytes `sha256:df1a7a8b…` and
+`cyberbots_saturn_en_0.1.0_xdelta.zip` 245,322 bytes `sha256:b0188f0e…`,
+both equal to the local zips. The release text, CRs removed, equals
+`release/notes_v0.1.0.md`. The README links the release; `REL-004` is
+`DONE`.
+Checks: `ruff check .` passed; `pytest -q` 273 passed.
