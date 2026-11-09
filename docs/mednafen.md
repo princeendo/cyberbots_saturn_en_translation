@@ -295,3 +295,48 @@ A debug harness only; it never ships.
 - Check that the run's `result.json` has the breakpoint events. From another
   state the task may be elsewhere; trace it first (EXP-0022, "Uncertainty").
 
+
+## Windows x64 Build (2026-11-08, this machine)
+
+The macOS binaries above do not exist on this Windows machine, so stock
+Mednafen 1.32.1 was rebuilt from the same archive (re-downloaded from
+`https://mednafen.github.io/releases/files/mednafen-1.32.1.tar.xz`; SHA-256
+`de7eb94ab66212ae7758376524368a8ab208234b33796625ca630547dbc83832`, 3,571,236
+bytes, equal to the recorded values). Source is unmodified; only build flags
+differ. Nothing here is a Cyberbots result: the Windows build still needs
+the boot check (`EMU-003`) re-run and, for the agent patch, `EMU-021`.
+
+- Toolchain: MSYS2 `20260927` (winget `MSYS2.MSYS2`), UCRT64 gcc 16.2.0,
+  SDL2 2.32.10, FLAC 1.5.0, zlib 1.4, GNU make 4.4.1.
+- Build, from an MSYS2 UCRT64 shell in `vendor/mednafen/build/`:
+
+```bash
+CPPFLAGS="-DUNICODE -D_UNICODE -Dmingw_app_type=__mingw_app_type" \
+LDFLAGS="-static-libstdc++ -static-libgcc -Wl,-Bstatic -lwinpthread -Wl,-Bdynamic" \
+  ../src/configure --prefix="$PWD/install" --enable-debugger --enable-ss
+make -j8
+```
+
+- Why each flag (all observed on this machine):
+  - `-Dmingw_app_type=__mingw_app_type`: link failed with `undefined
+    reference to mingw_app_type`; current mingw-w64 names it
+    `__mingw_app_type` (`nm` on `libmingw32.a`).
+  - `-DUNICODE -D_UNICODE`: without them `main.cpp` compiles the
+    Windows 98 branch and shows a "Windows Version Error" message box on NT
+    (seen as a hung process, backtrace at `main.cpp:2281`).
+  - static libstdc++/libgcc: a dynamic libstdc++ failed at start with
+    `32 bit pseudo relocation ... out of range` (non-PIC code, DLL RTTI data).
+- Binary: `vendor/mednafen/build/src/mednafen.exe`, 144,746,155 bytes,
+  SHA-256 `b37888a3b485e8d926ae1f3e0e30f988034cb5d5a63ff0cae07f9e6f8bde1c6`
+  (uppercase `B37888A3...E1C6` in PowerShell; ignored by git).
+- Runnable folder `vendor/mednafen/build/dist/`: that exe plus `SDL2.dll`,
+  `libFLAC.dll`, `libogg-0.dll`, `libiconv-2.dll`, `libintl-8.dll`,
+  `libz-1.dll`, `libwinpthread-1.dll`, `libgcc_s_seh-1.dll`,
+  `libstdc++-6.dll` copied from `C:\msys64\ucrt64\bin`.
+- Smoke test: `MEDNAFEN_HOME=local\mednafen`, `mednafen.exe -help` with a
+  minimal `PATH` exits `-1` (usage exit) and creates `mednafen.cfg`. The
+  Windows build is a GUI-subsystem program, so `-help` text is not captured
+  by pipes. No disc has been loaded yet.
+- Still needed on this machine: Saturn BIOS files (`ss.bios_jp` default is
+  `sega_101.bin`) in `local/mednafen/firmware/` and the disc image under
+  `local/disc_images/` (`ENV-006`), neither present yet.
