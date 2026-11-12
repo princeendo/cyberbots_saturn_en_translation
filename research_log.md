@@ -3460,3 +3460,36 @@ Build"). Three failures and fixes were recorded there (`mingw_app_type`
 rename, missing `-DUNICODE` causing a Win98 version popup hang, dynamic
 libstdc++ pseudo-relocation failure). `-help` smoke test only; BIOS and disc
 image not yet on this machine, so `EMU-003` is not re-confirmed here.
+
+## 2026-11-12 — EXP-0088: does the patch change the sound? (Mednafen)
+
+User report (verbatim): "I was able to test this out on Windows; looks like
+there's an issue." (the `.ssp`; no details yet) and "when I burned the
+disc, I think there's something wrong on real hardware. I feel like I'm
+getting problems in the sound. It's making like a buzzing sound when
+running. I can't 100% verify that it's not my TV or something, but is
+there a way to check through and verify that we don't expect sound issues?
+Maybe by trying a different emulator?" Asked about a cold boot of the
+untouched image: "Yes, run it now (Recommended)".
+
+Result: the original's no-input cold boot (7,600 frames) and two patched
+ones are sample-identical for 59.1 s; after that, single sounds start
+milliseconds apart at the same level, and every silent second is exactly
+zero. Two patched builds are identical to each other. No added noise in
+emulation. `known_unknowns.md` lists the console-side checks.
+
+Notes:
+- **`compare_audio.py` reads `run.mov` directly** (ffmpeg to s16le); a
+  128-s pair takes about 4 s.
+Checks: `ruff check .` passed; `mypy` no issues.
+- **HYPOTHESIS for `EXP-0087`'s oversized rebuild (not tested):** the
+  official patcher copies the 61 audio-referencing ISO entries (D-002) into
+  the data track as files. Their sizes sum to 405,579,776 bytes = 198,037
+  sectors; the rebuilt image (446,749 sectors) exceeds the original disc
+  (track 01's 43,793 sectors plus the audio tracks) by roughly that much,
+  but not exactly. `EXP-0087`'s next step (the same rebuild without
+  `-patch`) still discriminates first.
+- **Collision:** `EXP-0087` had been taken by another session (the Windows
+  official-patcher test, `5575c68`); this experiment was first written over
+  its README and then moved to `EXP-0088`, with `EXP-0087` restored from
+  `HEAD` (no diff).
