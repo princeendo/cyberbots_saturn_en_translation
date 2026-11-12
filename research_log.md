@@ -3493,3 +3493,6 @@ Checks: `ruff check .` passed; `mypy` no issues.
   official-patcher test, `5575c68`); this experiment was first written over
   its README and then moved to `EXP-0088`, with `EXP-0087` restored from
   `HEAD` (no diff).
+- **Burned image (the user, 2026-11-12, verbatim):** "The xdelta one". Its
+  track layout equals the original's (only track 01's bytes differ), so
+  `EXP-0087`'s oversized SSP rebuild is not the cause of the buzz.
