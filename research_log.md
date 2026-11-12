@@ -3412,3 +3412,51 @@ both equal to the local zips. The release text, CRs removed, equals
 `release/notes_v0.1.0.md`. The README links the release; `REL-004` is
 `DONE`.
 Checks: `ruff check .` passed; `pytest -q` 273 passed.
+
+## 2026-11-08 — REL-004: official SSP application (EXP-0087)
+
+The user supplied the source set at
+`C:\Users\white\Downloads\Cyberbots - Fullmetal Madness (Japan) (2M)`.
+Track 01 matched the recorded source SHA-256
+`758fa7956aa6139460c391ec5225e69cc9cde13dfe2281e8c544e594d201dbd1`.
+
+Installed the official Sega Saturn Patcher 1.91 from the SegaXtreme resource
+download (archive SHA-256
+`23dd668fa2a06761f421b8e2a7eb108a4320a1b04a6fad9f789ade351c89fa50`) and
+Microsoft .NET Windows Desktop Runtime 5.0.17. Applied the published
+`cyberbots_en.ssp` to a copy of the source using `CLR\CLR.exe -image -patch -o`.
+The CLI reported `Finished.` and produced a single-BIN/CUE rebuilt image.
+
+`tools.disc.iso9660` checked and extracted the output. All 22 changed/new
+files matched the SSP record, including `ZNAMES1.BIN`, `ZNAMES2.BIN`,
+`ZSIGNS1.BIN` and `ZSIGNS2.BIN`. The source remained unchanged. The rebuilt
+BIN SHA-256 is `1037d5c934a7f5c123a6993248ed664185ffcfa40274f63e84c0d67adfd9c905`;
+it differs from the sector-preserving build because the official patcher
+rebuilds the image. This supports that official patcher 1.91 handles the
+`._NEW` entries.
+
+Follow-up capacity check rejected the rebuilt image as a usable disc: the
+source's 63 separate files total 591,012,003 bytes (about 55:50), while the
+official output is 1,050,753,648 bytes, 446,749 sectors, and about 99:17. Its
+generated CUE places the short audio tracks at minute-scale offsets. The
+successful `._NEW` extraction does not make this rebuilt image usable. The
+cause remains UNKNOWN: source-layout handling, SSP metadata (including the
+audio-referencing ISO entries in `driveOrder.txt`), or their interaction.
+The next discriminating experiment is the same rebuild without `-patch`.
+If that succeeds, inspect SSP metadata; if it fails, test a byte-verified
+merged input. Neither experiment has been run.
+
+Verification: SSP unit tests via the Windows `uv run --project .` equivalent
+of `invenv.sh` passed (14 passed, 1 skipped: no system bspatch). The shell
+wrapper could not run through WSL because no distribution was installed.
+The isolated rebuilt Track 01 has 43,731 sectors, zero bad sync, zero
+non-Mode-1 sectors, and zero address mismatches. Boot remains untested.
+
+## 2026-11-08 - Stock Mednafen 1.32.1 built on Windows
+
+User asked to install Mednafen for testing on this Windows machine; chose
+MSYS2 source build. Details, flags, hashes: `docs/mednafen.md` ("Windows x64
+Build"). Three failures and fixes were recorded there (`mingw_app_type`
+rename, missing `-DUNICODE` causing a Win98 version popup hang, dynamic
+libstdc++ pseudo-relocation failure). `-help` smoke test only; BIOS and disc
+image not yet on this machine, so `EMU-003` is not re-confirmed here.
