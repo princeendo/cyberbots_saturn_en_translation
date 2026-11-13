@@ -3517,3 +3517,45 @@ itself is removed by the user on github.com (`gh` here is the work account).
   `sha256:b0188f0e…`; the release text (CRs removed) equals
   `release/notes_v0.1.0.md`; tag `v0.1.0` still `412c93d`; the `.ssp` zip's
   download URL answers 404.
+
+## 2026-11-13 — SESSION: second homelab batch after 0.1.0; local cleanup
+
+User request (verbatim): "Now that v0.1.0 is released, can we clean up this
+repo and archive items to the homelab?" Asked: "Archive, then delete
+(Recommended)"; what stays on the Mac: "Inputs, tools and states
+(Recommended)". Ignored paths only; no tracked file changed but this log
+and `TASKS.md`.
+
+- **Archived:** batch 2026-11-13 in the homelab archive
+  `/mnt/HD/Seagate22TB/filebrowser-inbox/Archives/Cyberbots-Saturn-EN`,
+  beside the 2026-11-05 batch: every `local/` file new or changed since
+  then, 92,115 files, 14,885,558,422 bytes (`MANIFEST-2026-11-13.tsv`,
+  `SYMLINKS-2026-11-13.tsv`, a README section). The 19 changed files are
+  stored as `NAME.2026-11-13`. Left out as before: the source image (and
+  its CUE copy in `rel002/patched`), `extracted/`, `arcade/`,
+  `ref003/*-maincpu.bin`, the BIOS; no batch file equals one of them or a
+  file inside the arcade zips (SHA-256).
+- **Server checks:** `sha256sum -c` passed for both manifests (92,115 and
+  86,298 rows); 178,418 files, no symlinks, no owner or mode mismatches;
+  `homelab-plex-health` passed before and after. Logged in
+  `remote_server_maintenance` (`122ffdf`).
+- **Deleted here, after every file matched a manifest row by SHA-256:**
+  48 `local/` entries (98,192 files, 14.95 GB): `boot001`-`boot005`,
+  `cap001`, `end002`-`end004`, `end010`, `end011`, `end020`, `end023`,
+  `loc001`-`loc006`, `opt001`-`opt003`, `opt005`, `opt006`, `regress`,
+  `rel`, `rel002/boot`, `rel003`, `snd001`, `sp010`, `sp013`-`sp015`,
+  `sp017`, `sp018`, `txt010`, `txt011`, `ui001`-`ui003`, `ui005`-`ui007`,
+  `win002` and five loose logs. And every `build/` image folder (5.6 GB;
+  rebuild: `data/regression/*.json`, `release/README.md`), keeping
+  `build/release` and `build/reddit_0.1.0`.
+- **Kept here:** `disc_images`, `extracted`, `arcade`, `mame_src`,
+  `mame_arcade`, `layout001`, `ref003`, the five Mednafen homes and both
+  executables, `downloads`, `checkpoints`, `ref005` (166 session states),
+  `end001`, `rel002/patched` (the release image, Track 01 `f6789cae…`),
+  `research/memory_dumps`.
+- **Disk:** `local/` 16 GB → 1.8 GB, `build/` 5.6 GB → 1.3 MB; free space
+  39 GiB → 58 GiB.
+- **Fetching a folder back:** the archive README's command, e.g.
+  `rsync -a --rsync-path="sudo -n rsync" -e "ssh -o IdentitiesOnly=yes -i ~/.ssh/opencode" opencode@192.168.86.45:<archive>/<path> local/<path>`.
+
+Checks: `pytest -q` 273 passed; `ruff check .` passed.
