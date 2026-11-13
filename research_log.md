@@ -3512,3 +3512,8 @@ open-source patcher cannot add files, and the official patcher 1.91's
 rebuild of this 62-track disc is about 99 minutes (`EXP-0087`). The tools
 (`make_ssp --add-new`) and the `.ssp` record stay as evidence. The asset
 itself is removed by the user on github.com (`gh` here is the work account).
+- **Checked after the user's edit** ("It's edited"): the public API lists
+  one asset, `cyberbots_saturn_en_0.1.0_xdelta.zip`, 245,322 bytes,
+  `sha256:b0188f0e…`; the release text (CRs removed) equals
+  `release/notes_v0.1.0.md`; tag `v0.1.0` still `412c93d`; the `.ssp` zip's
+  download URL answers 404.
