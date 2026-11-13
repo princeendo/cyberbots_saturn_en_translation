@@ -29,29 +29,27 @@ Every reference must match. The release image lands in
 
 ## 2. The Patch and Its Record
 
-The commands are in [`README.md`](README.md), "Rebuild the Patch", steps 2
-(xdelta) and 3 (`.ssp`, `--add-new`). Run each twice (two `--out-dir`s, the
-`--record` only once) and compare the patches with `cmp`. `make_ssp` must
-print `"round_trip": true`. The `--record` files in `release/` are
-committed; the zips and docs are checked against them.
+The command is in [`README.md`](README.md), "Rebuild the Patch", step 2.
+Run it twice (two `--out-dir`s, the `--record` only once) and compare the
+patches with `cmp`. The `--record` file in `release/` is committed; the zip
+and docs are checked against it.
 
 ## 3. The Zip, Twice, and the Check
 
 ```bash
 V="English translation (all pilots, endings, UI; NAMES and SIGNS settings)"
-./invenv.sh python -m tools.release.make_zips 0.1.0 build/release/v0.1.0 \
+./invenv.sh python -m tools.release.make_zips 0.1.0 build/release/v0.1.0 --kinds xdelta \
   --patches build/release --variant cyberbots_en patch "$V"
-./invenv.sh python -m tools.release.make_zips 0.1.0 build/release/v0.1.0-again \
+./invenv.sh python -m tools.release.make_zips 0.1.0 build/release/v0.1.0-again --kinds xdelta \
   --patches build/release --variant cyberbots_en patch "$V"
 shasum -a 256 build/release/v0.1.0/*.zip build/release/v0.1.0-again/*.zip
 ./invenv.sh python -m tools.release.check_zips 0.1.0 build/release/v0.1.0 local/rel/v0.1.0-check \
   --kinds xdelta --expect f6789cae74814ab82d8060db3b50a99906b668bacfe950d1e0850ac4d01d25e0
 ```
 
-Both builds must hash the same, and the xdelta patch from the unpacked zip
-must give the reference track 01. `check_zips` refuses the `.ssp` zip, as
-`apply_ssp` cannot add files; check that its `cyberbots_en.ssp` hashes as
-`release/cyberbots_en.ssp.json` says (`unzip -p … | shasum -a 256`).
+Both builds must hash the same, and the patch from the unpacked zip must
+give the reference track 01. There is no `.ssp`: see
+[`README.md`](README.md), "Why there is no .ssp patch".
 
 ## 4. The Notes
 
@@ -80,8 +78,8 @@ git push origin main v0.1.0
 | --- | --- |
 | Open the repository's Releases page, "Draft a new release", choose the tag `v0.1.0`. | The tag is listed. |
 | Title "0.1.0", paste `release/notes_v0.1.0.md` as the description. | The notes render. |
-| Drag in `build/release/v0.1.0/cyberbots_saturn_en_0.1.0_xdelta.zip` and `cyberbots_saturn_en_0.1.0_ssp.zip`, then publish. | Both files listed under the description. |
+| Drag in `build/release/v0.1.0/cyberbots_saturn_en_0.1.0_xdelta.zip`, then publish. | The file listed under the description. |
 
-Afterwards the agent checks each asset's size and `sha256:` digest through
-the public API against the zips built in step 3, and links the release from
+Afterwards the agent checks the asset's size and `sha256:` digest through
+the public API against the zip built in step 3, and links the release from
 the top-level README.

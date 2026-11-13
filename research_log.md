@@ -3496,3 +3496,19 @@ Checks: `ruff check .` passed; `mypy` no issues.
 - **Burned image (the user, 2026-11-12, verbatim):** "The xdelta one". Its
   track layout equals the original's (only track 01's bytes differ), so
   `EXP-0087`'s oversized SSP rebuild is not the cause of the buzz.
+
+## 2026-11-13 — REL-004: the SSP withdrawn; a real-Saturn run
+
+User request (verbatim): "Ok, let's now update the release, removing the
+SSP patch. I've tested that it works totally fine on my Satiator on real
+hardware. We'll make a note about why the SSP patch was not viable."
+
+The image the user ran is the one copied to the Satiator card on
+2026-11-12 (`Cyberbots - Fullmetal Madness [English] (Japan) (2M)`: Track
+01 `f6789cae…`, the original CUE and audio tracks; all 63 files `cmp`-equal
+to `local/rel002/patched`). The notes, `release/README.md`, `RELEASING.md`
+and the top-level README drop the `.ssp` and give the reason: the
+open-source patcher cannot add files, and the official patcher 1.91's
+rebuild of this 62-track disc is about 99 minutes (`EXP-0087`). The tools
+(`make_ssp --add-new`) and the `.ssp` record stay as evidence. The asset
+itself is removed by the user on github.com (`gh` here is the work account).

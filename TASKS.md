@@ -240,6 +240,7 @@ names it for its method only.
   - typing counts spaces.
 
   Next: the outline's later milestones (`UI-004`, `REL-001`, `LOC-001`, ...) need their tasks written up.
+- **2026-11-13: the SSP withdrawn; 0.1.0 played on a real Saturn.** The user: "Ok, let's now update the release, removing the SSP patch. I've tested that it works totally fine on my Satiator on real hardware. We'll make a note about why the SSP patch was not viable." The notes and READMEs drop the `.ssp` and say why (the open-source patcher cannot add files; the official patcher 1.91's rebuild is about 99 minutes, `EXP-0087`). On github.com the user removes the `.ssp` zip and pastes the new notes; the agent then checks the release through the public API.
 - **2026-11-07: REL-004 done; 0.1.0 is published** (https://github.com/princeendo/cyberbots_saturn_en_translation/releases/tag/v0.1.0): the two assets' sizes and SHA-256 digests (public API) equal the local zips, and the release text equals `release/notes_v0.1.0.md`. The README links the release. No task is `READY`; open questions are in `docs/known_unknowns.md` (an official-patcher test of the `.ssp` needs Windows and your approval).
 - **2026-11-07: an SSP patch after all** (`REL-004`, `EXP-0086`): on the user's request ("I actually want to create the SSP patch. I know we can't test it fully. But let's try it anyway.") `make_ssp --add-new` writes the four added files as `._NEW` entries. `cyberbots_en.ssp` (`509accc5…`) builds twice identically and describes the built track completely; no patcher has applied it (official patcher only). Its zip (`df1a7a8b…`) joins the v0.1.0 release ("Add to v0.1.0 (Recommended)"); the xdelta zip is unchanged. The user publishes both.
 - **2026-11-08: official SSP application tested** (`EXP-0087`): installed Sega Saturn Patcher 1.91 and .NET 5 Desktop Runtime. On a disposable copy of the supplied 2M BIN/CUE set, the official CLI finished and rebuilt a single-BIN/CUE image. ISO extraction found all four `._NEW` files, and all 22 changed/new files matched their recorded target hashes. Source Track 01 remained `758fa795…`; rebuilt BIN is `1037d5c9…`. Boot and NAMES/SIGNS behavior remain untested.
@@ -2864,6 +2865,12 @@ Known so far (facts and their confidence):
   Packaging: "Add to v0.1.0 (Recommended)": the release gets
   `cyberbots_saturn_en_0.1.0_ssp.zip` (196,460 bytes, `df1a7a8b…`) beside
   the xdelta zip; notes updated on `main`, tag unchanged.
+- **SSP withdrawn (2026-11-13, verbatim):** "Ok, let's now update the
+  release, removing the SSP patch. I've tested that it works totally fine
+  on my Satiator on real hardware. We'll make a note about why the SSP
+  patch was not viable." The official patcher's rebuild of this disc is too
+  long for a CD (`EXP-0087`). The release goes back to the xdelta zip alone
+  (`b0188f0e…`), with the reason in the notes.
 
 ## Phase S: UI Text And Art (`UI-001`)
 
